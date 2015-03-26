@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{# comprime la salida html #}
+{# % spaceless % #}
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}{% endblock %}</title>
+    {# block css #}
+    {% block stylesheets %}
+        {# con los css no funciona el @Bundle shortcut #}
+        {% stylesheets output='css/base.min.css' filter='cssrewrite'
+        'bower/normalize-css/normalize.css'
+        'bower/bootswatch/superhero/bootstrap.css'
+        'bower/fontawesome/css/font-awesome.css'
+        '@ArchmageGameBundle/Resources/public/css/style.css'
+        %}
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:300,400,700">
+        {% endstylesheets %}
+    {% endblock %}
+    {# favicon #}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+{# body #}
+<body>
+{# block topbar menu #}
+{% block nav %}{% endblock %}
+{# block flashbag messages #}
+{% block flashbag %}
+    <div class="container">
+        {% for type, flashMessages in app.session.flashbag.all() %}
+            {% for flashMessage in flashMessages %}
+                <div class="row">
+                    <div class="col-md-12 alert alert-{{ type }} alert-dismissable text-center">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
+                        <strong>{{ type|capitalize }}!</strong> {{ flashMessage }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}
+{# block body #}
+{% block body %}{% endblock %}
+{# block footer #}
+{% block footer %}{% endblock %}
+{# block js #}
+{% block javascripts %}
+    {% javascripts output='js/base.min.js'
+        'bower/jquery/jquery.js'
+        'bower/bootstrap/dist/js/bootstrap.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+{# signature #}
+<!--
+Developed by
+_______                         __ __
+|  ___|                         | (_)
+| |_ ___ _ __ __ _  __ _ _ __ __| |_
+|  _/ _ \ '__/ _` |/ _` | '__/ _` | |
+| ||  __/ | | (_| | (_| | | | (_| | |
+\_| \___|_|  \__, |\__,_|_|  \__,_|_|
+              __/ |
+             |___/
+-->
+</body>
+</html>
+{# % endspaceless % #}

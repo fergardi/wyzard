@@ -1,0 +1,4 @@
+archmage_game:
+    resource: "@ArchmageGameBundle/Controller"
+    type: annotation
+

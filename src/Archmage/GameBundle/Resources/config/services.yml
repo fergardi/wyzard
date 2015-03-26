@@ -1,0 +1,4 @@
+services:
+#    archmage_game.example:
+#        class: Archmage\GameBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

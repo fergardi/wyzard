@@ -1,0 +1,75 @@
+# APP
+/app/bootstrap*
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+
+# BIN
+/bin/
+
+# DATA
+/data/*
+
+# COMPOSER
+/composer.lock
+/composer.phar
+
+# VENDOR
+/vendor/*
+
+# WEB AND SPECIFIC FILES
+/web/bundles/*
+/web/css/*
+/web/js/*
+/web/bower/*
+
+# WINDOWS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# LINUX
+!.gitkeep
+!.gitignore
+*~
+
+# MACOSX
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.SpotlighV100
+.Trashes
+
+# previous CVSs
+.cvsignore
+CVS/
+
+# ECLIPSE
+.buildpath
+.project
+.settings
+
+# NETBEANS
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nconfiguration.xml
+
+# SUBLIMETEXT
+*.sublime-project
+*.sublime-workspace
+
+# PHPSTORM
+.idea
+.idea/
+.idea/*
+
+# VAGRANT
+puphpet/files/dot/ssh/*

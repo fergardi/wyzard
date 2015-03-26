@@ -1,4 +1,13 @@
+archmage_user:
+    resource: "@ArchmageUserBundle/Controller"
+    type: annotation
+    prefix: /
+
 archmage_game:
     resource: "@ArchmageGameBundle/Controller"
     type: annotation
+    prefix: /
 
+# app/config/routing.yml
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"

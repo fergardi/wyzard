@@ -1,0 +1,19 @@
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    <div id="error">&nbsp;
+        {% if error %}
+            Nombre de usuario o contraseña incorrectos
+        {% endif %}
+    </div>
+    <div id="userpass">
+        <div class="form-item" id="edit-name-wrapper">
+            <div class="text-question"><span style="width:100px;display:block;float:left;"><label id="label_user" for="username">Usuario:</label></span><input class="text-field" type="text" maxlength="60" name="_username" id="username" size="20" tabindex="1" value="{{ last_username }}" /> @unileon.es</div>
+        </div>
+        <div class="form-item" id="edit-pass-wrapper">
+            <div class="text-question"><span style="width:100px;display:block;float:left;"><label id="label_pass" for="password">Contraseña:</label></span><input class="text-field" type="password" name="_password" id="password" maxlength="128" size="20" tabindex="2" class="form-text required" /></div>
+        </div>
+        <div class="login-box">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <input id="submit_ok" type="submit" value="Iniciar sesión" name="Login" />
+        </div>
+    </div>
+</form>

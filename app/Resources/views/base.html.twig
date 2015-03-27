@@ -10,8 +10,8 @@
         {# con los css no funciona el @Bundle shortcut #}
         {% stylesheets output='css/base.min.css' filter='cssrewrite'
         'bower/normalize-css/normalize.css'
-        'bower/bootswatch/superhero/bootstrap.css'
         'bower/fontawesome/css/font-awesome.css'
+        '@ArchmageGameBundle/Resources/public/css/bootstraplivecustomizersuperhero.css'
         '@ArchmageGameBundle/Resources/public/css/style.css'
         %}
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
@@ -23,6 +23,7 @@
 </head>
 {# body #}
 <body>
+<img src="{{ asset('bundles/archmagegame/images/background/defaultbackground.jpg') }}" class="background">
 {# block topbar menu #}
 {% block nav %}{% endblock %}
 {# block flashbag messages #}

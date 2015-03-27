@@ -10,6 +10,7 @@ class HomeController extends Controller
 {
     /**
      * @Route("/")
+     * @Route("/home")
      * @Template("ArchmageGameBundle:Home:index.html.twig")
      */
     public function indexAction()

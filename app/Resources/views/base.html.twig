@@ -11,7 +11,7 @@
         {% stylesheets output='css/base.min.css' filter='cssrewrite'
         'bower/normalize-css/normalize.css'
         'bower/fontawesome/css/font-awesome.css'
-        '@ArchmageGameBundle/Resources/public/css/bootstraplivecustomizersuperhero.css'
+        '@ArchmageGameBundle/Resources/public/css/theme.css'
         '@ArchmageGameBundle/Resources/public/css/style.css'
         %}
         <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
@@ -23,7 +23,7 @@
 </head>
 {# body #}
 <body>
-<img src="{{ asset('bundles/archmagegame/images/background/defaultbackground.jpg') }}" class="background">
+<img src="{{ asset('bundles/archmagegame/images/background/theme.jpg') }}" class="background">
 {# block topbar menu #}
 {% block nav %}{% endblock %}
 {# block flashbag messages #}
@@ -32,7 +32,7 @@
         {% for type, flashMessages in app.session.flashbag.all() %}
             {% for flashMessage in flashMessages %}
                 <div class="row">
-                    <div class="col-md-12 alert alert-{{ type }} alert-dismissable text-center">
+                    <div class="col-xs-12 alert alert-{{ type }} alert-dismissable text-center">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
                         <strong>{{ type|capitalize }}!</strong> {{ flashMessage }}
                     </div>

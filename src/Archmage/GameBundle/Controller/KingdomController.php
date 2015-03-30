@@ -14,6 +14,7 @@ class KingdomController extends Controller
      */
     public function indexAction()
     {
+        $this->addFlash('success', 'Bienvenido de nuevo.');
         return array();
     }
 }

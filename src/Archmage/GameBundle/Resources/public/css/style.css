@@ -17,10 +17,6 @@ img.background {
         left: 50%;
         margin-left: -512px; }
 }
-.panel {
-    border: 5px;
-    opacity: 0.9;
-}
-.jumbotron {
+.panel, .jumbotron {
     opacity: 0.9;
 }

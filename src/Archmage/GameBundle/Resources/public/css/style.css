@@ -17,6 +17,18 @@ img.background {
         left: 50%;
         margin-left: -512px; }
 }
-.panel, .jumbotron {
+.panel, .jumbotron, .alert {
     opacity: 0.9;
+}
+.page-header {
+    margin-top: 0px;
+}
+.page-header, .jumbotron > hr {
+    border-color: white;
+}
+.panel-body {
+    padding: 0;
+}
+img {
+    max-width: 100%;
 }

@@ -17,8 +17,9 @@ img.background {
         left: 50%;
         margin-left: -512px; }
 }
-.panel, .jumbotron, .alert {
+.panel, .jumbotron, .alert, .navbar {
     opacity: 0.9;
+    box-shadow: 10px 10px 20px black;
 }
 .page-header {
     margin-top: 0px;
@@ -31,4 +32,6 @@ img.background {
 }
 img {
     max-width: 100%;
+    min-height: 150px;
+    min-width: 150px;
 }

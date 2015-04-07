@@ -9,11 +9,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class MailController extends Controller
 {
     /**
-     * @Route("/mail")
-     * @Template("ArchmageGameBundle:Mail:index.html.twig")
+     * @Route("/mail/inbox")
+     * @Template("ArchmageGameBundle:Mail:inbox.html.twig")
      */
-    public function indexAction()
+    public function inboxAction()
     {
+        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 }

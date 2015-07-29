@@ -17,8 +17,8 @@ img.background {
         left: 50%;
         margin-left: -512px; }
 }
-.panel, .jumbotron, .alert, .navbar {
-    opacity: 0.9;
+.panel, .jumbotron, .alert, .navbar, .progress, .progress-bar {
+    opacity: 0.95;
     box-shadow: 10px 10px 20px black;
 }
 .page-header {
@@ -34,4 +34,25 @@ img {
     max-width: 100%;
     min-height: 150px;
     min-width: 150px;
+}
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity 0.15s linear;
+    -moz-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
+    transition: opacity 0.15s linear;
+}
+/*
+.panel-body {
+    background: url('../../../bundles/archmagegame/images/background/panel.jpg') no-repeat center center;
+    background-size: cover;
+}
+.panel-body .list-group-item {
+    background: none;
+    color: black;
+}
+*/
+.thumbnail img:hover {
+    transition:all 0.3s ease;
+    border-radius:50%;
 }

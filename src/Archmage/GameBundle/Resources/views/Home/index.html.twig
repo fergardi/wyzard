@@ -6,14 +6,50 @@
 
 {% block body %}
     <div class="container">
-        <br><br>
+        <br>
+        <br>
         <div class="jumbotron text-center">
             <h1>Arch<i class="fa fa-fw fa-lg fa-eye"></i>Mage</h1>
             <hr>
             <p>La guerra ha llegado a Arcadia</p>
+            <div class="row">
+                <div class="col-md-offset-1 col-md-2">
+                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/doom.jpg') }}" class="img-thumbnail"></a>
+                    <div class="caption">
+                        <p class="lead">Destrucción</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/darkness.jpg') }}" class="img-thumbnail"></a>
+                    <div class="caption">
+                        <p class="lead">Oscuridad</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/nature.jpg') }}" class="img-thumbnail"></a>
+                    <div class="caption">
+                        <p class="lead">Naturaleza</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/ghost.jpg') }}" class="img-thumbnail"></a>
+                    <div class="caption">
+                        <p class="lead">Fantasmal</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/holy.jpg') }}" class="img-thumbnail"></a>
+                    <div class="caption">
+                        <p class="lead">Sagrado</p>
+                    </div>
+                </div>
+            </div>
             <br>
-            <a class="btn btn-success btn-lg" href="{{ path('archmage_game_kingdom_summary') }}" role="button"><i class="fa fa-fw fa-lg fa-sign-in"></i> Acceder</a>
-            <a class="btn btn-primary btn-lg" href="#" role="button"><i class="fa fa-fw fa-lg fa-pencil-square-o"></i> Registrar</a>
+            <div class="btn-group" role="group" aria-label="...">
+                <a class="btn btn-success btn-lg" href="{{ path('archmage_game_kingdom_summary') }}" role="button"><i class="fa fa-fw fa-lg fa-sign-in"></i> Acceder</a>
+                <a class="btn btn-primary btn-lg" href="#" role="button"><i class="fa fa-fw fa-lg fa-pencil-square-o"></i> Registrarse</a>
+            </div>
+            <br>
         </div>
     </div>
 {% endblock %}

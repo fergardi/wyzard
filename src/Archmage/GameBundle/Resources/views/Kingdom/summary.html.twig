@@ -10,8 +10,9 @@
                     <h1>Reino <i class="fa fa-fw fa-lg fa-bar-chart"></i><small> Resumen</small></h1>
                 </div>
             </div>
+            {% set colours = ['danger','warning','success','info'] %}
             <div class="col-xs-12 col-md-6">
-                <div class="panel panel-{{ random(['danger','warning','success']) }}">
+                <div class="panel panel-{{ random(colours) }}">
                     <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-globe"></i> Territorio</div>
                     <div class="panel-body">
                         <div class="row">
@@ -19,21 +20,36 @@
                                 <img src="{{ asset('bundles/archmagegame/images/kingdom/terrain.jpg') }}">
                             </div>
                             <div class="col-xs-8">
-                                <ul class="list-group">
-                                    <li class="list-group-item"><strong>Total:</strong> X</li>
-                                </ul>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Construido</th>
+                                            <th>Total</th>
+                                            <th>Libre</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"><i class="fa fa-fw fa-lg fa-pie-chart"></i></th>
+                                            <td>233</td>
+                                            <td>754</td>
+                                            <td>985</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                     <div class="btn-group btn-group-justified" role="group" aria-label="Acción">
                         <a href="{{ path('archmage_game_territory_explore') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-search"></i><span class="hidden-xs"> Explorar</span></a>
-                        <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-wrench"></i><span class="hidden-xs"> Construir</span></a>
+                        <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-industry"></i><span class="hidden-xs"> Construir</span></a>
                         <a href="{{ path('archmage_game_territory_demolish') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-bomb"></i><span class="hidden-xs"> Derribar</span></a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
-                <div class="panel panel-{{ random(['danger','warning','success']) }}">
+                <div class="panel panel-{{ random(colours) }}">
                     <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-flask"></i> Magia</div>
                     <div class="panel-body">
                         <div class="row">
@@ -41,31 +57,83 @@
                                 <img src="{{ asset('bundles/archmagegame/images/kingdom/magic.jpg') }}">
                             </div>
                             <div class="col-xs-8">
-                                <ul class="list-group">
-                                    <li class="list-group-item"><strong>Total:</strong> 1000</li>
-                                </ul>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Ganado</th>
+                                        <th>Gastado</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row"><i class="fa fa-fw fa-lg fa-hourglass"></i></th>
+                                        <td>1265</td>
+                                        <td>456</td>
+                                        <td>456</td>
+                                    </tr>
+                                    </tbody>
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Nodos</th>
+                                        <th>Maná</th>
+                                        <th>Total</th>
+                                        <th>Reserva</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row"><i class="fa fa-fw fa-lg fa-pie-chart"></i></th>
+                                        <td>1265</td>
+                                        <td>456</td>
+                                        <td>456</td>
+                                        <td>4562</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                     <div class="btn-group btn-group-justified" role="group" aria-label="Acción">
-                        <a href="{{ path('archmage_game_magic_charge') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-tint"></i><span class="hidden-xs"> Recargar</span></a>
+                        <a href="{{ path('archmage_game_magic_charge') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-tint"></i><span class="hidden-xs"> Cargar</span></a>
                         <a href="{{ path('archmage_game_magic_conjure') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-magic"></i><span class="hidden-xs"> Conjurar</span></a>
                         <a href="{{ path('archmage_game_magic_research') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-graduation-cap"></i><span class="hidden-xs"> Investigar</span></a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
-                <div class="panel panel-{{ random(['danger','warning','success']) }}">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-bank"></i> Oro</div>
+                <div class="panel panel-{{ random(colours) }}">
+                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-bank"></i> Economía</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">
                                 <img src="{{ asset('bundles/archmagegame/images/kingdom/treasure.jpg') }}">
                             </div>
                             <div class="col-xs-8">
-                                <ul class="list-group">
-                                    <li class="list-group-item"><strong>Total:</strong> 1000</li>
-                                </ul>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Granjas</th>
+                                        <th>Oro</th>
+                                        <th>Aldeanos</th>
+                                        <th>Total</th>
+                                        <th>Reserva</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row"><i class="fa fa-fw fa-lg fa-pie-chart"></i></th>
+                                        <td>1265</td>
+                                        <td>456</td>
+                                        <td>456</td>
+                                        <td>4562</td>
+                                        <td>462</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -76,7 +144,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
-                <div class="panel panel-{{ random(['danger','warning','success']) }}">
+                <div class="panel panel-{{ random(colours) }}">
                     <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-flag-checkered"></i> Ejército</div>
                     <div class="panel-body">
                         <div class="row">
@@ -84,21 +152,38 @@
                                 <img src="{{ asset('bundles/archmagegame/images/kingdom/army.jpg') }}">
                             </div>
                             <div class="col-xs-8">
-                                <ul class="list-group">
-                                    <li class="list-group-item"><strong>Total:</strong> 1000</li>
-                                </ul>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Cantidad</th>
+                                            <th>Maná</th>
+                                            <th>Oro</th>
+                                            <th>Personas</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"><i class="fa fa-fw fa-lg fa-hourglass"></i></th>
+                                            <td>1265</td>
+                                            <td>456</td>
+                                            <td>456</td>
+                                            <td>456</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                     <div class="btn-group btn-group-justified" role="group" aria-label="Acción">
-                        <a href="{{ path('archmage_game_army_recruit') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-check"></i><span class="hidden-xs"> Reclutar</span></a>
-                        <a href="{{ path('archmage_game_army_disband') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-ban"></i><span class="hidden-xs"> Desbandar</span></a>
-                        <a href="{{ path('archmage_game_army_attack') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-crosshairs"></i><span class="hidden-xs"> Atacar</span></a>
+                        <a href="{{ path('archmage_game_army_recruit') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-user-plus"></i><span class="hidden-xs"> Reclutar</span></a>
+                        <a href="{{ path('archmage_game_army_disband') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-user-times"></i><span class="hidden-xs"> Desbandar</span></a>
+                        <a href="{{ path('archmage_game_army_attack') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-flag"></i><span class="hidden-xs"> Atacar</span></a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
-                <div class="panel panel-{{ random(['danger','warning','success']) }}">
+                <div class="panel panel-{{ random(colours) }}">
                     <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-cubes"></i> Artefactos</div>
                     <div class="panel-body">
                         <div class="row">
@@ -106,36 +191,73 @@
                                 <img src="{{ asset('bundles/archmagegame/images/kingdom/artifact.jpg') }}">
                             </div>
                             <div class="col-xs-8">
-                                <ul class="list-group">
-                                    <li class="list-group-item"><strong>Total:</strong> 1000</li>
-                                </ul>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Nombre</th>
+                                        <th>Cantidad</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Escudo de armas</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Escudo de armas</td>
+                                        <td>5</td>
+                                    </tr><tr>
+                                        <th scope="row">1</th>
+                                        <td>Escudo de armas</td>
+                                        <td>5</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                     <div class="btn-group btn-group-justified" role="group" aria-label="Acción">
-                        <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-shopping-cart"></i><span class="hidden-xs"> Pujar</span></a>
-                        <a href="{{ path('archmage_game_magic_artifact') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-cogs"></i><span class="hidden-xs"> Utilizar</span></a>
+                        <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-user-secret"></i><span class="hidden-xs"> Comerciar</span></a>
+                        <a href="{{ path('archmage_game_magic_artifact') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-joomla"></i><span class="hidden-xs"> Usar</span></a>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
-                <div class="panel panel-{{ random(['danger','warning','success']) }}">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-envelope"></i> Mensajes</div>
+                <div class="panel panel-{{ random(colours) }}">
+                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-group"></i> Social</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">
                                 <img src="{{ asset('bundles/archmagegame/images/kingdom/letter.jpg') }}">
                             </div>
                             <div class="col-xs-8">
-                                <ul class="list-group">
-                                    <li class="list-group-item"><strong>Total:</strong> 3</li>
-                                </ul>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Total</th>
+                                            <th>Sin leer</th>
+                                            <th>Leídos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row"></th>
+                                            <td>2</td>
+                                            <td>5</td>
+                                            <td>9</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                     <div class="btn-group btn-group-justified" role="group" aria-label="Acción">
-                        <a href="{{ path('archmage_game_mail_inbox') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-list"></i><span class="hidden-xs"> Leer</span></a>
-                        <a href="{{ path('archmage_game_mail_inbox') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-send"></i><span class="hidden-xs"> Redactar</span></a>
+                        <a href="{{ path('archmage_game_account_inbox') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-envelope"></i><span class="hidden-xs"> Leer</span></a>
+                        <a href="{{ path('archmage_game_account_inbox') }}" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-send"></i><span class="hidden-xs"> Enviar</span></a>
                     </div>
                 </div>
             </div>

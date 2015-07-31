@@ -17,7 +17,7 @@ img.background {
         left: 50%;
         margin-left: -512px; }
 }
-.panel, .jumbotron, .alert, .navbar, .progress, .progress-bar {
+.panel, .jumbotron, .alert, .navbar, .progress, .progress-bar, .well {
     opacity: 0.95;
     box-shadow: 10px 10px 20px black;
 }

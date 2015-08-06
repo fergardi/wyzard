@@ -9,12 +9,20 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class AccountController extends Controller
 {
     /**
-     * @Route("/account/summary")
-     * @Template("ArchmageGameBundle:Account:summary.html.twig")
+     * @Route("/account/profile")
+     * @Template("ArchmageGameBundle:Account:profile.html.twig")
      */
-    public function summaryAction()
+    public function profileAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
+        return array();
+    }
+
+    /**
+     * @Route("/account/ranking")
+     * @Template("ArchmageGameBundle:Account:ranking.html.twig")
+     */
+    public function rankingAction()
+    {
         return array();
     }
 
@@ -24,7 +32,6 @@ class AccountController extends Controller
      */
     public function inboxAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 }

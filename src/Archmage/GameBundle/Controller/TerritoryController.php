@@ -14,7 +14,6 @@ class TerritoryController extends Controller
      */
     public function summaryAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 
@@ -24,7 +23,6 @@ class TerritoryController extends Controller
      */
     public function exploreAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 
@@ -34,7 +32,6 @@ class TerritoryController extends Controller
      */
     public function buildAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 
@@ -44,7 +41,6 @@ class TerritoryController extends Controller
      */
     public function demolishAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 }

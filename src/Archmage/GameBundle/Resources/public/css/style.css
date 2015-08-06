@@ -18,7 +18,7 @@ img.background {
         margin-left: -512px; }
 }
 .panel, .jumbotron, .alert, .navbar, .progress, .progress-bar, .well {
-    opacity: 0.95;
+    opacity: 0.90;
     box-shadow: 10px 10px 20px black;
 }
 .page-header {
@@ -30,10 +30,8 @@ img.background {
 .panel-body {
     padding: 0;
 }
-img {
+img.custom-thumbnail {
     max-width: 100%;
-    min-height: 150px;
-    min-width: 150px;
 }
 .fade {
     opacity: 0;
@@ -42,17 +40,87 @@ img {
     -o-transition: opacity 0.15s linear;
     transition: opacity 0.15s linear;
 }
-/*
-.panel-body {
-    background: url('../../../bundles/archmagegame/images/background/panel.jpg') no-repeat center center;
-    background-size: cover;
+/* Sticky footer styles
+--------------------------------------------------
+html {
+    position: relative;
+    min-height: 100%;
 }
-.panel-body .list-group-item {
-    background: none;
-    color: black;
+body {
+    /* Margin bottom by footer height
+    margin-bottom: 60px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here
+    box-shadow: -10px -10px 20px #000;
+    margin-bottom: 0px;
 }
 */
-.thumbnail img:hover {
-    transition:all 0.3s ease;
-    border-radius:50%;
+.navbar-collapse.collapsing {
+    -webkit-transition: height 0.01s;
+    -moz-transition: height 0.01s;
+    -ms-transition: height 0.01s;
+    -o-transition: height 0.01s;
+    transition: height 0.01s;
+}
+.input-group-addon {
+    padding: 0px;
+}
+.input-group-addon img {
+    width: 38px;
+    height: 38px;
+}
+.form-group {
+    margin-bottom: 0px;
+}
+/* LOGIN */
+.form-signin {
+    max-width: 280px;
+    padding: 15px;
+    margin: 0 auto;
+    margin-top: 0px;
+}
+.form-signin .form-signin-heading, .form-signin {
+    margin-bottom: 0px;
+}
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: none;
+    border-left-style: solid;
+    border-color: #000;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-color: rgb(0,0,0);
+    border-top:1px solid rgba(0,0,0,0.08);
+}
+.form-signin-heading {
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 2px 2px rgba(0,0,0,0.5);
 }

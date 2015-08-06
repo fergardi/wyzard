@@ -16,9 +16,9 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        $online = rand(0,10);
-        $total = rand($online, 100);
-        $this->addFlash('info', 'Bienvenido de nuevo! Hay '.$online.' jugador(es) online de '.$total.' registrado(s).');
+        $online = rand(5,20);
+        $total = rand($online, 200);
+        $this->addFlash('info', 'Bienvenido de nuevo! Hay '.$online.' jugador(es) online de <a href="#" class="alert-link">'.$total.' registrado(s)</a>.');
         return array();
     }
 }

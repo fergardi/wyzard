@@ -7,49 +7,52 @@
 {% block body %}
     <div class="container">
         <br>
-        <br>
         <div class="jumbotron text-center">
             <h1>Arch<i class="fa fa-fw fa-lg fa-eye"></i>Mage</h1>
+            <form class="form-signin">
+                <input type="text" class="form-control" placeholder="Usuario" required autofocus>
+                <input type="password" class="form-control" placeholder="Contraseña" required>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+            </form>
+            <a href="#">Registrar</a> - <a href="#">Recuperar</a>
             <hr>
-            <p>La guerra ha llegado a Arcadia</p>
             <div class="row">
                 <div class="col-md-offset-1 col-md-2">
-                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/doom.jpg') }}" class="img-thumbnail img-responsive"></a>
+                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/doom.jpg') }}"></a>
                     <div class="caption">
-                        <p class="lead">Destrucción</p>
+                        <h3>Destrucción</h3>
+                        <small>Texto de prueba texto de prueba</small>
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/darkness.jpg') }}" class="img-thumbnail img-responsive"></a>
+                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/darkness.jpg') }}"></a>
                     <div class="caption">
-                        <p class="lead">Oscuridad</p>
+                        <h3>Oscuridad</h3>
+                        <small>Texto de prueba texto de prueba</small>
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/nature.jpg') }}" class="img-thumbnail img-responsive"></a>
+                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/nature.jpg') }}"></a>
                     <div class="caption">
-                        <p class="lead">Naturaleza</p>
+                        <h3>Naturaleza</h3>
+                        <small>Texto de prueba texto de prueba</small>
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/ghost.jpg') }}" class="img-thumbnail img-responsive"></a>
+                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/ghost.jpg') }}"></a>
                     <div class="caption">
-                        <p class="lead">Fantasmal</p>
+                        <h3>Fantasmal</h3>
+                        <small>Texto de prueba texto de prueba</small>
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/holy.jpg') }}" class="img-thumbnail img-responsive"></a>
+                    <a href="#" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/holy.jpg') }}"></a>
                     <div class="caption">
-                        <p class="lead">Sagrado</p>
+                        <h3>Sagrado</h3>
+                        <small>Texto de prueba texto de prueba</small>
                     </div>
                 </div>
             </div>
-            <br>
-            <div class="btn-group" role="group" aria-label="...">
-                <a class="btn btn-success btn-lg" href="{{ path('archmage_game_kingdom_summary') }}" role="button"><i class="fa fa-fw fa-lg fa-sign-in"></i> Acceder</a>
-                <a class="btn btn-info btn-lg" href="#" role="button"><i class="fa fa-fw fa-lg fa-pencil-square-o"></i> Registrarse</a>
-            </div>
-            <br>
         </div>
     </div>
 {% endblock %}

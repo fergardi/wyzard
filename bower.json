@@ -8,7 +8,8 @@
         "jquery-ui": "1.10.*",
         "bootstrap": "3.*",
         "bootswatch": "3.*",
-        "fontawesome": "4.*"
+        "fontawesome": "4.*",
+        "bootstrap-validator": "*"
     },
     "resolutions": {
         "jquery": ">= 2.0.0"

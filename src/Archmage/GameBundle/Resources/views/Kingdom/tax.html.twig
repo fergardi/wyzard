@@ -5,9 +5,27 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-offset-3 col-md-6 col-xs-12">
                 <div class="page-header text-center">
-                    <h1>Reino <i class="fa fa-fw fa-lg fa-money"></i> <small>Recaudar dinero</small></h1>
+                    <h1><i class="fa fa-fw fa-lg fa-money"></i>Recaudar</h1>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-center">Gana oro aplicando impuestos</div>
+                    <div class="panel-body text-center">
+                        <form data-toggle="validator">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/treasure.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-hourglass-half"></i> Gastar turnos</button>
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        Aquí puedes ganar dinero exprimiendo al máximo a tus leales subditos. Necesitas grandes cantidades de oro para pagar mantenimientos, contratar héroes, pujar en el mercado negro o ganar el favor de un dios.
+                    </div>
                 </div>
             </div>
         </div>

@@ -14,7 +14,6 @@ class MagicController extends Controller
      */
     public function summaryAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 
@@ -24,7 +23,6 @@ class MagicController extends Controller
      */
     public function chargeAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 
@@ -34,7 +32,6 @@ class MagicController extends Controller
      */
     public function conjureAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 
@@ -44,7 +41,6 @@ class MagicController extends Controller
      */
     public function researchAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 
@@ -54,7 +50,6 @@ class MagicController extends Controller
      */
     public function artifactAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 }

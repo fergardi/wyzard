@@ -29,7 +29,7 @@
                         <li><a href="{{ path('archmage_game_territory_summary') }}"><i class="fa fa-fw fa-lg fa-bar-chart"></i> Resumen</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ path('archmage_game_territory_explore') }}"><i class="fa fa-fw fa-lg fa-search"></i> Explorar terrenos</a></li>
-                        <li><a href="{{ path('archmage_game_territory_build') }}"><i class="fa fa-fw fa-lg fa-industry"></i> Construir edificios</a></li>
+                        <li><a href="{{ path('archmage_game_territory_build') }}"><i class="fa fa-fw fa-lg fa-home"></i> Construir edificios</a></li>
                         <li><a href="{{ path('archmage_game_territory_demolish') }}"><i class="fa fa-fw fa-lg fa-bomb"></i> Derribar edificios</a></li>
                     </ul>
                 </li>
@@ -50,18 +50,20 @@
                         <li><a href="{{ path('archmage_game_army_summary') }}"><i class="fa fa-fw fa-lg fa-bar-chart"></i> Resumen</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ path('archmage_game_army_recruit') }}"><i class="fa fa-fw fa-lg fa-user-plus"></i> Reclutar tropas</a></li>
-                        <li><a href="{{ path('archmage_game_army_disband') }}"><i class="fa fa-fw fa-lg fa-user-times"></i> Desbandar tropas</a></li>
+                        <li><a href="{{ path('archmage_game_army_disband') }}"><i class="fa fa-fw fa-lg fa-user-times"></i> Licenciar tropas</a></li>
                         <li><a href="{{ path('archmage_game_army_attack') }}"><i class="fa fa-fw fa-lg fa-flag"></i> Atacar</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-user"></i> Cuenta<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('archmage_game_account_summary') }}"><i class="fa fa-fw fa-lg fa-bar-chart"></i> Resumen</a></li>
+                        <li><a href="{{ path('archmage_game_account_profile') }}"><i class="fa fa-fw fa-lg fa-user"></i> Perfil</a></li>
                         <li class="divider"></li>
+                        <li><a href="{{ path('archmage_game_account_ranking') }}"><i class="fa fa-fw fa-lg fa-line-chart"></i> Ranking</a></li>
                         <li><a href="{{ path('archmage_game_account_inbox') }}"><i class="fa fa-fw fa-lg fa-envelope"></i> Bandeja de entrada</a></li>
                         <li><a href="{{ path('archmage_game_account_inbox') }}"><i class="fa fa-fw fa-lg fa-send"></i> Enviar mensaje</a></li>
-                        <li><a href="#"><i class="fa fa-fw fa-lg fa-sign-out"></i> Salir</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ path('archmage_game_home_index') }}"><i class="fa fa-fw fa-lg fa-sign-out"></i> Desconectar</a></li>
                     </ul>
                 </li>
             </ul>

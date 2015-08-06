@@ -5,25 +5,27 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-offset-3 col-md-6 col-xs-12">
                 <div class="page-header text-center">
-                    <h1>Territorio <i class="fa fa-fw fa-lg fa-search"></i> <small>Explorar</small></h1>
+                    <h1><i class="fa fa-fw fa-lg fa-search"></i>Explorar</h1>
                 </div>
                 <div class="panel panel-primary">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-search"></i> Explorar</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img src="{{ asset('bundles/archmagegame/images/kingdom/terrain.jpg') }}">
+                    <div class="panel-heading text-center">Invierte turnos para encontrar tierras</div>
+                    <div class="panel-body text-center">
+                        <form data-toggle="validator">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/land.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
                             </div>
-                            <div class="col-xs-8">
-
-                            </div>
-                        </div>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-hourglass-half"></i> Gastar turnos</button>
+                        </form>
                     </div>
-                </div>
-                <div class="well well-lg">
-                    <p>Aquí puedes enviar exploradores para buscar más tierras sin dueño y añadirlas a tu reino. De esta forma, incrementarás la cantidad de edificios que podrás construir. Recuerda que, cuantas más tierras poseas ya, menos encontrarás al explorar, hasta un máximo de 3500.</p>
+                    <div class="panel-footer">
+                        Aquí puedes invertir turnos para encontrar más tierras vírgenes que añadir a tus dominios. Necesitas tierras para construir nuevos edificios, o para recuperarte de un asedio. Ten en cuenta que, cuantas más tierras tengas en tu poder, menos encontrarás explorando, y que existe un número máximo de tierras que puedes poseer.
+                    </div>
                 </div>
             </div>
         </div>

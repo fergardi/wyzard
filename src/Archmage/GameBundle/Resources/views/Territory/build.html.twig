@@ -5,67 +5,69 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-offset-3 col-md-6 col-xs-12">
                 <div class="page-header text-center">
-                    <h1>Territorio <i class="fa fa-fw fa-lg fa-industry"></i> <small>Construir</small></h1>
+                    <h1><i class="fa fa-fw fa-lg fa-home"></i>Construir</h1>
                 </div>
                 <div class="panel panel-primary">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-industry"></i> Construir</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-4 hidden-xs">
-                                <img src="{{ asset('bundles/archmagegame/images/kingdom/terrain.jpg') }}">
+                    <div class="panel-heading text-center">Invierte turnos y tierras para aumentar tu reino</div>
+                    <div class="panel-body text-center">
+                        <form data-toggle="validator" role="form">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/farm.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="farms" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
                             </div>
-                            <div class="col-sm-8">
-                                <table class="table table-responsive">
-                                    <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Nombre</th>
-                                        <th>Cantidad</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Escudo de armas</td>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Escudo de armas</td>
-                                        <td>5</td>
-                                    </tr><tr>
-                                        <th scope="row">1</th>
-                                        <td>Escudo de armas</td>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Escudo de armas</td>
-                                        <td>5</td>
-                                    </tr><tr>
-                                        <th scope="row">1</th>
-                                        <td>Escudo de armas</td>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Escudo de armas</td>
-                                        <td>5</td>
-                                    </tr><tr>
-                                        <th scope="row">1</th>
-                                        <td>Escudo de armas</td>
-                                        <td>5</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/barrier.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="barriers" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/fortress.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="fortresses" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/guild.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="guilds" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/village.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="villages" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/node.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="nodes" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/workshop.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="workshops" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-fw fa-lg fa-hourglass-half"></i> Gastar tierras</button>
+                        </form>
                     </div>
-                </div>
-                <div class="well well-lg">
-                    <p>Aquí puedes enviar exploradores para buscar más tierras sin dueño y añadirlas a tu reino. De esta forma, incrementarás la cantidad de edificios que podrás construir. Recuerda que, cuantas más tierras poseas ya, menos encontrarás al explorar, hasta un máximo de 3500.</p>
+                    <div class="panel-footer">
+                        Construir distintos edificios es una buena manera de hacer a tu reino más próspero y poderoso. Más oro, maná, población, capacidad de investigación, poder militar, te harán escalar muchas posiciones en tu afán por ser el mago más grande de todos.
+                    </div>
                 </div>
             </div>
         </div>

@@ -14,7 +14,6 @@ class KingdomController extends Controller
      */
     public function summaryAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 
@@ -24,7 +23,6 @@ class KingdomController extends Controller
      */
     public function taxAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 
@@ -34,7 +32,6 @@ class KingdomController extends Controller
      */
     public function hireAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 
@@ -44,7 +41,6 @@ class KingdomController extends Controller
      */
     public function auctionAction()
     {
-        $this->addFlash('info', 'Faltan cosas!');
         return array();
     }
 }

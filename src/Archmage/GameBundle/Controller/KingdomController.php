@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class KingdomController extends Controller
 {
     /**
-     * @Route("/kingdom/summary")
+     * @Route("/game/kingdom/summary")
      * @Template("ArchmageGameBundle:Kingdom:summary.html.twig")
      */
     public function summaryAction()
@@ -18,7 +18,7 @@ class KingdomController extends Controller
     }
 
     /**
-     * @Route("/kingdom/tax")
+     * @Route("/game/kingdom/tax")
      * @Template("ArchmageGameBundle:Kingdom:tax.html.twig")
      */
     public function taxAction()
@@ -27,16 +27,7 @@ class KingdomController extends Controller
     }
 
     /**
-     * @Route("/kingdom/hire")
-     * @Template("ArchmageGameBundle:Kingdom:hire.html.twig")
-     */
-    public function hireAction()
-    {
-        return array();
-    }
-
-    /**
-     * @Route("/kingdom/auction")
+     * @Route("/game/kingdom/auction")
      * @Template("ArchmageGameBundle:Kingdom:auction.html.twig")
      */
     public function auctionAction()

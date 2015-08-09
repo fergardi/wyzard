@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class MagicController extends Controller
 {
     /**
-     * @Route("/magic/summary")
+     * @Route("/game/magic/summary")
      * @Template("ArchmageGameBundle:Magic:summary.html.twig")
      */
     public function summaryAction()
@@ -18,7 +18,7 @@ class MagicController extends Controller
     }
 
     /**
-     * @Route("/magic/charge")
+     * @Route("/game/magic/charge")
      * @Template("ArchmageGameBundle:Magic:charge.html.twig")
      */
     public function chargeAction()
@@ -27,7 +27,7 @@ class MagicController extends Controller
     }
 
     /**
-     * @Route("/magic/conjure")
+     * @Route("/game/magic/conjure")
      * @Template("ArchmageGameBundle:Magic:conjure.html.twig")
      */
     public function conjureAction()
@@ -36,7 +36,7 @@ class MagicController extends Controller
     }
 
     /**
-     * @Route("/magic/research")
+     * @Route("/game/magic/research")
      * @Template("ArchmageGameBundle:Magic:research.html.twig")
      */
     public function researchAction()
@@ -45,7 +45,7 @@ class MagicController extends Controller
     }
 
     /**
-     * @Route("/magic/artifact")
+     * @Route("/game/magic/artifact")
      * @Template("ArchmageGameBundle:Magic:artifact.html.twig")
      */
     public function artifactAction()

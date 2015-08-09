@@ -1,13 +1,73 @@
 {% extends "ArchmageGameBundle::layout.html.twig" %}
 
-{% block title %}Derribar{% endblock %}
+{% block title %}Construir{% endblock %}
 
 {% block body %}
     <div class="container">
         <div class="row">
             <div class="col-md-offset-3 col-md-6 col-xs-12">
                 <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-lg fa-bomb"></i>Derribar</h1>
+                    <h1><i class="fa fa-fw fa-bomb"></i>Derribar</h1>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">Destruye edificios para reutilizar tierras</div>
+                    <div class="panel-body text-center">
+                        <form data-toggle="validator" role="form">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/farm.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="farms" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/barrier.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="barriers" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/fortress.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="fortresses" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/guild.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="guilds" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/village.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="villages" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/node.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="nodes" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/workshop.jpg') }}"/></div>
+                                    <input type="number" class="form-control" id="workshops" min="0" max="3500" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i> Gastar tierras</button>
+                        </form>
+                    </div>
+                    <div class="panel-footer">
+                        Destruir ciertos edificios puede ser muy útil en determinados momentos. Si has terminado de investigar, ya no necesitarás gremios, por ejemplo. O, si ya no vas a construir mucho más, eliminar talleres puede ser buena opción para arañar unos cuantos terrenos más.
+                    </div>
                 </div>
             </div>
         </div>

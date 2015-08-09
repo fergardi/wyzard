@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class TerritoryController extends Controller
 {
     /**
-     * @Route("/territory/summary")
+     * @Route("/game/territory/summary")
      * @Template("ArchmageGameBundle:Territory:summary.html.twig")
      */
     public function summaryAction()
@@ -18,7 +18,7 @@ class TerritoryController extends Controller
     }
 
     /**
-     * @Route("/territory/explore")
+     * @Route("/game/territory/explore")
      * @Template("ArchmageGameBundle:Territory:explore.html.twig")
      */
     public function exploreAction()
@@ -27,7 +27,7 @@ class TerritoryController extends Controller
     }
 
     /**
-     * @Route("/territory/build")
+     * @Route("/game/territory/build")
      * @Template("ArchmageGameBundle:Territory:build.html.twig")
      */
     public function buildAction()
@@ -36,7 +36,7 @@ class TerritoryController extends Controller
     }
 
     /**
-     * @Route("/territory/demolish")
+     * @Route("/game/territory/demolish")
      * @Template("ArchmageGameBundle:Territory:demolish.html.twig")
      */
     public function demolishAction()

@@ -18,7 +18,17 @@ class HomeController extends Controller
     {
         $online = rand(5,20);
         $total = rand($online, 200);
-        $this->addFlash('info', 'Bienvenido de nuevo! Hay '.$online.' jugador(es) online de <a href="#" class="alert-link">'.$total.' registrado(s)</a>.');
+        $url = $this->generateUrl('archmage_game_account_ranking');
+        $this->addFlash('info', 'Bienvenido de nuevo! Hay '.$online.' jugador(es) online de <a href="'.$url.'" class="alert-link">'.$total.' registrado(s)</a>.');
+        return array();
+    }
+
+    /**
+     * @Route("/help")
+     * @Template("ArchmageGameBundle:Home:help.html.twig")
+     */
+    public function helpAction()
+    {
         return array();
     }
 }

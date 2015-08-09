@@ -7,7 +7,159 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-lg fa-bar-chart"></i>Territorio</h1>
+                    <h1><i class="fa fa-fw fa-bar-chart"></i>Territorio</h1>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">Tierras</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/land.jpg') }}">
+                            </div>
+                            <div class="col-xs-9">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <a href="{{ path('archmage_game_territory_explore') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-search"></i><span class="hidden-xs"> Explorar</span></a>
+                        <a href="{{ path('archmage_game_army_attack') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-flag"></i><span class="hidden-xs"> Conquistar</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">Granjas</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/farm.jpg') }}">
+                            </div>
+                            <div class="col-xs-9">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-home"></i><span class="hidden-xs"> Construir</span></a>
+                        <a href="{{ path('archmage_game_territory_demolish') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-bomb"></i><span class="hidden-xs"> Derribar</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">Pueblos</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/village.jpg') }}">
+                            </div>
+                            <div class="col-xs-9">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-home"></i><span class="hidden-xs"> Construir</span></a>
+                        <a href="{{ path('archmage_game_territory_demolish') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-bomb"></i><span class="hidden-xs"> Derribar</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">Nodos</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/node.jpg') }}">
+                            </div>
+                            <div class="col-xs-9">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-home"></i><span class="hidden-xs"> Construir</span></a>
+                        <a href="{{ path('archmage_game_territory_demolish') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-bomb"></i><span class="hidden-xs"> Derribar</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">Fortalezas</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/fortress.jpg') }}">
+                            </div>
+                            <div class="col-xs-9">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-home"></i><span class="hidden-xs"> Construir</span></a>
+                        <a href="{{ path('archmage_game_territory_demolish') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-bomb"></i><span class="hidden-xs"> Derribar</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">Barreras</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/barrier.jpg') }}">
+                            </div>
+                            <div class="col-xs-9">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-home"></i><span class="hidden-xs"> Construir</span></a>
+                        <a href="{{ path('archmage_game_territory_demolish') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-bomb"></i><span class="hidden-xs"> Derribar</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">Gremios</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/guild.jpg') }}">
+                            </div>
+                            <div class="col-xs-9">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-home"></i><span class="hidden-xs"> Construir</span></a>
+                        <a href="{{ path('archmage_game_territory_demolish') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-bomb"></i><span class="hidden-xs"> Derribar</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">Talleres</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/workshop.jpg') }}">
+                            </div>
+                            <div class="col-xs-9">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-home"></i><span class="hidden-xs"> Construir</span></a>
+                        <a href="{{ path('archmage_game_territory_demolish') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-bomb"></i><span class="hidden-xs"> Derribar</span></a>
+                    </div>
                 </div>
             </div>
         </div>

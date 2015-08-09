@@ -1,12 +1,10 @@
-<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+<nav class="navbar navbar-default navbar-static-top">
     <div class="container"><!--container-fluid-->
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsable">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <i class="fa fa-fw fa-th-list"></i>
             </button>
             <a class="navbar-brand" href="{{ path('archmage_game_home_index') }}"><i class="fa fa-fw fa-lg fa-eye"></i> ArchMage</a>
         </div>
@@ -18,8 +16,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ path('archmage_game_kingdom_summary') }}"><i class="fa fa-fw fa-lg fa-bar-chart"></i> Resumen</a></li>
                         <li class="divider"></li>
-                        <li><a href="{{ path('archmage_game_kingdom_tax') }}"><i class="fa fa-fw fa-lg fa-money"></i> Recaudar dinero</a></li>
-                        <li><a href="{{ path('archmage_game_kingdom_hire') }}"><i class="fa fa-fw fa-lg fa-beer"></i> Visitar taberna</a></li>
+                        <li><a href="{{ path('archmage_game_kingdom_tax') }}"><i class="fa fa-fw fa-lg fa-money"></i> Recaudar oro</a></li>
                         <li><a href="{{ path('archmage_game_kingdom_auction') }}"><i class="fa fa-fw fa-lg fa-user-secret"></i> Mercado negro</a></li>
                     </ul>
                 </li>
@@ -60,9 +57,10 @@
                         <li><a href="{{ path('archmage_game_account_profile') }}"><i class="fa fa-fw fa-lg fa-user"></i> Perfil</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ path('archmage_game_account_ranking') }}"><i class="fa fa-fw fa-lg fa-line-chart"></i> Ranking</a></li>
-                        <li><a href="{{ path('archmage_game_account_inbox') }}"><i class="fa fa-fw fa-lg fa-envelope"></i> Bandeja de entrada</a></li>
-                        <li><a href="{{ path('archmage_game_account_inbox') }}"><i class="fa fa-fw fa-lg fa-send"></i> Enviar mensaje</a></li>
+                        <li><a href="{{ path('archmage_game_account_inbox') }}"><i class="fa fa-fw fa-lg fa-envelope"></i> Leer mensajes</a></li>
+                        <li><a href="{{ path('archmage_game_account_outbox') }}"><i class="fa fa-fw fa-lg fa-send"></i> Enviar mensajes</a></li>
                         <li class="divider"></li>
+                        <li><a href="{{ path('archmage_game_home_help') }}"><i class="fa fa-fw fa-lg fa-book"></i> Ayuda</a></li>
                         <li><a href="{{ path('archmage_game_home_index') }}"><i class="fa fa-fw fa-lg fa-sign-out"></i> Desconectar</a></li>
                     </ul>
                 </li>

@@ -21,7 +21,7 @@
                     {% set faction = ['danger','primary','info','success','warning'] %}
                     {% for i in 1..200 %}
                         <tr class="{{ faction[random(4)] }}">
-                            <td class="text-right">{{ random(1000000) }}</td>
+                            <td class="text-right">{{ random(1000000)|nf }}</td>
                             <td>Nombre de Mago</td>
                             <td class="text-center">
                                 <a href="{{ path('archmage_game_account_outbox') }}"><i class="fa fa-fw fa-lg fa-send"></i></a>
@@ -31,7 +31,7 @@
                         </tr>
                     {% endfor %}
                         <tr class="default">
-                            <td class="text-right">{{ random(1000000) }}</td>
+                            <td class="text-right">{{ random(1000000)|nf }}</td>
                             <td>Fergardi</td>
                             <td class="text-center">
                                 <a href="{{ path('archmage_game_account_outbox') }}"><i class="fa fa-fw fa-lg fa-send"></i></a>

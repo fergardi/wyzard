@@ -17,9 +17,9 @@ img.background {
         left: 50%;
         margin-left: -512px; }
 }
-.panel, .jumbotron, .alert, .navbar, .progress, .progress-bar, .well {
+.panel, .jumbotron, .alert, .navbar, .progress, .progress-bar, .well, .table, ul.pagination {
     opacity: 0.90;
-    box-shadow: 10px 10px 20px black;
+    box-shadow: 5px 5px 5px black;
 }
 .page-header {
     margin-top: 0px;
@@ -29,6 +29,9 @@ img.background {
 }
 .panel-body {
     padding: 0;
+}
+.panel-body p {
+    padding-top: 5px;
 }
 img.custom-thumbnail {
     max-width: 100%;
@@ -123,4 +126,37 @@ body {
     color: #fff;
     text-align: center;
     text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+}
+/* PANEL FOOTER INPUT GROUP FULL SIZE */
+.form-inline .input-group {
+    width: 100%;
+}
+.has-feedback .form-control {
+    padding-right: 34px;
+}
+/* PROFILE */
+.box-icon {
+    border-radius: 50%;
+    display: table;
+    max-width: 100%;
+    height: 100px;
+    margin: 0 auto;
+    width: 100px;
+    margin-top: 0px;
+}
+/* TR PRIMARY WHITE */
+.table > thead > tr > td.primary, .table > tbody > tr > td.primary, .table > tfoot > tr > td.primary, .table > thead > tr > th.primary, .table > tbody > tr > th.primary, .table > tfoot > tr > th.primary, .table > thead > tr.primary > td, .table > tbody > tr.primary > td, .table > tfoot > tr.primary > td, .table > thead > tr.primary > th, .table > tbody > tr.primary > th, .table > tfoot > tr.primary > th {
+    background-color: #E9E9E9;
+}
+.panel-primary .panel-heading, .primary, .primary a {
+    color: black !important;
+}
+/* DATATABLES */
+div.dataTables_paginate, div.dataTables_filter {
+    text-align: center !important;
+}
+/* NAVBAR PADDING FOR COLLAPSABLE COL-SM DEVICES */
+.nav > li > a {
+    padding-left: 5px;
+    padding-right: 5px;
 }

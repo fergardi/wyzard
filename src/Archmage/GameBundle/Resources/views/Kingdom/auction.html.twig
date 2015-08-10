@@ -12,153 +12,197 @@
             </div>
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center">Libro del Gólem</div>
+                    <div class="panel-heading text-center">Libro del Gólem <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|format }}</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-3">
                                 <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/artifact/golembook.jpg') }}">
                             </div>
                             <div class="col-xs-9">
-
+                                <p>Texto descriptivo</p>
                             </div>
                         </div>
                     </div>
-                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <a href="{{ path('archmage_game_kingdom_tax') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i><span class="hidden-xs"> Recaudar</span></a>
-                        <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-legal"></i><span class="hidden-xs"> Pujar</span></a>
+                    <div class="panel-footer text-center">
+                        <form class="form-inline" data-toggle="validator">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
+                                    </div>
+                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center">Cabeza de Medusa</div>
+                    <div class="panel-heading text-center">Cabeza de Medusa <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|format }}</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-3">
                                 <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/artifact/medusahead.jpg') }}">
                             </div>
                             <div class="col-xs-9">
-
+                                                                <p>Texto descriptivo</p>
                             </div>
                         </div>
                     </div>
-                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <a href="{{ path('archmage_game_kingdom_tax') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i><span class="hidden-xs"> Recaudar</span></a>
-                        <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-legal"></i><span class="hidden-xs"> Pujar</span></a>
+                    <div class="panel-footer text-center">
+                        <form class="form-inline" data-toggle="validator">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
+                                    </div>
+                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-info">
-                    <div class="panel-heading text-center">Señor de los Elementales</div>
+                    <div class="panel-heading text-center">Señor de los Elementales <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|format }}</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/hero/elementallord.jpg') }}">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/hero/ghost/elementallord.jpg') }}">
                             </div>
                             <div class="col-xs-9">
-
+                                <p>Texto descriptivo</p>
                             </div>
                         </div>
                     </div>
-                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <a href="{{ path('archmage_game_kingdom_tax') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i><span class="hidden-xs"> Recaudar</span></a>
-                        <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-legal"></i><span class="hidden-xs"> Pujar</span></a>
+                    <div class="panel-footer text-center">
+                        <form class="form-inline" data-toggle="validator">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
+                                    </div>
+                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-danger">
-                    <div class="panel-heading text-center">Armageddon</div>
+                    <div class="panel-heading text-center">Armageddon <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|format }}</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/spell/armageddon.jpg') }}">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/spell/doom/armageddon.jpg') }}">
                             </div>
                             <div class="col-xs-9">
-
+                                <p>Texto descriptivo</p>
                             </div>
                         </div>
                     </div>
-                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <a href="{{ path('archmage_game_kingdom_tax') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i><span class="hidden-xs"> Recaudar</span></a>
-                        <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-legal"></i><span class="hidden-xs"> Pujar</span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-warning">
-                    <div class="panel-heading text-center">Esqueletos</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/unit/darkness/skeleton.jpg') }}">
+                    <div class="panel-footer text-center">
+                        <form class="form-inline" data-toggle="validator">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
+                                    </div>
+                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
                             </div>
-                            <div class="col-xs-9">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <a href="{{ path('archmage_game_kingdom_tax') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i><span class="hidden-xs"> Recaudar</span></a>
-                        <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-legal"></i><span class="hidden-xs"> Pujar</span></a>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center">Brújula Mágica</div>
+                    <div class="panel-heading text-center">Brújula Mágica <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|format }}</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-3">
                                 <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/artifact/magiccompass.jpg') }}">
                             </div>
                             <div class="col-xs-9">
-
+                                                                <p>Texto descriptivo</p>
                             </div>
                         </div>
                     </div>
-                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <a href="{{ path('archmage_game_kingdom_tax') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i><span class="hidden-xs"> Recaudar</span></a>
-                        <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-legal"></i><span class="hidden-xs"> Pujar</span></a>
+                    <div class="panel-footer text-center">
+                        <form class="form-inline" data-toggle="validator">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
+                                    </div>
+                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-success">
-                    <div class="panel-heading text-center">Chamán de los Elfos</div>
+                    <div class="panel-heading text-center">Chamán Élfico <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|format }}</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/hero/elfshaman.jpg') }}">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/hero/nature/elfshaman.jpg') }}">
                             </div>
                             <div class="col-xs-9">
-
+                                <p>Texto descriptivo</p>
                             </div>
                         </div>
                     </div>
-                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <a href="{{ path('archmage_game_kingdom_tax') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i><span class="hidden-xs"> Recaudar</span></a>
-                        <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-legal"></i><span class="hidden-xs"> Pujar</span></a>
+                    <div class="panel-footer text-center">
+                        <form class="form-inline" data-toggle="validator">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
+                                    </div>
+                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-primary">
-                    <div class="panel-heading text-center">Dragones Blancos</div>
+                    <div class="panel-heading text-center">23 Dragones Blancos <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|format }}</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-3">
                                 <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/unit/sacred/whitedragon.jpg') }}">
                             </div>
                             <div class="col-xs-9">
-
+                                <p>Texto descriptivo</p>
                             </div>
                         </div>
                     </div>
-                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <a href="{{ path('archmage_game_kingdom_tax') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i><span class="hidden-xs"> Recaudar</span></a>
-                        <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-legal"></i><span class="hidden-xs"> Pujar</span></a>
+                    <div class="panel-footer text-center">
+                        <form class="form-inline" data-toggle="validator">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
+                                    </div>
+                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -9,15 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class TerritoryController extends Controller
 {
     /**
-     * @Route("/game/territory/summary")
-     * @Template("ArchmageGameBundle:Territory:summary.html.twig")
-     */
-    public function summaryAction()
-    {
-        return array();
-    }
-
-    /**
      * @Route("/game/territory/explore")
      * @Template("ArchmageGameBundle:Territory:explore.html.twig")
      */

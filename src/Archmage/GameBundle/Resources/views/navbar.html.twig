@@ -4,7 +4,7 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsable">
                 <span class="sr-only">Toggle navigation</span>
-                <i class="fa fa-fw fa-th-list"></i>
+                <i class="fa fa-fw fa-bars"></i>
             </button>
             <a class="navbar-brand" href="{{ path('archmage_game_home_index') }}"><i class="fa fa-fw fa-lg fa-eye"></i> ArchMage</a>
         </div>
@@ -15,7 +15,6 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-institution"></i> Reino<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ path('archmage_game_kingdom_summary') }}"><i class="fa fa-fw fa-lg fa-bar-chart"></i> Resumen</a></li>
-                        <li class="divider"></li>
                         <li><a href="{{ path('archmage_game_kingdom_tax') }}"><i class="fa fa-fw fa-lg fa-money"></i> Recaudar oro</a></li>
                         <li><a href="{{ path('archmage_game_kingdom_auction') }}"><i class="fa fa-fw fa-lg fa-user-secret"></i> Mercado negro</a></li>
                     </ul>
@@ -23,18 +22,14 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-globe"></i> Territorio<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('archmage_game_territory_summary') }}"><i class="fa fa-fw fa-lg fa-bar-chart"></i> Resumen</a></li>
-                        <li class="divider"></li>
                         <li><a href="{{ path('archmage_game_territory_explore') }}"><i class="fa fa-fw fa-lg fa-search"></i> Explorar terrenos</a></li>
-                        <li><a href="{{ path('archmage_game_territory_build') }}"><i class="fa fa-fw fa-lg fa-home"></i> Construir edificios</a></li>
+                        <li><a href="{{ path('archmage_game_territory_build') }}"><i class="fa fa-fw fa-lg fa-wrench"></i> Construir edificios</a></li>
                         <li><a href="{{ path('archmage_game_territory_demolish') }}"><i class="fa fa-fw fa-lg fa-bomb"></i> Derribar edificios</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-flask"></i> Magia<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('archmage_game_magic_summary') }}"><i class="fa fa-fw fa-lg fa-bar-chart"></i> Resumen</a></li>
-                        <li class="divider"></li>
                         <li><a href="{{ path('archmage_game_magic_charge') }}"><i class="fa fa-fw fa-lg fa-tint"></i> Cargar maná</a></li>
                         <li><a href="{{ path('archmage_game_magic_conjure') }}"><i class="fa fa-fw fa-lg fa-magic"></i> Conjurar hechizos</a></li>
                         <li><a href="{{ path('archmage_game_magic_research') }}"><i class="fa fa-fw fa-lg fa-graduation-cap"></i> Investigar hechizos</a></li>
@@ -44,8 +39,6 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-flag-checkered"></i> Ejército<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('archmage_game_army_summary') }}"><i class="fa fa-fw fa-lg fa-bar-chart"></i> Resumen</a></li>
-                        <li class="divider"></li>
                         <li><a href="{{ path('archmage_game_army_recruit') }}"><i class="fa fa-fw fa-lg fa-user-plus"></i> Reclutar tropas</a></li>
                         <li><a href="{{ path('archmage_game_army_disband') }}"><i class="fa fa-fw fa-lg fa-user-times"></i> Licenciar tropas</a></li>
                         <li><a href="{{ path('archmage_game_army_attack') }}"><i class="fa fa-fw fa-lg fa-flag"></i> Atacar</a></li>
@@ -54,8 +47,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-user"></i> Cuenta<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('archmage_game_account_profile') }}"><i class="fa fa-fw fa-lg fa-user"></i> Perfil</a></li>
-                        <li class="divider"></li>
+                        <li><a href="{{ path('archmage_game_account_profile') }}"><i class="fa fa-fw fa-lg fa-photo"></i> Perfil</a></li>
                         <li><a href="{{ path('archmage_game_account_ranking') }}"><i class="fa fa-fw fa-lg fa-line-chart"></i> Ranking</a></li>
                         <li><a href="{{ path('archmage_game_account_inbox') }}"><i class="fa fa-fw fa-lg fa-envelope"></i> Leer mensajes</a></li>
                         <li><a href="{{ path('archmage_game_account_outbox') }}"><i class="fa fa-fw fa-lg fa-send"></i> Enviar mensajes</a></li>

@@ -10,21 +10,29 @@
                     <h1><i class="fa fa-fw fa-tint"></i>Cargar maná</h1>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center">Recarga maná para lanzar hechizos costosos</div>
-                    <div class="panel-body text-center">
-                        <form data-toggle="validator">
+                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-hourglass-half"></i> {{ random(300)|format }} <i class="fa fa-fw fa-lg fa-tint"></i> {{ random(100000)|format }}</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/magic.jpg') }}">
+                            </div>
+                            <div class="col-xs-9">
+                                <p>Texto descriptivo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <form class="form-inline" data-toggle="validator">
                             <div class="form-group has-feedback">
                                 <div class="input-group">
-                                    <div class="input-group-addon"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/magic.jpg') }}"/></div>
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i>Cargar</button>
+                                    </div>
                                     <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i> Gastar turnos</button>
                         </form>
-                    </div>
-                    <div class="panel-footer">
-                        Aquí puedes recargar maná para ser capaz de pagar los mantenimientos de tus unidades, así como para poder lanzar los hechizos más poderosos del reino.
                     </div>
                 </div>
             </div>

@@ -9,15 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class MagicController extends Controller
 {
     /**
-     * @Route("/game/magic/summary")
-     * @Template("ArchmageGameBundle:Magic:summary.html.twig")
-     */
-    public function summaryAction()
-    {
-        return array();
-    }
-
-    /**
      * @Route("/game/magic/charge")
      * @Template("ArchmageGameBundle:Magic:charge.html.twig")
      */

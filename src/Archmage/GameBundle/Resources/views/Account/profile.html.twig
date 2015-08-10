@@ -4,16 +4,15 @@
 
 {% block body %}
     <div class="container">
-        <br>
         <div class="jumbotron text-center">
-            <h1><i class="fa fa-fw fa-user"></i>Perfil</h1>
-            <hr>
             <div class="row">
-                <div class="col-md-offset-5 col-md-2 col-xs-12">
-                    <a href="{{ path('archmage_game_account_ranking') }}" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/darkness.jpg') }}"/></a>
-                    <div class="caption hidden-xs">
-                        <h3>Nombre</h3>
-                        <small>Texto de prueba</small>
+                <div class="col-xs-12">
+                    <div class="box-icon alert alert-warning">
+                        <span class="fa fa-fw fa-4x fa-user"></span>
+                    </div>
+                    <div class="info">
+                        <h1 class="text-center">Nick<small>#2345</small></h1>
+                        <p>Texto de prueba</p>
                     </div>
                 </div>
             </div>

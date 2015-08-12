@@ -36,12 +36,13 @@ img.background {
 img.custom-thumbnail {
     max-width: 100%;
 }
-.fade {
-    opacity: 0;
-    -webkit-transition: opacity 0.15s linear;
-    -moz-transition: opacity 0.15s linear;
-    -o-transition: opacity 0.15s linear;
-    transition: opacity 0.15s linear;
+img.custom-rspls {
+    max-width: 75%;
+    border-radius: 50%;
+}
+img.custom-icon {
+    width: 20px;
+    height: 20px;
 }
 /* Sticky footer styles
 --------------------------------------------------

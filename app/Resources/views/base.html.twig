@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 {# comprime la salida html #}
 {# % spaceless % #}
 <html lang="es">
@@ -34,7 +34,7 @@
         <div class="container">
             {% for type, flashMessages in app.session.flashbag.all() %}
                 {% for flashMessage in flashMessages %}
-                    <div class="col-xs-12 alert alert-{{ type }} alert-dismissable text-center fade in" role="alert">
+                    <div class="col-xs-12 alert alert-{{ type }} alert-dismissable text-center" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-fw fa-times-circle"></i></button>
                         {# |raw para que pase por el controlador codigos html como <a href>, sino los trunca #}
                         <i class="fa fa-fw fa-lg fa-exclamation-triangle"></i> {{ flashMessage|raw }}
@@ -55,6 +55,7 @@
             'bower/datatables-bootstrap3-plugin/media/js/datatables-bootstrap3.js'
             'bower/bootstrap/dist/js/bootstrap.js'
             'bower/bootstrap-validator/js/validator.js'
+
         %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}

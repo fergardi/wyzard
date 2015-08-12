@@ -1,26 +1,78 @@
 {% extends "ArchmageGameBundle::layout.html.twig" %}
 
-{% block title %}Leer mensajes{% endblock %}
+{% block title %}Mensajes{% endblock %}
 
 {% block body %}
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-envelope"></i>Mensajes</h1>
+                    <h1><i class="fa fa-fw fa-envelope"></i> Mensajes</h1>
                 </div>
-                {% for i in 1..7 %}
-                    {% if loop.index is odd %}
-                        <div class="col-xs-7 alert alert-success text-right" role="alert">
-                            Texto de <a href="#" class="alert-link">prueba</a> <i class="fa fa-fw fa-lg fa-caret-square-o-right"></i>
-                        </div>
-                    {% else %}
-                        <div class="col-xs-offset-5 col-xs-7 alert alert-danger" role="alert">
-                            <i class="fa fa-fw fa-lg fa-caret-square-o-left"></i> Texto de <a href="#" class="alert-link">prueba</a>
-                        </div>
-                    {% endif %}
-                {% endfor %}
+                <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th class="text-center"><i class="fa fa-fw fa-lg fa-calendar"></i> Fecha</th>
+                        <th class="text-center"><i class="fa fa-fw fa-lg fa-user"></i> Mago</th>
+                        <th class="text-center"><i class="fa fa-fw fa-lg fa-question-circle"></i> Asunto</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in 1..5 %}
+                        <tr>
+                            <td class="text-center">{{ random(1000000) }}</td>
+                            <td class="text-center">Nombre de Mago</td>
+                            <td class="text-center">Asunto</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function() {
+            $('#datatable').dataTable({
+                "order": [[ 0, "desc" ]],
+                "aoColumns": [
+                    {"sType": "date", "bSortable": true },
+                    {"sType": "string", "bSortable": true },
+                    {"sType": "string", "bSortable": true }
+                ],
+                "sDom": 't<"col-xs-12 text-center"fp>',
+                "displayStart": 0,
+                'pagingType': 'full_numbers',
+                "language": {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Ver _MENU_",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún mago disponible",
+                    "sInfo": "Mostrando magos del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando magos del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ magos)",
+                    "sInfoPostFix": "",
+                    "sSearch": "",
+                    "searchPlaceholder": "Buscar",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "",
+                        "sLast": "",
+                        "sNext": "<i class='fa fa-fw fa-search'></i>",
+                        "sPrevious": "<i class='fa fa-fw fa-search'></i>"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+            });
+        });
+        $.fn.dataTableExt.pager.numbers_length = 5;
+    </script>
 {% endblock %}

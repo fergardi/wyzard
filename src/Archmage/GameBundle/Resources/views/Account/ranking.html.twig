@@ -7,38 +7,31 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-lg fa-line-chart"></i>Ranking</h1>
+                    <h1><i class="fa fa-fw fa-line-chart"></i> Ranking</h1>
                 </div>
                 <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th class="text-center"><i class="fa fa-fw fa-lg fa-list-ol"></i></th>
-                            <th class="text-center">Nick</th>
-                            <th class="text-center"><i class="fa fa-fw fa-lg fa-cogs"></i></th>
+                            <th class="text-right"><i class="fa fa-fw fa-lg fa-list-ol"></i> Posición</th>
+                            <th class="text-right"><i class="fa fa-fw fa-lg fa-list-ol"></i> Poder</th>
+                            <th class="text-center"><i class="fa fa-fw fa-lg fa-user"></i> Nick</th>
+                            <th class="text-center"><i class="fa fa-fw fa-lg fa-list-ol"></i> Facción</th>
+                            <th class="text-right"><i class="fa fa-fw fa-lg fa-globe"></i> Tierras</th>
+                            <th class="text-right"><i class="fa fa-fw fa-lg fa-home"></i> Fortalezas</th>
                         </tr>
                     </thead>
                     <tbody>
-                    {% set faction = ['danger','primary','info','success','warning'] %}
-                    {% for i in 1..200 %}
-                        <tr class="{{ faction[random(4)] }}">
-                            <td class="text-right">{{ random(1000000)|nf }}</td>
-                            <td>Nombre de Mago</td>
-                            <td class="text-center">
-                                <a href="{{ path('archmage_game_account_outbox') }}"><i class="fa fa-fw fa-lg fa-send"></i></a>
-                                <a href="{{ path('archmage_game_army_attack') }}"><i class="fa fa-fw fa-lg fa-flag"></i></a>
-                                <a href="{{ path('archmage_game_magic_conjure') }}"><i class="fa fa-fw fa-lg fa-magic"></i></a>
-                            </td>
+                        {% set faction=['doom','darkness','nature','ghost','holy'] %}
+                        {% for i in 1..200 %}
+                        <tr>
+                            <td class="text-right">{{ random(1000) }}</td>
+                            <td class="text-right">{{ random(1000) }}</td>
+                            <td class="text-center">Nombre del Mago</td>
+                            <td class="text-center"><img class="image-thumbnail custom-icon" src="{{ asset('bundles/archmagegame/images/faction/' ~ faction[random(4)]) }}"> {{ faction[random(4)]|capitalize }}</td>
+                            <td class="text-right">{{ random(1000) }}</td>
+                            <td class="text-right">{{ random(1000) }}</td>
                         </tr>
-                    {% endfor %}
-                        <tr class="default">
-                            <td class="text-right">{{ random(1000000)|nf }}</td>
-                            <td>Fergardi</td>
-                            <td class="text-center">
-                                <a href="{{ path('archmage_game_account_outbox') }}"><i class="fa fa-fw fa-lg fa-send"></i></a>
-                                <a href="{{ path('archmage_game_army_attack') }}"><i class="fa fa-fw fa-lg fa-flag"></i></a>
-                                <a href="{{ path('archmage_game_magic_conjure') }}"><i class="fa fa-fw fa-lg fa-magic"></i></a>
-                            </td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
@@ -51,11 +44,14 @@
     <script>
         $(document).ready(function() {
             $('#datatable').dataTable({
-                "order": [[ 0, "desc" ]],
+                "order": [[ 0, "asc" ]],
                 "aoColumns": [
-                    null,
-                    null,
-                    { "bSortable": false }
+                    {"sType": "num-fmt", "bSortable": true },
+                    {"sType": "num-fmt", "bSortable": true },
+                    {"sType": "string", "bSortable": true },
+                    {"sType": "string", "bSortable": true },
+                    {"sType": "num-fmt", "bSortable": true },
+                    {"sType": "num-fmt", "bSortable": true }
                 ],
                 "sDom": 't<"col-xs-12 text-center"fp>',
                 "displayStart": 0,

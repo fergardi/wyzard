@@ -10,16 +10,17 @@
                     <h1><i class="fa fa-fw fa-user-secret"></i> Mercado negro</h1>
                 </div>
             </div>
+            {% for unit in units %}
             <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-joomla"></i> Libro del Gólem <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|nf }}</div>
+                <div class="panel panel-{{ unit.faction.class }}">
+                    <div class="panel-heading text-center"><a href="{{ path('archmage_game_home_help') }}#{{ unit.name }}">{{ unit.name }}</a></div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/artifact/golembook.jpg') }}">
+                            <div class="col-xs-4">
+                                <img class="custom-thumbnail" src="{{ asset(unit.image) }}">
                             </div>
-                            <div class="col-xs-9">
-                                <p>Texto descriptivo</p>
+                            <div class="col-xs-8">
+
                             </div>
                         </div>
                     </div>
@@ -38,174 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-joomla"></i> Cabeza de Medusa <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/artifact/medusahead.jpg') }}">
-                            </div>
-                            <div class="col-xs-9">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-info">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-user"></i> Señor de los Elementales <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/hero/ghost/elementallord.jpg') }}">
-                            </div>
-                            <div class="col-xs-9">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-danger">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-magic"></i> Armageddon <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/spell/doom/armageddon.jpg') }}">
-                            </div>
-                            <div class="col-xs-9">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-joomla"></i> Brújula Mágica <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/artifact/magiccompass.jpg') }}">
-                            </div>
-                            <div class="col-xs-9">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-success">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-user"></i> Chamán Élfico <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/hero/nature/elfshaman.jpg') }}">
-                            </div>
-                            <div class="col-xs-9">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-flag"></i> 23 Dragones Blancos <i class="fa fa-fw fa-lg fa-money"></i> {{ random(1000000000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/unit/sacred/whitedragon.jpg') }}">
-                            </div>
-                            <div class="col-xs-9">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

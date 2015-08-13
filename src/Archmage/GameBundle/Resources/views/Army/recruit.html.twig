@@ -10,16 +10,17 @@
                     <h1><i class="fa fa-fw fa-user-plus"></i> Reclutar</h1>
                 </div>
             </div>
+            {% for unit in units %}
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center">Arqueros</div>
+                    <div class="panel-heading text-center">{{ unit.name }}</div>
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/unit/sacred/archer.jpg') }}">
+                            <div class="col-xs-4">
+                                <img class="custom-thumbnail" src="{{ asset( unit.image ) }}">
                             </div>
-                            <div class="col-xs-9">
-                                <p>Texto descriptivo</p>
+                            <div class="col-xs-8">
+                                <p>{{ unit.description }}</p>
                             </div>
                         </div>
                     </div>
@@ -38,90 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Milicianos</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/unit/sacred/militia.jpg') }}">
-                            </div>
-                            <div class="col-xs-9">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Reclutar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Caballeros</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/unit/sacred/horseman.jpg') }}">
-                            </div>
-                            <div class="col-xs-9">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Reclutar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Piqueros</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/unit/sacred/pikeman.jpg') }}">
-                            </div>
-                            <div class="col-xs-9">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Reclutar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

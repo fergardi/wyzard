@@ -31,7 +31,7 @@ img.background {
     padding: 0;
 }
 .panel-body p {
-    padding-top: 5px;
+    padding-top: 8px;
 }
 img.custom-thumbnail {
     max-width: 100%;
@@ -149,7 +149,7 @@ body {
 .table > thead > tr > td.primary, .table > tbody > tr > td.primary, .table > tfoot > tr > td.primary, .table > thead > tr > th.primary, .table > tbody > tr > th.primary, .table > tfoot > tr > th.primary, .table > thead > tr.primary > td, .table > tbody > tr.primary > td, .table > tfoot > tr.primary > td, .table > thead > tr.primary > th, .table > tbody > tr.primary > th, .table > tfoot > tr.primary > th {
     background-color: #E9E9E9;
 }
-.panel-primary .panel-heading, .primary, .primary a {
+.panel-primary .panel-heading, .primary, .primary a, .panel-primary > .panel-heading a {
     color: black !important;
 }
 /* DATATABLES */
@@ -160,4 +160,7 @@ div.dataTables_paginate, div.dataTables_filter {
 .nav > li > a {
     padding-left: 5px;
     padding-right: 5px;
+}
+.text-padded {
+    padding-top: 7px !important;
 }

@@ -32,6 +32,13 @@ class KingdomController extends Controller
      */
     public function auctionAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $units = $em->getRepository('ArchmageGameBundle:Unit')->findAll();
+        shuffle($units);
+        $units = array_slice($units, 0, 6);
+        return $this->render('ArchmageGameBundle:Kingdom:auction.html.twig', array(
+                'units' => $units,
+            )
+        );
     }
 }

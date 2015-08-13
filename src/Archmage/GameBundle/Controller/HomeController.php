@@ -29,6 +29,17 @@ class HomeController extends Controller
      */
     public function helpAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $units = $em->getRepository('ArchmageGameBundle:Unit')->findBy(array(), array('name' => 'asc'));
+        $factions = $em->getRepository('ArchmageGameBundle:Faction')->findAll();
+        $buildings = $em->getRepository('ArchmageGameBundle:Building')->findAll();
+        $spells = $em->getRepository('ArchmageGameBundle:Spell')->findBy(array(), array('name' => 'asc'));
+        return $this->render('ArchmageGameBundle:Home:help.html.twig', array(
+                'buildings' => $buildings,
+                'factions' => $factions,
+                'units' => $units,
+                'spells' => $spells,
+            )
+        );
     }
 }

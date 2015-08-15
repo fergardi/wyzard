@@ -5,12 +5,12 @@ namespace Archmage\GameBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Spell
+ * Hero
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Archmage\GameBundle\Entity\SpellRepository")
+ * @ORM\Entity(repositoryClass="Archmage\GameBundle\Entity\HeroRepository")
  */
-class Spell
+class Hero
 {
     /**
      * @var integer
@@ -31,56 +31,49 @@ class Spell
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255, nullable=false)
-     */
-    private $description;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="image", type="string", length=255, nullable=false)
      */
     private $image;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="magic", type="smallint", nullable=false)
+     * @ORM\Column(name="description", type="string", length=255, nullable=false)
      */
-    private $magic;
+    private $description;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="manaCost", type="bigint", nullable=false)
+     * @ORM\Column(name="goldMaintenance", type="bigint", nullable=false)
      */
-    private $manaCost;
+    private $goldMaintenance;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="turnCost", type="smallint", nullable=false)
+     * @ORM\Column(name="manaMaintenance", type="bigint", nullable=false)
      */
-    private $turnCost;
+    private $manaMaintenance;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="turnResearch", type="smallint", nullable=false)
+     * @ORM\Column(name="peopleMaintenance", type="bigint", nullable=false)
      */
-    private $turnResearch;
+    private $peopleMaintenance;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="goldAuction", type="bigint", nullable=true)
+     * @ORM\Column(name="goldAuction", type="bigint", nullable=false)
      */
     private $goldAuction;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="rarityAuction", type="smallint", nullable=true)
+     * @ORM\Column(name="rarityAuction", type="smallint", nullable=false)
      */
     private $rarityAuction;
 
@@ -96,7 +89,7 @@ class Spell
      * @var Skill
      *
      * @ORM\ManyToOne(targetEntity="Skill")
-     * @ORM\JoinColumn(name="skill", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="skill", referencedColumnName="id", nullable=true)
      */
     private $skill;
 
@@ -115,7 +108,7 @@ class Spell
      * Set name
      *
      * @param string $name
-     * @return Spell
+     * @return Hero
      */
     public function setName($name)
     {
@@ -135,33 +128,10 @@ class Spell
     }
 
     /**
-     * Set description
-     *
-     * @param string $description
-     * @return Spell
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
      * Set image
      *
      * @param string $image
-     * @return Spell
+     * @return Hero
      */
     public function setImage($image)
     {
@@ -181,102 +151,102 @@ class Spell
     }
 
     /**
-     * Set magic
+     * Set description
      *
-     * @param integer $magic
-     * @return Spell
+     * @param string $description
+     * @return Hero
      */
-    public function setMagic($magic)
+    public function setDescription($description)
     {
-        $this->magic = $magic;
+        $this->description = $description;
 
         return $this;
     }
 
     /**
-     * Get magic
+     * Get description
      *
-     * @return integer 
+     * @return string 
      */
-    public function getMagic()
+    public function getDescription()
     {
-        return $this->magic;
+        return $this->description;
     }
 
     /**
-     * Set manaCost
+     * Set goldMaintenance
      *
-     * @param integer $manaCost
-     * @return Spell
+     * @param integer $goldMaintenance
+     * @return Hero
      */
-    public function setManaCost($manaCost)
+    public function setGoldMaintenance($goldMaintenance)
     {
-        $this->manaCost = $manaCost;
+        $this->goldMaintenance = $goldMaintenance;
 
         return $this;
     }
 
     /**
-     * Get manaCost
+     * Get goldMaintenance
      *
      * @return integer 
      */
-    public function getManaCost()
+    public function getGoldMaintenance()
     {
-        return $this->manaCost;
+        return $this->goldMaintenance;
     }
 
     /**
-     * Set turnCost
+     * Set manaMaintenance
      *
-     * @param integer $turnCost
-     * @return Spell
+     * @param integer $manaMaintenance
+     * @return Hero
      */
-    public function setTurnCost($turnCost)
+    public function setManaMaintenance($manaMaintenance)
     {
-        $this->turnCost = $turnCost;
+        $this->manaMaintenance = $manaMaintenance;
 
         return $this;
     }
 
     /**
-     * Get turnCost
+     * Get manaMaintenance
      *
      * @return integer 
      */
-    public function getTurnCost()
+    public function getManaMaintenance()
     {
-        return $this->turnCost;
+        return $this->manaMaintenance;
     }
 
     /**
-     * Set turnResearch
+     * Set peopleMaintenance
      *
-     * @param integer $turnResearch
-     * @return Spell
+     * @param integer $peopleMaintenance
+     * @return Hero
      */
-    public function setTurnResearch($turnResearch)
+    public function setPeopleMaintenance($peopleMaintenance)
     {
-        $this->turnResearch = $turnResearch;
+        $this->peopleMaintenance = $peopleMaintenance;
 
         return $this;
     }
 
     /**
-     * Get turnResearch
+     * Get peopleMaintenance
      *
      * @return integer 
      */
-    public function getTurnResearch()
+    public function getPeopleMaintenance()
     {
-        return $this->turnResearch;
+        return $this->peopleMaintenance;
     }
 
     /**
      * Set goldAuction
      *
      * @param integer $goldAuction
-     * @return Spell
+     * @return Hero
      */
     public function setGoldAuction($goldAuction)
     {
@@ -299,7 +269,7 @@ class Spell
      * Set rarityAuction
      *
      * @param integer $rarityAuction
-     * @return Spell
+     * @return Hero
      */
     public function setRarityAuction($rarityAuction)
     {
@@ -322,7 +292,7 @@ class Spell
      * Set faction
      *
      * @param \Archmage\GameBundle\Entity\Faction $faction
-     * @return Spell
+     * @return Hero
      */
     public function setFaction(\Archmage\GameBundle\Entity\Faction $faction)
     {
@@ -345,7 +315,7 @@ class Spell
      * Set skill
      *
      * @param \Archmage\GameBundle\Entity\Skill $skill
-     * @return Spell
+     * @return Hero
      */
     public function setSkill(\Archmage\GameBundle\Entity\Skill $skill)
     {

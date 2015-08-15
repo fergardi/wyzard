@@ -15,1123 +15,698 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         /*
-         * OSCURIDAD
+         * INVOCAR OSCURIDAD
          */
 
-        //ESQUELETOS
+        //INVOCAR ESQUELETOS
         $spell = new Spell();
-        $spell->setName('Esqueletos');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Esqueletos'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //ZOMBIS
+        //INVOCAR ZOMBIS
         $spell = new Spell();
-        $spell->setName('Zombis');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Zombis'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //HOMBRES LOBO
+        //INVOCAR HOMBRES LOBO
         $spell = new Spell();
-        $spell->setName('Hombres Lobo');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Hombres Lobo'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //ESPECTROS
+        //INVOCAR ESPECTROS
         $spell = new Spell();
-        $spell->setName('Espectros');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Espectros'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //LICHES
+        //INVOCAR LICHES
         $spell = new Spell();
-        $spell->setName('Liches');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Liches'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //VAMPIROS
+        //INVOCAR VAMPIROS
         $spell = new Spell();
-        $spell->setName('Vampiros');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Vampiros'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //CABALLEROS NEGROS
+        //INVOCAR CABALLEROS NEGROS
         $spell = new Spell();
-        $spell->setName('Caballeros Negros');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Caballeros Negros'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //ELEMENTAL DE SOMBRA
+        //INVOCAR ELEMENTALES DE SOMBRA
         $spell = new Spell();
-        $spell->setName('Elementales de Sombra');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Elementales de Sombra'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //GARGOLAS
+        //INVOCAR GARGOLAS
         $spell = new Spell();
-        $spell->setName('Gárgolas');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Gárgolas'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
-        //DRAGONES NEGROS
-        $spell = new Spell();
-        $spell->setName('Dragones Negros');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
-        $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
         $spell->setGoldAuction(null);
-        $spell->setManaCost(0);
-        $spell->setTurnCost(0);
-        $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
         /*
-         * NATURALEZA
+         * INVOCAR NATURALEZA
          */
 
-        //GORILAS
+        //INVOCAR GORILAS
         $spell = new Spell();
-        $spell->setName('Gorilas');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Gorilas'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //ELFOS
+        //INVOCAR ELFOS
         $spell = new Spell();
-        $spell->setName('Elfos');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Elfos'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //DRUIDAS
+        //INVOCAR DRUIDAS
         $spell = new Spell();
-        $spell->setName('Druidas');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Druidas'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //TROLLS
+        //INVOCAR TROLLS
         $spell = new Spell();
-        $spell->setName('Trolls');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Trolls'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //ENTS
+        //INVOCAR ENTS
         $spell = new Spell();
-        $spell->setName('Ents');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Ents'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //BEHEMOTHS
+        //INVOCAR BEHEMOTHS
         $spell = new Spell();
-        $spell->setName('Behemoths');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Behemoths'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //ELEMENTAL DE TIERRA
+        //INVOCAR SIERPES COLOSALES
         $spell = new Spell();
-        $spell->setName('Elementales de Tierra');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Sierpes Colosales'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //SIERPES COLOSALES
+        //INVOCAR ELEMENTALES DE TIERRA
         $spell = new Spell();
-        $spell->setName('Sierpes Colosales');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Elementales de Tierra'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //HIDRAS
+        //INVOCAR HIDRAS
         $spell = new Spell();
-        $spell->setName('Hidras');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Hidras'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
-        //DRAGONES VERDES
-        $spell = new Spell();
-        $spell->setName('Dragones Verdes');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
-        $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
         $spell->setGoldAuction(null);
-        $spell->setManaCost(0);
-        $spell->setTurnCost(0);
-        $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
         /*
-         * FANTASMAL
+         * INVOCAR FANTASMAL
          */
 
-        //HADAS
+        //INVOCAR HADAS
         $spell = new Spell();
-        $spell->setName('Hadas');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Hadas'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //TRITONES
+        //INVOCAR TRITONES
         $spell = new Spell();
-        $spell->setName('Tritones');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Tritones'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //SIRENAS
+        //INVOCAR SIRENAS
         $spell = new Spell();
-        $spell->setName('Sirenas');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Sirenas'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //NAGAS
+        //INVOCAR NAGAS
         $spell = new Spell();
-        $spell->setName('Nagas');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Nagas'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //MAGOS
+        //INVOCAR MAGOS
         $spell = new Spell();
-        $spell->setName('Magos');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Magos'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //DJINNIS
+        //INVOCAR DJINNIS
         $spell = new Spell();
-        $spell->setName('Djinnis');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Djinnis'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //ELEMENTAL DE AGUA
+        //INVOCAR ELEMENTALES DE AGUA
         $spell = new Spell();
-        $spell->setName('Elementales de Agua');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Elementales de Agua'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //TITANES
+        //INVOCAR TITANES
         $spell = new Spell();
-        $spell->setName('Titanes');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Titanes'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //LEVIATANES
+        //INVOCAR LEVIATANES
         $spell = new Spell();
-        $spell->setName('Leviatanes');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Leviatanes'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
-        //DRAGONES AZULES
-        $spell = new Spell();
-        $spell->setName('Dragones Azules');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
-        $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
         $spell->setGoldAuction(null);
-        $spell->setManaCost(0);
-        $spell->setTurnCost(0);
-        $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
         /*
-         * SAGRADO
+         * INVOCAR SAGRADO
          */
 
-        //MONJES
+        //INVOCAR MONJES
         $spell = new Spell();
-        $spell->setName('Monjes');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Monjes'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //PALADINES
+        //INVOCAR PALADINES
         $spell = new Spell();
-        $spell->setName('Paladines');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Paladines'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //UNICORNIOS
+        //INVOCAR UNICORNIOS
         $spell = new Spell();
-        $spell->setName('Unicornios');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Unicornios'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //PEGASOS
+        //INVOCAR PEGASOS
         $spell = new Spell();
-        $spell->setName('Pegasos');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Pegasos'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //ANGELES
+        //INVOCAR ANGELES
         $spell = new Spell();
-        $spell->setName('Ángeles');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Ángeles'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //GRIFOS
+        //INVOCAR GRIFOS
         $spell = new Spell();
-        $spell->setName('Grifos');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Grifos'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //ELEMENTALES DE AIRE
+        //INVOCAR ELEMENTALES DE AIRE
         $spell = new Spell();
-        $spell->setName('Elementales de Aire');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Elementales de Aire'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //ARCANGELES
+        //INVOCAR ARCANGELES
         $spell = new Spell();
-        $spell->setName('Arcángeles');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Arcángeles'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //DOMINIONS
+        //INVOCAR DOMINIONS
         $spell = new Spell();
-        $spell->setName('Dominions');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Dominions'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
-        //DRAGONES BLANCOS
-        $spell = new Spell();
-        $spell->setName('Dragones Blancos');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
-        $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
         $spell->setGoldAuction(null);
-        $spell->setManaCost(0);
-        $spell->setTurnCost(0);
-        $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
         /*
-         * DESTRUCCION
+         * INVOCAR DESTRUCCION
          */
 
-        //GOBLINS
+        //INVOCAR GOBLINS
         $spell = new Spell();
-        $spell->setName('Goblins');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Goblins'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //CERBEROS
+        //INVOCAR CERBEROS
         $spell = new Spell();
-        $spell->setName('Cerberos');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Cerberos'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //OGROS
+        //INVOCAR OGROS
         $spell = new Spell();
-        $spell->setName('Ogros');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Ogros'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //QUIMERAS
+        //INVOCAR QUIMERAS
         $spell = new Spell();
-        $spell->setName('Quimeras');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Quimeras'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //MINOTAUROS
+        //INVOCAR MINOTAUROS
         $spell = new Spell();
-        $spell->setName('Minotauros');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Minotauros'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //SALAMANDRAS
+        //INVOCAR SALAMANDRAS
         $spell = new Spell();
-        $spell->setName('Salamandras');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Salamandras'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //ELEMENTAL DE LAVA
+        //INVOCAR ELEMENTALES DE LAVA
         $spell = new Spell();
-        $spell->setName('Elementales de Lava');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Elementales de Lava'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //DEMONIOS
+        //INVOCAR DEMONIOS
         $spell = new Spell();
-        $spell->setName('Demonios');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Demonios'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
-        //FENIX
+        //INVOCAR FENIX
         $spell = new Spell();
-        $spell->setName('Fénix');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
+        $spell->setSkill($this->getReference('Invocar Fénix'));
+        $spell->setName($spell->getSkill()->getName());
         $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
-        $spell->setGoldAuction(null);
+        $spell->setImage($spell->getSkill()->getUnit()->getImage());
+        $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
+        $spell->setMagic(1);
         $spell->setManaCost(0);
         $spell->setTurnCost(0);
         $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
-        //DRAGON ROJO
-        $spell = new Spell();
-        $spell->setName('Dragones Rojos');
-        $spell->setUnit($this->getReference($spell->getName()));
-        $spell->setName('Invocar '.$spell->getName());
-        $spell->setDescription('Descripción');
-        $spell->setLevel(1);
-        $spell->setAttackBonus(0);
-        $spell->setDefenseBonus(0);
-        $spell->setSpeedBonus(0);
-        $spell->setImage($spell->getUnit()->getImage());
-        $spell->setFaction($spell->getUnit()->getFaction());
         $spell->setGoldAuction(null);
-        $spell->setManaCost(0);
-        $spell->setTurnCost(0);
-        $spell->setTurnResearch(0);
-        $spell->setSelfOnly(false);
-        $spell->setBattleOnly(true);
-        $spell->setUnitCount(0);
-        $this->setReference($spell->getName(), $spell);
+        $spell->setRarityAuction(null);
         $manager->persist($spell);
 
         $manager->flush();
@@ -1142,6 +717,6 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 6; // the order in which fixtures will be loaded
+        return 7; // the order in which fixtures will be loaded
     }
 }

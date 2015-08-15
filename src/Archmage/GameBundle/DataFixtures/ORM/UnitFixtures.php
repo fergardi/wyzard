@@ -250,14 +250,14 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
-        //ELEMENTAL DE SOMBRA
+        //ELEMENTALES DE SOMBRA
         $unit = new Unit();
         $unit->setName('Elementales de Sombra');
         $unit->setDescription('Descripción');
         $unit->setAttack(0);
         $unit->setDefense(0);
         $unit->setSpeed(0);
-        $unit->setImage('bundles/archmagegame/images/unit/darkness/darkelemental.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/darkness/shadowelemental.jpg');
         $unit->setFaction($this->getReference('Oscuridad'));
         $unit->setFamily($this->getReference('Elemental'));
         $unit->setType($this->getReference('Volador'));
@@ -425,25 +425,6 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
-        //ELEMENTAL DE TIERRA
-        $unit = new Unit();
-        $unit->setName('Elementales de Tierra');
-        $unit->setDescription('Descripción');
-        $unit->setAttack(0);
-        $unit->setDefense(0);
-        $unit->setSpeed(0);
-        $unit->setImage('bundles/archmagegame/images/unit/nature/earthelemental.jpg');
-        $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Elemental'));
-        $unit->setType($this->getReference('Magia'));
-        $unit->setGoldMaintenance(0);
-        $unit->setManaMaintenance(0);
-        $unit->setPeopleMaintenance(0);
-        $unit->setGoldAuction(null);
-        $unit->setGoldRecruit(null);
-        $this->setReference($unit->getName(), $unit);
-        $manager->persist($unit);
-
         //SIERPES COLOSALES
         $unit = new Unit();
         $unit->setName('Sierpes Colosales');
@@ -455,6 +436,25 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setFaction($this->getReference('Naturaleza'));
         $unit->setFamily($this->getReference('Bestia'));
         $unit->setType($this->getReference('Asedio'));
+        $unit->setGoldMaintenance(0);
+        $unit->setManaMaintenance(0);
+        $unit->setPeopleMaintenance(0);
+        $unit->setGoldAuction(null);
+        $unit->setGoldRecruit(null);
+        $this->setReference($unit->getName(), $unit);
+        $manager->persist($unit);
+
+        //ELEMENTALES DE TIERRA
+        $unit = new Unit();
+        $unit->setName('Elementales de Tierra');
+        $unit->setDescription('Descripción');
+        $unit->setAttack(0);
+        $unit->setDefense(0);
+        $unit->setSpeed(0);
+        $unit->setImage('bundles/archmagegame/images/unit/nature/earthelemental.jpg');
+        $unit->setFaction($this->getReference('Naturaleza'));
+        $unit->setFamily($this->getReference('Elemental'));
+        $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setPeopleMaintenance(0);
@@ -619,7 +619,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
-        //ELEMENTAL DE AGUA
+        //ELEMENTALES DE AGUA
         $unit = new Unit();
         $unit->setName('Elementales de Agua');
         $unit->setDescription('Descripción');

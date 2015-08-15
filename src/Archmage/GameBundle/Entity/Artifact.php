@@ -5,12 +5,12 @@ namespace Archmage\GameBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Spell
+ * Artifact
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Archmage\GameBundle\Entity\SpellRepository")
+ * @ORM\Entity(repositoryClass="Archmage\GameBundle\Entity\ArtifactRepository")
  */
-class Spell
+class Artifact
 {
     /**
      * @var integer
@@ -45,52 +45,16 @@ class Spell
     /**
      * @var integer
      *
-     * @ORM\Column(name="magic", type="smallint", nullable=false)
-     */
-    private $magic;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="manaCost", type="bigint", nullable=false)
-     */
-    private $manaCost;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="turnCost", type="smallint", nullable=false)
-     */
-    private $turnCost;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="turnResearch", type="smallint", nullable=false)
-     */
-    private $turnResearch;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="goldAuction", type="bigint", nullable=true)
+     * @ORM\Column(name="goldAuction", type="bigint", nullable=false)
      */
     private $goldAuction;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="rarityAuction", type="smallint", nullable=true)
+     * @ORM\Column(name="rarityAuction", type="smallint", nullable=false)
      */
     private $rarityAuction;
-
-    /**
-     * @var Faction
-     *
-     * @ORM\ManyToOne(targetEntity="Faction")
-     * @ORM\JoinColumn(name="faction", referencedColumnName="id", nullable=false)
-     */
-    private $faction;
 
     /**
      * @var Skill
@@ -115,7 +79,7 @@ class Spell
      * Set name
      *
      * @param string $name
-     * @return Spell
+     * @return Artifact
      */
     public function setName($name)
     {
@@ -138,7 +102,7 @@ class Spell
      * Set description
      *
      * @param string $description
-     * @return Spell
+     * @return Artifact
      */
     public function setDescription($description)
     {
@@ -161,7 +125,7 @@ class Spell
      * Set image
      *
      * @param string $image
-     * @return Spell
+     * @return Artifact
      */
     public function setImage($image)
     {
@@ -181,102 +145,10 @@ class Spell
     }
 
     /**
-     * Set magic
-     *
-     * @param integer $magic
-     * @return Spell
-     */
-    public function setMagic($magic)
-    {
-        $this->magic = $magic;
-
-        return $this;
-    }
-
-    /**
-     * Get magic
-     *
-     * @return integer 
-     */
-    public function getMagic()
-    {
-        return $this->magic;
-    }
-
-    /**
-     * Set manaCost
-     *
-     * @param integer $manaCost
-     * @return Spell
-     */
-    public function setManaCost($manaCost)
-    {
-        $this->manaCost = $manaCost;
-
-        return $this;
-    }
-
-    /**
-     * Get manaCost
-     *
-     * @return integer 
-     */
-    public function getManaCost()
-    {
-        return $this->manaCost;
-    }
-
-    /**
-     * Set turnCost
-     *
-     * @param integer $turnCost
-     * @return Spell
-     */
-    public function setTurnCost($turnCost)
-    {
-        $this->turnCost = $turnCost;
-
-        return $this;
-    }
-
-    /**
-     * Get turnCost
-     *
-     * @return integer 
-     */
-    public function getTurnCost()
-    {
-        return $this->turnCost;
-    }
-
-    /**
-     * Set turnResearch
-     *
-     * @param integer $turnResearch
-     * @return Spell
-     */
-    public function setTurnResearch($turnResearch)
-    {
-        $this->turnResearch = $turnResearch;
-
-        return $this;
-    }
-
-    /**
-     * Get turnResearch
-     *
-     * @return integer 
-     */
-    public function getTurnResearch()
-    {
-        return $this->turnResearch;
-    }
-
-    /**
      * Set goldAuction
      *
      * @param integer $goldAuction
-     * @return Spell
+     * @return Artifact
      */
     public function setGoldAuction($goldAuction)
     {
@@ -299,7 +171,7 @@ class Spell
      * Set rarityAuction
      *
      * @param integer $rarityAuction
-     * @return Spell
+     * @return Artifact
      */
     public function setRarityAuction($rarityAuction)
     {
@@ -319,33 +191,10 @@ class Spell
     }
 
     /**
-     * Set faction
-     *
-     * @param \Archmage\GameBundle\Entity\Faction $faction
-     * @return Spell
-     */
-    public function setFaction(\Archmage\GameBundle\Entity\Faction $faction)
-    {
-        $this->faction = $faction;
-
-        return $this;
-    }
-
-    /**
-     * Get faction
-     *
-     * @return \Archmage\GameBundle\Entity\Faction 
-     */
-    public function getFaction()
-    {
-        return $this->faction;
-    }
-
-    /**
      * Set skill
      *
      * @param \Archmage\GameBundle\Entity\Skill $skill
-     * @return Spell
+     * @return Artifact
      */
     public function setSkill(\Archmage\GameBundle\Entity\Skill $skill)
     {

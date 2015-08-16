@@ -153,6 +153,21 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarityAuction(null);
         $manager->persist($spell);
 
+        //AQUELARRE
+        $spell = new Spell();
+        $spell->setName('Aquelarre');
+        $spell->setDescription('Descripción');
+        $spell->setImage('bundles/archmagegame/images/spell/darkness/coven.jpg');
+        $spell->setFaction($this->getReference('Oscuridad'));
+        $spell->setMagic(1);
+        $spell->setManaCost(0);
+        $spell->setTurnCost(0);
+        $spell->setTurnResearch(0);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
+        $spell->setSkill($this->getReference('Convocar NoMuertos'));
+        $manager->persist($spell);
+
         /*
          * INVOCAR NATURALEZA
          */
@@ -290,6 +305,21 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnResearch(0);
         $spell->setGoldAuction(null);
         $spell->setRarityAuction(null);
+        $manager->persist($spell);
+
+        //CONCILIO DE LAS BESTIAS
+        $spell = new Spell();
+        $spell->setName('Concilio de las Bestias');
+        $spell->setDescription('Descripción');
+        $spell->setImage('bundles/archmagegame/images/spell/nature/council.jpg');
+        $spell->setFaction($this->getReference('Naturaleza'));
+        $spell->setMagic(1);
+        $spell->setManaCost(0);
+        $spell->setTurnCost(0);
+        $spell->setTurnResearch(0);
+        $spell->setGoldAuction(null);
+        $spell->setRarityAuction(null);
+        $spell->setSkill($this->getReference('Convocar Bestias'));
         $manager->persist($spell);
 
         /*

@@ -40,7 +40,7 @@ class FamilyFixtures extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($family);
 
         $family = new Family();
-        $family->setName('Divino');
+        $family->setName('Celestial');
         $this->addReference($family->getName(), $family);
         $manager->persist($family);
 

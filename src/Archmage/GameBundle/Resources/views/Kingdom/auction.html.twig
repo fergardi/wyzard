@@ -10,10 +10,70 @@
                     <h1><i class="fa fa-fw fa-user-secret"></i> Mercado negro</h1>
                 </div>
             </div>
+            {% for hero in heroes %}
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-{{ hero.faction.class }}">
+                    <div class="panel-heading text-center"><a href="{{ path('archmage_game_home_help') }}#{{ hero.name|slug }}">{{ hero.name }}</a></div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img class="custom-thumbnail" src="{{ asset(hero.image) }}">
+                            </div>
+                            <div class="col-xs-8">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <form class="form-inline" data-toggle="validator">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
+                                    </div>
+                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% for artifact in artifacts %}
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center"><a href="{{ path('archmage_game_home_help') }}#{{ artifact.name|slug }}">{{ artifact.name }}</a></div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img class="custom-thumbnail" src="{{ asset(artifact.image) }}">
+                            </div>
+                            <div class="col-xs-8">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <form class="form-inline" data-toggle="validator">
+                            <div class="form-group has-feedback">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
+                                    </div>
+                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
+                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
             {% for unit in units %}
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-{{ unit.faction.class }}">
-                    <div class="panel-heading text-center"><a href="{{ path('archmage_game_home_help') }}#{{ unit.name }}">{{ unit.name }}</a></div>
+                    <div class="panel-heading text-center"><a href="{{ path('archmage_game_home_help') }}#{{ unit.name|slug }}">{{ unit.name }}</a></div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">

@@ -28,6 +28,20 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setFaction($this->getReference('Oscuridad'));
         $manager->persist($hero);
 
+        //MAGO NEGRO
+        $hero = new Hero();
+        $hero->setName('Mago Negro');
+        $hero->setImage('bundles/archmagegame/images/hero/darkness/blackmage.jpg');
+        $hero->setDescription('Descripción');
+        $hero->setGoldMaintenance(0);
+        $hero->setManaMaintenance(0);
+        $hero->setPeopleMaintenance(0);
+        $hero->setGoldAuction(0);
+        $hero->setRarityAuction(0);
+        $hero->setSkill(null);
+        $hero->setFaction($this->getReference('Oscuridad'));
+        $manager->persist($hero);
+
         //SEÑOR DE LOS DEMONIOS
         $hero = new Hero();
         $hero->setName('Señor de los Demonios');
@@ -70,6 +84,20 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setFaction($this->getReference('Fantasmal'));
         $manager->persist($hero);
 
+        //AVATAR DE ELEMENTALES
+        $hero = new Hero();
+        $hero->setName('Avatar de Elementales');
+        $hero->setImage('bundles/archmagegame/images/hero/ghost/elementalavatar.jpg');
+        $hero->setDescription('Descripción');
+        $hero->setGoldMaintenance(0);
+        $hero->setManaMaintenance(0);
+        $hero->setPeopleMaintenance(0);
+        $hero->setGoldAuction(0);
+        $hero->setRarityAuction(0);
+        $hero->setSkill(null);
+        $hero->setFaction($this->getReference('Fantasmal'));
+        $manager->persist($hero);
+
         //MAESTRO DE LAS BESTIAS
         $hero = new Hero();
         $hero->setName('Maestro de las Bestias');
@@ -95,7 +123,35 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setGoldAuction(0);
         $hero->setRarityAuction(0);
         $hero->setSkill(null);
-        $hero->setFaction($this->getReference('Nature'));
+        $hero->setFaction($this->getReference('Naturaleza'));
+        $manager->persist($hero);
+
+        //COMANDANTE CELESTIAL
+        $hero = new Hero();
+        $hero->setName('Comandante Celestial');
+        $hero->setImage('bundles/archmagegame/images/hero/holy/heavencommander.jpg');
+        $hero->setDescription('Descripción');
+        $hero->setGoldMaintenance(0);
+        $hero->setManaMaintenance(0);
+        $hero->setPeopleMaintenance(0);
+        $hero->setGoldAuction(0);
+        $hero->setRarityAuction(0);
+        $hero->setSkill(null);
+        $hero->setFaction($this->getReference('Sagrado'));
+        $manager->persist($hero);
+
+        //CRUZADO
+        $hero = new Hero();
+        $hero->setName('Cruzado');
+        $hero->setImage('bundles/archmagegame/images/hero/holy/crusader.jpg');
+        $hero->setDescription('Descripción');
+        $hero->setGoldMaintenance(0);
+        $hero->setManaMaintenance(0);
+        $hero->setPeopleMaintenance(0);
+        $hero->setGoldAuction(0);
+        $hero->setRarityAuction(0);
+        $hero->setSkill(null);
+        $hero->setFaction($this->getReference('Sagrado'));
         $manager->persist($hero);
 
         $manager->flush();

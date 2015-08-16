@@ -17,9 +17,8 @@ class ArmyController extends Controller
         $em = $this->getDoctrine()->getManager();
         $faction = $em->getRepository('ArchmageGameBundle:Faction')->findOneBy(array('name' => 'Neutral'));
         $units = $em->getRepository('ArchmageGameBundle:Unit')->findBy(array('faction' => $faction->getId()), array('name' => 'asc'));
-        return $this->render('ArchmageGameBundle:Army:recruit.html.twig', array(
-                'units' => $units,
-            )
+        return array(
+            'units' => $units,
         );
     }
 

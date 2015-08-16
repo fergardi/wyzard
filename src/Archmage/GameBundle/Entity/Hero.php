@@ -91,7 +91,7 @@ class Hero
      * @ORM\ManyToOne(targetEntity="Skill")
      * @ORM\JoinColumn(name="skill", referencedColumnName="id", nullable=true)
      */
-    private $skill;
+    private $skill = null;
 
 
     /**
@@ -317,7 +317,7 @@ class Hero
      * @param \Archmage\GameBundle\Entity\Skill $skill
      * @return Hero
      */
-    public function setSkill(\Archmage\GameBundle\Entity\Skill $skill)
+    public function setSkill(\Archmage\GameBundle\Entity\Skill $skill = null)
     {
         $this->skill = $skill;
 

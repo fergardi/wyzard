@@ -10,13 +10,14 @@
                     <h1><i class="fa fa-fw fa-magic"></i> Conjurar</h1>
                 </div>
             </div>
+            {% for research in researchs %}
             <div class="col-xs-12 col-md-6">
-                <div class="panel panel-warning">
-                    <div class="panel-heading text-center">Invocar Esqueletos</div>
+                <div class="panel panel-{{ research.spell.class }}">
+                    <div class="panel-heading text-center">{{ research.spell.name }}</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/spell/darkness/summonskeletons.jpg') }}">
+                                <img class="custom-thumbnail" src="{{ asset( research.spell.image ) }}">
                             </div>
                             <div class="col-xs-8">
                                 <p>Texto descriptivo</p>
@@ -35,6 +36,7 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

@@ -7,52 +7,54 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <a name="goal"></a>
+                    <a name="introduccion"></a>
                     <h1><i class="fa fa-fw fa-info-circle"></i> Introducción</h1>
                 </div>
             </div>
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <a name="factions"></a>
+                    <a name="facciones"></a>
                     <h1><i class="fa fa-fw fa-info-circle"></i> Facciones</h1>
                 </div>
             </div>
             {% for faction in factions %}
-                <div class="col-xs-12 col-md-6">
-                    <div class="panel panel-{{ faction.class }}">
-                        <div class="panel-heading text-center">{{ faction.name }}</div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <img class="custom-thumbnail" src="{{ asset(faction.image) }}">
-                                </div>
-                                <div class="col-xs-8">
-                                    <p>{{ faction.description }}</p>
-                                </div>
+            <a name="{{ faction.name|slug }}"></a>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-{{ faction.class }}">
+                    <div class="panel-heading text-center">{{ faction.name }}</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img class="custom-thumbnail" src="{{ asset(faction.image) }}">
+                            </div>
+                            <div class="col-xs-8">
+                                <p>{{ faction.description }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             {% endfor %}
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <a name="auctions"></a>
+                    <a name="subastas"></a>
                     <h1><i class="fa fa-fw fa-info-circle"></i> Subastas</h1>
                 </div>
             </div>
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <a name="battles"></a>
+                    <a name="batallas"></a>
                     <h1><i class="fa fa-fw fa-info-circle"></i> Batallas</h1>
                 </div>
             </div>
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <a name="buildings"></a>
+                    <a name="edificios"></a>
                     <h1><i class="fa fa-fw fa-info-circle"></i> Edificios</h1>
                 </div>
             </div>
             {% for building in buildings %}
+            <a name="{{ building.name|slug }}"></a>
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
                     <div class="panel-heading text-center">{{ building.name }}</div>
@@ -71,12 +73,12 @@
             {% endfor %}
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <a name="units"></a>
+                    <a name="unidades"></a>
                     <h1><i class="fa fa-fw fa-info-circle"></i> Unidades</h1>
                 </div>
             </div>
             {% for unit in units %}
-            <a name="{{ unit.name }}"></a>
+            <a name="{{ unit.name|slug }}"></a>
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-{{ unit.faction.class }}">
                     <div class="panel-heading text-center">{{ unit.name }}</div>
@@ -103,30 +105,79 @@
             {% endfor %}
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <a name="spells"></a>
-                    <h1><i class="fa fa-fw fa-info-circle"></i> Hechizos</h1>
+                    <a name="heroes"></a>
+                    <h1><i class="fa fa-fw fa-info-circle"></i> Héroes</h1>
                 </div>
             </div>
-            {% for spell in spells %}
-                <div class="col-xs-12 col-md-6">
-                    <div class="panel panel-{{ spell.faction.class }}">
-                        <div class="panel-heading text-center">{{ spell.name }}</div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-xs-4">
-                                    <img class="custom-thumbnail" src="{{ asset( spell.image ) }}">
-                                </div>
-                                <div class="col-xs-8 text-padded">
-                                    <div class="col-xs-4">{{ spell.manaCost|nf }}<i class="fa fa-fw fa-tint"></i></div>
-                                    <div class="col-xs-4">{{ spell.skill.quantity|nf }}<i class="fa fa-fw fa-users"></i></div>
-                                    <div class="col-xs-4">{{ spell.magic }}<i class="fa fa-fw fa-magic"></i></div>
-                                    <div class="col-xs-4">{{ spell.turnCost|nf }}<i class="fa fa-fw fa-hourglass-half"></i></div>
-                                    <div class="col-xs-4">{{ spell.turnResearch|nf }}<i class="fa fa-fw fa-hourglass"></i></div>
-                                </div>
+            {% for hero in heroes %}
+            <a name="{{ hero.name|slug }}"></a>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-{{ hero.faction.class }}">
+                    <div class="panel-heading text-center">{{ hero.name }}</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img class="custom-thumbnail" src="{{ asset( hero.image ) }}">
+                            </div>
+                            <div class="col-xs-8 text-padded">
+                                Texto de prueba
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            {% endfor %}
+            <div class="col-xs-12">
+                <div class="page-header text-center">
+                    <a name="hechizos"></a>
+                    <h1><i class="fa fa-fw fa-info-circle"></i> Hechizos</h1>
+                </div>
+            </div>
+            {% for spell in spells %}
+            <a name="{{ spell.name|slug }}"></a>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-{{ spell.faction.class }}">
+                    <div class="panel-heading text-center">{{ spell.name }}</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img class="custom-thumbnail" src="{{ asset( spell.image ) }}">
+                            </div>
+                            <div class="col-xs-8 text-padded">
+                                <div class="col-xs-4">{{ spell.manaCost|nf }}<i class="fa fa-fw fa-tint"></i></div>
+                                <div class="col-xs-4">{{ spell.skill.quantity|nf }}<i class="fa fa-fw fa-users"></i></div>
+                                <div class="col-xs-4">{{ spell.magic }}<i class="fa fa-fw fa-magic"></i></div>
+                                <div class="col-xs-4">{{ spell.turnCost|nf }}<i class="fa fa-fw fa-hourglass-half"></i></div>
+                                <div class="col-xs-4">{{ spell.turnResearch|nf }}<i class="fa fa-fw fa-hourglass"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="col-xs-12">
+                <div class="page-header text-center">
+                    <a name="artefactos"></a>
+                    <h1><i class="fa fa-fw fa-info-circle"></i> Artefactos</h1>
+                </div>
+            </div>
+            {% for artifact in artifacts %}
+            <a name="{{ artifact.name|slug }}"></a>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">{{ artifact.name }}</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img class="custom-thumbnail" src="{{ asset( artifact.image ) }}">
+                            </div>
+                            <div class="col-xs-8">
+                                <p>{{ artifact.description|e }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
         </div>
     </div>

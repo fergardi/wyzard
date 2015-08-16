@@ -35,10 +35,17 @@ class KingdomController extends Controller
         $em = $this->getDoctrine()->getManager();
         $units = $em->getRepository('ArchmageGameBundle:Unit')->findAll();
         shuffle($units);
-        $units = array_slice($units, 0, 6);
-        return $this->render('ArchmageGameBundle:Kingdom:auction.html.twig', array(
-                'units' => $units,
-            )
+        $units = array_slice($units, 0, 3);
+        $artifacts = $em->getRepository('ArchmageGameBundle:Artifact')->findAll();
+        shuffle($artifacts);
+        $artifacts = array_slice($artifacts, 0, 2);
+        $heroes = $em->getRepository('ArchmageGameBundle:Hero')->findAll();
+        shuffle($heroes);
+        $heroes = array_slice($heroes, 0, 1);
+        return array(
+            'heroes' => $heroes,
+            'units' => $units,
+            'artifacts' => $artifacts,
         );
     }
 }

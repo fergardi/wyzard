@@ -784,7 +784,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(0);
         $unit->setImage('bundles/archmagegame/images/unit/holy/angel.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Divino'));
+        $unit->setFamily($this->getReference('Celestial'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(0);
         $unit->setManaMaintenance(0);
@@ -841,7 +841,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(0);
         $unit->setImage('bundles/archmagegame/images/unit/holy/archangel.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Divino'));
+        $unit->setFamily($this->getReference('Celestial'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(0);
         $unit->setManaMaintenance(0);
@@ -860,7 +860,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(0);
         $unit->setImage('bundles/archmagegame/images/unit/holy/dominion.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Divino'));
+        $unit->setFamily($this->getReference('Celestial'));
         $unit->setType($this->getReference('Asedio'));
         $unit->setGoldMaintenance(0);
         $unit->setManaMaintenance(0);

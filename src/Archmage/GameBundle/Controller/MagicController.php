@@ -23,7 +23,9 @@ class MagicController extends Controller
      */
     public function conjureAction()
     {
-        return array();
+        return array(
+            'researchs' => null,
+        );
     }
 
     /**

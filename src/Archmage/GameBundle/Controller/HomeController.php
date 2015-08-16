@@ -31,15 +31,18 @@ class HomeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $units = $em->getRepository('ArchmageGameBundle:Unit')->findBy(array(), array('name' => 'asc'));
-        $factions = $em->getRepository('ArchmageGameBundle:Faction')->findAll();
-        $buildings = $em->getRepository('ArchmageGameBundle:Building')->findAll();
+        $heroes = $em->getRepository('ArchmageGameBundle:Hero')->findBy(array(), array('name' => 'asc'));
+        $factions = $em->getRepository('ArchmageGameBundle:Faction')->findBy(array(), array('name' => 'asc'));
+        $buildings = $em->getRepository('ArchmageGameBundle:Building')->findBy(array(), array('name' => 'asc'));
+        $artifacts = $em->getRepository('ArchmageGameBundle:Artifact')->findBy(array(), array('name' => 'asc'));
         $spells = $em->getRepository('ArchmageGameBundle:Spell')->findBy(array(), array('name' => 'asc'));
-        return $this->render('ArchmageGameBundle:Home:help.html.twig', array(
-                'buildings' => $buildings,
-                'factions' => $factions,
-                'units' => $units,
-                'spells' => $spells,
-            )
+        return array(
+            'buildings' => $buildings,
+            'factions' => $factions,
+            'units' => $units,
+            'heroes' => $heroes,
+            'spells' => $spells,
+            'artifacts' => $artifacts,
         );
     }
 }

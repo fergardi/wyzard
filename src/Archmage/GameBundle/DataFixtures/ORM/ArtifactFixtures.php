@@ -19,7 +19,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Brújula Mágica');
         $artifact->setImage('bundles/archmagegame/images/artifact/magiccompass.jpg');
         $artifact->setSkill($this->getReference('Generar Tierras'));
-        $artifact->setDescription('Esclarece zonas oscuras del mapa, sumando a tus tierras libres actuales un '.$artifact->getSkill()->getTerrainBonus().'%.');
+        $artifact->setDescription('Esclarece zonas oscuras del mapa, sumando a tus tierras libres actuales un '.$artifact->getSkill()->getTerrainBonus().'% adicional.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $manager->persist($artifact);
@@ -29,7 +29,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Cofre del Tesoro');
         $artifact->setImage('bundles/archmagegame/images/artifact/treasurechest.jpg');
         $artifact->setSkill($this->getReference('Generar Oro'));
-        $artifact->setDescription('Contiene de grandes riquezas, aumentando tus reservas actuales de oro un '.$artifact->getSkill()->getGoldBonus().'%.');
+        $artifact->setDescription('Contiene grandes riquezas, aumentando tus reservas actuales de oro un '.$artifact->getSkill()->getGoldBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $manager->persist($artifact);
@@ -39,7 +39,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Poción de Maná');
         $artifact->setImage('bundles/archmagegame/images/artifact/manapotion.jpg');
         $artifact->setSkill($this->getReference('Generar Maná'));
-        $artifact->setDescription('Recarga tus reservas de magia, aumentando tus reservas actuales de maná un '.$artifact->getSkill()->getManaBonus().'%.');
+        $artifact->setDescription('Recarga tus almacenamientos de magia, aumentando tus reservas actuales de maná un '.$artifact->getSkill()->getManaBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $manager->persist($artifact);
@@ -79,7 +79,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Huevo de Dragón');
         $artifact->setImage('bundles/archmagegame/images/artifact/dragonegg.jpg');
         $artifact->setSkill($this->getReference('Convocar Dragones'));
-        $artifact->setDescription('Al eclosionar, convocará alrededor de '.$artifact->getSkill()->getQuantity().' '.$artifact->getSkill()->getFamily()->getName().'(es) al azar en tu reino.');
+        $artifact->setDescription('Al eclosionar, convocará alrededor de '.$artifact->getSkill()->getQuantity().' '.$artifact->getSkill()->getFamily()->getName().'(s/es) al azar a tu ejército.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $manager->persist($artifact);

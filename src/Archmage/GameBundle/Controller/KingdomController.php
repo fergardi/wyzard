@@ -27,10 +27,10 @@ class KingdomController extends Controller
     }
 
     /**
-     * @Route("/game/kingdom/auction")
-     * @Template("ArchmageGameBundle:Kingdom:auction.html.twig")
+     * @Route("/game/kingdom/blackmarket")
+     * @Template("ArchmageGameBundle:Kingdom:blackmarket.html.twig")
      */
-    public function auctionAction()
+    public function blackmarketAction()
     {
         $em = $this->getDoctrine()->getManager();
         $units = $em->getRepository('ArchmageGameBundle:Unit')->findAll();

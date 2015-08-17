@@ -30,8 +30,14 @@ img.background {
 .panel-body {
     padding: 0;
 }
-.panel-body p, .text-padded {
+.panel-body .text-padded {
     padding-top: 5px;
+    padding-left: 0px;
+}
+.panel-body p {
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 img.custom-thumbnail {
     max-width: 100%;
@@ -43,6 +49,9 @@ img.custom-rspls {
 img.custom-icon {
     width: 20px;
     height: 20px;
+}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
+    color: inherit !important;
 }
 /* Sticky footer styles
 --------------------------------------------------

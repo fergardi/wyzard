@@ -36,6 +36,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -57,6 +58,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -78,6 +80,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -99,6 +102,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -120,6 +124,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -141,6 +146,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -162,6 +168,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -183,6 +190,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -204,6 +212,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -225,6 +234,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('NoMuerto'));
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' unidades '.$skill->getFamily()->getName().' a tu ejército');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -267,6 +277,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('NoMuerto'));
         $skill->setType($this->getReference('Melee'));
+        $skill->setDescription('Aumenta el daño de Melee de tus unidades NoMuertas un '.$skill->getAttackBonus().'%');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -288,6 +299,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('NoMuerto'));
         $skill->setType(null);
+        $skill->setDescription('Aumenta la defensa de tus unidades NoMuertas un '.$skill->getDefenseBonus().'%');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -313,6 +325,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -334,6 +347,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -355,6 +369,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -376,6 +391,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -397,6 +413,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -418,6 +435,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -439,6 +457,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -460,6 +479,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -481,6 +501,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -502,6 +523,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('Bestia'));
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' unidades '.$skill->getFamily()->getName().' a tu ejército');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -527,6 +549,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -548,6 +571,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -569,6 +593,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -590,6 +615,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -611,6 +637,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -632,6 +659,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -653,6 +681,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -674,6 +703,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -695,6 +725,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -716,6 +747,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('Elemental'));
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' unidades '.$skill->getFamily()->getName().' a tu ejército');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -741,6 +773,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -762,6 +795,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -783,6 +817,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -804,6 +839,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -825,6 +861,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -846,6 +883,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -867,6 +905,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -888,6 +927,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -909,6 +949,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -930,6 +971,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('Celestial'));
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' unidades '.$skill->getFamily()->getName().' a tu ejército');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -955,6 +997,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -976,6 +1019,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -997,6 +1041,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1018,6 +1063,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1039,6 +1085,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1060,6 +1107,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1081,6 +1129,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1102,6 +1151,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1123,6 +1173,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1144,6 +1195,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('Demonio'));
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' unidades '.$skill->getFamily()->getName().' a tu ejército');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1169,6 +1221,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1190,6 +1243,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1211,6 +1265,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1232,6 +1287,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1253,6 +1309,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1274,6 +1331,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1295,6 +1353,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1316,6 +1375,29 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //AUMENTAR VELOCIDAD
+        $skill = new Skill();
+        $skill->setName('Aumentar Velocidad');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(10);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantity(0);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1337,6 +1419,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
+        $skill->setDescription(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1358,6 +1441,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('Dragón'));
         $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' unidades '.$skill->getFamily()->getName().' a tu ejército');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

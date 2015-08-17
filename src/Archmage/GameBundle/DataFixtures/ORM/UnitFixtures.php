@@ -940,7 +940,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(0);
         $unit->setImage('bundles/archmagegame/images/unit/doom/ogre.jpg');
         $unit->setFaction($this->getReference('Destrucción'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Demonio'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(0);
         $unit->setManaMaintenance(0);

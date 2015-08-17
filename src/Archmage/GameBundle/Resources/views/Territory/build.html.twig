@@ -7,19 +7,20 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-wrench"></i> Construir</h1>
+                    <h1><i class="fa fa-fw fa-wrench"></i> Construir<br><small><i class="fa fa-fw fa-hourglass"></i>300</small></h1>
                 </div>
             </div>
+            {% for construction in constructions %}
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center">Pueblos <i class="fa fa-fw fa-lg fa-home"></i> {{ random(1000)|nf }}</div>
+                    <div class="panel-heading text-center"><a href="{{ path('archmage_game_home_help') }}#{{ construction.name|slug }}">{{ construction.name }}</a> [{{ random(1000)|nf }}]</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/village.jpg') }}">
+                                <img class="custom-thumbnail" src="{{ asset( construction.image ) }}">
                             </div>
-                            <div class="col-xs-8">
-                                <p>Texto descriptivo</p>
+                            <div class="col-xs-8 text-padded">
+                                {{ construction.description }}
                             </div>
                         </div>
                     </div>
@@ -38,174 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Granjas <i class="fa fa-fw fa-lg fa-home"></i> {{ random(1000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/farm.jpg') }}">
-                            </div>
-                            <div class="col-xs-8">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-wrench"></i> Construir</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Nodos <i class="fa fa-fw fa-lg fa-home"></i> {{ random(1000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/node.jpg') }}">
-                            </div>
-                            <div class="col-xs-8">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-wrench"></i> Construir</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Gremios <i class="fa fa-fw fa-lg fa-home"></i> {{ random(1000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/guild.jpg') }}">
-                            </div>
-                            <div class="col-xs-8">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-wrench"></i> Construir</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Talleres <i class="fa fa-fw fa-lg fa-home"></i> {{ random(1000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/workshop.jpg') }}">
-                            </div>
-                            <div class="col-xs-8">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-wrench"></i> Construir</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Fortalezas <i class="fa fa-fw fa-lg fa-home"></i> {{ random(1000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/fortress.jpg') }}">
-                            </div>
-                            <div class="col-xs-8">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-wrench"></i> Construir</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Barreras <i class="fa fa-fw fa-lg fa-home"></i> {{ random(1000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/barrier.jpg') }}">
-                            </div>
-                            <div class="col-xs-8">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-wrench"></i> Construir</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

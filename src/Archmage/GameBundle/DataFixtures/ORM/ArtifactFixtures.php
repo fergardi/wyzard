@@ -19,7 +19,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Brújula Mágica');
         $artifact->setImage('bundles/archmagegame/images/artifact/magiccompass.jpg');
         $artifact->setSkill($this->getReference('Generar Tierras'));
-        $artifact->setDescription('Este artefacto encontrará nuevos territorios y te otorgará un <b>'.$artifact->getSkill()->getTerrainBonus().'%</b> de <b>tierras libres</b> adicionales.');
+        $artifact->setDescription('Esclarece zonas oscuras del mapa, sumando a tus tierras libres actuales un '.$artifact->getSkill()->getTerrainBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $manager->persist($artifact);
@@ -29,7 +29,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Cofre del Tesoro');
         $artifact->setImage('bundles/archmagegame/images/artifact/treasurechest.jpg');
         $artifact->setSkill($this->getReference('Generar Oro'));
-        $artifact->setDescription('Este artefacto contiene grandes riquezas y te otorgará un <b>'.$artifact->getSkill()->getGoldBonus().'%</b> más de <b>oro</b>, basado en tu oro actual.');
+        $artifact->setDescription('Contiene de grandes riquezas, aumentando tus reservas actuales de oro un '.$artifact->getSkill()->getGoldBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $manager->persist($artifact);
@@ -39,7 +39,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Poción de Maná');
         $artifact->setImage('bundles/archmagegame/images/artifact/manapotion.jpg');
         $artifact->setSkill($this->getReference('Generar Maná'));
-        $artifact->setDescription('Este artefacto recargará tus reservas de magia, otorgando un aumento del <b>'.$artifact->getSkill()->getManaBonus().'%</b> de tu <b>maná</b> máximo.');
+        $artifact->setDescription('Recarga tus reservas de magia, aumentando tus reservas actuales de maná un '.$artifact->getSkill()->getManaBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $manager->persist($artifact);
@@ -49,7 +49,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Vórtice de Maná');
         $artifact->setImage('bundles/archmagegame/images/artifact/manavortex.jpg');
         $artifact->setSkill($this->getReference('Destruir Maná'));
-        $artifact->setDescription('Este artefacto descargará, absorverá y destruirá un <b>'.$artifact->getSkill()->getManaBonus().'%</b> del <b>maná</b> máximo enemigo.');
+        $artifact->setDescription('Absorbe y destruye un las reservas enemigas actuales de maná un '.$artifact->getSkill()->getManaBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $manager->persist($artifact);
@@ -59,17 +59,17 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Poción de Amor');
         $artifact->setImage('bundles/archmagegame/images/artifact/lovepotion.jpg');
         $artifact->setSkill($this->getReference('Generar Población'));
-        $artifact->setDescription('Este artefacto aumentará la tasa de natalidad de tu reino, otorgando un aumento del <b>'.$artifact->getSkill()->getPeopleBonus().'%</b> de tu <b>población</b> máxima.');
+        $artifact->setDescription('Incrementa la tasa de natalidad de tu reino, aumentando tu población actual un '.$artifact->getSkill()->getPeopleBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $manager->persist($artifact);
 
-        //VENENO
+        //VIAL DE VENENO
         $artifact = new Artifact();
-        $artifact->setName('Veneno');
-        $artifact->setImage('bundles/archmagegame/images/artifact/poison.jpg');
+        $artifact->setName('Vial de Veneno');
+        $artifact->setImage('bundles/archmagegame/images/artifact/poisonvial.jpg');
         $artifact->setSkill($this->getReference('Destruir Población'));
-        $artifact->setDescription('Este artefacto envenenará y matará un <b>'.$artifact->getSkill()->getPeopleBonus().'%</b> de la <b>población</b> máxima enemiga.');
+        $artifact->setDescription('Envenena el agua y disminuye la población actual enemiga un '.$artifact->getSkill()->getPeopleBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $manager->persist($artifact);
@@ -79,7 +79,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Huevo de Dragón');
         $artifact->setImage('bundles/archmagegame/images/artifact/dragonegg.jpg');
         $artifact->setSkill($this->getReference('Convocar Dragones'));
-        $artifact->setDescription('Este artefacto eclosionará y convocará alrededor de <b>'.$artifact->getSkill()->getQuantity().'</b> unidades <b>'.$artifact->getSkill()->getFamily()->getName().'</b> al azar.');
+        $artifact->setDescription('Al eclosionar, convocará alrededor de '.$artifact->getSkill()->getQuantity().' '.$artifact->getSkill()->getFamily()->getName().'(es) al azar en tu reino.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $manager->persist($artifact);
@@ -89,7 +89,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Tela de Araña');
         $artifact->setImage('bundles/archmagegame/images/artifact/spiderweb.jpg');
         $artifact->setSkill($this->getReference('Disminuir Velocidad'));
-        $artifact->setDescription('Este artefacto disminuirá <b>'.$artifact->getSkill()->getSpeedBonus().'</b> puntos la <b>velocidad</b> de una <b>tropa</b> enemiga al azar en combate.');
+        $artifact->setDescription('Reduce la velocidad de una tropa enemiga al azar en combate '.$artifact->getSkill()->getSpeedBonus().' puntos.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $manager->persist($artifact);

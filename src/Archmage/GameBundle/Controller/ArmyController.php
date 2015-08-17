@@ -16,9 +16,9 @@ class ArmyController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $faction = $em->getRepository('ArchmageGameBundle:Faction')->findOneBy(array('name' => 'Neutral'));
-        $units = $em->getRepository('ArchmageGameBundle:Unit')->findBy(array('faction' => $faction->getId()), array('name' => 'asc'));
+        $troops = $em->getRepository('ArchmageGameBundle:Unit')->findBy(array('faction' => $faction->getId()), array('name' => 'asc'));
         return array(
-            'units' => $units,
+            'troops' => $troops,
         );
     }
 
@@ -28,7 +28,13 @@ class ArmyController extends Controller
      */
     public function disbandAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $troops = $em->getRepository('ArchmageGameBundle:Unit')->findBy(array(), array('name' => 'asc'));
+        shuffle($troops);
+        $troops = array_slice($troops, 0, 4);
+        return array(
+            'troops' => $troops,
+        );
     }
 
     /**

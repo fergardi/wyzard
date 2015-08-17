@@ -7,19 +7,23 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-graduation-cap"></i> Investigar</h1>
+                    <h1><i class="fa fa-fw fa-graduation-cap"></i> Investigar<br><small><i class="fa fa-fw fa-hourglass"></i>300</small></h1>
                 </div>
             </div>
+            {% for research in researchs %}
             <div class="col-xs-12 col-md-6">
-                <div class="panel panel-warning">
-                    <div class="panel-heading text-center">Invocar Esqueletos <i class="fa fa-fw fa-lg fa-hourglass-half"></i> {{ random(300)|nf }} / {{ random(1000)|nf }}</div>
+                <div class="panel panel-{{ research.faction.class }}">
+                    <div class="panel-heading text-center"><a href="{{ path('archmage_game_home_help') }}#{{ research.name|slug }}">{{ research.name }}</a></div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/spell/darkness/summonskeletons.jpg') }}">
+                                <img class="custom-thumbnail" src="{{ asset( research.image ) }}">
                             </div>
-                            <div class="col-xs-8">
-                                <p>Texto descriptivo</p>
+                            <div class="col-xs-8 text-padded">
+                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ research.manaCost|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-magic"></i>{{ research.magic|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-hourglass"></i>{{ random(100) }} / {{ research.turnResearch }}</div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>Habilidad</div>
                             </div>
                         </div>
                     </div>
@@ -38,90 +42,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-success">
-                    <div class="panel-heading text-center">Curación <i class="fa fa-fw fa-lg fa-hourglass-half"></i> {{ random(300)|nf }} / {{ random(1000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/spell/nature/cure.jpg') }}">
-                            </div>
-                            <div class="col-xs-8">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i> Investigar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-info">
-                    <div class="panel-heading text-center">Encontrar Artefacto <i class="fa fa-fw fa-lg fa-hourglass-half"></i> {{ random(300)|nf }} / {{ random(1000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/spell/ghost/findartifact.jpg') }}">
-                            </div>
-                            <div class="col-xs-8">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i> Investigar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-danger">
-                    <div class="panel-heading text-center">Bola de Fuego <i class="fa fa-fw fa-lg fa-hourglass-half"></i> {{ random(300)|nf }} / {{ random(1000)|nf }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/spell/doom/fireball.jpg') }}">
-                            </div>
-                            <div class="col-xs-8">
-                                <p>Texto descriptivo</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i> Investigar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

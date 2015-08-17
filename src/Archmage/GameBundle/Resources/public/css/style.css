@@ -31,8 +31,7 @@ img.background {
     padding: 0;
 }
 .panel-body p, .text-padded {
-    padding-top: 8px;
-    padding-right: 8px;
+    padding-top: 5px;
 }
 img.custom-thumbnail {
     max-width: 100%;

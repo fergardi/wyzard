@@ -23,7 +23,11 @@ class TerritoryController extends Controller
      */
     public function buildAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $constructions = $em->getRepository('ArchmageGameBundle:Building')->findAll();
+        return array(
+            'constructions' => $constructions,
+        );
     }
 
     /**
@@ -32,6 +36,10 @@ class TerritoryController extends Controller
      */
     public function demolishAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $constructions = $em->getRepository('ArchmageGameBundle:Building')->findAll();
+        return array(
+            'constructions' => $constructions,
+        );
     }
 }

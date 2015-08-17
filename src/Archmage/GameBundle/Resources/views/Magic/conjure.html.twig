@@ -7,20 +7,20 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-magic"></i> Conjurar</h1>
+                    <h1><i class="fa fa-fw fa-magic"></i> Conjurar<br><small><i class="fa fa-fw fa-hourglass"></i>300</small></h1>
                 </div>
             </div>
             {% for research in researchs %}
             <div class="col-xs-12 col-md-6">
-                <div class="panel panel-{{ research.spell.class }}">
-                    <div class="panel-heading text-center">{{ research.spell.name }}</div>
+                <div class="panel panel-{{ research.faction.class }}">
+                    <div class="panel-heading text-center"><a href="{{ path('archmage_game_home_help') }}#{{ research.name|slug }}">{{ research.name }}</a></div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( research.spell.image ) }}">
+                                <img class="custom-thumbnail" src="{{ asset( research.image ) }}">
                             </div>
-                            <div class="col-xs-8">
-                                <p>Texto descriptivo</p>
+                            <div class="col-xs-8 text-padded">
+                                {{ research.description }}
                             </div>
                         </div>
                     </div>

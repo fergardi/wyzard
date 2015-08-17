@@ -7,20 +7,28 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-user-plus"></i> Reclutar</h1>
+                    <h1><i class="fa fa-fw fa-user-plus"></i> Reclutar<br><small><i class="fa fa-fw fa-hourglass"></i>300</small></h1>
                 </div>
             </div>
-            {% for unit in units %}
+            {% for troop in troops %}
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center">{{ unit.name }}</div>
+                    <div class="panel-heading text-center"><a href="{{ path('archmage_game_home_help') }}#{{ troop.name|slug }}">{{ troop.name }}</a> [{{ random(1500)|nf }}]</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( unit.image ) }}">
+                                <img class="custom-thumbnail" src="{{ asset( troop.image ) }}">
                             </div>
-                            <div class="col-xs-8">
-                                <p>{{ unit.description }}</p>
+                            <div class="col-xs-8 text-padded">
+                                <div class="col-xs-4"><i class="fa fa-fw fa-rocket"></i>{{ troop.attack|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-shield"></i>{{ troop.defense|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-flash"></i>{{ troop.speed }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ troop.goldMaintenance|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ troop.manaMaintenance|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ troop.peopleMaintenance|nf }}</div>
+                                <div class="col-xs-6"><a href="#"><i class="fa fa-fw fa-user"></i>{{ troop.family.name }}</a></div>
+                                <div class="col-xs-6"><a href="#"><i class="fa fa-fw fa-cogs"></i>{{ troop.type.name }}</a></div>
+                                <div class="col-xs-12"><a href="#"><i class="fa fa-fw fa-joomla"></i>Habilidad</a></div>
                             </div>
                         </div>
                     </div>

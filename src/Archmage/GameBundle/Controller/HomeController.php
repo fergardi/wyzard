@@ -20,7 +20,13 @@ class HomeController extends Controller
         $total = rand($online, 200);
         $url = $this->generateUrl('archmage_game_account_ranking');
         $this->addFlash('info', 'Bienvenido de nuevo! Hay '.$online.' jugador(es) online de <a href="'.$url.'" class="alert-link">'.$total.' registrado(s)</a>.');
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $criteria = new \Doctrine\Common\Collections\Criteria();
+        $criteria->where($criteria->expr()->neq('name', 'Neutral'));
+        $factions = $em->getRepository('ArchmageGameBundle:Faction')->matching($criteria);
+        return array(
+            'factions' => $factions,
+        );
     }
 
     /**

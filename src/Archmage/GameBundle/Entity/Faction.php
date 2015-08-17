@@ -49,6 +49,13 @@ class Faction
      */
     private $description;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slogan", type="string", length=255, nullable=false)
+     */
+    private $slogan;
+
 
     /**
      * Get id
@@ -150,5 +157,28 @@ class Faction
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set slogan
+     *
+     * @param string $slogan
+     * @return Faction
+     */
+    public function setSlogan($slogan)
+    {
+        $this->slogan = $slogan;
+
+        return $this;
+    }
+
+    /**
+     * Get slogan
+     *
+     * @return string 
+     */
+    public function getSlogan()
+    {
+        return $this->slogan;
     }
 }

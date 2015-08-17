@@ -16,8 +16,9 @@ class TwigExtension extends \Twig_Extension
         return $price;
     }
 
-    public function slug($url) {
-        return str_replace(' ','-',strtolower($url));
+    public function slug($string) {
+        setlocale(LC_CTYPE, "en_US.utf8");
+        return iconv("utf-8", "ascii//TRANSLIT", str_replace(' ','-',strtolower($string)));
 
     }
 

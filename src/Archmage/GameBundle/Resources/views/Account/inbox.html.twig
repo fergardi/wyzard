@@ -20,7 +20,7 @@
                     <tbody>
                     {% for i in 1..5 %}
                         <tr>
-                            <td class="text-center">{{ random(1000000) }}</td>
+                            <td class="text-center">{{ "now"|date("d/m/Y H:i:s") }}</td>
                             <td class="text-center"><a href="{{ path('archmage_game_account_profile') }}">Nombre del Mago</a></td>
                             <td class="text-center">Asunto</td>
                         </tr>

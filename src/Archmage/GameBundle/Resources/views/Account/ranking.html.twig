@@ -21,15 +21,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% set faction=['doom','darkness','nature','ghost','holy'] %}
-                        {% for i in 1..200 %}
+                        {% for player in players %}
                         <tr>
-                            <td class="text-right">{{ random(1000) }}</td>
-                            <td class="text-right">{{ random(10000000) }}</td>
-                            <td class="text-center"><a href="{{ path('archmage_game_account_profile') }}">Nombre del Mago</a></td>
-                            <td class="text-center hidden-xs">Facción</td>
-                            <td class="text-right">{{ random(5000) }}</td>
-                            <td class="text-right">{{ random(100) }}</td>
+                            <td class="text-right">{{ random(10) }}</td>
+                            <td class="text-right">{{ player.power }}</td>
+                            <td class="text-center"><a href="{{ path('archmage_game_account_profile') }}">{{ player.nick }}</a></td>
+                            <td class="text-center hidden-xs">{{ player.faction.name }}</td>
+                            <td class="text-right">{{ player.lands }}</td>
+                            <td class="text-right">{{ player.fortresses }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

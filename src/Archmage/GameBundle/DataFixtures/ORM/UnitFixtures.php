@@ -1026,14 +1026,14 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
-        //DEMONIOS
+        //DIABLOS
         $unit = new Unit();
-        $unit->setName('Demonios');
+        $unit->setName('Diablos');
         $unit->setDescription('Descripción');
         $unit->setAttack(0);
         $unit->setDefense(0);
         $unit->setSpeed(0);
-        $unit->setImage('bundles/archmagegame/images/unit/doom/demon.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/doom/diablo.jpg');
         $unit->setFaction($this->getReference('Destrucción'));
         $unit->setFamily($this->getReference('Demonio'));
         $unit->setType($this->getReference('Distancia'));

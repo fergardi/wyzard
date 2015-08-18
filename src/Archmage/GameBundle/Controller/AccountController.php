@@ -9,12 +9,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class AccountController extends Controller
 {
     /**
-     * @Route("/game/account/profile")
+     * @Route("/game/account/profile/{player}", requirements={"player" = "\s+"})
      * @Template("ArchmageGameBundle:Account:profile.html.twig")
      */
-    public function profileAction()
+    public function profileAction($player)
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick($player);
+        return array(
+            'player' => $player,
+        );
     }
 
     /**
@@ -23,7 +27,11 @@ class AccountController extends Controller
      */
     public function rankingAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $players = $em->getRepository('ArchmageGameBundle:Player')->findAll();
+        return array(
+            'players' => $players,
+        );
     }
 
     /**
@@ -32,7 +40,11 @@ class AccountController extends Controller
      */
     public function inboxAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        return array(
+            'player' => $player,
+        );
     }
 
     /**

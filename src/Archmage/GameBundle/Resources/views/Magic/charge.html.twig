@@ -7,17 +7,17 @@
         <div class="row">
             <div class="col-md-offset-3 col-md-6 col-xs-12">
                 <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-tint"></i>Cargar maná<br><small><i class="fa fa-fw fa-hourglass"></i>300</small></h1>
+                    <h1><i class="fa fa-fw fa-tint"></i>Cargar maná<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-tint"></i> {{ random(100000)|nf }} maná</div>
+                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-tint"></i> {{ player.mana|nf }} maná</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">
                                 <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/magic.jpg') }}">
                             </div>
                             <div class="col-xs-8 text-padded">
-                                Texto descriptivo
+                                Aquí puedes recargar tu maná, y necesitas mucho para lanzar conjuros poderosos y pagar mantenimientos.
                             </div>
                         </div>
                     </div>

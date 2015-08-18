@@ -7,28 +7,28 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-wrench"></i>Construir<br><small><i class="fa fa-fw fa-hourglass"></i>300</small></h1>
+                    <h1><i class="fa fa-fw fa-wrench"></i>Construir<br><small><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }}</small></h1>
                 </div>
             </div>
-            {% for construction in constructions %}
+            {% for construction in player.constructions %}
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center"><a href="{{ path('archmage_game_home_help') }}#{{ construction.name|slug }}">{{ construction.name }}</a> [{{ random(1000)|nf }}]</div>
+                    <div class="panel-heading text-center"><i class="fa fa-fw fa-home"></i><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}">{{ construction.building.name }}</a> [{{ construction.quantity|nf }}]</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( construction.image ) }}">
+                                <img class="custom-thumbnail" src="{{ asset( construction.building.image ) }}">
                             </div>
                             <div class="col-xs-8 text-padded">
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.goldCost|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.manaCost|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.peopleCost|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.goldMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.manaMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.peopleMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.goldResource|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.manaResource|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.peopleResource|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldCost|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCost|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleCost|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldMaintenance|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaMaintenance|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleMaintenance|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldResource|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaResource|nf }}</div>
+                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleResource|nf }}</div>
                             </div>
                         </div>
                     </div>

@@ -1,26 +1,26 @@
 {% extends "ArchmageGameBundle::layout.html.twig" %}
 
-{% block title %}Usar{% endblock %}
+{% block title %}Activar{% endblock %}
 
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col-md-offset-3 col-md-6 col-xs-12">
+            <div class="col-xs-12">
                 <div class="page-header text-center">
                     <h1><i class="fa fa-fw fa-joomla"></i>Activar artefactos<br><small><i class="fa fa-fw fa-hourglass"></i>300</small></h1>
                 </div>
             </div>
-            {% for item in items %}
+            {% for item in player.items if item.quantity > 0 %}
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading text-center"><a href="{{ path('archmage_game_home_help') }}#{{ item.name|slug }}">{{ item.name }}</a> [{{ random(10)+1|nf }}]</div>
+                    <div class="panel-heading text-center"><i class="fa fa-fw fa-joomla"></i><a href="{{ path('archmage_game_home_help') }}#{{ item.artifact.name|slug }}">{{ item.artifact.name }}</a> [{{ item.quantity|nf }}]</div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( item.image ) }}">
+                                <img class="custom-thumbnail" src="{{ asset( item.artifact.image ) }}">
                             </div>
                             <div class="col-xs-8 text-padded">
-                                {{ item.description }}
+                                {{ item.artifact.description }}
                             </div>
                         </div>
                     </div>
@@ -35,6 +35,10 @@
                         </form>
                     </div>
                 </div>
+            </div>
+            {% else %}
+            <div class="col-xs-12 alert alert-danger text-center" role="alert">
+                <i class="fa fa-fw fa-lg fa-exclamation-triangle"></i> Actualmente no tienes artefactos en tu poder. Tal vez deberías comprar algunos en el <i class="fa fa-fw fa-user-secret"></i><a href="{{ path('archmage_game_kingdom_auction') }}">Mercado negro</a>.
             </div>
             {% endfor %}
         </div>

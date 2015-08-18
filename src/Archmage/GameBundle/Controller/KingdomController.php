@@ -23,16 +23,21 @@ class KingdomController extends Controller
      */
     public function taxAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        return array(
+            'player' => $player,
+        );
     }
 
     /**
-     * @Route("/game/kingdom/blackmarket")
-     * @Template("ArchmageGameBundle:Kingdom:blackmarket.html.twig")
+     * @Route("/game/kingdom/auction")
+     * @Template("ArchmageGameBundle:Kingdom:auction.html.twig")
      */
-    public function blackmarketAction()
+    public function auctionAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         $units = $em->getRepository('ArchmageGameBundle:Unit')->findAll();
         shuffle($units);
         $units = array_slice($units, 0, 3);
@@ -43,6 +48,7 @@ class KingdomController extends Controller
         shuffle($heroes);
         $heroes = array_slice($heroes, 0, 1);
         return array(
+            'player' => $player,
             'heroes' => $heroes,
             'units' => $units,
             'artifacts' => $artifacts,

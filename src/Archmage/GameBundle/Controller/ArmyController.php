@@ -29,11 +29,9 @@ class ArmyController extends Controller
     public function disbandAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $troops = $em->getRepository('ArchmageGameBundle:Unit')->findBy(array(), array('name' => 'asc'));
-        shuffle($troops);
-        $troops = array_slice($troops, 0, 4);
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         return array(
-            'troops' => $troops,
+            'player' => $player,
         );
     }
 

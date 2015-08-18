@@ -14,7 +14,11 @@ class MagicController extends Controller
      */
     public function chargeAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        return array(
+            'player' => $player,
+        );
     }
 
     /**
@@ -24,11 +28,9 @@ class MagicController extends Controller
     public function conjureAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $researchs = $em->getRepository('ArchmageGameBundle:Spell')->findBy(array(), array('name' => 'asc'));
-        shuffle($researchs);
-        $researchs = array_slice($researchs, 0, 4);
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         return array(
-            'researchs' => $researchs,
+            'player' => $player,
         );
     }
 
@@ -39,11 +41,9 @@ class MagicController extends Controller
     public function researchAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $researchs = $em->getRepository('ArchmageGameBundle:Spell')->findBy(array(), array('name' => 'asc'));
-        shuffle($researchs);
-        $researchs = array_slice($researchs, 0, 4);
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         return array(
-            'researchs' => $researchs,
+            'player' => $player,
         );
     }
 
@@ -54,11 +54,9 @@ class MagicController extends Controller
     public function artifactAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $items = $em->getRepository('ArchmageGameBundle:Artifact')->findBy(array(), array('name' => 'asc'));
-        shuffle($items);
-        $items = array_slice($items, 0, 4);
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         return array(
-            'items' => $items,
+            'player' => $player,
         );
     }
 }

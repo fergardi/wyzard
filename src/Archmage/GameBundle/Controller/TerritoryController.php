@@ -14,7 +14,11 @@ class TerritoryController extends Controller
      */
     public function exploreAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        return array(
+            'player' => $player,
+        );
     }
 
     /**
@@ -24,9 +28,9 @@ class TerritoryController extends Controller
     public function buildAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $constructions = $em->getRepository('ArchmageGameBundle:Building')->findBy(array(),array('name' => 'ASC'));
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         return array(
-            'constructions' => $constructions,
+            'player' => $player,
         );
     }
 
@@ -37,9 +41,9 @@ class TerritoryController extends Controller
     public function demolishAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $constructions = $em->getRepository('ArchmageGameBundle:Building')->findBy(array(),array('name' => 'ASC'));
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         return array(
-            'constructions' => $constructions,
+            'player' => $player,
         );
     }
 }

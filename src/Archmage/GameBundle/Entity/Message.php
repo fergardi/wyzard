@@ -45,10 +45,26 @@ class Message
     /**
      * @var Player
      *
-     * @ORM\ManyToOne(targetEntity="Player")
-     * @ORM\JoinColumn(name="from", referencedColumnName="id", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Player", inversedBy="messages")
+     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=false)
      */
-    private $from;
+    private $player;
+
+    /**
+     * @var Player
+     *
+     * @ORM\ManyToOne(targetEntity="Player")
+     * @ORM\JoinColumn(name="who", referencedColumnName="id", nullable=true)
+     */
+    private $who = null;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->datetime = new \DateTime('now');
+    }
 
 
     /**
@@ -131,25 +147,48 @@ class Message
     }
 
     /**
-     * Set from
+     * Set player
      *
-     * @param \Archmage\GameBundle\Entity\Player $from
+     * @param \Archmage\GameBundle\Entity\Player $player
      * @return Message
      */
-    public function setFrom(\Archmage\GameBundle\Entity\Player $from)
+    public function setPlayer(\Archmage\GameBundle\Entity\Player $player)
     {
-        $this->from = $from;
+        $this->player = $player;
 
         return $this;
     }
 
     /**
-     * Get from
+     * Get player
      *
      * @return \Archmage\GameBundle\Entity\Player 
      */
-    public function getFrom()
+    public function getPlayer()
     {
-        return $this->from;
+        return $this->player;
+    }
+
+    /**
+     * Set who
+     *
+     * @param \Archmage\GameBundle\Entity\Player $who
+     * @return Message
+     */
+    public function setWho(\Archmage\GameBundle\Entity\Player $who = null)
+    {
+        $this->who = $who;
+
+        return $this;
+    }
+
+    /**
+     * Get who
+     *
+     * @return \Archmage\GameBundle\Entity\Player 
+     */
+    public function getWho()
+    {
+        return $this->who;
     }
 }

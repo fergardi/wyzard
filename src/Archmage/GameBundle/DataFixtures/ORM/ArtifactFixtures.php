@@ -22,6 +22,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Esclarece zonas oscuras del mapa, sumando a tus tierras libres actuales un '.$artifact->getSkill()->getTerrainBonus().'% adicional.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
         //COFRE DEL TESORO
@@ -32,6 +33,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Contiene grandes riquezas, aumentando tus reservas actuales de oro un '.$artifact->getSkill()->getGoldBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
         //POCION DE MANA
@@ -42,6 +44,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Recarga tus almacenamientos de magia, aumentando tus reservas actuales de maná un '.$artifact->getSkill()->getManaBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
         //VORTICE DE MANA
@@ -52,16 +55,18 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Absorbe y destruye un las reservas enemigas actuales de maná un '.$artifact->getSkill()->getManaBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //POCION DE AMOR
+        //ELIXIR DE AMOR
         $artifact = new Artifact();
-        $artifact->setName('Poción de Amor');
-        $artifact->setImage('bundles/archmagegame/images/artifact/lovepotion.jpg');
+        $artifact->setName('Elixir de Amor');
+        $artifact->setImage('bundles/archmagegame/images/artifact/loveelixir.jpg');
         $artifact->setSkill($this->getReference('Generar Población'));
         $artifact->setDescription('Incrementa la tasa de natalidad de tu reino, aumentando tu población actual un '.$artifact->getSkill()->getPeopleBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
         //VIAL DE VENENO
@@ -72,6 +77,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Envenena el agua y disminuye la población actual enemiga un '.$artifact->getSkill()->getPeopleBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
         //HUEVO DE DRAGON
@@ -82,16 +88,18 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Al eclosionar, convocará alrededor de '.$artifact->getSkill()->getQuantity().' '.$artifact->getSkill()->getFamily()->getName().'(s/es) al azar a tu ejército.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
         //TELA DE ARAÑA
         $artifact = new Artifact();
         $artifact->setName('Tela de Araña');
         $artifact->setImage('bundles/archmagegame/images/artifact/spiderweb.jpg');
-        $artifact->setSkill($this->getReference('Disminuir Velocidad'));
+        $artifact->setSkill($this->getReference('Reducir Velocidad'));
         $artifact->setDescription('Reduce la velocidad de una tropa enemiga al azar en combate '.$artifact->getSkill()->getSpeedBonus().' puntos.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
         $manager->flush();

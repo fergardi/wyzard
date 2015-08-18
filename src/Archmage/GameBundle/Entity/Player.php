@@ -65,6 +65,14 @@ class Player
     private $turns;
 
     /**
+     * @var Faction
+     *
+     * @ORM\ManyToOne(targetEntity="Faction")
+     * @ORM\JoinColumn(name="faction", referencedColumnName="id", nullable=false)
+     */
+    private $faction;
+
+    /**
      * @ORM\OneToMany(targetEntity="Construction", mappedBy="player")
      **/
     private $constructions;
@@ -90,6 +98,12 @@ class Player
     private $contracts;
 
     /**
+     * @ORM\OneToMany(targetEntity="Message", mappedBy="player")
+     **/
+    private $messages;
+
+
+    /**
      * Constructor
      **/
     public function __construct()
@@ -99,7 +113,9 @@ class Player
         $this->troops = new ArrayCollection();
         $this->items = new ArrayCollection();
         $this->contracts = new ArrayCollection();
+        $this->messages = new ArrayCollection();
     }
+
 
     /**
      * Get id
@@ -204,29 +220,6 @@ class Player
     }
 
     /**
-     * Set turns
-     *
-     * @param integer $turns
-     * @return Player
-     */
-    public function setTurns($turns)
-    {
-        $this->turns = $turns;
-
-        return $this;
-    }
-
-    /**
-     * Get turns
-     *
-     * @return integer 
-     */
-    public function getTurns()
-    {
-        return $this->turns;
-    }
-
-    /**
      * Set magic
      *
      * @param integer $magic
@@ -250,36 +243,49 @@ class Player
     }
 
     /**
-     * Add constructs
+     * Set turns
      *
-     * @param \Archmage\GameBundle\Entity\Construction $constructs
+     * @param integer $turns
      * @return Player
      */
-    public function addConstruct(\Archmage\GameBundle\Entity\Construction $constructs)
+    public function setTurns($turns)
     {
-        $this->constructs[] = $constructs;
+        $this->turns = $turns;
 
         return $this;
     }
 
     /**
-     * Remove constructs
+     * Get turns
      *
-     * @param \Archmage\GameBundle\Entity\Construction $constructs
+     * @return integer 
      */
-    public function removeConstruct(\Archmage\GameBundle\Entity\Construction $constructs)
+    public function getTurns()
     {
-        $this->constructs->removeElement($constructs);
+        return $this->turns;
     }
 
     /**
-     * Get constructs
+     * Set faction
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @param \Archmage\GameBundle\Entity\Faction $faction
+     * @return Player
      */
-    public function getConstructs()
+    public function setFaction(\Archmage\GameBundle\Entity\Faction $faction)
     {
-        return $this->constructs;
+        $this->faction = $faction;
+
+        return $this;
+    }
+
+    /**
+     * Get faction
+     *
+     * @return \Archmage\GameBundle\Entity\Faction 
+     */
+    public function getFaction()
+    {
+        return $this->faction;
     }
 
     /**
@@ -445,5 +451,81 @@ class Player
     public function getContracts()
     {
         return $this->contracts;
+    }
+
+    /**
+     * Add messages
+     *
+     * @param \Archmage\GameBundle\Entity\Message $messages
+     * @return Player
+     */
+    public function addMessage(\Archmage\GameBundle\Entity\Message $messages)
+    {
+        $this->messages[] = $messages;
+
+        return $this;
+    }
+
+    /**
+     * Remove messages
+     *
+     * @param \Archmage\GameBundle\Entity\Message $messages
+     */
+    public function removeMessage(\Archmage\GameBundle\Entity\Message $messages)
+    {
+        $this->messages->removeElement($messages);
+    }
+
+    /**
+     * Get messages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMessages()
+    {
+        return $this->messages;
+    }
+
+    /*
+     * AUX FUNCTIONS
+     */
+
+    /**
+     * Get lands
+     *
+     * @return integer
+     */
+    public function getLands()
+    {
+        foreach ($this->constructions as $construction) {
+            if ($construction->getBuilding()->getName() == 'Tierras') return $construction->getQuantity();
+        }
+        return 0;
+    }
+
+    /**
+     * Get power
+     *
+     * @return integer
+     */
+    public function getPower()
+    {
+        $power = 0;
+        foreach ($this->troops as $troop) {
+            $power += $troop->getQuantity();
+        }
+        return $power;
+    }
+    /**
+     * Get fortresses
+     *
+     * @return integer
+     */
+    public function getFortresses()
+    {
+        foreach ($this->constructions as $construction) {
+            if ($construction->getBuilding()->getName() == 'Fortalezas') return $construction->getQuantity();
+        }
+        return 0;
     }
 }

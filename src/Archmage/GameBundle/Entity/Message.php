@@ -22,6 +22,13 @@ class Message
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="hash", type="string", length=255, nullable=false)
+     */
+    private $hash;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="datetime", type="datetime", nullable=false)
@@ -64,6 +71,7 @@ class Message
     public function __construct()
     {
         $this->datetime = new \DateTime('now');
+        $this->hash = md5($this->getId());
     }
 
 
@@ -75,6 +83,29 @@ class Message
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set hash
+     *
+     * @param string $hash
+     * @return Message
+     */
+    public function setHash($hash)
+    {
+        $this->hash = $hash;
+
+        return $this;
+    }
+
+    /**
+     * Get hash
+     *
+     * @return string 
+     */
+    public function getHash()
+    {
+        return $this->hash;
     }
 
     /**

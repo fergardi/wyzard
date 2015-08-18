@@ -9,13 +9,21 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class AccountController extends Controller
 {
     /**
-     * @Route("/game/account/profile/{player}", requirements={"player" = "\s+"})
+     * @Route("/game/account/profile/{player}")
      * @Template("ArchmageGameBundle:Account:profile.html.twig")
      */
-    public function profileAction($player)
+    public function profileAction($player = null)
     {
         $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick($player);
+        if ($player == null) {
+            $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        } else {
+            $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick($player);
+            if (!$player) {
+                $this->addFlash('danger', 'No existe ningún jugador con ese nombre.');
+                return $this->redirectToRoute('archmage_game_account_profile');
+            }
+        }
         return array(
             'player' => $player,
         );
@@ -29,30 +37,35 @@ class AccountController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $players = $em->getRepository('ArchmageGameBundle:Player')->findAll();
-        return array(
-            'players' => $players,
-        );
-    }
-
-    /**
-     * @Route("/game/account/inbox")
-     * @Template("ArchmageGameBundle:Account:inbox.html.twig")
-     */
-    public function inboxAction()
-    {
-        $em = $this->getDoctrine()->getManager();
         $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         return array(
-            'player' => $player,
+            'players' => $players,
+            'search' => $player->getNick(),
         );
     }
 
     /**
-     * @Route("/game/account/outbox")
-     * @Template("ArchmageGameBundle:Account:outbox.html.twig")
+     * @Route("/game/account/message/{hash}")
+     * @Template("ArchmageGameBundle:Account:message.html.twig")
      */
-    public function outboxAction()
+    public function messageAction($hash = null)
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        if (!$hash) {
+            $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+            return array(
+                'player' => $player,
+            );
+        } else {
+            $message = $em->getRepository('ArchmageGameBundle:Message')->findOneByHash($hash);
+            if (!$message) {
+                $this->addFlash('danger', 'No existe ningún mensaje con esa identificación.');
+                return $this->redirectToRoute('archmage_game_account_message');
+            } else {
+                return array(
+                    'message' => $message,
+                );
+            }
+        }
     }
 }

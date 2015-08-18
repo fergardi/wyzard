@@ -7,14 +7,14 @@
         <div class="jumbotron text-center">
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="box-icon alert alert-warning">
+                    <div class="box-icon alert alert-{{ player.faction.class }}">
                         <span class="fa fa-fw fa-4x fa-user"></span>
                     </div>
                     <div class="info">
                         <h1 class="text-center">{{ player.nick }}<small>#????</small></h1>
                         <a href="{{ path('archmage_game_army_attack') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-flag"></i><span class="hidden-xs">Atacar</span></a>
                         <a href="{{ path('archmage_game_magic_conjure') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-magic"></i><span class="hidden-xs">Conjurar</span></a>
-                        <a href="{{ path('archmage_game_account_outbox') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-send"></i><span class="hidden-xs">Mensaje</span></a>
+                        <a href="{{ path('archmage_game_account_message') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-send"></i><span class="hidden-xs">Mensaje</span></a>
                     </div>
                 </div>
             </div>

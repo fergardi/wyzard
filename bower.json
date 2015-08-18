@@ -9,7 +9,7 @@
         "bootstrap": "3.*",
         "fontawesome": "4.*",
         "bootstrap-validator": "*",
-        "datatables": "1.*",
+        "datatables": "1.10.*",
         "datatables-bootstrap3-plugin": "*"
     },
     "resolutions": {

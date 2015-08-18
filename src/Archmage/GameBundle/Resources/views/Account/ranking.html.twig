@@ -41,8 +41,9 @@
 {% block javascripts %}
     {{ parent() }}
     <script>
+        var search = '{{ search }}';
         $(document).ready(function() {
-            $('#datatable').dataTable({
+            var oTable = $('#datatable').dataTable({
                 "order": [[ 0, "asc" ]],
                 "aoColumns": [
                     {"sType": "num-fmt", "bSortable": true },
@@ -81,7 +82,8 @@
                     }
                 }
             });
+            $.fn.dataTableExt.pager.numbers_length = 5;
+            oTable.fnFilter(search);
         });
-        $.fn.dataTableExt.pager.numbers_length = 5;
     </script>
 {% endblock %}

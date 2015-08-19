@@ -23,7 +23,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $player = new Player();
         $player->setNick('Fergardi');
         $player->setFaction($this->getReference('Oscuridad'));
-        $player->setGold(300000);
+        $player->setGold(3000000);
         $player->setMana(1000);
         $player->setPeople(20000);
         $player->setMagic(1);
@@ -31,13 +31,13 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //EDIFICIOS
         $constructions = array(
             'Tierras' => 1000,
-            'Barreras' => 0,
-            'Fortalezas' => 0,
-            'Gremios' => 0,
-            'Talleres' => 0,
-            'Nodos' => 0,
-            'Pueblos' => 0,
-            'Granjas' => 0,
+            'Barreras' => 10,
+            'Fortalezas' => 10,
+            'Gremios' => 10,
+            'Talleres' => 10,
+            'Nodos' => 10,
+            'Pueblos' => 10,
+            'Granjas' => 10,
         );
         foreach ($constructions as $name => $quantity) {
             $construction = new Construction();
@@ -49,7 +49,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         }
         //HECHIZOS
         $researchs = array(
-            'Invocar Esqueletos' => 0,
+            'Invocar Esqueletos' => 10,
             'Invocar Zombis' => 0,
         );
         foreach ($researchs as $name => $quantity) {
@@ -63,11 +63,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         }
         //UNIDADES
         $troops = array(
-            'Arqueros' => 0,
-            'Caballeros' => 0,
-            'Catapultas' => 0,
-            'Milicias' => 0,
-            'Piqueros' => 0,
+            'Arqueros' => 10,
+            'Caballeros' => 10,
+            'Catapultas' => 10,
+            'Milicias' => 10,
+            'Piqueros' => 10,
         );
         foreach ($troops as $name => $quantity) {
             $troop = new Troop();

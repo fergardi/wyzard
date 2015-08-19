@@ -19,7 +19,7 @@
                                 <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
                             </div>
                             <div class="col-xs-8 text-padded">
-                                Texto descriptivo
+
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,14 @@
                                 <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/territory.jpg') }}">
                             </div>
                             <div class="col-xs-8 text-padded">
-                                Texto descriptivo
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" style="width: 30%">
+                                        1000
+                                    </div>
+                                    <div class="progress-bar progress-bar-danger" style="width: 70%">
+                                        500
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -98,13 +105,18 @@
                                 <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/defense.jpg') }}">
                             </div>
                             <div class="col-xs-8 text-padded">
-                                Texto descriptivo
+                                <div class="col-xs-12">
+                                    <i class="fa fa-fw fa-shield"></i><i class="fa fa-fw fa-magic"></i><a href="{{ path('archmage_game_home_help') }}">Hechizo de defensa</a>
+                                </div>
+                                <div class="col-xs-12">
+                                    <i class="fa fa-fw fa-shield"></i><i class="fa fa-fw fa-joomla"></i><a href="{{ path('archmage_game_home_help') }}">Artefacto de defensa</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <a href="{{ path('archmage_game_magic_artifact') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-joomla"></i><span class="hidden-xs">Artefactos</span></a>
                         <a href="{{ path('archmage_game_magic_conjure') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-magic"></i><span class="hidden-xs">Hechizos</span></a>
+                        <a href="{{ path('archmage_game_magic_artifact') }}" class="btn btn-default"><i class="fa fa-fw fa-lg fa-joomla"></i><span class="hidden-xs">Artefactos</span></a>
                     </div>
                 </div>
             </div>
@@ -117,7 +129,7 @@
                                 <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/social.jpg') }}">
                             </div>
                             <div class="col-xs-8 text-padded">
-                                Texto descriptivo
+
                             </div>
                         </div>
                     </div>

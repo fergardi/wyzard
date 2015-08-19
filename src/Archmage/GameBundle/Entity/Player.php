@@ -504,19 +504,6 @@ class Player
     }
 
     /**
-     * Get power
-     *
-     * @return integer
-     */
-    public function getPower()
-    {
-        $power = 0;
-        foreach ($this->troops as $troop) {
-            $power += $troop->getQuantity();
-        }
-        return $power;
-    }
-    /**
      * Get fortresses
      *
      * @return integer
@@ -525,6 +512,37 @@ class Player
     {
         foreach ($this->constructions as $construction) {
             if ($construction->getBuilding()->getName() == 'Fortalezas') return $construction->getQuantity();
+        }
+        return 0;
+    }
+
+    /**
+     * Get power
+     *
+     * @return integer
+     */
+    public function getPower()
+    {
+        $power = 0;
+        foreach ($this->troops as $troop) {
+            $power += $troop->getQuantity() * $troop->getUnit()->getAttack();
+        }
+        return $power;
+    }
+
+    /*
+     * MAINTENANCES
+     */
+
+    /**
+     * Get GoldPerTurn
+     *
+     * @return integer
+     */
+    public function getGoldPerTurn()
+    {
+        foreach ($this->constructions as $construction) {
+            if ($construction->getBuilding()->getName() == 'Granjas') return $construction->getQuantity() * $construction->getBuilding()->getGoldResource();
         }
         return 0;
     }

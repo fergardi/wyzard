@@ -17,7 +17,7 @@ img.background {
         left: 50%;
         margin-left: -512px; }
 }
-.panel, .jumbotron, .alert, .navbar, .progress, .progress-bar, .well, .table, ul.pagination {
+.panel, .jumbotron, .alert, .navbar, .well, .table, ul.pagination {
     opacity: 0.90;
     box-shadow: 5px 5px 5px black;
 }
@@ -33,6 +33,9 @@ img.background {
 .panel-body .text-padded {
     padding-top: 5px;
     padding-left: 0px;
+}
+.panel-body .progress {
+    margin-right: 10px;
 }
 .panel-body p {
     padding-top: 5px;

@@ -5,6 +5,8 @@ namespace Archmage\GameBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Validator\Constraints as Constraints;
 
 class KingdomController extends Controller
 {
@@ -21,10 +23,24 @@ class KingdomController extends Controller
      * @Route("/game/kingdom/tax")
      * @Template("ArchmageGameBundle:Kingdom:tax.html.twig")
      */
-    public function taxAction()
+    public function taxAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        if ($request->isMethod('POST')) {
+            $turns = $_POST['turns'];
+            if (is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
+                $gold = $turns * $player->getGoldPerTurn();
+                $this->addFlash('success', 'Has recaudado '.$gold.' oro.');
+                $player->setGold($player->getGold() + $gold);
+                $player->setTurns($player->getTurns() - $turns);
+                $em->persist($player);
+                $em->flush();
+            } else {
+                $this->addFlash('danger', 'Ha ocurrido un error en el formulario, vuelve a intentarlo.');
+            }
+            return $this->redirect($this->generateUrl('archmage_game_kingdom_tax'));
+        }
         return array(
             'player' => $player,
         );

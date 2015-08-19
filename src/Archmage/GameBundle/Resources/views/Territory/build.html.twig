@@ -39,11 +39,12 @@
                                     <div class="input-group-btn">
                                         <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-wrench"></i> Construir</button>
                                     </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
+                                    <input type="number" class="form-control" id="builds{{ construction.id }}" min="1" max="{{ player.lands }}" value="0" required/>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 </div>
                             </div>
                         </form>
+                        {% include "ArchmageGameBundle::advice.html.twig" %}
                     </div>
                 </div>
             </div>

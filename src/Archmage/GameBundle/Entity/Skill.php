@@ -125,7 +125,7 @@ class Skill
      * @ORM\ManyToOne(targetEntity="Family")
      * @ORM\JoinColumn(name="family", referencedColumnName="id", nullable=true)
      */
-    private $family;
+    private $family = null;
 
     /**
      * @var Unit
@@ -133,7 +133,7 @@ class Skill
      * @ORM\ManyToOne(targetEntity="Unit")
      * @ORM\JoinColumn(name="unit", referencedColumnName="id", nullable=true)
      */
-    private $unit;
+    private $unit = null;
 
     /**
      * @var Type
@@ -141,7 +141,7 @@ class Skill
      * @ORM\ManyToOne(targetEntity="Type")
      * @ORM\JoinColumn(name="type", referencedColumnName="id", nullable=true)
      */
-    private $type;
+    private $type = null;
 
 
     /**

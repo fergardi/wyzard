@@ -27,7 +27,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $player->setMana(1000);
         $player->setPeople(20000);
         $player->setMagic(1);
-        $player->setTurns(300);
+        $player->setTurns(3000);
         //EDIFICIOS
         $constructions = array(
             'Tierras' => 1000,
@@ -109,6 +109,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 9; // the order in which fixtures will be loaded
+        return 10; // the order in which fixtures will be loaded
     }
 }

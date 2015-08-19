@@ -45,9 +45,9 @@ class Artifact
     /**
      * @var integer
      *
-     * @ORM\Column(name="goldAuction", type="bigint", nullable=false)
+     * @ORM\Column(name="goldAuction", type="bigint", nullable=true)
      */
-    private $goldAuction;
+    private $goldAuction = null;
 
     /**
      * @var integer

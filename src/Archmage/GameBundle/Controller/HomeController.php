@@ -12,9 +12,10 @@ class HomeController extends Controller
      * @Route("/")
      * @Route("/home")
      * @Route("/index")
-     * @Template("ArchmageGameBundle:Home:index.html.twig")
+     * @Route("/login")
+     * @Template("ArchmageGameBundle:Home:login.html.twig")
      */
-    public function indexAction()
+    public function loginAction()
     {
         $online = rand(5,20);
         $total = rand($online, 200);

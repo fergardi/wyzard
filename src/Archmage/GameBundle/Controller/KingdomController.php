@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\Constraints as Constraints;
 
 class KingdomController extends Controller
 {
@@ -16,7 +15,11 @@ class KingdomController extends Controller
      */
     public function summaryAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        return array(
+            'player' => $player,
+        );
     }
 
     /**
@@ -31,13 +34,13 @@ class KingdomController extends Controller
             $turns = $_POST['turns'];
             if (is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
                 $gold = $turns * $player->getGoldPerTurn();
-                $this->addFlash('success', 'Has recaudado '.$gold.' oro.');
+                $this->addFlash('success', 'Has gastado '.$turns.' turnos y recaudado '.$gold.' oro.');
                 $player->setGold($player->getGold() + $gold);
                 $player->setTurns($player->getTurns() - $turns);
                 $em->persist($player);
                 $em->flush();
             } else {
-                $this->addFlash('danger', 'Ha ocurrido un error en el formulario, vuelve a intentarlo.');
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
             return $this->redirect($this->generateUrl('archmage_game_kingdom_tax'));
         }

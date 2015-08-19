@@ -23,12 +23,12 @@
                     <tbody>
                         {% for player in players %}
                         <tr>
-                            <td class="text-right">{{ random(10) }}</td>
-                            <td class="text-right">{{ player.power }}</td>
-                            <td class="text-center"><a href="{{ path('archmage_game_account_profile') }}">{{ player.nick }}</a></td>
+                            <td class="text-right">{{ random(10)|nf }}</td>
+                            <td class="text-right">{{ player.power|nf }}</td>
+                            <td class="text-center"><a href="{{ path('archmage_game_account_profile', { 'player': player.nick } ) }}">{{ player.nick }}</a></td>
                             <td class="text-center hidden-xs">{{ player.faction.name }}</td>
-                            <td class="text-right">{{ player.lands }}</td>
-                            <td class="text-right">{{ player.fortresses }}</td>
+                            <td class="text-right">{{ player.building('Tierras').quantity|nf }}</td>
+                            <td class="text-right">{{ player.building('Fortalezas').quantity|nf }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

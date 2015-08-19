@@ -487,34 +487,38 @@ class Player
     }
 
     /*
-     * AUX FUNCTIONS
+     * BUILDINGS
      */
 
     /**
-     * Get lands
+     * Get building
      *
-     * @return integer
+     * @return Construction
      */
-    public function getLands()
+    public function getBuilding($name)
     {
         foreach ($this->constructions as $construction) {
-            if ($construction->getBuilding()->getName() == 'Tierras') return $construction->getQuantity();
+            if ($construction->getBuilding()->getName() == $name) return $construction;
         }
-        return 0;
+        return null;
     }
 
     /**
-     * Get fortresses
+     * Set building
      *
-     * @return integer
+     * @return Construction
      */
-    public function getFortresses()
+    public function setBuilding($name, $quantity)
     {
         foreach ($this->constructions as $construction) {
-            if ($construction->getBuilding()->getName() == 'Fortalezas') return $construction->getQuantity();
+            if ($construction->getBuilding()->getName() == $name) return $construction->setQuantity($quantity);
         }
-        return 0;
+        return null;
     }
+
+    /*
+     * POWER RANKING
+     */
 
     /**
      * Get power
@@ -531,6 +535,36 @@ class Player
     }
 
     /*
+     * CAPS
+     */
+
+    /**
+     * Get manaCap
+     *
+     * @return integer
+     */
+    public function getManaCap()
+    {
+        foreach ($this->constructions as $construction) {
+            if ($construction->getBuilding()->getName() == 'Nodos') return $construction->getQuantity() * $construction->getBuilding()->getManaCap();
+        }
+        return 0;
+    }
+
+    /**
+     * Get peopleCap
+     *
+     * @return integer
+     */
+    public function getPeopleCap()
+    {
+        foreach ($this->constructions as $construction) {
+            if ($construction->getBuilding()->getName() == 'Villages') return $construction->getQuantity() * $construction->getBuilding()->getPeopleCap();
+        }
+        return 0;
+    }
+
+    /*
      * MAINTENANCES
      */
 
@@ -543,6 +577,32 @@ class Player
     {
         foreach ($this->constructions as $construction) {
             if ($construction->getBuilding()->getName() == 'Granjas') return $construction->getQuantity() * $construction->getBuilding()->getGoldResource();
+        }
+        return 0;
+    }
+
+    /**
+     * Get ManaPerTurn
+     *
+     * @return integer
+     */
+    public function getManaPerTurn()
+    {
+        foreach ($this->constructions as $construction) {
+            if ($construction->getBuilding()->getName() == 'Nodos') return $construction->getQuantity() * $construction->getBuilding()->getManaResource();
+        }
+        return 0;
+    }
+
+    /**
+     * Get PeoplePerTurn
+     *
+     * @return integer
+     */
+    public function getPeoplePerTurn()
+    {
+        foreach ($this->constructions as $construction) {
+            if ($construction->getBuilding()->getName() == 'Pueblos') return $construction->getQuantity() * $construction->getBuilding()->getPeopleResource();
         }
         return 0;
     }

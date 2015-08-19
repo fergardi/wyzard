@@ -33,18 +33,17 @@
                         </div>
                     </div>
                     <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
+                        <form class="form-inline" data-toggle="validator" action="{{ path('archmage_game_magic_research') }}" method="post">
                             <div class="form-group has-feedback">
                                 <div class="input-group">
                                     <div class="input-group-btn">
                                         <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i> Investigar</button>
                                     </div>
-                                    <input type="number" class="form-control" id="turns{{ research.id }}" min="1" max="300" value="0" required/>
+                                    <input type="number" class="form-control" id="{{ research.spell.name }}" name="{{ research.spell.name }}" min="1" max="{{ player.turns }}" value="0" required/>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                                 </div>
                             </div>
                         </form>
-                        {% include "ArchmageGameBundle::advice.html.twig" %}
                     </div>
                 </div>
             </div>

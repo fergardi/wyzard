@@ -3,9 +3,8 @@
 {# % spaceless % #}
 <html lang="es">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>Archmage - {% block title %}{% endblock %}</title>
         {# block css #}
         {% block stylesheets %}
@@ -26,7 +25,7 @@
     </head>
     {# body #}
     <body>
-    <img src="{{ asset('bundles/archmagegame/images/background/theme.jpg') }}" class="background">
+    <img src="{{ asset('bundles/archmagegame/images/background/theme.jpg') }}" class="background" />
     {# block topbar menu #}
     {% block navbar %}{% endblock %}
     {# block flashbag messages #}

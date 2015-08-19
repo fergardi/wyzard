@@ -75,14 +75,14 @@ class Spell
      *
      * @ORM\Column(name="goldAuction", type="bigint", nullable=true)
      */
-    private $goldAuction;
+    private $goldAuction = null;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="rarityAuction", type="smallint", nullable=true)
      */
-    private $rarityAuction;
+    private $rarityAuction = null;
 
     /**
      * @var Faction

@@ -105,6 +105,27 @@ class Building
      */
     private $peopleResource;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="goldCap", type="bigint", nullable=false)
+     */
+    private $goldCap;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="manaCap", type="bigint", nullable=false)
+     */
+    private $manaCap;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="peopleCap", type="bigint", nullable=false)
+     */
+    private $peopleCap;
+
 
     /**
      * Get id
@@ -390,5 +411,74 @@ class Building
     public function getPeopleResource()
     {
         return $this->peopleResource;
+    }
+
+    /**
+     * Set goldCap
+     *
+     * @param integer $goldCap
+     * @return Building
+     */
+    public function setGoldCap($goldCap)
+    {
+        $this->goldCap = $goldCap;
+
+        return $this;
+    }
+
+    /**
+     * Get goldCap
+     *
+     * @return integer 
+     */
+    public function getGoldCap()
+    {
+        return $this->goldCap;
+    }
+
+    /**
+     * Set manaCap
+     *
+     * @param integer $manaCap
+     * @return Building
+     */
+    public function setManaCap($manaCap)
+    {
+        $this->manaCap = $manaCap;
+
+        return $this;
+    }
+
+    /**
+     * Get manaCap
+     *
+     * @return integer 
+     */
+    public function getManaCap()
+    {
+        return $this->manaCap;
+    }
+
+    /**
+     * Set peopleCap
+     *
+     * @param integer $peopleCap
+     * @return Building
+     */
+    public function setPeopleCap($peopleCap)
+    {
+        $this->peopleCap = $peopleCap;
+
+        return $this;
+    }
+
+    /**
+     * Get peopleCap
+     *
+     * @return integer 
+     */
+    public function getPeopleCap()
+    {
+        return $this->peopleCap;
     }
 }

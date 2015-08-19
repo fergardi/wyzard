@@ -92,6 +92,13 @@ class Unit
     private $goldAuction = null;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="rarityAuction", type="boolean", nullable=true)
+     */
+    private $rarityAuction = null;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="goldRecruit", type="integer", nullable=true)
@@ -154,6 +161,29 @@ class Unit
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Unit
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     /**
@@ -341,6 +371,29 @@ class Unit
     }
 
     /**
+     * Set rarityAuction
+     *
+     * @param boolean $rarityAuction
+     * @return Unit
+     */
+    public function setRarityAuction($rarityAuction)
+    {
+        $this->rarityAuction = $rarityAuction;
+
+        return $this;
+    }
+
+    /**
+     * Get rarityAuction
+     *
+     * @return boolean 
+     */
+    public function getRarityAuction()
+    {
+        return $this->rarityAuction;
+    }
+
+    /**
      * Set goldRecruit
      *
      * @param integer $goldRecruit
@@ -366,10 +419,10 @@ class Unit
     /**
      * Set faction
      *
-     * @param Faction $faction
+     * @param \Archmage\GameBundle\Entity\Faction $faction
      * @return Unit
      */
-    public function setFaction($faction)
+    public function setFaction(\Archmage\GameBundle\Entity\Faction $faction)
     {
         $this->faction = $faction;
 
@@ -379,7 +432,7 @@ class Unit
     /**
      * Get faction
      *
-     * @return Faction
+     * @return \Archmage\GameBundle\Entity\Faction 
      */
     public function getFaction()
     {
@@ -389,10 +442,10 @@ class Unit
     /**
      * Set family
      *
-     * @param Family $family
+     * @param \Archmage\GameBundle\Entity\Family $family
      * @return Unit
      */
-    public function setFamily($family)
+    public function setFamily(\Archmage\GameBundle\Entity\Family $family)
     {
         $this->family = $family;
 
@@ -402,7 +455,7 @@ class Unit
     /**
      * Get family
      *
-     * @return Family
+     * @return \Archmage\GameBundle\Entity\Family 
      */
     public function getFamily()
     {
@@ -412,10 +465,10 @@ class Unit
     /**
      * Set type
      *
-     * @param Type $type
+     * @param \Archmage\GameBundle\Entity\Type $type
      * @return Unit
      */
-    public function setType($type)
+    public function setType(\Archmage\GameBundle\Entity\Type $type)
     {
         $this->type = $type;
 
@@ -425,33 +478,10 @@ class Unit
     /**
      * Get type
      *
-     * @return Type
+     * @return \Archmage\GameBundle\Entity\Type 
      */
     public function getType()
     {
         return $this->type;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Unit
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 }

@@ -28,6 +28,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldResource(0);
         $building->setManaResource(0);
         $building->setPeopleResource(0);
+        $building->setGoldCap(0);
+        $building->setManaCap(0);
+        $building->setPeopleCap(0);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -45,6 +48,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldResource(0);
         $building->setManaResource(0);
         $building->setPeopleResource(0);
+        $building->setGoldCap(0);
+        $building->setManaCap(0);
+        $building->setPeopleCap(0);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -62,6 +68,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldResource(0);
         $building->setManaResource(0);
         $building->setPeopleResource(0);
+        $building->setGoldCap(0);
+        $building->setManaCap(0);
+        $building->setPeopleCap(0);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -79,6 +88,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldResource(0);
         $building->setManaResource(0);
         $building->setPeopleResource(0);
+        $building->setGoldCap(0);
+        $building->setManaCap(0);
+        $building->setPeopleCap(0);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -96,6 +108,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldResource(0);
         $building->setManaResource(0);
         $building->setPeopleResource(0);
+        $building->setGoldCap(0);
+        $building->setManaCap(0);
+        $building->setPeopleCap(0);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -113,6 +128,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldResource(0);
         $building->setManaResource(0);
         $building->setPeopleResource(0);
+        $building->setGoldCap(0);
+        $building->setManaCap(0);
+        $building->setPeopleCap(0);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -130,6 +148,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldResource(0);
         $building->setManaResource(0);
         $building->setPeopleResource(0);
+        $building->setGoldCap(0);
+        $building->setManaCap(0);
+        $building->setPeopleCap(0);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -147,6 +168,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldResource(0);
         $building->setManaResource(0);
         $building->setPeopleResource(0);
+        $building->setGoldCap(0);
+        $building->setManaCap(0);
+        $building->setPeopleCap(0);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -158,6 +182,6 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function getOrder()
     {
-        return 5; // the order in which fixtures will be loaded
+        return 7; // the order in which fixtures will be loaded
     }
 }

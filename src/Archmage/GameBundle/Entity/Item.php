@@ -36,9 +36,9 @@ class Item
 
     /**
      * @ORM\ManyToOne(targetEntity="Player", inversedBy="items")
-     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=true)
      **/
-    private $player;
+    private $player = null;
 
 
     /**
@@ -103,7 +103,7 @@ class Item
      * @param \Archmage\GameBundle\Entity\Player $player
      * @return Item
      */
-    public function setPlayer(\Archmage\GameBundle\Entity\Player $player)
+    public function setPlayer(\Archmage\GameBundle\Entity\Player $player = null)
     {
         $this->player = $player;
 

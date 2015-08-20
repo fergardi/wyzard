@@ -15,16 +15,16 @@ class MagicController extends Controller
      */
     public function chargeAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
             $turns = $_POST['turns'];
             if (is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
                 $mana = $turns * $player->getManaPerTurn();
                 $player->setMana($player->getMana() + $mana);
                 $player->setTurns($player->getTurns() - $turns);
-                $em->persist($player);
-                $em->flush();
+                $manager->persist($player);
+                $manager->flush();
                 $this->addFlash('success', 'Has gastado '.$turns.' turnos y ganado '.$mana.' maná.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
@@ -42,8 +42,8 @@ class MagicController extends Controller
      */
     public function conjureAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
 
         }
@@ -58,10 +58,27 @@ class MagicController extends Controller
      */
     public function researchAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
-
+            $turns = $_POST['turns'];
+            $research = $_POST['research'];
+            $research = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($research);
+            if ($research && $turns >= 1 && $turns <= $player->getTurns()){
+                $research->setTurns($research->getTurns() + $turns);
+                if ($research->getTurns() >= $research->getSpell()->getTurnResearch()) {
+                    $research->setActive(true);
+                    $this->addFlash('success', 'Has investigado completamente el hechizo "'.$research->getSpell()->getName().'".');
+                }
+                $player->setTurns($player->getTurns() - $turns);
+                $manager->persist($research);
+                $manager->persist($player);
+                $manager->flush();
+                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) en investigación.');
+            } else {
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+            }
+            return $this->redirect($this->generateUrl('archmage_game_magic_research'));
         }
         return array(
             'player' => $player,
@@ -74,8 +91,8 @@ class MagicController extends Controller
      */
     public function artifactAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
 
         }

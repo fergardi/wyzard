@@ -29,9 +29,9 @@ class Contract
 
     /**
      * @ORM\ManyToOne(targetEntity="Player", inversedBy="contracts")
-     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=true)
      **/
-    private $player;
+    private $player = null;
 
 
     /**
@@ -73,7 +73,7 @@ class Contract
      * @param \Archmage\GameBundle\Entity\Player $player
      * @return Contract
      */
-    public function setPlayer(\Archmage\GameBundle\Entity\Player $player)
+    public function setPlayer(\Archmage\GameBundle\Entity\Player $player = null)
     {
         $this->player = $player;
 

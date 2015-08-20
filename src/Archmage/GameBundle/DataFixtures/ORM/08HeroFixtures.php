@@ -26,6 +26,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setRarityAuction(0);
         $hero->setSkill(null);
         $hero->setFaction($this->getReference('Oscuridad'));
+        $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
         //MAGO NEGRO
@@ -40,6 +41,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setRarityAuction(0);
         $hero->setSkill(null);
         $hero->setFaction($this->getReference('Oscuridad'));
+        $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
         //SEÑOR DE LOS DEMONIOS
@@ -54,6 +56,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setRarityAuction(0);
         $hero->setSkill(null);
         $hero->setFaction($this->getReference('Destrucción'));
+        $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
         //JINETE DE DRAGONES
@@ -68,6 +71,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setRarityAuction(0);
         $hero->setSkill(null);
         $hero->setFaction($this->getReference('Destrucción'));
+        $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
         //ALQUIMISTA
@@ -82,6 +86,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setRarityAuction(0);
         $hero->setSkill(null);
         $hero->setFaction($this->getReference('Fantasmal'));
+        $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
         //AVATAR DE ELEMENTALES
@@ -96,6 +101,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setRarityAuction(0);
         $hero->setSkill(null);
         $hero->setFaction($this->getReference('Fantasmal'));
+        $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
         //MAESTRO DE LAS BESTIAS
@@ -110,6 +116,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setRarityAuction(0);
         $hero->setSkill(null);
         $hero->setFaction($this->getReference('Naturaleza'));
+        $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
         //LEPRECHAUNT
@@ -124,6 +131,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setRarityAuction(0);
         $hero->setSkill(null);
         $hero->setFaction($this->getReference('Naturaleza'));
+        $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
         //COMANDANTE CELESTIAL
@@ -138,6 +146,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setRarityAuction(0);
         $hero->setSkill(null);
         $hero->setFaction($this->getReference('Sagrado'));
+        $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
         //CRUZADO
@@ -152,6 +161,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setRarityAuction(0);
         $hero->setSkill(null);
         $hero->setFaction($this->getReference('Sagrado'));
+        $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
         $manager->flush();

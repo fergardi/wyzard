@@ -3,114 +3,102 @@
 {% block title %}Mercado negro{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-user-secret"></i>Mercado negro<br><small><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }}</small></h1>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <h1><i class="fa fa-fw fa-user-secret"></i>Mercado negro<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }} <i class="fa fa-fw fa-money"></i>{{ player.gold|nf }}</small></h1>
             </div>
-            {% for hero in heroes %}
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-{{ hero.faction.class }}">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i><a href="{{ path('archmage_game_home_help') }}#{{ hero.name|slug }}">{{ hero.name }}</a> [1]</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset(hero.image) }}">
-                            </div>
-                            <div class="col-xs-8 text-padded">
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ hero.goldMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ hero.manaMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ hero.peopleMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-joomla"></i><a href="#">Habilidad</a></div>
-                            </div>
+        </div>
+        {% for auction in auctions %}
+        <div class="col-xs-12 col-md-6">
+            {% if auction.contract is not null %}
+            <div class="panel panel-{{ auction.contract.hero.faction.class }}">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.contract.hero.name|slug }}">{{ auction.contract.hero.name }}</a> [1]</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( auction.contract.hero.image ) }}" />
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ auction.contract.hero.goldMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ auction.contract.hero.manaMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ auction.contract.hero.peopleMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-joomla"></i><a href="#">Habilidad</a></div>
                         </div>
                     </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
-            </div>
-            {% endfor %}
-            {% for artifact in artifacts %}
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-joomla"></i><a href="{{ path('archmage_game_home_help') }}#{{ artifact.name|slug }}">{{ artifact.name }}</a> [1]</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( artifact.image ) }}">
-                            </div>
-                            <div class="col-xs-8 text-padded">
-                                <i class="fa fa-fw fa-joomla"></i> {{ artifact.description }}
-                            </div>
+            {% elseif auction.research is not null %}
+            <div class="panel panel-{{ auction.research.spell.faction.class }}">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.research.spell.name|slug }}">{{ auction.research.spell.name }}</a></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( auction.research.spell.image ) }}" />
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ auction.research.spell.magic|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ auction.research.spell.manaCost|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ auction.research.spell.turnCost|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ auction.research.spell.turnResearch }}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ auction.research.spell.skill.description }}</div>
                         </div>
                     </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
-            </div>
-            {% endfor %}
-            {% for unit in units %}
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-{{ unit.faction.class }}">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-users"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ unit.name|slug }}">{{ unit.name }}</a> [{{ random(1500)|nf }}]</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( unit.image ) }}">
-                            </div>
-                            <div class="col-xs-8 text-padded">
-                                <div class="col-xs-4"><i class="fa fa-fw fa-rocket"></i>{{ unit.attack|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-shield"></i>{{ unit.defense|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-flash"></i>{{ unit.speed }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ unit.goldMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ unit.manaMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ unit.peopleMaintenance|nf }}</div>
-                                <div class="col-xs-6"><i class="fa fa-fw fa-user"></i><a href="#">{{ unit.family.name }}</a></div>
-                                <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i><a href="#">{{ unit.type.name }}</a></div>
-                                <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i><a href="#">Habilidad</a></div>
-                            </div>
+            {% elseif auction.troop is not null %}
+            <div class="panel panel-{{ auction.troop.unit.faction.class }}">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-users"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.troop.unit.name|slug }}">{{ auction.troop.unit.name }}</a> [{{ auction.troop.quantity|nf }}]</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( auction.troop.unit.image ) }}" />
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-4"><i class="fa fa-fw fa-rocket"></i>{{ auction.troop.unit.attack|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-shield"></i>{{ auction.troop.unit.defense|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-flash"></i>{{ auction.troop.unit.speed }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ auction.troop.unit.goldMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ auction.troop.unit.manaMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ auction.troop.unit.peopleMaintenance|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-user"></i><a href="#">{{ auction.troop.unit.family.name }}</a></div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i><a href="#">{{ auction.troop.unit.type.name }}</a></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i><a href="#">Habilidad</a></div>
                         </div>
                     </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Pujar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="turns" min="1" max="300" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </form>
+                </div>
+            {% elseif auction.item is not null %}
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-joomla"></i><a href="{{ path('archmage_game_home_help') }}#{{ auction.item.artifact.name|slug }}">{{ auction.item.artifact.name }}</a> [1]</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( auction.item.artifact.image ) }}" />
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <i class="fa fa-fw fa-joomla"></i> {{ auction.item.artifact.description }}
+                        </div>
                     </div>
                 </div>
+            {% endif %}
+                {# PANEL FOOTER, COMMON TO ALL #}
+                <div class="panel-footer text-center">
+                    <form id="auction{{ auction.id }}" name="auction{{ auction.id }}" class="form-inline" data-toggle="validator" action="{{ path( 'archmage_game_kingdom_auction' ) }}" method="post">
+                        <div class="form-group has-feedback">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.player == player %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-money"></i>Pujar</button>
+                                </div>
+                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.player == player %}disabled{% endif %} required />
+                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.player == player %}disabled{% endif %} required />
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
         </div>
     </div>
+</div>
 {% endblock %}

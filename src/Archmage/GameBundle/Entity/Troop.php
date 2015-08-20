@@ -36,9 +36,9 @@ class Troop
 
     /**
      * @ORM\ManyToOne(targetEntity="Player", inversedBy="troops")
-     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=true)
      **/
-    private $player;
+    private $player = null;
 
 
     /**
@@ -103,7 +103,7 @@ class Troop
      * @param \Archmage\GameBundle\Entity\Player $player
      * @return Troop
      */
-    public function setPlayer(\Archmage\GameBundle\Entity\Player $player)
+    public function setPlayer(\Archmage\GameBundle\Entity\Player $player = null)
     {
         $this->player = $player;
 

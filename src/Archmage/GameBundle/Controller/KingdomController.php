@@ -15,8 +15,8 @@ class KingdomController extends Controller
      */
     public function summaryAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         return array(
             'player' => $player,
         );
@@ -28,17 +28,17 @@ class KingdomController extends Controller
      */
     public function taxAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
             $turns = $_POST['turns'];
             if (is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
                 $gold = $turns * $player->getGoldPerTurn();
-                $this->addFlash('success', 'Has gastado '.$turns.' turnos y recaudado '.$gold.' oro.');
                 $player->setGold($player->getGold() + $gold);
                 $player->setTurns($player->getTurns() - $turns);
-                $em->persist($player);
-                $em->flush();
+                $manager->persist($player);
+                $manager->flush();
+                $this->addFlash('success', 'Has gastado '.$turns.' turnos y recaudado '.$gold.' oro.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -53,24 +53,40 @@ class KingdomController extends Controller
      * @Route("/game/kingdom/auction")
      * @Template("ArchmageGameBundle:Kingdom:auction.html.twig")
      */
-    public function auctionAction()
+    public function auctionAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
-        $units = $em->getRepository('ArchmageGameBundle:Unit')->findAll();
-        shuffle($units);
-        $units = array_slice($units, 0, 3);
-        $artifacts = $em->getRepository('ArchmageGameBundle:Artifact')->findAll();
-        shuffle($artifacts);
-        $artifacts = array_slice($artifacts, 0, 2);
-        $heroes = $em->getRepository('ArchmageGameBundle:Hero')->findAll();
-        shuffle($heroes);
-        $heroes = array_slice($heroes, 0, 1);
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $auctions = $manager->getRepository('ArchmageGameBundle:Auction')->findAll();
+        if ($request->isMethod('POST')) {
+            //variables
+            $auction = $_POST['auction'];
+            $bid = $_POST['bid'];
+            $turns = 1;
+            $auction = $manager->getRepository('ArchmageGameBundle:Auction')->findOneById($auction);
+            //validacion
+            if ($auction && $auction->getPlayer() != $player && $bid >= $auction->getBid() && $bid <= $player->getGold() && $player->getTurns() >= 1) {
+                //si existia antes un pujante se le devuelve el dinero de la puja
+                if ($auction->getPlayer()) {
+                    $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + $auction->getBid());
+                }
+                //actualizamos el dinero de la puja y el actual pujante
+                $auction->setPlayer($player);
+                $auction->setBid($bid);
+                $player->setGold($player->getGold() - $bid);
+                $player->setTurns($player->getTurns() - $turns);
+                $manager->persist($auction);
+                $manager->persist($player);
+                $manager->flush();
+                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y pujado '.$bid.' oro en la subasta por '.$auction->getName().'.');
+            } else {
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+            }
+            return $this->redirect($this->generateUrl('archmage_game_kingdom_auction'));
+        }
         return array(
             'player' => $player,
-            'heroes' => $heroes,
-            'units' => $units,
-            'artifacts' => $artifacts,
+            'auctions' => $auctions,
         );
     }
 }

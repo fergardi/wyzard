@@ -36,7 +36,7 @@ class FactionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $faction->setName('Naturaleza');
         $faction->setImage('bundles/archmagegame/images/faction/nature.jpg');
         $faction->setClass('success');
-        $faction->setSlogan('Bosque y Bestias');
+        $faction->setSlogan('Roca y Tierra');
         $faction->setDescription('Texto de prueba');
         $this->addReference($faction->getName(), $faction);
         $manager->persist($faction);

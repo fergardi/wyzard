@@ -38,6 +38,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             'Nodos' => 10,
             'Pueblos' => 10,
             'Granjas' => 10,
+            'Barracones' => 10,
         );
         foreach ($constructions as $name => $quantity) {
             $construction = new Construction();
@@ -100,6 +101,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $player->addMessage($message);
 
         //PERSIST && FLUSH
+        $this->setReference($player->getNick(), $player);
         $manager->persist($player);
         $manager->flush();
     }

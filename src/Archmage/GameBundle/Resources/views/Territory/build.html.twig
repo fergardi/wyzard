@@ -3,54 +3,55 @@
 {% block title %}Construir{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-wrench"></i>Construir<br><small><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }}</small></h1>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <h1><i class="fa fa-fw fa-wrench"></i>Construir<br><small><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }}</small></h1>
             </div>
-            {% for construction in player.constructions %}
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-home"></i><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}">{{ construction.building.name }}</a> [{{ construction.quantity|nf }}]</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( construction.building.image ) }}">
-                            </div>
-                            <div class="col-xs-8 text-padded">
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldCost|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCost|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleCost|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldResource|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaResource|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleResource|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldCap|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCap|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleCap|nf }}</div>
-                            </div>
+        </div>
+        {% for construction in player.constructions %}
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-home"></i><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}">{{ construction.building.name }}</a> [{{ construction.quantity|nf }}]</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( construction.building.image ) }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldCost|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCost|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleCost|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldResource|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaResource|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleResource|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldCap|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCap|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleCap|nf }}</div>
                         </div>
                     </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator" action="{{ path('archmage_game_territory_build') }}" method="post">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-wrench"></i> Construir</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="{{ construction.building.name }}" name="{{ construction.building.name }}" min="1" max="{{ player.building('Tierras').quantity }}" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <div class="panel-footer text-center">
+                    <form id="construction{{ construction.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_territory_build') }}" method="post">
+                        <div class="form-group has-feedback">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default" {% if construction.building.name == 'Tierras' %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-wrench"></i>Construir</button>
                                 </div>
+                                <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="{{ player.building('Tierras').quantity }}" value="0" {% if construction.building.name == 'Tierras' %}disabled{% endif %} required />
+                                <input type="hidden" id="construction" name="construction" value="{{ construction.id }}" {% if construction.building.name == 'Tierras' %}disabled{% endif %} required />
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}

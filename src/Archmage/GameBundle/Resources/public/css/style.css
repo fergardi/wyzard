@@ -31,14 +31,11 @@ img.background {
     padding: 0;
 }
 .panel-body .text-padded {
-    padding-top: 5px;
+    padding-top: 8px;
     padding-left: 0px;
 }
-.panel-body .progress {
-    margin-right: 10px;
-}
 .panel-body p {
-    padding-top: 5px;
+    padding-top: 8px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -159,10 +156,13 @@ body {
     margin-top: 0px;
 }
 /* TR PRIMARY WHITE */
-.table > thead > tr > td.primary, .table > tbody > tr > td.primary, .table > tfoot > tr > td.primary, .table > thead > tr > th.primary, .table > tbody > tr > th.primary, .table > tfoot > tr > th.primary, .table > thead > tr.primary > td, .table > tbody > tr.primary > td, .table > tfoot > tr.primary > td, .table > thead > tr.primary > th, .table > tbody > tr.primary > th, .table > tfoot > tr.primary > th {
+.table > thead > tr > td.primary, .table > tbody > tr > td.primary, .table > tfoot > tr > td.primary, .table > thead > tr > th.primary, .table > tbody > tr > th.primary, .table > tfoot > tr > th.primary, .table > thead > tr.primary > td, .table > tbody > tr.primary > td, .table > tfoot > tr.primary > td, .table > thead > tr.primary > th, .table > tbody > tr.primary > th, .table > tfoot > tr.primary > thm .progress-bar-primary {
     background-color: #E9E9E9;
 }
-.panel-primary .panel-heading, .primary, .primary a, .panel-primary > .panel-heading a {
+.progress-bar-striped {
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 75%, transparent 75%, transparent);
+}
+.panel-primary .panel-heading, .primary, .primary a, .panel-primary > .panel-heading a, .progress-bar-primary {
     color: black !important;
 }
 /* DATATABLES */

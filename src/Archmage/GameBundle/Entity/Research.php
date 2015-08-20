@@ -43,9 +43,9 @@ class Research
 
     /**
      * @ORM\ManyToOne(targetEntity="Player", inversedBy="researchs")
-     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=true)
      **/
-    private $player;
+    private $player = null;
 
 
     /**
@@ -133,7 +133,7 @@ class Research
      * @param \Archmage\GameBundle\Entity\Player $player
      * @return Research
      */
-    public function setPlayer(\Archmage\GameBundle\Entity\Player $player)
+    public function setPlayer(\Archmage\GameBundle\Entity\Player $player = null)
     {
         $this->player = $player;
 

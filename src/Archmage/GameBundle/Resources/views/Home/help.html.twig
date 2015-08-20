@@ -3,194 +3,209 @@
 {% block title %}Ayuda{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="page-header text-center">
-                    <a name="top"></a>
-                    <h1><i class="fa fa-fw fa-info-circle"></i>Ayuda</h1>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <a name="top"></a>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Ayuda</h1>
             </div>
-            <div class="col-xs-12"><a name="introduccion"></a>
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Objetivo del juego</div>
-                    <div class="panel-body">
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12"><a name="batallas"></a>
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">Batallas</div>
-                    <div class="panel-body">
-                        <p></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <div class="page-header text-center">
-                    <a name="facciones"></a>
-                    <h1><i class="fa fa-fw fa-info-circle"></i>Facciones</h1>
-                </div>
-            </div>
-            {% for faction in factions %}
-            <div class="col-xs-12 col-md-6"><a name="{{ faction.name|slug }}"></a>
-                <div class="panel panel-{{ faction.class }}">
-                    <div class="panel-heading text-center">{{ faction.name }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset(faction.image) }}">
-                            </div>
-                            <div class="col-xs-8 text-padded">
-                                {{ faction.description }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            <div class="col-xs-12">
-                <div class="page-header text-center">
-                    <a name="edificios"></a>
-                    <h1><i class="fa fa-fw fa-info-circle"></i>Edificios</h1>
-                </div>
-            </div>
-            {% for building in buildings %}
-            <div class="col-xs-12 col-md-6"><a name="{{ building.name|slug }}"></a>
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">{{ building.name }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( building.image ) }}">
-                            </div>
-                            <div class="col-xs-8 text-padded">
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ building.goldCost|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ building.manaCost|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ building.peopleCost|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ building.goldMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ building.manaMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ building.peopleMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ building.goldResource|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ building.manaResource|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ building.peopleResource|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ building.goldCap|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ building.manaCap|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ building.peopleCap|nf }}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            <div class="col-xs-12">
-                <div class="page-header text-center">
-                    <a name="unidades"></a>
-                    <h1><i class="fa fa-fw fa-info-circle"></i>Unidades</h1>
-                </div>
-            </div>
-            {% for unit in units %}
-            <div class="col-xs-12 col-md-6"><a name="{{ unit.name|slug }}"></a>
-                <div class="panel panel-{{ unit.faction.class }}">
-                    <div class="panel-heading text-center">{{ unit.name }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( unit.image ) }}">
-                            </div>
-                            <div class="col-xs-8 text-padded">
-                                <div class="col-xs-4"><i class="fa fa-fw fa-rocket"></i>{{ unit.attack|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-shield"></i>{{ unit.defense|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-flash"></i>{{ unit.speed }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ unit.goldMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ unit.manaMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ unit.peopleMaintenance|nf }}</div>
-                                <div class="col-xs-6"><i class="fa fa-fw fa-user"></i>{{ unit.family.name }}</div>
-                                <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i>{{ unit.type.name }}</div>
-                                <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>Habilidad</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            <div class="col-xs-12">
-                <div class="page-header text-center">
-                    <a name="heroes"></a>
-                    <h1><i class="fa fa-fw fa-info-circle"></i>Héroes</h1>
-                </div>
-            </div>
-            {% for hero in heroes %}
-            <div class="col-xs-12 col-md-6"><a name="{{ hero.name|slug }}"></a>
-                <div class="panel panel-{{ hero.faction.class }}">
-                    <div class="panel-heading text-center">{{ hero.name }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( hero.image ) }}">
-                            </div>
-                            <div class="col-xs-8 text-padded">
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ hero.goldMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ hero.manaMaintenance|nf }}</div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ hero.peopleMaintenance|nf }}</div>
-                                <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>Habilidad</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            <div class="col-xs-12">
-                <div class="page-header text-center">
-                    <a name="hechizos"></a>
-                    <h1><i class="fa fa-fw fa-info-circle"></i>Hechizos</h1>
-                </div>
-            </div>
-            {% for spell in spells %}
-            <div class="col-xs-12 col-md-6"><a name="{{ spell.name|slug }}"></a>
-                <div class="panel panel-{{ spell.faction.class }}">
-                    <div class="panel-heading text-center">{{ spell.name }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( spell.image ) }}">
-                            </div>
-                            <div class="col-xs-8 text-padded">
-                                <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ spell.magic|nf }}</div>
-                                <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ spell.manaCost|nf }}</div>
-                                <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ spell.turnCost|nf }}</div>
-                                <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ spell.turnResearch }}</div>
-                                <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ spell.skill.description }}</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            <div class="col-xs-12">
-                <div class="page-header text-center">
-                    <a name="artefactos"></a>
-                    <h1><i class="fa fa-fw fa-info-circle"></i>Artefactos</h1>
-                </div>
-            </div>
-            {% for artifact in artifacts %}
-            <div class="col-xs-12 col-md-6"><a name="{{ artifact.name|slug }}"></a>
-                <div class="panel panel-default">
-                    <div class="panel-heading text-center">{{ artifact.name }}</div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( artifact.image ) }}">
-                            </div>
-                            <div class="col-xs-8 text-padded">
-                                <i class="fa fa-fw fa-joomla"></i> {{ artifact.description }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
         </div>
+        <div class="col-xs-12"><a name="introduccion"></a>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">Objetivo del juego</div>
+                <div class="panel-body">
+                    <p>blabla</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12"><a name="batallas"></a>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">Batallas</div>
+                <div class="panel-body">
+                    <p>blabla</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <a name="facciones"></a>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Facciones</h1>
+            </div>
+        </div>
+        {% for faction in factions %}
+        <div class="col-xs-12 col-md-6"><a name="{{ faction.name|slug }}"></a>
+            <div class="panel panel-{{ faction.class }}">
+                <div class="panel-heading text-center">{{ faction.name }}</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset(faction.image) }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            {{ faction.description }}
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    {{ faction.slogan }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <a name="edificios"></a>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Edificios</h1>
+            </div>
+        </div>
+        {% for building in buildings %}
+        <div class="col-xs-12 col-md-6"><a name="{{ building.name|slug }}"></a>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">{{ building.name }}</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( building.image ) }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ building.goldCost|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ building.manaCost|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ building.peopleCost|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ building.goldMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ building.manaMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ building.peopleMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ building.goldResource|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ building.manaResource|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ building.peopleResource|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ building.goldCap|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ building.manaCap|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ building.peopleCap|nf }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    {{ building.description }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <a name="unidades"></a>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Unidades</h1>
+            </div>
+        </div>
+        {% for unit in units %}
+        <div class="col-xs-12 col-md-6"><a name="{{ unit.name|slug }}"></a>
+            <div class="panel panel-{{ unit.faction.class }}">
+                <div class="panel-heading text-center">{{ unit.name }}</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( unit.image ) }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-4"><i class="fa fa-fw fa-rocket"></i>{{ unit.attack|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-shield"></i>{{ unit.defense|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-flash"></i>{{ unit.speed }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ unit.goldMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ unit.manaMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ unit.peopleMaintenance|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-user"></i>{{ unit.family.name }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i>{{ unit.type.name }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    <i class="fa fa-fw fa-joomla"></i>Habilidad
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <a name="heroes"></a>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Héroes</h1>
+            </div>
+        </div>
+        {% for hero in heroes %}
+        <div class="col-xs-12 col-md-6"><a name="{{ hero.name|slug }}"></a>
+            <div class="panel panel-{{ hero.faction.class }}">
+                <div class="panel-heading text-center">{{ hero.name }}</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( hero.image ) }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ hero.goldMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ hero.manaMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ hero.peopleMaintenance|nf }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    <i class="fa fa-fw fa-joomla"></i>Habilidad
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <a name="hechizos"></a>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Hechizos</h1>
+            </div>
+        </div>
+        {% for spell in spells %}
+        <div class="col-xs-12 col-md-6"><a name="{{ spell.name|slug }}"></a>
+            <div class="panel panel-{{ spell.faction.class }}">
+                <div class="panel-heading text-center">{{ spell.name }}</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( spell.image ) }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ spell.magic|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ spell.manaCost|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ spell.turnCost|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ spell.turnResearch }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    <i class="fa fa-fw fa-joomla"></i>{{ spell.skill.description }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <a name="artefactos"></a>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Artefactos</h1>
+            </div>
+        </div>
+        {% for artifact in artifacts %}
+        <div class="col-xs-12 col-md-6"><a name="{{ artifact.name|slug }}"></a>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">{{ artifact.name }}</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( artifact.image ) }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <i class="fa fa-fw fa-joomla"></i> {{ artifact.description }}
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    Se obtiene en la subasta, explorando o con Encontrar artefacto.
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}

@@ -17,7 +17,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //TIERRAS
         $building = new Building();
         $building->setName('Tierras');
-        $building->setDescription('Texto de prueba');
+        $building->setDescription('Otorgan espacio de construcción adicional a tu reino.');
         $building->setImage('bundles/archmagegame/images/building/land.jpg');
         $building->setGoldCost(0);
         $building->setManaCost(0);
@@ -37,7 +37,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //GRANJAS
         $building = new Building();
         $building->setName('Granjas');
-        $building->setDescription('Texto de prueba');
+        $building->setDescription('Otorgan gran cantidad de oro a tu reino.');
         $building->setImage('bundles/archmagegame/images/building/farm.jpg');
         $building->setGoldCost(0);
         $building->setManaCost(0);
@@ -57,7 +57,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //PUEBLOS
         $building = new Building();
         $building->setName('Pueblos');
-        $building->setDescription('Texto de prueba');
+        $building->setDescription('Otorgan e incrementan la población máxima de tu reino.');
         $building->setImage('bundles/archmagegame/images/building/village.jpg');
         $building->setGoldCost(0);
         $building->setManaCost(0);
@@ -77,7 +77,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //NODES
         $building = new Building();
         $building->setName('Nodos');
-        $building->setDescription('Texto de prueba');
+        $building->setDescription('Otorgan e incrementan el maná máximo de tu reino.');
         $building->setImage('bundles/archmagegame/images/building/node.jpg');
         $building->setGoldCost(0);
         $building->setManaCost(0);
@@ -97,7 +97,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //BARRERAS
         $building = new Building();
         $building->setName('Barreras');
-        $building->setDescription('Texto de prueba');
+        $building->setDescription('Protegen frente a hechizos y artefactos enemigos.');
         $building->setImage('bundles/archmagegame/images/building/barrier.jpg');
         $building->setGoldCost(0);
         $building->setManaCost(0);
@@ -117,7 +117,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //FORTALEZAS
         $building = new Building();
         $building->setName('Fortalezas');
-        $building->setDescription('Texto de prueba');
+        $building->setDescription('Si te quedas sin ninguna, tu reino es destruido.');
         $building->setImage('bundles/archmagegame/images/building/fortress.jpg');
         $building->setGoldCost(0);
         $building->setManaCost(0);
@@ -137,7 +137,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //TALLERES
         $building = new Building();
         $building->setName('Talleres');
-        $building->setDescription('Texto de prueba');
+        $building->setDescription('Aumentan la cantidad de edificios construidos por turno.');
         $building->setImage('bundles/archmagegame/images/building/workshop.jpg');
         $building->setGoldCost(0);
         $building->setManaCost(0);
@@ -157,8 +157,28 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //GREMIOS
         $building = new Building();
         $building->setName('Gremios');
-        $building->setDescription('Texto de prueba');
+        $building->setDescription('Reducen la cantidad de turnos necesarios al investigar.');
         $building->setImage('bundles/archmagegame/images/building/guild.jpg');
+        $building->setGoldCost(0);
+        $building->setManaCost(0);
+        $building->setPeopleCost(0);
+        $building->setGoldMaintenance(0);
+        $building->setManaMaintenance(0);
+        $building->setPeopleMaintenance(0);
+        $building->setGoldResource(0);
+        $building->setManaResource(0);
+        $building->setPeopleResource(0);
+        $building->setGoldCap(0);
+        $building->setManaCap(0);
+        $building->setPeopleCap(0);
+        $this->addReference($building->getName(), $building);
+        $manager->persist($building);
+
+        //BARRACONES
+        $building = new Building();
+        $building->setName('Barracones');
+        $building->setDescription('Aumentan la cantidad de tropas reclutadas al turno.');
+        $building->setImage('bundles/archmagegame/images/building/barrack.jpg');
         $building->setGoldCost(0);
         $building->setManaCost(0);
         $building->setPeopleCost(0);

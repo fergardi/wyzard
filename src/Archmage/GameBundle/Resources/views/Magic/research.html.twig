@@ -3,57 +3,58 @@
 {% block title %}Investigar{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="page-header text-center">
-                    <h1><i class="fa fa-fw fa-graduation-cap"></i>Investigar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <h1><i class="fa fa-fw fa-graduation-cap"></i>Investigar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
             </div>
-            {% for research in player.researchs if
-                not research.active
-                and research.spell.faction == player.faction
-                and research.spell.magic <= player.magic
-            %}
-            <div class="col-xs-12 col-md-6">
-                <div class="panel panel-{{ research.spell.faction.class }}">
-                    <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i><a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}">{{ research.spell.name }}</a></div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <img class="custom-thumbnail" src="{{ asset( research.spell.image ) }}">
-                            </div>
-                            <div class="col-xs-8 text-padded">
-                                <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ research.spell.magic|nf }}</div>
-                                <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ research.spell.manaCost|nf }}</div>
-                                <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ research.turns|nf }}</div>
-                                <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ research.spell.turnResearch }}</div>
-                                <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ research.spell.skill.description }}</div>
-                            </div>
+        </div>
+        {% for research in player.researchs if
+            not research.active
+            and research.spell.faction == player.faction
+            and research.spell.magic <= player.magic
+        %}
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-{{ research.spell.faction.class }}">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i><a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}">{{ research.spell.name }}</a></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( research.spell.image ) }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ research.spell.magic|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ research.spell.manaCost|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ research.turns|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ research.spell.turnResearch }}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ research.spell.skill.description }}</div>
                         </div>
                     </div>
-                    <div class="panel-footer text-center">
-                        <form class="form-inline" data-toggle="validator" action="{{ path('archmage_game_magic_research') }}" method="post">
-                            <div class="form-group has-feedback">
-                                <div class="input-group">
-                                    <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i> Investigar</button>
-                                    </div>
-                                    <input type="number" class="form-control" id="{{ research.spell.name }}" name="{{ research.spell.name }}" min="1" max="{{ player.turns }}" value="0" required/>
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                </div>
+                <div class="panel-footer text-center">
+                    <form id="research{{ research.id }}" name="research{{ research.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_magic_research') }}" method="post">
+                        <div class="form-group has-feedback">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i>Investigar</button>
                                 </div>
+                                <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ player.turns }}" value="0" required/>
+                                <input type="hidden" id="research" name="research" value="{{ research.id }}" required />
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            {% else %}
-            <div class="container">
-                <div class="col-xs-12 alert alert-danger text-center" role="alert">
-                    <i class="fa fa-fw fa-lg fa-exclamation-triangle"></i> Ya no tienes nada más que investigar. Tal vez sea la hora de lanzar el Armageddon.
-                </div>
-            </div>
-            {% endfor %}
         </div>
+        {% else %}
+        <div class="container">
+            <div class="col-xs-12 alert alert-danger text-center" role="alert">
+                <i class="fa fa-fw fa-lg fa-exclamation-triangle"></i> Ya no tienes nada más que investigar. Tal vez puedas comprar alguno más en el <i class="fa fa-fw fa-user-secret"></i><a href="{{ path( 'archmage_game_kingdom_auction' ) }}">Mercado negro</a>.
+            </div>
+        </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}

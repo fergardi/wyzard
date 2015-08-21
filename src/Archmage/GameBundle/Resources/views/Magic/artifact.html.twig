@@ -25,11 +25,12 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <form class="form-inline" data-toggle="validator">
+                    <form id="item{{ item.id }}" name="item{{ item.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_magic_artifact') }}" method="post">
                         <div class="form-group">
                             <div class="input-group">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-joomla"></i> Activar</button>
-                                <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-shield"></i> Defensa</button>
+                                <input type="hidden" id="item" name="item" value="{{ item.id }}" required />
+                                <button type="submit" id="activate" name="activate" class="btn btn-default"><i class="fa fa-fw fa-lg fa-joomla"></i>Activar</button>
+                                <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-shield"></i>Defensa</button>
                             </div>
                         </div>
                     </form>

@@ -15,10 +15,10 @@ class ArmyController extends Controller
      */
     public function recruitAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
-        $faction = $em->getRepository('ArchmageGameBundle:Faction')->findOneBy(array('name' => 'Neutral'));
-        $units = $em->getRepository('ArchmageGameBundle:Unit')->findBy(array('faction' => $faction->getId()), array('name' => 'asc'));
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $faction = $manager->getRepository('ArchmageGameBundle:Faction')->findOneBy(array('name' => 'Neutral'));
+        $units = $manager->getRepository('ArchmageGameBundle:Unit')->findBy(array('faction' => $faction->getId()), array('name' => 'asc'));
         return array(
             'player' => $player,
             'units' => $units,
@@ -31,10 +31,24 @@ class ArmyController extends Controller
      */
     public function disbandAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
-
+            $turns = 1;
+            $quantity = $_POST['quantity'];
+            $troop = $_POST['troop'];
+            $troop = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop);
+            if ($troop && $turns <= $player->getTurns() && $quantity > 0 && $quantity <= $troop->getQuantity()) {
+                $troop->setQuantity($troop->getQuantity() - $quantity);
+                $player->setTurns($player->getTurns() - $turns);
+                $manager->persist($troop);
+                $manager->persist($player);
+                $manager->flush();
+                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y desbandado '.$quantity.' unidad(es).');
+            } else {
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+            }
+            return $this->redirect($this->generateUrl('archmage_game_army_disband'));
         }
         return array(
             'player' => $player,
@@ -47,8 +61,8 @@ class ArmyController extends Controller
      */
     public function attackAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
 
         }

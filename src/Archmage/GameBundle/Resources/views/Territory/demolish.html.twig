@@ -36,13 +36,14 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <form class="form-inline" data-toggle="validator" action="{{ path('archmage_game_territory_demolish') }}" method="post">
+                    <form id="construction{{ construction.id }}" name="construction{{ construction.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_territory_demolish') }}" method="post">
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-bomb"></i> Derribar</button>
+                                    <button type="submit" class="btn btn-default" {% if construction.building.name == 'Tierras' or construction.quantity <= 0 %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-bomb"></i>Demoler</button>
                                 </div>
-                                <input type="number" class="form-control" id="{{ construction.building.name }}" name="{{ construction.building.name }}" min="1" max="{{ player.turns }}" value="0" required/>
+                                <input type="number" class="form-control" id="lands" name="lands" min="1" max="{{ construction.quantity }}" value="0" {% if construction.building.name == 'Tierras' or construction.quantity <= 0 %}disabled{% endif %} required />
+                                <input type="hidden" id="construction" name="construction" value="{{ construction.id }}" {% if construction.building.name == 'Tierras' or construction.quantity <= 0 %}disabled{% endif %} required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
                         </div>

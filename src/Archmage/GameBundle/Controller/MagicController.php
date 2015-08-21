@@ -94,7 +94,18 @@ class MagicController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
-
+            $turns = 1;
+            $item = $_POST['item'];
+            $item = $manager->getRepository('ArchmageGameBundle:Item')->findOneById($item);
+            if ($item) {
+                $player->setTurns($player->getTurns() - $turns);
+                $manager->persist($player);
+                $manager->flush();
+                $this->addFlash('success', 'Has gastado '.$turns.' en '.$item->getArtifact()->getName().'.');
+            } else {
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+            }
+            return $this->redirect($this->generateUrl('archmage_game_magic_artifact'));
         }
         return array(
             'player' => $player,

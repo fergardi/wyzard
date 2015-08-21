@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-wrench"></i>Construir<br><small><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }}</small></h1>
+                <h1><i class="fa fa-fw fa-wrench"></i>Construir<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }} <i class="fa fa-fw fa-money"></i>{{ player.gold|nf }}</small></h1>
             </div>
         </div>
         {% for construction in player.constructions %}
@@ -36,14 +36,14 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <form id="construction{{ construction.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_territory_build') }}" method="post">
+                    <form id="construction{{ construction.id }}" name="construction{{ construction.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_territory_build') }}" method="post">
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default" {% if construction.building.name == 'Tierras' %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-wrench"></i>Construir</button>
+                                    <button type="submit" class="btn btn-default" {% if construction.building.name == 'Tierras'  or player.building('Tierras').quantity <= 0%}disabled{% endif %}><i class="fa fa-fw fa-lg fa-wrench"></i>Construir</button>
                                 </div>
-                                <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="{{ player.building('Tierras').quantity }}" value="0" {% if construction.building.name == 'Tierras' %}disabled{% endif %} required />
-                                <input type="hidden" id="construction" name="construction" value="{{ construction.id }}" {% if construction.building.name == 'Tierras' %}disabled{% endif %} required />
+                                <input type="number" class="form-control" id="lands" name="lands" min="1" max="{{ player.building('Tierras').quantity }}" value="0" {% if construction.building.name == 'Tierras' or player.building('Tierras').quantity <= 0 %}disabled{% endif %} required />
+                                <input type="hidden" id="construction" name="construction" value="{{ construction.id }}" {% if construction.building.name == 'Tierras' or player.building('Tierras').quantity <= 0 %}disabled{% endif %} required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
                         </div>

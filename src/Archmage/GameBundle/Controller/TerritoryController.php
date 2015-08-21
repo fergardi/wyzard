@@ -15,17 +15,17 @@ class TerritoryController extends Controller
      */
     public function exploreAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
             $turns = $_POST['turns'];
             if (is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
                 $lands = $turns * 1;
                 $player->setBuilding('Tierras', $player->getBuilding('Tierras')->getQuantity() + $lands);
                 $player->setTurns($player->getTurns() - $turns);
-                $em->persist($player);
-                $em->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turnos y encontrado '.$lands.' tierras.');
+                $manager->persist($player);
+                $manager->flush();
+                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y encontrado '.$lands.' tierra(s).');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -42,10 +42,25 @@ class TerritoryController extends Controller
      */
     public function buildAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
-
+            $turns = 1;
+            $lands = $_POST['lands'];
+            $construction = $_POST['construction'];
+            $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
+            if ($construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $player->getBuilding('Tierras')->getQuantity() && $turns <= $player->getTurns()) {
+                $construction->setQuantity($construction->getQuantity() + $lands);
+                $player->getBuilding('Tierras')->setQuantity($player->getBuilding('Tierras')->getQuantity() - $lands);
+                $player->setTurns($player->getTurns() - $turns);
+                $manager->persist($construction);
+                $manager->persist($player);
+                $manager->flush();
+                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y X oro y construido '.$lands.' '.$construction->getBuilding()->getName().'.');
+            } else {
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+            }
+            return $this->redirect($this->generateUrl('archmage_game_territory_build'));
         }
         return array(
             'player' => $player,
@@ -58,10 +73,25 @@ class TerritoryController extends Controller
      */
     public function demolishAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
-
+            $turns = 1;
+            $lands = $_POST['lands'];
+            $construction = $_POST['construction'];
+            $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
+            if ($construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $construction->getQuantity() && $turns <= $player->getTurns()) {
+                $construction->setQuantity($construction->getQuantity() - $lands);
+                $player->getBuilding('Tierras')->setQuantity($player->getBuilding('Tierras')->getQuantity() + $lands);
+                $player->setTurns($player->getTurns() - $turns);
+                $manager->persist($construction);
+                $manager->persist($player);
+                $manager->flush();
+                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y destruido '.$lands.' edificio(s).');
+            } else {
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+            }
+            return $this->redirect($this->generateUrl('archmage_game_territory_demolish'));
         }
         return array(
             'player' => $player,

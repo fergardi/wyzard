@@ -46,14 +46,13 @@ class TerritoryController extends Controller
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
             $turns = 1;
-            $lands = $_POST['lands'];
-            $construction = $_POST['construction'];
+            $lands = $_POST['lands'] or null;
+            $construction = $_POST['construction'] or null;
             $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
-            if ($construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $player->getBuilding('Tierras')->getQuantity() && $turns <= $player->getTurns()) {
+            if ($lands && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $player->getBuilding('Tierras')->getQuantity() && $turns <= $player->getTurns()) {
                 $construction->setQuantity($construction->getQuantity() + $lands);
                 $player->getBuilding('Tierras')->setQuantity($player->getBuilding('Tierras')->getQuantity() - $lands);
                 $player->setTurns($player->getTurns() - $turns);
-                $manager->persist($construction);
                 $manager->persist($player);
                 $manager->flush();
                 $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y X oro y construido '.$lands.' '.$construction->getBuilding()->getName().'.');
@@ -77,17 +76,16 @@ class TerritoryController extends Controller
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
             $turns = 1;
-            $lands = $_POST['lands'];
-            $construction = $_POST['construction'];
+            $lands = $_POST['lands'] or null;
+            $construction = $_POST['construction'] or null;
             $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
-            if ($construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $construction->getQuantity() && $turns <= $player->getTurns()) {
+            if ($lands && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $construction->getQuantity() && $turns <= $player->getTurns()) {
                 $construction->setQuantity($construction->getQuantity() - $lands);
                 $player->getBuilding('Tierras')->setQuantity($player->getBuilding('Tierras')->getQuantity() + $lands);
                 $player->setTurns($player->getTurns() - $turns);
-                $manager->persist($construction);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y destruido '.$lands.' edificio(s).');
+                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y derribado '.$lands.' edificio(s).');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

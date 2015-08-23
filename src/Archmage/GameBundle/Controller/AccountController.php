@@ -14,11 +14,11 @@ class AccountController extends Controller
      */
     public function profileAction($player = null)
     {
-        $em = $this->getDoctrine()->getManager();
+        $manager = $this->getDoctrine()->getManager();
         if ($player == null) {
-            $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+            $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         } else {
-            $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick($player);
+            $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick($player);
             if (!$player) {
                 $this->addFlash('danger', 'No existe ningún jugador con ese nombre.');
                 return $this->redirectToRoute('archmage_game_account_profile');
@@ -35,9 +35,9 @@ class AccountController extends Controller
      */
     public function rankingAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $players = $em->getRepository('ArchmageGameBundle:Player')->findAll();
-        $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $manager = $this->getDoctrine()->getManager();
+        $players = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         return array(
             'players' => $players,
             'search' => $player->getNick(),
@@ -50,14 +50,14 @@ class AccountController extends Controller
      */
     public function messageAction($hash = null)
     {
-        $em = $this->getDoctrine()->getManager();
+        $manager = $this->getDoctrine()->getManager();
         if (!$hash) {
-            $player = $em->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+            $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
             return array(
                 'player' => $player,
             );
         } else {
-            $message = $em->getRepository('ArchmageGameBundle:Message')->findOneByHash($hash);
+            $message = $manager->getRepository('ArchmageGameBundle:Message')->findOneByHash($hash);
             if (!$message) {
                 $this->addFlash('danger', 'No existe ningún mensaje con esa identificación.');
                 return $this->redirectToRoute('archmage_game_account_message');

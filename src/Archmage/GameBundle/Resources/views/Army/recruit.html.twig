@@ -7,39 +7,39 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-user-plus"></i>Reclutar<br><small><i class="fa fa-fw fa-hourglass"></i>300</small></h1>
+                <h1><i class="fa fa-fw fa-user-plus"></i>Reclutar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
             </div>
         </div>
-        {% for unit in units %}
+        {% for troop in player.troops if troop.unit.faction.name == 'Neutral' %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><a href="{{ path('archmage_game_home_help') }}#{{ unit.name|slug }}">{{ unit.name }}</a> [{{ random(1500)|nf }}]</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-group"></i><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name }}</a> [{{ troop.quantity|nf }}]</div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset( unit.image ) }}">
+                            <img class="custom-thumbnail" src="{{ asset( troop.unit.image ) }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-4"><i class="fa fa-fw fa-rocket"></i>{{ unit.attack|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-shield"></i>{{ unit.defense|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-flash"></i>{{ unit.speed }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ unit.goldMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ unit.manaMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ unit.peopleMaintenance|nf }}</div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-user"></i><a href="#">{{ unit.family.name }}</a></div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i><a href="#">{{ unit.type.name }}</a></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-rocket"></i>{{ troop.unit.attack|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-shield"></i>{{ troop.unit.defense|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-flash"></i>{{ troop.unit.speed }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ troop.unit.goldRecruit|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ troop.unit.goldMaintenance|nf }}<i class="fa fa-fw fa-hourglass"></i></div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-user"></i><a href="#">{{ troop.unit.family.name }}</a></div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i><a href="#">{{ troop.unit.type.name }}</a></div>
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i><a href="#">Habilidad</a></div>
                         </div>
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <form class="form-inline" data-toggle="validator" action="{{ path('archmage_game_army_recruit') }}" method="post">
+                    <form id="troop{{ troop.id }}" name="troop{{ troop.id }}" class="form-inline" data-toggle="validator" action="{{ path( 'archmage_game_army_recruit' ) }}" method="post">
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i> Reclutar</button>
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-money"></i>Reclutar</button>
                                 </div>
-                                <input type="number" class="form-control" id="{{ unit.name }}" name="{{ unit.name }}" min="1" max="{{ player.turns * 10 }}" value="0" required/>
+                                <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="" value="0" required />
+                                <input type="hidden" id="troop" name="troop" value="{{ troop.id }}" required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
                         </div>

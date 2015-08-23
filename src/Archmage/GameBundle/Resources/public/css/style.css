@@ -39,6 +39,11 @@ img.background {
     padding-left: 15px;
     padding-right: 15px;
 }
+@media screen and (max-width: 360px) and (orientation: portrait) {
+    .panel-body. text-padded {
+        font-size:10px !important;
+    }
+}
 img.custom-thumbnail {
     max-width: 100%;
     border-right: 1px solid rgba(0, 0, 0, 0.6);
@@ -182,3 +187,7 @@ div.dataTables_paginate, div.dataTables_filter {
     }
 }
 html {-webkit-text-size-adjust: none !important;}
+/* ARREGLAR BORDES BLANCOS EN BOOTSRAP SELECT */
+.bootstrap-select {
+    border-radius: 4px !important;
+}

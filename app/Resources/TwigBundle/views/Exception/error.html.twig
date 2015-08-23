@@ -1,11 +1,12 @@
 {% extends "ArchmageGameBundle::layout.html.twig" %}
 
 {% block body %}
-    <div class="container">
-        <div class="jumbotron" id="jumbotronError">
-            <h1 class="text-center">ERROR <i class="fa fa-fw fa-lg fa-ban"></i> <small>Algo se ha roto!</small></h1>
-            <hr>
-            <p class="lead">Por tu torpeza se han desencadenado las siete maldiciones del inframundo. Espero que estés contento. Vamos a morir!</p>
-        </div>
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1><i class="fa fa-fw fa-ban"></i>ERROR<br><small>Algo habrás hecho!</small></h1>
+        <hr>
+        <p>Por tu torpeza se han desencadenado fuerzas impredecibles del inframundo.<br>Ha muerto un gatito.</p>
+        <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/error.jpg') }}">
     </div>
+</div>
 {% endblock %}

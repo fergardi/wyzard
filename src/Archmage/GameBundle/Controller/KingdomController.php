@@ -31,8 +31,8 @@ class KingdomController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
-            $turns = $_POST['turns'];
-            if (is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
+            $turns = $_POST['turns'] or null;
+            if ($turns && $turns > 0 && $turns <= $player->getTurns()) {
                 $gold = $turns * $player->getGoldPerTurn();
                 $player->setGold($player->getGold() + $gold);
                 $player->setTurns($player->getTurns() - $turns);
@@ -59,13 +59,11 @@ class KingdomController extends Controller
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         $auctions = $manager->getRepository('ArchmageGameBundle:Auction')->findAll();
         if ($request->isMethod('POST')) {
-            //variables
-            $auction = $_POST['auction'];
-            $bid = $_POST['bid'];
+            $auction = $_POST['auction'] or null;
+            $bid = $_POST['bid'] or null;
             $turns = 1;
             $auction = $manager->getRepository('ArchmageGameBundle:Auction')->findOneById($auction);
-            //validacion
-            if ($auction && $auction->getPlayer() != $player && $bid >= $auction->getBid() && $bid <= $player->getGold() && $player->getTurns() >= 1) {
+            if ($auction && $bid && $auction->getPlayer() != $player && $bid >= $auction->getBid() && $bid <= $player->getGold() && $player->getTurns() >= 1) {
                 //si existia antes un pujante se le devuelve el dinero de la puja
                 if ($auction->getPlayer()) {
                     $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + $auction->getBid());

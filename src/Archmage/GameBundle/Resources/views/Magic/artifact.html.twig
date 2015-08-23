@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-joomla"></i>Activar artefactos<br><small><i class="fa fa-fw fa-hourglass"></i>300</small></h1>
+                <h1><i class="fa fa-fw fa-joomla"></i>Activar artefactos<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
             </div>
         </div>
         {% for item in player.items if item.quantity > 0 %}
@@ -25,12 +25,23 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <form id="item{{ item.id }}" name="item{{ item.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_magic_artifact') }}" method="post">
+                    <form id="item{{ item.id }}" name="item{{ item.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_magic_artifact') }}" method="post" role="form">
                         <div class="form-group">
                             <div class="input-group">
+                                <select class="form-control selectpicker" id="target" name="target" data-live-search="true">
+                                    <option>Objetivo</option>
+                                    {% for i in 1..100 %}
+                                        <option value="aa">dds</option>
+                                    {% endfor %}
+                                    {% for target in targets %}
+                                        <option value="{{ target.id }}">{{ target.nick }}</option>
+                                    {% endfor %}
+                                </select>
                                 <input type="hidden" id="item" name="item" value="{{ item.id }}" required />
-                                <button type="submit" id="activate" name="activate" class="btn btn-default"><i class="fa fa-fw fa-lg fa-joomla"></i>Activar</button>
-                                <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-shield"></i>Defensa</button>
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button type="submit" id="activate" name="action" value="activate" class="btn btn-default"><i class="fa fa-fw fa-lg fa-joomla"></i>Activar</button>
+                                    <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if item == player.itemDefense %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-shield"></i>Defensa</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -44,4 +55,17 @@
         {% endfor %}
     </div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function() {
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+                $('.selectpicker').selectpicker('mobile');
+            } else {
+                $('.selectpicker').selectpicker();
+            }
+        });
+    </script>
 {% endblock %}

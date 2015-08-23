@@ -29,11 +29,20 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <form class="form-inline" data-toggle="validator">
+                    <form id="research{{ research.id }}" name="research{{ research.id }}" class="form-inline" action="{{ path('archmage_game_magic_conjure') }}" method="post" role="form">
                         <div class="form-group">
                             <div class="input-group">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-tint"></i> Conjurar</button>
-                                <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-shield"></i> Defensa</button>
+                                <select class="form-control selectpicker" id="target" name="target" data-live-search="true">
+                                    <option>Objetivo</option>
+                                    {% for target in targets %}
+                                        <option value="{{ target.id }}">{{ target.nick }}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="hidden" id="research" name="research" value="{{ research.id }}" required />
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default"><i class="fa fa-fw fa-lg fa-tint"></i>Conjurar</button>
+                                    <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if research == player.researchDefense %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-shield"></i>Defensa</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -49,4 +58,17 @@
         {% endfor %}
     </div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+    $(document).ready(function() {
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+            $('.selectpicker').selectpicker('mobile');
+        } else {
+            $('.selectpicker').selectpicker();
+        }
+    });
+</script>
 {% endblock %}

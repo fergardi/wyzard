@@ -10,7 +10,8 @@
         "fontawesome": "4.*",
         "bootstrap-validator": "*",
         "datatables": "1.10.*",
-        "datatables-bootstrap3-plugin": "*"
+        "datatables-bootstrap3-plugin": "*",
+        "bootstrap-select": "master"
     },
     "resolutions": {
         "jquery": ">= 1.10.*"

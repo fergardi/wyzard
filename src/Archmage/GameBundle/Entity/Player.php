@@ -65,6 +65,22 @@ class Player
     private $turns;
 
     /**
+     * @var item
+     *
+     * @ORM\ManyToOne(targetEntity="Item")
+     * @ORM\JoinColumn(name="itemDefense", referencedColumnName="id", nullable=true)
+     */
+    private $itemDefense = null;
+
+    /**
+     * @var research
+     *
+     * @ORM\ManyToOne(targetEntity="Research")
+     * @ORM\JoinColumn(name="researchDefense", referencedColumnName="id", nullable=true)
+     */
+    private $researchDefense = null;
+
+    /**
      * @var Faction
      *
      * @ORM\ManyToOne(targetEntity="Faction")
@@ -263,6 +279,52 @@ class Player
     public function getTurns()
     {
         return $this->turns;
+    }
+
+    /**
+     * Set itemDefense
+     *
+     * @param \Archmage\GameBundle\Entity\Item $itemDefense
+     * @return Player
+     */
+    public function setItemDefense(\Archmage\GameBundle\Entity\Item $itemDefense = null)
+    {
+        $this->itemDefense = $itemDefense;
+
+        return $this;
+    }
+
+    /**
+     * Get itemDefense
+     *
+     * @return \Archmage\GameBundle\Entity\Item
+     */
+    public function getItemDefense()
+    {
+        return $this->itemDefense;
+    }
+
+    /**
+     * Set researchDefense
+     *
+     * @param \Archmage\GameBundle\Entity\Research $researchDefense
+     * @return Player
+     */
+    public function setResearchDefense(\Archmage\GameBundle\Entity\Research $researchDefense = null)
+    {
+        $this->researchDefense = $researchDefense;
+
+        return $this;
+    }
+
+    /**
+     * Get researchDefense
+     *
+     * @return \Archmage\GameBundle\Entity\Research
+     */
+    public function getResearchDefense()
+    {
+        return $this->researchDefense;
     }
 
     /**

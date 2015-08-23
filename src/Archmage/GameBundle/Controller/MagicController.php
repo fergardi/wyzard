@@ -19,7 +19,7 @@ class MagicController extends Controller
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
             $turns = $_POST['turns'] or null;
-            if ($turns && $turns > 0 && $turns <= $player->getTurns()) {
+            if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
                 $mana = $turns * $player->getManaPerTurn();
                 $player->setMana($player->getMana() + $mana);
                 $player->setTurns($player->getTurns() - $turns);
@@ -53,7 +53,7 @@ class MagicController extends Controller
                 if ($action == 'conjure' && $research->getSpell()->getTurnCost() <= $player->getTurns()) {
                     $turns = $research->getSpell()->getTurnCost();
                     $this->addFlash('success', 'Has gastado ' . $turns . ' turno(s) en conjurar ' . $research->getSpell()->getName() . '.');
-                } elseif ($action == 'defense' && $player->getTurns() >= 1) {
+                } elseif ($action == 'defense' && $player->getTurns() > 0) {
                     $turns = 1;
                     $player->setResearchDefense($research);
                     $this->addFlash('success', 'Has gastado ' . $turns . ' turno(s) en defender con ' . $research->getSpell()->getName() . '.');
@@ -84,7 +84,7 @@ class MagicController extends Controller
             $turns = $_POST['turns'] or null;
             $research = $_POST['research'] or null;
             $research = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($research);
-            if ($research && $turns && $turns >= 1 && $turns <= $player->getTurns()){
+            if ($research && $turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()){
                 $research->setTurns($research->getTurns() + $turns);
                 $player->setTurns($player->getTurns() - $turns);
                 if ($research->getTurns() >= $research->getSpell()->getTurnResearch()) {

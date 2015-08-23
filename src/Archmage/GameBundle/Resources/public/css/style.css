@@ -19,7 +19,7 @@ img.background {
 }
 .panel, .jumbotron, .alert, .navbar, .well, .table, ul.pagination {
     opacity: 0.90;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 3px 3px 15px black;
 }
 .page-header {
     margin-top: 0px;
@@ -31,7 +31,7 @@ img.background {
     padding: 0;
 }
 .panel-body .text-padded {
-    padding-top: 8px;
+    padding-top: 5px;
     padding-left: 0px;
 }
 .panel-body p {
@@ -39,8 +39,8 @@ img.background {
     padding-left: 15px;
     padding-right: 15px;
 }
-@media screen and (max-width: 360px) and (orientation: portrait) {
-    .panel-body. text-padded {
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    .text-responsive {
         font-size:10px !important;
     }
 }

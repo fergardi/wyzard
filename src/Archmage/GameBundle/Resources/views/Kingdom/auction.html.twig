@@ -14,8 +14,8 @@
         <div class="col-xs-12 col-md-6">
             {% if auction.contract is not null %}
             <div class="panel panel-{{ auction.contract.hero.faction.class }}">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.contract.hero.name|slug }}">{{ auction.contract.hero.name }}</a> [1]</div>
-                <div class="panel-body">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-user"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.contract.hero.name|slug }}">{{ auction.contract.hero.name }}</a> [1]</div>
+                <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( auction.contract.hero.image ) }}" />
@@ -24,14 +24,14 @@
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ auction.contract.hero.goldMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ auction.contract.hero.manaMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ auction.contract.hero.peopleMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-joomla"></i><a href="#">Habilidad</a></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i><a href="#">Habilidad</a></div>
                         </div>
                     </div>
                 </div>
             {% elseif auction.research is not null %}
             <div class="panel panel-{{ auction.research.spell.faction.class }}">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.research.spell.name|slug }}">{{ auction.research.spell.name }}</a></div>
-                <div class="panel-body">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-magic"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.research.spell.name|slug }}">{{ auction.research.spell.name }}</a></div>
+                <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( auction.research.spell.image ) }}" />
@@ -47,8 +47,8 @@
                 </div>
             {% elseif auction.troop is not null %}
             <div class="panel panel-{{ auction.troop.unit.faction.class }}">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-users"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.troop.unit.name|slug }}">{{ auction.troop.unit.name }}</a> [{{ auction.troop.quantity|nf }}]</div>
-                <div class="panel-body">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-users"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.troop.unit.name|slug }}">{{ auction.troop.unit.name }}</a> [{{ auction.troop.quantity|nf }}]</div>
+                <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( auction.troop.unit.image ) }}" />
@@ -68,14 +68,14 @@
                 </div>
             {% elseif auction.item is not null %}
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-joomla"></i><a href="{{ path('archmage_game_home_help') }}#{{ auction.item.artifact.name|slug }}">{{ auction.item.artifact.name }}</a> [1]</div>
-                <div class="panel-body">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-joomla"></i><a href="{{ path('archmage_game_home_help') }}#{{ auction.item.artifact.name|slug }}">{{ auction.item.artifact.name }}</a> [1]</div>
+                <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( auction.item.artifact.image ) }}" />
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <i class="fa fa-fw fa-joomla"></i> {{ auction.item.artifact.description }}
+                            <i class="fa fa-fw fa-joomla"></i>{{ auction.item.artifact.description }}
                         </div>
                     </div>
                 </div>

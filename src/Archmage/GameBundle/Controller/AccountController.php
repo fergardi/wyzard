@@ -15,7 +15,7 @@ class AccountController extends Controller
     public function profileAction($player = null)
     {
         $manager = $this->getDoctrine()->getManager();
-        if ($player == null) {
+        if (!$player) {
             $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         } else {
             $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick($player);

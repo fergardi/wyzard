@@ -18,8 +18,8 @@ class TerritoryController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
-            $turns = $_POST['turns'];
-            if (is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
+            $turns = $_POST['turns'] or null;
+            if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
                 $lands = $turns * 1;
                 $player->setBuilding('Tierras', $player->getBuilding('Tierras')->getQuantity() + $lands);
                 $player->setTurns($player->getTurns() - $turns);
@@ -49,7 +49,7 @@ class TerritoryController extends Controller
             $lands = $_POST['lands'] or null;
             $construction = $_POST['construction'] or null;
             $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
-            if ($lands && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $player->getBuilding('Tierras')->getQuantity() && $turns <= $player->getTurns()) {
+            if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $player->getBuilding('Tierras')->getQuantity() && $turns <= $player->getTurns()) {
                 $construction->setQuantity($construction->getQuantity() + $lands);
                 $player->getBuilding('Tierras')->setQuantity($player->getBuilding('Tierras')->getQuantity() - $lands);
                 $player->setTurns($player->getTurns() - $turns);
@@ -79,7 +79,7 @@ class TerritoryController extends Controller
             $lands = $_POST['lands'] or null;
             $construction = $_POST['construction'] or null;
             $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
-            if ($lands && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $construction->getQuantity() && $turns <= $player->getTurns()) {
+            if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $construction->getQuantity() && $player->getTurns() > 0) {
                 $construction->setQuantity($construction->getQuantity() - $lands);
                 $player->getBuilding('Tierras')->setQuantity($player->getBuilding('Tierras')->getQuantity() + $lands);
                 $player->setTurns($player->getTurns() - $turns);

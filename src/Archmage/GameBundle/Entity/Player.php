@@ -579,7 +579,7 @@ class Player
     }
 
     /*
-     * POWER RANKING
+     * POWER AND RANKING
      */
 
     /**
@@ -597,7 +597,7 @@ class Player
     }
 
     /*
-     * CAPS
+     * RESOURCE CAPS
      */
 
     /**
@@ -627,15 +627,15 @@ class Player
     }
 
     /*
-     * MAINTENANCES
+     * RESOURCES AND MAINTENANCES
      */
 
     /**
-     * Get GoldPerTurn
+     * Get goldResourcePerTurn
      *
      * @return integer
      */
-    public function getGoldPerTurn()
+    public function getGoldResourcePerTurn()
     {
         foreach ($this->constructions as $construction) {
             if ($construction->getBuilding()->getName() == 'Granjas') return $construction->getQuantity() * $construction->getBuilding()->getGoldResource();
@@ -644,11 +644,11 @@ class Player
     }
 
     /**
-     * Get ManaPerTurn
+     * Get manaResourcePerTurn
      *
      * @return integer
      */
-    public function getManaPerTurn()
+    public function getManaResourcePerTurn()
     {
         foreach ($this->constructions as $construction) {
             if ($construction->getBuilding()->getName() == 'Nodos') return $construction->getQuantity() * $construction->getBuilding()->getManaResource();
@@ -657,15 +657,75 @@ class Player
     }
 
     /**
-     * Get PeoplePerTurn
+     * Get peopleResourcePerTurn
      *
      * @return integer
      */
-    public function getPeoplePerTurn()
+    public function getPeopleResourcePerTurn()
     {
         foreach ($this->constructions as $construction) {
             if ($construction->getBuilding()->getName() == 'Pueblos') return $construction->getQuantity() * $construction->getBuilding()->getPeopleResource();
         }
         return 0;
+    }
+
+    /**
+     * Get goldMaintenancePerTurn
+     *
+     * @return integer
+     */
+    public function getGoldMaintenancePerTurn()
+    {
+        $gold = 0;
+        foreach ($this->troops as $troop) {
+            $gold += $troop->getUnit()->getGoldMaintenance() * $troop->getQuantity();
+        }
+        foreach ($this->contracts as $contract) {
+            $gold += $contract->getBuilding()->getGoldMaintenance();
+        }
+        foreach ($this->constructions as $construction) {
+            $gold += $construction->getBuilding()->getGoldMaintenance() * $construction->getQuantity();
+        }
+        return $gold;
+    }
+
+    /**
+     * Get manaMaintenancePerTurn
+     *
+     * @return integer
+     */
+    public function getManaMaintenancePerTurn()
+    {
+        $mana = 0;
+        foreach ($this->troops as $troop) {
+            $mana += $troop->getUnit()->getManaMaintenance() * $troop->getQuantity();
+        }
+        foreach ($this->contracts as $contract) {
+            $mana += $contract->getBuilding()->getManaMaintenance();
+        }
+        foreach ($this->constructions as $construction) {
+            $mana += $construction->getBuilding()->getManaMaintenance() * $construction->getQuantity();
+        }
+        return $mana;
+    }
+
+    /**
+     * Get peopleMaintenancePerTurn
+     *
+     * @return integer
+     */
+    public function getPeopleMaintenancePerTurn()
+    {
+        $people = 0;
+        foreach ($this->troops as $troop) {
+            $people += $troop->getUnit()->getPeopleMaintenance() * $troop->getQuantity();
+        }
+        foreach ($this->contracts as $contract) {
+            $people += $contract->getBuilding()->getPeopleMaintenance();
+        }
+        foreach ($this->constructions as $construction) {
+            $people += $construction->getBuilding()->getPeopleMaintenance() * $construction->getQuantity();
+        }
+        return $people;
     }
 }

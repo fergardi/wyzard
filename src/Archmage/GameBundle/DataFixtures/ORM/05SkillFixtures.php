@@ -216,6 +216,28 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
+        //INVOCAR DRAGONES NEGROS
+        $skill = new Skill();
+        $skill->setUnit($this->getReference('Dragones Negros'));
+        $skill->setName('Generar '.$skill->getUnit()->getName());
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantity(0);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
         /*
          * NATURALEZA
          */
@@ -399,6 +421,28 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         //INVOCAR HIDRAS
         $skill = new Skill();
         $skill->setUnit($this->getReference('Hidras'));
+        $skill->setName('Generar '.$skill->getUnit()->getName());
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantity(0);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //INVOCAR DRAGONES VERDES
+        $skill = new Skill();
+        $skill->setUnit($this->getReference('Dragones Verdes'));
         $skill->setName('Generar '.$skill->getUnit()->getName());
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
@@ -620,6 +664,28 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
+        //INVOCAR DRAGONES AZULES
+        $skill = new Skill();
+        $skill->setUnit($this->getReference('Dragones Azules'));
+        $skill->setName('Generar '.$skill->getUnit()->getName());
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantity(0);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
         /*
          * SAGRADO
          */
@@ -822,6 +888,28 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
+        //INVOCAR DRAGONES BLANCOS
+        $skill = new Skill();
+        $skill->setUnit($this->getReference('Dragones Blancos'));
+        $skill->setName('Generar '.$skill->getUnit()->getName());
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantity(0);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
         /*
          * DESTRUCCION
          */
@@ -1005,6 +1093,28 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         //INVOCAR FENIX
         $skill = new Skill();
         $skill->setUnit($this->getReference('Fénix'));
+        $skill->setName('Generar '.$skill->getUnit()->getName());
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantity(0);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //INVOCAR DRAGONES ROJOS
+        $skill = new Skill();
+        $skill->setUnit($this->getReference('Dragones Rojos'));
         $skill->setName('Generar '.$skill->getUnit()->getName());
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);

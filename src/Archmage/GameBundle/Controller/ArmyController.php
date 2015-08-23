@@ -23,7 +23,7 @@ class ArmyController extends Controller
             $quantity = $_POST['quantity'] or null;
             $troop = $_POST['troop'] or null;
             $troop = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop);
-            if ($troop && $quantity && $turns <= $player->getTurns() && $quantity > 0) {
+            if ($troop && $quantity && is_numeric($quantity) && $turns <= $player->getTurns() && $quantity > 0) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
@@ -52,7 +52,7 @@ class ArmyController extends Controller
             $quantity = $_POST['quantity'] or null;
             $troop = $_POST['troop'] or null;
             $troop = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop);
-            if ($troop && $quantity && $turns <= $player->getTurns() && $quantity > 0 && $quantity <= $troop->getQuantity()) {
+            if ($troop && $quantity && is_numeric($quantity) && $turns <= $player->getTurns() && $quantity > 0 && $quantity <= $troop->getQuantity()) {
                 $troop->setQuantity($troop->getQuantity() - $quantity);
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);

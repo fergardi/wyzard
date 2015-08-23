@@ -17,8 +17,10 @@ class TwigExtension extends \Twig_Extension
     }
 
     public function slug($string) {
-        setlocale(LC_CTYPE, "en_US.utf8");
-        return iconv("utf-8", "ascii//TRANSLIT", str_replace(' ','-',strtolower($string)));
+        $search = explode(",","Á,É,Í,Ó,Ú,á,é,í,ó,ú, ");
+        $replace = explode(",","a,e,i,o,u,a,e,i,o,u,-");
+        $url = strtolower(str_replace($search, $replace, $string));
+        return $url;
 
     }
 

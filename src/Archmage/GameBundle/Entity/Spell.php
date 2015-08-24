@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Spell
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Archmage\GameBundle\Entity\SpellRepository")
+ * @ORM\Entity(repositoryClass="Archmage\GameBundle\Repository\SpellRepository")
  */
 class Spell
 {
@@ -52,9 +52,23 @@ class Spell
     /**
      * @var integer
      *
+     * @ORM\Column(name="goldCost", type="bigint", nullable=false)
+     */
+    private $goldCost;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="manaCost", type="bigint", nullable=false)
      */
     private $manaCost;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="peopleCost", type="bigint", nullable=false)
+     */
+    private $peopleCost;
 
     /**
      * @var integer
@@ -73,16 +87,44 @@ class Spell
     /**
      * @var integer
      *
-     * @ORM\Column(name="goldAuction", type="bigint", nullable=true)
+     * @ORM\Column(name="goldMaintenance", type="bigint", nullable=false)
      */
-    private $goldAuction = null;
+    private $goldMaintenance;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="rarityAuction", type="smallint", nullable=true)
+     * @ORM\Column(name="manaMaintenance", type="bigint", nullable=false)
      */
-    private $rarityAuction = null;
+    private $manaMaintenance;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="peopleMaintenance", type="bigint", nullable=false)
+     */
+    private $peopleMaintenance;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="goldAuction", type="bigint", nullable=false)
+     */
+    private $goldAuction;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rarityAuction", type="smallint", nullable=false)
+     */
+    private $rarityAuction;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="enchant", type="boolean", nullable=false)
+     */
+    private $enchant;
 
     /**
      * @var Faction
@@ -204,6 +246,29 @@ class Spell
     }
 
     /**
+     * Set goldCost
+     *
+     * @param integer $goldCost
+     * @return Spell
+     */
+    public function setGoldCost($goldCost)
+    {
+        $this->goldCost = $goldCost;
+
+        return $this;
+    }
+
+    /**
+     * Get goldCost
+     *
+     * @return integer 
+     */
+    public function getGoldCost()
+    {
+        return $this->goldCost;
+    }
+
+    /**
      * Set manaCost
      *
      * @param integer $manaCost
@@ -224,6 +289,29 @@ class Spell
     public function getManaCost()
     {
         return $this->manaCost;
+    }
+
+    /**
+     * Set peopleCost
+     *
+     * @param integer $peopleCost
+     * @return Spell
+     */
+    public function setPeopleCost($peopleCost)
+    {
+        $this->peopleCost = $peopleCost;
+
+        return $this;
+    }
+
+    /**
+     * Get peopleCost
+     *
+     * @return integer 
+     */
+    public function getPeopleCost()
+    {
+        return $this->peopleCost;
     }
 
     /**
@@ -273,6 +361,75 @@ class Spell
     }
 
     /**
+     * Set goldMaintenance
+     *
+     * @param integer $goldMaintenance
+     * @return Spell
+     */
+    public function setGoldMaintenance($goldMaintenance)
+    {
+        $this->goldMaintenance = $goldMaintenance;
+
+        return $this;
+    }
+
+    /**
+     * Get goldMaintenance
+     *
+     * @return integer 
+     */
+    public function getGoldMaintenance()
+    {
+        return $this->goldMaintenance;
+    }
+
+    /**
+     * Set manaMaintenance
+     *
+     * @param integer $manaMaintenance
+     * @return Spell
+     */
+    public function setManaMaintenance($manaMaintenance)
+    {
+        $this->manaMaintenance = $manaMaintenance;
+
+        return $this;
+    }
+
+    /**
+     * Get manaMaintenance
+     *
+     * @return integer 
+     */
+    public function getManaMaintenance()
+    {
+        return $this->manaMaintenance;
+    }
+
+    /**
+     * Set peopleMaintenance
+     *
+     * @param integer $peopleMaintenance
+     * @return Spell
+     */
+    public function setPeopleMaintenance($peopleMaintenance)
+    {
+        $this->peopleMaintenance = $peopleMaintenance;
+
+        return $this;
+    }
+
+    /**
+     * Get peopleMaintenance
+     *
+     * @return integer 
+     */
+    public function getPeopleMaintenance()
+    {
+        return $this->peopleMaintenance;
+    }
+
+    /**
      * Set goldAuction
      *
      * @param integer $goldAuction
@@ -316,6 +473,29 @@ class Spell
     public function getRarityAuction()
     {
         return $this->rarityAuction;
+    }
+
+    /**
+     * Set enchant
+     *
+     * @param boolean $enchant
+     * @return Spell
+     */
+    public function setEnchant($enchant)
+    {
+        $this->enchant = $enchant;
+
+        return $this;
+    }
+
+    /**
+     * Get enchant
+     *
+     * @return boolean 
+     */
+    public function getEnchant()
+    {
+        return $this->enchant;
     }
 
     /**

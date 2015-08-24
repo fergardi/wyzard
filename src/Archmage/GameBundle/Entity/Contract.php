@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Contract
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Archmage\GameBundle\Entity\ContractRepository")
+ * @ORM\Entity(repositoryClass="Archmage\GameBundle\Repository\ContractRepository")
  */
 class Contract
 {

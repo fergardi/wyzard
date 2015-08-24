@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Message
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Archmage\GameBundle\Entity\MessageRepository")
+ * @ORM\Entity(repositoryClass="Archmage\GameBundle\Repository\MessageRepository")
  */
 class Message
 {
@@ -61,9 +61,9 @@ class Message
      * @var Player
      *
      * @ORM\ManyToOne(targetEntity="Player")
-     * @ORM\JoinColumn(name="who", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="owner", referencedColumnName="id", nullable=true)
      */
-    private $who = null;
+    private $owner = null;
 
     /**
      * Constructor
@@ -201,25 +201,25 @@ class Message
     }
 
     /**
-     * Set who
+     * Set owner
      *
-     * @param \Archmage\GameBundle\Entity\Player $who
+     * @param \Archmage\GameBundle\Entity\Player $owner
      * @return Message
      */
-    public function setWho(\Archmage\GameBundle\Entity\Player $who = null)
+    public function setOwner(\Archmage\GameBundle\Entity\Player $owner = null)
     {
-        $this->who = $who;
+        $this->owner = $owner;
 
         return $this;
     }
 
     /**
-     * Get who
+     * Get owner
      *
      * @return \Archmage\GameBundle\Entity\Player 
      */
-    public function getWho()
+    public function getOwner()
     {
-        return $this->who;
+        return $this->owner;
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Archmage\GameBundle\Entity;
+namespace Archmage\GameBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

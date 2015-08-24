@@ -138,4 +138,19 @@ class MagicController extends Controller
             'targets' => $targets,
         );
     }
+
+    /**
+     * @Route("/game/magic/dispell")
+     * @Template("ArchmageGameBundle:Magic:dispell.html.twig")
+     */
+    public function dispellAction(Request $request)
+    {
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        if ($request->isMethod('POST')) {
+        }
+        return array(
+            'player' => $player,
+        );
+    }
 }

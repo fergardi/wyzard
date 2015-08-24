@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Player
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Archmage\GameBundle\Entity\PlayerRepository")
+ * @ORM\Entity(repositoryClass="Archmage\GameBundle\Repository\PlayerRepository")
  */
 class Player
 {
@@ -118,6 +118,11 @@ class Player
      **/
     private $messages;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Enchantment", mappedBy="player")
+     **/
+    private $enchantments;
+
 
     /**
      * Constructor
@@ -130,8 +135,8 @@ class Player
         $this->items = new ArrayCollection();
         $this->contracts = new ArrayCollection();
         $this->messages = new ArrayCollection();
+        $this->enchantments = new ArrayCollection();
     }
-
 
     /**
      * Get id
@@ -297,7 +302,7 @@ class Player
     /**
      * Get itemDefense
      *
-     * @return \Archmage\GameBundle\Entity\Item
+     * @return \Archmage\GameBundle\Entity\Item 
      */
     public function getItemDefense()
     {
@@ -320,7 +325,7 @@ class Player
     /**
      * Get researchDefense
      *
-     * @return \Archmage\GameBundle\Entity\Research
+     * @return \Archmage\GameBundle\Entity\Research 
      */
     public function getResearchDefense()
     {
@@ -353,12 +358,12 @@ class Player
     /**
      * Add constructions
      *
-     * @param \Archmage\GameBundle\Entity\Construction $constructions
+     * @param \Archmage\GameBundle\Entity\Construction $construction
      * @return Player
      */
-    public function addConstruction(\Archmage\GameBundle\Entity\Construction $constructions)
+    public function addConstruction(\Archmage\GameBundle\Entity\Construction $construction)
     {
-        $this->constructions[] = $constructions;
+        $this->constructions[] = $construction;
 
         return $this;
     }
@@ -366,11 +371,11 @@ class Player
     /**
      * Remove constructions
      *
-     * @param \Archmage\GameBundle\Entity\Construction $constructions
+     * @param \Archmage\GameBundle\Entity\Construction $construction
      */
-    public function removeConstruction(\Archmage\GameBundle\Entity\Construction $constructions)
+    public function removeConstruction(\Archmage\GameBundle\Entity\Construction $construction)
     {
-        $this->constructions->removeElement($constructions);
+        $this->constructions->removeElement($construction);
     }
 
     /**
@@ -386,12 +391,12 @@ class Player
     /**
      * Add researchs
      *
-     * @param \Archmage\GameBundle\Entity\Research $researchs
+     * @param \Archmage\GameBundle\Entity\Research $research
      * @return Player
      */
-    public function addResearch(\Archmage\GameBundle\Entity\Research $researchs)
+    public function addResearch(\Archmage\GameBundle\Entity\Research $research)
     {
-        $this->researchs[] = $researchs;
+        $this->researchs[] = $research;
 
         return $this;
     }
@@ -399,11 +404,11 @@ class Player
     /**
      * Remove researchs
      *
-     * @param \Archmage\GameBundle\Entity\Research $researchs
+     * @param \Archmage\GameBundle\Entity\Research $research
      */
-    public function removeResearch(\Archmage\GameBundle\Entity\Research $researchs)
+    public function removeResearch(\Archmage\GameBundle\Entity\Research $research)
     {
-        $this->researchs->removeElement($researchs);
+        $this->researchs->removeElement($research);
     }
 
     /**
@@ -419,12 +424,12 @@ class Player
     /**
      * Add troops
      *
-     * @param \Archmage\GameBundle\Entity\Troop $troops
+     * @param \Archmage\GameBundle\Entity\Troop $troop
      * @return Player
      */
-    public function addTroop(\Archmage\GameBundle\Entity\Troop $troops)
+    public function addTroop(\Archmage\GameBundle\Entity\Troop $troop)
     {
-        $this->troops[] = $troops;
+        $this->troops[] = $troop;
 
         return $this;
     }
@@ -432,11 +437,11 @@ class Player
     /**
      * Remove troops
      *
-     * @param \Archmage\GameBundle\Entity\Troop $troops
+     * @param \Archmage\GameBundle\Entity\Troop $troop
      */
-    public function removeTroop(\Archmage\GameBundle\Entity\Troop $troops)
+    public function removeTroop(\Archmage\GameBundle\Entity\Troop $troop)
     {
-        $this->troops->removeElement($troops);
+        $this->troops->removeElement($troop);
     }
 
     /**
@@ -452,12 +457,12 @@ class Player
     /**
      * Add items
      *
-     * @param \Archmage\GameBundle\Entity\Item $items
+     * @param \Archmage\GameBundle\Entity\Item $item
      * @return Player
      */
-    public function addItem(\Archmage\GameBundle\Entity\Item $items)
+    public function addItem(\Archmage\GameBundle\Entity\Item $item)
     {
-        $this->items[] = $items;
+        $this->items[] = $item;
 
         return $this;
     }
@@ -465,11 +470,11 @@ class Player
     /**
      * Remove items
      *
-     * @param \Archmage\GameBundle\Entity\Item $items
+     * @param \Archmage\GameBundle\Entity\Item $item
      */
-    public function removeItem(\Archmage\GameBundle\Entity\Item $items)
+    public function removeItem(\Archmage\GameBundle\Entity\Item $item)
     {
-        $this->items->removeElement($items);
+        $this->items->removeElement($item);
     }
 
     /**
@@ -485,12 +490,12 @@ class Player
     /**
      * Add contracts
      *
-     * @param \Archmage\GameBundle\Entity\Contract $contracts
+     * @param \Archmage\GameBundle\Entity\Contract $contract
      * @return Player
      */
-    public function addContract(\Archmage\GameBundle\Entity\Contract $contracts)
+    public function addContract(\Archmage\GameBundle\Entity\Contract $contract)
     {
-        $this->contracts[] = $contracts;
+        $this->contracts[] = $contract;
 
         return $this;
     }
@@ -498,11 +503,11 @@ class Player
     /**
      * Remove contracts
      *
-     * @param \Archmage\GameBundle\Entity\Contract $contracts
+     * @param \Archmage\GameBundle\Entity\Contract $contract
      */
-    public function removeContract(\Archmage\GameBundle\Entity\Contract $contracts)
+    public function removeContract(\Archmage\GameBundle\Entity\Contract $contract)
     {
-        $this->contracts->removeElement($contracts);
+        $this->contracts->removeElement($contract);
     }
 
     /**
@@ -518,12 +523,12 @@ class Player
     /**
      * Add messages
      *
-     * @param \Archmage\GameBundle\Entity\Message $messages
+     * @param \Archmage\GameBundle\Entity\Message $message
      * @return Player
      */
-    public function addMessage(\Archmage\GameBundle\Entity\Message $messages)
+    public function addMessage(\Archmage\GameBundle\Entity\Message $message)
     {
-        $this->messages[] = $messages;
+        $this->messages[] = $message;
 
         return $this;
     }
@@ -531,11 +536,11 @@ class Player
     /**
      * Remove messages
      *
-     * @param \Archmage\GameBundle\Entity\Message $messages
+     * @param \Archmage\GameBundle\Entity\Message $message
      */
-    public function removeMessage(\Archmage\GameBundle\Entity\Message $messages)
+    public function removeMessage(\Archmage\GameBundle\Entity\Message $message)
     {
-        $this->messages->removeElement($messages);
+        $this->messages->removeElement($message);
     }
 
     /**
@@ -546,6 +551,39 @@ class Player
     public function getMessages()
     {
         return $this->messages;
+    }
+
+    /**
+     * Add enchantments
+     *
+     * @param \Archmage\GameBundle\Entity\Enchantment $enchantment
+     * @return Player
+     */
+    public function addEnchantment(\Archmage\GameBundle\Entity\Enchantment $enchantment)
+    {
+        $this->enchantments[] = $enchantment;
+
+        return $this;
+    }
+
+    /**
+     * Remove enchantments
+     *
+     * @param \Archmage\GameBundle\Entity\Enchantment $enchantment
+     */
+    public function removeEnchantment(\Archmage\GameBundle\Entity\Enchantment $enchantment)
+    {
+        $this->enchantments->removeElement($enchantment);
+    }
+
+    /**
+     * Get enchantments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEnchantments()
+    {
+        return $this->enchantments;
     }
 
     /*

@@ -6,52 +6,53 @@
                 <span class="sr-only">Toggle navigation</span>
                 <i class="fa fa-fw fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="{{ path('archmage_game_kingdom_summary') }}"><i class="fa fa-fw fa-lg fa-bar-chart"></i>Resumen</a>
+            <a class="navbar-brand" href="{{ path('archmage_game_kingdom_summary') }}"><i class="fa fa-fw fa-lg fa-bar-chart"></i> Resumen</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapsable">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-bank"></i>Reino<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-bank"></i> Reino<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('archmage_game_kingdom_tax') }}"><i class="fa fa-fw fa-lg fa-money"></i>Recaudar oro</a></li>
-                        <li><a href="{{ path('archmage_game_kingdom_auction') }}"><i class="fa fa-fw fa-lg fa-user-secret"></i>Mercado negro</a></li>
+                        <li><a href="{{ path('archmage_game_kingdom_tax') }}"><i class="fa fa-fw fa-lg fa-money"></i> Recaudar oro</a></li>
+                        <li><a href="{{ path('archmage_game_kingdom_auction') }}"><i class="fa fa-fw fa-lg fa-user-secret"></i> Mercado negro</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-globe"></i>Territorio<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-globe"></i> Territorio<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('archmage_game_territory_explore') }}"><i class="fa fa-fw fa-lg fa-map"></i>Explorar terrenos</a></li>
-                        <li><a href="{{ path('archmage_game_territory_build') }}"><i class="fa fa-fw fa-lg fa-wrench"></i>Construir edificios</a></li>
-                        <li><a href="{{ path('archmage_game_territory_demolish') }}"><i class="fa fa-fw fa-lg fa-bomb"></i>Derribar edificios</a></li>
+                        <li><a href="{{ path('archmage_game_territory_explore') }}"><i class="fa fa-fw fa-lg fa-map"></i> Explorar terrenos</a></li>
+                        <li><a href="{{ path('archmage_game_territory_build') }}"><i class="fa fa-fw fa-lg fa-wrench"></i> Construir edificios</a></li>
+                        <li><a href="{{ path('archmage_game_territory_demolish') }}"><i class="fa fa-fw fa-lg fa-bomb"></i> Derribar edificios</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-flask"></i>Magia<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-flask"></i> Magia<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('archmage_game_magic_charge') }}"><i class="fa fa-fw fa-lg fa-tint"></i>Cargar maná</a></li>
-                        <li><a href="{{ path('archmage_game_magic_conjure') }}"><i class="fa fa-fw fa-lg fa-magic"></i>Conjurar hechizos</a></li>
-                        <li><a href="{{ path('archmage_game_magic_research') }}"><i class="fa fa-fw fa-lg fa-graduation-cap"></i>Investigar hechizos</a></li>
-                        <li><a href="{{ path('archmage_game_magic_artifact') }}"><i class="fa fa-fw fa-lg fa-joomla"></i>Activar artefactos</a></li>
+                        <li><a href="{{ path('archmage_game_magic_charge') }}"><i class="fa fa-fw fa-lg fa-tint"></i> Cargar maná</a></li>
+                        <li><a href="{{ path('archmage_game_magic_research') }}"><i class="fa fa-fw fa-lg fa-graduation-cap"></i> Investigar hechizos</a></li>
+                        <li><a href="{{ path('archmage_game_magic_conjure') }}"><i class="fa fa-fw fa-lg fa-magic"></i> Conjurar hechizos</a></li>
+                        <li><a href="{{ path('archmage_game_magic_dispell') }}"><i class="fa fa-fw fa-lg fa-chain-broken"></i> Desencantar</a></li>
+                        <li><a href="{{ path('archmage_game_magic_artifact') }}"><i class="fa fa-fw fa-lg fa-joomla"></i> Activar artefactos</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-flag-checkered"></i>Ejército<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-flag-checkered"></i> Ejército<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('archmage_game_army_recruit') }}"><i class="fa fa-fw fa-lg fa-user-plus"></i>Reclutar tropas</a></li>
-                        <li><a href="{{ path('archmage_game_army_disband') }}"><i class="fa fa-fw fa-lg fa-user-times"></i>Desbandar tropas</a></li>
-                        <li><a href="{{ path('archmage_game_army_attack') }}"><i class="fa fa-fw fa-lg fa-flag"></i>Atacar</a></li>
+                        <li><a href="{{ path('archmage_game_army_recruit') }}"><i class="fa fa-fw fa-lg fa-user-plus"></i> Reclutar tropas</a></li>
+                        <li><a href="{{ path('archmage_game_army_disband') }}"><i class="fa fa-fw fa-lg fa-user-times"></i> Desbandar tropas</a></li>
+                        <li><a href="{{ path('archmage_game_army_attack') }}"><i class="fa fa-fw fa-lg fa-flag"></i> Atacar</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-user"></i>Cuenta<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-user"></i> Cuenta<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('archmage_game_account_profile') }}"><i class="fa fa-fw fa-lg fa-photo"></i>Perfil</a></li>
-                        <li><a href="{{ path('archmage_game_account_ranking') }}"><i class="fa fa-fw fa-lg fa-line-chart"></i>Ranking</a></li>
-                        <li><a href="{{ path('archmage_game_account_message') }}"><i class="fa fa-fw fa-lg fa-envelope"></i>Mensajes</a></li>
+                        <li><a href="{{ path('archmage_game_account_profile') }}"><i class="fa fa-fw fa-lg fa-photo"></i> Perfil</a></li>
+                        <li><a href="{{ path('archmage_game_account_ranking') }}"><i class="fa fa-fw fa-lg fa-line-chart"></i> Ranking</a></li>
+                        <li><a href="{{ path('archmage_game_account_message') }}"><i class="fa fa-fw fa-lg fa-envelope"></i> Mensajes</a></li>
                         <li class="divider"></li>
-                        <li><a href="{{ path('archmage_game_home_help') }}"><i class="fa fa-fw fa-lg fa-book"></i>Ayuda</a></li>
-                        <li><a href="{{ path('archmage_game_home_login') }}"><i class="fa fa-fw fa-lg fa-sign-out"></i>Desconectar</a></li>
+                        <li><a href="{{ path('archmage_game_home_help') }}"><i class="fa fa-fw fa-lg fa-book"></i> Ayuda</a></li>
+                        <li><a href="{{ path('archmage_game_home_login') }}"><i class="fa fa-fw fa-lg fa-sign-out"></i> Desconectar</a></li>
                     </ul>
                 </li>
             </ul>

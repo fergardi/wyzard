@@ -85,7 +85,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Huevo de Dragón');
         $artifact->setImage('bundles/archmagegame/images/artifact/dragonegg.jpg');
         $artifact->setSkill($this->getReference('Convocar Dragones'));
-        $artifact->setDescription('Al eclosionar, convocará alrededor de '.$artifact->getSkill()->getQuantity().' '.$artifact->getSkill()->getFamily()->getName().'(s/es) al azar a tu ejército.');
+        $artifact->setDescription('Al eclosionar, convocará alrededor de '.$artifact->getSkill()->getQuantityBonus().' '.$artifact->getSkill()->getFamily()->getName().'(s/es) al azar a tu ejército.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $this->setReference($artifact->getName(), $artifact);

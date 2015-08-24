@@ -31,12 +31,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -53,12 +55,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -75,12 +79,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -97,12 +103,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -119,12 +127,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -141,12 +151,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -163,12 +175,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -185,12 +199,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -207,12 +223,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -229,12 +247,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -255,12 +275,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -277,12 +299,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -299,12 +323,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -321,12 +347,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -343,12 +371,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -365,12 +395,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -387,12 +419,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -409,12 +443,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -431,12 +467,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -453,12 +491,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -479,12 +519,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -501,12 +543,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -523,12 +567,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -545,12 +591,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -567,12 +615,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -589,12 +639,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -611,12 +663,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -633,12 +687,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -655,12 +711,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -677,12 +735,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -703,12 +763,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -725,12 +787,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -747,12 +811,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -769,12 +835,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -791,12 +859,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -813,12 +883,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -835,12 +907,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -857,12 +931,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -879,12 +955,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -901,12 +979,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -927,12 +1007,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -949,12 +1031,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -971,12 +1055,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -993,12 +1079,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1015,12 +1103,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1037,12 +1127,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1059,12 +1151,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1081,12 +1175,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1103,12 +1199,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1125,17 +1223,19 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
         /*
-         * HECHIZOS DE CONVOCACION
+         * CONVOCAR FAMILIAS
          */
 
         //CONVOCAR DEMONIOS
@@ -1150,13 +1250,15 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('Demonio'));
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' unidades '.$skill->getFamily()->getName().' a tu ejército');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' unidades '.$skill->getFamily()->getName().' a tu ejército');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1172,13 +1274,15 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('Celestial'));
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' unidades '.$skill->getFamily()->getName().' a tu ejército');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' unidades '.$skill->getFamily()->getName().' a tu ejército');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1194,13 +1298,15 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('Elemental'));
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' unidades '.$skill->getFamily()->getName().' a tu ejército');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' unidades '.$skill->getFamily()->getName().' a tu ejército');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1216,13 +1322,15 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(100);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setQuantityBonus(100);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('NoMuerto'));
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' unidades '.$skill->getFamily()->getName().' a tu ejército');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' unidades '.$skill->getFamily()->getName().' a tu ejército');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1238,13 +1346,15 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(20);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setQuantityBonus(20);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('Dragón'));
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' unidades '.$skill->getFamily()->getName().' a tu ejército');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' unidades '.$skill->getFamily()->getName().' a tu ejército');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1260,23 +1370,25 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('Bestia'));
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantity().' unidades '.$skill->getFamily()->getName().' a tu ejército');
+        $skill->setDescription('Añade '.$skill->getQuantityBonus().' unidades '.$skill->getFamily()->getName().' a tu ejército');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
         /*
-         * BONUS DE BATALLA
+         * BATALLA
          */
 
-        //NOMUERTOS MELEE BONUS
+        //AUMENTAR ATAQUE MELEE NOMUERTOS
         $skill = new Skill();
-        $skill->setName('NoMuertos Bonus Ataque Melee');
+        $skill->setName('Aumentar Ataque NoMuertos Melee');
         $skill->setAttackBonus(5);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -1286,215 +1398,15 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
         $skill->setFamily($this->getReference('NoMuerto'));
         $skill->setType($this->getReference('Melee'));
         $skill->setDescription('Aumenta el daño de Melee de tus unidades NoMuertas un '.$skill->getAttackBonus().'%');
-        $this->setReference($skill->getName(), $skill);
-        $manager->persist($skill);
-
-        //NOMUERTOS DEFENSA
-        $skill = new Skill();
-        $skill->setName('NoMuertos Bonus Defensa');
-        $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(5);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
-        $skill->setBattle(true);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily($this->getReference('NoMuerto'));
-        $skill->setType(null);
-        $skill->setDescription('Aumenta la defensa de tus unidades NoMuertas un '.$skill->getDefenseBonus().'%');
-        $this->setReference($skill->getName(), $skill);
-        $manager->persist($skill);
-
-        /*
-         * RECURSOS
-         */
-
-        //GENERAR TIERRAS
-        $skill = new Skill();
-        $skill->setName('Generar Tierras');
-        $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(10);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
-        $skill->setBattle(false);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily(null);
-        $skill->setType(null);
-        $skill->setDescription(null);
-        $this->setReference($skill->getName(), $skill);
-        $manager->persist($skill);
-
-        //DESTRUIR TIERRAS
-        $skill = new Skill();
-        $skill->setName('Destruir Tierras');
-        $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(-10);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
-        $skill->setBattle(false);
-        $skill->setSelf(false);
-        $skill->setUnit(null);
-        $skill->setFamily(null);
-        $skill->setType(null);
-        $skill->setDescription(null);
-        $this->setReference($skill->getName(), $skill);
-        $manager->persist($skill);
-
-        //GENERAR MANA
-        $skill = new Skill();
-        $skill->setName('Generar Maná');
-        $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(50);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
-        $skill->setBattle(false);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily(null);
-        $skill->setType(null);
-        $skill->setDescription(null);
-        $this->setReference($skill->getName(), $skill);
-        $manager->persist($skill);
-
-        //DESTRUIR MANA
-        $skill = new Skill();
-        $skill->setName('Destruir Maná');
-        $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(-50);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
-        $skill->setBattle(false);
-        $skill->setSelf(false);
-        $skill->setUnit(null);
-        $skill->setFamily(null);
-        $skill->setType(null);
-        $skill->setDescription(null);
-        $this->setReference($skill->getName(), $skill);
-        $manager->persist($skill);
-
-        //GENERAR POBLACION
-        $skill = new Skill();
-        $skill->setName('Generar Población');
-        $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(20);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
-        $skill->setBattle(false);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily(null);
-        $skill->setType(null);
-        $skill->setDescription(null);
-        $this->setReference($skill->getName(), $skill);
-        $manager->persist($skill);
-
-        //DESTRUIR POBLACION
-        $skill = new Skill();
-        $skill->setName('Destruir Población');
-        $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(-20);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
-        $skill->setBattle(false);
-        $skill->setSelf(false);
-        $skill->setUnit(null);
-        $skill->setFamily(null);
-        $skill->setType(null);
-        $skill->setDescription(null);
-        $this->setReference($skill->getName(), $skill);
-        $manager->persist($skill);
-
-        //GENERAR ORO
-        $skill = new Skill();
-        $skill->setName('Generar Oro');
-        $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(20);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
-        $skill->setBattle(false);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily(null);
-        $skill->setType(null);
-        $skill->setDescription(null);
-        $this->setReference($skill->getName(), $skill);
-        $manager->persist($skill);
-
-        //DESTRUIR ORO
-        $skill = new Skill();
-        $skill->setName('Destruir Oro');
-        $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(-20);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
-        $skill->setBattle(false);
-        $skill->setSelf(false);
-        $skill->setUnit(null);
-        $skill->setFamily(null);
-        $skill->setType(null);
-        $skill->setDescription(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1510,7 +1422,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -1532,13 +1446,288 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantity(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setDescription(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+
+        /*
+         * RECURSOS
+         */
+
+        //GENERAR TIERRAS
+        $skill = new Skill();
+        $skill->setName('Generar Tierras');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(10);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //DESTRUIR TIERRAS
+        $skill = new Skill();
+        $skill->setName('Destruir Tierras');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(-10);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setBattle(false);
+        $skill->setSelf(false);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //GENERAR MANA
+        $skill = new Skill();
+        $skill->setName('Generar Maná');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(50);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //DESTRUIR MANA
+        $skill = new Skill();
+        $skill->setName('Destruir Maná');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(-50);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setBattle(false);
+        $skill->setSelf(false);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //GENERAR POBLACION
+        $skill = new Skill();
+        $skill->setName('Generar Población');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(20);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //DESTRUIR POBLACION
+        $skill = new Skill();
+        $skill->setName('Destruir Población');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(-20);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setBattle(false);
+        $skill->setSelf(false);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //GENERAR ORO
+        $skill = new Skill();
+        $skill->setName('Generar Oro');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(20);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //DESTRUIR ORO
+        $skill = new Skill();
+        $skill->setName('Destruir Oro');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(-20);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setBattle(false);
+        $skill->setSelf(false);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //GENERAR ARTEFACTO
+        $skill = new Skill();
+        $skill->setName('Generar Artefacto');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(1);
+        $skill->setBattle(false);
+        $skill->setSelf(false);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //DESTRUIR ARTEFACTO
+        $skill = new Skill();
+        $skill->setName('Destruir Artefacto');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(-1);
+        $skill->setBattle(false);
+        $skill->setSelf(false);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        /*
+         * APOCALIPSIS
+         */
+
+        //APOCALIPSIS
+        $skill = new Skill();
+        $skill->setName('Fin del juego');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription('Si consigues mantener este encantamiento durante 7 días ganas el juego.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

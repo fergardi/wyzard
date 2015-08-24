@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Building
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Archmage\GameBundle\Entity\BuildingRepository")
+ * @ORM\Entity(repositoryClass="Archmage\GameBundle\Repository\BuildingRepository")
  */
 class Building
 {

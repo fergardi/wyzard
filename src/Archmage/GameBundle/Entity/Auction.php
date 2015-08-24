@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Auction
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Archmage\GameBundle\Entity\AuctionRepository")
+ * @ORM\Entity(repositoryClass="Archmage\GameBundle\Repository\AuctionRepository")
  */
 class Auction
 {

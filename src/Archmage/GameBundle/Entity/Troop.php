@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Troop
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Archmage\GameBundle\Entity\TroopRepository")
+ * @ORM\Entity(repositoryClass="Archmage\GameBundle\Repository\TroopRepository")
  */
 class Troop
 {

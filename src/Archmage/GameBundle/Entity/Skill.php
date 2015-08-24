@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Skill
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Archmage\GameBundle\Entity\SkillRepository")
+ * @ORM\Entity(repositoryClass="Archmage\GameBundle\Repository\SkillRepository")
  */
 class Skill
 {
@@ -101,9 +101,23 @@ class Skill
     /**
      * @var integer
      *
-     * @ORM\Column(name="quantity", type="integer", nullable=false)
+     * @ORM\Column(name="barrierBonus", type="smallint", nullable=false)
      */
-    private $quantity;
+    private $barrierBonus;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="artifactBonus", type="smallint", nullable=false)
+     */
+    private $artifactBonus;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantityBonus", type="integer", nullable=false)
+     */
+    private $quantityBonus;
 
     /**
      * @var boolean
@@ -142,6 +156,14 @@ class Skill
      * @ORM\JoinColumn(name="type", referencedColumnName="id", nullable=true)
      */
     private $type = null;
+
+    /**
+     * @var Faction
+     *
+     * @ORM\ManyToOne(targetEntity="Faction")
+     * @ORM\JoinColumn(name="faction", referencedColumnName="id", nullable=true)
+     */
+    private $faction = null;
 
 
     /**
@@ -408,26 +430,72 @@ class Skill
     }
 
     /**
-     * Set quantity
+     * Set barrierBonus
      *
-     * @param integer $quantity
+     * @param integer $barrierBonus
      * @return Skill
      */
-    public function setQuantity($quantity)
+    public function setBarrierBonus($barrierBonus)
     {
-        $this->quantity = $quantity;
+        $this->barrierBonus = $barrierBonus;
 
         return $this;
     }
 
     /**
-     * Get quantity
+     * Get barrierBonus
      *
      * @return integer 
      */
-    public function getQuantity()
+    public function getBarrierBonus()
     {
-        return $this->quantity;
+        return $this->barrierBonus;
+    }
+
+    /**
+     * Set artifactBonus
+     *
+     * @param integer $artifactBonus
+     * @return Skill
+     */
+    public function setArtifactBonus($artifactBonus)
+    {
+        $this->artifactBonus = $artifactBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get artifactBonus
+     *
+     * @return integer 
+     */
+    public function getArtifactBonus()
+    {
+        return $this->artifactBonus;
+    }
+
+    /**
+     * Set quantityBonus
+     *
+     * @param integer $quantityBonus
+     * @return Skill
+     */
+    public function setQuantityBonus($quantityBonus)
+    {
+        $this->quantityBonus = $quantityBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get quantityBonus
+     *
+     * @return integer 
+     */
+    public function getQuantityBonus()
+    {
+        return $this->quantityBonus;
     }
 
     /**
@@ -543,5 +611,28 @@ class Skill
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set faction
+     *
+     * @param \Archmage\GameBundle\Entity\Faction $faction
+     * @return Skill
+     */
+    public function setFaction(\Archmage\GameBundle\Entity\Faction $faction = null)
+    {
+        $this->faction = $faction;
+
+        return $this;
+    }
+
+    /**
+     * Get faction
+     *
+     * @return \Archmage\GameBundle\Entity\Faction 
+     */
+    public function getFaction()
+    {
+        return $this->faction;
     }
 }

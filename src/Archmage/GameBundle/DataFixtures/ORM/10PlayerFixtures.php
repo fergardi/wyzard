@@ -11,6 +11,7 @@ use Archmage\GameBundle\Entity\Research;
 use Archmage\GameBundle\Entity\Item;
 use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Message;
+use Archmage\GameBundle\Entity\Enchantment;
 
 class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -93,12 +94,20 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($item);
             $player->addItem($item);
         }
+        //ENCANTAMIENTOS
+        $enchantment = new Enchantment();
+        $enchantment->setExpiration(new \DateTime('now'));
+        $enchantment->setSpell($this->getReference('Apocalipsis'));
+        $enchantment->setOwner($player);
+        $enchantment->setPlayer($player);
+        $manager->persist($enchantment);
+        $player->addEnchantment($enchantment);
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);
         $message->setSubject('Prueba');
         $message->setText('Prueba');
-        $message->setWho(null);
+        $message->setOwner(null);
         $manager->persist($message);
         $player->addMessage($message);
 

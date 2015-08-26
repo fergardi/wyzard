@@ -122,6 +122,20 @@ class Skill
     /**
      * @var boolean
      *
+     * @ORM\Column(name="dispell", type="boolean", nullable=false)
+     */
+    private $dispell;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="spy", type="boolean", nullable=false)
+     */
+    private $spy;
+
+    /**
+     * @var boolean
+     *
      * @ORM\Column(name="battle", type="boolean", nullable=false)
      */
     private $battle;
@@ -634,5 +648,51 @@ class Skill
     public function getFaction()
     {
         return $this->faction;
+    }
+
+    /**
+     * Set dispell
+     *
+     * @param boolean $dispell
+     * @return Skill
+     */
+    public function setDispell($dispell)
+    {
+        $this->dispell = $dispell;
+
+        return $this;
+    }
+
+    /**
+     * Get dispell
+     *
+     * @return boolean 
+     */
+    public function getDispell()
+    {
+        return $this->dispell;
+    }
+
+    /**
+     * Set spy
+     *
+     * @param boolean $spy
+     * @return Skill
+     */
+    public function setSpy($spy)
+    {
+        $this->spy = $spy;
+
+        return $this;
+    }
+
+    /**
+     * Get spy
+     *
+     * @return boolean 
+     */
+    public function getSpy()
+    {
+        return $this->spy;
     }
 }

@@ -258,6 +258,30 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
+        //NOCHE DE LOS MUERTOS VIVIENTES
+        $skill = new Skill();
+        $skill->setFamily($this->getReference('NoMuerto'));
+        $skill->setName('Convocar '.$skill->getFamily()->getName());
+        $skill->setUnit(null);
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(5);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setType(null);
+        $skill->setDescription('Añade '.$skill->getFamily()->getName().' aleatoriamente a tu ejército cada turno.');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
         /*
          * NATURALEZA
          */

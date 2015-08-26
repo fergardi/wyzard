@@ -13,7 +13,7 @@
         {% for research in player.researchs if
             not research.active
             and research.spell.faction == player.faction
-            and research.spell.magic <= player.magic
+            and research.spell.magic <= 9999
         %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ research.spell.faction.class }}">

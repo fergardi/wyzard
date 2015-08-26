@@ -64,6 +64,8 @@ while getopts "ubdisfcthrlp" opt; do
             echo "Fixing permissions and ownerwhip of current directory recursively..."
             chmod -R g+w $(pwd)
             chown -R www-data:www-data $(pwd)
+	    chown -R http:http $(pwd)
+            chown -R Fernando:wheel $(pwd)
             echo "OK"
             ;;
         h)

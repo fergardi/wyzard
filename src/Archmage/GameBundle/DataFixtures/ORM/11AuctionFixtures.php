@@ -57,7 +57,7 @@ class AuctionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $auction = new Auction();
         $research = new Research();
         $manager->persist($research);
-        $research->setSpell($this->getReference('Aquelarre'));
+        $research->setSpell($this->getReference('Noche de los Muertos Vivientes'));
         $research->setActive(false);
         $research->setTurns(0);
         $research->setPlayer(null);

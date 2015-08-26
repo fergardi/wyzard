@@ -38,17 +38,15 @@ class Enchantment
 
     /**
      * @ORM\ManyToOne(targetEntity="Player", inversedBy="enchantments")
-     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="owner", referencedColumnName="id", nullable=false)
      **/
-    private $player;
+    private $owner;
 
     /**
-     * @var Player
-     *
-     * @ORM\ManyToOne(targetEntity="Player")
-     * @ORM\JoinColumn(name="owner", referencedColumnName="id", nullable=false)
-     */
-    private $owner;
+     * @ORM\ManyToOne(targetEntity="Player", inversedBy="curses")
+     * @ORM\JoinColumn(name="victim", referencedColumnName="id", nullable=false)
+     **/
+    private $victim;
 
 
     /**
@@ -151,5 +149,28 @@ class Enchantment
     public function getOwner()
     {
         return $this->owner;
+    }
+
+    /**
+     * Set victim
+     *
+     * @param \Archmage\GameBundle\Entity\Player $victim
+     * @return Enchantment
+     */
+    public function setVictim(\Archmage\GameBundle\Entity\Player $victim)
+    {
+        $this->victim = $victim;
+
+        return $this;
+    }
+
+    /**
+     * Get victim
+     *
+     * @return \Archmage\GameBundle\Entity\Player 
+     */
+    public function getVictim()
+    {
+        return $this->victim;
     }
 }

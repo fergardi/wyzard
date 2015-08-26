@@ -119,9 +119,14 @@ class Player
     private $messages;
 
     /**
-     * @ORM\OneToMany(targetEntity="Enchantment", mappedBy="player")
+     * @ORM\OneToMany(targetEntity="Enchantment", mappedBy="owner")
      **/
     private $enchantments;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Enchantment", mappedBy="victim")
+     **/
+    private $curses;
 
 
     /**
@@ -136,6 +141,7 @@ class Player
         $this->contracts = new ArrayCollection();
         $this->messages = new ArrayCollection();
         $this->enchantments = new ArrayCollection();
+        $this->curses = new ArrayCollection();
     }
 
     /**
@@ -584,6 +590,39 @@ class Player
     public function getEnchantments()
     {
         return $this->enchantments;
+    }
+
+    /**
+     * Add curses
+     *
+     * @param \Archmage\GameBundle\Entity\Enchantment $curse
+     * @return Player
+     */
+    public function addCurse(\Archmage\GameBundle\Entity\Enchantment $curse)
+    {
+        $this->curses[] = $curse;
+
+        return $this;
+    }
+
+    /**
+     * Remove curses
+     *
+     * @param \Archmage\GameBundle\Entity\Enchantment $curse
+     */
+    public function removeCurse(\Archmage\GameBundle\Entity\Enchantment $curse)
+    {
+        $this->curses->removeElement($curse);
+    }
+
+    /**
+     * Get curses
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCurses()
+    {
+        return $this->curses;
     }
 
     /*

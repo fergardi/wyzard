@@ -96,12 +96,12 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         }
         //ENCANTAMIENTOS
         $enchantment = new Enchantment();
-        $enchantment->setExpiration(new \DateTime('now'));
         $enchantment->setSpell($this->getReference('Apocalipsis'));
+        $enchantment->setVictim($player);
         $enchantment->setOwner($player);
-        $enchantment->setPlayer($player);
         $manager->persist($enchantment);
         $player->addEnchantment($enchantment);
+        $player->addCurse($enchantment);
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);

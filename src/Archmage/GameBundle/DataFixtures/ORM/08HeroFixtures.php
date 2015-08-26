@@ -2,10 +2,10 @@
 
 namespace Acme\HelloBundle\DataFixtures\ORM;
 
+use Archmage\GameBundle\Entity\Hero;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Archmage\GameBundle\Entity\Hero;
 
 class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -92,7 +92,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         //AVATAR DE ELEMENTALES
         $hero = new Hero();
         $hero->setName('Avatar de Elementales');
-        $hero->setImage('bundles/archmagegame/images/hero/ghost/elementalavatar.jpg');
+        $hero->setImage('bundles/archmagegame/images/hero/ghost/elementallord.jpg');
         $hero->setDescription('Descripción');
         $hero->setGoldMaintenance(9999);
         $hero->setManaMaintenance(9999);

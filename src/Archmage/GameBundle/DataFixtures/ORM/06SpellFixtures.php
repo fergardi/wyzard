@@ -1138,12 +1138,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
          * HECHIZOS NEGRO
          */
 
-        //AQUELARRE
+        //NOCHE DE LOS MUERTOS VIVIENTES
         $spell = new Spell();
-        $spell->setName('Aquelarre');
+        $spell->setName('Noche de los Muertos Vivientes');
         $spell->setSkill($this->getReference('Convocar NoMuertos'));
         $spell->setDescription('Descripción');
-        $spell->setImage('bundles/archmagegame/images/spell/darkness/coven.jpg');
+        $spell->setImage('bundles/archmagegame/images/spell/darkness/nightofthelivingdead.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(9);
         $spell->setGoldCost(999999);

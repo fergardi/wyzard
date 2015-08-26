@@ -76,11 +76,13 @@ class ArmyController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
         if ($request->isMethod('POST')) {
 
         }
         return array(
             'player' => $player,
+            'targets' => $targets,
         );
     }
 }

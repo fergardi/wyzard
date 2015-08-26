@@ -9,23 +9,45 @@
             <div class="page-header text-center">
                 <h1><i class="fa fa-fw fa-flag"></i>Atacar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-group"></i>Tropas</div>
-                <div class="panel-body text-responsive">
-                    Tropas
-                </div>
-                <div class="panel-footer text-center">
-                    <form class="form-inline" data-toggle="validator" action="{{ path('archmage_game_army_attack') }}" method="post">
-                        <div class="form-group has-feedback">
-                            <div class="input-group">
-                                <div class="input-group-btn">
+            <form id="attack" name="attack" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_army_attack') }}" method="post" role="form">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-group"></i>Tropas</div>
+                        <div class="panel-body text-responsive">
+                            {% for troop in player.troops %}
+                            <div class="row">
+                                <div class="col-xs-offset-2 col-xs-1 text-right">
+                                    <img class="custom-icon" src="{{ asset( troop.unit.image ) }}" />
+                                </div>
+                                <div class="col-xs-4 text-left">
+                                    <div class="form-group has-feedback">
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="{{ troop.id }}" name="{{ troop.id }}" min="0" max="{{ troop.quantity }}" value="0" required/>
+                                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-5 text-left">
+                                    <i class="fa fa-fw fa-lg fa-group"></i><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name }}</a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="panel-footer text-center">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <select class="form-control selectpicker" id="target" name="target" data-live-search="true">
+                                        <option>Objetivo</option>
+                                        {% for target in targets %}
+                                            <option value="{{ target.id }}">{{ target.nick }}</option>
+                                        {% endfor %}
+                                    </select>
                                     <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i>Atacar</button>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

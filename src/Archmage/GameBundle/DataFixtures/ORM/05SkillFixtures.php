@@ -40,7 +40,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('<i class="fa fa-fw fa-lg fa-user-plus"></i>'.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'(s).');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -67,7 +67,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Añade '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().' a tu ejército.');
+        $skill->setDescription('<i class="fa fa-fw fa-lg fa-user-plus"></i>'.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'(s).');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -449,7 +449,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(false);
         $skill->setType(null);
         $skill->setFamily(null);
-        $skill->setDescription('Elimina un '.$skill->getTerrainBonus().'% de las tierras libres del enemigo.');
+        $skill->setDescription('<i class="fa fa-fw fa-lg fa-times-circle"></i>'.$skill->getTerrainBonus().'% tierras libres enemigas.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -917,7 +917,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setFamily($this->getReference('Bestia'));
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('Aumenta '.$skill->getQuantityBonus().'% el ataque y disminuye '.$skill->getDefenseBonus().'% la defensa de tus '.$skill->getFamily()->getName().'(s).');
+        $skill->setDescription('<i class="fa fa-fw fa-lg fa-arrow-circle-up"></i>'.$skill->getAttackBonus().'%ATK <i class="fa fa-fw fa-lg fa-arrow-circle-down"></i>'.$skill->getDefenseBonus().'%DEF a tus '.$skill->getFamily()->getName().'(s).');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -944,7 +944,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('Reduce '.$skill->getDefenseBonus().'% la defensa de todas las unidades aliada.');
+        $skill->setDescription('<i class="fa fa-fw fa-lg fa-arrow-circle-up"></i>'.$skill->getDefenseBonus().'%DEF a todas las unidades aliadas.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

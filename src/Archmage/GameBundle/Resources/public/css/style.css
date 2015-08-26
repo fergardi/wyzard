@@ -53,8 +53,8 @@ img.custom-rspls {
     border-radius: 50%;
 }
 img.custom-icon {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
     color: inherit !important;

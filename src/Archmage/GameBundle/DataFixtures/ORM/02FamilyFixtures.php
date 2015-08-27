@@ -15,47 +15,47 @@ class FamilyFixtures extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $family = new Family();
-        $family->setName('NoMuerto');
+        $family->setName('NoMuertos');
         $this->addReference($family->getName(), $family);
         $manager->persist($family);
 
         $family = new Family();
-        $family->setName('Humano');
+        $family->setName('Humanos');
         $this->addReference($family->getName(), $family);
         $manager->persist($family);
 
         $family = new Family();
-        $family->setName('Elfo');
+        $family->setName('Elfos');
         $this->addReference($family->getName(), $family);
         $manager->persist($family);
 
         $family = new Family();
-        $family->setName('Bestia');
+        $family->setName('Bestias');
         $this->addReference($family->getName(), $family);
         $manager->persist($family);
 
         $family = new Family();
-        $family->setName('Elemental');
+        $family->setName('Elementales');
         $this->addReference($family->getName(), $family);
         $manager->persist($family);
 
         $family = new Family();
-        $family->setName('Celestial');
+        $family->setName('Celestiales');
         $this->addReference($family->getName(), $family);
         $manager->persist($family);
 
         $family = new Family();
-        $family->setName('Demonio');
+        $family->setName('Demonios');
         $this->addReference($family->getName(), $family);
         $manager->persist($family);
 
         $family = new Family();
-        $family->setName('Dragón');
+        $family->setName('Dragones');
         $this->addReference($family->getName(), $family);
         $manager->persist($family);
 
         $family = new Family();
-        $family->setName('Marino');
+        $family->setName('Marinos');
         $this->addReference($family->getName(), $family);
         $manager->persist($family);
 

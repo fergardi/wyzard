@@ -490,7 +490,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELFOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elfos'));
+        $spell->setSkill($this->getReference('Generar Elfos de los Bosques'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setDescription('Descripción');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -2276,7 +2276,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnResearch(9999);
         $spell->setGoldAuction(0);
         $spell->setRarityAuction(0);
-        $spell->setEnchant(false);
+        $spell->setEnchant(true);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 

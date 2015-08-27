@@ -27,7 +27,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/neutral/archer.jpg');
         $unit->setFaction($this->getReference('Neutral'));
-        $unit->setFamily($this->getReference('Humano'));
+        $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Distancia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -46,7 +46,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/neutral/horseman.jpg');
         $unit->setFaction($this->getReference('Neutral'));
-        $unit->setFamily($this->getReference('Humano'));
+        $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -65,7 +65,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/neutral/pikeman.jpg');
         $unit->setFaction($this->getReference('Neutral'));
-        $unit->setFamily($this->getReference('Humano'));
+        $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -84,7 +84,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/neutral/militia.jpg');
         $unit->setFaction($this->getReference('Neutral'));
-        $unit->setFamily($this->getReference('Humano'));
+        $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -103,7 +103,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/neutral/catapult.jpg');
         $unit->setFaction($this->getReference('Neutral'));
-        $unit->setFamily($this->getReference('Humano'));
+        $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Asedio'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -126,7 +126,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/darkness/skeleton.jpg');
         $unit->setFaction($this->getReference('Oscuridad'));
-        $unit->setFamily($this->getReference('NoMuerto'));
+        $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -145,7 +145,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/darkness/zombie.jpg');
         $unit->setFaction($this->getReference('Oscuridad'));
-        $unit->setFamily($this->getReference('NoMuerto'));
+        $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -164,7 +164,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/darkness/werewolf.jpg');
         $unit->setFaction($this->getReference('Oscuridad'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -183,7 +183,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/darkness/spectre.jpg');
         $unit->setFaction($this->getReference('Oscuridad'));
-        $unit->setFamily($this->getReference('NoMuerto'));
+        $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -202,7 +202,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/darkness/lich.jpg');
         $unit->setFaction($this->getReference('Oscuridad'));
-        $unit->setFamily($this->getReference('NoMuerto'));
+        $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Distancia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -221,7 +221,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/darkness/vampire.jpg');
         $unit->setFaction($this->getReference('Oscuridad'));
-        $unit->setFamily($this->getReference('NoMuerto'));
+        $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -240,7 +240,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/darkness/darkknight.jpg');
         $unit->setFaction($this->getReference('Oscuridad'));
-        $unit->setFamily($this->getReference('NoMuerto'));
+        $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -259,7 +259,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/darkness/shadowelemental.jpg');
         $unit->setFaction($this->getReference('Oscuridad'));
-        $unit->setFamily($this->getReference('Elemental'));
+        $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -278,7 +278,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/darkness/gargoile.jpg');
         $unit->setFaction($this->getReference('Oscuridad'));
-        $unit->setFamily($this->getReference('NoMuerto'));
+        $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Asedio'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -297,7 +297,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/darkness/blackdragon.jpg');
         $unit->setFaction($this->getReference('Oscuridad'));
-        $unit->setFamily($this->getReference('Dragón'));
+        $unit->setFamily($this->getReference('Dragones'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -320,7 +320,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/nature/gorilla.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -332,14 +332,14 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //ELFOS
         $unit = new Unit();
-        $unit->setName('Elfos');
+        $unit->setName('Elfos de los Bosques');
         $unit->setDescription('Descripción');
         $unit->setAttack(9999);
         $unit->setDefense(9999);
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/nature/elf.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Elfo'));
+        $unit->setFamily($this->getReference('Elfos'));
         $unit->setType($this->getReference('Distancia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -358,7 +358,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/nature/druid.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Elfo'));
+        $unit->setFamily($this->getReference('Elfos'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -377,7 +377,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/nature/troll.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -396,7 +396,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/nature/treant.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Elemental'));
+        $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Asedio'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -415,7 +415,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/nature/behemot.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -434,7 +434,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/nature/wurm.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Asedio'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -453,7 +453,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/nature/earthelemental.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Elemental'));
+        $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -472,7 +472,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/nature/hydra.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Asedio'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -491,7 +491,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/nature/greendragon.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Dragón'));
+        $unit->setFamily($this->getReference('Dragones'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -514,7 +514,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/ghost/fairy.jpg');
         $unit->setFaction($this->getReference('Fantasmal'));
-        $unit->setFamily($this->getReference('Humano'));
+        $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -533,7 +533,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/ghost/triton.jpg');
         $unit->setFaction($this->getReference('Fantasmal'));
-        $unit->setFamily($this->getReference('Marino'));
+        $unit->setFamily($this->getReference('Marinos'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -552,7 +552,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/ghost/mermaid.jpg');
         $unit->setFaction($this->getReference('Fantasmal'));
-        $unit->setFamily($this->getReference('Marino'));
+        $unit->setFamily($this->getReference('Marinos'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -571,7 +571,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/ghost/naga.jpg');
         $unit->setFaction($this->getReference('Fantasmal'));
-        $unit->setFamily($this->getReference('Demonio'));
+        $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -590,7 +590,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/ghost/magician.jpg');
         $unit->setFaction($this->getReference('Fantasmal'));
-        $unit->setFamily($this->getReference('Humano'));
+        $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -609,7 +609,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/ghost/djinn.jpg');
         $unit->setFaction($this->getReference('Fantasmal'));
-        $unit->setFamily($this->getReference('Elemental'));
+        $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Distancia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -628,7 +628,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/ghost/waterelemental.jpg');
         $unit->setFaction($this->getReference('Fantasmal'));
-        $unit->setFamily($this->getReference('Elemental'));
+        $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Distancia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -647,7 +647,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/ghost/titan.jpg');
         $unit->setFaction($this->getReference('Fantasmal'));
-        $unit->setFamily($this->getReference('Elemental'));
+        $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Asedio'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -666,7 +666,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/ghost/levyathan.jpg');
         $unit->setFaction($this->getReference('Fantasmal'));
-        $unit->setFamily($this->getReference('Marino'));
+        $unit->setFamily($this->getReference('Marinos'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -685,7 +685,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/ghost/bluedragon.jpg');
         $unit->setFaction($this->getReference('Fantasmal'));
-        $unit->setFamily($this->getReference('Dragón'));
+        $unit->setFamily($this->getReference('Dragones'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -708,7 +708,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/holy/priest.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Humano'));
+        $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -727,7 +727,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/holy/paladin.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Humano'));
+        $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -746,7 +746,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/holy/unicorn.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -765,7 +765,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/holy/pegasus.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -784,7 +784,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/holy/angel.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Celestial'));
+        $unit->setFamily($this->getReference('Celestiales'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -803,7 +803,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/holy/griffon.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -822,7 +822,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/holy/airelemental.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Elemental'));
+        $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Distancia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -841,7 +841,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/holy/archangel.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Celestial'));
+        $unit->setFamily($this->getReference('Celestiales'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -860,7 +860,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/holy/dominion.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Celestial'));
+        $unit->setFamily($this->getReference('Celestiales'));
         $unit->setType($this->getReference('Asedio'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -879,7 +879,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/holy/whitedragon.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Dragón'));
+        $unit->setFamily($this->getReference('Dragones'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -902,7 +902,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/goblin.jpg');
         $unit->setFaction($this->getReference('Destrucción'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Distancia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -921,7 +921,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/cerverus.jpg');
         $unit->setFaction($this->getReference('Destrucción'));
-        $unit->setFamily($this->getReference('Demonio'));
+        $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -940,7 +940,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/ogre.jpg');
         $unit->setFaction($this->getReference('Destrucción'));
-        $unit->setFamily($this->getReference('Demonio'));
+        $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -959,7 +959,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/chimera.jpg');
         $unit->setFaction($this->getReference('Destrucción'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -978,7 +978,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/minotaur.jpg');
         $unit->setFaction($this->getReference('Destrucción'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Asedio'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -997,7 +997,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/salamander.jpg');
         $unit->setFaction($this->getReference('Destrucción'));
-        $unit->setFamily($this->getReference('Demonio'));
+        $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -1016,7 +1016,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/fireelemental.jpg');
         $unit->setFaction($this->getReference('Destrucción'));
-        $unit->setFamily($this->getReference('Elemental'));
+        $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -1035,7 +1035,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/diablo.jpg');
         $unit->setFaction($this->getReference('Destrucción'));
-        $unit->setFamily($this->getReference('Demonio'));
+        $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Distancia'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -1054,7 +1054,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/phoenix.jpg');
         $unit->setFaction($this->getReference('Destrucción'));
-        $unit->setFamily($this->getReference('Bestia'));
+        $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);
@@ -1073,7 +1073,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/reddragon.jpg');
         $unit->setFaction($this->getReference('Destrucción'));
-        $unit->setFamily($this->getReference('Dragón'));
+        $unit->setFamily($this->getReference('Dragones'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
         $unit->setManaMaintenance(9999);

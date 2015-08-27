@@ -175,7 +175,7 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    {{ spell.skill.description|raw }}
+                    {% if spell.enchant %}<i class="fa fa-fw fa-lg fa-link"></i>{% else %}<i class="fa fa-fw fa-lg fa-joomla"></i>{% endif %}{{ spell.skill.description|raw }}
                 </div>
             </div>
         </div>

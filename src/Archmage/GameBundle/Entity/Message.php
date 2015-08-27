@@ -71,7 +71,7 @@ class Message
     public function __construct()
     {
         $this->datetime = new \DateTime('now');
-        $this->hash = md5($this->getId());
+        $this->hash = substr(md5($this->getId()),0,8);
     }
 
 

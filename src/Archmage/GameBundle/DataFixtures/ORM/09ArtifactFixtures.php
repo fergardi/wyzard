@@ -102,17 +102,6 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //SANDALIAS DE HERMES
-        $artifact = new Artifact();
-        $artifact->setName('Sandalias de Hermes');
-        $artifact->setImage('bundles/archmagegame/images/artifact/hermesshoes.jpg');
-        $artifact->setSkill($this->getReference('Aumentar Velocidad'));
-        $artifact->setDescription('Aumenta la velocidad de todas las tropas aliadas '.$artifact->getSkill()->getSpeedBonus().' puntos.');
-        $artifact->setGoldAuction(0);
-        $artifact->setRarityAuction(0);
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
         $manager->flush();
     }
 

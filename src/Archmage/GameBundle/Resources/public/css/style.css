@@ -59,6 +59,12 @@ img.custom-icon {
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
     color: inherit !important;
 }
+.label {
+    font-size: 95%;
+}
+.link {
+    text-decoration: underline;
+}
 /* Sticky footer styles
 --------------------------------------------------
 html {
@@ -190,4 +196,10 @@ html {-webkit-text-size-adjust: none !important;}
 /* ARREGLAR BORDES BLANCOS EN BOOTSRAP SELECT */
 .bootstrap-select {
     border-radius: 4px !important;
+    background-color: inherit !important;
 }
+/* FONTAWESOME */
+.fa {
+    margin-right: 2px !important;
+}
+

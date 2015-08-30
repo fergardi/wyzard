@@ -503,7 +503,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(false);
         $skill->setType(null);
         $skill->setFamily(null);
-        $skill->setFaction($this->getReference('Naturaleza'));
+        $skill->setFaction($this->getReference('Fantasmal'));
         $skill->setDescription('Reduce '.$skill->getDefenseBonus().'% la defensa de <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span>.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1078,7 +1078,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(false);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setFaction($this->getReference('Fantasmal'));
+        $skill->setFaction($this->getReference('Sagrado'));
         $skill->setDescription('Reduce '.$skill->getDefenseBonus().'% la defensa de <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span>.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1469,9 +1469,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //CONFUSION
+        //TSUNAMI
         $skill = new Skill();
-        $skill->setName('Confusión');
+        $skill->setName('Tsunami');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(-5);
         $skill->setSpeedBonus(0);
@@ -1492,7 +1492,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction($this->getReference('Destrucción'));
-        $skill->setDescription('Reduce '.$skill->getDefenseBonus().'% la defensa de <span class="label label-danger">'.$skill->getFaction()->getName().'</span>.');
+        $skill->setDescription('Reduce '.$skill->getDefenseBonus().'% la defensa de <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span>.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

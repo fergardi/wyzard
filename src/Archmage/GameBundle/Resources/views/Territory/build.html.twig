@@ -13,7 +13,7 @@
         {% for construction in player.constructions %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-home"></i><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}">{{ construction.building.name }}</a> [{{ construction.quantity|nf }}]</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-home"></i><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a> [{{ construction.quantity|nf }}]</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">

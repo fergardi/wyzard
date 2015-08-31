@@ -1204,12 +1204,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //CONFUSION
+        //TSUNAMI
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Confusión'));
+        $spell->setSkill($this->getReference('Tsunami'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setDescription($spell->getSkill()->getDescription());
-        $spell->setImage('bundles/archmagegame/images/spell/ghost/ofuscate.jpg');
+        $spell->setImage('bundles/archmagegame/images/spell/ghost/tsunami.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(9);
         $spell->setGoldCost(999999);

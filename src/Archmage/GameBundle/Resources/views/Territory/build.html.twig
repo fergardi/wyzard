@@ -40,7 +40,7 @@
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default" {% if construction.building.name == 'Tierras'  or player.building('Tierras').quantity <= 0%}disabled{% endif %}><i class="fa fa-fw fa-lg fa-wrench"></i>Construir</button>
+                                    <button type="submit" class="btn btn-default" {% if construction.building.name == 'Tierras'  or player.building('Tierras').quantity <= 0%}disabled{% endif %}><i class="fa fa-fw fa-lg fa-wrench"></i><span class="hidden-xs">Construir</span></button>
                                 </div>
                                 <input type="number" class="form-control" id="lands" name="lands" min="1" max="{{ player.building('Tierras').quantity }}" value="0" {% if construction.building.name == 'Tierras' or player.building('Tierras').quantity <= 0 %}disabled{% endif %} required />
                                 <input type="hidden" id="construction" name="construction" value="{{ construction.id }}" {% if construction.building.name == 'Tierras' or player.building('Tierras').quantity <= 0 %}disabled{% endif %} required />

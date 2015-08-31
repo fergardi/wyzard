@@ -36,7 +36,7 @@
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default" {% if troop.quantity <= 0%}disabled{% endif %}><i class="fa fa-fw fa-lg fa-user-times"></i>Desbandar</button>
+                                    <button type="submit" class="btn btn-default" {% if troop.quantity <= 0%}disabled{% endif %}><i class="fa fa-fw fa-lg fa-user-times"></i><span class="hidden-xs">Desbandar</span></button>
                                 </div>
                                 <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="{{ troop.quantity }}" value="0" {% if troop.quantity <= 0 %}disabled{% endif %} required />
                                 <input type="hidden" id="troop" name="troop" value="{{ troop.id }}" {% if troop.quantity <= 0 %}disabled{% endif %} required />

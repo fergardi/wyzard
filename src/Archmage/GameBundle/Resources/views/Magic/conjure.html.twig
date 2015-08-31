@@ -40,7 +40,7 @@
                                 </select>
                                 <input type="hidden" id="research" name="research" value="{{ research.id }}" required />
                                 <div class="btn-group" role="group" aria-label="...">
-                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default"><i class="fa fa-fw fa-lg fa-tint"></i>Conjurar</button>
+                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default"><i class="fa fa-fw fa-lg fa-tint"></i><span class="hidden-xs">Conjurar</span></button>
                                     <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if research == player.researchDefense %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-shield"></i>Defensa</button>
                                 </div>
                             </div>

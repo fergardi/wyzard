@@ -9,9 +9,9 @@
             <div class="page-header text-center">
                 <h1><i class="fa fa-fw fa-map"></i>Explorar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
             </div>
-            <div class="panel panel-default text-responsive">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-globe"></i>{{ player.building('Tierras').quantity|nf }} tierras</div>
-                <div class="panel-body">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-globe"></i>{{ player.building('Tierras').quantity|nf }}</div>
+                <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/territory.jpg') }}">

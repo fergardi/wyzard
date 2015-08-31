@@ -55,7 +55,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setGoldAuction(99999999);
         $hero->setRarityAuction(99);
         $hero->setSkill(null);
-        $hero->setFaction($this->getReference('Destrucción'));
+        $hero->setFaction($this->getReference('Caos'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
@@ -70,7 +70,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setGoldAuction(99999999);
         $hero->setRarityAuction(99);
         $hero->setSkill(null);
-        $hero->setFaction($this->getReference('Destrucción'));
+        $hero->setFaction($this->getReference('Caos'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 

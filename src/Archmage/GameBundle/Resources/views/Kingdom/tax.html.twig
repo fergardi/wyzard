@@ -9,14 +9,14 @@
             <div class="page-header text-center">
                 <h1><i class="fa fa-fw fa-money"></i>Recaudar oro<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
             </div>
-            <div class="panel panel-default text-responsive">
-                <div class="panel-heading text-center">Ganar {{ player.goldResourcePerTurn|nf }} <i class="fa fa-fw fa-lg fa-money"></i>/<i class="fa fa-fw fa-lg fa-hourglass-half"></i></div>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">{{ player.goldResourcePerTurn|nf }} <i class="fa fa-fw fa-money"></i>/<i class="fa fa-fw fa-hourglass-half"></i></div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
                         </div>
-                        <div class="col-xs-8 text-padded">
+                        <div class="col-xs-8 text-padded text-responsive">
                             Aquí puedes aplicar impuestos desorbitados a tus leales súbditos para obtener grandes cantidades de oro rápidamente.
                         </div>
                     </div>

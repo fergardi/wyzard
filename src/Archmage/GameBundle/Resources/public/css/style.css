@@ -41,17 +41,17 @@ img.background {
 }
 @media screen and (max-width: 400px) and (orientation: portrait) {
     .text-responsive {
-        font-size:8px !important;
+        font-size:10px !important;
     }
 }
 @media screen and (min-width: 401px) and (max-width: 600px) and (orientation: portrait) {
     .text-responsive {
-        font-size:10px !important;
+        font-size:12px !important;
     }
 }
 @media screen and (min-width: 601px) and (max-width: 700px) and (orientation: portrait) {
     .text-responsive {
-        font-size:12px !important;
+        font-size:14px !important;
     }
 }
 img.custom-thumbnail {
@@ -74,6 +74,10 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
 }
 .link {
     text-decoration: underline;
+}
+img.factions {
+    width: 95%;
+    padding-top: 15px;
 }
 /* Sticky footer styles
 --------------------------------------------------

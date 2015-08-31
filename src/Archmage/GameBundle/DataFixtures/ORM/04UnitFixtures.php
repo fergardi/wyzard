@@ -901,7 +901,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setDefense(9999);
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/goblin.jpg');
-        $unit->setFaction($this->getReference('Destrucción'));
+        $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Distancia'));
         $unit->setGoldMaintenance(9999);
@@ -920,7 +920,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setDefense(9999);
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/cerverus.jpg');
-        $unit->setFaction($this->getReference('Destrucción'));
+        $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
@@ -939,7 +939,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setDefense(9999);
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/ogre.jpg');
-        $unit->setFaction($this->getReference('Destrucción'));
+        $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
@@ -958,7 +958,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setDefense(9999);
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/chimera.jpg');
-        $unit->setFaction($this->getReference('Destrucción'));
+        $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
@@ -977,7 +977,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setDefense(9999);
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/minotaur.jpg');
-        $unit->setFaction($this->getReference('Destrucción'));
+        $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Asedio'));
         $unit->setGoldMaintenance(9999);
@@ -996,7 +996,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setDefense(9999);
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/salamander.jpg');
-        $unit->setFaction($this->getReference('Destrucción'));
+        $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Melee'));
         $unit->setGoldMaintenance(9999);
@@ -1015,7 +1015,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setDefense(9999);
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/fireelemental.jpg');
-        $unit->setFaction($this->getReference('Destrucción'));
+        $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(9999);
@@ -1034,7 +1034,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setDefense(9999);
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/diablo.jpg');
-        $unit->setFaction($this->getReference('Destrucción'));
+        $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Distancia'));
         $unit->setGoldMaintenance(9999);
@@ -1053,7 +1053,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setDefense(9999);
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/phoenix.jpg');
-        $unit->setFaction($this->getReference('Destrucción'));
+        $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);
@@ -1072,7 +1072,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setDefense(9999);
         $unit->setSpeed(9);
         $unit->setImage('bundles/archmagegame/images/unit/doom/reddragon.jpg');
-        $unit->setFaction($this->getReference('Destrucción'));
+        $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Dragones'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(9999);

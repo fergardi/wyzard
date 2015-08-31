@@ -27,8 +27,8 @@
                             <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ research.spell.magic|nf }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ research.spell.manaCost|nf }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ research.turns|nf }}</div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ research.spell.turnResearch }}</div>
-                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ research.spell.skill.description }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ research.spell.turnResearch|nf }}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ research.spell.skill.description|raw }}</div>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i>Investigar</button>
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i><span class="hidden-xs">Investigar</span></button>
                                 </div>
                                 <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ player.turns }}" value="0" required/>
                                 <input type="hidden" id="research" name="research" value="{{ research.id }}" required />

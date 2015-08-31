@@ -40,7 +40,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -67,7 +67,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -94,7 +94,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -121,7 +121,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -148,7 +148,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -175,7 +175,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -202,7 +202,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -229,7 +229,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -256,7 +256,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -283,7 +283,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -393,9 +393,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setUnit(null);
         $skill->setBattle(true);
         $skill->setSelf(true);
-        $skill->setType($this->getReference('Melee'));
-        $skill->setFamily($this->getReference('NoMuertos'));
-        $skill->setDescription('Aumenta '.$skill->getAttackBonus().'% el ataque y disminuye '.$skill->getDefenseBonus().'% la defensa de tus '.$skill->getFamily()->getName().' '.$skill->getType()->getName().'.');
+        $skill->setType(null);
+        $skill->setFamily(null);
+        $skill->setDescription('Aumenta '.$skill->getAttackBonus().'% ataque y disminuye '.$skill->getDefenseBonus().'% defensa de tus tropas.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -588,7 +588,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -615,7 +615,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -642,7 +642,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -669,7 +669,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -696,7 +696,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -723,7 +723,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -750,7 +750,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -777,7 +777,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -804,7 +804,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -831,7 +831,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1136,7 +1136,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1163,7 +1163,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1190,7 +1190,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1217,7 +1217,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1244,7 +1244,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1271,7 +1271,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1298,7 +1298,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1325,7 +1325,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1352,7 +1352,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1379,7 +1379,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1491,7 +1491,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setFaction($this->getReference('Destrucción'));
+        $skill->setFaction($this->getReference('Caos'));
         $skill->setDescription('Reduce '.$skill->getDefenseBonus().'% la defensa de <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span>.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1684,7 +1684,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1711,7 +1711,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1738,7 +1738,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1765,7 +1765,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1792,7 +1792,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1819,7 +1819,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1846,7 +1846,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1873,7 +1873,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1900,7 +1900,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1927,7 +1927,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2232,7 +2232,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2259,7 +2259,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2286,7 +2286,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2313,7 +2313,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2340,7 +2340,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2367,7 +2367,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2394,7 +2394,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2421,7 +2421,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2448,7 +2448,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2475,7 +2475,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' '.$skill->getUnit()->getName().'.');
+        $skill->setDescription('Recluta '.$skill->getQuantityBonus().' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'">'.$skill->getUnit()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

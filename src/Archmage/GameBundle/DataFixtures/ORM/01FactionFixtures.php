@@ -15,7 +15,7 @@ class FactionFixtures extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $faction = new Faction();
-        $faction->setName('Destrucción');
+        $faction->setName('Caos');
         $faction->setImage('bundles/archmagegame/images/faction/doom.jpg');
         $faction->setClass('danger');
         $faction->setSlogan('Sangre y Fuego');

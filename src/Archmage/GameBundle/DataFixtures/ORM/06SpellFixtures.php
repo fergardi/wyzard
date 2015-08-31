@@ -2040,7 +2040,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setName($spell->getSkill()->getName());
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/doom/bloodpact.jpg');
-        $spell->setFaction($this->getReference('Destrucción'));
+        $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(9);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
@@ -2062,7 +2062,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setName($spell->getSkill()->getName());
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/doom/volcano.jpg');
-        $spell->setFaction($this->getReference('Destrucción'));
+        $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(9);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
@@ -2084,7 +2084,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setName($spell->getSkill()->getName());
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/doom/firearrows.jpg');
-        $spell->setFaction($this->getReference('Destrucción'));
+        $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(9);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
@@ -2106,7 +2106,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setName($spell->getSkill()->getName());
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/doom/drainmana.jpg');
-        $spell->setFaction($this->getReference('Destrucción'));
+        $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(9);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
@@ -2128,7 +2128,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setName($spell->getSkill()->getName());
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/doom/inferno.jpg');
-        $spell->setFaction($this->getReference('Destrucción'));
+        $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(9);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
@@ -2150,7 +2150,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setName($spell->getSkill()->getName());
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/doom/wardrums.jpg');
-        $spell->setFaction($this->getReference('Destrucción'));
+        $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(9);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
@@ -2172,7 +2172,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setName($spell->getSkill()->getName());
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/doom/fireball.jpg');
-        $spell->setFaction($this->getReference('Destrucción'));
+        $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(9);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
@@ -2194,7 +2194,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setName($spell->getSkill()->getName());
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/doom/firewall.jpg');
-        $spell->setFaction($this->getReference('Destrucción'));
+        $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(9);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
@@ -2216,7 +2216,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setName($spell->getSkill()->getName());
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/doom/firewings.jpg');
-        $spell->setFaction($this->getReference('Destrucción'));
+        $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(9);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
@@ -2238,7 +2238,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setName($spell->getSkill()->getName());
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/doom/demonwrath.jpg');
-        $spell->setFaction($this->getReference('Destrucción'));
+        $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(9);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);

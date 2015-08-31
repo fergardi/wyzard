@@ -39,9 +39,19 @@ img.background {
     padding-left: 15px;
     padding-right: 15px;
 }
-@media screen and (max-width: 768px) and (orientation: portrait) {
+@media screen and (max-width: 400px) and (orientation: portrait) {
+    .text-responsive {
+        font-size:8px !important;
+    }
+}
+@media screen and (min-width: 401px) and (max-width: 600px) and (orientation: portrait) {
     .text-responsive {
         font-size:10px !important;
+    }
+}
+@media screen and (min-width: 601px) and (max-width: 700px) and (orientation: portrait) {
+    .text-responsive {
+        font-size:12px !important;
     }
 }
 img.custom-thumbnail {

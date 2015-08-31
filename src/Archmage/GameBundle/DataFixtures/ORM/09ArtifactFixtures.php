@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\HelloBundle\DataFixtures\ORM;
+namespace Archmage\GameBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -22,6 +22,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Esclarece zonas oscuras del mapa, sumando a tus tierras libres actuales un '.$artifact->getSkill()->getTerrainBonus().'% adicional.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -33,6 +34,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Contiene grandes riquezas, aumentando tus reservas actuales de oro un '.$artifact->getSkill()->getGoldBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -44,6 +46,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Recarga tus almacenamientos de magia, aumentando tus reservas actuales de maná un '.$artifact->getSkill()->getManaBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -55,6 +58,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Absorbe y destruye un las reservas enemigas actuales de maná un '.$artifact->getSkill()->getManaBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -66,6 +70,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Incrementa la tasa de natalidad de tu reino, aumentando tu población actual un '.$artifact->getSkill()->getPeopleBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -77,6 +82,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Envenena el agua y disminuye la población actual enemiga un '.$artifact->getSkill()->getPeopleBonus().'%.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -88,6 +94,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Al eclosionar, convocará alrededor de '.$artifact->getSkill()->getQuantityBonus().' '.$artifact->getSkill()->getFamily()->getName().'(s/es) al azar a tu ejército.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -99,6 +106,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setDescription('Reduce la velocidad de todas las tropas enemigas '.$artifact->getSkill()->getSpeedBonus().' puntos.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
+        $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 

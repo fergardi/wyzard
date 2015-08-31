@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\HelloBundle\DataFixtures\ORM;
+namespace Archmage\GameBundle\DataFixtures\ORM;
 
 use Archmage\GameBundle\Entity\Hero;
 use Doctrine\Common\DataFixtures\AbstractFixture;

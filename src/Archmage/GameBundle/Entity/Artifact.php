@@ -45,9 +45,9 @@ class Artifact
     /**
      * @var integer
      *
-     * @ORM\Column(name="goldAuction", type="bigint", nullable=true)
+     * @ORM\Column(name="goldAuction", type="bigint", nullable=false)
      */
-    private $goldAuction = null;
+    private $goldAuction;
 
     /**
      * @var integer
@@ -55,6 +55,14 @@ class Artifact
      * @ORM\Column(name="rarityAuction", type="smallint", nullable=false)
      */
     private $rarityAuction;
+
+    /**
+     * @var Faction
+     *
+     * @ORM\ManyToOne(targetEntity="Faction")
+     * @ORM\JoinColumn(name="faction", referencedColumnName="id", nullable=false)
+     */
+    private $faction;
 
     /**
      * @var Skill
@@ -188,6 +196,29 @@ class Artifact
     public function getRarityAuction()
     {
         return $this->rarityAuction;
+    }
+
+    /**
+     * Set faction
+     *
+     * @param \Archmage\GameBundle\Entity\Faction $faction
+     * @return Artifact
+     */
+    public function setFaction(\Archmage\GameBundle\Entity\Faction $faction)
+    {
+        $this->faction = $faction;
+
+        return $this;
+    }
+
+    /**
+     * Get faction
+     *
+     * @return \Archmage\GameBundle\Entity\Faction 
+     */
+    public function getFaction()
+    {
+        return $this->faction;
     }
 
     /**

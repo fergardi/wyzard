@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\HelloBundle\DataFixtures\ORM;
+namespace Archmage\GameBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

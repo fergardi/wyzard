@@ -9,9 +9,9 @@
             <div class="page-header text-center">
                 <h1><i class="fa fa-fw fa-money"></i>Recaudar oro<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default text-responsive">
                 <div class="panel-heading text-center">Ganar {{ player.goldResourcePerTurn|nf }} <i class="fa fa-fw fa-lg fa-money"></i>/<i class="fa fa-fw fa-lg fa-hourglass-half"></i></div>
-                <div class="panel-body text-responsive">
+                <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
@@ -26,7 +26,7 @@
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i>Recaudar</button>
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-hourglass-half"></i><span class="hidden-xs">Recaudar</span></button>
                                 </div>
                                 <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ player.turns }}" value="0" required/>
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>

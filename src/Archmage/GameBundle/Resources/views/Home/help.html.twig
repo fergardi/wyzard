@@ -12,17 +12,17 @@
             </div>
         </div>
         <div class="col-xs-12"><a name="introduccion"></a>
-            <div class="panel panel-default">
+            <div class="panel panel-default text-responsive">
                 <div class="panel-heading text-center">Objetivo del juego</div>
-                <div class="panel-body text-responsive">
+                <div class="panel-body">
                     <p>blabla</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-12"><a name="batallas"></a>
-            <div class="panel panel-default">
+            <div class="panel panel-default text-responsive">
                 <div class="panel-heading text-center">Batallas</div>
-                <div class="panel-body text-responsive">
+                <div class="panel-body">
                     <p>blabla</p>
                 </div>
             </div>
@@ -35,9 +35,9 @@
         </div>
         {% for faction in factions %}
         <div class="col-xs-12 col-md-6"><a name="{{ faction.name|slug }}"></a>
-            <div class="panel panel-{{ faction.class }}">
+            <div class="panel panel-{{ faction.class }} text-responsive">
                 <div class="panel-heading text-center">{{ faction.name }}</div>
-                <div class="panel-body text-responsive">
+                <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset(faction.image) }}">
@@ -61,9 +61,9 @@
         </div>
         {% for building in buildings %}
         <div class="col-xs-12 col-md-6"><a name="{{ building.name|slug }}"></a>
-            <div class="panel panel-default">
+            <div class="panel panel-default text-responsive">
                 <div class="panel-heading text-center">{{ building.name }}</div>
-                <div class="panel-body text-responsive">
+                <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( building.image ) }}">
@@ -98,9 +98,9 @@
         </div>
         {% for unit in units %}
         <div class="col-xs-12 col-md-6"><a name="{{ unit.name|slug }}"></a>
-            <div class="panel panel-{{ unit.faction.class }}">
+            <div class="panel panel-{{ unit.faction.class }} text-responsive">
                 <div class="panel-heading text-center">{{ unit.name }}</div>
-                <div class="panel-body text-responsive">
+                <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( unit.image ) }}">
@@ -131,9 +131,9 @@
         </div>
         {% for hero in heroes %}
         <div class="col-xs-12 col-md-6"><a name="{{ hero.name|slug }}"></a>
-            <div class="panel panel-{{ hero.faction.class }}">
+            <div class="panel panel-{{ hero.faction.class }} text-responsive">
                 <div class="panel-heading text-center">{{ hero.name }}</div>
-                <div class="panel-body text-responsive">
+                <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( hero.image ) }}">
@@ -159,9 +159,9 @@
         </div>
         {% for spell in spells %}
         <div class="col-xs-12 col-md-6"><a name="{{ spell.name|slug }}"></a>
-            <div class="panel panel-{{ spell.faction.class }}">
+            <div class="panel panel-{{ spell.faction.class }} text-responsive">
                 <div class="panel-heading text-center">{{ spell.name }}</div>
-                <div class="panel-body text-responsive">
+                <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( spell.image ) }}">
@@ -188,9 +188,9 @@
         </div>
         {% for artifact in artifacts %}
         <div class="col-xs-12 col-md-6"><a name="{{ artifact.name|slug }}"></a>
-            <div class="panel panel-default">
+            <div class="panel panel-{{ artifact.faction.class }} text-responsive">
                 <div class="panel-heading text-center">{{ artifact.name }}</div>
-                <div class="panel-body text-responsive">
+                <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( artifact.image ) }}">

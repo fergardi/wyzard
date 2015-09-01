@@ -11,6 +11,27 @@
             </div>
             <form id="attack" name="attack" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_army_attack') }}" method="post" role="form">
                 <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-user"></i>Objetivo</div>
+                            <div class="panel-body text-center">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <select class="form-control selectpicker show-tick" id="target" name="target" data-live-search="true">
+                                            <option>Objetivo</option>
+                                            {% for target in targets %}
+                                                {# disabled="disabled" si eres el mismo player o si no les puedes atacar por player.power #}
+                                                <option value="{{ target.id }}" data-subtext="{{ target.power|nf }}">{{ target.nick }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer text-center">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i>Atacar</button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-xs-12 col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-group"></i>Tropas</div>
@@ -18,7 +39,7 @@
                                 {% for troop in player.troops %}
                                 <div class="row">
                                     <div class="col-xs-6 text-right">
-                                        <a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}" class="link">{{ troop.unit.name }}</a> [{{ troop.quantity|nf }}]
+                                        <span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name }}</a></span> [{{ troop.quantity|nf }}]
                                     </div>
                                     <div class="col-xs-6">
                                         <div class="form-group has-feedback">
@@ -88,25 +109,6 @@
                             </div>
                             <div class="panel-footer text-center">
                                 Debes escoger un <a href="{{ path( 'archmage_game_home_help' ) }}#batallas" class="link">tipo de ataque</a>.
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-user"></i>Objetivo</div>
-                            <div class="panel-body text-center">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <select class="form-control selectpicker show-tick" id="target" name="target" data-live-search="true">
-                                            <option>Objetivo</option>
-                                            {% for target in targets %}
-                                                {# disabled="disabled" si eres el mismo player o si no les puedes atacar por player.power #}
-                                                <option value="{{ target.id }}" data-subtext="{{ target.power|nf }}">{{ target.nick }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer text-center">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i>Atacar</button>
                             </div>
                         </div>
                     </div>

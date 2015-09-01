@@ -244,8 +244,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //NOCHE DE LOS MUERTOS VIVIENTES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Noche de los Muertos Vivientes'));
-        $spell->setName($spell->getSkill()->getName());
+        $spell->setSkill($this->getReference('Convocar NoMuertos'));
+        $spell->setName('Noche de los Muertos Vivientes');
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/darkness/nightofthelivingdead.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
@@ -260,7 +260,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnResearch(9999);
         $spell->setGoldAuction(0);
         $spell->setRarityAuction(0);
-        $spell->setEnchant(true);
+        $spell->setEnchant(false);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -282,7 +282,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnResearch(9999);
         $spell->setGoldAuction(0);
         $spell->setRarityAuction(0);
-        $spell->setEnchant(false);
+        $spell->setEnchant(true);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -370,7 +370,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnResearch(9999);
         $spell->setGoldAuction(0);
         $spell->setRarityAuction(0);
-        $spell->setEnchant(false);
+        $spell->setEnchant(true);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -392,7 +392,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnResearch(9999);
         $spell->setGoldAuction(0);
         $spell->setRarityAuction(0);
-        $spell->setEnchant(true);
+        $spell->setEnchant(false);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1244,7 +1244,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnResearch(9999);
         $spell->setGoldAuction(0);
         $spell->setRarityAuction(0);
-        $spell->setEnchant(false);
+        $spell->setEnchant(true);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1310,7 +1310,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnResearch(9999);
         $spell->setGoldAuction(0);
         $spell->setRarityAuction(0);
-        $spell->setEnchant(false);
+        $spell->setEnchant(true);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2036,8 +2036,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PACO DE SANGRE
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Pacto de Sangre'));
-        $spell->setName($spell->getSkill()->getName());
+        $spell->setSkill($this->getReference('Convocar Demonios'));
+        $spell->setName('Pacto de Sangre');
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/doom/bloodpact.jpg');
         $spell->setFaction($this->getReference('Caos'));
@@ -2140,7 +2140,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnResearch(9999);
         $spell->setGoldAuction(0);
         $spell->setRarityAuction(0);
-        $spell->setEnchant(true);
+        $spell->setEnchant(false);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 

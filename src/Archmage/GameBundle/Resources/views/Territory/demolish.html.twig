@@ -7,11 +7,15 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-bomb"></i>Derribar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
+                <h1><i class="fa fa-fw fa-bomb"></i>Demoler<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
             </div>
         </div>
         {% for construction in player.constructions %}
+            {% if construction.building.name == 'Tierras' %}
+        <div class="col-xs-12 col-md-offset-3 col-md-6">
+            {% else %}
         <div class="col-xs-12 col-md-6">
+            {% endif %}
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-home"></i><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a> [{{ construction.quantity|nf }}]</div>
                 <div class="panel-body text-responsive">
@@ -19,6 +23,11 @@
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( construction.building.image ) }}">
                         </div>
+                        {% if construction.building.name == 'Tierras' %}
+                        <div class="col-xs-8">
+                            <p>Aquí puedes destruir tus estructuras para recuperar <span class="label label-extra">Tierras</span> libres y reutilizarlas en otros edificios.</p>
+                        </div>
+                        {% else %}
                         <div class="col-xs-8 text-padded">
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldCost|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCost|nf }}</div>
@@ -33,6 +42,7 @@
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCap|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleCap|nf }}</div>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="panel-footer text-center">

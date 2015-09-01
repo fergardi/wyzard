@@ -34,6 +34,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -53,6 +54,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -72,6 +74,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -91,6 +94,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -110,6 +114,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -133,6 +138,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -152,6 +158,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -171,6 +178,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -190,6 +198,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -209,6 +218,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -228,6 +238,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -247,6 +258,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -266,6 +278,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -285,6 +298,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -304,6 +318,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -327,6 +342,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -346,6 +362,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -365,6 +382,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -384,6 +402,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -403,6 +422,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -422,6 +442,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -441,6 +462,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -460,6 +482,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -479,6 +502,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -498,6 +522,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -521,6 +546,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -540,6 +566,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -559,6 +586,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -578,6 +606,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -597,6 +626,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -616,6 +646,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -635,6 +666,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -654,6 +686,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -673,6 +706,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -692,6 +726,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -715,6 +750,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -734,6 +770,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -753,6 +790,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -772,6 +810,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -791,6 +830,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -810,6 +850,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -829,6 +870,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -848,6 +890,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -867,6 +910,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -886,6 +930,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -909,6 +954,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -928,6 +974,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -947,6 +994,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -966,6 +1014,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -985,6 +1034,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1004,6 +1054,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1023,6 +1074,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1042,6 +1094,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1061,6 +1114,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1080,6 +1134,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(9999);
         $unit->setGoldAuction(null);
         $unit->setGoldRecruit(null);
+        $unit->setSkill(null);
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 

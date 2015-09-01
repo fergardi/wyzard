@@ -19,7 +19,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Brújula Mágica');
         $artifact->setImage('bundles/archmagegame/images/artifact/magiccompass.jpg');
         $artifact->setSkill($this->getReference('Generar Tierras'));
-        $artifact->setDescription('Esclarece zonas oscuras del mapa, sumando a tus tierras libres actuales un '.$artifact->getSkill()->getTerrainBonus().'% adicional.');
+        $artifact->setDescription('+'.$artifact->getSkill()->getTerrainBonus().'% <span class="label label-extra">Tierras</span> libres de tu reino.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -31,7 +31,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Cofre del Tesoro');
         $artifact->setImage('bundles/archmagegame/images/artifact/treasurechest.jpg');
         $artifact->setSkill($this->getReference('Generar Oro'));
-        $artifact->setDescription('Contiene grandes riquezas, aumentando tus reservas actuales de oro un '.$artifact->getSkill()->getGoldBonus().'%.');
+        $artifact->setDescription('+'.$artifact->getSkill()->getGoldBonus().'% <span class="label label-extra">Oro</span> de tu reino.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -43,7 +43,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Poción de Maná');
         $artifact->setImage('bundles/archmagegame/images/artifact/manapotion.jpg');
         $artifact->setSkill($this->getReference('Generar Maná'));
-        $artifact->setDescription('Recarga tus almacenamientos de magia, aumentando tus reservas actuales de maná un '.$artifact->getSkill()->getManaBonus().'%.');
+        $artifact->setDescription('+'.$artifact->getSkill()->getManaBonus().'% <span class="label label-extra">Maná</span> de tu reino.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -55,7 +55,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Vórtice de Maná');
         $artifact->setImage('bundles/archmagegame/images/artifact/manavortex.jpg');
         $artifact->setSkill($this->getReference('Destruir Maná'));
-        $artifact->setDescription('Absorbe y destruye un las reservas enemigas actuales de maná un '.$artifact->getSkill()->getManaBonus().'%.');
+        $artifact->setDescription($artifact->getSkill()->getManaBonus().'% <span class="label label-extra">Maná</span> del reino enemigo.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -67,7 +67,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Elixir de Amor');
         $artifact->setImage('bundles/archmagegame/images/artifact/loveelixir.jpg');
         $artifact->setSkill($this->getReference('Generar Población'));
-        $artifact->setDescription('Incrementa la tasa de natalidad de tu reino, aumentando tu población actual un '.$artifact->getSkill()->getPeopleBonus().'%.');
+        $artifact->setDescription('+'.$artifact->getSkill()->getPeopleBonus().'% <span class="label label-extra">Población</span> de tu reino.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -79,7 +79,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Vial de Veneno');
         $artifact->setImage('bundles/archmagegame/images/artifact/poisonvial.jpg');
         $artifact->setSkill($this->getReference('Destruir Población'));
-        $artifact->setDescription('Envenena el agua y disminuye la población actual enemiga un '.$artifact->getSkill()->getPeopleBonus().'%.');
+        $artifact->setDescription($artifact->getSkill()->getPeopleBonus().'% <span class="label label-extra">Población</span> del reino enemigo.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -91,7 +91,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Huevo de Dragón');
         $artifact->setImage('bundles/archmagegame/images/artifact/dragonegg.jpg');
         $artifact->setSkill($this->getReference('Convocar Dragones'));
-        $artifact->setDescription('Al eclosionar, convocará alrededor de '.$artifact->getSkill()->getQuantityBonus().' '.$artifact->getSkill()->getFamily()->getName().'(s/es) al azar a tu ejército.');
+        $artifact->setDescription('Invoca aleatoriamente <span class="label label-extra">'.$artifact->getSkill()->getFamily()->getName().'</span>.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -103,7 +103,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Tela de Araña');
         $artifact->setImage('bundles/archmagegame/images/artifact/spiderweb.jpg');
         $artifact->setSkill($this->getReference('Reducir Velocidad'));
-        $artifact->setDescription('Reduce la velocidad de todas las tropas enemigas '.$artifact->getSkill()->getSpeedBonus().' puntos.');
+        $artifact->setDescription('-'.$artifact->getSkill()->getSpeedBonus().' <span class="label label-extra">Velocidad</span> de las tropas enemigas.');
         $artifact->setGoldAuction(0);
         $artifact->setRarityAuction(0);
         $artifact->setFaction($this->getReference('Neutral'));

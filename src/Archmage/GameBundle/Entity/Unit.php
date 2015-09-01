@@ -129,6 +129,14 @@ class Unit
      */
     private $type;
 
+    /**
+     * @var Skill
+     *
+     * @ORM\ManyToOne(targetEntity="Skill")
+     * @ORM\JoinColumn(name="skill", referencedColumnName="id", nullable=true)
+     */
+    private $skill;
+
 
     /**
      * Get id
@@ -483,5 +491,28 @@ class Unit
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set skill
+     *
+     * @param \Archmage\GameBundle\Entity\Skill $skill
+     * @return Unit
+     */
+    public function setSkill(\Archmage\GameBundle\Entity\Skill $skill = null)
+    {
+        $this->skill = $skill;
+
+        return $this;
+    }
+
+    /**
+     * Get skill
+     *
+     * @return \Archmage\GameBundle\Entity\Skill 
+     */
+    public function getSkill()
+    {
+        return $this->skill;
     }
 }

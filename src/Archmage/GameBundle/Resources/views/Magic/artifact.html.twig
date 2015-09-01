@@ -19,8 +19,8 @@
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( item.artifact.image ) }}">
                         </div>
-                        <div class="col-xs-8 text-padded">
-                            {{ item.artifact.description }}
+                        <div class="col-xs-8">
+                            <p><i class="fa fa-fw fa-joomla"></i>{{ item.artifact.description|raw }}</p>
                         </div>
                     </div>
                 </div>
@@ -28,16 +28,20 @@
                     <form id="item{{ item.id }}" name="item{{ item.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_magic_artifact') }}" method="post" role="form">
                         <div class="form-group">
                             <div class="input-group">
+                                {% if not item.artifact.skill.self %}
                                 <select class="form-control selectpicker" id="target" name="target" data-live-search="true" data-size="5">
                                     <option>Objetivo</option>
                                     {% for target in targets %}
                                         <option value="{{ target.id }}">{{ target.nick }}</option>
                                     {% endfor %}
                                 </select>
+                                {% endif %}
                                 <input type="hidden" id="item" name="item" value="{{ item.id }}" required />
                                 <div class="btn-group" role="group" aria-label="...">
                                     <button type="submit" id="activate" name="action" value="activate" class="btn btn-default"><i class="fa fa-fw fa-lg fa-joomla"></i>Activar</button>
+                                    {% if item.artifact.skill.battle %}
                                     <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if item == player.itemDefense %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-shield"></i>Defensa</button>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

@@ -23,7 +23,7 @@ class AuctionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $troop = new Troop();
         $manager->persist($troop);
         $troop->setUnit($this->getReference('Esqueletos'));
-        $troop->setQuantity(100);
+        $troop->setQuantity(10000);
         $troop->setPlayer(null);
         $auction->setPlayer(null);
         $auction->setTroop($troop);
@@ -46,7 +46,7 @@ class AuctionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $auction = new Auction();
         $contract = new Contract();
         $manager->persist($contract);
-        $contract->setHero($this->getReference('Nigromante'));
+        $contract->setHero($this->getReference('Jinete de Dragones'));
         $contract->setPlayer(null);
         $auction->setPlayer(null);
         $auction->setContract($contract);
@@ -57,7 +57,19 @@ class AuctionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $auction = new Auction();
         $research = new Research();
         $manager->persist($research);
-        $research->setSpell($this->getReference('Noche de los Muertos Vivientes'));
+        $research->setSpell($this->getReference('Paz'));
+        $research->setActive(false);
+        $research->setTurns(0);
+        $research->setPlayer(null);
+        $auction->setPlayer(null);
+        $auction->setResearch($research);
+        $auction->setBid(10000);
+        $manager->persist($auction);
+
+        $auction = new Auction();
+        $research = new Research();
+        $manager->persist($research);
+        $research->setSpell($this->getReference('Rayo de Sol'));
         $research->setActive(false);
         $research->setTurns(0);
         $research->setPlayer(null);

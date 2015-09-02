@@ -11,33 +11,12 @@
             </div>
             <form id="attack" name="attack" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_army_attack') }}" method="post" role="form">
                 <div class="row">
-                    <div class="col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-user"></i>Objetivo</div>
-                            <div class="panel-body text-center">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <select class="form-control selectpicker show-tick" id="target" name="target" data-live-search="true">
-                                            <option>Objetivo</option>
-                                            {% for target in targets %}
-                                                {# disabled="disabled" si eres el mismo player o si no les puedes atacar por player.power #}
-                                                <option value="{{ target.id }}" data-subtext="{{ target.power|nf }}">{{ target.nick }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer text-center">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i>Atacar</button>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-xs-12 col-md-6">
                         <div class="panel panel-default">
                             <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-group"></i>Tropas</div>
                             <div class="panel-body text-responsive">
-                                {% for troop in player.troops %}
                                 <div class="row">
+                                {% for troop in player.troops %}
                                     <div class="col-xs-6 text-right">
                                         <span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name }}</a></span> [{{ troop.quantity|nf }}]
                                     </div>
@@ -49,66 +28,71 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 {% endfor %}
+                                </div>
                             </div>
                             <div class="panel-footer text-center">
-                                Puedes enviar tantas <a href="{{ path( 'archmage_game_home_help' ) }}#unidades" class="link">tropas</a> como quieras.
+                                <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i>Atacar</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-6">
                         <div class="panel panel-default">
-                            <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-magic"></i>Hechizo</div>
+                            <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-cogs"></i>Opciones</div>
                             <div class="panel-body text-center">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <select class="form-control selectpicker show-tick" id="research" name="research" data-live-search="true">
-                                            <option>Ninguno</option>
-                                            {% for research in player.researchs if research.active and research.spell.skill.battle %}
-                                                <option value="{{ research.id }}">{{ research.spell.name }}</option>
-                                            {% endfor %}
-                                        </select>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <select class="form-control selectpicker show-tick" id="target" name="target" data-live-search="true">
+                                                    <option>Objetivo</option>
+                                                    {% for target in targets %}
+                                                        {# disabled="disabled" si eres el mismo player o si no les puedes atacar por player.power #}
+                                                        <option value="{{ target.id }}" data-subtext="{{ target.power|nf }}">{{ target.nick }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <select class="form-control selectpicker show-tick" id="research" name="research" data-live-search="true">
+                                                    <option>Hechizo</option>
+                                                    {% for research in player.researchs if research.active and research.spell.skill.battle %}
+                                                        <option value="{{ research.id }}">{{ research.spell.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <select class="form-control selectpicker show-tick" id="item" name="item" data-live-search="true">
+                                                    <option>Artefacto</option>
+                                                    {% for item in player.items if item.quantity > 0 and item.artifact.skill.battle %}
+                                                        <option value="{{ item.id }}">{{ item.artifact.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <select class="form-control selectpicker show-tick" id="attack" name="attack" data-live-search="true">
+                                                    <option value="regular">Normal</option>
+                                                    <option value="pillage">Pillaje</option>
+                                                    <option value="siege">Asedio</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="panel-footer text-center">
-                                Puedes escoger un <a href="{{ path( 'archmage_game_home_help' ) }}#hechizos" class="link">hechizo</a> para conjurar en la batalla.
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-joomla"></i>Artefacto</div>
-                            <div class="panel-body text-center">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <select class="form-control selectpicker show-tick" id="item" name="item" data-live-search="true">
-                                            <option>Ninguno</option>
-                                            {% for item in player.items if item.quantity > 0 and item.artifact.skill.battle %}
-                                                <option value="{{ item.id }}">{{ item.artifact.name }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer text-center">
-                                Puedes escoger un <a href="{{ path( 'archmage_game_home_help' ) }}#artefactos" class="link">artefacto</a> para activar en la batalla.
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-flag"></i>Tipo</div>
-                            <div class="panel-body text-center">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <select class="form-control selectpicker show-tick" id="attack" name="attack" data-live-search="true">
-                                            <option value="regular">Normal</option>
-                                            <option value="pillage">Pillaje</option>
-                                            <option value="siege">Asedio</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel-footer text-center">
-                                Debes escoger un <a href="{{ path( 'archmage_game_home_help' ) }}#batallas" class="link">tipo de ataque</a>.
+                                Si quieres, puedes utilizar un hechizo y un artefacto en la batalla.
                             </div>
                         </div>
                     </div>

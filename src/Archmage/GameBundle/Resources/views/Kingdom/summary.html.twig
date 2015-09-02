@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for construction in player.constructions %}
-                            <div class="col-xs-6"><i class="fa fa-fw fa-home"></i>{{ construction.quantity|nf }} <a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a></div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-home"></i>{{ construction.quantity|nf }} <a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}">{{ construction.building.name }}</a></div>
                             {% endfor %}
                         </div>
                     </div>

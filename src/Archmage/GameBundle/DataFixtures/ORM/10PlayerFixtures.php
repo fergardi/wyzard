@@ -34,14 +34,14 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //EDIFICIOS
         $constructions = array(
             'Tierras' => 1000,
-            'Barreras' => 10,
-            'Fortalezas' => 10,
-            'Gremios' => 10,
-            'Talleres' => 10,
+            'Barreras' => 0,
+            'Fortalezas' => 5,
+            'Gremios' => 0,
+            'Talleres' => 0,
             'Nodos' => 10,
-            'Pueblos' => 10,
+            'Pueblos' => 20,
             'Granjas' => 10,
-            'Barracones' => 10,
+            'Barracones' => 0,
         );
         foreach ($constructions as $name => $quantity) {
             $construction = new Construction();
@@ -51,6 +51,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($construction);
             $player->addConstruction($construction);
         }
+        /*
         //HECHIZOS
         $researchs = array(
             'Invocar Esqueletos' => 10,
@@ -65,6 +66,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($research);
             $player->addResearch($research);
         }
+        */
         //UNIDADES
         $troops = array(
             'Arqueros' => 10,
@@ -81,6 +83,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($troop);
             $player->addTroop($troop);
         }
+        /*
         //ARTEFACTOS
         $items = array(
             'Huevo de Dragón' => 1,
@@ -94,6 +97,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($item);
             $player->addItem($item);
         }
+        */
+        /*
         //ENCANTAMIENTOS
         $enchantment = new Enchantment();
         $enchantment->setSpell($this->getReference('Apocalipsis'));
@@ -102,6 +107,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($enchantment);
         $player->addEnchantment($enchantment);
         $player->addCurse($enchantment);
+        */
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);

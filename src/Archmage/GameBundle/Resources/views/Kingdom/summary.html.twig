@@ -19,7 +19,9 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            Texto descriptivo
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>+{{ player.goldresourceperturn|nf }} <span class="label label-extra">Oro</span> por turno</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>-{{ player.goldresourceperturn|nf }} <span class="label label-extra">Oro</span> por turno</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>?{{ player.goldresourceperturn|nf }} <span class="label label-extra">Oro</span> total por turno</div>
                         </div>
                     </div>
                 </div>
@@ -38,7 +40,9 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/territory.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            Texto descriptivo
+                            {% for construction in player.constructions %}
+                            <div class="col-xs-6"><i class="fa fa-fw fa-home"></i>{{ construction.quantity|nf }} <a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a></div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -58,7 +62,9 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/magic.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            Texto descriptivo
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>+{{ player.goldresourceperturn|nf }} <span class="label label-extra">Maná</span> por turno</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>-{{ player.goldresourceperturn|nf }} <span class="label label-extra">Maná</span> por turno</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>?{{ player.goldresourceperturn|nf }} <span class="label label-extra">Maná</span> total por turno</div>
                         </div>
                     </div>
                 </div>
@@ -78,7 +84,11 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/army.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            Texto descriptivo
+                            {% for troop in player.troops %}
+                                <div class="col-xs-6"><i class="fa fa-fw fa-home"></i>{{ troop.quantity|nf }} <span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name|truncate(10, true) }}</a></span></div>
+                            {% else %}
+                                <p>No tienes ninguna tropa. Tal vez deberías reclutar alguna.</p>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -98,12 +108,8 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/defense.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">
-                                <i class="fa fa-fw fa-magic"></i><a href="{{ path('archmage_game_home_help') }}">Hechizo de defensa</a>
-                            </div>
-                            <div class="col-xs-12">
-                                <i class="fa fa-fw fa-joomla"></i><a href="{{ path('archmage_game_home_help') }}">Artefacto de defensa</a>
-                            </div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{% if player.researchDefense %}<a href="{{ path('archmage_game_home_help') }}#{{ player.researchDefense.spell.name|slug }}">{{ player.researchDefense.spell.name }}</a>{% else %}Ninguno{% endif %}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{% if player.itemDefense %}<a href="{{ path('archmage_game_home_help') }}#{{ player.itemDefense.spell.name|slug }}">{{ player.itemDefense.spell.name }}</a>{% else %}Ninguno{% endif %}</div>
                         </div>
                     </div>
                 </div>
@@ -122,7 +128,7 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/social.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            Texto descriptivo
+                            <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <span class="label label-extra">Mensaje(s)</span></div>
                         </div>
                     </div>
                 </div>

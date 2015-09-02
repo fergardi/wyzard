@@ -20,8 +20,8 @@ class MagicController extends Controller
         if ($request->isMethod('POST')) {
             $turns = $_POST['turns'] or null;
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
-                $mana = $turns * $player->getManaPerTurn();
-                $player->setMana($player->getMana() + $mana);
+                $mana = $turns * $player->getManaResourcePerTurn();
+                if ($player->getMana() + $mana >= $player->getManaCap()) $player->setMana($player->getManaCap()); else $player->setMana($player->getMana() + $mana);
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
@@ -48,17 +48,30 @@ class MagicController extends Controller
         if ($request->isMethod('POST')) {
             $research = $_POST['research'] or null;
             $action = $_POST['action'] or null;
+            $target = $_POST['target'] or null;
             $research = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($research);
             if ($research && $action) {
-                if ($action == 'conjure' && $research->getSpell()->getTurnCost() <= $player->getTurns()) {
+                if ($action == 'conjure') {
                     $turns = $research->getSpell()->getTurnCost();
-                    $this->addFlash('success', 'Has gastado ' . $turns . ' turno(s) en conjurar ' . $research->getSpell()->getName() . '.');
-                } elseif ($action == 'defense' && $player->getTurns() > 0) {
-                    $turns = 1;
-                    $player->setResearchDefense($research);
-                    $this->addFlash('success', 'Has gastado ' . $turns . ' turno(s) en defender con ' . $research->getSpell()->getName() . '.');
+                    $mana = $research->getSpell->getManaCost();
+                    if ($turns <= $player->getTurns() && $mana <= $player->getMana()) {
+                        $player->setTurns($player->getTurns() - $turns);
+                        $player->setMana($player->getMana() - $mana);
+                        $this->addFlash('success', 'Has gastado ' . $turns . ' turnos y ' . $mana . ' maná en conjurar ' . $research->getSpell()->getName() . '.');
+                    } else {
+                        $this->addFlash('danger', 'No tienes los recursos necesarios para conjurar ese hechizo.');
+                    }
                 }
-                $player->setTurns($player->getTurns() - $turns);
+                if ($action == 'defense') {
+                    $turns = 1;
+                    if ($player->getTurns() > 0) {
+                        $player->setResearchDefense($research);
+                        $player->setTurns($player->getTurns() - $turns);
+                        $this->addFlash('success', 'Has gastado ' . $turns . ' turno(s) en defender con ' . $research->getSpell()->getName() . '.');
+                    } else {
+                        $this->addFlash('danger', 'No tienes los recursos necesarios para conjurar ese hechizo.');
+                    }
+                }
                 $manager->persist($player);
                 $manager->flush();
             } else {
@@ -87,7 +100,7 @@ class MagicController extends Controller
             if ($research && $turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()){
                 $research->setTurns($research->getTurns() + $turns);
                 $player->setTurns($player->getTurns() - $turns);
-                if ($research->getTurns() >= $research->getSpell()->getTurnResearch()) {
+                if ($research->getTurns() >= $research->getSpell()->getTurnsResearch()) {
                     $research->setActive(true);
                     $this->addFlash('success', 'Has investigado completamente el hechizo "'.$research->getSpell()->getName().'".');
                 }

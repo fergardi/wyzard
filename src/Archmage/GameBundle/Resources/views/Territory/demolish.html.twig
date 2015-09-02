@@ -46,6 +46,7 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
+                    {% if construction.building.name != 'Tierras' %}
                     <form id="construction{{ construction.id }}" name="construction{{ construction.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_territory_demolish') }}" method="post">
                         <div class="form-group has-feedback">
                             <div class="input-group">
@@ -58,6 +59,9 @@
                             </div>
                         </div>
                     </form>
+                    {% else %}
+                        <a class="btn btn-default" href="{{ path( 'archmage_game_territory_explore' ) }}"><i class="fa fa-fw fa-lg fa-search"></i><span class="hidden-xs">Explorar</span></a>
+                    {% endif %}
                 </div>
             </div>
         </div>

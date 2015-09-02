@@ -31,6 +31,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldCap(999);
         $building->setManaCap(999);
         $building->setPeopleCap(999);
+        $building->setBuildingRatio(10);
+        $building->setResearchRatio(10);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -51,6 +53,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldCap(999);
         $building->setManaCap(999);
         $building->setPeopleCap(999);
+        $building->setBuildingRatio(10);
+        $building->setResearchRatio(10);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -71,6 +75,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldCap(999);
         $building->setManaCap(999);
         $building->setPeopleCap(999);
+        $building->setBuildingRatio(10);
+        $building->setResearchRatio(10);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -91,6 +97,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldCap(999);
         $building->setManaCap(999);
         $building->setPeopleCap(999);
+        $building->setBuildingRatio(10);
+        $building->setResearchRatio(10);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -111,6 +119,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldCap(999);
         $building->setManaCap(999);
         $building->setPeopleCap(999);
+        $building->setBuildingRatio(10);
+        $building->setResearchRatio(10);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -131,6 +141,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldCap(999);
         $building->setManaCap(999);
         $building->setPeopleCap(999);
+        $building->setBuildingRatio(10);
+        $building->setResearchRatio(10);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -151,13 +163,15 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldCap(999);
         $building->setManaCap(999);
         $building->setPeopleCap(999);
+        $building->setBuildingRatio(10);
+        $building->setResearchRatio(10);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
         //GREMIOS
         $building = new Building();
         $building->setName('Gremios');
-        $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> necesarios al investigar.');
+        $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> necesarios para investigar.');
         $building->setImage('bundles/archmagegame/images/building/guild.jpg');
         $building->setGoldCost(999);
         $building->setManaCost(999);
@@ -171,6 +185,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldCap(999);
         $building->setManaCap(999);
         $building->setPeopleCap(999);
+        $building->setBuildingRatio(10);
+        $building->setResearchRatio(10);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -191,6 +207,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldCap(999);
         $building->setManaCap(999);
         $building->setPeopleCap(999);
+        $building->setBuildingRatio(10);
+        $building->setResearchRatio(10);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 

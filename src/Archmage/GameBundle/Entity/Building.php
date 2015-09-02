@@ -126,6 +126,20 @@ class Building
      */
     private $peopleCap;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="buildingRatio", type="smallint", nullable=false)
+     */
+    private $buildingRatio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="researchRatio", type="smallint", nullable=false)
+     */
+    private $researchRatio;
+
 
     /**
      * Get id
@@ -480,5 +494,51 @@ class Building
     public function getPeopleCap()
     {
         return $this->peopleCap;
+    }
+
+    /**
+     * Set buildingRatio
+     *
+     * @param integer $buildingRatio
+     * @return Building
+     */
+    public function setBuildingRatio($buildingRatio)
+    {
+        $this->buildingRatio = $buildingRatio;
+
+        return $this;
+    }
+
+    /**
+     * Get buildingRatio
+     *
+     * @return integer 
+     */
+    public function getBuildingRatio()
+    {
+        return $this->buildingRatio;
+    }
+
+    /**
+     * Set researchRatio
+     *
+     * @param integer $researchRatio
+     * @return Building
+     */
+    public function setResearchRatio($researchRatio)
+    {
+        $this->researchRatio = $researchRatio;
+
+        return $this;
+    }
+
+    /**
+     * Get researchRatio
+     *
+     * @return integer 
+     */
+    public function getResearchRatio()
+    {
+        return $this->researchRatio;
     }
 }

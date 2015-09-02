@@ -73,16 +73,16 @@ class Spell
     /**
      * @var integer
      *
-     * @ORM\Column(name="turnCost", type="smallint", nullable=false)
+     * @ORM\Column(name="turnsCost", type="smallint", nullable=false)
      */
-    private $turnCost;
+    private $turnsCost;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="turnResearch", type="smallint", nullable=false)
+     * @ORM\Column(name="turnsResearch", type="smallint", nullable=false)
      */
-    private $turnResearch;
+    private $turnsResearch;
 
     /**
      * @var integer
@@ -315,49 +315,49 @@ class Spell
     }
 
     /**
-     * Set turnCost
+     * Set turnsCost
      *
-     * @param integer $turnCost
+     * @param integer $turnsCost
      * @return Spell
      */
-    public function setTurnCost($turnCost)
+    public function setTurnsCost($turnsCost)
     {
-        $this->turnCost = $turnCost;
+        $this->turnsCost = $turnsCost;
 
         return $this;
     }
 
     /**
-     * Get turnCost
+     * Get turnsCost
      *
      * @return integer 
      */
-    public function getTurnCost()
+    public function getTurnsCost()
     {
-        return $this->turnCost;
+        return $this->turnsCost;
     }
 
     /**
-     * Set turnResearch
+     * Set turnsResearch
      *
-     * @param integer $turnResearch
+     * @param integer $turnsResearch
      * @return Spell
      */
-    public function setTurnResearch($turnResearch)
+    public function setTurnsResearch($turnsResearch)
     {
-        $this->turnResearch = $turnResearch;
+        $this->turnsResearch = $turnsResearch;
 
         return $this;
     }
 
     /**
-     * Get turnResearch
+     * Get turnsResearch
      *
      * @return integer 
      */
-    public function getTurnResearch()
+    public function getTurnsResearch()
     {
-        return $this->turnResearch;
+        return $this->turnsResearch;
     }
 
     /**

@@ -45,17 +45,23 @@ class TerritoryController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
-            $turns = 1;
             $lands = $_POST['lands'] or null;
             $construction = $_POST['construction'] or null;
             $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
-            if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $player->getBuilding('Tierras')->getQuantity() && $turns <= $player->getTurns()) {
-                $construction->setQuantity($construction->getQuantity() + $lands);
-                $player->getBuilding('Tierras')->setQuantity($player->getBuilding('Tierras')->getQuantity() - $lands);
-                $player->setTurns($player->getTurns() - $turns);
-                $manager->persist($player);
-                $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y X oro y construido '.$lands.' '.$construction->getBuilding()->getName().'.');
+            if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $player->getBuilding('Tierras')->getQuantity()) {
+                $turns = ceil($lands / ceil(($player->getBuilding('Talleres')->getQuantity() + 1) / $construction->getBuilding()->getBuildingRatio()));
+                $gold = $construction->getBuilding()->getGoldCost() * $lands;
+                if ($turns <= $player->getTurns() && $gold <= $player->getGold()) {
+                    $construction->setQuantity($construction->getQuantity() + $lands);
+                    $player->getBuilding('Tierras')->setQuantity($player->getBuilding('Tierras')->getQuantity() - $lands);
+                    $player->setGold($player->getGold() - $gold);
+                    $player->setTurns($player->getTurns() - $turns);
+                    $manager->persist($player);
+                    $manager->flush();
+                    $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y '.$gold.' oro y construido '.$lands.' '. $construction->getBuilding()->getName().'.');
+                } else {
+                    $this->addFlash('danger', 'No tienes suficientes turnos para eso.');
+                }
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -85,7 +91,7 @@ class TerritoryController extends Controller
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y derribado '.$lands.' edificio(s).');
+                $this->addFlash('success', 'Has gastado '.$turns.' turno y derribado '.$lands.' edificios.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

@@ -69,7 +69,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setDescription('Descripción');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
-        $spell->setMagic(1);
+        $spell->setMagic(2);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
         $spell->setPeopleCost(999999);
@@ -91,7 +91,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setDescription('Descripción');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
-        $spell->setMagic(1);
+        $spell->setMagic(2);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
         $spell->setPeopleCost(999999);
@@ -113,7 +113,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setDescription('Descripción');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
-        $spell->setMagic(1);
+        $spell->setMagic(3);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
         $spell->setPeopleCost(999999);
@@ -135,7 +135,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setDescription('Descripción');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
-        $spell->setMagic(1);
+        $spell->setMagic(3);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
         $spell->setPeopleCost(999999);
@@ -157,7 +157,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setDescription('Descripción');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
-        $spell->setMagic(1);
+        $spell->setMagic(4);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
         $spell->setPeopleCost(999999);
@@ -179,7 +179,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setDescription('Descripción');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
-        $spell->setMagic(1);
+        $spell->setMagic(4);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
         $spell->setPeopleCost(999999);
@@ -201,7 +201,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setDescription('Descripción');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
-        $spell->setMagic(1);
+        $spell->setMagic(5);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
         $spell->setPeopleCost(999999);
@@ -223,7 +223,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setDescription('Descripción');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
-        $spell->setMagic(1);
+        $spell->setMagic(5);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
         $spell->setPeopleCost(999999);
@@ -249,7 +249,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setDescription($spell->getSkill()->getDescription());
         $spell->setImage('bundles/archmagegame/images/spell/darkness/nightofthelivingdead.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
-        $spell->setMagic(1);
+        $spell->setMagic(5);
         $spell->setGoldCost(999999);
         $spell->setManaCost(999999);
         $spell->setPeopleCost(999999);

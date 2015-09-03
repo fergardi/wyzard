@@ -80,7 +80,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
-        //NODES
+        //NODOS
         $building = new Building();
         $building->setName('Nodos');
         $building->setDescription('Otorgan e incrementan el <span class="label label-extra">Maná</span> máximo de tu reino.');

@@ -3,6 +3,7 @@
 namespace Archmage\GameBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Proxies\__CG__\Archmage\GameBundle\Entity\Faction;
 
 /**
  * SpellRepository
@@ -12,4 +13,23 @@ use Doctrine\ORM\EntityRepository;
  */
 class SpellRepository extends EntityRepository
 {
+    public function findAllOrderedByFaction(Faction $faction)
+    {
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select(
+            'iis.totalVariableCost,
+            iis.totalNumberOfCalls,
+            iis.totalDuration'
+        )
+        ->from('AppBundle:IndividualInvoiceSummary', 'iis')
+        ->where('iis.startDate = :startDate')
+        ->andWhere('iis.endDate = :endDate')
+        ->andWhere('iis.numberOrCode = :numberOrCode')
+        ->setParameters(array(
+            'startDate' => $startDate,
+            'endDate' => $endDate,
+            'numberOrCode' => $numberOrCode,
+        ));
+        return $qb->getQuery()->getResult();
+    }
 }

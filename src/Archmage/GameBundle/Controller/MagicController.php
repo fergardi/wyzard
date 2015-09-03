@@ -93,7 +93,7 @@ class MagicController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
-        $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAll();
+        $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findByFaction($player->getFaction());
         if ($request->isMethod('POST')) {
             $turns = $_POST['turns'] or null;
             $research = $_POST['research'] or null;

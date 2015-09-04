@@ -10,7 +10,7 @@
                 <h1><i class="fa fa-fw fa-graduation-cap"></i>Investigar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
             </div>
         </div>
-        {% for research in player.researchs if not research.active %}
+        {% for research in player.researchs %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ research.spell.faction.class }}">
                 <div class="panel-heading text-center">{% if research.spell.enchant %}<i class="fa fa-fw fa-lg fa-link"></i>{% else %}<i class="fa fa-fw fa-lg fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
@@ -45,7 +45,7 @@
             </div>
         </div>
         {% endfor %}
-        {% for spell in spells if spell.magic <= player.magic %}
+        {% for spell in spells %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ spell.faction.class }}">
                 <div class="panel-heading text-center">{% if spell.enchant %}<i class="fa fa-fw fa-lg fa-link"></i>{% else %}<i class="fa fa-fw fa-lg fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ spell.name|slug }}" class="link">{{ spell.name }}</a></div>
@@ -79,13 +79,14 @@
                 </div>
             </div>
         </div>
-        {% else %}
+        {% endfor %}
+        {% if player.researchs is empty and spells is empty %}
         <div class="container">
             <div class="col-xs-12 alert alert-danger text-center" role="alert">
                 <i class="fa fa-fw fa-lg fa-exclamation-triangle"></i> Ya no tienes nada nuevo que investigar. Tal vez puedas comprar alguno más en el <i class="fa fa-fw fa-lg fa-user-secret"></i><a href="{{ path( 'archmage_game_kingdom_auction' ) }}">Mercado negro</a>.
             </div>
         </div>
-        {% endfor %}
+        {% endif %}
     </div>
 </div>
 {% endblock %}

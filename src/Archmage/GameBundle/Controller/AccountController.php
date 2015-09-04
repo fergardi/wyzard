@@ -68,4 +68,20 @@ class AccountController extends Controller
             }
         }
     }
+
+    /**
+     * Flashbags notices
+     */
+    public function loadNews()
+    {
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $notices = $player->getMessages();
+        foreach ($notices as $notice) {
+            $notice->setReaded(true);
+            $this->addFlash($notice->getClass(), $notice->getSubject());
+        }
+        $manager->persist($player);
+        $manager->flush();
+    }
 }

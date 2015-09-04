@@ -16,6 +16,8 @@ class KingdomController extends Controller
     public function summaryAction()
     {
         $manager = $this->getDoctrine()->getManager();
+        $service = $this->get('loadNews');
+        $service->loadNews();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         return array(
             'player' => $player,

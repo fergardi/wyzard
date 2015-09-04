@@ -21,7 +21,6 @@ class TwigExtension extends \Twig_Extension
         $replace = explode(",","a,e,i,o,u,a,e,i,o,u,-");
         $url = strtolower(str_replace($search, $replace, $string));
         return $url;
-
     }
 
     public function getName() {

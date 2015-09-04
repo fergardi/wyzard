@@ -50,6 +50,13 @@ class Message
     private $text;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="readed", type="boolean", nullable=false)
+     */
+    private $readed = false;//read reserved word in mysql
+
+    /**
      * @var Player
      *
      * @ORM\ManyToOne(targetEntity="Player", inversedBy="messages")
@@ -65,6 +72,7 @@ class Message
      */
     private $owner = null;
 
+
     /**
      * Constructor
      */
@@ -72,6 +80,7 @@ class Message
     {
         $this->datetime = new \DateTime('now');
         $this->hash = substr(md5($this->getId()),0,8);
+        $this->read = false;
     }
 
 
@@ -175,6 +184,29 @@ class Message
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * Set readed
+     *
+     * @param boolean $readed
+     * @return Message
+     */
+    public function setReaded($readed)
+    {
+        $this->readed = $readed;
+
+        return $this;
+    }
+
+    /**
+     * Get readed
+     *
+     * @return boolean 
+     */
+    public function getReaded()
+    {
+        return $this->readed;
     }
 
     /**

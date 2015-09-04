@@ -3,7 +3,8 @@
 namespace Archmage\GameBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use Proxies\__CG__\Archmage\GameBundle\Entity\Faction;
+use Archmage\GameBundle\Entity\Player;
+
 
 /**
  * SpellRepository
@@ -13,23 +14,32 @@ use Proxies\__CG__\Archmage\GameBundle\Entity\Faction;
  */
 class SpellRepository extends EntityRepository
 {
-    public function findAllOrderedByFaction(Faction $faction)
+    public function findAllSpellsResearchablesByPlayer(Player $player)
     {
+        //buscar todas las ids de spells de researchs actuales
         $qb = $this->_em->createQueryBuilder();
-        $qb->select(
-            'iis.totalVariableCost,
-            iis.totalNumberOfCalls,
-            iis.totalDuration'
-        )
-        ->from('AppBundle:IndividualInvoiceSummary', 'iis')
-        ->where('iis.startDate = :startDate')
-        ->andWhere('iis.endDate = :endDate')
-        ->andWhere('iis.numberOrCode = :numberOrCode')
-        ->setParameters(array(
-            'startDate' => $startDate,
-            'endDate' => $endDate,
-            'numberOrCode' => $numberOrCode,
-        ));
+        $qb->select('r')
+            ->from('ArchmageGameBundle:Research', 'r')
+            ->andWhere('r.player = :id')
+            ->andWhere('r.active = false')
+            ->setParameter('id', $player);
+        $researchs = $qb->getQuery()->getResult();
+        foreach ($researchs as $research) {
+            $ids[] = $research->getSpell()->getId();
+        }
+        //buscar todos los spells que no tengan ids de las researchs actuales
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('s')
+            ->from('ArchmageGameBundle:Spell', 's')
+            ->andWhere('s.faction = :faction')
+            ->andWhere('s.magic <= :magic');
+        if(!empty($ids)) {
+            $qb->andWhere('s.id NOT IN (:ids)');
+            $qb->setParameter('ids', $ids);
+        }
+        $qb->setParameter('magic', $player->getMagic());
+        $qb->setParameter('faction', $player->getFaction());
+
         return $qb->getQuery()->getResult();
     }
 }

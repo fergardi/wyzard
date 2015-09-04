@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Archmage\GameBundle\Entity\Research;
 
 class MagicController extends Controller
 {
@@ -93,21 +94,36 @@ class MagicController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
-        $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findByFaction($player->getFaction());
+        $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAllSpellsResearchablesByPlayer($player);
         if ($request->isMethod('POST')) {
-            $turns = $_POST['turns'] or null;
-            $research = $_POST['research'] or null;
+            $turns = isset($_POST['turns'])?$_POST['turns']:null;
+            $spell = isset($_POST['spell'])?$_POST['spell']:null;
+            $research = isset($_POST['research'])?$_POST['research']:null;
             $research = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($research);
-            if ($research && $turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()){
-                $research->setTurns($research->getTurns() + $turns);
-                $player->setTurns($player->getTurns() - $turns);
-                if ($research->getTurns() >= $research->getSpell()->getTurnsResearch()) {
-                    $research->setActive(true);
-                    $this->addFlash('success', 'Has investigado completamente el hechizo "'.$research->getSpell()->getName().'".');
+            $spell = $manager->getRepository('ArchmageGameBundle:Spell')->findOneById($spell);
+            if (($research || $spell) && $turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()){
+                //si quiere investigar un hechizo que no tenia, o sea un spell de su raza, se crea un nuevo research
+                if ($spell) {
+                    $research = new Research();
+                    $research->setSpell($spell);
+                    $research->setTurns(0);
+                    $research->setPlayer($player);
+                    $research->setActive(false);
+                    $manager->persist($research);
+                    $player->addResearch($research);
                 }
+                //haya creado anteriormente un nuevo research o siga investigando otro, se comprueba si lo ha terminado y se suman los turnos
+                if ($research) {
+                    $research->setTurns($research->getTurns() + $turns);
+                    if ($research->getTurns() >= $research->getSpell()->getTurnsResearch()) {
+                        $research->setActive(true);
+                        $this->addFlash('success', 'Has investigado completamente el hechizo "' . $research->getSpell()->getName() . '".');
+                    }
+                }
+                $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) en investigación.');
+                $this->addFlash('success', 'Has gastado '.$turns.' turnos durante la investigación.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

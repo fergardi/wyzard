@@ -36,11 +36,14 @@
                 </div>
             </div>
         </div>
-        {% else %}
-        <div class="col-xs-12 alert alert-danger text-center" role="alert">
-            <i class="fa fa-fw fa-lg fa-exclamation-triangle"></i> Actualmente no tienes encantamientos en tu reino, amigos o enemigos. Tal vez deberías <i class="fa fa-fw fa-lg fa-graduation-cap"></i><a href="{{ path('archmage_game_magic_research') }}">Investigar</a> algunos.
-        </div>
         {% endfor %}
+        {% if player.enchantments is empty and player.curses is empty %}
+        <div class="container">
+            <div class="col-xs-12 alert alert-danger text-center" role="alert">
+                <i class="fa fa-fw fa-lg fa-exclamation-triangle"></i> Actualmente no tienes encantamientos en tu reino, amigos o enemigos. Tal vez deberías <i class="fa fa-fw fa-lg fa-graduation-cap"></i><a href="{{ path('archmage_game_magic_research') }}">Investigar</a> algunos.
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

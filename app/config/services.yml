@@ -8,3 +8,5 @@ services:
         public: false
         tags:
             - { name: twig.extension }
+    app.loadNews:
+        class: ArchmageGameBundle\Controller\AccountController

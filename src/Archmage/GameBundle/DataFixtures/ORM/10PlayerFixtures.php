@@ -28,7 +28,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $player->setMana(1000);
         $player->setPeople(20000);
         $player->setMagic(1);
-        $player->setTurns(300000);
+        $player->setTurns(30000);
         $player->setItemDefense(null);
         $player->setResearchDefense(null);
         //EDIFICIOS
@@ -113,6 +113,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $message->setPlayer($player);
         $message->setSubject('Prueba');
         $message->setText('Prueba');
+        $message->setClass('info');
         $message->setOwner(null);
         $message->setReaded(false);
         $manager->persist($message);

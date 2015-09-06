@@ -50,6 +50,13 @@ class Message
     private $text;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="class", type="string", length=255, nullable=false)
+     */
+    private $class;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="readed", type="boolean", nullable=false)
@@ -80,7 +87,7 @@ class Message
     {
         $this->datetime = new \DateTime('now');
         $this->hash = substr(md5($this->getId()),0,8);
-        $this->read = false;
+        $this->readed = false;
     }
 
 
@@ -184,6 +191,29 @@ class Message
     public function getText()
     {
         return $this->text;
+    }
+
+    /**
+     * Set class
+     *
+     * @param string $class
+     * @return Message
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return string 
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 
     /**

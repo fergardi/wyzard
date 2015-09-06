@@ -70,16 +70,18 @@ class AccountController extends Controller
     }
 
     /**
-     * Flashbags notices
+     * Flashbags notices controller as a service app/config/services.yml
      */
-    public function loadNews()
+    public function news()
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         $notices = $player->getMessages();
         foreach ($notices as $notice) {
-            $notice->setReaded(true);
-            $this->addFlash($notice->getClass(), $notice->getSubject());
+            if (!$notice->getReaded()) {
+                $notice->setReaded(true);
+                $this->addFlash($notice->getClass(), $notice->getSubject());
+            }
         }
         $manager->persist($player);
         $manager->flush();

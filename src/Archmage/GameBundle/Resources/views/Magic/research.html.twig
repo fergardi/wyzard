@@ -10,7 +10,7 @@
                 <h1><i class="fa fa-fw fa-graduation-cap"></i>Investigar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
             </div>
         </div>
-        {% for research in player.researchs %}
+        {% for research in player.researchs if not research.active %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ research.spell.faction.class }}">
                 <div class="panel-heading text-center">{% if research.spell.enchant %}<i class="fa fa-fw fa-lg fa-link"></i>{% else %}<i class="fa fa-fw fa-lg fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>

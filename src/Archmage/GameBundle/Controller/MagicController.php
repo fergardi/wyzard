@@ -96,6 +96,7 @@ class MagicController extends Controller
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAllSpellsResearchablesByPlayer($player);
         if ($request->isMethod('POST')) {
+            //recibe datos del form post y busca en database sus ids
             $turns = isset($_POST['turns'])?$_POST['turns']:null;
             $spell = isset($_POST['spell'])?$_POST['spell']:null;
             $research = isset($_POST['research'])?$_POST['research']:null;
@@ -112,14 +113,17 @@ class MagicController extends Controller
                     $manager->persist($research);
                     $player->addResearch($research);
                 }
-                //haya creado anteriormente un nuevo research o siga investigando otro, se comprueba si lo ha terminado y se suman los turnos
+                //tanto si tenia anteriormente un research como si ha creado uno nuevo se suman los turnos
                 if ($research) {
                     $research->setTurns($research->getTurns() + $turns);
+                    //comprueba si lo ha terminado de investigar y debe activarlo
                     if ($research->getTurns() >= $research->getSpell()->getTurnsResearch()) {
                         $research->setActive(true);
+                        $player->setMagic($player->getMagic() + 1);
                         $this->addFlash('success', 'Has investigado completamente el hechizo "' . $research->getSpell()->getName() . '".');
                     }
                 }
+                //resta turnos y flush
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
@@ -145,17 +149,20 @@ class MagicController extends Controller
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
         if ($request->isMethod('POST')) {
+            //recibe datos del form post y busca en databases sus ids
             $turns = 1;
             $item = $_POST['item'] or null;
             $action = $_POST['action'] or null;
             $item = $manager->getRepository('ArchmageGameBundle:Item')->findOneById($item);
             if ($item && $action && $turns <= $player->getTurns()) {
+                //resta turnos al usarlo
                 $player->setTurns($player->getTurns() - $turns);
                 if ($action == 'activate') {
-                    $this->addFlash('success', 'Has gastado ' . $turns . ' turno(s) en activar ' . $item->getArtifact()->getName() . '.');
+                    //TODO
+                    $this->addFlash('success', 'Has gastado '. $turns.' turnos en activar '.$item->getArtifact()->getName().'.');
                 } elseif ($action == 'defense') {
                     $player->setItemDefense($item);
-                    $this->addFlash('success', 'Has gastado ' . $turns . ' turno(s) en defender con ' . $item->getArtifact()->getName() . '.');
+                    $this->addFlash('success', 'Has gastado '.$turns.' turnos en defender con '.$item->getArtifact()->getName().'.');
                 }
                 $manager->persist($player);
                 $manager->flush();
@@ -179,6 +186,7 @@ class MagicController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
+            //TODO
         }
         return array(
             'player' => $player,

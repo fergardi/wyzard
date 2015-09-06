@@ -889,7 +889,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType($this->getReference('Volador'));
         $skill->setFaction(null);
-        $skill->setDescription($skill->getQuantityBonus().' <span class="label label-extra">Velocidad</span> de las tropas <span class="label label-extra">'.$skill->getType()->getName().'</span> enemigas.');
+        $skill->setDescription($skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> de las tropas <span class="label label-extra">'.$skill->getType()->getName().'</span> enemigas.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

@@ -32,16 +32,20 @@
                     <form id="research{{ research.id }}" name="research{{ research.id }}" class="form-inline" action="{{ path('archmage_game_magic_conjure') }}" method="post" role="form">
                         <div class="form-group">
                             <div class="input-group">
+                                {% if not research.spell.skill.self %}
                                 <select class="form-control selectpicker" id="target" name="target" data-live-search="true">
                                     <option>Objetivo</option>
                                     {% for target in targets %}
                                         <option value="{{ target.id }}">{{ target.nick }}</option>
                                     {% endfor %}
                                 </select>
+                                {% endif %}
                                 <input type="hidden" id="research" name="research" value="{{ research.id }}" required />
                                 <div class="btn-group" role="group" aria-label="...">
-                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default"><i class="fa fa-fw fa-lg fa-tint"></i><span class="hidden-xs">Conjurar</span></button>
+                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default" {% if research.spell.manaCost > player.mana %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-tint"></i><span class="hidden-xs">Conjurar</span></button>
+                                    {% if research.spell.skill.battle %}
                                     <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if research == player.researchDefense %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-shield"></i>Defensa</button>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

@@ -81,7 +81,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
     width: 50% !important;
 }
 .link {
-    text-decoration: underline;
+    text-decoration: underline !important;
 }
 img.factions {
     width: 95%;
@@ -197,6 +197,9 @@ body {
 }
 .panel-primary .panel-heading, .primary, .primary a, .panel-primary > .panel-heading a, .progress-bar-primary, span.label-primary, span.label-primary a {
     color: black !important;
+}
+.progress-bar-default {
+    background-color: #3E444C !important;
 }
 /* DATATABLES */
 div.dataTables_paginate, div.dataTables_filter {

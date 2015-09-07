@@ -7,10 +7,10 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-graduation-cap"></i>Investigar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
+                <h1><i class="fa fa-fw fa-graduation-cap"></i>Investigar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }} <i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }}</small></h1>
             </div>
         </div>
-        {% for research in player.researchs if not research.active %}
+        {% for research in player.researchs if not research.active and research.spell.magic <= player.magic %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ research.spell.faction.class }}">
                 <div class="panel-heading text-center">{% if research.spell.enchant %}<i class="fa fa-fw fa-lg fa-link"></i>{% else %}<i class="fa fa-fw fa-lg fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
@@ -45,7 +45,7 @@
             </div>
         </div>
         {% endfor %}
-        {% for spell in spells %}
+        {% for spell in spells if spell.magic <= player.magic %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ spell.faction.class }}">
                 <div class="panel-heading text-center">{% if spell.enchant %}<i class="fa fa-fw fa-lg fa-link"></i>{% else %}<i class="fa fa-fw fa-lg fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ spell.name|slug }}" class="link">{{ spell.name }}</a></div>

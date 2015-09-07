@@ -24,7 +24,7 @@
                     <tr>
                         <td class="text-right">{{ random(10)|nf }}</td>
                         <td class="text-right">{{ player.power|nf }}</td>
-                        <td class="text-center"><span class="label label-{{ player.faction.class }}"><a href="{{ path('archmage_game_account_profile', { 'player': player.nick } ) }}">{{ player.nick }}</a></span></td>
+                        <td class="text-center"><span class="label label-{{ player.faction.class }}"><a href="{{ path('archmage_game_account_profile', { 'player': player.nick } ) }}" class="link">{{ player.nick }}</a></span></td>
                         <td class="text-right">{{ player.building('Tierras').quantity|nf }}</td>
                         <td class="text-right">{{ player.building('Fortalezas').quantity|nf }}</td>
                     </tr>

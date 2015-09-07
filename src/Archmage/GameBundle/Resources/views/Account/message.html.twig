@@ -18,7 +18,7 @@
                 <thead>
                 <tr>
                     <th class="text-center"><i class="fa fa-fw fa-lg fa-calendar"></i><span class="hidden-xs">Fecha</span></th>
-                    <th class="text-center"><i class="fa fa-fw fa-lg fa-user"></i><span class="hidden-xs">Mago</span></th>
+                    <th class="text-center"><i class="fa fa-fw fa-lg fa-user"></i><span class="hidden-xs">Jugador</span></th>
                     <th class="text-center"><i class="fa fa-fw fa-lg fa-question-circle"></i><span class="hidden-xs">Asunto</span></th>
                 </tr>
                 </thead>
@@ -26,8 +26,8 @@
                     {% for message in player.messages %}
                     <tr>
                         <td class="text-center">{{ message.datetime|date('d/m/Y H:i:s') }}</td>
-                        <td class="text-center"><a href="{{ path('archmage_game_account_profile', { 'player': message.owner.nick|default('Admin') } ) }}">{{ message.owner.nick|default('Admin') }}</a></td>
-                        <td class="text-center"><i class="fa fa-fw fa-envelop"></i><a href="{{ path( 'archmage_game_account_message', { 'hash': message.hash } ) }}">{{ message.subject|truncate(20) }}</a></td>
+                        <td class="text-center"><a href="{{ path('archmage_game_account_profile', { 'player': message.owner.nick|default('Admin') } ) }}" class="link">{{ message.owner.nick|default('Admin') }}</a></td>
+                        <td class="text-center"><i class="fa fa-fw fa-envelop"></i><a href="{{ path( 'archmage_game_account_message', { 'hash': message.hash } ) }}" class="link">{{ message.subject|truncate(20) }}</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

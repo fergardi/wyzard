@@ -47,14 +47,14 @@ class MagicController extends Controller
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
         if ($request->isMethod('POST')) {
-            $research = $_POST['research'] or null;
-            $action = $_POST['action'] or null;
-            $target = $_POST['target'] or null;
+            $research = isset($_POST['research'])?$_POST['research']:null;
+            $action = isset($_POST['action'])?$_POST['action']:null;
+            $target = isset($_POST['target'])?$_POST['target']:null;
             $research = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($research);
             if ($research && $action) {
                 if ($action == 'conjure') {
-                    $turns = $research->getSpell()->getTurnCost();
-                    $mana = $research->getSpell->getManaCost();
+                    $turns = $research->getSpell()->getTurnsCost();
+                    $mana = $research->getSpell()->getManaCost();
                     if ($turns <= $player->getTurns() && $mana <= $player->getMana()) {
                         $player->setTurns($player->getTurns() - $turns);
                         $player->setMana($player->getMana() - $mana);
@@ -103,7 +103,7 @@ class MagicController extends Controller
             $research = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($research);
             $spell = $manager->getRepository('ArchmageGameBundle:Spell')->findOneById($spell);
             if (($research || $spell) && $turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()){
-                //si quiere investigar un hechizo que no tenia, o sea un spell de su raza, se crea un nuevo research
+                //si quiere investigar un spell que no tenia, se crea un nuevo research
                 if ($spell) {
                     $research = new Research();
                     $research->setSpell($spell);
@@ -113,17 +113,21 @@ class MagicController extends Controller
                     $manager->persist($research);
                     $player->addResearch($research);
                 }
-                //tanto si tenia anteriormente un research como si ha creado uno nuevo se suman los turnos
+                //tanto si ya tenia anteriormente un research como ha creado uno nuevo se suman los turnos
                 if ($research) {
                     $research->setTurns($research->getTurns() + $turns);
-                    //comprueba si lo ha terminado de investigar y debe activarlo
+                    //si ha terminado de investigarlo se activa
                     if ($research->getTurns() >= $research->getSpell()->getTurnsResearch()) {
                         $research->setActive(true);
-                        $player->setMagic($player->getMagic() + 1);
+                        //subir nivel de magia
+                        if ($player->getLevel() > $player->getMagic()){
+                            $player->setMagic($player->getLevel());
+                            $this->addFlash('success', 'Has aumentado tu nivel de magia.');
+                        }
                         $this->addFlash('success', 'Has investigado completamente el hechizo "' . $research->getSpell()->getName() . '".');
                     }
                 }
-                //resta turnos y flush
+                //resta turnos al jugador y flush
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();

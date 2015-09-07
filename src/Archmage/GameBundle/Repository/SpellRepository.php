@@ -21,7 +21,6 @@ class SpellRepository extends EntityRepository
         $qb->select('r')
             ->from('ArchmageGameBundle:Research', 'r')
             ->andWhere('r.player = :id')
-            ->andWhere('r.active = false')
             ->setParameter('id', $player);
         $researchs = $qb->getQuery()->getResult();
         foreach ($researchs as $research) {
@@ -32,14 +31,48 @@ class SpellRepository extends EntityRepository
         $qb->select('s')
             ->from('ArchmageGameBundle:Spell', 's')
             ->andWhere('s.faction = :faction')
-            ->andWhere('s.magic <= :magic');
+            ->orWhere('s.name = :name');
         if(!empty($ids)) {
             $qb->andWhere('s.id NOT IN (:ids)');
             $qb->setParameter('ids', $ids);
         }
-        $qb->setParameter('magic', $player->getMagic());
+        $qb->setParameter('name', 'Apocalipsis');
         $qb->setParameter('faction', $player->getFaction());
 
         return $qb->getQuery()->getResult();
+    }
+
+    public function findProgressByPlayer(Player $player)
+    {
+        //buscar todos los researchs completados del jugador por facciones
+        $qb = $this->_em->createQuery('
+                SELECT f.name, COUNT(r.id) AS total FROM
+                Archmage\GameBundle\Entity\Player AS p,
+                Archmage\GameBundle\Entity\Research AS r,
+                Archmage\GameBundle\Entity\Spell AS s,
+                Archmage\GameBundle\Entity\Faction AS f WHERE
+                r.player = p.id AND
+                r.spell = s.id AND
+                s.faction = f.id AND
+                r.active = TRUE AND
+                p.id = 1
+                GROUP BY f.id
+                ORDER BY f.name DESC')
+            ->getResult();
+        foreach ($qb as $row) {
+            $researchs[$row['name']] = $row['total'];
+        }
+        $qb = $this->_em->createQuery('
+                SELECT f.name, COUNT(s.id) as total, f.class as class FROM
+                Archmage\GameBundle\Entity\Spell AS s,
+                Archmage\GameBundle\Entity\Faction AS f WHERE
+                s.faction = f.id
+                GROUP BY f.id
+                ORDER BY f.name DESC')
+            ->getResult();
+        foreach($qb as $row) {
+            $progresses[] = array('name' => $row['name'], 'class' => $row['class'], 'researchs' => isset($researchs[$row['name']])?$researchs[$row['name']]:0, 'total' => $row['total']);
+        }
+        return $progresses;
     }
 }

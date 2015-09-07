@@ -78,7 +78,7 @@ class KingdomController extends Controller
                 $manager->persist($auction);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y pujado '.$bid.' oro en la subasta por '.$auction->getName().'.');
+                $this->addFlash('success', 'Has gastado '.$turns.' turno y pujado '.$bid.' oro en la subasta por '.$auction->getName().'.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

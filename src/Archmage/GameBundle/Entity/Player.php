@@ -68,17 +68,17 @@ class Player
      * @var item
      *
      * @ORM\ManyToOne(targetEntity="Item")
-     * @ORM\JoinColumn(name="itemDefense", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="item", referencedColumnName="id", nullable=true)
      */
-    private $itemDefense = null;
+    private $item = null;
 
     /**
      * @var research
      *
      * @ORM\ManyToOne(targetEntity="Research")
-     * @ORM\JoinColumn(name="researchDefense", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="research", referencedColumnName="id", nullable=true)
      */
-    private $researchDefense = null;
+    private $research = null;
 
     /**
      * @var Faction
@@ -143,6 +143,7 @@ class Player
         $this->enchantments = new ArrayCollection();
         $this->curses = new ArrayCollection();
     }
+
 
     /**
      * Get id
@@ -293,49 +294,49 @@ class Player
     }
 
     /**
-     * Set itemDefense
+     * Set item
      *
-     * @param \Archmage\GameBundle\Entity\Item $itemDefense
+     * @param \Archmage\GameBundle\Entity\Item $item
      * @return Player
      */
-    public function setItemDefense(\Archmage\GameBundle\Entity\Item $itemDefense = null)
+    public function setItem(\Archmage\GameBundle\Entity\Item $item = null)
     {
-        $this->itemDefense = $itemDefense;
+        $this->item = $item;
 
         return $this;
     }
 
     /**
-     * Get itemDefense
+     * Get item
      *
      * @return \Archmage\GameBundle\Entity\Item 
      */
-    public function getItemDefense()
+    public function getItem()
     {
-        return $this->itemDefense;
+        return $this->item;
     }
 
     /**
-     * Set researchDefense
+     * Set research
      *
-     * @param \Archmage\GameBundle\Entity\Research $researchDefense
+     * @param \Archmage\GameBundle\Entity\Research $research
      * @return Player
      */
-    public function setResearchDefense(\Archmage\GameBundle\Entity\Research $researchDefense = null)
+    public function setResearch(\Archmage\GameBundle\Entity\Research $research = null)
     {
-        $this->researchDefense = $researchDefense;
+        $this->research = $research;
 
         return $this;
     }
 
     /**
-     * Get researchDefense
+     * Get research
      *
      * @return \Archmage\GameBundle\Entity\Research 
      */
-    public function getResearchDefense()
+    public function getResearch()
     {
-        return $this->researchDefense;
+        return $this->research;
     }
 
     /**
@@ -364,12 +365,12 @@ class Player
     /**
      * Add constructions
      *
-     * @param \Archmage\GameBundle\Entity\Construction $construction
+     * @param \Archmage\GameBundle\Entity\Construction $constructions
      * @return Player
      */
-    public function addConstruction(\Archmage\GameBundle\Entity\Construction $construction)
+    public function addConstruction(\Archmage\GameBundle\Entity\Construction $constructions)
     {
-        $this->constructions[] = $construction;
+        $this->constructions[] = $constructions;
 
         return $this;
     }
@@ -377,11 +378,11 @@ class Player
     /**
      * Remove constructions
      *
-     * @param \Archmage\GameBundle\Entity\Construction $construction
+     * @param \Archmage\GameBundle\Entity\Construction $constructions
      */
-    public function removeConstruction(\Archmage\GameBundle\Entity\Construction $construction)
+    public function removeConstruction(\Archmage\GameBundle\Entity\Construction $constructions)
     {
-        $this->constructions->removeElement($construction);
+        $this->constructions->removeElement($constructions);
     }
 
     /**
@@ -397,12 +398,12 @@ class Player
     /**
      * Add researchs
      *
-     * @param \Archmage\GameBundle\Entity\Research $research
+     * @param \Archmage\GameBundle\Entity\Research $researchs
      * @return Player
      */
-    public function addResearch(\Archmage\GameBundle\Entity\Research $research)
+    public function addResearch(\Archmage\GameBundle\Entity\Research $researchs)
     {
-        $this->researchs[] = $research;
+        $this->researchs[] = $researchs;
 
         return $this;
     }
@@ -410,11 +411,11 @@ class Player
     /**
      * Remove researchs
      *
-     * @param \Archmage\GameBundle\Entity\Research $research
+     * @param \Archmage\GameBundle\Entity\Research $researchs
      */
-    public function removeResearch(\Archmage\GameBundle\Entity\Research $research)
+    public function removeResearch(\Archmage\GameBundle\Entity\Research $researchs)
     {
-        $this->researchs->removeElement($research);
+        $this->researchs->removeElement($researchs);
     }
 
     /**
@@ -430,12 +431,12 @@ class Player
     /**
      * Add troops
      *
-     * @param \Archmage\GameBundle\Entity\Troop $troop
+     * @param \Archmage\GameBundle\Entity\Troop $troops
      * @return Player
      */
-    public function addTroop(\Archmage\GameBundle\Entity\Troop $troop)
+    public function addTroop(\Archmage\GameBundle\Entity\Troop $troops)
     {
-        $this->troops[] = $troop;
+        $this->troops[] = $troops;
 
         return $this;
     }
@@ -443,11 +444,11 @@ class Player
     /**
      * Remove troops
      *
-     * @param \Archmage\GameBundle\Entity\Troop $troop
+     * @param \Archmage\GameBundle\Entity\Troop $troops
      */
-    public function removeTroop(\Archmage\GameBundle\Entity\Troop $troop)
+    public function removeTroop(\Archmage\GameBundle\Entity\Troop $troops)
     {
-        $this->troops->removeElement($troop);
+        $this->troops->removeElement($troops);
     }
 
     /**
@@ -463,12 +464,12 @@ class Player
     /**
      * Add items
      *
-     * @param \Archmage\GameBundle\Entity\Item $item
+     * @param \Archmage\GameBundle\Entity\Item $items
      * @return Player
      */
-    public function addItem(\Archmage\GameBundle\Entity\Item $item)
+    public function addItem(\Archmage\GameBundle\Entity\Item $items)
     {
-        $this->items[] = $item;
+        $this->items[] = $items;
 
         return $this;
     }
@@ -476,11 +477,11 @@ class Player
     /**
      * Remove items
      *
-     * @param \Archmage\GameBundle\Entity\Item $item
+     * @param \Archmage\GameBundle\Entity\Item $items
      */
-    public function removeItem(\Archmage\GameBundle\Entity\Item $item)
+    public function removeItem(\Archmage\GameBundle\Entity\Item $items)
     {
-        $this->items->removeElement($item);
+        $this->items->removeElement($items);
     }
 
     /**
@@ -496,12 +497,12 @@ class Player
     /**
      * Add contracts
      *
-     * @param \Archmage\GameBundle\Entity\Contract $contract
+     * @param \Archmage\GameBundle\Entity\Contract $contracts
      * @return Player
      */
-    public function addContract(\Archmage\GameBundle\Entity\Contract $contract)
+    public function addContract(\Archmage\GameBundle\Entity\Contract $contracts)
     {
-        $this->contracts[] = $contract;
+        $this->contracts[] = $contracts;
 
         return $this;
     }
@@ -509,11 +510,11 @@ class Player
     /**
      * Remove contracts
      *
-     * @param \Archmage\GameBundle\Entity\Contract $contract
+     * @param \Archmage\GameBundle\Entity\Contract $contracts
      */
-    public function removeContract(\Archmage\GameBundle\Entity\Contract $contract)
+    public function removeContract(\Archmage\GameBundle\Entity\Contract $contracts)
     {
-        $this->contracts->removeElement($contract);
+        $this->contracts->removeElement($contracts);
     }
 
     /**
@@ -529,12 +530,12 @@ class Player
     /**
      * Add messages
      *
-     * @param \Archmage\GameBundle\Entity\Message $message
+     * @param \Archmage\GameBundle\Entity\Message $messages
      * @return Player
      */
-    public function addMessage(\Archmage\GameBundle\Entity\Message $message)
+    public function addMessage(\Archmage\GameBundle\Entity\Message $messages)
     {
-        $this->messages[] = $message;
+        $this->messages[] = $messages;
 
         return $this;
     }
@@ -542,11 +543,11 @@ class Player
     /**
      * Remove messages
      *
-     * @param \Archmage\GameBundle\Entity\Message $message
+     * @param \Archmage\GameBundle\Entity\Message $messages
      */
-    public function removeMessage(\Archmage\GameBundle\Entity\Message $message)
+    public function removeMessage(\Archmage\GameBundle\Entity\Message $messages)
     {
-        $this->messages->removeElement($message);
+        $this->messages->removeElement($messages);
     }
 
     /**
@@ -562,12 +563,12 @@ class Player
     /**
      * Add enchantments
      *
-     * @param \Archmage\GameBundle\Entity\Enchantment $enchantment
+     * @param \Archmage\GameBundle\Entity\Enchantment $enchantments
      * @return Player
      */
-    public function addEnchantment(\Archmage\GameBundle\Entity\Enchantment $enchantment)
+    public function addEnchantment(\Archmage\GameBundle\Entity\Enchantment $enchantments)
     {
-        $this->enchantments[] = $enchantment;
+        $this->enchantments[] = $enchantments;
 
         return $this;
     }
@@ -575,11 +576,11 @@ class Player
     /**
      * Remove enchantments
      *
-     * @param \Archmage\GameBundle\Entity\Enchantment $enchantment
+     * @param \Archmage\GameBundle\Entity\Enchantment $enchantments
      */
-    public function removeEnchantment(\Archmage\GameBundle\Entity\Enchantment $enchantment)
+    public function removeEnchantment(\Archmage\GameBundle\Entity\Enchantment $enchantments)
     {
-        $this->enchantments->removeElement($enchantment);
+        $this->enchantments->removeElement($enchantments);
     }
 
     /**
@@ -595,12 +596,12 @@ class Player
     /**
      * Add curses
      *
-     * @param \Archmage\GameBundle\Entity\Enchantment $curse
+     * @param \Archmage\GameBundle\Entity\Enchantment $curses
      * @return Player
      */
-    public function addCurse(\Archmage\GameBundle\Entity\Enchantment $curse)
+    public function addCurse(\Archmage\GameBundle\Entity\Enchantment $curses)
     {
-        $this->curses[] = $curse;
+        $this->curses[] = $curses;
 
         return $this;
     }
@@ -608,17 +609,17 @@ class Player
     /**
      * Remove curses
      *
-     * @param \Archmage\GameBundle\Entity\Enchantment $curse
+     * @param \Archmage\GameBundle\Entity\Enchantment $curses
      */
-    public function removeCurse(\Archmage\GameBundle\Entity\Enchantment $curse)
+    public function removeCurse(\Archmage\GameBundle\Entity\Enchantment $curses)
     {
-        $this->curses->removeElement($curse);
+        $this->curses->removeElement($curses);
     }
 
     /**
      * Get curses
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getCurses()
     {
@@ -671,6 +672,22 @@ class Player
             $power += $troop->getQuantity() * $troop->getUnit()->getAttack();
         }
         return $power;
+    }
+
+    /**
+     * Get level
+     *
+     * @return integer
+     */
+    public function getLevel()
+    {
+        $level = 0;
+        foreach ($this->researchs as $research) {
+            if ($research->getActive()) {
+                $level++;
+            }
+        }
+        return 1 + floor($level / 4);
     }
 
     /*

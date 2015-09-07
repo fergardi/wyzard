@@ -24,8 +24,10 @@ class AccountController extends Controller
                 return $this->redirectToRoute('archmage_game_account_profile');
             }
         }
+        $progresses = $manager->getRepository('ArchmageGameBundle:Spell')->findProgressByPlayer($player);
         return array(
             'player' => $player,
+            'progresses' => $progresses,
         );
     }
 

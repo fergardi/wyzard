@@ -29,8 +29,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $player->setPeople(20000);
         $player->setMagic(1);
         $player->setTurns(30000);
-        $player->setItemDefense(null);
-        $player->setResearchDefense(null);
+        $player->setItem(null);
+        $player->setResearch(null);
         //EDIFICIOS
         $constructions = array(
             'Tierras' => 1000,

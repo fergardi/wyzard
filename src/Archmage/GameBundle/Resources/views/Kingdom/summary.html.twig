@@ -108,8 +108,8 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/defense.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{% if player.researchDefense %}<a href="{{ path('archmage_game_home_help') }}#{{ player.researchDefense.spell.name|slug }}">{{ player.researchDefense.spell.name }}</a>{% else %}Ninguno{% endif %}</div>
-                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{% if player.itemDefense %}<a href="{{ path('archmage_game_home_help') }}#{{ player.itemDefense.spell.name|slug }}">{{ player.itemDefense.spell.name }}</a>{% else %}Ninguno{% endif %}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{% if player.researchDefense %}<a href="{{ path('archmage_game_home_help') }}#{{ player.research.spell.name|slug }}"><span class="label label-{{ player.research.spell.faction.class }}">{{ player.research.spell.name }}</span></a>{% else %}Ninguno{% endif %}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{% if player.itemDefense %}<a href="{{ path('archmage_game_home_help') }}#{{ player.item.spell.name|slug }}"><span class="label label-{{ player.item.artifact.class }}{{ player.item.spell.name }}</span></a>{% else %}Ninguno{% endif %}</div>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/social.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <span class="label label-extra">Mensaje(s)</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <a href="{{ path('archmage_game_account_message') }}">Mensaje(s)</a></div>
                         </div>
                     </div>
                 </div>

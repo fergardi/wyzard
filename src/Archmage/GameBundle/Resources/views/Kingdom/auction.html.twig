@@ -86,10 +86,10 @@
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.player == player %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-money"></i><span class="hidden-xs">Pujar</span></button>
+                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-money"></i><span class="hidden-xs">Pujar</span></button>
                                 </div>
-                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.player == player %}disabled{% endif %} required />
-                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.player == player %}disabled{% endif %} required />
+                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %} required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
                         </div>

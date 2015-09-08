@@ -52,9 +52,9 @@ class Artifact
     /**
      * @var integer
      *
-     * @ORM\Column(name="rarityAuction", type="smallint", nullable=false)
+     * @ORM\Column(name="rarity", type="smallint", nullable=false)
      */
-    private $rarityAuction;
+    private $rarity;
 
     /**
      * @var Faction
@@ -176,26 +176,26 @@ class Artifact
     }
 
     /**
-     * Set rarityAuction
+     * Set rarity
      *
-     * @param integer $rarityAuction
+     * @param integer $rarity
      * @return Artifact
      */
-    public function setRarityAuction($rarityAuction)
+    public function setRarity($rarity)
     {
-        $this->rarityAuction = $rarityAuction;
+        $this->rarity = $rarity;
 
         return $this;
     }
 
     /**
-     * Get rarityAuction
+     * Get rarity
      *
      * @return integer 
      */
-    public function getRarityAuction()
+    public function getRarity()
     {
-        return $this->rarityAuction;
+        return $this->rarity;
     }
 
     /**

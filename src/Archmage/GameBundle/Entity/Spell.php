@@ -115,9 +115,9 @@ class Spell
     /**
      * @var integer
      *
-     * @ORM\Column(name="rarityAuction", type="smallint", nullable=false)
+     * @ORM\Column(name="rarity", type="smallint", nullable=false)
      */
-    private $rarityAuction;
+    private $rarity;
 
     /**
      * @var boolean
@@ -125,6 +125,13 @@ class Spell
      * @ORM\Column(name="enchant", type="boolean", nullable=false)
      */
     private $enchant;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="turnsExpiration", type="smallint", nullable=false)
+     */
+    private $turnsExpiration;
 
     /**
      * @var Faction
@@ -453,26 +460,26 @@ class Spell
     }
 
     /**
-     * Set rarityAuction
+     * Set rarity
      *
-     * @param integer $rarityAuction
+     * @param integer $rarity
      * @return Spell
      */
-    public function setRarityAuction($rarityAuction)
+    public function setRarity($rarity)
     {
-        $this->rarityAuction = $rarityAuction;
+        $this->rarity = $rarity;
 
         return $this;
     }
 
     /**
-     * Get rarityAuction
+     * Get rarity
      *
      * @return integer 
      */
-    public function getRarityAuction()
+    public function getRarity()
     {
-        return $this->rarityAuction;
+        return $this->rarity;
     }
 
     /**
@@ -496,6 +503,29 @@ class Spell
     public function getEnchant()
     {
         return $this->enchant;
+    }
+
+    /**
+     * Set turnsExpiration
+     *
+     * @param integer $turnsExpiration
+     * @return Spell
+     */
+    public function setTurnsExpiration($turnsExpiration)
+    {
+        $this->turnsExpiration = $turnsExpiration;
+
+        return $this;
+    }
+
+    /**
+     * Get turnsExpiration
+     *
+     * @return integer 
+     */
+    public function getTurnsExpiration()
+    {
+        return $this->turnsExpiration;
     }
 
     /**

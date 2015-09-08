@@ -66,6 +66,19 @@ class AuctionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $auction->setBid(10000);
         $manager->persist($auction);
 
+        //RESEARCH
+        $auction = new Auction();
+        $research = new Research();
+        $manager->persist($research);
+        $research->setSpell($this->getReference('Invocar Esqueletos'));
+        $research->setActive(false);
+        $research->setTurns(0);
+        $research->setPlayer(null);
+        $auction->setPlayer(null);
+        $auction->setResearch($research);
+        $auction->setBid(10000);
+        $manager->persist($auction);
+
         $auction = new Auction();
         $research = new Research();
         $manager->persist($research);

@@ -15,9 +15,9 @@ class KingdomController extends Controller
      */
     public function summaryAction()
     {
+        //load news flashbags
+        $this->get('service.news')->news();
         $manager = $this->getDoctrine()->getManager();
-        $service = $this->get('service.news');
-        $service->news();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         return array(
             'player' => $player,
@@ -33,7 +33,7 @@ class KingdomController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
-            $turns = $_POST['turns'] or null;
+            $turns = isset($_POST['turns'])?$_POST['turns']:null;
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
                 $gold = $turns * $player->getGoldPerTurn();
                 $player->setGold($player->getGold() + $gold);
@@ -62,23 +62,28 @@ class KingdomController extends Controller
         $auctions = $manager->getRepository('ArchmageGameBundle:Auction')->findAll();
         if ($request->isMethod('POST')) {
             $turns = 1;
-            $bid = $_POST['bid'] or null;
-            $auction = $_POST['auction'] or null;
+            $bid = isset($_POST['bid'])?$_POST['bid']:null;
+            $auction = isset($_POST['auction'])?$_POST['auction']:null;
             $auction = $manager->getRepository('ArchmageGameBundle:Auction')->findOneById($auction);
             if ($auction && $bid && is_numeric($bid) && $auction->getPlayer() != $player && $bid >= $auction->getBid() && $bid <= $player->getGold() && $player->getTurns() >= 1) {
-                //si existia antes un pujante se le devuelve el dinero de la puja
-                if ($auction->getPlayer()) {
-                    $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + $auction->getBid());
+                //el jugador no puede tener mas de una instancia del heroe o de la research
+                if (!$player->hasContract($auction->getContract()) && !$player->hasResearch($auction->getResearch())) {
+                    //si existia antes un pujante se le devuelve el dinero de la puja
+                    if ($auction->getPlayer()) {
+                        $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + $auction->getBid());
+                    }
+                    //actualizamos el dinero de la puja y el actual pujante
+                    $auction->setPlayer($player);
+                    $auction->setBid($bid);
+                    $player->setGold($player->getGold() - $bid);
+                    $player->setTurns($player->getTurns() - $turns);
+                    $manager->persist($auction);
+                    $manager->persist($player);
+                    $manager->flush();
+                    $this->addFlash('success', 'Has gastado '.$turns.' turno y pujado '.$bid.' oro en la subasta por '.$auction->getName().'.');
+                } else {
+                    $this->addFlash('danger', 'No puedes pujar por un héroe o hechizo que ya posees.');
                 }
-                //actualizamos el dinero de la puja y el actual pujante
-                $auction->setPlayer($player);
-                $auction->setBid($bid);
-                $player->setGold($player->getGold() - $bid);
-                $player->setTurns($player->getTurns() - $turns);
-                $manager->persist($auction);
-                $manager->persist($player);
-                $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turno y pujado '.$bid.' oro en la subasta por '.$auction->getName().'.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

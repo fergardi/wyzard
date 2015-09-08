@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-magic"></i>Conjurar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
+                <h1><i class="fa fa-fw fa-magic"></i>Conjurar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }} <i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }}</small></h1>
             </div>
         </div>
         {% for research in player.researchs if research.active and research.spell.magic <= player.magic %}

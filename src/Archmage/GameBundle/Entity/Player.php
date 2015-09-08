@@ -822,4 +822,76 @@ class Player
         }
         return $people;
     }
+
+    /*
+     * BUSCAR TROPAS, CONTRATOS Y HECHIZOS
+     */
+
+    /**
+     * Get hasUnit
+     *
+     * @return boolean
+     */
+    public function hasUnit(Unit $search = null)
+    {
+        if ($search) {
+            foreach ($this->troops as $troop) {
+                if ($troop->getUnit()->getName() == $search->getName()) {
+                    return $troop;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Get hasTroop
+     *
+     * @return boolean
+     */
+    public function hasTroop(Troop $search = null)
+    {
+        if ($search) {
+            foreach ($this->troops as $troop) {
+                if ($troop->getUnit()->getName() == $search->getUnit()->getName()) {
+                    return $troop;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Get hasContract
+     *
+     * @return boolean
+     */
+    public function hasContract(Contract $search = null)
+    {
+        if ($search) {
+            foreach ($this->contracts as $contract) {
+                if ($contract->getHero()->getName() == $search->getHero()->getName()) {
+                    return $contract;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Get hasResearch
+     *
+     * @return boolean
+     */
+    public function hasResearch(Research $search = null)
+    {
+        if ($search) {
+            foreach ($this->researchs as $research) {
+                if ($research->getSpell()->getName() == $search->getSpell()->getName()) {
+                    return $research;
+                }
+            }
+        }
+        return false;
+    }
 }

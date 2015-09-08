@@ -148,6 +148,13 @@ class Skill
     private $self;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="summon", type="boolean", nullable=false)
+     */
+    private $summon;
+
+    /**
      * @var Family
      *
      * @ORM\ManyToOne(targetEntity="Family")
@@ -513,6 +520,52 @@ class Skill
     }
 
     /**
+     * Set dispell
+     *
+     * @param boolean $dispell
+     * @return Skill
+     */
+    public function setDispell($dispell)
+    {
+        $this->dispell = $dispell;
+
+        return $this;
+    }
+
+    /**
+     * Get dispell
+     *
+     * @return boolean 
+     */
+    public function getDispell()
+    {
+        return $this->dispell;
+    }
+
+    /**
+     * Set spy
+     *
+     * @param boolean $spy
+     * @return Skill
+     */
+    public function setSpy($spy)
+    {
+        $this->spy = $spy;
+
+        return $this;
+    }
+
+    /**
+     * Get spy
+     *
+     * @return boolean 
+     */
+    public function getSpy()
+    {
+        return $this->spy;
+    }
+
+    /**
      * Set battle
      *
      * @param boolean $battle
@@ -556,6 +609,29 @@ class Skill
     public function getSelf()
     {
         return $this->self;
+    }
+
+    /**
+     * Set summon
+     *
+     * @param boolean $summon
+     * @return Skill
+     */
+    public function setSummon($summon)
+    {
+        $this->summon = $summon;
+
+        return $this;
+    }
+
+    /**
+     * Get summon
+     *
+     * @return boolean 
+     */
+    public function getSummon()
+    {
+        return $this->summon;
     }
 
     /**
@@ -648,51 +724,5 @@ class Skill
     public function getFaction()
     {
         return $this->faction;
-    }
-
-    /**
-     * Set dispell
-     *
-     * @param boolean $dispell
-     * @return Skill
-     */
-    public function setDispell($dispell)
-    {
-        $this->dispell = $dispell;
-
-        return $this;
-    }
-
-    /**
-     * Get dispell
-     *
-     * @return boolean 
-     */
-    public function getDispell()
-    {
-        return $this->dispell;
-    }
-
-    /**
-     * Set spy
-     *
-     * @param boolean $spy
-     * @return Skill
-     */
-    public function setSpy($spy)
-    {
-        $this->spy = $spy;
-
-        return $this;
-    }
-
-    /**
-     * Get spy
-     *
-     * @return boolean 
-     */
-    public function getSpy()
-    {
-        return $this->spy;
     }
 }

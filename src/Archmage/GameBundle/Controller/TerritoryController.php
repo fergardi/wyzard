@@ -18,7 +18,7 @@ class TerritoryController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
-            $turns = $_POST['turns'] or null;
+            $turns = isset($_POST['turns'])?$_POST['turns']:null;
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
                 $lands = $turns * 1;
                 $player->setBuilding('Tierras', $player->getBuilding('Tierras')->getQuantity() + $lands);
@@ -45,8 +45,8 @@ class TerritoryController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
-            $lands = $_POST['lands'] or null;
-            $construction = $_POST['construction'] or null;
+            $lands = isset($_POST['lands'])?$_POST['lands']:null;
+            $construction = isset($_POST['construction'])?$_POST['construction']:null;
             $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
             if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $player->getBuilding('Tierras')->getQuantity()) {
                 $turns = ceil($lands / ceil(($player->getBuilding('Talleres')->getQuantity() + 1) / $construction->getBuilding()->getBuildingRatio()));
@@ -82,8 +82,8 @@ class TerritoryController extends Controller
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
             $turns = 1;
-            $lands = $_POST['lands'] or null;
-            $construction = $_POST['construction'] or null;
+            $lands = isset($_POST['lands'])?$_POST['lands']:null;
+            $construction = isset($_POST['construction'])?$_POST['construction']:null;
             $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
             if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $construction->getQuantity() && $player->getTurns() > 0) {
                 $construction->setQuantity($construction->getQuantity() - $lands);

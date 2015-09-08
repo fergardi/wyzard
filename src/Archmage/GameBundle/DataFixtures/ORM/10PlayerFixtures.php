@@ -10,6 +10,7 @@ use Archmage\GameBundle\Entity\Construction;
 use Archmage\GameBundle\Entity\Research;
 use Archmage\GameBundle\Entity\Item;
 use Archmage\GameBundle\Entity\Troop;
+use Archmage\GameBundle\Entity\Contract;
 use Archmage\GameBundle\Entity\Message;
 use Archmage\GameBundle\Entity\Enchantment;
 
@@ -23,9 +24,9 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //PLAYER
         $player = new Player();
         $player->setNick('Fergardi');
-        $player->setFaction($this->getReference('Naturaleza'));
-        $player->setGold(3000000);
-        $player->setMana(1000);
+        $player->setFaction($this->getReference('Oscuridad'));
+        $player->setGold(99999999);
+        $player->setMana(99999999);
         $player->setPeople(20000);
         $player->setMagic(1);
         $player->setTurns(30000);
@@ -69,11 +70,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         */
         //UNIDADES
         $troops = array(
-            'Arqueros' => 10,
-            'Caballeros' => 10,
-            'Catapultas' => 10,
-            'Milicias' => 10,
-            'Piqueros' => 10,
+            'Arqueros' => 500,
+            'Caballeros' => 500,
+            'Catapultas' => 500,
+            'Milicias' => 500,
+            'Piqueros' => 500,
         );
         foreach ($troops as $name => $quantity) {
             $troop = new Troop();
@@ -82,6 +83,17 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $troop->setPlayer($player);
             $manager->persist($troop);
             $player->addTroop($troop);
+        }
+        //HEROES
+        $contracts = array(
+            'Jinete de Dragones',
+        );
+        foreach ($contracts as $name) {
+            $contract = new Contract();
+            $contract->setHero($this->getReference($name));
+            $contract->setPlayer($player);
+            $manager->persist($contract);
+            $player->addContract($contract);
         }
         /*
         //ARTEFACTOS
@@ -111,8 +123,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);
-        $message->setSubject('Prueba');
-        $message->setText('Prueba');
+        $message->setSubject('Bienvenido al juego');
+        $message->setText('Este es un mensaje de bienvenida generado automaticamente por el servidor.');
         $message->setClass('info');
         $message->setOwner(null);
         $message->setReaded(false);

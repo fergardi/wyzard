@@ -35,8 +35,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -57,8 +58,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -79,8 +81,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -101,8 +104,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -123,8 +127,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -145,8 +150,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -167,8 +173,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -189,8 +196,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -211,8 +219,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -233,8 +242,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -259,8 +269,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -281,8 +292,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -303,8 +315,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -325,8 +338,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -347,8 +361,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -369,8 +384,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -391,8 +407,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -413,8 +430,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -435,8 +453,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -457,8 +476,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -483,8 +503,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -505,8 +526,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -527,8 +549,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -549,8 +572,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -571,8 +595,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -593,8 +618,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -615,8 +641,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -637,8 +664,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -659,8 +687,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -681,8 +710,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -707,8 +737,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -729,8 +760,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -751,8 +783,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -773,8 +806,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -795,8 +829,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -817,8 +852,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -839,8 +875,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -861,8 +898,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -883,8 +921,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -905,8 +944,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -931,8 +971,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -953,8 +994,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -975,8 +1017,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -997,8 +1040,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1019,8 +1063,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1041,8 +1086,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1063,8 +1109,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1085,8 +1132,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1107,8 +1155,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1129,8 +1178,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1155,8 +1205,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1177,8 +1228,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1199,8 +1251,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1221,8 +1274,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
-        $spell->setEnchant(false);
+        $spell->setRarity(0);
+        $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1243,8 +1297,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1265,8 +1320,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1287,8 +1343,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1309,8 +1366,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1331,8 +1389,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1353,8 +1412,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1379,8 +1439,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1401,8 +1462,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1423,8 +1485,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1445,8 +1508,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1467,8 +1531,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1489,8 +1554,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1511,8 +1577,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1533,8 +1600,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1555,8 +1623,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1577,8 +1646,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1603,8 +1673,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1625,8 +1696,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1647,8 +1719,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1669,8 +1742,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1691,8 +1765,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1713,8 +1788,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1735,8 +1811,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1757,8 +1834,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1779,8 +1857,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1801,8 +1880,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1827,8 +1907,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1849,8 +1930,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1871,8 +1953,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1893,8 +1976,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1915,8 +1999,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1937,8 +2022,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1959,8 +2045,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1981,8 +2068,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2003,8 +2091,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2025,8 +2114,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2051,8 +2141,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2073,8 +2164,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2095,8 +2187,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2117,8 +2210,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2139,8 +2233,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2161,8 +2256,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2183,8 +2279,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2205,8 +2302,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2227,8 +2325,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2249,8 +2348,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(false);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2275,8 +2375,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
-        $spell->setRarityAuction(0);
+        $spell->setRarity(0);
         $spell->setEnchant(true);
+        $spell->setTurnsExpiration(0);
         $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 

@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Archmage\GameBundle\Entity\Research;
+use Archmage\GameBundle\Entity\Troop;
 
 class MagicController extends Controller
 {
@@ -19,7 +20,7 @@ class MagicController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
-            $turns = $_POST['turns'] or null;
+            $turns = isset($_POST['turns'])?$_POST['turns']:null;
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
                 $mana = $turns * $player->getManaResourcePerTurn();
                 if ($player->getMana() + $mana >= $player->getManaCap()) $player->setMana($player->getManaCap()); else $player->setMana($player->getMana() + $mana);
@@ -58,7 +59,31 @@ class MagicController extends Controller
                     if ($turns <= $player->getTurns() && $mana <= $player->getMana()) {
                         $player->setTurns($player->getTurns() - $turns);
                         $player->setMana($player->getMana() - $mana);
-                        $this->addFlash('success', 'Has gastado ' . $turns . ' turnos y ' . $mana . ' maná en conjurar ' . $research->getSpell()->getName() . '.');
+                        //self
+                        if ($research->getSpell()->getSkill()->getSelf()) {
+                            if ($research->getSpell()->getEnchant()) {
+
+                            } else {
+                                if ($research->getSpell()->getSkill()->getSummon()) {
+                                    $troop = $player->hasUnit($research->getSpell()->getSkill()->getUnit());
+                                    $quantity = rand(ceil($research->getSpell()->getSkill()->getQuantityBonus()*0.80),ceil($research->getSpell()->getSkill()->getQuantityBonus()*1.20));
+                                    if ($troop) {
+                                        $troop->setQuantity($troop->getQuantity() + $quantity);
+                                    } else {
+                                        $troop = new Troop();
+                                        $manager->persist($troop);
+                                        $troop->setUnit($research->getSpell()->getSkill()->getUnit());
+                                        $troop->setQuantity($quantity);
+                                        $troop->setPlayer($player);
+                                        $player->addTroop($troop);
+                                    }
+                                    $this->addFlash('success', 'Has invocado '.$quantity.' unidades '.$research->getSpell()->getSkill()->getUnit()->getName().'.');
+                                }
+                            }
+                            $this->addFlash('success', 'Has gastado '.$turns.' turnos y '.$mana.' maná en conjurar '.$research->getSpell()->getName().'.');
+                        } else {
+                            //TODO
+                        }
                     } else {
                         $this->addFlash('danger', 'No tienes los recursos necesarios para conjurar ese hechizo.');
                     }
@@ -68,7 +93,7 @@ class MagicController extends Controller
                     if ($player->getTurns() > 0) {
                         $player->setResearchDefense($research);
                         $player->setTurns($player->getTurns() - $turns);
-                        $this->addFlash('success', 'Has gastado ' . $turns . ' turno(s) en defender con ' . $research->getSpell()->getName() . '.');
+                        $this->addFlash('success', 'Has gastado '.$turns.' turno(s) en defender con '.$research->getSpell()->getName().'.');
                     } else {
                         $this->addFlash('danger', 'No tienes los recursos necesarios para conjurar ese hechizo.');
                     }
@@ -155,8 +180,8 @@ class MagicController extends Controller
         if ($request->isMethod('POST')) {
             //recibe datos del form post y busca en databases sus ids
             $turns = 1;
-            $item = $_POST['item'] or null;
-            $action = $_POST['action'] or null;
+            $item = isset($_POST['item'])?$_POST['item']:null;
+            $action = isset($_POST['action'])?$_POST['action']:null;
             $item = $manager->getRepository('ArchmageGameBundle:Item')->findOneById($item);
             if ($item && $action && $turns <= $player->getTurns()) {
                 //resta turnos al usarlo

@@ -21,7 +21,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Generar Tierras'));
         $artifact->setDescription('+'.$artifact->getSkill()->getTerrainBonus().'% <span class="label label-extra">Tierras</span> libres de tu reino.');
         $artifact->setGoldAuction(0);
-        $artifact->setRarityAuction(0);
+        $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -33,7 +33,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Generar Oro'));
         $artifact->setDescription('+'.$artifact->getSkill()->getGoldBonus().'% <span class="label label-extra">Oro</span> de tu reino.');
         $artifact->setGoldAuction(0);
-        $artifact->setRarityAuction(0);
+        $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -45,7 +45,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Generar Maná'));
         $artifact->setDescription('+'.$artifact->getSkill()->getManaBonus().'% <span class="label label-extra">Maná</span> de tu reino.');
         $artifact->setGoldAuction(0);
-        $artifact->setRarityAuction(0);
+        $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -57,7 +57,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Destruir Maná'));
         $artifact->setDescription($artifact->getSkill()->getManaBonus().'% <span class="label label-extra">Maná</span> del reino enemigo.');
         $artifact->setGoldAuction(0);
-        $artifact->setRarityAuction(0);
+        $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -69,7 +69,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Generar Población'));
         $artifact->setDescription('+'.$artifact->getSkill()->getPeopleBonus().'% <span class="label label-extra">Población</span> de tu reino.');
         $artifact->setGoldAuction(0);
-        $artifact->setRarityAuction(0);
+        $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -81,7 +81,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Destruir Población'));
         $artifact->setDescription($artifact->getSkill()->getPeopleBonus().'% <span class="label label-extra">Población</span> del reino enemigo.');
         $artifact->setGoldAuction(0);
-        $artifact->setRarityAuction(0);
+        $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -93,7 +93,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Convocar Dragones'));
         $artifact->setDescription('Invoca aleatoriamente <span class="label label-extra">'.$artifact->getSkill()->getFamily()->getName().'</span>.');
         $artifact->setGoldAuction(0);
-        $artifact->setRarityAuction(0);
+        $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -105,7 +105,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Reducir Velocidad'));
         $artifact->setDescription('-'.$artifact->getSkill()->getSpeedBonus().' <span class="label label-extra">Velocidad</span> de las tropas enemigas.');
         $artifact->setGoldAuction(0);
-        $artifact->setRarityAuction(0);
+        $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);

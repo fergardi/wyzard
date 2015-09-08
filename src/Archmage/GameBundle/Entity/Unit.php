@@ -87,23 +87,23 @@ class Unit
     /**
      * @var integer
      *
-     * @ORM\Column(name="goldAuction", type="integer", nullable=true)
+     * @ORM\Column(name="goldAuction", type="integer", nullable=false)
      */
-    private $goldAuction = null;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="rarityAuction", type="boolean", nullable=true)
-     */
-    private $rarityAuction = null;
+    private $goldAuction;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="goldRecruit", type="integer", nullable=true)
+     * @ORM\Column(name="goldRecruit", type="integer", nullable=false)
      */
-    private $goldRecruit = null;
+    private $goldRecruit;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="rarity", type="boolean", nullable=false)
+     */
+    private $rarity;
 
     /**
      * @var Faction
@@ -379,26 +379,26 @@ class Unit
     }
 
     /**
-     * Set rarityAuction
+     * Set rarity
      *
-     * @param boolean $rarityAuction
+     * @param boolean $rarity
      * @return Unit
      */
-    public function setRarityAuction($rarityAuction)
+    public function setRarity($rarity)
     {
-        $this->rarityAuction = $rarityAuction;
+        $this->rarity = $rarity;
 
         return $this;
     }
 
     /**
-     * Get rarityAuction
+     * Get rarity
      *
      * @return boolean 
      */
-    public function getRarityAuction()
+    public function getRarity()
     {
-        return $this->rarityAuction;
+        return $this->rarity;
     }
 
     /**

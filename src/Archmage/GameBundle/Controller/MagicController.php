@@ -66,7 +66,7 @@ class MagicController extends Controller
                             } else {
                                 if ($research->getSpell()->getSkill()->getSummon()) {
                                     $troop = $player->hasUnit($research->getSpell()->getSkill()->getUnit());
-                                    $quantity = rand(ceil($research->getSpell()->getSkill()->getQuantityBonus()*0.80),ceil($research->getSpell()->getSkill()->getQuantityBonus()*1.20));
+                                    $quantity = rand(ceil($research->getSpell()->getSkill()->getQuantityBonus()*0.95),ceil($research->getSpell()->getSkill()->getQuantityBonus()*1.05));
                                     if ($troop) {
                                         $troop->setQuantity($troop->getQuantity() + $quantity);
                                     } else {
@@ -123,9 +123,9 @@ class MagicController extends Controller
         if ($request->isMethod('POST')) {
             //recibe datos del form post y busca en database sus ids
             $turns = isset($_POST['turns'])?$_POST['turns']:null;
-            $spell = isset($_POST['spell'])?$_POST['spell']:null;
             $research = isset($_POST['research'])?$_POST['research']:null;
             $research = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($research);
+            $spell = isset($_POST['spell'])?$_POST['spell']:null;
             $spell = $manager->getRepository('ArchmageGameBundle:Spell')->findOneById($spell);
             if (($research || $spell) && $turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()){
                 //si quiere investigar un spell que no tenia, se crea un nuevo research

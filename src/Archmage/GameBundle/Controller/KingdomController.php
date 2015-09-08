@@ -35,7 +35,7 @@ class KingdomController extends Controller
         if ($request->isMethod('POST')) {
             $turns = isset($_POST['turns'])?$_POST['turns']:null;
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
-                $gold = $turns * $player->getGoldPerTurn();
+                $gold = $turns * $player->getGoldResourcePerTurn() * 2;
                 $player->setGold($player->getGold() + $gold);
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);

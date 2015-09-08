@@ -103,7 +103,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Tela de Araña');
         $artifact->setImage('bundles/archmagegame/images/artifact/spiderweb.jpg');
         $artifact->setSkill($this->getReference('Reducir Velocidad'));
-        $artifact->setDescription('-'.$artifact->getSkill()->getSpeedBonus().' <span class="label label-extra">Velocidad</span> de las tropas enemigas.');
+        $artifact->setDescription($artifact->getSkill()->getSpeedBonus().' <span class="label label-extra">Velocidad</span> de las tropas enemigas.');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));

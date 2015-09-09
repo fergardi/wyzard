@@ -25,22 +25,22 @@
                         </div>
                         {% if construction.building.name == 'Tierras' %}
                         <div class="col-xs-8">
-                            <p>Aquí puedes invertir tus <span class="label label-extra">Tierras</span> libres y <span class="label label-extra">Oro</span> en construir edificios para aumentar tu reino.</p>
+                            <p>Aquí puedes invertir tus <span class="label label-extra">Tierras</span>, <span class="label label-extra">Población</span> y <span class="label label-extra">Oro</span> en construir edificios para aumentar tu reino.</p>
                         </div>
                         {% else %}
                         <div class="col-xs-8 text-padded">
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldCost|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCost|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleCost|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCost|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldResource|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaResource|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleResource|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaResource|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldCap|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCap|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleCap|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCap|nf }}</div>
                         </div>
                         {% endif %}
                     </div>

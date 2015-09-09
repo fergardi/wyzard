@@ -10,7 +10,7 @@
                 <h1><i class="fa fa-fw fa-magic"></i>Conjurar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }} <i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }}</small></h1>
             </div>
         </div>
-        {% for research in player.researchs if research.active and research.spell.magic <= player.magic %}
+        {% for research in player.researchs if research.active and research.spell.magic <= player.magic and not research.spell.skill.battle %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ research.spell.faction.class }}">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-magic"></i><a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
@@ -24,6 +24,11 @@
                             <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ research.spell.manaCost|nf }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ research.turns|nf }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ research.spell.turnsResearch|nf }}</div>
+                            {% if research.spell.enchant %}
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ research.spell.goldMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ research.spell.peopleMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ research.spell.manaMaintenance|nf }}</div>
+                            {% endif %}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ research.spell.skill.description|raw }}</div>
                         </div>
                     </div>
@@ -44,7 +49,7 @@
                                 <div class="btn-group" role="group" aria-label="...">
                                     <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default" {% if research.spell.manaCost > player.mana %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-tint"></i><span class="hidden-xs">Conjurar</span></button>
                                     {% if research.spell.skill.battle %}
-                                    <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if research == player.researchDefense %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-shield"></i>Defensa</button>
+                                    <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if research == player.research %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-shield"></i>Defensa</button>
                                     {% endif %}
                                 </div>
                             </div>

@@ -66,7 +66,7 @@ class MagicController extends Controller
                             } else {
                                 if ($research->getSpell()->getSkill()->getSummon()) {
                                     $troop = $player->hasUnit($research->getSpell()->getSkill()->getUnit());
-                                    $quantity = ceil($research->getSpell()->getSkill()->getQuantityBonus() * rand(0.95,1.05));
+                                    $quantity = rand($research->getSpell()->getSkill()->getQuantityBonus() * 0.95, $research->getSpell()->getSkill()->getQuantityBonus() * 1.05);
                                     if ($troop) {
                                         $troop->setQuantity($troop->getQuantity() + $quantity);
                                     } else {

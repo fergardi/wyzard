@@ -140,6 +140,13 @@ class Building
      */
     private $researchRatio;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="artifactRatio", type="smallint", nullable=false)
+     */
+    private $artifactRatio;
+
 
     /**
      * Get id
@@ -540,5 +547,28 @@ class Building
     public function getResearchRatio()
     {
         return $this->researchRatio;
+    }
+
+    /**
+     * Set artifactRatio
+     *
+     * @param integer $artifactRatio
+     * @return Building
+     */
+    public function setArtifactRatio($artifactRatio)
+    {
+        $this->artifactRatio = $artifactRatio;
+
+        return $this;
+    }
+
+    /**
+     * Get artifactRatio
+     *
+     * @return integer 
+     */
+    public function getArtifactRatio()
+    {
+        return $this->artifactRatio;
     }
 }

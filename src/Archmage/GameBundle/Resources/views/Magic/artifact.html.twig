@@ -40,7 +40,7 @@
                                 <div class="btn-group" role="group" aria-label="...">
                                     <button type="submit" id="activate" name="action" value="activate" class="btn btn-default"><i class="fa fa-fw fa-lg fa-joomla"></i>Activar</button>
                                     {% if item.artifact.skill.battle %}
-                                    <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if item == player.itemDefense %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-shield"></i>Defensa</button>
+                                    <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if item == player.item %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-shield"></i>Defensa</button>
                                     {% endif %}
                                 </div>
                             </div>

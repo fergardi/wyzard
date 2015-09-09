@@ -85,7 +85,7 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for troop in player.troops %}
-                                <div class="col-xs-6"><i class="fa fa-fw fa-users"></i>{{ troop.quantity|nf }} <span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name|truncate(10, true) }}</a></span></div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ troop.quantity|nf }} <span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name|truncate(10, true) }}</a></span></div>
                             {% else %}
                                 <p>No tienes ninguna tropa. Tal vez deberías reclutar alguna.</p>
                             {% endfor %}

@@ -20,15 +20,15 @@ class ArmyController extends Controller
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
             $turns = 1;
-            $quantity = $_POST['quantity'] or null;
-            $troop = $_POST['troop'] or null;
+            $quantity = isset($_POST['quantity'])?$_POST['quantity']:null;
+            $troop = isset($_POST['troop'])?$_POST['troop']:null;
             $troop = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop);
             if ($troop && $quantity && is_numeric($quantity) && $turns <= $player->getTurns() && $quantity > 0) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y reclutado '.$quantity.' unidad(es).');
+                $this->addFlash('success', 'Has gastado '.$turns.' turnos y reclutado '.$quantity.' unidades.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -49,15 +49,19 @@ class ArmyController extends Controller
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         if ($request->isMethod('POST')) {
             $turns = 1;
-            $quantity = $_POST['quantity'] or null;
-            $troop = $_POST['troop'] or null;
+            $quantity = isset($_POST['quantity'])?$_POST['quantity']:null;
+            $troop = isset($_POST['troop'])?$_POST['troop']:null;
             $troop = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop);
             if ($troop && $quantity && is_numeric($quantity) && $turns <= $player->getTurns() && $quantity > 0 && $quantity <= $troop->getQuantity()) {
                 $troop->setQuantity($troop->getQuantity() - $quantity);
+                if ($troop->getQuantity() <= 0 && $troop->getUnit()->getFaction()->getName() != 'Neutral') {
+                    $player->removeTroop($troop);
+                    $manager->remove($troop);
+                }
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y desbandado '.$quantity.' unidad(es).');
+                $this->addFlash('success', 'Has gastado '.$turns.' turno y desbandado '.$quantity.' unidades.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

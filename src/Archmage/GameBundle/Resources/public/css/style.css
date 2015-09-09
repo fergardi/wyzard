@@ -40,6 +40,9 @@ img.background {
     padding-right: 15px;
     margin: 0px;
 }
+.text-only {
+    padding: 15px;
+}
 @media screen and (max-width: 400px) and (orientation: portrait) {
     .text-responsive {
         font-size:10px !important;
@@ -64,8 +67,12 @@ img.custom-rspls {
     border-radius: 50%;
 }
 img.custom-icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid rgba(0, 0, 0, 0.6);
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
     color: inherit !important;
@@ -84,8 +91,8 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
     text-decoration: underline !important;
 }
 img.factions {
-    width: 95%;
-    padding-top: 15px;
+    width: 80%;
+    margin-top: 5px;
 }
 /* Sticky footer styles
 --------------------------------------------------
@@ -195,11 +202,15 @@ body {
 .progress-bar-striped {
     background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 75%, transparent 75%, transparent);
 }
-.panel-primary .panel-heading, .primary, .primary a, .panel-primary > .panel-heading a, .progress-bar-primary, span.label-primary, span.label-primary a {
+.panel-primary .panel-heading, .primary, .primary a, .panel-primary > .panel-heading a, .progress-bar-primary, span.label-primary, span.label-primary a, .label-primary {
     color: black !important;
 }
 .progress-bar-default {
     background-color: #3E444C !important;
+}
+.alert-default {
+    background-color: #3E444C;
+    border-color: #2E3338;
 }
 /* DATATABLES */
 div.dataTables_paginate, div.dataTables_filter {
@@ -210,6 +221,11 @@ table a {
 }
 table a:hover {
     text-decoration: underline !important;
+}
+.table-bordered {
+    -webkit-border-radius: 3px !important;
+    -moz-border-radius: 3px !important;
+    border-radius: 3px !important;
 }
 /* NAVBAR PADDING FOR COLLAPSABLE COL-SM DEVICES */
 .nav > li > a {

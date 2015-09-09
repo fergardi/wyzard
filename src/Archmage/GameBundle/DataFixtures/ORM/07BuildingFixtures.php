@@ -31,8 +31,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldCap(999);
         $building->setManaCap(999);
         $building->setPeopleCap(999);
-        $building->setBuildingRatio(10);
-        $building->setResearchRatio(10);
+        $building->setBuildingRatio(0);
+        $building->setResearchRatio(0);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -61,7 +61,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //PUEBLOS
         $building = new Building();
         $building->setName('Pueblos');
-        $building->setDescription('Otorgan e incrementan la <span class="label label-extra">Población</span> máxima.');
+        $building->setDescription('Otorgan e incrementan <span class="label label-extra">Población</span> máxima.');
         $building->setImage('bundles/archmagegame/images/building/village.jpg');
         $building->setGoldCost(999);
         $building->setManaCost(999);
@@ -83,7 +83,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //NODOS
         $building = new Building();
         $building->setName('Nodos');
-        $building->setDescription('Otorgan e incrementan el <span class="label label-extra">Maná</span> máximo de tu reino.');
+        $building->setDescription('Otorgan e incrementan <span class="label label-extra">Maná</span> máximo.');
         $building->setImage('bundles/archmagegame/images/building/node.jpg');
         $building->setGoldCost(999);
         $building->setManaCost(999);

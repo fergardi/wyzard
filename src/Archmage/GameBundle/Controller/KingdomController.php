@@ -15,7 +15,7 @@ class KingdomController extends Controller
      */
     public function summaryAction()
     {
-        //load news flashbags
+        //cargar noticias
         $this->get('service.news')->news();
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');

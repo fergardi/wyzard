@@ -63,11 +63,12 @@ class AccountController extends Controller
             if (!$message) {
                 $this->addFlash('danger', 'No existe ningún mensaje con esa identificación.');
                 return $this->redirectToRoute('archmage_game_account_message');
-            } else {
-                return array(
-                    'message' => $message,
-                );
             }
+            $text = json_decode($message->getText(), true);
+            return array(
+                'message' => $message,
+                'text' => $text,
+            );
         }
     }
 
@@ -81,8 +82,8 @@ class AccountController extends Controller
         $notices = $player->getMessages();
         foreach ($notices as $notice) {
             if (!$notice->getReaded()) {
-                $notice->setReaded(true);
-                $this->addFlash($notice->getClass(), $notice->getSubject());
+                //$notice->setReaded(true);
+                $this->addFlash($notice->getClass(), '<a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getDateTime()->format('d/m/Y H:i:s').' '.$notice->getSubject().'</a>');
             }
         }
         $manager->persist($player);

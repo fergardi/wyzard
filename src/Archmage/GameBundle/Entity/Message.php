@@ -45,7 +45,7 @@ class Message
     /**
      * @var string
      *
-     * @ORM\Column(name="text", type="string", length=255, nullable=false)
+     * @ORM\Column(name="text", type="text", nullable=false)
      */
     private $text;
 
@@ -86,7 +86,7 @@ class Message
     public function __construct()
     {
         $this->datetime = new \DateTime('now');
-        $this->hash = substr(md5($this->getId()),0,8);
+        $this->hash = substr(md5(microtime()),0,6);
         $this->readed = false;
     }
 
@@ -209,7 +209,7 @@ class Message
     /**
      * Get class
      *
-     * @return string 
+     * @return string
      */
     public function getClass()
     {

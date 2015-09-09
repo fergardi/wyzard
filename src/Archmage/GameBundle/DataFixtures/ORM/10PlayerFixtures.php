@@ -123,9 +123,85 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);
-        $message->setSubject('Bienvenido al juego');
-        $message->setText('Este es un mensaje de bienvenida generado automaticamente por el servidor.');
+        $message->setSubject('Bienvenido a ArchMage');
+        $text = array(
+            'content' => array(
+                '0' => array(
+                    'class' => 'default',
+                    'length' => '12',
+                    'offset' => '0',
+                    'align' => 'center',
+                    'text' => 'Este es un mensaje de bienvenida generado automaticamente por el servidor.',
+                ),
+            ),
+        );
+        $message->setText(json_encode($text));
         $message->setClass('info');
+        $message->setOwner(null);
+        $message->setReaded(false);
+        $manager->persist($message);
+        $player->addMessage($message);
+
+        //MENSAJES
+        $message = new Message();
+        $message->setPlayer($player);
+        $message->setSubject('Mercado Negro');
+        $text = array(
+            'content' => array(
+                '0' => array(
+                    'class' => 'default',
+                    'length' => '12',
+                    'offset' => '0',
+                    'align' => 'center',
+                    'text' => 'Has ganado una subasta.',
+                ),
+            ),
+        );
+        $message->setText(json_encode($text));
+        $message->setClass('success');
+        $message->setOwner(null);
+        $message->setReaded(false);
+        $manager->persist($message);
+        $player->addMessage($message);
+
+        //MENSAJES
+        $message = new Message();
+        $message->setPlayer($player);
+        $message->setSubject('Reporte de Batalla');
+        $text = array(
+            'content' => array(
+                '0' => array(
+                    'class' => 'default',
+                    'length' => '12',
+                    'align' => 'center',
+                    'offset' => '0',
+                    'text' => 'Inicio de la batalla',
+                ),
+                '1' => array(
+                    'class' => 'warning',
+                    'length' => '7',
+                    'align' => 'left',
+                    'offset' => '0',
+                    'text' => 'Cosas del jugador izquierdo',
+                ),
+                '2' => array(
+                    'class' => 'info',
+                    'length' => '7',
+                    'offset' => '5',
+                    'align' => 'right',
+                    'text' => 'Cosas del jugador derecho',
+                ),
+                '3' => array(
+                    'class' => 'default',
+                    'length' => '12',
+                    'offset' => '0',
+                    'align' => 'center',
+                    'text' => 'Resultado final',
+                ),
+            ),
+        );
+        $message->setText(json_encode($text));
+        $message->setClass('danger');
         $message->setOwner(null);
         $message->setReaded(false);
         $manager->persist($message);

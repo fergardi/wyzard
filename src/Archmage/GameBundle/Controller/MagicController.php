@@ -22,7 +22,7 @@ class MagicController extends Controller
         if ($request->isMethod('POST')) {
             $turns = isset($_POST['turns'])?$_POST['turns']:null;
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
-                $mana = $turns * $player->getManaResourcePerTurn();
+                $mana = $turns * $player->getManaResourcePerTurn() * 2;
                 if ($player->getMana() + $mana >= $player->getManaCap()) $player->setMana($player->getManaCap()); else $player->setMana($player->getMana() + $mana);
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
@@ -66,7 +66,7 @@ class MagicController extends Controller
                             } else {
                                 if ($research->getSpell()->getSkill()->getSummon()) {
                                     $troop = $player->hasUnit($research->getSpell()->getSkill()->getUnit());
-                                    $quantity = rand(ceil($research->getSpell()->getSkill()->getQuantityBonus()*0.95),ceil($research->getSpell()->getSkill()->getQuantityBonus()*1.05));
+                                    $quantity = ceil($research->getSpell()->getSkill()->getQuantityBonus() * rand(0.95,1.05));
                                     if ($troop) {
                                         $troop->setQuantity($troop->getQuantity() + $quantity);
                                     } else {

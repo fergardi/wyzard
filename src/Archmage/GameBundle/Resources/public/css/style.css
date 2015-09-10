@@ -43,14 +43,17 @@ img.background {
 .text-only {
     padding: 15px;
 }
+.text-lore {
+    margin-top: 5px;
+}
 @media screen and (max-width: 400px) {
     .text-responsive {
-        font-size:10px !important;
+        font-size:9px !important;
     }
 }
 @media screen and (min-width: 401px) and (max-width: 700px) {
     .text-responsive {
-        font-size:14px !important;
+        font-size:12px !important;
     }
 }
 img.custom-thumbnail {
@@ -124,6 +127,12 @@ body {
 }
 .form-group {
     margin-bottom: 0px;
+}
+.custom-input {
+    margin-top: 11px !important;
+    -webkit-border-radius: 3px !important;
+    -moz-border-radius: 3px !important;
+    border-radius: 3px !important;
 }
 /* LOGIN */
 .form-signin {

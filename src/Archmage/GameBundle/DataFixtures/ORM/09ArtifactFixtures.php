@@ -19,7 +19,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Brújula Mágica');
         $artifact->setImage('bundles/archmagegame/images/artifact/magiccompass.jpg');
         $artifact->setSkill($this->getReference('Generar Tierras'));
-        $artifact->setDescription('+'.$artifact->getSkill()->getTerrainBonus().'% <span class="label label-extra">Tierras</span> libres de tu reino.');
+        $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -31,7 +31,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Cofre del Tesoro');
         $artifact->setImage('bundles/archmagegame/images/artifact/treasurechest.jpg');
         $artifact->setSkill($this->getReference('Generar Oro'));
-        $artifact->setDescription('+'.$artifact->getSkill()->getGoldBonus().'% <span class="label label-extra">Oro</span> de tu reino.');
+        $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -43,7 +43,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Poción de Maná');
         $artifact->setImage('bundles/archmagegame/images/artifact/manapotion.jpg');
         $artifact->setSkill($this->getReference('Generar Maná'));
-        $artifact->setDescription('+'.$artifact->getSkill()->getManaBonus().'% <span class="label label-extra">Maná</span> de tu reino.');
+        $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -55,7 +55,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Vórtice de Maná');
         $artifact->setImage('bundles/archmagegame/images/artifact/manavortex.jpg');
         $artifact->setSkill($this->getReference('Destruir Maná'));
-        $artifact->setDescription($artifact->getSkill()->getManaBonus().'% <span class="label label-extra">Maná</span> del reino enemigo.');
+        $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -67,7 +67,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Elixir de Amor');
         $artifact->setImage('bundles/archmagegame/images/artifact/loveelixir.jpg');
         $artifact->setSkill($this->getReference('Generar Población'));
-        $artifact->setDescription('+'.$artifact->getSkill()->getPeopleBonus().'% <span class="label label-extra">Población</span> de tu reino.');
+        $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -79,7 +79,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Vial de Veneno');
         $artifact->setImage('bundles/archmagegame/images/artifact/poisonvial.jpg');
         $artifact->setSkill($this->getReference('Destruir Población'));
-        $artifact->setDescription($artifact->getSkill()->getPeopleBonus().'% <span class="label label-extra">Población</span> del reino enemigo.');
+        $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -91,7 +91,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Huevo de Dragón');
         $artifact->setImage('bundles/archmagegame/images/artifact/dragonegg.jpg');
         $artifact->setSkill($this->getReference('Convocar Dragones'));
-        $artifact->setDescription('Invoca aleatoriamente <span class="label label-extra">'.$artifact->getSkill()->getFamily()->getName().'</span>.');
+        $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -103,7 +103,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Tela de Araña');
         $artifact->setImage('bundles/archmagegame/images/artifact/spiderweb.jpg');
         $artifact->setSkill($this->getReference('Reducir Velocidad'));
-        $artifact->setDescription($artifact->getSkill()->getSpeedBonus().' <span class="label label-extra">Velocidad</span> de las tropas enemigas.');
+        $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));

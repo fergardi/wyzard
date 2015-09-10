@@ -631,6 +631,20 @@ class Player
      */
 
     /**
+     * Get lands
+     *
+     * @return integer
+     */
+    public function getLands()
+    {
+        $lands = 0;
+        foreach ($this->constructions as $construction) {
+            $lands += $construction->getQuantity();
+        }
+        return $lands;
+    }
+
+    /**
      * Get building
      *
      * @return Construction

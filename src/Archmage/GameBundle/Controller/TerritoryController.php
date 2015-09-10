@@ -10,6 +10,11 @@ use Symfony\Component\HttpFoundation\Request;
 class TerritoryController extends Controller
 {
     /**
+     * lands cap
+     */
+    const LANDS_CAP = 3500;
+
+    /**
      * @Route("/game/territory/explore")
      * @Template("ArchmageGameBundle:Territory:explore.html.twig")
      */
@@ -20,12 +25,22 @@ class TerritoryController extends Controller
         if ($request->isMethod('POST')) {
             $turns = isset($_POST['turns'])?$_POST['turns']:null;
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
-                $lands = $turns * 1;
+                $lands = 0;
+                for ($i = 1; $i <= $turns; $i++) {
+                    if ($player->getLands() + $lands <= self::LANDS_CAP) {
+                        $found = floor(abs(self::LANDS_CAP - $player->getLands() - $lands) / 250);
+                        $lands += $found;
+                        print $found.' + '.$lands."<br>";
+                    }
+                }
+                die();
+                //$lands = $this->recursividad($turns, self::LANDS_CAP, $player->getLands());
+                //print $lands;die();
                 $player->setBuilding('Tierras', $player->getBuilding('Tierras')->getQuantity() + $lands);
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y encontrado '.$lands.' tierra(s).');
+                $this->addFlash('success', 'Has gastado '.$turns.' turnos y encontrado '.$lands.' tierras.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

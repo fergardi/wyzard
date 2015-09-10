@@ -31,9 +31,9 @@ class Spell
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255, nullable=false)
+     * @ORM\Column(name="lore", type="string", length=255, nullable=false)
      */
-    private $description;
+    private $lore;
 
     /**
      * @var string
@@ -184,26 +184,26 @@ class Spell
     }
 
     /**
-     * Set description
+     * Set lore
      *
-     * @param string $description
+     * @param string $lore
      * @return Spell
      */
-    public function setDescription($description)
+    public function setLore($lore)
     {
-        $this->description = $description;
+        $this->lore = $lore;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get lore
      *
      * @return string 
      */
-    public function getDescription()
+    public function getLore()
     {
-        return $this->description;
+        return $this->lore;
     }
 
     /**

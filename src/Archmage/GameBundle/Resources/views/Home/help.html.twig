@@ -13,7 +13,7 @@
         <div class="col-xs-12"><a name="objetivo"></a>
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Objetivo</div>
-                <div class="panel-body text-responsive text-only">
+                <div class="panel-body text-responsive">
                     Información acerca del objetivo del juego.
                 </div>
             </div>
@@ -64,12 +64,12 @@
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset(faction.image) }}">
                         </div>
-                        <div class="col-xs-8 text-only">
-                            {{ faction.description }}
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12 text-lore"><small><i><i class="fa fa-fw fa-quote-left"></i> {{ faction.lore }} <i class="fa fa-fw fa-quote-right"></i></i></small></div>
                         </div>
                     </div>
                 </div>
-                <div class="panel-footer text-center">
+                <div class="panel-footer text-center text-responsive">
                     <span class="label label-{{ faction.class }}">{{ faction.slogan }}</span>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-footer text-center">
+                <div class="panel-footer text-center text-responsive">
                     <i class="fa fa-fw fa-joomla"></i>{{ building.description|raw }}
                 </div>
             </div>
@@ -139,10 +139,11 @@
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ unit.manaMaintenance|nf }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-user"></i>{{ unit.family.name }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i>{{ unit.type.name }}</div>
+                            <div class="col-xs-12 text-lore"><small><i><i class="fa fa-fw fa-quote-left"></i> {{ unit.lore }} <i class="fa fa-fw fa-quote-right"></i></i></small></div>
                         </div>
                     </div>
                 </div>
-                <div class="panel-footer text-center">
+                <div class="panel-footer text-center text-responsive">
                     <i class="fa fa-fw fa-joomla"></i>{% if unit.skill %}{{ unit.skill.description|raw }}{% else %}Ninguna{% endif %}
                 </div>
             </div>
@@ -167,10 +168,12 @@
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ hero.goldMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ hero.peopleMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ hero.manaMaintenance|nf }}</div>
+                            <div class="col-xs-12 text-lore"><small><i><i class="fa fa-fw fa-quote-left"></i> {{ hero.lore }} <i class="fa fa-fw fa-quote-right"></i></i></small></div>
+
                         </div>
                     </div>
                 </div>
-                <div class="panel-footer text-center">
+                <div class="panel-footer text-center text-responsive">
                     <i class="fa fa-fw fa-joomla"></i>{% if hero.skill %}{{ hero.skill.description|raw }}{% else %}Ninguna{% endif %}
                 </div>
             </div>
@@ -201,10 +204,11 @@
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ spell.peopleMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ spell.manaMaintenance|nf }}</div>
                             {% endif %}
+                            <div class="col-xs-12 text-lore"><small><i><i class="fa fa-fw fa-quote-left"></i> {{ spell.lore }} <i class="fa fa-fw fa-quote-right"></i></i></small></div>
                         </div>
                     </div>
                 </div>
-                <div class="panel-footer text-center">
+                <div class="panel-footer text-center text-responsive">
                     <i class="fa fa-fw fa-lg fa-joomla"></i>{{ spell.skill.description|raw }}
                 </div>
             </div>
@@ -225,12 +229,13 @@
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( artifact.image ) }}">
                         </div>
-                        <div class="col-xs-8 text-only">
-                            <i class="fa fa-fw fa-joomla"></i>{{ artifact.description|raw }}
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ artifact.skill.description|raw }}</div>
+                            <div class="col-xs-12 text-lore"><small><i><i class="fa fa-fw fa-quote-left"></i> {{ artifact.lore }} <i class="fa fa-fw fa-quote-right"></i></i></small></div>
                         </div>
                     </div>
                 </div>
-                <div class="panel-footer text-center">
+                <div class="panel-footer text-center text-responsive">
                     Se obtiene en la <span class="label label-extra">Subasta</span>.
                 </div>
             </div>

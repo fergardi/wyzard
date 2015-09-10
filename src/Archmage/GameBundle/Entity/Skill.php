@@ -94,6 +94,13 @@ class Skill
     /**
      * @var integer
      *
+     * @ORM\Column(name="conversionBonus", type="smallint", nullable=false)
+     */
+    private $conversionBonus;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="magicBonus", type="smallint", nullable=false)
      */
     private $magicBonus;
@@ -153,6 +160,13 @@ class Skill
      * @ORM\Column(name="summon", type="boolean", nullable=false)
      */
     private $summon;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="random", type="boolean", nullable=false)
+     */
+    private $random;
 
     /**
      * @var Family
@@ -428,6 +442,29 @@ class Skill
     }
 
     /**
+     * Set conversionBonus
+     *
+     * @param integer $conversionBonus
+     * @return Skill
+     */
+    public function setConversionBonus($conversionBonus)
+    {
+        $this->conversionBonus = $conversionBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get conversionBonus
+     *
+     * @return integer 
+     */
+    public function getConversionBonus()
+    {
+        return $this->conversionBonus;
+    }
+
+    /**
      * Set magicBonus
      *
      * @param integer $magicBonus
@@ -632,6 +669,29 @@ class Skill
     public function getSummon()
     {
         return $this->summon;
+    }
+
+    /**
+     * Set random
+     *
+     * @param boolean $random
+     * @return Skill
+     */
+    public function setRandom($random)
+    {
+        $this->random = $random;
+
+        return $this;
+    }
+
+    /**
+     * Get random
+     *
+     * @return boolean 
+     */
+    public function getRandom()
+    {
+        return $this->random;
     }
 
     /**

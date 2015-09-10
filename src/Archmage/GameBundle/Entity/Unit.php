@@ -31,9 +31,9 @@ class Unit
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255, nullable=false)
+     * @ORM\Column(name="lore", type="string", length=255, nullable=false)
      */
-    private $description;
+    private $lore;
 
     /**
      * @var integer
@@ -172,26 +172,26 @@ class Unit
     }
 
     /**
-     * Set description
+     * Set lore
      *
-     * @param string $description
+     * @param string $lore
      * @return Unit
      */
-    public function setDescription($description)
+    public function setLore($lore)
     {
-        $this->description = $description;
+        $this->lore = $lore;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get lore
      *
      * @return string 
      */
-    public function getDescription()
+    public function getLore()
     {
-        return $this->description;
+        return $this->lore;
     }
 
     /**
@@ -379,29 +379,6 @@ class Unit
     }
 
     /**
-     * Set rarity
-     *
-     * @param boolean $rarity
-     * @return Unit
-     */
-    public function setRarity($rarity)
-    {
-        $this->rarity = $rarity;
-
-        return $this;
-    }
-
-    /**
-     * Get rarity
-     *
-     * @return boolean 
-     */
-    public function getRarity()
-    {
-        return $this->rarity;
-    }
-
-    /**
      * Set goldRecruit
      *
      * @param integer $goldRecruit
@@ -422,6 +399,29 @@ class Unit
     public function getGoldRecruit()
     {
         return $this->goldRecruit;
+    }
+
+    /**
+     * Set rarity
+     *
+     * @param boolean $rarity
+     * @return Unit
+     */
+    public function setRarity($rarity)
+    {
+        $this->rarity = $rarity;
+
+        return $this;
+    }
+
+    /**
+     * Get rarity
+     *
+     * @return boolean 
+     */
+    public function getRarity()
+    {
+        return $this->rarity;
     }
 
     /**

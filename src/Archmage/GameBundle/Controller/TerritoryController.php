@@ -27,15 +27,13 @@ class TerritoryController extends Controller
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
                 $lands = 0;
                 for ($i = 1; $i <= $turns; $i++) {
-                    if ($player->getLands() + $lands <= self::LANDS_CAP) {
-                        $found = floor(abs(self::LANDS_CAP - $player->getLands() - $lands) / 250);
+                    if (($player->getLands() + $lands) < self::LANDS_CAP) {
+                        $found = floor(abs(self::LANDS_CAP - $player->getLands() - $lands + 500) / 500);
                         $lands += $found;
-                        print $found.' + '.$lands."<br>";
+                        //print 'T'.$i.': + '.$found.' = '.$lands."<br>";
                     }
                 }
-                die();
-                //$lands = $this->recursividad($turns, self::LANDS_CAP, $player->getLands());
-                //print $lands;die();
+                //die();
                 $player->setBuilding('Tierras', $player->getBuilding('Tierras')->getQuantity() + $lands);
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);

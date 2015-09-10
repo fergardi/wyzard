@@ -670,6 +670,16 @@ class Player
         return null;
     }
 
+    /**
+     * Get research turns by ratio
+     *
+     * @return integer
+     */
+    public function getTurnsRatio($turns)
+    {
+        return 1;
+    }
+
     /*
      * POWER AND RANKING
      */

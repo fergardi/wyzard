@@ -44,7 +44,7 @@ img.background {
     padding: 15px;
 }
 .text-lore {
-    margin-top: 5px;
+    margin-top: 10px;
 }
 @media screen and (max-width: 400px) {
     .text-responsive {

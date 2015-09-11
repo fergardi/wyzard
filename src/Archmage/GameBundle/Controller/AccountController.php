@@ -83,7 +83,7 @@ class AccountController extends Controller
         foreach ($notices as $notice) {
             if (!$notice->getReaded()) {
                 //$notice->setReaded(true);
-                $this->addFlash($notice->getClass(), '<a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getDateTime()->format('d/m/Y H:i:s').' '.$notice->getSubject().'</a>');
+                $this->addFlash($notice->getClass(), '<a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a>');
             }
         }
         $manager->persist($player);

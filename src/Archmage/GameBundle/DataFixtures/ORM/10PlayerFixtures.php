@@ -123,11 +123,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);
-        $message->setSubject('Bienvenido a ArchMage');
+        $message->setSubject('Mensaje directo');
         $text = array(
             'content' => array(
                 '0' => array(
-                    'class' => 'default',
+                    'class' => 'info',
                     'length' => '12',
                     'offset' => '0',
                     'align' => 'center',
@@ -149,7 +149,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $text = array(
             'content' => array(
                 '0' => array(
-                    'class' => 'default',
+                    'class' => 'success',
                     'length' => '12',
                     'offset' => '0',
                     'align' => 'center',

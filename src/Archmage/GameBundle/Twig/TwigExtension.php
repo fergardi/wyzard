@@ -12,8 +12,13 @@ class TwigExtension extends \Twig_Extension
     }
 
     public function nf($number, $decimals = 0, $decPoint = ',', $thousandsSep = '.') {
-        $price = number_format((float)$number, $decimals, $decPoint, $thousandsSep);
-        return $price;
+        if ((float)$number >= 1000) {
+            if ((float)$number % 1000 == 0) {
+                return number_format((float)$number/1000, 0, $decPoint, $thousandsSep).'K';
+            }
+            return number_format((float)$number/1000, 1, $decPoint, $thousandsSep).'K';
+        }
+        return number_format((float)$number, $decimals, $decPoint, $thousandsSep);
     }
 
     public function slug($string) {

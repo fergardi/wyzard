@@ -28,12 +28,10 @@ class TerritoryController extends Controller
                 $lands = 0;
                 for ($i = 1; $i <= $turns; $i++) {
                     if (($player->getLands() + $lands) < self::LANDS_CAP) {
-                        $found = floor(abs(self::LANDS_CAP - $player->getLands() - $lands + 500) / 500);
+                        $found = floor(abs(self::LANDS_CAP - $player->getLands() - $lands + 333) / 333);
                         $lands += $found;
-                        //print 'T'.$i.': + '.$found.' = '.$lands."<br>";
                     }
                 }
-                //die();
                 $player->setBuilding('Tierras', $player->getBuilding('Tierras')->getQuantity() + $lands);
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);

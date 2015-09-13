@@ -9,7 +9,6 @@ use Archmage\GameBundle\Entity\Auction;
 use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Item;
 use Archmage\GameBundle\Entity\Contract;
-use Archmage\GameBundle\Entity\Research;
 
 class AuctionFixtures extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -27,7 +26,7 @@ class AuctionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $troop->setPlayer(null);
         $auction->setPlayer(null);
         $auction->setTroop($troop);
-        $auction->setBid(10000);
+        $auction->setBid($troop->getUnit()->getGoldAuction());
         $manager->persist($auction);
 
         //ITEM
@@ -39,7 +38,19 @@ class AuctionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $item->setPlayer(null);
         $auction->setPlayer(null);
         $auction->setItem($item);
-        $auction->setBid(10000);
+        $auction->setBid($item->getArtifact()->getGoldAuction());
+        $manager->persist($auction);
+
+        //ITEM
+        $auction = new Auction();
+        $item = new Item();
+        $manager->persist($item);
+        $item->setArtifact($this->getReference('Tela de Araña'));
+        $item->setQuantity(1);
+        $item->setPlayer(null);
+        $auction->setPlayer(null);
+        $auction->setItem($item);
+        $auction->setBid($item->getArtifact()->getGoldAuction());
         $manager->persist($auction);
 
         //CONTRACT
@@ -50,45 +61,18 @@ class AuctionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $contract->setPlayer(null);
         $auction->setPlayer(null);
         $auction->setContract($contract);
-        $auction->setBid(10000);
+        $auction->setBid($contract->getHero()->getGoldAuction());
         $manager->persist($auction);
 
-        //RESEARCH
+        //CONTRACT
         $auction = new Auction();
-        $research = new Research();
-        $manager->persist($research);
-        $research->setSpell($this->getReference('Paz'));
-        $research->setActive(false);
-        $research->setTurns(0);
-        $research->setPlayer(null);
+        $contract = new Contract();
+        $manager->persist($contract);
+        $contract->setHero($this->getReference('Leprechaunt'));
+        $contract->setPlayer(null);
         $auction->setPlayer(null);
-        $auction->setResearch($research);
-        $auction->setBid(10000);
-        $manager->persist($auction);
-
-        //RESEARCH
-        $auction = new Auction();
-        $research = new Research();
-        $manager->persist($research);
-        $research->setSpell($this->getReference('Invocar Esqueletos'));
-        $research->setActive(false);
-        $research->setTurns(0);
-        $research->setPlayer(null);
-        $auction->setPlayer(null);
-        $auction->setResearch($research);
-        $auction->setBid(10000);
-        $manager->persist($auction);
-
-        $auction = new Auction();
-        $research = new Research();
-        $manager->persist($research);
-        $research->setSpell($this->getReference('Rayo de Sol'));
-        $research->setActive(false);
-        $research->setTurns(0);
-        $research->setPlayer(null);
-        $auction->setPlayer(null);
-        $auction->setResearch($research);
-        $auction->setBid(10000);
+        $auction->setContract($contract);
+        $auction->setBid($contract->getHero()->getGoldAuction());
         $manager->persist($auction);
 
         $manager->flush();

@@ -12,13 +12,9 @@ class TwigExtension extends \Twig_Extension
     }
 
     public function nf($number, $decimals = 0, $decPoint = ',', $thousandsSep = '.') {
-        if ((float)$number >= 1000) {
-            if ((float)$number % 1000 == 0) {
-                return number_format((float)$number/1000, 0, $decPoint, $thousandsSep).'K';
-            }
-            return number_format((float)$number/1000, 1, $decPoint, $thousandsSep).'K';
-        }
-        return number_format((float)$number, $decimals, $decPoint, $thousandsSep);
+        //if ($number >= 1000000 && $number % 100000 == 0) return number_format((float)$number / 1000000, 1, $decPoint, $thousandsSep).'M';
+        if ($number >= 1000 && $number % 100 == 0) return number_format((float)$number / 1000, 1, $decPoint, $thousandsSep).'K';
+        return number_format($number, $decimals, $decPoint, $thousandsSep);
     }
 
     public function slug($string) {

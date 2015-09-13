@@ -43,9 +43,6 @@ img.background {
 .text-only {
     padding: 15px;
 }
-.text-lore {
-    margin-top: 10px;
-}
 @media screen and (max-width: 400px) {
     .text-responsive {
         font-size:9px !important;
@@ -236,6 +233,10 @@ table a:hover {
     padding-left: 5px;
     padding-right: 5px;
 }
+.form-inline .input-group > .form-control {
+    border-top-right-radius: 3px !important;
+    border-bottom-right-radius: 3px !important;
+}
 /* INPUT SIZE EN CHROME DISTINTO DE FIREFOX, MUY PEQUEÑO, ARREGLADO CON */
 @media (min-width: 768px) {
     .form-inline .input-group > .form-control {
@@ -246,7 +247,7 @@ table a:hover {
 html {-webkit-text-size-adjust: none !important;}
 /* ARREGLAR BORDES BLANCOS EN BOOTSRAP SELECT */
 .bootstrap-select {
-    border-radius: 4px !important;
+    border-radius: 3px !important;
     background-color: inherit !important;
 }
 /* FONTAWESOME */

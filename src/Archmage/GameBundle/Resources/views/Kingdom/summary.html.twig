@@ -19,9 +19,18 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>+{{ player.goldresourceperturn|nf }} <span class="label label-extra">Oro</span> por turno</div>
-                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>-{{ player.goldresourceperturn|nf }} <span class="label label-extra">Oro</span> por turno</div>
-                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>?{{ player.goldresourceperturn|nf }} <span class="label label-extra">Oro</span> total por turno</div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>+{{ player.gold|nf }} <span class="label label-extra">Oro</span></div>
+                            {# row #}
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>+{{ player.goldresourceperturn|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>-{{ player.goldresourceperturn|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>={{ player.goldresourceperturn|nf }}</div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>+{{ player.people|nf }} / {{ player.peoplecap|nf }} <span class="label label-extra">Personas</span></div>
+                            {# row #}
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>+{{ player.peopleresourceperturn|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>-{{ player.peopleresourceperturn|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>={{ player.peopleresourceperturn|nf }}</div>
                         </div>
                     </div>
                 </div>
@@ -62,9 +71,12 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/magic.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>+{{ player.goldresourceperturn|nf }} <span class="label label-extra">Maná</span> por turno</div>
-                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>-{{ player.goldresourceperturn|nf }} <span class="label label-extra">Maná</span> por turno</div>
-                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>?{{ player.goldresourceperturn|nf }} <span class="label label-extra">Maná</span> total por turno</div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>+{{ player.mana|nf }} / {{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
+                            {# row #}
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>+{{ player.manaresourceperturn|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>-{{ player.manaresourceperturn|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>={{ player.manaresourceperturn|nf }}</div>
                         </div>
                     </div>
                 </div>
@@ -85,7 +97,7 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for troop in player.troops %}
-                                <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ troop.quantity|nf }} <span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name|truncate(10, true) }}</a></span></div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name|truncate(10, true) }}</a></span> {{ troop.quantity|nf }}</div>
                             {% else %}
                                 <p>No tienes ninguna tropa. Tal vez deberías reclutar alguna.</p>
                             {% endfor %}
@@ -94,7 +106,7 @@
                 </div>
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a href="{{ path('archmage_game_army_recruit') }}" class="btn btn-default"><i class="fa fa-fw fa-user-plus"></i><span class="hidden-xs">Reclutar</span></a>
-                    <a href="{{ path('archmage_game_army_disband') }}" class="btn btn-default"><i class="fa fa-fw fa-user-times"></i><span class="hidden-xs">Licenciar</span></a>
+                    <a href="{{ path('archmage_game_army_disband') }}" class="btn btn-default"><i class="fa fa-fw fa-user-times"></i><span class="hidden-xs">Desbandar</span></a>
                     <a href="{{ path('archmage_game_army_attack') }}" class="btn btn-default"><i class="fa fa-fw fa-flag"></i><span class="hidden-xs">Atacar</span></a>
                 </div>
             </div>
@@ -129,6 +141,7 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <a href="{{ path('archmage_game_account_message') }}">Mensaje(s)</a></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-rocket"></i>{{ player.power|nf }} Poder</div>
                         </div>
                     </div>
                 </div>

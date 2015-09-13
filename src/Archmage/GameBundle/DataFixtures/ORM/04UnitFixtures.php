@@ -364,14 +364,14 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //ELFOS
         $unit = new Unit();
-        $unit->setName('Elfos de los Bosques');
+        $unit->setName('Elfos');
         $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $unit->setAttack(4);
         $unit->setDefense(7);
         $unit->setSpeed(5);
         $unit->setImage('bundles/archmagegame/images/unit/nature/elf.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Elfos'));
+        $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Distancia'));
         $unit->setGoldMaintenance(0);
         $unit->setPeopleMaintenance(0);
@@ -392,7 +392,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(4);
         $unit->setImage('bundles/archmagegame/images/unit/nature/druid.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
-        $unit->setFamily($this->getReference('Elfos'));
+        $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(2);
         $unit->setPeopleMaintenance(1);

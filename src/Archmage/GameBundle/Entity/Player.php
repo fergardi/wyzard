@@ -14,6 +14,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Player
 {
     /**
+     * research cap
+     */
+    const RESEARCH_CAP = 75;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -649,7 +654,7 @@ class Player
      *
      * @return Construction
      */
-    public function getBuilding($name)
+    public function getConstruction($name)
     {
         foreach ($this->constructions as $construction) {
             if ($construction->getBuilding()->getName() == $name) return $construction;
@@ -662,12 +667,12 @@ class Player
      *
      * @return Construction
      */
-    public function setBuilding($name, $quantity)
+    public function setConstruction($name, $quantity)
     {
         foreach ($this->constructions as $construction) {
-            if ($construction->getBuilding()->getName() == $name) return $construction->setQuantity($quantity);
+            if ($construction->getBuilding()->getName() == $name) $construction->setQuantity($quantity);
         }
-        return null;
+        return $this;
     }
 
     /**
@@ -675,9 +680,13 @@ class Player
      *
      * @return integer
      */
-    public function getTurnsRatio($turns)
+    public function getResearchRatio($turns)
     {
-        return 1;
+        $guilds = $this->getConstruction('Gremios')->getQuantity();
+        $ratio = $this->getConstruction('Gremios')->getBuilding()->getResearchRatio();
+        $percent = $guilds * $ratio / 1000;
+        $turns = $turns - ceil($turns * $percent / 100);
+        return $turns;
     }
 
     /*
@@ -755,10 +764,11 @@ class Player
      */
     public function getGoldResourcePerTurn()
     {
+        $gold = 0;
         foreach ($this->constructions as $construction) {
-            if ($construction->getBuilding()->getName() == 'Granjas') return $construction->getQuantity() * $construction->getBuilding()->getGoldResource();
+            $gold += $construction->getQuantity() * $construction->getBuilding()->getGoldResource();
         }
-        return 0;
+        return $gold;
     }
 
     /**
@@ -768,10 +778,11 @@ class Player
      */
     public function getManaResourcePerTurn()
     {
+        $mana = 0;
         foreach ($this->constructions as $construction) {
-            if ($construction->getBuilding()->getName() == 'Nodos') return $construction->getQuantity() * $construction->getBuilding()->getManaResource();
+            $mana += $construction->getQuantity() * $construction->getBuilding()->getManaResource();
         }
-        return 0;
+        return $mana;
     }
 
     /**
@@ -781,10 +792,11 @@ class Player
      */
     public function getPeopleResourcePerTurn()
     {
+        $people = 0;
         foreach ($this->constructions as $construction) {
-            if ($construction->getBuilding()->getName() == 'Pueblos') return $construction->getQuantity() * $construction->getBuilding()->getPeopleResource();
+            $people += $construction->getQuantity() * $construction->getBuilding()->getPeopleResource();
         }
-        return 0;
+        return $people;
     }
 
     /**
@@ -803,6 +815,9 @@ class Player
         }
         foreach ($this->constructions as $construction) {
             $gold += $construction->getBuilding()->getGoldMaintenance() * $construction->getQuantity();
+        }
+        foreach ($this->enchantments as $enchantment) {
+            $gold += $enchantment->getSpell()->getGoldMaintenance();
         }
         return $gold;
     }
@@ -824,6 +839,9 @@ class Player
         foreach ($this->constructions as $construction) {
             $mana += $construction->getBuilding()->getManaMaintenance() * $construction->getQuantity();
         }
+        foreach ($this->enchantments as $enchantment) {
+            $mana += $enchantment->getSpell()->getManaMaintenance();
+        }
         return $mana;
     }
 
@@ -843,6 +861,9 @@ class Player
         }
         foreach ($this->constructions as $construction) {
             $people += $construction->getBuilding()->getPeopleMaintenance() * $construction->getQuantity();
+        }
+        foreach ($this->enchantments as $enchantment) {
+            $people += $enchantment->getSpell()->getPeopleMaintenance();
         }
         return $people;
     }

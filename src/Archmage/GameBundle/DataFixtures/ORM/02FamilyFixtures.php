@@ -25,11 +25,6 @@ class FamilyFixtures extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($family);
 
         $family = new Family();
-        $family->setName('Elfos');
-        $this->addReference($family->getName(), $family);
-        $manager->persist($family);
-
-        $family = new Family();
         $family->setName('Bestias');
         $this->addReference($family->getName(), $family);
         $manager->persist($family);

@@ -32,7 +32,7 @@ class TerritoryController extends Controller
                         $lands += $found;
                     }
                 }
-                $player->setBuilding('Tierras', $player->getBuilding('Tierras')->getQuantity() + $lands);
+                $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $lands);
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
@@ -59,12 +59,12 @@ class TerritoryController extends Controller
             $lands = isset($_POST['lands'])?$_POST['lands']:null;
             $construction = isset($_POST['construction'])?$_POST['construction']:null;
             $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
-            if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $player->getBuilding('Tierras')->getQuantity()) {
-                $turns = ceil($lands / ceil(($player->getBuilding('Talleres')->getQuantity() + 1) / $construction->getBuilding()->getBuildingRatio()));
+            if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $player->getConstruction('Tierras')->getQuantity()) {
+                $turns = ceil($lands / ceil(($player->getConstruction('Talleres')->getQuantity() + 1) / $construction->getBuilding()->getBuildingRatio()));
                 $gold = $construction->getBuilding()->getGoldCost() * $lands;
                 if ($turns <= $player->getTurns() && $gold <= $player->getGold()) {
                     $construction->setQuantity($construction->getQuantity() + $lands);
-                    $player->getBuilding('Tierras')->setQuantity($player->getBuilding('Tierras')->getQuantity() - $lands);
+                    $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() - $lands);
                     $player->setGold($player->getGold() - $gold);
                     $player->setTurns($player->getTurns() - $turns);
                     $manager->persist($player);
@@ -98,7 +98,7 @@ class TerritoryController extends Controller
             $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
             if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $construction->getQuantity() && $player->getTurns() > 0) {
                 $construction->setQuantity($construction->getQuantity() - $lands);
-                $player->getBuilding('Tierras')->setQuantity($player->getBuilding('Tierras')->getQuantity() + $lands);
+                $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $lands);
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();

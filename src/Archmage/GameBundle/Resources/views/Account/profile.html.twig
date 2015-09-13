@@ -21,7 +21,7 @@
                     <h1 class="text-center">{{ player.nick }}</h1>
                     {% for progress in progresses %}
                     <div class="progress">
-                        <div class="progress-bar progress-bar-{{ progress.class }} progress-bar-striped" role="progressbar" aria-valuenow="{{ progress.researchs }}" aria-valuemin="0" aria-valuemax="{{ progress.total }}" style="min-width:4em; width: {{ progress.researchs/progress.total*100 }}%">
+                        <div class="progress-bar progress-bar-{{ progress.class }} progress-bar-striped" role="progressbar" aria-valuenow="{{ progress.researchs }}" aria-valuemin="0" aria-valuemax="{{ progress.total }}" style="min-width:0em; width: {{ progress.researchs / progress.total * 100 }}%">
                             <span>{{ progress.researchs }}/{{ progress.total }}</span>
                         </div>
                     </div>

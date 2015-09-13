@@ -62,22 +62,27 @@ class MagicController extends Controller
                         //self
                         if ($research->getSpell()->getSkill()->getSelf()) {
                             if ($research->getSpell()->getEnchant()) {
-
+                            //TODO
                             } else {
                                 if ($research->getSpell()->getSkill()->getSummon()) {
-                                    $troop = $player->hasUnit($research->getSpell()->getSkill()->getUnit());
-                                    $quantity = rand($research->getSpell()->getSkill()->getQuantityBonus() * 0.95, $research->getSpell()->getSkill()->getQuantityBonus() * 1.05);
-                                    if ($troop) {
-                                        $troop->setQuantity($troop->getQuantity() + $quantity);
+                                    //TODO
+                                    if (true) {
+                                        $troop = $player->hasUnit($research->getSpell()->getSkill()->getUnit());
+                                        $quantity = ceil($research->getSpell()->getSkill()->getQuantityBonus() * $player->getMagic() * (rand(95,105) / 100));
+                                        if ($troop) {
+                                            $troop->setQuantity($troop->getQuantity() + $quantity);
+                                        } else {
+                                            $troop = new Troop();
+                                            $manager->persist($troop);
+                                            $troop->setUnit($research->getSpell()->getSkill()->getUnit());
+                                            $troop->setQuantity($quantity);
+                                            $troop->setPlayer($player);
+                                            $player->addTroop($troop);
+                                        }
+                                        $this->addFlash('success', 'Has invocado '.$quantity.' unidades '.$research->getSpell()->getSkill()->getUnit()->getName().'.');
                                     } else {
-                                        $troop = new Troop();
-                                        $manager->persist($troop);
-                                        $troop->setUnit($research->getSpell()->getSkill()->getUnit());
-                                        $troop->setQuantity($quantity);
-                                        $troop->setPlayer($player);
-                                        $player->addTroop($troop);
+                                        $this->addFlash('danger', 'No puedes tener más de 5 tropas distintas al mismo tiempo.');
                                     }
-                                    $this->addFlash('success', 'Has invocado '.$quantity.' unidades '.$research->getSpell()->getSkill()->getUnit()->getName().'.');
                                 }
                             }
                             $this->addFlash('success', 'Has gastado '.$turns.' turnos y '.$mana.' maná en conjurar '.$research->getSpell()->getName().'.');
@@ -142,7 +147,7 @@ class MagicController extends Controller
                 if ($research) {
                     $research->setTurns($research->getTurns() + $turns);
                     //si ha terminado de investigarlo se activa
-                    if ($research->getTurns() >= $research->getSpell()->getTurnsResearch()) {
+                    if ($research->getTurns() >= $player->getResearchRatio($research->getSpell()->getTurnsResearch())) {
                         $research->setActive(true);
                         //subir nivel de magia
                         if ($player->getLevel() > $player->getMagic()){

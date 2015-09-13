@@ -13,22 +13,26 @@
         {% for research in player.researchs if not research.active and research.spell.magic <= player.magic %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ research.spell.faction.class }}">
-                <div class="panel-heading text-center">{% if research.spell.enchant %}<i class="fa fa-fw fa-lg fa-link"></i>{% else %}<i class="fa fa-fw fa-lg fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
+                <div class="panel-heading text-center">{% if research.spell.enchant %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( research.spell.image ) }}">
                         </div>
                         <div class="col-xs-8 text-padded">
+                            {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ research.spell.magic|nf }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ research.spell.manaCost|nf }}</div>
+                            {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ research.turns|nf }}</div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ research.spell.turnsResearch|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ player.researchRatio(research.spell.turnsResearch)|nf }}</div>
                             {% if research.spell.enchant %}
+                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ research.spell.goldMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ research.spell.peopleMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ research.spell.manaMaintenance|nf }}</div>
                             {% endif %}
+                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ research.spell.skill.description|raw }}</div>
                         </div>
                     </div>
@@ -38,7 +42,7 @@
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i><span class="hidden-xs">Investigar</span></button>
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-hourglass-half"></i><span class="hidden-xs">Investigar</span></button>
                                 </div>
                                 <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ player.turns }}" value="0" required/>
                                 <input type="hidden" id="research" name="research" value="{{ research.id }}" required />
@@ -53,22 +57,26 @@
         {% for spell in spells if spell.magic <= player.magic %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ spell.faction.class }}">
-                <div class="panel-heading text-center">{% if spell.enchant %}<i class="fa fa-fw fa-lg fa-link"></i>{% else %}<i class="fa fa-fw fa-lg fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ spell.name|slug }}" class="link">{{ spell.name }}</a></div>
+                <div class="panel-heading text-center">{% if spell.enchant %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ spell.name|slug }}" class="link">{{ spell.name }}</a></div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( spell.image ) }}">
                         </div>
                         <div class="col-xs-8 text-padded">
+                            {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ spell.magic|nf }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ spell.manaCost|nf }}</div>
+                            {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>0</div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ player.turnsRatio(spell.turnsResearch)|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ player.researchRatio(spell.turnsResearch)|nf }}</div>
                             {% if spell.enchant %}
+                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ spell.goldMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ spell.peopleMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ spell.manaMaintenance|nf }}</div>
                             {% endif %}
+                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ spell.skill.description|raw }}</div>
                         </div>
                     </div>
@@ -78,7 +86,7 @@
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-lg fa-hourglass-half"></i><span class="hidden-xs">Investigar</span></button>
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-hourglass-half"></i><span class="hidden-xs">Investigar</span></button>
                                 </div>
                                 <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ player.turns }}" value="0" required/>
                                 <input type="hidden" id="spell" name="spell" value="{{ spell.id }}" required />
@@ -92,7 +100,7 @@
         {% else %}
         <div class="container">
             <div class="col-xs-12 alert alert-danger text-center" role="alert">
-                <i class="fa fa-fw fa-lg fa-exclamation-triangle"></i> Ya no tienes más hechizos nuevos que investigar. Tal vez puedas comprar alguno más en el <i class="fa fa-fw fa-lg fa-user-secret"></i><a href="{{ path( 'archmage_game_kingdom_auction' ) }}">Mercado negro</a>.
+                <i class="fa fa-fw fa-exclamation-triangle"></i> Ya no tienes más hechizos nuevos que investigar. Tal vez puedas comprar alguno más en el <i class="fa fa-fw fa-user-secret"></i><a href="{{ path( 'archmage_game_kingdom_auction' ) }}">Mercado negro</a>.
             </div>
         </div>
         {% endfor %}

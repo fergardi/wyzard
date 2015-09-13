@@ -155,7 +155,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //TALLERES
         $building = new Building();
         $building->setName('Talleres');
-        $building->setDescription('Aumentan la cantidad de <span class="label label-extra">Edificios</span> construidos por turno.');
+        $building->setDescription('Aumentan los <span class="label label-extra">Edificios</span> construidos por turno.');
         $building->setImage('bundles/archmagegame/images/building/workshop.jpg');
         $building->setGoldCost(3000);
         $building->setPeopleCost(0);
@@ -178,7 +178,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //GREMIOS
         $building = new Building();
         $building->setName('Gremios');
-        $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> necesarios para investigar.');
+        $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> para investigar.');
         $building->setImage('bundles/archmagegame/images/building/guild.jpg');
         $building->setGoldCost(0);
         $building->setPeopleCost(0);

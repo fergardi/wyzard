@@ -10,7 +10,7 @@
                 <h1><i class="fa fa-fw fa-money"></i>Recaudar oro<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading text-center">{{ player.goldResourcePerTurn|nf }}<i class="fa fa-fw fa-money"></i>/<i class="fa fa-fw fa-hourglass-half"></i></div>
+                <div class="panel-heading text-center">{{ (player.goldResourcePerTurn * 2)|nf }} Oro por turno</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">

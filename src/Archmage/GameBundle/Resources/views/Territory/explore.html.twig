@@ -10,14 +10,14 @@
                 <h1><i class="fa fa-fw fa-map"></i>Explorar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-globe"></i>{{ player.building('Tierras').quantity|nf }}</div>
+                <div class="panel-heading text-center">{{ player.lands|nf }} Territorios en tu reino</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/territory.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes encontrar más <span class="label label-extra">Tierras</span> libres que añadir a tu reino para construir edificios, hasta un límite de 3500.</div>
+                            <div class="col-xs-12">Aquí puedes encontrar más <span class="label label-extra">Tierras</span> libres que añadir a tu reino para construir edificios, hasta un límite de {{ 3500|nf }}.</div>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-12 text-center text-only">
-                            TIERRAS<sub>exploradas</sub> = (3500 - TIERRAS<sub>jugador</sub> + 333) / 333
+                            TIERRAS<sub>exploradas</sub> = ({{ 3500|nf }} - TIERRAS<sub>jugador</sub> + 333) / 333
                         </div>
                     </div>
                 </div>

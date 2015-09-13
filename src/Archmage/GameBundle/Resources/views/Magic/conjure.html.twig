@@ -13,7 +13,7 @@
         {% for research in player.researchs if research.active and research.spell.magic <= player.magic and not research.spell.skill.battle %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ research.spell.faction.class }}">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-lg fa-magic"></i><a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i><a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -47,9 +47,9 @@
                                 {% endif %}
                                 <input type="hidden" id="research" name="research" value="{{ research.id }}" required />
                                 <div class="btn-group" role="group" aria-label="...">
-                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default" {% if research.spell.manaCost > player.mana %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-tint"></i><span class="hidden-xs">Conjurar</span></button>
+                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default" {% if research.spell.manaCost > player.mana %}disabled{% endif %}><i class="fa fa-fw fa-tint"></i><span class="hidden-xs">Conjurar</span></button>
                                     {% if research.spell.skill.battle %}
-                                    <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if research == player.research %}disabled{% endif %}><i class="fa fa-fw fa-lg fa-shield"></i>Defensa</button>
+                                    <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if research == player.research %}disabled{% endif %}><i class="fa fa-fw fa-shield"></i>Defensa</button>
                                     {% endif %}
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
         {% else %}
         <div class="container">
             <div class="col-xs-12 alert alert-danger text-center" role="alert">
-                <i class="fa fa-fw fa-lg fa-exclamation-triangle"></i> Actualmente no tienes hechizos investigados. Tal vez deberías <i class="fa fa-fw fa-lg fa-graduation-cap"></i><a href="{{ path('archmage_game_magic_research') }}">Investigar</a> algunos.
+                <i class="fa fa-fw fa-exclamation-triangle"></i> Actualmente no tienes hechizos investigados. Tal vez deberías <i class="fa fa-fw fa-graduation-cap"></i><a href="{{ path('archmage_game_magic_research') }}">Investigar</a> algunos.
             </div>
         </div>
         {% endfor %}

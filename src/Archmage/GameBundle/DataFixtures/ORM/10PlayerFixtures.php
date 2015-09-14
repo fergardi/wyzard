@@ -95,7 +95,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($contract);
             $player->addContract($contract);
         }
-        /*
         //ARTEFACTOS
         $items = array(
             'Huevo de Dragón' => 1,
@@ -109,8 +108,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($item);
             $player->addItem($item);
         }
-        */
-        /*
         //ENCANTAMIENTOS
         $enchantment = new Enchantment();
         $enchantment->setSpell($this->getReference('Apocalipsis'));
@@ -119,7 +116,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($enchantment);
         $player->addEnchantment($enchantment);
         $player->addCurse($enchantment);
-        */
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);

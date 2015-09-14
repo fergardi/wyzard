@@ -45,6 +45,13 @@ class Faction
     /**
      * @var string
      *
+     * @ORM\Column(name="description", type="string", length=255, nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="lore", type="string", length=255, nullable=false)
      */
     private $lore;
@@ -134,6 +141,29 @@ class Faction
     public function getClass()
     {
         return $this->class;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Faction
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     /**

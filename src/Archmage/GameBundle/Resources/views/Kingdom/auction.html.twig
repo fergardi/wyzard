@@ -27,6 +27,8 @@
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ auction.contract.hero.peopleMaintenance|nf }}</div>
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ auction.contract.hero.skill.description|raw }}</div>
+                            {# row #}
+                            <div class="col-xs-12 text-lore"><small><i>"{{ auction.contract.hero.lore }}"</i></small></div>
                         </div>
                     </div>
                 </div>
@@ -71,6 +73,8 @@
                             {% endif %}
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ auction.research.spell.skill.description|raw }}</div>
+                            {# row #}
+                            <div class="col-xs-12 text-lore"><small><i>"{{ auction.research.spell.lore }}"</i></small></div>
                         </div>
                     </div>
                 </div>
@@ -114,6 +118,8 @@
                             <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i>{{ auction.troop.unit.type.name }}</div>
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{% if auction.troop.unit.skill is not null %}{{ auction.troop.unit.skill.description|raw }}{% else %}Ninguna{% endif %}</div>
+                            {# row #}
+                            <div class="col-xs-12 text-lore"><small><i>"{{ auction.troop.unit.lore }}"</i></small></div>
                         </div>
                     </div>
                 </div>
@@ -143,8 +149,10 @@
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( auction.item.artifact.image ) }}" />
                         </div>
-                        <div class="col-xs-8">
-                            <p><i class="fa fa-fw fa-joomla"></i>{{ auction.item.artifact.skill.description|raw }}</p>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ auction.item.artifact.skill.description|raw }}</div>
+                            {# row #}
+                            <div class="col-xs-12 text-lore"><small><i>"{{ auction.item.artifact.lore }}"</i></small></div>
                         </div>
                     </div>
                 </div>

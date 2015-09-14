@@ -43,6 +43,11 @@ img.background {
 .text-only {
     padding: 15px;
 }
+.text-lore {
+    text-align: right;
+    margin-top: 4px;
+    color: #cc7c26;
+}
 @media screen and (max-width: 400px) {
     .text-responsive {
         font-size:9px !important;

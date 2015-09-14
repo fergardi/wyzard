@@ -29,18 +29,24 @@
                         </div>
                         {% else %}
                         <div class="col-xs-8 text-padded">
+                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldCost|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleCost|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCost|nf }}</div>
+                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaMaintenance|nf }}</div>
+                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldResource|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleResource|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaResource|nf }}</div>
+                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldCap|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleCap|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCap|nf }}</div>
+                            {# row #}
+                            <div class="col-xs-12 text-lore"><small><i>"{{ construction.building.lore }}"</i></small></div>
                         </div>
                         {% endif %}
                     </div>

@@ -19,8 +19,11 @@
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset( enchantment.spell.image ) }}">
                         </div>
-                        <div class="col-xs-8">
-                            <p>{{ enchantment.spell.description|raw }}</p>
+                        <div class="col-xs-8 text-padded">
+                            {# row #}
+                            <div class="col-xs-12">{{ enchantment.spell.skill.description|raw }}</div>
+                            {# row #}
+                            <div class="col-xs-12 text-lore"><small><i>"{{ enchantment.spell.lore }}"</i></small></div>
                         </div>
                     </div>
                 </div>

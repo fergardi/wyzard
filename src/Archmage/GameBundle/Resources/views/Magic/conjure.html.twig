@@ -20,16 +20,22 @@
                             <img class="custom-thumbnail" src="{{ asset( research.spell.image ) }}">
                         </div>
                         <div class="col-xs-8 text-padded">
+                            {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ research.spell.magic|nf }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ research.spell.manaCost|nf }}</div>
+                            {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ research.turns|nf }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ research.spell.turnsResearch|nf }}</div>
                             {% if research.spell.enchant %}
+                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ research.spell.goldMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ research.spell.peopleMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ research.spell.manaMaintenance|nf }}</div>
                             {% endif %}
+                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ research.spell.skill.description|raw }}</div>
+                            {# row #}
+                            <div class="col-xs-12 text-lore"><small><i>"{{ research.spell.lore }}"</i></small></div>
                         </div>
                     </div>
                 </div>

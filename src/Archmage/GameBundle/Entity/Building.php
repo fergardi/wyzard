@@ -38,6 +38,13 @@ class Building
     /**
      * @var string
      *
+     * @ORM\Column(name="lore", type="string", length=255, nullable=false)
+     */
+    private $lore;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="image", type="string", length=255, nullable=false)
      */
     private $image;
@@ -202,6 +209,29 @@ class Building
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set lore
+     *
+     * @param string $lore
+     * @return Building
+     */
+    public function setLore($lore)
+    {
+        $this->lore = $lore;
+
+        return $this;
+    }
+
+    /**
+     * Get lore
+     *
+     * @return string 
+     */
+    public function getLore()
+    {
+        return $this->lore;
     }
 
     /**

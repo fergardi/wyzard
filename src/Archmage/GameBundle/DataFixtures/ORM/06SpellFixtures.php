@@ -20,18 +20,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ESQUELETOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Esqueletos'));
+        $spell->setSkill($this->getReference('Generar Esqueletos_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -43,18 +43,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ZOMBIS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Zombis'));
+        $spell->setSkill($this->getReference('Generar Zombis_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -66,18 +66,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR HOMBRES LOBO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Hombres Lobo'));
+        $spell->setSkill($this->getReference('Generar Hombres Lobo_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -89,18 +89,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ESPECTROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Espectros'));
+        $spell->setSkill($this->getReference('Generar Espectros_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -112,18 +112,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR LICHES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Liches'));
+        $spell->setSkill($this->getReference('Generar Liches_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -135,18 +135,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR VAMPIROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Vampiros'));
+        $spell->setSkill($this->getReference('Generar Vampiros_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -158,18 +158,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR CABALLEROS NEGROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Caballeros Negros'));
+        $spell->setSkill($this->getReference('Generar Caballeros Negros_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -181,18 +181,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELEMENTALES DE SOMBRA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elementales de Sombra'));
+        $spell->setSkill($this->getReference('Generar Elementales de Sombra_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -204,18 +204,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR GARGOLAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Gárgolas'));
+        $spell->setSkill($this->getReference('Generar Gárgolas_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -227,18 +227,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DRAGONES NEGROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Dragones Negros'));
+        $spell->setSkill($this->getReference('Generar Dragones Negros_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -254,18 +254,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //MALDICION
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Maldición'));
+        $spell->setSkill($this->getReference('Maldición_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/curse.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -277,18 +277,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //MIEDO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Miedo'));
+        $spell->setSkill($this->getReference('Miedo_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/fear.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -300,18 +300,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //AQUELARRE
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Aquelarre'));
+        $spell->setSkill($this->getReference('Aquelarre_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/coven.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -323,18 +323,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //FUERZA IMPIA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Fuerza Impía'));
+        $spell->setSkill($this->getReference('Fuerza Impía_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/unholystrength.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -346,41 +346,41 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PLAGA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Plaga'));
-        $spell->setName($spell->getSkill()->getName());
+        $spell->setSkill($this->getReference('Plaga_skill'));
+        $spell->setName('Plaga');
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/plague.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchant(true);
         $spell->setTurnsExpiration(0);
-        //$this->setReference($spell->getName(), $spell);
+        $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
         //VOODOO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Voodoo'));
+        $spell->setSkill($this->getReference('Voodoo_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/voodoo.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -392,18 +392,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CORRUPCION
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Corrupción'));
+        $spell->setSkill($this->getReference('Corrupción_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/corruption.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -415,18 +415,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //BRUJERIA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Brujería'));
+        $spell->setSkill($this->getReference('Brujería_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/witchcraft.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -438,18 +438,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //ECLIPSE
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Eclipse'));
+        $spell->setSkill($this->getReference('Eclipse_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/eclipse.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -461,18 +461,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //NOCHE DE LOS MUERTOS VIVIENTES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Convocar NoMuertos'));
+        $spell->setSkill($this->getReference('Convocar NoMuertos_skill'));
         $spell->setName('Noche de los Muertos Vivientes');
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/nightlivingdead.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -488,18 +488,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR GORILAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Gorilas'));
+        $spell->setSkill($this->getReference('Generar Gorilas_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -511,18 +511,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELFOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elfos'));
+        $spell->setSkill($this->getReference('Generar Elfos_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -534,18 +534,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DRUIDAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Druidas'));
+        $spell->setSkill($this->getReference('Generar Druidas_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -557,18 +557,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR TROLLS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Trolls'));
+        $spell->setSkill($this->getReference('Generar Trolls_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -580,18 +580,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ENTS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Ents'));
+        $spell->setSkill($this->getReference('Generar Ents_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -603,18 +603,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR BEHEMOTHS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Behemoths'));
+        $spell->setSkill($this->getReference('Generar Behemoths_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -626,18 +626,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR SIERPES COLOSALES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Sierpes Colosales'));
+        $spell->setSkill($this->getReference('Generar Sierpes Colosales_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -649,18 +649,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELEMENTALES DE TIERRA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elementales de Tierra'));
+        $spell->setSkill($this->getReference('Generar Elementales de Tierra_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -672,18 +672,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR HIDRAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Hidras'));
+        $spell->setSkill($this->getReference('Generar Hidras_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -695,18 +695,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DRAGONES VERDES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Dragones Verdes'));
+        $spell->setSkill($this->getReference('Generar Dragones Verdes_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -722,18 +722,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //OXIDAR ARMADURA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Oxidar Armadura'));
+        $spell->setSkill($this->getReference('Oxidar Armadura_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/rustarmor.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -745,18 +745,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PRISA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Prisa'));
+        $spell->setSkill($this->getReference('Prisa_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/haste.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -768,18 +768,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //AGRANDAR ANIMAL
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Agrandar Animales'));
+        $spell->setSkill($this->getReference('Agrandar Animales_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/enlargeanimals.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -791,18 +791,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CURACION
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Curación'));
+        $spell->setSkill($this->getReference('Curación_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/curation.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -814,18 +814,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //HURACAN
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Huracán'));
+        $spell->setSkill($this->getReference('Huracán_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/hurricane.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -837,18 +837,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //IRA DEL BOSQUE
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Ira del Bosque'));
+        $spell->setSkill($this->getReference('Ira del Bosque_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/forestwrath.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -860,18 +860,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //FAVOR DE LA NATURALEZA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Favor de la Naturaleza'));
+        $spell->setSkill($this->getReference('Favor de la Naturaleza_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/naturefavor.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -883,18 +883,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CONTROL DEL CLIMA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Control del Clima'));
+        $spell->setSkill($this->getReference('Control del Clima_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/climatecontrol.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -906,18 +906,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CONCILIO DE LAS BESTIAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Concilio de las Bestias'));
+        $spell->setSkill($this->getReference('Concilio de las Bestias_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/council.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -929,18 +929,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //RAYO DE SOL
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Rayo de Sol'));
+        $spell->setSkill($this->getReference('Rayo de Sol_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/sunray.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -956,18 +956,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR TRITONES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Tritones'));
+        $spell->setSkill($this->getReference('Generar Tritones_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -979,18 +979,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR SIRENAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Sirenas'));
+        $spell->setSkill($this->getReference('Generar Sirenas_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1002,18 +1002,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR HADAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Hadas'));
+        $spell->setSkill($this->getReference('Generar Hadas_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1025,18 +1025,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR MAGOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Magos'));
+        $spell->setSkill($this->getReference('Generar Magos_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1048,18 +1048,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR NAGAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Nagas'));
+        $spell->setSkill($this->getReference('Generar Nagas_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1071,18 +1071,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DJINNIS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Djinnis'));
+        $spell->setSkill($this->getReference('Generar Djinnis_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1094,18 +1094,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELEMENTALES DE AGUA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elementales de Agua'));
+        $spell->setSkill($this->getReference('Generar Elementales de Agua_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1117,18 +1117,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR TITANES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Titanes'));
+        $spell->setSkill($this->getReference('Generar Titanes_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1140,18 +1140,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR LEVIATANES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Leviatanes'));
+        $spell->setSkill($this->getReference('Generar Leviatanes_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1163,18 +1163,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DRAGONES AZULES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Dragones Azules'));
+        $spell->setSkill($this->getReference('Generar Dragones Azules_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1190,18 +1190,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //ORO FALSO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Oro Falso'));
+        $spell->setSkill($this->getReference('Oro Falso_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/fakegold.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1213,18 +1213,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //ORACULO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Oráculo'));
+        $spell->setSkill($this->getReference('Oráculo_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/oracle.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1236,18 +1236,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CHAMANISMO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Chamanismo'));
+        $spell->setSkill($this->getReference('Chamanismo_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/shamanism.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1259,18 +1259,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //SABIDURIA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Sabiduría'));
+        $spell->setSkill($this->getReference('Sabiduría_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/wisdom.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1282,18 +1282,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //ENCONTRAR ARTEFACTO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Encontrar Artefacto'));
+        $spell->setSkill($this->getReference('Encontrar Artefacto_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/findartifact.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1305,18 +1305,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //DESENCANTAR
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Desencantar'));
+        $spell->setSkill($this->getReference('Desencantar_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/dispell.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1328,18 +1328,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CONCENTRACION
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Concentración'));
+        $spell->setSkill($this->getReference('Concentración_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/focus.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1351,18 +1351,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //BARRERA MENTAL
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Barrera Mental'));
+        $spell->setSkill($this->getReference('Barrera Mental_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/mentalbarrier.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1374,18 +1374,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //REUNION ELEMENTAL
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Reunión Elemental'));
+        $spell->setSkill($this->getReference('Reunión Elemental_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/elementalgathering.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1397,18 +1397,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //TSUNAMI
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Tsunami'));
+        $spell->setSkill($this->getReference('Tsunami_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/tsunami.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1424,18 +1424,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR MONJES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Monjes'));
+        $spell->setSkill($this->getReference('Generar Monjes_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1447,18 +1447,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR PALADINES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Paladines'));
+        $spell->setSkill($this->getReference('Generar Paladines_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1470,18 +1470,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR UNICORNIOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Unicornios'));
+        $spell->setSkill($this->getReference('Generar Unicornios_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1493,18 +1493,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR PEGASOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Pegasos'));
+        $spell->setSkill($this->getReference('Generar Pegasos_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1516,18 +1516,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ANGELES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Ángeles'));
+        $spell->setSkill($this->getReference('Generar Ángeles_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1539,18 +1539,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR GRIFOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Grifos'));
+        $spell->setSkill($this->getReference('Generar Grifos_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1562,18 +1562,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELEMENTALES DE AIRE
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elementales de Aire'));
+        $spell->setSkill($this->getReference('Generar Elementales de Aire_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1585,18 +1585,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ARCANGELES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Arcángeles'));
+        $spell->setSkill($this->getReference('Generar Arcángeles_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1608,18 +1608,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DOMINIONS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Dominions'));
+        $spell->setSkill($this->getReference('Generar Dominions_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1631,18 +1631,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DRAGONES BLANCOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Dragones Blancos'));
+        $spell->setSkill($this->getReference('Generar Dragones Blancos_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1658,18 +1658,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //SANACION
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Sanación'));
+        $spell->setSkill($this->getReference('Sanación_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/healing.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1681,18 +1681,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //VOLAR
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Volar'));
+        $spell->setSkill($this->getReference('Volar_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/fly.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1704,18 +1704,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //DESTRUIR ARTEFACTO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Destruir Artefacto'));
+        $spell->setSkill($this->getReference('Destruir Artefacto_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/destroyartifact.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1727,18 +1727,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //VALOR
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Valor'));
+        $spell->setSkill($this->getReference('Valor_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/valor.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1750,18 +1750,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PROSPERIDAD
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Prosperidad'));
+        $spell->setSkill($this->getReference('Prosperidad_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/prosperity.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1773,18 +1773,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PAZ
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Paz'));
+        $spell->setSkill($this->getReference('Paz_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/peace.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1796,18 +1796,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CALMA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Calma'));
+        $spell->setSkill($this->getReference('Calma_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/pacifism.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1819,18 +1819,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PROTECCION DIVINA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Protección Divina'));
+        $spell->setSkill($this->getReference('Protección Divina_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/divineprotection.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1842,18 +1842,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PUERTA DE LOS CIELOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Puerta de los Cielos'));
+        $spell->setSkill($this->getReference('Puerta de los Cielos_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/heavensdoor.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1865,18 +1865,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PALABA SANTA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Palabra Santa'));
+        $spell->setSkill($this->getReference('Palabra Santa_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/holyword.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1892,18 +1892,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR GOBLINS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Goblins'));
+        $spell->setSkill($this->getReference('Generar Goblins_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1915,18 +1915,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR CERBEROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Cerberos'));
+        $spell->setSkill($this->getReference('Generar Cerberos_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1938,18 +1938,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR MINOTAUROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Minotauros'));
+        $spell->setSkill($this->getReference('Generar Minotauros_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1961,18 +1961,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR OGROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Ogros'));
+        $spell->setSkill($this->getReference('Generar Ogros_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -1984,18 +1984,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR QUIMERAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Quimeras'));
+        $spell->setSkill($this->getReference('Generar Quimeras_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2007,18 +2007,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR SALAMANDRAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Salamandras'));
+        $spell->setSkill($this->getReference('Generar Salamandras_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2030,18 +2030,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELEMENTALES DE LAVA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elementales de Lava'));
+        $spell->setSkill($this->getReference('Generar Elementales de Lava_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2053,18 +2053,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DIABLOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Diablos'));
+        $spell->setSkill($this->getReference('Generar Diablos_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2076,18 +2076,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR FENIX
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Fénix'));
+        $spell->setSkill($this->getReference('Generar Fénix_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2099,18 +2099,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DRAGONES ROJOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Dragones Rojos'));
+        $spell->setSkill($this->getReference('Generar Dragones Rojos_skill'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2126,18 +2126,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //BOLA DE FUEGO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Bola de Fuego'));
+        $spell->setSkill($this->getReference('Bola de Fuego_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/fireball.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2149,18 +2149,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //ALAS FLAMIGUERAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Alas Flamígueras'));
+        $spell->setSkill($this->getReference('Alas Flamígueras_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/flamingwings.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(1);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2172,18 +2172,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //FLECHAS ARDIENTES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Flechas Ardientes'));
+        $spell->setSkill($this->getReference('Flechas Ardientes_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/burningarrow.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2195,18 +2195,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //FURIA DEMONIACA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Furia Demoníaca'));
+        $spell->setSkill($this->getReference('Furia Demoníaca_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/demonwrath.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(2);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2218,18 +2218,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //VOLCANO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Volcano'));
+        $spell->setSkill($this->getReference('Volcano_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/volcano.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2241,18 +2241,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //COMBUSTION
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Combustión'));
+        $spell->setSkill($this->getReference('Combustión_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/combustion.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(3);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2264,18 +2264,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //TAMBORES DE GUERRA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Tambores de Guerra'));
+        $spell->setSkill($this->getReference('Tambores de Guerra_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/wardrums.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2287,18 +2287,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //MURO IGNEO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Muro Ígneo'));
+        $spell->setSkill($this->getReference('Muro Ígneo_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/igneouswall.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(4);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2310,18 +2310,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PACTO DE SANGRE
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Convocar Demonios'));
+        $spell->setSkill($this->getReference('Convocar Demonios_skill'));
         $spell->setName('Pacto de Sangre');
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/bloodpact.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2333,18 +2333,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INFERNO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Inferno'));
+        $spell->setSkill($this->getReference('Inferno_skill'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/inferno.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(5);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(100000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
         $spell->setTurnsCost(100);
         $spell->setTurnsResearch(100);
         $spell->setGoldAuction(0);
@@ -2361,24 +2361,24 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //APOCALIPSIS
         $spell = new Spell();
         $spell->setName('Apocalipsis');
-        $spell->setSkill($this->getReference('Fin del juego'));
+        $spell->setSkill($this->getReference($spell->getName().'_skill'));
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/neutral/apocalipse.jpg');
         $spell->setFaction($this->getReference('Neutral'));
         $spell->setMagic(6);
-        $spell->setGoldCost(999999);
-        $spell->setManaCost(999999);
-        $spell->setPeopleCost(999999);
-        $spell->setGoldMaintenance(999999);
-        $spell->setManaMaintenance(999999);
-        $spell->setPeopleMaintenance(999999);
-        $spell->setTurnsCost(100);
-        $spell->setTurnsResearch(100);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(300000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(-3);
+        $spell->setManaMaintenance(-2);
+        $spell->setPeopleMaintenance(-1);
+        $spell->setTurnsCost(300);
+        $spell->setTurnsResearch(2000);
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchant(true);
-        $spell->setTurnsExpiration(0);
-        //$this->setReference($spell->getName(), $spell);
+        $spell->setTurnsExpiration(100000);
+        $this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
         $manager->flush();

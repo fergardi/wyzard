@@ -24,7 +24,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setPeopleMaintenance(2000);
         $hero->setGoldAuction(50000000);
         $hero->setRarity(0);
-        $hero->setSkill($this->getReference('Comandar NoMuertos'));
+        $hero->setSkill($this->getReference('Comandar NoMuertos_skill'));
         $hero->setFaction($this->getReference('Oscuridad'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -39,7 +39,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setPeopleMaintenance(9999);
         $hero->setGoldAuction(50000000);
         $hero->setRarity(0);
-        $hero->setSkill($this->getReference('Paz'));
+        $hero->setSkill($this->getReference('Paz_skill'));
         $hero->setFaction($this->getReference('Oscuridad'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -54,7 +54,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setPeopleMaintenance(9999);
         $hero->setGoldAuction(50000000);
         $hero->setRarity(0);
-        $hero->setSkill($this->getReference('Comandar Demonios'));
+        $hero->setSkill($this->getReference('Comandar Demonios_skill'));
         $hero->setFaction($this->getReference('Caos'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -69,7 +69,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setPeopleMaintenance(9999);
         $hero->setGoldAuction(50000000);
         $hero->setRarity(0);
-        $hero->setSkill($this->getReference('Comandar Dragones'));
+        $hero->setSkill($this->getReference('Comandar Dragones_skill'));
         $hero->setFaction($this->getReference('Caos'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -84,7 +84,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setPeopleMaintenance(9999);
         $hero->setGoldAuction(50000000);
         $hero->setRarity(0);
-        $hero->setSkill($this->getReference('Concentración'));
+        $hero->setSkill($this->getReference('Concentración_skill'));
         $hero->setFaction($this->getReference('Fantasmal'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -99,7 +99,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setPeopleMaintenance(9999);
         $hero->setGoldAuction(50000000);
         $hero->setRarity(0);
-        $hero->setSkill($this->getReference('Comandar Elementales'));
+        $hero->setSkill($this->getReference('Comandar Elementales_skill'));
         $hero->setFaction($this->getReference('Fantasmal'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -114,7 +114,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setPeopleMaintenance(9999);
         $hero->setGoldAuction(50000000);
         $hero->setRarity(0);
-        $hero->setSkill($this->getReference('Comandar Bestias'));
+        $hero->setSkill($this->getReference('Comandar Bestias_skill'));
         $hero->setFaction($this->getReference('Naturaleza'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -129,7 +129,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setPeopleMaintenance(9999);
         $hero->setGoldAuction(50000000);
         $hero->setRarity(0);
-        $hero->setSkill($this->getReference('Prosperidad'));
+        $hero->setSkill($this->getReference('Prosperidad_skill'));
         $hero->setFaction($this->getReference('Naturaleza'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -144,7 +144,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setPeopleMaintenance(9999);
         $hero->setGoldAuction(50000000);
         $hero->setRarity(0);
-        $hero->setSkill($this->getReference('Comandar Celestiales'));
+        $hero->setSkill($this->getReference('Comandar Celestiales_skill'));
         $hero->setFaction($this->getReference('Sagrado'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -159,7 +159,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setPeopleMaintenance(9999);
         $hero->setGoldAuction(50000000);
         $hero->setRarity(0);
-        $hero->setSkill($this->getReference('Comandar Humanos'));
+        $hero->setSkill($this->getReference('Comandar Humanos_skill'));
         $hero->setFaction($this->getReference('Sagrado'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);

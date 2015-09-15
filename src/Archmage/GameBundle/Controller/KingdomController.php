@@ -38,6 +38,7 @@ class KingdomController extends Controller
                 $gold = $turns * $player->getGoldResourcePerTurn() * 2;
                 $player->setGold($player->getGold() + $gold);
                 $player->setTurns($player->getTurns() - $turns);
+                $this->get('service.controller')->checkMaintenances($turns);
                 $manager->persist($player);
                 $manager->flush();
                 $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y recaudado '.$this->get('service.controller')->nf($gold).' oro.');
@@ -77,6 +78,7 @@ class KingdomController extends Controller
                     $auction->setBid($bid);
                     $player->setGold($player->getGold() - $bid);
                     $player->setTurns($player->getTurns() - $turns);
+                    $this->get('service.controller')->checkMaintenances($turns);
                     $manager->persist($auction);
                     $manager->persist($player);
                     $manager->flush();

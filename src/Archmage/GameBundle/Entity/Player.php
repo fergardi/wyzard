@@ -191,6 +191,7 @@ class Player
      */
     public function setGold($gold)
     {
+        if ($gold < 0) $gold = 0;
         $this->gold = $gold;
 
         return $this;
@@ -214,7 +215,9 @@ class Player
      */
     public function setMana($mana)
     {
-        $this->mana = min($mana, $this->getManaCap());
+        if ($mana > $this->getManaCap()) $mana = $this->getManaCap();
+        if ($mana < 0) $mana = 0;
+        $this->mana = $mana;
 
         return $this;
     }
@@ -237,7 +240,9 @@ class Player
      */
     public function setPeople($people)
     {
-        $this->people = min($people, $this->getPeopleCap());
+        if ($people > $this->getPeopleCap()) $people = $this->getPeopleCap();
+        if ($people < 0) $people = 0;
+        $this->people = $people;
 
         return $this;
     }
@@ -260,6 +265,7 @@ class Player
      */
     public function setMagic($magic)
     {
+        if ($magic < 1) $magic = 1;
         $this->magic = $magic;
 
         return $this;
@@ -734,6 +740,7 @@ class Player
      */
     public function getTurnsCap()
     {
+        return 30000;
         return 300;
     }
 

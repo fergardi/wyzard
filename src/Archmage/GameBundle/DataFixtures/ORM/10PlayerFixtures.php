@@ -25,21 +25,19 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $player = new Player();
         $player->setNick('Fergardi');
         $player->setFaction($this->getReference('Oscuridad'));
-        $player->setMagic(1);
-        $player->setTurns(30000);
         $player->setItem(null);
         $player->setResearch(null);
         //EDIFICIOS
         $constructions = array(
-            'Tierras' => 850,
+            'Tierras' => 835,
             'Barreras' => 0,
             'Fortalezas' => 5,
             'Gremios' => 0,
-            'Talleres' => 20,
+            'Talleres' => 0,
             'Nodos' => 10,
             'Pueblos' => 20,
             'Granjas' => 30,
-            'Barracones' => 25,
+            'Barracones' => 0,
         );
         foreach ($constructions as $name => $quantity) {
             $construction = new Construction();
@@ -67,11 +65,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         */
         //UNIDADES
         $troops = array(
-            'Arqueros' => 500,
-            'Caballeros' => 500,
-            'Catapultas' => 500,
-            'Milicias' => 500,
-            'Piqueros' => 500,
+            'Arqueros' => 100,
+            'Caballeros' => 100,
+            'Catapultas' => 100,
+            'Milicias' => 100,
+            'Piqueros' => 100,
         );
         foreach ($troops as $name => $quantity) {
             $troop = new Troop();
@@ -202,9 +200,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $player->addMessage($message);
 
         //gold, people, player, based on constructions should be last
-        $player->setGold(300000);
+        $player->setGold(3000000);
         $player->setPeople(20000);
         $player->setMana(1000);
+        $player->setTurns(30000);
+        $player->setMagic(1);
         //PERSIST && FLUSH
         $this->setReference($player->getNick(), $player);
         $manager->persist($player);

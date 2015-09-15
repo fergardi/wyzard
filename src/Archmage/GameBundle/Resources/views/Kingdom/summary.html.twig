@@ -27,10 +27,6 @@
                             <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.people|nf }} / {{ player.peoplecap|nf }} <span class="label label-extra">Personas</span></div>
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.peopleresourceperturn|nf }} - {{ player.peoplemaintenanceperturn|nf }} = {{ (player.peopleresourceperturn - player.peoplemaintenanceperturn)|nf }} / Turno</div>
-                            {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }} / {{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
-                            {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }} - {{ player.manamaintenanceperturn|nf }} = {{ (player.manaresourceperturn - player.manamaintenanceperturn)|nf }} / Turno</div>
                         </div>
                     </div>
                 </div>
@@ -50,6 +46,7 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for construction in player.constructions %}
+                            {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-home"></i>{{ construction.quantity|nf }} <a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}">{{ construction.building.name }}</a></div>
                             {% endfor %}
                         </div>
@@ -64,6 +61,61 @@
         </div>
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-link"></i>Templo</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/temple.jpg') }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            {% for enchantment in player.enchantments %}
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}">{{ enchantment.spell.name }}</a></span></div>
+                            {% else %}
+                            {# row #}
+                            <div class="col-xs-12">No tienes ningún encantamiento</div>
+                            {% endfor %}
+                            {% for curse in player.curses %}
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ curse.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ curse.spell.name|slug }}">{{ curse.spell.name }}</a></span></div>
+                            {% else %}
+                            {# row #}
+                            <div class="col-xs-12">No tienes ninguna maldición</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <a href="{{ path('archmage_game_magic_conjure') }}" class="btn btn-default"><i class="fa fa-fw fa-link"></i><span class="hidden-xs">Encantar</span></a>
+                    <a href="{{ path('archmage_game_magic_dispell') }}" class="btn btn-default"><i class="fa fa-fw fa-chain-broken"></i><span class="hidden-xs">Desencantar</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-beer"></i>Taberna</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/tavern.jpg') }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            {% for contract in player.contracts %}
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}">{{ contract.hero.name }}</a></span></div>
+                            {% else %}
+                            <div class="col-xs-12">No tienes ningún héroe</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-default"><i class="fa fa-fw fa-user-secret"></i><span class="hidden-xs">Contratar</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-flask"></i>Magia</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
@@ -71,12 +123,14 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/magic.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            {% for enchantment in player.enchantments %}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}">{{ enchantment.spell.name }}</a></span></div>
-                            {% endfor %}
-                            {% for curse in player.curses %}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ curse.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ curse.spell.name|slug }}">{{ curse.spell.name }}</a></span></div>
-                            {% endfor %}
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }} / {{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }} - {{ player.manamaintenanceperturn|nf }} = {{ (player.manaresourceperturn - player.manamaintenanceperturn)|nf }} / Turno</div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }}</div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i>{{ player.items|length|nf }}</div>
                         </div>
                     </div>
                 </div>
@@ -97,9 +151,11 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for troop in player.troops %}
-                                <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name|truncate(10, true) }}</a></span> {{ troop.quantity|nf }}</div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name|truncate(10, true) }}</a></span> {{ troop.quantity|nf }}</div>
                             {% else %}
-                                <p>No tienes ninguna tropa. Tal vez deberías reclutar alguna.</p>
+                            {# row #}
+                            <div class="col-xs-12">No tienes ninguna tropa. Tal vez deberías reclutar alguna.</div>
                             {% endfor %}
                         </div>
                     </div>
@@ -120,8 +176,10 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/defense.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{% if player.research %}<a href="{{ path('archmage_game_home_help') }}#{{ player.research.spell.name|slug }}"><span class="label label-{{ player.research.spell.faction.class }}">{{ player.research.spell.name }}</span></a>{% else %}Ninguno{% endif %}</div>
-                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{% if player.item %}<a href="{{ path('archmage_game_home_help') }}#{{ player.item.spell.name|slug }}"><span class="label label-{{ player.item.artifact.class }}">{{ player.item.spell.name }}</span></a>{% else %}Ninguno{% endif %}</div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{% if player.research %}<a href="{{ path('archmage_game_home_help') }}#{{ player.research.spell.name|slug }}"><span class="label label-{{ player.research.spell.faction.class }}">{{ player.research.spell.name }}</span></a>{% else %}Ningún hechizo en defensa{% endif %}</div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i>{% if player.item %}<a href="{{ path('archmage_game_home_help') }}#{{ player.item.spell.name|slug }}"><span class="label label-{{ player.item.artifact.class }}">{{ player.item.spell.name }}</span></a>{% else %}Ningún artefacto en defensa{% endif %}</div>
                         </div>
                     </div>
                 </div>
@@ -140,9 +198,12 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/social.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
+                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <a href="{{ path('archmage_game_account_message') }}">Mensajes</a></div>
-                            <div class="col-xs-12"><i class="fa fa-fw fa-crop"></i>Sin guild</div>
+                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-rocket"></i>{{ player.power|nf }} Poder</div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-crop"></i>Guild</div>
                         </div>
                     </div>
                 </div>

@@ -39,6 +39,7 @@ class ArmyController extends Controller
                     $player->addTroop($troop);
                 }
                 $player->setTurns($player->getTurns() - $turns);
+                $this->get('service.controller')->checkMaintenances($turns);
                 $manager->persist($player);
                 $manager->flush();
                 $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y reclutado '.$this->get('service.controller')->nf($quantity).' unidades.');
@@ -73,6 +74,7 @@ class ArmyController extends Controller
                     $manager->remove($troop);
                 }
                 $player->setTurns($player->getTurns() - $turns);
+                $this->get('service.controller')->checkMaintenances($turns);
                 $manager->persist($player);
                 $manager->flush();
                 $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y desbandado '.$this->get('service.controller')->nf($quantity).' unidades.');

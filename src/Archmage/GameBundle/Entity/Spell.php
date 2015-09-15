@@ -129,7 +129,7 @@ class Spell
     /**
      * @var integer
      *
-     * @ORM\Column(name="turnsExpiration", type="smallint", nullable=false)
+     * @ORM\Column(name="turnsExpiration", type="bigint", nullable=false)
      */
     private $turnsExpiration;
 

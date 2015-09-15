@@ -33,8 +33,8 @@ class TerritoryController extends Controller
                     }
                 }
                 $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $lands);
-                $this->get('service.controller')->addTurns($turns);
                 $player->setTurns($player->getTurns() - $turns);
+                $this->get('service.controller')->checkMaintenances($turns);
                 $manager->persist($player);
                 $manager->flush();
                 $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y encontrado '.$this->get('service.controller')->nf($lands).' tierras.');
@@ -68,6 +68,7 @@ class TerritoryController extends Controller
                     $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() - $lands);
                     $player->setGold($player->getGold() - $gold);
                     $player->setTurns($player->getTurns() - $turns);
+                    $this->get('service.controller')->checkMaintenances($turns);
                     $manager->persist($player);
                     $manager->flush();
                     $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turno(s) y '.$this->get('service.controller')->nf($gold).' oro y construido '.$this->get('service.controller')->nf($lands).' '. $construction->getBuilding()->getName().'.');
@@ -101,6 +102,7 @@ class TerritoryController extends Controller
                 $construction->setQuantity($construction->getQuantity() - $lands);
                 $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $lands);
                 $player->setTurns($player->getTurns() - $turns);
+                $this->get('service.controller')->checkMaintenances($turns);
                 $manager->persist($player);
                 $manager->flush();
                 $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turno y derribado '.$this->get('service.controller')->nf($lands).' edificios.');

@@ -37,7 +37,7 @@ class ServiceController extends Controller
     /**
      * Turn maintenances and consequences
      */
-    public function addTurns($turns)
+    public function checkMaintenances($turns)
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
@@ -77,6 +77,76 @@ class ServiceController extends Controller
                 }
             }
             $player->setGold($gold);
+            //PEOPLE
+            foreach ($player->getTroops() as $troop) {
+                $people = $player->getPeople() + $player->getPeopleResourcePerTurn() - $player->getPeopleMaintenancePerTurn();
+                if ($people < 0) {
+                    if ($troop->getUnit()->getPeopleMaintenance() > 0) {
+                        $troop->setQuantity($troop->getQuantity() - ceil(abs($people) / $troop->getUnit()->getPeopleMaintenance()));
+                        if ($troop->getQuantity() <= 0) {
+                            $player->removeTroop($troop);
+                            $manager->remove($troop);
+                        }
+                        $this->addFlash('danger', 'Se ha desbandado una tropa por no pagar mantenimientos de Personas.');
+                    }
+                }
+            }
+            foreach ($player->getContracts() as $contract) {
+                $people = $player->getPeople() + $player->getPeopleResourcePerTurn() - $player->getPeopleMaintenancePerTurn();
+                if ($people < 0) {
+                    if ($contract->getHero()->getPeopleMaintenance() > 0) {
+                        $player->removeContract($contract);
+                        $manager->remove($contract);
+                        $this->addFlash('danger', 'Se ha desbandado un héroe por no pagar mantenimientos de Personas.');
+                    }
+                }
+            }
+            foreach ($player->getEnchantments() as $enchantment) {
+                $people = $player->getPeople() + $player->getPeopleResourcePerTurn() - $player->getPeopleMaintenancePerTurn();
+                if ($people < 0) {
+                    if ($enchantment->getSpell()->getPeopleMaintenance() > 0) {
+                        $player->removeEnchantment($enchantment);
+                        $manager->remove($enchantment);
+                        $this->addFlash('danger', 'Se ha roto un encantamiento por no pagar mantenimientos de Personas.');
+                    }
+                }
+            }
+            $player->setPeople($people);
+            //MANA
+            foreach ($player->getTroops() as $troop) {
+                $mana = $player->getMana() + $player->getManaResourcePerTurn() - $player->getManaMaintenancePerTurn();
+                if ($mana < 0) {
+                    if ($troop->getUnit()->getManaMaintenance() > 0) {
+                        $troop->setQuantity($troop->getQuantity() - ceil(abs($mana) / $troop->getUnit()->getManaMaintenance()));
+                        if ($troop->getQuantity() <= 0) {
+                            $player->removeTroop($troop);
+                            $manager->remove($troop);
+                        }
+                        $this->addFlash('danger', 'Se ha desbandado una tropa por no pagar mantenimientos de Maná.');
+                    }
+                }
+            }
+            foreach ($player->getContracts() as $contract) {
+                $mana = $player->getMana() + $player->getManaResourcePerTurn() - $player->getManaMaintenancePerTurn();
+                if ($mana < 0) {
+                    if ($contract->getHero()->getManaMaintenance() > 0) {
+                        $player->removeContract($contract);
+                        $manager->remove($contract);
+                        $this->addFlash('danger', 'Se ha desbandado un héroe por no pagar mantenimientos de Maná.');
+                    }
+                }
+            }
+            foreach ($player->getEnchantments() as $enchantment) {
+                $mana = $player->getMana() + $player->getManaResourcePerTurn() - $player->getManaMaintenancePerTurn();
+                if ($mana < 0) {
+                    if ($enchantment->getSpell()->getManaMaintenance() > 0) {
+                        $player->removeEnchantment($enchantment);
+                        $manager->remove($enchantment);
+                        $this->addFlash('danger', 'Se ha roto un encantamiento por no pagar mantenimientos de Maná.');
+                    }
+                }
+            }
+            $player->setMana($mana);
         }
     }
 }

@@ -25,6 +25,7 @@ class MagicController extends Controller
                 $mana = $turns * $player->getManaResourcePerTurn() * 2;
                 if ($player->getMana() + $mana >= $player->getManaCap()) $player->setMana($player->getManaCap()); else $player->setMana($player->getMana() + $mana);
                 $player->setTurns($player->getTurns() - $turns);
+                $this->get('service.controller')->checkMaintenances($turns);
                 $manager->persist($player);
                 $manager->flush();
                 $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y recargado '.$this->get('service.controller')->nf($mana).' maná.');
@@ -58,7 +59,7 @@ class MagicController extends Controller
                     $mana = $research->getSpell()->getManaCost() * $player->getMagic();
                     if ($turns <= $player->getTurns() && $mana <= $player->getMana()) {
                         $player->setTurns($player->getTurns() - $turns);
-                        $this->get('service.controller')->checkMaintenance($turns);
+                        $this->get('service.controller')->checkMaintenances($turns);
                         $player->setMana($player->getMana() - $mana);
                         //self
                         if ($research->getSpell()->getSkill()->getSelf()) {
@@ -99,6 +100,7 @@ class MagicController extends Controller
                     if ($player->getTurns() > 0) {
                         $player->setResearchDefense($research);
                         $player->setTurns($player->getTurns() - $turns);
+                        $this->get('service.controller')->checkMaintenances($turns);
                         $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turno(s) en defender con '.$research->getSpell()->getName().'.');
                     } else {
                         $this->addFlash('danger', 'No tienes los recursos necesarios para conjurar ese hechizo.');
@@ -160,6 +162,7 @@ class MagicController extends Controller
                 }
                 //resta turnos al jugador y flush
                 $player->setTurns($player->getTurns() - $turns);
+                $this->get('service.controller')->checkMaintenances($turns);
                 $manager->persist($player);
                 $manager->flush();
                 $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos durante la investigación.');
@@ -192,6 +195,7 @@ class MagicController extends Controller
             if ($item && $action && $turns <= $player->getTurns()) {
                 //resta turnos al usarlo
                 $player->setTurns($player->getTurns() - $turns);
+                $this->get('service.controller')->checkMaintenances($turns);
                 if ($action == 'activate') {
                     //TODO
                     $this->addFlash('success', 'Has gastado '. $this->get('service.controller')->nf($turns).' turnos en activar '.$item->getArtifact()->getName().'.');

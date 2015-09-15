@@ -20,17 +20,17 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>+{{ player.gold|nf }} <span class="label label-extra">Oro</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }} <span class="label label-extra">Oro</span></div>
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>+{{ player.goldresourceperturn|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>-{{ player.goldresourceperturn|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>={{ player.goldresourceperturn|nf }}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.goldresourceperturn|nf }} - {{ player.goldmaintenanceperturn|nf }} = {{ (player.goldresourceperturn -  player.goldmaintenanceperturn)|nf }} / Turno</div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>+{{ player.people|nf }} / {{ player.peoplecap|nf }} <span class="label label-extra">Personas</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.people|nf }} / {{ player.peoplecap|nf }} <span class="label label-extra">Personas</span></div>
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>+{{ player.peopleresourceperturn|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>-{{ player.peopleresourceperturn|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>={{ player.peopleresourceperturn|nf }}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.peopleresourceperturn|nf }} - {{ player.peoplemaintenanceperturn|nf }} = {{ (player.peopleresourceperturn - player.peoplemaintenanceperturn)|nf }} / Turno</div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }} / {{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }} - {{ player.manamaintenanceperturn|nf }} = {{ (player.manaresourceperturn - player.manamaintenanceperturn)|nf }} / Turno</div>
                         </div>
                     </div>
                 </div>
@@ -71,12 +71,12 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/magic.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>+{{ player.mana|nf }} / {{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
-                            {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>+{{ player.manaresourceperturn|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>-{{ player.manaresourceperturn|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>={{ player.manaresourceperturn|nf }}</div>
+                            {% for enchantment in player.enchantments %}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}">{{ enchantment.spell.name }}</a></span></div>
+                            {% endfor %}
+                            {% for curse in player.curses %}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ curse.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ curse.spell.name|slug }}">{{ curse.spell.name }}</a></span></div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{% if player.research %}<a href="{{ path('archmage_game_home_help') }}#{{ player.research.spell.name|slug }}"><span class="label label-{{ player.research.spell.faction.class }}">{{ player.research.spell.name }}</span></a>{% else %}Ninguno{% endif %}</div>
-                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{% if player.item %}<a href="{{ path('archmage_game_home_help') }}#{{ player.item.spell.name|slug }}"><span class="label label-{{ player.item.artifact.class }}{{ player.item.spell.name }}</span></a>{% else %}Ninguno{% endif %}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{% if player.item %}<a href="{{ path('archmage_game_home_help') }}#{{ player.item.spell.name|slug }}"><span class="label label-{{ player.item.artifact.class }}">{{ player.item.spell.name }}</span></a>{% else %}Ninguno{% endif %}</div>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,8 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/social.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <a href="{{ path('archmage_game_account_message') }}">Mensaje(s)</a></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <a href="{{ path('archmage_game_account_message') }}">Mensajes</a></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-crop"></i>Sin guild</div>
                             <div class="col-xs-12"><i class="fa fa-fw fa-rocket"></i>{{ player.power|nf }} Poder</div>
                         </div>
                     </div>

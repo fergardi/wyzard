@@ -27,7 +27,7 @@ class MagicController extends Controller
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turnos y recargado '.$mana.' maná.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y recargado '.$this->get('service.controller')->nf($mana).' maná.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -55,9 +55,10 @@ class MagicController extends Controller
             if ($research && $action) {
                 if ($action == 'conjure') {
                     $turns = $research->getSpell()->getTurnsCost();
-                    $mana = $research->getSpell()->getManaCost();
+                    $mana = $research->getSpell()->getManaCost() * $player->getMagic();
                     if ($turns <= $player->getTurns() && $mana <= $player->getMana()) {
                         $player->setTurns($player->getTurns() - $turns);
+                        $this->get('service.controller')->checkMaintenance($turns);
                         $player->setMana($player->getMana() - $mana);
                         //self
                         if ($research->getSpell()->getSkill()->getSelf()) {
@@ -66,9 +67,9 @@ class MagicController extends Controller
                             } else {
                                 if ($research->getSpell()->getSkill()->getSummon()) {
                                     //TODO
-                                    if (true) {
+                                    if ($player->getTroops()->count() >= 5) {
+                                        $quantity = ceil($research->getSpell()->getSkill()->getQuantityBonus() * $player->getMagic() * rand(95,105) / 100);
                                         $troop = $player->hasUnit($research->getSpell()->getSkill()->getUnit());
-                                        $quantity = ceil($research->getSpell()->getSkill()->getQuantityBonus() * $player->getMagic() * (rand(95,105) / 100));
                                         if ($troop) {
                                             $troop->setQuantity($troop->getQuantity() + $quantity);
                                         } else {
@@ -79,13 +80,13 @@ class MagicController extends Controller
                                             $troop->setPlayer($player);
                                             $player->addTroop($troop);
                                         }
-                                        $this->addFlash('success', 'Has invocado '.$quantity.' unidades '.$research->getSpell()->getSkill()->getUnit()->getName().'.');
+                                        $this->addFlash('success', 'Has invocado '.$this->get('service.controller')->nf($quantity).' unidades '.$research->getSpell()->getSkill()->getUnit()->getName().'.');
                                     } else {
-                                        $this->addFlash('danger', 'No puedes tener más de 5 tropas distintas al mismo tiempo.');
+                                        $this->addFlash('danger', 'No puedes tener más de 5 tropas distintas al mismo tiempo, desbanda algunas.');
                                     }
                                 }
                             }
-                            $this->addFlash('success', 'Has gastado '.$turns.' turnos y '.$mana.' maná en conjurar '.$research->getSpell()->getName().'.');
+                            $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y '.$this->get('service.controller')->nf($mana).' maná en conjurar '.$research->getSpell()->getName().'.');
                         } else {
                             //TODO
                         }
@@ -98,7 +99,7 @@ class MagicController extends Controller
                     if ($player->getTurns() > 0) {
                         $player->setResearchDefense($research);
                         $player->setTurns($player->getTurns() - $turns);
-                        $this->addFlash('success', 'Has gastado '.$turns.' turno(s) en defender con '.$research->getSpell()->getName().'.');
+                        $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turno(s) en defender con '.$research->getSpell()->getName().'.');
                     } else {
                         $this->addFlash('danger', 'No tienes los recursos necesarios para conjurar ese hechizo.');
                     }
@@ -152,7 +153,7 @@ class MagicController extends Controller
                         //subir nivel de magia
                         if ($player->getLevel() > $player->getMagic()){
                             $player->setMagic($player->getLevel());
-                            $this->addFlash('success', 'Has aumentado tu nivel de magia.');
+                            $this->addFlash('success', 'Has aumentado 1 punto tu nivel de magia.');
                         }
                         $this->addFlash('success', 'Has investigado completamente el hechizo "' . $research->getSpell()->getName() . '".');
                     }
@@ -161,7 +162,7 @@ class MagicController extends Controller
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turnos durante la investigación.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos durante la investigación.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -193,10 +194,10 @@ class MagicController extends Controller
                 $player->setTurns($player->getTurns() - $turns);
                 if ($action == 'activate') {
                     //TODO
-                    $this->addFlash('success', 'Has gastado '. $turns.' turnos en activar '.$item->getArtifact()->getName().'.');
+                    $this->addFlash('success', 'Has gastado '. $this->get('service.controller')->nf($turns).' turnos en activar '.$item->getArtifact()->getName().'.');
                 } elseif ($action == 'defense') {
                     $player->setItemDefense($item);
-                    $this->addFlash('success', 'Has gastado '.$turns.' turnos en defender con '.$item->getArtifact()->getName().'.');
+                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos en defender con '.$item->getArtifact()->getName().'.');
                 }
                 $manager->persist($player);
                 $manager->flush();

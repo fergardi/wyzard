@@ -214,7 +214,7 @@ class Player
      */
     public function setMana($mana)
     {
-        $this->mana = $mana;
+        $this->mana = min($mana, $this->getManaCap());
 
         return $this;
     }
@@ -237,7 +237,7 @@ class Player
      */
     public function setPeople($people)
     {
-        $this->people = $people;
+        $this->people = min($people, $this->getPeopleCap());
 
         return $this;
     }
@@ -283,7 +283,7 @@ class Player
      */
     public function setTurns($turns)
     {
-        $this->turns = $turns;
+        $this->turns = min($turns, $this->getTurnsCap());
 
         return $this;
     }
@@ -373,9 +373,9 @@ class Player
      * @param \Archmage\GameBundle\Entity\Construction $constructions
      * @return Player
      */
-    public function addConstruction(\Archmage\GameBundle\Entity\Construction $constructions)
+    public function addConstruction(\Archmage\GameBundle\Entity\Construction $construction)
     {
-        $this->constructions[] = $constructions;
+        $this->constructions[] = $construction;
 
         return $this;
     }
@@ -385,9 +385,9 @@ class Player
      *
      * @param \Archmage\GameBundle\Entity\Construction $constructions
      */
-    public function removeConstruction(\Archmage\GameBundle\Entity\Construction $constructions)
+    public function removeConstruction(\Archmage\GameBundle\Entity\Construction $construction)
     {
-        $this->constructions->removeElement($constructions);
+        $this->constructions->removeElement($construction);
     }
 
     /**
@@ -406,9 +406,9 @@ class Player
      * @param \Archmage\GameBundle\Entity\Research $researchs
      * @return Player
      */
-    public function addResearch(\Archmage\GameBundle\Entity\Research $researchs)
+    public function addResearch(\Archmage\GameBundle\Entity\Research $research)
     {
-        $this->researchs[] = $researchs;
+        $this->researchs[] = $research;
 
         return $this;
     }
@@ -418,9 +418,9 @@ class Player
      *
      * @param \Archmage\GameBundle\Entity\Research $researchs
      */
-    public function removeResearch(\Archmage\GameBundle\Entity\Research $researchs)
+    public function removeResearch(\Archmage\GameBundle\Entity\Research $research)
     {
-        $this->researchs->removeElement($researchs);
+        $this->researchs->removeElement($research);
     }
 
     /**
@@ -439,9 +439,9 @@ class Player
      * @param \Archmage\GameBundle\Entity\Troop $troops
      * @return Player
      */
-    public function addTroop(\Archmage\GameBundle\Entity\Troop $troops)
+    public function addTroop(\Archmage\GameBundle\Entity\Troop $troop)
     {
-        $this->troops[] = $troops;
+        $this->troops[] = $troop;
 
         return $this;
     }
@@ -451,9 +451,9 @@ class Player
      *
      * @param \Archmage\GameBundle\Entity\Troop $troops
      */
-    public function removeTroop(\Archmage\GameBundle\Entity\Troop $troops)
+    public function removeTroop(\Archmage\GameBundle\Entity\Troop $troop)
     {
-        $this->troops->removeElement($troops);
+        $this->troops->removeElement($troop);
     }
 
     /**
@@ -472,9 +472,9 @@ class Player
      * @param \Archmage\GameBundle\Entity\Item $items
      * @return Player
      */
-    public function addItem(\Archmage\GameBundle\Entity\Item $items)
+    public function addItem(\Archmage\GameBundle\Entity\Item $item)
     {
-        $this->items[] = $items;
+        $this->items[] = $item;
 
         return $this;
     }
@@ -484,9 +484,9 @@ class Player
      *
      * @param \Archmage\GameBundle\Entity\Item $items
      */
-    public function removeItem(\Archmage\GameBundle\Entity\Item $items)
+    public function removeItem(\Archmage\GameBundle\Entity\Item $item)
     {
-        $this->items->removeElement($items);
+        $this->items->removeElement($item);
     }
 
     /**
@@ -505,9 +505,9 @@ class Player
      * @param \Archmage\GameBundle\Entity\Contract $contracts
      * @return Player
      */
-    public function addContract(\Archmage\GameBundle\Entity\Contract $contracts)
+    public function addContract(\Archmage\GameBundle\Entity\Contract $contract)
     {
-        $this->contracts[] = $contracts;
+        $this->contracts[] = $contract;
 
         return $this;
     }
@@ -517,9 +517,9 @@ class Player
      *
      * @param \Archmage\GameBundle\Entity\Contract $contracts
      */
-    public function removeContract(\Archmage\GameBundle\Entity\Contract $contracts)
+    public function removeContract(\Archmage\GameBundle\Entity\Contract $contract)
     {
-        $this->contracts->removeElement($contracts);
+        $this->contracts->removeElement($contract);
     }
 
     /**
@@ -538,9 +538,9 @@ class Player
      * @param \Archmage\GameBundle\Entity\Message $messages
      * @return Player
      */
-    public function addMessage(\Archmage\GameBundle\Entity\Message $messages)
+    public function addMessage(\Archmage\GameBundle\Entity\Message $message)
     {
-        $this->messages[] = $messages;
+        $this->messages[] = $message;
 
         return $this;
     }
@@ -550,9 +550,9 @@ class Player
      *
      * @param \Archmage\GameBundle\Entity\Message $messages
      */
-    public function removeMessage(\Archmage\GameBundle\Entity\Message $messages)
+    public function removeMessage(\Archmage\GameBundle\Entity\Message $message)
     {
-        $this->messages->removeElement($messages);
+        $this->messages->removeElement($message);
     }
 
     /**
@@ -571,9 +571,9 @@ class Player
      * @param \Archmage\GameBundle\Entity\Enchantment $enchantments
      * @return Player
      */
-    public function addEnchantment(\Archmage\GameBundle\Entity\Enchantment $enchantments)
+    public function addEnchantment(\Archmage\GameBundle\Entity\Enchantment $enchantment)
     {
-        $this->enchantments[] = $enchantments;
+        $this->enchantments[] = $enchantment;
 
         return $this;
     }
@@ -583,9 +583,9 @@ class Player
      *
      * @param \Archmage\GameBundle\Entity\Enchantment $enchantments
      */
-    public function removeEnchantment(\Archmage\GameBundle\Entity\Enchantment $enchantments)
+    public function removeEnchantment(\Archmage\GameBundle\Entity\Enchantment $enchantment)
     {
-        $this->enchantments->removeElement($enchantments);
+        $this->enchantments->removeElement($enchantment);
     }
 
     /**
@@ -604,9 +604,9 @@ class Player
      * @param \Archmage\GameBundle\Entity\Enchantment $curses
      * @return Player
      */
-    public function addCurse(\Archmage\GameBundle\Entity\Enchantment $curses)
+    public function addCurse(\Archmage\GameBundle\Entity\Enchantment $curse)
     {
-        $this->curses[] = $curses;
+        $this->curses[] = $curse;
 
         return $this;
     }
@@ -616,9 +616,9 @@ class Player
      *
      * @param \Archmage\GameBundle\Entity\Enchantment $curses
      */
-    public function removeCurse(\Archmage\GameBundle\Entity\Enchantment $curses)
+    public function removeCurse(\Archmage\GameBundle\Entity\Enchantment $curse)
     {
-        $this->curses->removeElement($curses);
+        $this->curses->removeElement($curse);
     }
 
     /**
@@ -728,16 +728,27 @@ class Player
      */
 
     /**
+     * Get turnsCap
+     *
+     * @return integer
+     */
+    public function getTurnsCap()
+    {
+        return 300;
+    }
+
+    /**
      * Get manaCap
      *
      * @return integer
      */
     public function getManaCap()
     {
+        $manacap = 0;
         foreach ($this->constructions as $construction) {
-            if ($construction->getBuilding()->getName() == 'Nodos') return $construction->getQuantity() * $construction->getBuilding()->getManaCap();
+            $manacap += $construction->getQuantity() * $construction->getBuilding()->getManaCap();
         }
-        return 0;
+        return $manacap;
     }
 
     /**
@@ -747,10 +758,11 @@ class Player
      */
     public function getPeopleCap()
     {
+        $peoplecap = 0;
         foreach ($this->constructions as $construction) {
-            if ($construction->getBuilding()->getName() == 'Villages') return $construction->getQuantity() * $construction->getBuilding()->getPeopleCap();
+            $peoplecap += $construction->getQuantity() * $construction->getBuilding()->getPeopleCap();
         }
-        return 0;
+        return $peoplecap;
     }
 
     /*
@@ -811,7 +823,7 @@ class Player
             $gold += $troop->getUnit()->getGoldMaintenance() * $troop->getQuantity();
         }
         foreach ($this->contracts as $contract) {
-            $gold += $contract->getBuilding()->getGoldMaintenance();
+            $gold += $contract->getHero()->getGoldMaintenance();
         }
         foreach ($this->constructions as $construction) {
             $gold += $construction->getBuilding()->getGoldMaintenance() * $construction->getQuantity();
@@ -834,7 +846,7 @@ class Player
             $mana += $troop->getUnit()->getManaMaintenance() * $troop->getQuantity();
         }
         foreach ($this->contracts as $contract) {
-            $mana += $contract->getBuilding()->getManaMaintenance();
+            $mana += $contract->getHero()->getManaMaintenance();
         }
         foreach ($this->constructions as $construction) {
             $mana += $construction->getBuilding()->getManaMaintenance() * $construction->getQuantity();
@@ -857,7 +869,7 @@ class Player
             $people += $troop->getUnit()->getPeopleMaintenance() * $troop->getQuantity();
         }
         foreach ($this->contracts as $contract) {
-            $people += $contract->getBuilding()->getPeopleMaintenance();
+            $people += $contract->getHero()->getPeopleMaintenance();
         }
         foreach ($this->constructions as $construction) {
             $people += $construction->getBuilding()->getPeopleMaintenance() * $construction->getQuantity();

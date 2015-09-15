@@ -1,14 +1,16 @@
 services:
     twig.extension.text:
-         class: Twig_Extensions_Extension_Text
-         tags:
-             - { name: twig.extension }
+        class: Twig_Extensions_Extension_Text
+        public: false
+        tags:
+         - { name: twig.extension }
     app.twig_extension:
         class: Archmage\GameBundle\Twig\TwigExtension
         public: false
         tags:
             - { name: twig.extension }
-    service.news:
-        class: Archmage\GameBundle\Controller\AccountController
+    service.controller:
+        class: Archmage\GameBundle\Controller\ServiceController
+        public: true
         calls:
             - [setContainer, ["@service_container"]]

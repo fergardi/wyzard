@@ -25,9 +25,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $player = new Player();
         $player->setNick('Fergardi');
         $player->setFaction($this->getReference('Oscuridad'));
-        $player->setGold(99999999);
-        $player->setMana(99999999);
-        $player->setPeople(20000);
         $player->setMagic(1);
         $player->setTurns(30000);
         $player->setItem(null);
@@ -36,13 +33,13 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $constructions = array(
             'Tierras' => 850,
             'Barreras' => 0,
-            'Fortalezas' => 0,
+            'Fortalezas' => 5,
             'Gremios' => 0,
-            'Talleres' => 0,
-            'Nodos' => 0,
-            'Pueblos' => 0,
-            'Granjas' => 0,
-            'Barracones' => 0,
+            'Talleres' => 20,
+            'Nodos' => 10,
+            'Pueblos' => 20,
+            'Granjas' => 30,
+            'Barracones' => 25,
         );
         foreach ($constructions as $name => $quantity) {
             $construction = new Construction();
@@ -108,6 +105,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($item);
             $player->addItem($item);
         }
+        /*
         //ENCANTAMIENTOS
         $enchantment = new Enchantment();
         $enchantment->setSpell($this->getReference('Apocalipsis'));
@@ -115,7 +113,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $enchantment->setOwner($player);
         $manager->persist($enchantment);
         $player->addEnchantment($enchantment);
-        $player->addCurse($enchantment);
+        */
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);
@@ -203,6 +201,10 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($message);
         $player->addMessage($message);
 
+        //gold, people, player, based on constructions should be last
+        $player->setGold(300000);
+        $player->setPeople(20000);
+        $player->setMana(1000);
         //PERSIST && FLUSH
         $this->setReference($player->getNick(), $player);
         $manager->persist($player);

@@ -33,10 +33,11 @@ class TerritoryController extends Controller
                     }
                 }
                 $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $lands);
+                $this->get('service.controller')->addTurns($turns);
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turnos y encontrado '.$lands.' tierras.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y encontrado '.$this->get('service.controller')->nf($lands).' tierras.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -69,7 +70,7 @@ class TerritoryController extends Controller
                     $player->setTurns($player->getTurns() - $turns);
                     $manager->persist($player);
                     $manager->flush();
-                    $this->addFlash('success', 'Has gastado '.$turns.' turno(s) y '.$gold.' oro y construido '.$lands.' '. $construction->getBuilding()->getName().'.');
+                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turno(s) y '.$this->get('service.controller')->nf($gold).' oro y construido '.$this->get('service.controller')->nf($lands).' '. $construction->getBuilding()->getName().'.');
                 } else {
                     $this->addFlash('danger', 'No tienes suficientes turnos para eso.');
                 }
@@ -102,7 +103,7 @@ class TerritoryController extends Controller
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turno y derribado '.$lands.' edificios.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turno y derribado '.$this->get('service.controller')->nf($lands).' edificios.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Collections\ArrayCollection;
+use Archmage\GameBundle\Entity\Troop;
 
 class ArmyController extends Controller
 {
@@ -18,17 +19,29 @@ class ArmyController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $neutral = $manager->getRepository('ArchmageGameBundle:Faction')->findOneByName('Neutral');
+        $units = $manager->getRepository('ArchmageGameBundle:Unit')->findByFaction($neutral);
         if ($request->isMethod('POST')) {
             $turns = 1;
             $quantity = isset($_POST['quantity'])?$_POST['quantity']:null;
-            $troop = isset($_POST['troop'])?$_POST['troop']:null;
-            $troop = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop);
-            if ($troop && $quantity && is_numeric($quantity) && $turns <= $player->getTurns() && $quantity > 0) {
-                $troop->setQuantity($troop->getQuantity() + $quantity);
+            $unit = isset($_POST['unit'])?$_POST['unit']:null;
+            $unit = $manager->getRepository('ArchmageGameBundle:Unit')->findOneById($unit);
+            if ($unit && $quantity && is_numeric($quantity) && $turns <= $player->getTurns() && $quantity > 0) {
+                $troop = $player->hasUnit($unit);
+                if ($troop) {
+                    $troop->setQuantity($troop->getQuantity() + $quantity);
+                } else {
+                    $troop = new Troop();
+                    $manager->persist($troop);
+                    $troop->setUnit($unit);
+                    $troop->setQuantity($quantity);
+                    $troop->setPlayer($player);
+                    $player->addTroop($troop);
+                }
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turnos y reclutado '.$quantity.' unidades.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y reclutado '.$this->get('service.controller')->nf($quantity).' unidades.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -36,6 +49,7 @@ class ArmyController extends Controller
         }
         return array(
             'player' => $player,
+            'units' => $units,
         );
     }
 
@@ -54,14 +68,14 @@ class ArmyController extends Controller
             $troop = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop);
             if ($troop && $quantity && is_numeric($quantity) && $turns <= $player->getTurns() && $quantity > 0 && $quantity <= $troop->getQuantity()) {
                 $troop->setQuantity($troop->getQuantity() - $quantity);
-                if ($troop->getQuantity() <= 0 && $troop->getUnit()->getFaction()->getName() != 'Neutral') {
+                if ($troop->getQuantity() <= 0) {
                     $player->removeTroop($troop);
                     $manager->remove($troop);
                 }
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turno y desbandado '.$quantity.' unidades.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y desbandado '.$this->get('service.controller')->nf($quantity).' unidades.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

@@ -16,7 +16,7 @@ class KingdomController extends Controller
     public function summaryAction()
     {
         //cargar noticias
-        $this->get('service.news')->news();
+        $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
         return array(
@@ -40,7 +40,7 @@ class KingdomController extends Controller
                 $player->setTurns($player->getTurns() - $turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$turns.' turnos y recaudado '.$gold.' oro.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y recaudado '.$this->get('service.controller')->nf($gold).' oro.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -80,7 +80,7 @@ class KingdomController extends Controller
                     $manager->persist($auction);
                     $manager->persist($player);
                     $manager->flush();
-                    $this->addFlash('success', 'Has gastado '.$turns.' turno y pujado '.$bid.' oro en la subasta por '.$auction->getName().'.');
+                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y pujado '.$this->get('service.controller')->nf($bid).' oro en la subasta por "'.$auction->getName().'".');
                 } else {
                     $this->addFlash('danger', 'No puedes pujar por un héroe o hechizo que ya posees.');
                 }

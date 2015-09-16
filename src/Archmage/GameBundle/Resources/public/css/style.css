@@ -48,6 +48,10 @@ img.background {
     margin-top: 4px;
     color: #cc7c26;
 }
+.panel > .btn-group > .btn {
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
 @media screen and (max-width: 400px) {
     .text-responsive {
         font-size:9px !important;
@@ -267,4 +271,50 @@ html {-webkit-text-size-adjust: none !important;}
     border-radius: 0px;
     border-top: 1px solid rgba(0, 0, 0, 0.6);
     border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+}
+/* RIBBONS */
+button {
+    margin: 20px 0;
+    line-height: 34px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    outline: none !important;
+    width: 100%;
+}
+button:active {
+    outline: none;
+}
+button.ribbon {
+    outline: none;
+    outline-color: transparent;
+}
+button.ribbon:before, button.ribbon:after {
+    top: 5px;
+    z-index: -10;
+}
+button.ribbon:before {
+    border-color: #53dab6 #53dab6 #53dab6 transparent;
+    left: -25px;
+    border-width: 17px;
+}
+button.ribbon:after {
+    border-color: #53dab6 transparent #53dab6 #53dab6;
+    right: -25px;
+    border-width: 17px;
+}
+button:before, button:after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-style: solid;
+    border-width: 0;
+    outline:none;
+}
+button.btn-default:before {
+    border-color: #757575 #757575 #757575 transparent;
+}
+button.btn-default:after {
+    border-color: #757575 transparent #757575 #757575;
 }

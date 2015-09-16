@@ -30,14 +30,14 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //EDIFICIOS
         $constructions = array(
             'Tierras' => 835,
-            'Barreras' => 0,
-            'Fortalezas' => 5,
+            'Granjas' => 30,
+            'Pueblos' => 20,
+            'Nodos' => 10,
             'Gremios' => 0,
             'Talleres' => 0,
-            'Nodos' => 10,
-            'Pueblos' => 20,
-            'Granjas' => 30,
             'Barracones' => 0,
+            'Barreras' => 0,
+            'Fortalezas' => 5,
         );
         foreach ($constructions as $name => $quantity) {
             $construction = new Construction();

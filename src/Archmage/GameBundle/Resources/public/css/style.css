@@ -206,13 +206,13 @@ body {
     margin-top: 0px;
 }
 /* TR PRIMARY WHITE */
-.table > thead > tr > td.primary, .table > tbody > tr > td.primary, .table > tfoot > tr > td.primary, .table > thead > tr > th.primary, .table > tbody > tr > th.primary, .table > tfoot > tr > th.primary, .table > thead > tr.primary > td, .table > tbody > tr.primary > td, .table > tfoot > tr.primary > td, .table > thead > tr.primary > th, .table > tbody > tr.primary > th, .table > tfoot > tr.primary > thm .progress-bar-primary {
+.table > thead > tr > td.primary, .table > tbody > tr > td.primary, .table > tfoot > tr > td.primary, .table > thead > tr > th.primary, .table > tbody > tr > th.primary, .table > tfoot > tr > th.primary, .table > thead > tr.primary > td, .table > tbody > tr.primary > td, .table > tfoot > tr.primary > td, .table > thead > tr.primary > th, .table > tbody > tr.primary > th, .table > tfoot > tr.primary > thm .progress-bar-primary, .alert-primary {
     background-color: #E9E9E9;
 }
 .progress-bar-striped {
     background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 75%, transparent 75%, transparent);
 }
-.panel-primary .panel-heading, .primary, .primary a, .panel-primary > .panel-heading a, .progress-bar-primary, span.label-primary, span.label-primary a, .label-primary {
+.panel-primary .panel-heading, .primary, .primary a, .panel-primary > .panel-heading a, .progress-bar-primary, span.label-primary, span.label-primary a, .label-primary, .alert-primary, .btn-primary {
     color: black !important;
 }
 .progress-bar-default {
@@ -273,37 +273,47 @@ html {-webkit-text-size-adjust: none !important;}
     border-bottom: 1px solid rgba(0, 0, 0, 0.6);
 }
 /* RIBBONS */
-button {
-    margin: 20px 0;
-    line-height: 34px;
+.alert-dismissable .close, .alert-dismissible .close {
     position: relative;
-    cursor: pointer;
-    user-select: none;
-    outline: none !important;
-    width: 100%;
+    top: 0px;
+    color: inherit;
+    right: 0px;
 }
-button:active {
-    outline: none;
-}
-button.ribbon {
-    outline: none;
+.alert.ribbon {
+    position: relative;
+    margin-top: 15px;
+    width:100%;
+    outline:none;
     outline-color: transparent;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -moz-user-select: none;
+    background-image: none;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0px;
+    border-radius: 4px;
+    border: 1px solid transparent;
 }
-button.ribbon:before, button.ribbon:after {
+.alert.ribbon:before, .alert.ribbon:after {
     top: 5px;
     z-index: -10;
 }
-button.ribbon:before {
+.alert.ribbon:before {
     border-color: #53dab6 #53dab6 #53dab6 transparent;
     left: -25px;
     border-width: 17px;
 }
-button.ribbon:after {
+.alert.ribbon:after {
     border-color: #53dab6 transparent #53dab6 #53dab6;
     right: -25px;
     border-width: 17px;
 }
-button:before, button:after {
+.alert:before, .alert:after {
     content: '';
     position: absolute;
     height: 0;
@@ -312,9 +322,39 @@ button:before, button:after {
     border-width: 0;
     outline:none;
 }
-button.btn-default:before {
+.alert.alert-default:before {
     border-color: #757575 #757575 #757575 transparent;
 }
-button.btn-default:after {
+.alert.alert-default:after {
     border-color: #757575 transparent #757575 #757575;
+}
+.alert.alert-primary:before {
+    border-color: #c5c5c5 #c5c5c5 #c5c5c5 transparent;
+}
+.alert.alert-primary:after {
+    border-color: #c5c5c5 transparent #c5c5c5 #c5c5c5;
+}
+.alert.alert-success:before {
+    border-color: #1e5b07 #1e5b07 #1e5b07 transparent;
+}
+.alert.alert-success:after {
+    border-color: #1e5b07 transparent #1e5b07 #1e5b07;
+}
+.alert.alert-info:before {
+    border-color: #1A4D9F #1A4D9F #1A4D9F transparent;
+}
+.alert.alert-info:after {
+    border-color: #1A4D9F transparent #1A4D9F #1A4D9F;
+}
+.alert.alert-warning:before {
+    border-color: #6330a7 #6330a7 #6330a7 transparent;
+}
+.alert.alert-warning:after {
+    border-color: #6330a7 transparent #6330a7 #6330a7;
+}
+.alert.alert-danger:before {
+    border-color: #9f0c25 #9f0c25 #9f0c25 transparent;
+}
+.alert.alert-danger:after {
+    border-color: #9f0c25 transparent #9f0c25 #9f0c25;
 }

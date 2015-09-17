@@ -1,0 +1,18 @@
+{% extends "ArchmageUserBundle::layout.html.twig" %}
+
+{% block title %}Registro{% endblock %}
+
+{% block fos_user_content %}
+<div class="container">
+    <div class="jumbotron text-center">
+        <h1>Arch<i class="fa fa-fw fa-eye"></i>Mage</h1>
+        <h3>- BETA -</h3>
+        <form id="register" name="register" class="form-signin" data-toggle="validator" action="{{ path("fos_user_registration_register") }}" method="post">
+            <input type="text" id="username" name="_username" class="form-control" placeholder="Usuario" value="" required />
+            <input type="password" id="password" name=_password" class="form-control" placeholder="Contraseña" required />
+            <button type="submit" id="submit" name="_submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-sign-in"></i>Registrarse</button>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('register') }}" />
+        </form>
+    </div>
+</div>
+{% endblock %}

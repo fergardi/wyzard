@@ -9,27 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class HomeController extends Controller
 {
     /**
-     * @Route("/")
-     * @Route("/home")
-     * @Route("/index")
-     * @Route("/login")
-     * @Template("ArchmageGameBundle:Home:login.html.twig")
-     */
-    public function loginAction()
-    {
-        $online = rand(5,20);
-        $total = rand($online, 200);
-        $this->addFlash('info', 'Bienvenido de nuevo! Hay '.$this->get('service.controller')->nf($online).' jugadores online de '.$this->get('service.controller')->nf($total).' registrados');
-        $manager = $this->getDoctrine()->getManager();
-        $criteria = new \Doctrine\Common\Collections\Criteria();
-        $criteria->where($criteria->expr()->neq('name', 'Neutral'));
-        $factions = $manager->getRepository('ArchmageGameBundle:Faction')->matching($criteria);
-        return array(
-            'factions' => $factions,
-        );
-    }
-
-    /**
      * @Route("/help")
      * @Template("ArchmageGameBundle:Home:help.html.twig")
      */

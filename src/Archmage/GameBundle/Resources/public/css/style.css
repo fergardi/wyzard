@@ -56,6 +56,9 @@ img.background {
     .text-responsive {
         font-size:10px !important;
     }
+    .alert.ribbon {
+        line-height: 3 !important;
+    }
 }
 @media screen and (min-width: 401px) and (max-width: 700px) {
     .text-responsive {
@@ -117,6 +120,9 @@ body {
     margin-bottom: 0px;
 }
 */
+.navbar-right {
+    margin-right: 0px;
+}
 .navbar-collapse.collapsing {
     -webkit-transition: height 0.01s;
     -moz-transition: height 0.01s;

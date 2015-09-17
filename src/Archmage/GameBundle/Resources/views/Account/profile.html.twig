@@ -30,11 +30,11 @@
                     {% endfor %}
                     {% for i in 1..8 %}
                         {% if loop.index is odd %}
-                    <div class="col-xs-12 col-md-5 alert alert-{{ player.faction.class }} ribbon text-center text-responsive">
+                    <div class="col-xs-12 col-md-4 col-md-offset-1 alert alert-{{ player.faction.class }} ribbon text-center text-responsive">
                         <i class="fa fa-fw fa-lg fa-trophy"></i>Logro desbloqueado
                     </div>
                         {% else %}
-                    <div class="col-xs-12 col-md-5 col-md-offset-2 alert alert-{{ player.faction.class }} ribbon text-center text-responsive">
+                    <div class="col-xs-12 col-md-4 col-md-offset-2 alert alert-{{ player.faction.class }} ribbon text-center text-responsive">
                         <i class="fa fa-fw fa-lg fa-trophy"></i>Logro desbloqueado
                     </div>
                         {% endif%}

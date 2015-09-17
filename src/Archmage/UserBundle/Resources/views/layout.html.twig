@@ -1,14 +1,9 @@
-{% extends '::base.html.twig' %}
+{% extends 'ArchmageGameBundle::layout.html.twig' %}
+
+{% block title %}
+{% endblock %}
 
 {% block body %}
-
-    {# contenido #}
-    {% block content %}
-
-        {% block fos_user_content %}
-
-        {% endblock %}
-
+    {% block fos_user_content %}
     {% endblock %}
-
 {% endblock %}

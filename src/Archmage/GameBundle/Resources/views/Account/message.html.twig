@@ -35,7 +35,7 @@
             {# show message #}
             {% else %}
                 {% for i in 0..text['content']|length - 1 %}
-            <div class="col-xs-12 col-md-{{ text['content'][i]['length'] }} col-md-offset-{{ text['content'][i]['offset'] }} alert alert-{{ text['content'][i]['class'] }} ribbon text-{{ text['content'][i]['align'] }} text-responsive" role="alert">
+            <div class="col-xs-10 col-xs-offset-1 col-md-{{ text['content'][i]['length'] }} col-md-offset-{{ text['content'][i]['offset'] }} alert alert-{{ text['content'][i]['class'] }} ribbon text-{{ text['content'][i]['align'] }} text-responsive" role="alert">
                 <i class="fa fa-fw fa-exclamation-triangle"></i>{{ text['content'][i]['text'] }}
             </div>
                 {% endfor %}

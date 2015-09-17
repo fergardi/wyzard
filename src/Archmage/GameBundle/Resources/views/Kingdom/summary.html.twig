@@ -7,7 +7,10 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-bar-chart"></i>Resumen<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
+                <h1><i class="fa fa-fw fa-bar-chart"></i>Resumen
+                    <br>
+                    {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
+                </h1>
             </div>
         </div>
         <div class="col-xs-12 col-md-6">
@@ -22,11 +25,11 @@
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }} <span class="label label-extra">Oro</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.goldresourceperturn|nf }} - {{ player.goldmaintenanceperturn|nf }} = {{ (player.goldresourceperturn -  player.goldmaintenanceperturn)|nf }} / Turno</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.goldresourceperturn|nf }} - {{ player.goldmaintenanceperturn|nf }} = <span class="label label-{% if player.goldresourceperturn -  player.goldmaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.goldresourceperturn -  player.goldmaintenanceperturn)|nf }}</span> <span class="label label-extra">Oro</span> / <i class="fa fa-fw fa-hourglass-half"></i></div>
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.people|nf }} / {{ player.peoplecap|nf }} <span class="label label-extra">Personas</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.peopleresourceperturn|nf }} - {{ player.peoplemaintenanceperturn|nf }} = {{ (player.peopleresourceperturn - player.peoplemaintenanceperturn)|nf }} / Turno</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.peopleresourceperturn|nf }} - {{ player.peoplemaintenanceperturn|nf }} = <span class="label label-{% if player.peopleresourceperturn -  player.peoplemaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.peopleresourceperturn -  player.peoplemaintenanceperturn)|nf }}</span> <span class="label label-extra">Personas</span> / <i class="fa fa-fw fa-hourglass-half"></i></div>
                         </div>
                     </div>
                 </div>
@@ -71,11 +74,11 @@
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }} / {{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }} - {{ player.manamaintenanceperturn|nf }} = {{ (player.manaresourceperturn - player.manamaintenanceperturn)|nf }} / Turno</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }} - {{ player.manamaintenanceperturn|nf }} = <span class="label label-{% if player.manaresourceperturn -  player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }}</span> <span class="label label-extra">Maná</span> / <i class="fa fa-fw fa-hourglass-half"></i></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }} <span class="label label-extra">Magia</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i>{{ player.items|length|nf }}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i>{{ player.items|length|nf }} <span class="label label-extra">Artefactos</span></div>
                         </div>
                     </div>
                 </div>
@@ -199,11 +202,11 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <a href="{{ path('archmage_game_account_message') }}">Mensajes</a></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <span class="label label-extra">Mensajes</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-rocket"></i>{{ player.power|nf }} Poder</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-rocket"></i>{{ player.power|nf }} <span class="label label-extra">Poder</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-crop"></i>Guild</div>
+                            {# <div class="col-xs-12"><i class="fa fa-fw fa-crop"></i>Guild</div> #}
                         </div>
                     </div>
                 </div>

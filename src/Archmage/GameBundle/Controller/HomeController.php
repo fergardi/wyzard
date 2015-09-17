@@ -19,8 +19,7 @@ class HomeController extends Controller
     {
         $online = rand(5,20);
         $total = rand($online, 200);
-        $url = $this->generateUrl('archmage_game_account_ranking');
-        $this->addFlash('info', 'Bienvenido de nuevo! Hay '.$online.' jugador(es) online de <a href="'.$url.'" class="alert-link">'.$total.' registrado(s)</a>.');
+        $this->addFlash('info', 'Bienvenido de nuevo! Hay '.$this->get('service.controller')->nf($online).' jugadores online de '.$this->get('service.controller')->nf($total).' registrados');
         $manager = $this->getDoctrine()->getManager();
         $criteria = new \Doctrine\Common\Collections\Criteria();
         $criteria->where($criteria->expr()->neq('name', 'Neutral'));

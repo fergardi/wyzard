@@ -34,8 +34,8 @@
     <div class="container">
         {% for type, flashMessages in app.session.flashbag.all() %}
             {% for flashMessage in flashMessages %}
-        <div class="col-xs-12 alert alert-{{ type }} ribbon alert-dismissable text-center" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-fw fa-lg fa-times-circle"></i></button>
+        <div class="col-xs-12 alert alert-{{ type }} alert-dismissible ribbon text-center text-responsive" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-fw fa-times-circle"></i></button>
             {# |raw para que pase por el controlador codigos html como <a href>, sino los trunca #}
             <i class="fa fa-fw fa-exclamation-triangle"></i>{{ flashMessage|raw }}
         </div>
@@ -59,6 +59,17 @@
 
         %}
         <script src="{{ asset_url }}"></script>
+        <script>
+            $(document).ready(function() {
+                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+                    $('.selectpicker').selectpicker('mobile');
+                } else {
+                    $('.selectpicker').selectpicker({
+
+                    });
+                }
+            });
+        </script>
         {% endjavascripts %}
     {% endblock %}
     {# signature #}

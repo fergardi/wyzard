@@ -7,7 +7,10 @@
     <div class="row">
         <div class="col-md-offset-3 col-md-6 col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-tint"></i>Cargar maná<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
+                <h1><i class="fa fa-fw fa-tint"></i>Cargar maná
+                    <br>
+                    {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
+                </h1>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading text-center">{{ player.mana|nf }} / {{ player.manaCap|nf }} Maná en tu reino</div>
@@ -17,7 +20,7 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/magic.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes recargar tus reservas de <span class="label label-extra">Maná</span> para lanzar los hechizos más caros y poderosos o pagar altos mantenimientos.</div>
+                            <div class="col-xs-12">Aquí puedes gastar <span class="label label-extra">Turnos</span> y recargar tus reservas de <span class="label label-extra">Maná</span> para lanzar los hechizos más caros y poderosos o pagar mantenimientos de unidades, edificios, héroes y encantamientos.</div>
                         </div>
                     </div>
                 </div>

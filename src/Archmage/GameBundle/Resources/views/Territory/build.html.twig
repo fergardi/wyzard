@@ -7,7 +7,10 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-wrench"></i>Construir<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }} <i class="fa fa-fw fa-money"></i>{{ player.gold|nf }}</small></h1>
+                <h1><i class="fa fa-fw fa-wrench"></i>Construir
+                    <br>
+                    {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
+                </h1>
             </div>
         </div>
         {% for construction in player.constructions %}
@@ -25,26 +28,26 @@
                         </div>
                         {% if loop.first %}
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes invertir tus <span class="label label-extra">Tierras</span>, <span class="label label-extra">Población</span> y <span class="label label-extra">Oro</span> en construir edificios para aumentar tu reino.</div>
+                            <div class="col-xs-12">Aquí puedes invertir tus <span class="label label-extra">Turnos</span>, <span class="label label-extra">Tierras</span>, <span class="label label-extra">Población</span> y <span class="label label-extra">Oro</span> en construir edificios. Las cifras muestran coste de construcción, recurso proporcionado por turno, mantenimiento por turno, y aumento de recurso máximo.</div>
                         </div>
                         {% else %}
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldCost|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleCost|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCost|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>-{{ construction.building.goldCost|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>-{{ construction.building.peopleCost|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>-{{ construction.building.manaCost|nf }}</div>
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldResource|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleResource|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaResource|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>+{{ construction.building.goldResource|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>+{{ construction.building.peopleResource|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>+{{ construction.building.manaResource|nf }}</div>
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>-{{ construction.building.goldMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>-{{ construction.building.peopleMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>-{{ construction.building.manaMaintenance|nf }}</div>
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ construction.building.goldCap|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ construction.building.peopleCap|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ construction.building.manaCap|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>+{{ construction.building.goldCap|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>+{{ construction.building.peopleCap|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>+{{ construction.building.manaCap|nf }}</div>
                             {# row #}
                             <div class="col-xs-12 text-lore"><small><i>"{{ construction.building.lore }}"</i></small></div>
                         </div>
@@ -52,12 +55,12 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    {% if construction.building.name != 'Tierras' %}
+                    {% if not loop.first %}
                     <form id="construction{{ construction.id }}" name="construction{{ construction.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_territory_build') }}" method="post">
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default" {% if player.construction('Tierras').quantity <= 0%}disabled{% endif %}><i class="fa fa-fw fa-wrench"></i><span class="hidden-xs">Construir</span></button>
+                                    <button type="submit" class="btn btn-default" {% if player.construction('Tierras').quantity <= 0 %}disabled{% endif %}><i class="fa fa-fw fa-wrench"></i><span class="hidden-xs">Construir</span></button>
                                 </div>
                                 <input type="number" class="form-control" id="lands" name="lands" min="1" max="{{ player.construction('Tierras').quantity }}" value="0" {% if player.construction('Tierras').quantity <= 0 %}disabled{% endif %} required />
                                 <input type="hidden" id="construction" name="construction" value="{{ construction.id }}" {% if player.construction('Tierras').quantity <= 0 %}disabled{% endif %} required />

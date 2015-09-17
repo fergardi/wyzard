@@ -7,7 +7,10 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-graduation-cap"></i>Investigar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }} <i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }}</small></h1>
+                <h1><i class="fa fa-fw fa-graduation-cap"></i>Investigar
+                    <br>
+                    {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
+                </h1>
             </div>
         </div>
         {% for research in player.researchs if not research.active and research.spell.magic <= player.magic %}
@@ -101,7 +104,7 @@
         </div>
         {% else %}
         <div class="container">
-            <div class="col-xs-12 alert alert-danger text-center" role="alert">
+            <div class="col-xs-12 alert alert-danger ribbon text-responsive text-center" role="alert">
                 <i class="fa fa-fw fa-exclamation-triangle"></i>Ya no tienes más hechizos nuevos que investigar. Tal vez puedas comprar alguno más en el <i class="fa fa-fw fa-user-secret"></i><a href="{{ path( 'archmage_game_kingdom_auction' ) }}">Mercado negro</a>.
             </div>
         </div>

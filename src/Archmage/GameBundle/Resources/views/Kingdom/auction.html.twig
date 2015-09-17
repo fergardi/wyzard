@@ -7,7 +7,10 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-user-secret"></i>Mercado negro<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }} <i class="fa fa-fw fa-money"></i>{{ player.gold|nf }}</small></h1>
+                <h1><i class="fa fa-fw fa-user-secret"></i>Mercado negro
+                    <br>
+                    {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
+                </h1>
             </div>
         </div>
         {% for auction in auctions %}

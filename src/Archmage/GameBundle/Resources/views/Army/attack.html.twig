@@ -7,7 +7,10 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-flag"></i>Atacar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</small></h1>
+                <h1><i class="fa fa-fw fa-flag"></i>Atacar
+                    <br>
+                    {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
+                </h1>
             </div>
             <form id="attack" name="attack" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_army_attack') }}" method="post" role="form">
                 <div class="row">
@@ -111,6 +114,12 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="container">
+                            <div class="col-xs-12 alert alert-danger ribbon text-responsive text-center" role="alert">
+                                <i class="fa fa-fw fa-exclamation-triangle"></i> Actualmente no tienes tropas en tu ejército. Tal vez deberías <i class="fa fa-fw fa-user-plus"></i><a href="{{ path('archmage_game_army_recruit') }}">Reclutar</a> algunas.
                             </div>
                         </div>
                         {% endfor %}

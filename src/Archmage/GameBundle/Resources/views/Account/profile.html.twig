@@ -18,34 +18,27 @@
                     <span class="fa fa-fw fa-4x fa-user"></span>
                 </div>
                 <div class="info">
-                    <h1 class="text-center">{{ player.nick }}</h1>
+                    <h1 class="text-center">{{ player.nick }}<small>#{{ 12345|nf }}</small></h1>
                     {% for progress in progresses %}
                     <div class="col-xs-12">
                         <div class="progress">
-                            <div class="progress-bar progress-bar-{{ progress.class }} progress-bar-striped" role="progressbar" aria-valuenow="{{ progress.researchs }}" aria-valuemin="0" aria-valuemax="{{ progress.total }}" style="min-width:0em; width: {{ progress.researchs / progress.total * 100 }}%">
+                            <div class="progress-bar progress-bar-{{ progress.class }} progress-bar-striped" role="progressbar" aria-valuenow="{{ progress.researchs }}" aria-valuemin="0" aria-valuemax="{{ progress.total }}" style="min-width:4em; width: {{ progress.researchs / progress.total * 100 }}%">
                                 <span>{{ progress.researchs }}/{{ progress.total }}</span>
                             </div>
                         </div>
                     </div>
                     {% endfor %}
-                    <div class="col-xs-12 col-md-5 text-center">
-                        <div class="alert alert-warning ribbon"><i class="fa fa-fw fa-lg fa-trophy"></i>Logro desbloqueado</div>
+                    {% for i in 1..8 %}
+                        {% if loop.index is odd %}
+                    <div class="col-xs-12 col-md-5 alert alert-{{ player.faction.class }} ribbon text-center text-responsive">
+                        <i class="fa fa-fw fa-lg fa-trophy"></i>Logro desbloqueado
                     </div>
-                    <div class="col-xs-12 col-md-5 col-md-offset-2 text-center">
-                        <div class="alert alert-danger ribbon"><i class="fa fa-fw fa-lg fa-trophy"></i>Logro desbloqueado</div>
+                        {% else %}
+                    <div class="col-xs-12 col-md-5 col-md-offset-2 alert alert-{{ player.faction.class }} ribbon text-center text-responsive">
+                        <i class="fa fa-fw fa-lg fa-trophy"></i>Logro desbloqueado
                     </div>
-                    <div class="col-xs-12 col-md-5 text-center">
-                        <div class="alert alert-success ribbon"><i class="fa fa-fw fa-lg fa-trophy"></i>Logro desbloqueado</div>
-                    </div>
-                    <div class="col-xs-12 col-md-5 col-md-offset-2 text-center">
-                        <div class="alert alert-info ribbon"><i class="fa fa-fw fa-lg fa-trophy"></i>Logro desbloqueado</div>
-                    </div>
-                    <div class="col-xs-12 col-md-5 text-center">
-                        <div class="alert alert-primary ribbon"><i class="fa fa-fw fa-lg fa-trophy"></i>Logro desbloqueado</div>
-                    </div>
-                    <div class="col-xs-12 col-md-5 col-md-offset-2 text-center">
-                        <div class="alert alert-default ribbon"><i class="fa fa-fw fa-lg fa-trophy"></i>Logro desbloqueado</div>
-                    </div>
+                        {% endif%}
+                    {% endfor %}
                 </div>
             </div>
         </div>

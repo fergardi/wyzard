@@ -7,7 +7,10 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-magic"></i>Conjurar<br><small><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }} <i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }}</small></h1>
+                <h1><i class="fa fa-fw fa-magic"></i>Conjurar
+                    <br>
+                    {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
+                </h1>
             </div>
         </div>
         {% for research in player.researchs if research.active and research.spell.magic <= player.magic and not research.spell.skill.battle %}
@@ -65,7 +68,7 @@
         </div>
         {% else %}
         <div class="container">
-            <div class="col-xs-12 alert alert-danger text-center" role="alert">
+            <div class="col-xs-12 alert alert-danger ribbon text-responsive text-center" role="alert">
                 <i class="fa fa-fw fa-exclamation-triangle"></i>Actualmente no tienes hechizos investigados. Tal vez deberías <i class="fa fa-fw fa-graduation-cap"></i><a href="{{ path('archmage_game_magic_research') }}">Investigar</a> algunos.
             </div>
         </div>

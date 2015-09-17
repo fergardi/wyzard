@@ -96,4 +96,27 @@ class KingdomController extends Controller
             'auctions' => $auctions,
         );
     }
+
+    /**
+     * @Route("/game/kingdom/temple")
+     * @Template("ArchmageGameBundle:Kingdom:temple.html.twig")
+     */
+    public function templeAction(Request $request)
+    {
+        $manager = $this->getDoctrine()->getManager();
+        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        if ($request->isMethod('POST')) {
+            $turns = 10;
+            $gold = isset($_POST['gold'])?$_POST['gold']:null;
+            if ($gold && is_numeric($gold) && $gold > 0 && $gold <= $player->getGold() && $gold <= $player->getTurns()) {
+
+            } else {
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+            }
+            return $this->redirect($this->generateUrl('archmage_game_kingdom_temple'));
+        }
+        return array(
+            'player' => $player,
+        );
+    }
 }

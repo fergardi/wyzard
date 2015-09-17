@@ -41,29 +41,6 @@
         </div>
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-globe"></i>Territorio</div>
-                <div class="panel-body text-responsive">
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/territory.jpg') }}">
-                        </div>
-                        <div class="col-xs-8 text-padded">
-                            {% for construction in player.constructions %}
-                            {# row #}
-                            <div class="col-xs-6"><i class="fa fa-fw fa-home"></i>{{ construction.quantity|nf }} <a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}">{{ construction.building.name }}</a></div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                    <a href="{{ path('archmage_game_territory_explore') }}" class="btn btn-default"><i class="fa fa-fw fa-search"></i><span class="hidden-xs">Explorar</span></a>
-                    <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-default"><i class="fa fa-fw fa-wrench"></i><span class="hidden-xs">Construir</span></a>
-                    <a href="{{ path('archmage_game_territory_demolish') }}" class="btn btn-default"><i class="fa fa-fw fa-bomb"></i><span class="hidden-xs">Derribar</span></a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-flask"></i>Magia</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
@@ -86,6 +63,29 @@
                     <a href="{{ path('archmage_game_magic_charge') }}" class="btn btn-default"><i class="fa fa-fw fa-tint"></i><span class="hidden-xs">Cargar maná</span></a>
                     <a href="{{ path('archmage_game_magic_conjure') }}" class="btn btn-default"><i class="fa fa-fw fa-magic"></i><span class="hidden-xs">Conjurar</span></a>
                     <a href="{{ path('archmage_game_magic_research') }}" class="btn btn-default"><i class="fa fa-fw fa-graduation-cap"></i><span class="hidden-xs">Investigar</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-globe"></i>Territorio</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/territory.jpg') }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            {% for construction in player.constructions %}
+                            {# row #}
+                            <div class="col-xs-6"><i class="fa fa-fw fa-home"></i>{{ construction.quantity|nf }} <a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}">{{ construction.building.name }}</a></div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <a href="{{ path('archmage_game_territory_explore') }}" class="btn btn-default"><i class="fa fa-fw fa-search"></i><span class="hidden-xs">Explorar</span></a>
+                    <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-default"><i class="fa fa-fw fa-wrench"></i><span class="hidden-xs">Construir</span></a>
+                    <a href="{{ path('archmage_game_territory_demolish') }}" class="btn btn-default"><i class="fa fa-fw fa-bomb"></i><span class="hidden-xs">Derribar</span></a>
                 </div>
             </div>
         </div>

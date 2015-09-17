@@ -13,6 +13,7 @@ use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Contract;
 use Archmage\GameBundle\Entity\Message;
 use Archmage\GameBundle\Entity\Enchantment;
+use Archmage\UserBundle\Entity\User;
 
 class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -29,15 +30,15 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $player->setResearch(null);
         //EDIFICIOS
         $constructions = array(
-            'Tierras' => 835,
-            'Granjas' => 30,
+            'Tierras' => 600,
+            'Granjas' => 20,
             'Pueblos' => 20,
-            'Nodos' => 10,
+            'Nodos' => 20,
             'Gremios' => 0,
-            'Talleres' => 0,
+            'Talleres' => 5,
             'Barracones' => 0,
             'Barreras' => 0,
-            'Fortalezas' => 5,
+            'Fortalezas' => 1,
         );
         foreach ($constructions as $name => $quantity) {
             $construction = new Construction();
@@ -79,6 +80,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($troop);
             $player->addTroop($troop);
         }
+        /*
         //HEROES
         $contracts = array(
             'Jinete de Dragones',
@@ -90,6 +92,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($contract);
             $player->addContract($contract);
         }
+        */
         //ARTEFACTOS
         $items = array(
             'Huevo de Dragón' => 1,
@@ -233,6 +236,17 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $player->setMana(1000);
         $player->setTurns(30000);
         $player->setMagic(1);
+
+        //user
+        $user = new User();
+        $user->setPlayer($player);
+        $user->setUsername('fergardi');
+        $user->setEmail('fergardi@email.com');
+        $user->setPlainPassword('fernando');
+        $user->setEnabled(true);
+        $user->setRoles(array('ROLE_USER'));
+        $manager->persist($user);
+
         //PERSIST && FLUSH
         $this->setReference($player->getNick(), $player);
         $manager->persist($player);

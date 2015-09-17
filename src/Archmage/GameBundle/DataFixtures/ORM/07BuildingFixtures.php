@@ -30,7 +30,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setPeopleResource(0);
         $building->setManaResource(0);
         $building->setGoldCap(0);
-        $building->setPeopleCap(0);
+        $building->setPeopleCap(10);
         $building->setManaCap(0);
         $building->setBuildingRatio(0);
         $building->setResearchRatio(0);
@@ -103,7 +103,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setManaResource(10);
         $building->setGoldCap(0);
         $building->setPeopleCap(0);
-        $building->setManaCap(2000);
+        $building->setManaCap(1000);
         $building->setBuildingRatio(30);
         $building->setResearchRatio(0);
         $building->setArtifactRatio(0);

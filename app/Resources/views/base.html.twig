@@ -35,7 +35,7 @@
         {% if error is defined and error %}
         <div class="col-xs-12 alert alert-danger alert-dismissible ribbon text-center text-responsive" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-fw fa-times-circle"></i></button>
-            <i class="fa fa-fw fa-exclamation-triangle"></i>{{ error.messageKey|trans(error.messageData, 'login') }}
+            <i class="fa fa-fw fa-exclamation-triangle"></i>{{ error.messageKey }}
         </div>
         {% endif %}
         {% for type, flashMessages in app.session.flashbag.all() %}

@@ -147,6 +147,9 @@ class Player
         $this->messages = new ArrayCollection();
         $this->enchantments = new ArrayCollection();
         $this->curses = new ArrayCollection();
+
+        $this->item = null;
+        $this->research = null;
     }
 
 
@@ -176,7 +179,7 @@ class Player
     /**
      * Get nick
      *
-     * @return string 
+     * @return string
      */
     public function getNick()
     {

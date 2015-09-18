@@ -18,7 +18,7 @@ class MagicController extends Controller
     public function chargeAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
             $turns = isset($_POST['turns'])?$_POST['turns']:null;
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
@@ -46,7 +46,7 @@ class MagicController extends Controller
     public function conjureAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
         if ($request->isMethod('POST')) {
             $research = isset($_POST['research'])?$_POST['research']:null;
@@ -126,7 +126,7 @@ class MagicController extends Controller
     public function researchAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAllSpellsResearchablesByPlayer($player);
         if ($request->isMethod('POST')) {
             //recibe datos del form post y busca en database sus ids
@@ -184,7 +184,7 @@ class MagicController extends Controller
     public function artifactAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
         if ($request->isMethod('POST')) {
             //recibe datos del form post y busca en databases sus ids
@@ -223,7 +223,7 @@ class MagicController extends Controller
     public function dispellAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
             //TODO
         }

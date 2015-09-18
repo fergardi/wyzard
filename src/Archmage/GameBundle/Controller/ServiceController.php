@@ -22,7 +22,8 @@ class ServiceController extends Controller
     public function addNews()
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $user = $this->getUser();
+        $player = $user->getPlayer();
         $notices = $player->getMessages();
         foreach ($notices as $notice) {
             if (!$notice->getReaded()) {
@@ -40,7 +41,8 @@ class ServiceController extends Controller
     public function checkMaintenances($turns)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $user = $manager->getRepository('ArchmageUserBundle:User')->findOneByUsername($this->getUser()->getUsername());
+        $player = $user->getPlayer();
         for ($i = 1; $i <= $turns; $i++) {
             //GOLD
             foreach ($player->getTroops() as $troop) {

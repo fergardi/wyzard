@@ -8,10 +8,10 @@
         <h1>Arch<i class="fa fa-fw fa-eye"></i>Mage</h1>
         <h3>- BETA -</h3>
         <form id="login" name="login" class="form-signin" data-toggle="validator" action="{{ path("fos_user_security_check") }}" method="post">
-            <input type="text" id="username" name="_username" class="form-control" placeholder="Usuario" value="{{ last_username|default('') }}" required />
-            <input type="password" id="password" name=_password" class="form-control" placeholder="Contraseña" required />
+            <input type="text" id="username" name="_username" class="form-control" placeholder="Usuario" value="{{ last_username }}" required />
+            <input type="password" id="password" name="_password" class="form-control" placeholder="Contraseña" required />
             <button type="submit" id="submit" name="_submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-sign-in"></i>Entrar</button>
-            <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
         </form>
         <a href="{{ path('fos_user_registration_register') }}">Registro</a> - <a href="{{ path('fos_user_resetting_request') }}">Password</a> - <a href="{{ path('archmage_game_home_help') }}">Ayuda</a>
         <br/>

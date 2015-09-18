@@ -21,7 +21,7 @@ class TerritoryController extends Controller
     public function exploreAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
             $turns = isset($_POST['turns'])?$_POST['turns']:null;
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
@@ -55,7 +55,7 @@ class TerritoryController extends Controller
     public function buildAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
             $lands = isset($_POST['lands'])?$_POST['lands']:null;
             $construction = isset($_POST['construction'])?$_POST['construction']:null;
@@ -92,7 +92,7 @@ class TerritoryController extends Controller
     public function demolishAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
             $turns = 1;
             $lands = isset($_POST['lands'])?$_POST['lands']:null;

@@ -9,20 +9,21 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class AccountController extends Controller
 {
     /**
-     * @Route("/game/account/profile/{player}")
+     * @Route("/game/account/profile/{username}")
      * @Template("ArchmageGameBundle:Account:profile.html.twig")
      */
-    public function profileAction($player = null)
+    public function profileAction($username = null)
     {
         $manager = $this->getDoctrine()->getManager();
-        if (!$player) {
-            $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        if (!$username) {
+            $player = $this->getUser()->getPlayer();
         } else {
-            $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick($player);
-            if (!$player) {
+            $user = $manager->getRepository('ArchmageUserBundle:User')->findOneByUsername($username);
+            if (!$user) {
                 $this->addFlash('danger', 'No existe ningún jugador con ese nombre.');
                 return $this->redirectToRoute('archmage_game_account_profile');
             }
+            $player = $user->getPlayer();
         }
         $progresses = $manager->getRepository('ArchmageGameBundle:Spell')->findProgressByPlayer($player);
         return array(
@@ -39,7 +40,7 @@ class AccountController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $players = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         return array(
             'players' => $players,
             'search' => $player->getNick(),
@@ -54,7 +55,7 @@ class AccountController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         if (!$hash) {
-            $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+            $player = $this->getUser()->getPlayer();
             return array(
                 'player' => $player,
             );
@@ -70,23 +71,5 @@ class AccountController extends Controller
                 'text' => $text,
             );
         }
-    }
-
-    /**
-     * Flashbags notices controller as a service app/config/services.yml
-     */
-    public function news()
-    {
-        $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
-        $notices = $player->getMessages();
-        foreach ($notices as $notice) {
-            if (!$notice->getReaded()) {
-                //$notice->setReaded(true);
-                $this->addFlash($notice->getClass(), '<a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a>');
-            }
-        }
-        $manager->persist($player);
-        $manager->flush();
     }
 }

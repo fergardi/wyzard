@@ -18,7 +18,7 @@ class ArmyController extends Controller
     public function recruitAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         $neutral = $manager->getRepository('ArchmageGameBundle:Faction')->findOneByName('Neutral');
         $units = $manager->getRepository('ArchmageGameBundle:Unit')->findByFaction($neutral);
         if ($request->isMethod('POST')) {
@@ -61,7 +61,7 @@ class ArmyController extends Controller
     public function disbandAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
             $turns = 1;
             $quantity = isset($_POST['quantity'])?$_POST['quantity']:null;
@@ -95,8 +95,8 @@ class ArmyController extends Controller
     public function attackAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
-        $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
+        $player = $this->getUser()->getPlayer();
+        $targets = $manager->getRepository('ArchmageUserBundle:User')->findAll();
         if ($request->isMethod('POST')) {
 
         }

@@ -26,7 +26,7 @@
                                                     <option>Objetivo</option>
                                                     {% for target in targets %}
                                                         {# disabled="disabled" si eres el mismo player o si no les puedes atacar por player.power #}
-                                                        <option value="{{ target.id }}" data-subtext="{{ target.power|nf }}">{{ target.nick }}</option>
+                                                        <option value="{{ target.id }}" data-subtext="{{ target.player.power|nf }}">{{ target.username }}</option>
                                                     {% endfor %}
                                                 </select>
                                             </div>

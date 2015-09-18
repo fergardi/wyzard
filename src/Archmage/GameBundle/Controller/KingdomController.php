@@ -17,8 +17,7 @@ class KingdomController extends Controller
     {
         //cargar noticias
         $this->get('service.controller')->addNews();
-        $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         return array(
             'player' => $player,
         );
@@ -31,7 +30,7 @@ class KingdomController extends Controller
     public function taxAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
             $turns = isset($_POST['turns'])?$_POST['turns']:null;
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
@@ -59,7 +58,7 @@ class KingdomController extends Controller
     public function auctionAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $player = $this->getUser()->getPlayer();
         $auctions = $manager->getRepository('ArchmageGameBundle:Auction')->findAll();
         if ($request->isMethod('POST')) {
             $turns = 1;
@@ -104,7 +103,8 @@ class KingdomController extends Controller
     public function templeAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick('Fergardi');
+        $user = $manager->getRepository('ArchmageUserBundle:User')->findOneByUsername($this->getUser()->getUsername());
+        $player = $user->getPlayer();
         if ($request->isMethod('POST')) {
             $turns = 10;
             $gold = isset($_POST['gold'])?$_POST['gold']:null;

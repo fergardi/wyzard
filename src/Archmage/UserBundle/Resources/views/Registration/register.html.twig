@@ -7,12 +7,58 @@
     <div class="jumbotron text-center">
         <h1>Arch<i class="fa fa-fw fa-eye"></i>Mage</h1>
         <h3>- BETA -</h3>
-        <form id="register" name="register" class="form-signin" data-toggle="validator" action="{{ path("fos_user_registration_register") }}" method="post">
-            <input type="text" id="username" name="_username" class="form-control" placeholder="Usuario" value="" required />
-            <input type="password" id="password" name=_password" class="form-control" placeholder="Contraseña" required />
+        <form id="register" name="register" class="form-signin" data-toggle="validator" action="{{ path("fos_user_registration_register") }}" {{ form_enctype(form) }} method="post">
+            <select class="form-control selectpicker show-tick" id="faction" name="faction" data-live-search="false" data-style="btn-default btn-lg">
+                {% for faction in factions if faction.name != 'Neutral' %}
+                <option value="{{ faction.id }}" data-content="<span class='label label-{{ faction.class }}'>{{ faction.name }}</span>">{{ faction.name }}</option>
+                {% endfor %}
+            </select>
+            {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Usuario' } }) }}
+            {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'Contraseña' } }) }}
+            {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Repetir' } }) }}
+            {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'E@mail.com' } }) }}
+            {{ form_rest(form) }}
             <button type="submit" id="submit" name="_submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-sign-in"></i>Registrarse</button>
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token('register') }}" />
         </form>
+        <br/>
+        <br/>
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-2">
+                <a href="{{ path( 'archmage_game_home_help' ) }}#{{ 'Caos'|slug }}" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/doom.jpg') }}"/></a>
+                <div class="caption hidden-xs hidden-sm text-danger">
+                    <h3>Caos</h3>
+                    <small>Sangre y Fuego</small>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <a href="{{ path( 'archmage_game_home_help' ) }}#{{ 'Fantasmal'|slug }}" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/ghost.jpg') }}"/></a>
+                <div class="caption hidden-xs hidden-sm text-info">
+                    <h3>Fantasmal</h3>
+                    <small>Mente y Espíritu</small>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <a href="{{ path( 'archmage_game_home_help' ) }}#{{ 'Naturaleza'|slug }}" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/nature.jpg') }}"/></a>
+                <div class="caption hidden-xs hidden-sm text-success">
+                    <h3>Naturaleza</h3>
+                    <small>Roca y Tierra</small>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <a href="{{ path( 'archmage_game_home_help' ) }}#{{ 'Oscuridad'|slug }}" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/darkness.jpg') }}"/></a>
+                <div class="caption hidden-xs hidden-sm text-warning">
+                    <h3>Oscuridad</h3>
+                    <small>Polvo y Hueso</small>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <a href="{{ path( 'archmage_game_home_help' ) }}#{{ 'Sagrado'|slug }}" class="thumbnail"><img src="{{ asset('bundles/archmagegame/images/faction/holy.jpg') }}"/></a>
+                <div class="caption hidden-xs hidden-sm text-primary">
+                    <h3>Sagrado</h3>
+                    <small>Luz y Gloria</small>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

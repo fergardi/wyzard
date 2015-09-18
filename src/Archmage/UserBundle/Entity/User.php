@@ -18,9 +18,14 @@ class User extends BaseUser
      */
     protected $id;
 
+    /*
+     * must be nullable because we handle the user created by fosuserbundle and then we add all the player stuff
+     * see Archmage/UserBundle/Controller/RegistrationController.php
+     */
+
     /**
      * @ORM\OneToOne(targetEntity="Archmage\GameBundle\Entity\Player")
-     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=true)
      */
     protected $player;
 

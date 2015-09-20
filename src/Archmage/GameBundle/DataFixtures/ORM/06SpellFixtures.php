@@ -20,7 +20,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ESQUELETOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Esqueletos_skill'));
+        $spell->setSkill($this->getReference('Generar Esqueletos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -44,7 +44,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ZOMBIS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Zombis_skill'));
+        $spell->setSkill($this->getReference('Generar Zombis'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -68,7 +68,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR HOMBRES LOBO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Hombres Lobo_skill'));
+        $spell->setSkill($this->getReference('Generar Hombres Lobo'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -92,7 +92,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ESPECTROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Espectros_skill'));
+        $spell->setSkill($this->getReference('Generar Espectros'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -116,7 +116,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR LICHES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Liches_skill'));
+        $spell->setSkill($this->getReference('Generar Liches'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -140,7 +140,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR VAMPIROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Vampiros_skill'));
+        $spell->setSkill($this->getReference('Generar Vampiros'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -164,7 +164,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR CABALLEROS NEGROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Caballeros Negros_skill'));
+        $spell->setSkill($this->getReference('Generar Caballeros Negros'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -188,7 +188,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELEMENTALES DE SOMBRA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elementales de Sombra_skill'));
+        $spell->setSkill($this->getReference('Generar Elementales de Sombra'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -212,7 +212,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR GARGOLAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Gárgolas_skill'));
+        $spell->setSkill($this->getReference('Generar Gárgolas'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -236,7 +236,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DRAGONES NEGROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Dragones Negros_skill'));
+        $spell->setSkill($this->getReference('Generar Dragones Negros'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -264,7 +264,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //MALDICION
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Maldición_skill'));
+        $spell->setSkill($this->getReference('Maldición'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/curse.jpg');
@@ -288,7 +288,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //MIEDO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Miedo_skill'));
+        $spell->setSkill($this->getReference('Miedo'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/fear.jpg');
@@ -312,7 +312,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //AQUELARRE
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Aquelarre_skill'));
+        $spell->setSkill($this->getReference('Aquelarre'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/coven.jpg');
@@ -336,7 +336,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //FUERZA IMPIA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Fuerza Impía_skill'));
+        $spell->setSkill($this->getReference('Fuerza Impía'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/unholystrength.jpg');
@@ -360,7 +360,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PLAGA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Plaga_skill'));
+        $spell->setSkill($this->getReference('Plaga'));
         $spell->setName('Plaga');
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/plague.jpg');
@@ -384,7 +384,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //VOODOO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Voodoo_skill'));
+        $spell->setSkill($this->getReference('Voodoo'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/voodoo.jpg');
@@ -408,7 +408,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CORRUPCION
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Corrupción_skill'));
+        $spell->setSkill($this->getReference('Corrupción'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/corruption.jpg');
@@ -432,7 +432,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //BRUJERIA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Brujería_skill'));
+        $spell->setSkill($this->getReference('Brujería'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/witchcraft.jpg');
@@ -456,7 +456,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //ECLIPSE
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Eclipse_skill'));
+        $spell->setSkill($this->getReference('Eclipse'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/eclipse.jpg');
@@ -480,7 +480,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //NOCHE DE LOS MUERTOS VIVIENTES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Convocar NoMuertos_skill'));
+        $spell->setSkill($this->getReference('Convocar NoMuertos'));
         $spell->setName('Noche de los Muertos Vivientes');
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/nightlivingdead.jpg');
@@ -508,7 +508,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR GORILAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Gorilas_skill'));
+        $spell->setSkill($this->getReference('Generar Gorilas'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -532,7 +532,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELFOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elfos_skill'));
+        $spell->setSkill($this->getReference('Generar Elfos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -556,7 +556,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DRUIDAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Druidas_skill'));
+        $spell->setSkill($this->getReference('Generar Druidas'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -580,7 +580,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR TROLLS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Trolls_skill'));
+        $spell->setSkill($this->getReference('Generar Trolls'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -604,7 +604,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ENTS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Ents_skill'));
+        $spell->setSkill($this->getReference('Generar Ents'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -628,7 +628,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR BEHEMOTHS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Behemoths_skill'));
+        $spell->setSkill($this->getReference('Generar Behemoths'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -652,7 +652,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR SIERPES COLOSALES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Sierpes Colosales_skill'));
+        $spell->setSkill($this->getReference('Generar Sierpes Colosales'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -676,7 +676,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELEMENTALES DE TIERRA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elementales de Tierra_skill'));
+        $spell->setSkill($this->getReference('Generar Elementales de Tierra'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -700,7 +700,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR HIDRAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Hidras_skill'));
+        $spell->setSkill($this->getReference('Generar Hidras'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -724,7 +724,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DRAGONES VERDES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Dragones Verdes_skill'));
+        $spell->setSkill($this->getReference('Generar Dragones Verdes'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -752,7 +752,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //OXIDAR ARMADURA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Oxidar Armadura_skill'));
+        $spell->setSkill($this->getReference('Oxidar Armadura'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/rustarmor.jpg');
@@ -776,7 +776,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PRISA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Prisa_skill'));
+        $spell->setSkill($this->getReference('Prisa'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/haste.jpg');
@@ -800,7 +800,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //AGRANDAR ANIMAL
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Agrandar Animales_skill'));
+        $spell->setSkill($this->getReference('Agrandar Animales'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/enlargeanimals.jpg');
@@ -824,7 +824,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CURACION
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Curación_skill'));
+        $spell->setSkill($this->getReference('Curación'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/curation.jpg');
@@ -848,7 +848,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //HURACAN
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Huracán_skill'));
+        $spell->setSkill($this->getReference('Huracán'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/hurricane.jpg');
@@ -872,7 +872,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //IRA DEL BOSQUE
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Ira del Bosque_skill'));
+        $spell->setSkill($this->getReference('Ira del Bosque'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/forestwrath.jpg');
@@ -896,7 +896,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //FAVOR DE LA NATURALEZA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Favor de la Naturaleza_skill'));
+        $spell->setSkill($this->getReference('Favor de la Naturaleza'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/naturefavor.jpg');
@@ -920,7 +920,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CONTROL DEL CLIMA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Control del Clima_skill'));
+        $spell->setSkill($this->getReference('Control del Clima'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/climatecontrol.jpg');
@@ -944,7 +944,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CONCILIO DE LAS BESTIAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Concilio de las Bestias_skill'));
+        $spell->setSkill($this->getReference('Concilio de las Bestias'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/council.jpg');
@@ -968,7 +968,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //RAYO DE SOL
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Rayo de Sol_skill'));
+        $spell->setSkill($this->getReference('Rayo de Sol'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/sunray.jpg');
@@ -996,7 +996,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR TRITONES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Tritones_skill'));
+        $spell->setSkill($this->getReference('Generar Tritones'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1020,7 +1020,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR SIRENAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Sirenas_skill'));
+        $spell->setSkill($this->getReference('Generar Sirenas'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1044,7 +1044,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR HADAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Hadas_skill'));
+        $spell->setSkill($this->getReference('Generar Hadas'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1068,7 +1068,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR MAGOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Magos_skill'));
+        $spell->setSkill($this->getReference('Generar Magos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1092,7 +1092,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR NAGAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Nagas_skill'));
+        $spell->setSkill($this->getReference('Generar Nagas'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1116,7 +1116,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DJINNIS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Djinnis_skill'));
+        $spell->setSkill($this->getReference('Generar Djinnis'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1140,7 +1140,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELEMENTALES DE AGUA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elementales de Agua_skill'));
+        $spell->setSkill($this->getReference('Generar Elementales de Agua'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1164,7 +1164,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR TITANES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Titanes_skill'));
+        $spell->setSkill($this->getReference('Generar Titanes'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1188,7 +1188,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR LEVIATANES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Leviatanes_skill'));
+        $spell->setSkill($this->getReference('Generar Leviatanes'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1212,7 +1212,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DRAGONES AZULES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Dragones Azules_skill'));
+        $spell->setSkill($this->getReference('Generar Dragones Azules'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1240,7 +1240,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //ORO FALSO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Oro Falso_skill'));
+        $spell->setSkill($this->getReference('Oro Falso'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/fakegold.jpg');
@@ -1264,7 +1264,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //ORACULO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Oráculo_skill'));
+        $spell->setSkill($this->getReference('Oráculo'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/oracle.jpg');
@@ -1288,7 +1288,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CHAMANISMO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Chamanismo_skill'));
+        $spell->setSkill($this->getReference('Chamanismo'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/shamanism.jpg');
@@ -1312,7 +1312,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //SABIDURIA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Sabiduría_skill'));
+        $spell->setSkill($this->getReference('Sabiduría'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/wisdom.jpg');
@@ -1336,7 +1336,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //ENCONTRAR ARTEFACTO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Encontrar Artefacto_skill'));
+        $spell->setSkill($this->getReference('Encontrar Artefacto'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/findartifact.jpg');
@@ -1360,7 +1360,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //DESENCANTAR
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Desencantar_skill'));
+        $spell->setSkill($this->getReference('Desencantar'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/dispell.jpg');
@@ -1384,7 +1384,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CONCENTRACION
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Concentración_skill'));
+        $spell->setSkill($this->getReference('Concentración'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/focus.jpg');
@@ -1408,7 +1408,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //BARRERA MENTAL
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Barrera Mental_skill'));
+        $spell->setSkill($this->getReference('Barrera Mental'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/mentalbarrier.jpg');
@@ -1432,7 +1432,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //REUNION ELEMENTAL
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Convocar Elementales_skill'));
+        $spell->setSkill($this->getReference('Convocar Elementales'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/elementalgathering.jpg');
@@ -1456,7 +1456,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //TSUNAMI
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Tsunami_skill'));
+        $spell->setSkill($this->getReference('Tsunami'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/tsunami.jpg');
@@ -1484,7 +1484,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR MONJES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Monjes_skill'));
+        $spell->setSkill($this->getReference('Generar Monjes'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1508,7 +1508,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR PALADINES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Paladines_skill'));
+        $spell->setSkill($this->getReference('Generar Paladines'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1532,7 +1532,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR UNICORNIOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Unicornios_skill'));
+        $spell->setSkill($this->getReference('Generar Unicornios'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1556,7 +1556,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR PEGASOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Pegasos_skill'));
+        $spell->setSkill($this->getReference('Generar Pegasos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1580,7 +1580,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ANGELES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Ángeles_skill'));
+        $spell->setSkill($this->getReference('Generar Ángeles'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1604,7 +1604,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR GRIFOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Grifos_skill'));
+        $spell->setSkill($this->getReference('Generar Grifos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1628,7 +1628,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELEMENTALES DE AIRE
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elementales de Aire_skill'));
+        $spell->setSkill($this->getReference('Generar Elementales de Aire'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1652,7 +1652,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ARCANGELES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Arcángeles_skill'));
+        $spell->setSkill($this->getReference('Generar Arcángeles'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1676,7 +1676,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DOMINIONS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Dominions_skill'));
+        $spell->setSkill($this->getReference('Generar Dominions'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1700,7 +1700,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DRAGONES BLANCOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Dragones Blancos_skill'));
+        $spell->setSkill($this->getReference('Generar Dragones Blancos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1728,7 +1728,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //SANACION
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Sanación_skill'));
+        $spell->setSkill($this->getReference('Sanación'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/healing.jpg');
@@ -1752,7 +1752,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //VOLAR
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Volar_skill'));
+        $spell->setSkill($this->getReference('Volar'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/fly.jpg');
@@ -1776,7 +1776,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //DESTRUIR ARTEFACTO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Destruir Artefacto_skill'));
+        $spell->setSkill($this->getReference('Destruir Artefacto'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/destroyartifact.jpg');
@@ -1800,7 +1800,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //VALOR
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Valor_skill'));
+        $spell->setSkill($this->getReference('Valor'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/valor.jpg');
@@ -1824,7 +1824,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PROSPERIDAD
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Prosperidad_skill'));
+        $spell->setSkill($this->getReference('Prosperidad'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/prosperity.jpg');
@@ -1848,7 +1848,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PAZ
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Paz_skill'));
+        $spell->setSkill($this->getReference('Paz'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/peace.jpg');
@@ -1872,7 +1872,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CALMA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Calma_skill'));
+        $spell->setSkill($this->getReference('Calma'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/pacifism.jpg');
@@ -1896,7 +1896,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PROTECCION DIVINA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Protección Divina_skill'));
+        $spell->setSkill($this->getReference('Protección Divina'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/divineprotection.jpg');
@@ -1920,7 +1920,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PUERTA DE LOS CIELOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Convocar Celestiales_skill'));
+        $spell->setSkill($this->getReference('Convocar Celestiales'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/heavensdoor.jpg');
@@ -1944,7 +1944,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PALABA SANTA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Palabra Santa_skill'));
+        $spell->setSkill($this->getReference('Palabra Santa'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/holyword.jpg');
@@ -1972,7 +1972,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR GOBLINS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Goblins_skill'));
+        $spell->setSkill($this->getReference('Generar Goblins'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -1996,7 +1996,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR CERBEROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Cerberos_skill'));
+        $spell->setSkill($this->getReference('Generar Cerberos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -2020,7 +2020,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR MINOTAUROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Minotauros_skill'));
+        $spell->setSkill($this->getReference('Generar Minotauros'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -2044,7 +2044,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR OGROS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Ogros_skill'));
+        $spell->setSkill($this->getReference('Generar Ogros'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -2068,7 +2068,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR QUIMERAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Quimeras_skill'));
+        $spell->setSkill($this->getReference('Generar Quimeras'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -2092,7 +2092,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR SALAMANDRAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Salamandras_skill'));
+        $spell->setSkill($this->getReference('Generar Salamandras'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -2116,7 +2116,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR ELEMENTALES DE LAVA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Elementales de Lava_skill'));
+        $spell->setSkill($this->getReference('Generar Elementales de Lava'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -2140,7 +2140,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DIABLOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Diablos_skill'));
+        $spell->setSkill($this->getReference('Generar Diablos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -2164,7 +2164,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR FENIX
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Fénix_skill'));
+        $spell->setSkill($this->getReference('Generar Fénix'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -2188,7 +2188,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INVOCAR DRAGONES ROJOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Generar Dragones Rojos_skill'));
+        $spell->setSkill($this->getReference('Generar Dragones Rojos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
@@ -2216,7 +2216,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //BOLA DE FUEGO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Bola de Fuego_skill'));
+        $spell->setSkill($this->getReference('Bola de Fuego'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/fireball.jpg');
@@ -2240,7 +2240,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //ALAS FLAMIGUERAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Alas Flamígueras_skill'));
+        $spell->setSkill($this->getReference('Alas Flamígueras'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/flamingwings.jpg');
@@ -2264,7 +2264,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //FLECHAS ARDIENTES
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Flechas Ardientes_skill'));
+        $spell->setSkill($this->getReference('Flechas Ardientes'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/burningarrow.jpg');
@@ -2288,7 +2288,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //FURIA DEMONIACA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Furia Demoníaca_skill'));
+        $spell->setSkill($this->getReference('Furia Demoníaca'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/demonwrath.jpg');
@@ -2312,7 +2312,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //VOLCANO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Volcano_skill'));
+        $spell->setSkill($this->getReference('Volcano'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/volcano.jpg');
@@ -2336,7 +2336,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //COMBUSTION
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Combustión_skill'));
+        $spell->setSkill($this->getReference('Combustión'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/combustion.jpg');
@@ -2360,7 +2360,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //TAMBORES DE GUERRA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Tambores de Guerra_skill'));
+        $spell->setSkill($this->getReference('Tambores de Guerra'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/wardrums.jpg');
@@ -2384,7 +2384,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //MURO IGNEO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Muro Ígneo_skill'));
+        $spell->setSkill($this->getReference('Muro Ígneo'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/igneouswall.jpg');
@@ -2408,7 +2408,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //PACTO DE SANGRE
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Convocar Demonios_skill'));
+        $spell->setSkill($this->getReference('Convocar Demonios'));
         $spell->setName('Pacto de Sangre');
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/bloodpact.jpg');
@@ -2432,7 +2432,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //INFERNO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Inferno_skill'));
+        $spell->setSkill($this->getReference('Inferno'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/doom/inferno.jpg');
@@ -2461,7 +2461,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //APOCALIPSIS
         $spell = new Spell();
         $spell->setName('Apocalipsis');
-        $spell->setSkill($this->getReference($spell->getName().'_skill'));
+        $spell->setSkill($this->getReference($spell->getName()));
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/neutral/apocalipse.jpg');
         $spell->setFaction($this->getReference('Neutral'));

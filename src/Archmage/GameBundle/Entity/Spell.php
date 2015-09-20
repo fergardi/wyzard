@@ -33,7 +33,7 @@ class Spell
      *
      * @ORM\Column(name="lore", type="string", length=255, nullable=false)
      */
-    private $lore;
+    private $lore = 'Lore';
 
     /**
      * @var string
@@ -47,91 +47,91 @@ class Spell
      *
      * @ORM\Column(name="magic", type="smallint", nullable=false)
      */
-    private $magic;
+    private $magic = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="goldCost", type="bigint", nullable=false)
      */
-    private $goldCost;
+    private $goldCost = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="manaCost", type="bigint", nullable=false)
      */
-    private $manaCost;
+    private $manaCost = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="peopleCost", type="bigint", nullable=false)
      */
-    private $peopleCost;
+    private $peopleCost = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="turnsCost", type="smallint", nullable=false)
      */
-    private $turnsCost;
+    private $turnsCost = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="turnsResearch", type="smallint", nullable=false)
      */
-    private $turnsResearch;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="goldMaintenance", type="bigint", nullable=false)
-     */
-    private $goldMaintenance;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="manaMaintenance", type="bigint", nullable=false)
-     */
-    private $manaMaintenance;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="peopleMaintenance", type="bigint", nullable=false)
-     */
-    private $peopleMaintenance;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="goldAuction", type="bigint", nullable=false)
-     */
-    private $goldAuction;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="rarity", type="smallint", nullable=false)
-     */
-    private $rarity;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="enchant", type="boolean", nullable=false)
-     */
-    private $enchant;
+    private $turnsResearch = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="turnsExpiration", type="bigint", nullable=false)
      */
-    private $turnsExpiration;
+    private $turnsExpiration = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="goldMaintenance", type="bigint", nullable=false)
+     */
+    private $goldMaintenance = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="manaMaintenance", type="bigint", nullable=false)
+     */
+    private $manaMaintenance = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="peopleMaintenance", type="bigint", nullable=false)
+     */
+    private $peopleMaintenance = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="goldAuction", type="bigint", nullable=false)
+     */
+    private $goldAuction = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rarity", type="smallint", nullable=false)
+     */
+    private $rarity = 0;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="enchant", type="boolean", nullable=false)
+     */
+    private $enchant = false;
 
     /**
      * @var Faction

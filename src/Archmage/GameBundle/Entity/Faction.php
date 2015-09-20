@@ -54,7 +54,7 @@ class Faction
      *
      * @ORM\Column(name="lore", type="string", length=255, nullable=false)
      */
-    private $lore;
+    private $lore = 'Lore';
 
     /**
      * @var string

@@ -58,6 +58,8 @@ class AuctionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $contract = new Contract();
         $manager->persist($contract);
         $contract->setHero($this->getReference('Jinete de Dragones'));
+        $contract->setExperience(0);
+        $contract->setLevel(3);
         $contract->setPlayer(null);
         $auction->setPlayer(null);
         $auction->setContract($contract);
@@ -69,6 +71,8 @@ class AuctionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $contract = new Contract();
         $manager->persist($contract);
         $contract->setHero($this->getReference('Leprechaunt'));
+        $contract->setExperience(0);
+        $contract->setLevel(1);
         $contract->setPlayer(null);
         $auction->setPlayer(null);
         $auction->setContract($contract);

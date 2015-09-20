@@ -13,11 +13,41 @@
                 </h1>
             </div>
         </div>
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <div class="panel panel-default" id="info">
+                <div class="panel-heading text-center">Pujar
+                    <button type="button" class="close" data-target="#info" data-dismiss="alert">
+                        <i class="fa fa-fw fa-lg fa-times-circle"></i>
+                    </button>
+                </div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12">Aquí puedes gastar <span class="label label-extra">Turnos</span> y <span class="label label-extra">Oro</span> para adquirir diversas <span class="label label-extra">Tropas</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span> y <span class="label label-extra">Hechizos</span> que no podrías obtener de otra forma. Para ganar una puja, debes ser el máximo pujador al acabar la subasta. Si te sobrepujan, se te devolverá el <span class="label label-extra">Oro</span>.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-middle text-center">Fórmula</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-12 text-center text-only">
+                            PUJA<sub>nueva</sub> &ge; PUJA<sub>actual</sub> * 1.10
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    <a class="btn btn-default" href="{{ path( 'archmage_game_kingdom_tax' ) }}"><i class="fa fa-fw fa-money"></i><span class="hidden-xs">Recaudar</span></a>
+                </div>
+            </div>
+        </div>
         {% for auction in auctions %}
             {% if auction.contract is not null and not player.hasContract(auction.contract) %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ auction.contract.hero.faction.class }}">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.contract.hero.name|slug }}" class="link">{{ auction.contract.hero.name }}</a></div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.contract.hero.name|slug }}" class="link">{{ auction.contract.hero.name }}</a> {{ '{' ~ auction.contract.level|nf ~ '}' }}</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -25,9 +55,9 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ auction.contract.hero.goldMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ auction.contract.hero.manaMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ auction.contract.hero.peopleMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ (auction.contract.hero.goldMaintenance * auction.contract.level)|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ (auction.contract.hero.manaMaintenance * auction.contract.level)|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ (auction.contract.hero.peopleMaintenance * auction.contract.level)|nf }}</div>
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ auction.contract.hero.skill.description|raw }}</div>
                             {# row #}

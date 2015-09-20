@@ -25,22 +25,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
     }
 
     /**
-     * @param $string
-     * @return string
-     */
-    public function toSlug($string) {
-        $search = explode(",","Á,É,Í,Ó,Ú,á,é,í,ó,ú, ");
-        $replace = explode(",","a,e,i,o,u,a,e,i,o,u,-");
-        $slug = strtolower(str_replace($search, $replace, $string));
-        return $slug;
-    }
-
-    public function nf($number, $decimals = 0, $decPoint = ',', $thousandsSep = '.') {
-        $price = number_format((float)$number, $decimals, $decPoint, $thousandsSep);
-        return $price;
-    }
-
-    /**
      * {@inheritDoc}
      */
     public function load(ObjectManager $manager)
@@ -66,6 +50,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -74,7 +60,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -96,6 +82,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -104,7 +92,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -126,6 +114,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -134,7 +124,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -156,6 +146,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -164,7 +156,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -186,6 +178,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -194,7 +188,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -216,6 +210,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -224,7 +220,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -246,6 +242,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -254,7 +252,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -276,6 +274,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -284,7 +284,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -306,6 +306,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -314,7 +316,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -336,6 +338,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -344,7 +348,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -353,9 +357,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
          * HABILIDADES NEGRO
          */
 
-        //CONVOCAR NOMUERTOS
+        //NOCHE DE LOS MUERTOS VIVIENTES
         $skill = new Skill();
-        $skill->setName('Convocar NoMuertos');
+        $skill->setName('Convocar NoMuertos'); //para usarlo como artifact tambien
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -365,11 +369,13 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(0);
+        $skill->setQuantityBonus(1000);
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
-        $skill->setRandom(false);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(true);
         $skill->setSummon(true);
         $skill->setDispell(false);
         $skill->setSpy(false);
@@ -399,6 +405,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -429,6 +437,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -459,6 +469,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -489,6 +501,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -519,6 +533,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -549,6 +565,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(2);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -579,6 +597,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -609,6 +629,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -639,6 +661,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -674,6 +698,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -682,7 +708,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -704,6 +730,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -712,7 +740,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -734,6 +762,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -742,7 +772,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -764,6 +794,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -772,7 +804,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -794,6 +826,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -802,7 +836,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -824,6 +858,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -832,7 +868,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -854,6 +890,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -862,7 +900,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -884,6 +922,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -892,7 +932,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -914,6 +954,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -922,7 +964,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -944,6 +986,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -952,7 +996,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -977,6 +1021,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setUnit(null);
         $skill->setRandom(false);
         $skill->setSummon(false);
@@ -1007,6 +1053,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setUnit(null);
         $skill->setRandom(false);
         $skill->setSummon(true);
@@ -1037,6 +1085,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setUnit(null);
         $skill->setRandom(false);
         $skill->setSummon(false);
@@ -1067,6 +1117,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setUnit(null);
         $skill->setRandom(false);
         $skill->setSummon(false);
@@ -1097,6 +1149,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setUnit(null);
         $skill->setRandom(false);
         $skill->setSummon(false);
@@ -1127,6 +1181,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setUnit(null);
         $skill->setRandom(false);
         $skill->setSummon(false);
@@ -1157,6 +1213,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setUnit(null);
         $skill->setRandom(false);
         $skill->setSummon(false);
@@ -1187,6 +1245,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(2);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setUnit(null);
         $skill->setRandom(false);
         $skill->setSummon(false);
@@ -1217,6 +1277,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setUnit(null);
         $skill->setRandom(false);
         $skill->setSummon(false);
@@ -1247,6 +1309,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setUnit(null);
         $skill->setRandom(false);
         $skill->setSummon(false);
@@ -1282,6 +1346,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1290,7 +1356,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1312,6 +1378,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1320,7 +1388,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1342,6 +1410,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1350,7 +1420,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1372,6 +1442,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1380,7 +1452,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1402,6 +1474,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1410,7 +1484,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1432,6 +1506,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1440,7 +1516,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1462,6 +1538,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1470,7 +1548,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1492,6 +1570,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1500,7 +1580,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1522,6 +1602,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1530,7 +1612,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1552,6 +1634,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1560,7 +1644,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1585,6 +1669,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -1601,7 +1687,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
 
         //REUNION ELEMENTAL
         $skill = new Skill();
-        $skill->setName('Reunión Elemental');
+        $skill->setName('Convocar Elementales'); //para usarlo como artifact tambien
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -1611,11 +1697,13 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(0);
+        $skill->setQuantityBonus(500);
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
-        $skill->setRandom(false);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(true);
         $skill->setSummon(true);
         $skill->setDispell(false);
         $skill->setSpy(false);
@@ -1645,6 +1733,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -1675,6 +1765,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -1705,6 +1797,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -1735,6 +1829,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -1765,6 +1861,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(-10);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -1795,6 +1893,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(5);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -1825,6 +1925,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(20);
+        $skill->setHeroBonus(20);
+        $skill->setTurnsBonus(20);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -1855,6 +1957,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(true);
@@ -1890,6 +1994,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1898,7 +2004,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1920,6 +2026,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1928,7 +2036,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1950,6 +2058,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1958,7 +2068,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -1980,6 +2090,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -1988,7 +2100,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2010,6 +2122,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2018,7 +2132,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2040,6 +2154,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2048,7 +2164,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2070,6 +2186,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2078,7 +2196,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2100,6 +2218,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2108,7 +2228,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2130,6 +2250,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2138,7 +2260,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2160,6 +2282,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2168,7 +2292,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2192,7 +2316,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setQuantityBonus(0);
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
-        $skill->setArtifactBonus(20);
+        $skill->setArtifactBonus(1);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(true);
@@ -2209,7 +2335,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
 
         //PUERTA DE LOS CIELOS
         $skill = new Skill();
-        $skill->setName('Puerta de los Cielos');
+        $skill->setName('Convocar Celestiales'); //para usarlo como artifact tambien
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -2223,6 +2349,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(true);
@@ -2253,6 +2381,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(true);
@@ -2283,6 +2413,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(true);
@@ -2313,6 +2445,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(2);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(true);
@@ -2343,6 +2477,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(true);
@@ -2373,6 +2509,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(true);
@@ -2403,6 +2541,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(true);
@@ -2433,6 +2573,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(true);
@@ -2463,6 +2605,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(true);
@@ -2498,6 +2642,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2506,7 +2652,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2528,6 +2674,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2536,7 +2684,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2558,6 +2706,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2566,7 +2716,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2588,6 +2738,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2596,7 +2748,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2618,6 +2770,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2626,7 +2780,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2648,6 +2802,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2656,7 +2812,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2678,6 +2834,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2686,7 +2844,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2708,6 +2866,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2716,7 +2876,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2738,6 +2898,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2746,7 +2908,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2768,6 +2930,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
         $skill->setDispell(false);
@@ -2776,7 +2940,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->nf($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -2785,9 +2949,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
          * HECHIZOS DESTRUCCION
          */
 
-        //CONVOCAR DEMONIOS
+        //PACTO DE SANGRE
         $skill = new Skill();
-        $skill->setName('Convocar Demonios');
+        $skill->setName('Convocar Demonios'); //para usarlo como artifact tambien
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -2797,11 +2961,13 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(0);
+        $skill->setQuantityBonus(500);
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
-        $skill->setRandom(false);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(true);
         $skill->setSummon(true);
         $skill->setDispell(false);
         $skill->setSpy(false);
@@ -2831,6 +2997,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -2861,6 +3029,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -2891,6 +3061,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -2921,6 +3093,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -2951,6 +3125,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -2981,6 +3157,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3011,6 +3189,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(2);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3041,6 +3221,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3071,6 +3253,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3086,12 +3270,12 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $manager->persist($skill);
 
         /*
-         * ARTEFACTOS
+         * CONVOCAR
          */
 
         //CONVOCAR DRAGONES
         $skill = new Skill();
-        $skill->setName('Convocar Dragones');
+        $skill->setName('Convocar Dragones'); //para usarlo como artifact tambien
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -3101,14 +3285,16 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(20);
+        $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(false);
         $skill->setDispell(false);
         $skill->setSpy(false);
-        $skill->setQuantityBonus(20);
-        $skill->setConversionBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3132,13 +3318,15 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(10);
+        $skill->setTerrainBonus(5);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3148,7 +3336,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> libres de tu reino.');
+        $skill->setDescription('+'.$skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> a tu reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -3162,13 +3350,15 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(-10);
+        $skill->setTerrainBonus(-5);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3178,7 +3368,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription(null);
+        $skill->setDescription($skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> al reino enemigo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -3199,6 +3389,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3208,7 +3400,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getManaBonus().'% <span class="label label-extra">Maná</span> de tu reino.');
+        $skill->setDescription('+'.$skill->getManaBonus().'% <span class="label label-extra">Maná</span> a tu reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -3229,6 +3421,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3238,7 +3432,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getManaBonus().'% <span class="label label-extra">Maná</span> del reino enemigo.');
+        $skill->setDescription($skill->getManaBonus().'% <span class="label label-extra">Maná</span> al reino enemigo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -3259,6 +3453,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3268,7 +3464,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getPeopleBonus().'% <span class="label label-extra">Población</span> de tu reino.');
+        $skill->setDescription('+'.$skill->getPeopleBonus().'% <span class="label label-extra">Población</span> a tu reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -3289,6 +3485,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3298,7 +3496,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Población</span> del reino enemigo.');
+        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Población</span> al reino enemigo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -3319,6 +3517,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3328,7 +3528,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getGoldBonus().'% <span class="label label-extra">Oro</span> de tu reino.');
+        $skill->setDescription('+'.$skill->getGoldBonus().'% <span class="label label-extra">Oro</span> a tu reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -3349,6 +3549,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3358,7 +3560,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription(null);
+        $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span> al reino enemigo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -3368,7 +3570,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Aumentar Velocidad');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(10);
+        $skill->setSpeedBonus(1);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
@@ -3379,6 +3581,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3388,7 +3592,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription(null);
+        $skill->setDescription('+'.$skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a tus tropas.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -3398,7 +3602,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Reducir Velocidad');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(-10);
+        $skill->setSpeedBonus(-1);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
@@ -3409,6 +3613,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3418,7 +3624,427 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> de las tropas enemigas.');
+        $skill->setDescription($skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a las tropas enemigas.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        //SUBIR DE NIVEL
+        $skill = new Skill();
+        $skill->setName('Subir Nivel');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(1);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(true);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription('+'.$skill->getHeroBonus().' <span class="label label-extra">Nivel</span> a un <span class="label label-extra">Héroe</span> al azar.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        //BAJAR DE NIVEL
+        $skill = new Skill();
+        $skill->setName('Bajar Nivel');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(-10);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(true);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(false);
+        $skill->setSelf(false);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription($skill->getHeroBonus().' <span class="label label-extra">Nivel</span> a un <span class="label label-extra">Héroe</span> enemigo al azar.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        //GENERAR TURNOS
+        $skill = new Skill();
+        $skill->setName('Generar Turnos');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(100);
+        $skill->setRandom(true);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription('+'.$skill->getTurnsBonus().' <span class="label label-extra">Turnos</span> a tu reino.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        //ELIMINAR TURNOS
+        $skill = new Skill();
+        $skill->setName('Eliminar Turnos');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(-100);
+        $skill->setRandom(true);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(false);
+        $skill->setSelf(false);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription($skill->getTurnsBonus().' <span class="label label-extra">Turnos</span> al reino enemigo.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        //AUMENTAR ATAQUE
+        $skill = new Skill();
+        $skill->setName('Aumentar Ataque');
+        $skill->setAttackBonus(5);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(false);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription('+'.$skill->getAttackBonus().' <span class="label label-extra">Ataque</span> a tus tropas.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        //AUMENTAR DEFENSA
+        $skill = new Skill();
+        $skill->setName('Aumentar Defensa');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(5);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(false);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription('+'.$skill->getDefenseBonus().' <span class="label label-extra">Defensa</span> a tus tropas.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        /*
+         * HEROES
+         */
+
+        //COMANDAR DRAGONES
+        $skill = new Skill();
+        $skill->setName('Comandar Dragones');
+        $skill->setAttackBonus(1);
+        $skill->setDefenseBonus(1);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(false);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily($this->getReference('Dragones'));
+        $skill->setType(null);
+        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por nivel.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        //COMANDAR DEMONIOS
+        $skill = new Skill();
+        $skill->setName('Comandar Demonios');
+        $skill->setAttackBonus(1);
+        $skill->setDefenseBonus(1);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(false);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily($this->getReference('Demonios'));
+        $skill->setType(null);
+        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por nivel.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        //COMANDAR ELEMENTALES
+        $skill = new Skill();
+        $skill->setName('Comandar Elementales');
+        $skill->setAttackBonus(1);
+        $skill->setDefenseBonus(1);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(false);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily($this->getReference('Elementales'));
+        $skill->setType(null);
+        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por nivel.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        //COMANDAR HUMANOS
+        $skill = new Skill();
+        $skill->setName('Comandar Humanos');
+        $skill->setAttackBonus(1);
+        $skill->setDefenseBonus(1);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(false);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily($this->getReference('Humanos'));
+        $skill->setType(null);
+        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por nivel.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        //COMANDAR CELESTIALES
+        $skill = new Skill();
+        $skill->setName('Comandar Celestiales');
+        $skill->setAttackBonus(1);
+        $skill->setDefenseBonus(1);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(false);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily($this->getReference('Celestiales'));
+        $skill->setType(null);
+        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por nivel.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        //COMANDAR BESTIAS
+        $skill = new Skill();
+        $skill->setName('Comandar Bestias');
+        $skill->setAttackBonus(1);
+        $skill->setDefenseBonus(1);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(false);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily($this->getReference('Bestias'));
+        $skill->setType(null);
+        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por nivel.');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName().'_skill', $skill);
+        $manager->persist($skill);
+
+        //COMANDAR NOMUERTOS
+        $skill = new Skill();
+        $skill->setName('Comandar NoMuertos');
+        $skill->setAttackBonus(1);
+        $skill->setDefenseBonus(1);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setMagicBonus(0);
+        $skill->setQuantityBonus(0);
+        $skill->setConversionBonus(0);
+        $skill->setBarrierBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(false);
+        $skill->setSummon(false);
+        $skill->setDispell(false);
+        $skill->setSpy(false);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily($this->getReference('NoMuertos'));
+        $skill->setType(null);
+        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);
@@ -3443,6 +4069,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setConversionBonus(0);
         $skill->setBarrierBonus(0);
         $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
@@ -3453,220 +4081,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setDescription('<span class="label label-extra">Ganas</span> el juego si lo mantienes 7 días.');
-        $skill->setFaction(null);
-        $this->setReference($skill->getName().'_skill', $skill);
-        $manager->persist($skill);
-
-        /*
-         * HEROES
-         */
-
-        //COMANDAR DRAGONES
-        $skill = new Skill();
-        $skill->setName('Comandar Dragones');
-        $skill->setAttackBonus(5);
-        $skill->setDefenseBonus(5);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
-        $skill->setBarrierBonus(0);
-        $skill->setArtifactBonus(0);
-        $skill->setRandom(false);
-        $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
-        $skill->setBattle(true);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily($this->getReference('Dragones'));
-        $skill->setType(null);
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span>.');
-        $skill->setFaction(null);
-        $this->setReference($skill->getName().'_skill', $skill);
-        $manager->persist($skill);
-
-        //COMANDAR DEMONIOS
-        $skill = new Skill();
-        $skill->setName('Comandar Demonios');
-        $skill->setAttackBonus(5);
-        $skill->setDefenseBonus(5);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
-        $skill->setBarrierBonus(0);
-        $skill->setArtifactBonus(0);
-        $skill->setRandom(false);
-        $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
-        $skill->setBattle(true);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily($this->getReference('Demonios'));
-        $skill->setType(null);
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span>.');
-        $skill->setFaction(null);
-        $this->setReference($skill->getName().'_skill', $skill);
-        $manager->persist($skill);
-
-        //COMANDAR ELEMENTALES
-        $skill = new Skill();
-        $skill->setName('Comandar Elementales');
-        $skill->setAttackBonus(5);
-        $skill->setDefenseBonus(5);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
-        $skill->setBarrierBonus(0);
-        $skill->setArtifactBonus(0);
-        $skill->setRandom(false);
-        $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
-        $skill->setBattle(true);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily($this->getReference('Elementales'));
-        $skill->setType(null);
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span>.');
-        $skill->setFaction(null);
-        $this->setReference($skill->getName().'_skill', $skill);
-        $manager->persist($skill);
-
-        //COMANDAR HUMANOS
-        $skill = new Skill();
-        $skill->setName('Comandar Humanos');
-        $skill->setAttackBonus(5);
-        $skill->setDefenseBonus(5);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
-        $skill->setBarrierBonus(0);
-        $skill->setArtifactBonus(0);
-        $skill->setRandom(false);
-        $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
-        $skill->setBattle(true);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily($this->getReference('Humanos'));
-        $skill->setType(null);
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span>.');
-        $skill->setFaction(null);
-        $this->setReference($skill->getName().'_skill', $skill);
-        $manager->persist($skill);
-
-        //COMANDAR CELESTIALES
-        $skill = new Skill();
-        $skill->setName('Comandar Celestiales');
-        $skill->setAttackBonus(5);
-        $skill->setDefenseBonus(5);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
-        $skill->setBarrierBonus(0);
-        $skill->setArtifactBonus(0);
-        $skill->setRandom(false);
-        $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
-        $skill->setBattle(true);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily($this->getReference('Celestiales'));
-        $skill->setType(null);
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span>.');
-        $skill->setFaction(null);
-        $this->setReference($skill->getName().'_skill', $skill);
-        $manager->persist($skill);
-
-        //COMANDAR BESTIAS
-        $skill = new Skill();
-        $skill->setName('Comandar Bestias');
-        $skill->setAttackBonus(5);
-        $skill->setDefenseBonus(5);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
-        $skill->setBarrierBonus(0);
-        $skill->setArtifactBonus(0);
-        $skill->setRandom(false);
-        $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
-        $skill->setBattle(true);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily($this->getReference('Bestias'));
-        $skill->setType(null);
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span>.');
-        $skill->setFaction(null);
-        $this->setReference($skill->getName().'_skill', $skill);
-        $manager->persist($skill);
-
-        //COMANDAR NOMUERTOS
-        $skill = new Skill();
-        $skill->setName('Comandar NoMuertos');
-        $skill->setAttackBonus(5);
-        $skill->setDefenseBonus(5);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
-        $skill->setBarrierBonus(0);
-        $skill->setArtifactBonus(0);
-        $skill->setRandom(false);
-        $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
-        $skill->setBattle(true);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily($this->getReference('NoMuertos'));
-        $skill->setType(null);
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName().'_skill', $skill);
         $manager->persist($skill);

@@ -40,7 +40,7 @@ class Building
      *
      * @ORM\Column(name="lore", type="string", length=255, nullable=false)
      */
-    private $lore;
+    private $lore = 'Lore';
 
     /**
      * @var string
@@ -54,105 +54,105 @@ class Building
      *
      * @ORM\Column(name="goldCost", type="smallint", nullable=false)
      */
-    private $goldCost;
+    private $goldCost = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="manaCost", type="smallint", nullable=false)
      */
-    private $manaCost;
+    private $manaCost = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="peopleCost", type="smallint", nullable=false)
      */
-    private $peopleCost;
+    private $peopleCost = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="goldMaintenance", type="smallint", nullable=false)
      */
-    private $goldMaintenance;
+    private $goldMaintenance = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="manaMaintenance", type="smallint", nullable=false)
      */
-    private $manaMaintenance;
+    private $manaMaintenance = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="peopleMaintenance", type="smallint", nullable=false)
      */
-    private $peopleMaintenance;
+    private $peopleMaintenance = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="goldResource", type="smallint", nullable=false)
      */
-    private $goldResource;
+    private $goldResource = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="manaResource", type="smallint", nullable=false)
      */
-    private $manaResource;
+    private $manaResource = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="peopleResource", type="smallint", nullable=false)
      */
-    private $peopleResource;
+    private $peopleResource = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="goldCap", type="bigint", nullable=false)
      */
-    private $goldCap;
+    private $goldCap = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="manaCap", type="bigint", nullable=false)
      */
-    private $manaCap;
+    private $manaCap = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="peopleCap", type="bigint", nullable=false)
      */
-    private $peopleCap;
+    private $peopleCap = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="buildingRatio", type="smallint", nullable=false)
      */
-    private $buildingRatio;
+    private $buildingRatio = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="researchRatio", type="smallint", nullable=false)
      */
-    private $researchRatio;
+    private $researchRatio = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="artifactRatio", type="smallint", nullable=false)
      */
-    private $artifactRatio;
+    private $artifactRatio = 0;
 
 
     /**

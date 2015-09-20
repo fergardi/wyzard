@@ -33,28 +33,28 @@ class Unit
      *
      * @ORM\Column(name="lore", type="string", length=255, nullable=false)
      */
-    private $lore;
+    private $lore = 'Lore';
 
     /**
      * @var integer
      *
      * @ORM\Column(name="attack", type="integer", nullable=false)
      */
-    private $attack;
+    private $attack = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="defense", type="integer", nullable=false)
      */
-    private $defense;
+    private $defense = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="speed", type="integer", nullable=false)
      */
-    private $speed;
+    private $speed = 0;
 
     /**
      * @var string
@@ -68,42 +68,42 @@ class Unit
      *
      * @ORM\Column(name="goldMaintenance", type="integer", nullable=false)
      */
-    private $goldMaintenance;
+    private $goldMaintenance = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="manaMaintenance", type="integer", nullable=false)
      */
-    private $manaMaintenance;
+    private $manaMaintenance = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="peopleMaintenance", type="integer", nullable=false)
      */
-    private $peopleMaintenance;
+    private $peopleMaintenance = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="goldAuction", type="integer", nullable=false)
      */
-    private $goldAuction;
+    private $goldAuction = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="goldRecruit", type="integer", nullable=false)
      */
-    private $goldRecruit;
+    private $goldRecruit = 0;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="rarity", type="boolean", nullable=false)
      */
-    private $rarity;
+    private $rarity = 0;
 
     /**
      * @var Faction

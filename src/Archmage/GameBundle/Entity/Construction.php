@@ -26,7 +26,7 @@ class Construction
      *
      * @ORM\Column(name="quantity", type="bigint", nullable=false)
      */
-    private $quantity;
+    private $quantity = 0;
 
     /**
      * @ORM\ManyToOne(targetEntity="Building")

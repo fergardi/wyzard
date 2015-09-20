@@ -22,11 +22,18 @@ class Enchantment
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="expiration", type="smallint", nullable=false)
+     */
+    private $expiration = 0;
+
+    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="expiration", type="datetime", nullable=true)
+     * @ORM\Column(name="gameover", type="datetime", nullable=true)
      */
-    private $expiration = null;
+    private $gameover = null;
 
     /**
      * @var Spell
@@ -62,7 +69,7 @@ class Enchantment
     /**
      * Set expiration
      *
-     * @param \DateTime $expiration
+     * @param integer $expiration
      * @return Enchantment
      */
     public function setExpiration($expiration)
@@ -75,11 +82,34 @@ class Enchantment
     /**
      * Get expiration
      *
-     * @return \DateTime 
+     * @return integer 
      */
     public function getExpiration()
     {
         return $this->expiration;
+    }
+
+    /**
+     * Set gameover
+     *
+     * @param \DateTime $gameover
+     * @return Enchantment
+     */
+    public function setGameover($gameover)
+    {
+        $this->gameover = $gameover;
+
+        return $this;
+    }
+
+    /**
+     * Get gameover
+     *
+     * @return \DateTime 
+     */
+    public function getGameover()
+    {
+        return $this->gameover;
     }
 
     /**
@@ -103,29 +133,6 @@ class Enchantment
     public function getSpell()
     {
         return $this->spell;
-    }
-
-    /**
-     * Set player
-     *
-     * @param \Archmage\GameBundle\Entity\Player $player
-     * @return Enchantment
-     */
-    public function setPlayer(\Archmage\GameBundle\Entity\Player $player)
-    {
-        $this->player = $player;
-
-        return $this;
-    }
-
-    /**
-     * Get player
-     *
-     * @return \Archmage\GameBundle\Entity\Player 
-     */
-    public function getPlayer()
-    {
-        return $this->player;
     }
 
     /**

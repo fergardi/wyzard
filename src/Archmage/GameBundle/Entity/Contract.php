@@ -22,6 +22,20 @@ class Contract
     private $id;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="experience", type="smallint", nullable=false)
+     */
+    private $experience = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="level", type="smallint", nullable=false)
+     */
+    private $level = 1;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Hero")
      * @ORM\JoinColumn(name="hero", referencedColumnName="id", nullable=false)
      **/
@@ -31,7 +45,7 @@ class Contract
      * @ORM\ManyToOne(targetEntity="Player", inversedBy="contracts")
      * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=true)
      **/
-    private $player = null;
+    private $player = null;// porque un contrato puede estar en la subasta sin dueño aun
 
 
     /**
@@ -42,6 +56,52 @@ class Contract
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set experience
+     *
+     * @param integer $experience
+     * @return Contract
+     */
+    public function setExperience($experience)
+    {
+        $this->experience = $experience;
+
+        return $this;
+    }
+
+    /**
+     * Get experience
+     *
+     * @return integer 
+     */
+    public function getExperience()
+    {
+        return $this->experience;
+    }
+
+    /**
+     * Set level
+     *
+     * @param integer $level
+     * @return Contract
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return integer 
+     */
+    public function getLevel()
+    {
+        return $this->level;
     }
 
     /**

@@ -173,12 +173,22 @@ class Message
     /**
      * Set text
      *
-     * @param string $text
+     * @param array $text
      * @return Message
      */
     public function setText($text)
     {
-        $this->text = $text;
+        $json = array();
+        foreach ($text as $line) {
+            $json[] = array(
+                'class' => $line[0],
+                'length' => $line[1],
+                'offset' => $line[2],
+                'align' => $line[3],
+                'text' => $line[4],
+            );
+        }
+        $this->text = json_encode($json);
 
         return $this;
     }

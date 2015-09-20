@@ -26,14 +26,14 @@ class Research
      *
      * @ORM\Column(name="turns", type="smallint", nullable=false)
      */
-    private $turns;
+    private $turns = 0;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="active", type="boolean", nullable=false)
      */
-    private $active;
+    private $active = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="Spell")

@@ -38,6 +38,7 @@ class RegistrationController extends BaseController
                  * BEGIN OWN CODE
                  */
 
+                //player
                 $player = new Player();
                 $player->setFaction($manager->getRepository('ArchmageGameBundle:Faction')->findOneById($_POST['faction']));
                 //constructions
@@ -76,6 +77,19 @@ class RegistrationController extends BaseController
                     $manager->persist($troop);
                     $player->addTroop($troop);
                 }
+                //messages
+                $message = new Message();
+                $message->setPlayer($player);
+                $message->setSubject('Bienvenido al juego');
+                $text = array(
+                    array('info', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda del juego.'),
+                );
+                $message->setText($text);
+                $message->setClass('info');
+                $message->setOwner(null);
+                $message->setReaded(false);
+                $manager->persist($message);
+                $player->addMessage($message);
                 //resources
                 $player->setNick($user->getUsername());
                 $player->setGold(3000000);
@@ -107,5 +121,12 @@ class RegistrationController extends BaseController
                 'factions' => $factions,
             )
         );
+    }
+
+    public function confirmedAction()
+    {
+        $response = parent::confirmedAction();
+
+        return $this->redirectToRoute('archmage_game_kingdom_summary');
     }
 }

@@ -55,7 +55,7 @@
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }} <span class="label label-extra">Magia</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i>{{ player.items|length|nf }} <span class="label label-extra">Artefactos</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i>{{ player.artifacts|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_magic_artifact') }}">Artefactos</a></span></div>
                         </div>
                     </div>
                 </div>
@@ -158,9 +158,9 @@
                         <div class="col-xs-8 text-padded">
                             {% for contract in player.contracts %}
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}">{{ contract.hero.name }}</a></span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}">{{ contract.hero.name }}</a> [{{ contract.hero.level|nf }}]</span></div>
                             {% else %}
-                            <div class="col-xs-12">No tienes ningún héroe</div>
+                            <div class="col-xs-12">No tienes ningún héroe. Tal vez deberías contratar alguno.</div>
                             {% endfor %}
                         </div>
                     </div>

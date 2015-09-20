@@ -201,7 +201,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setPeopleCap(0);
         $building->setManaCap(0);
         $building->setBuildingRatio(50);
-        $building->setResearchRatio(30);
+        $building->setResearchRatio(3);
         $building->setArtifactRatio(200);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);

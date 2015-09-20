@@ -13,6 +13,36 @@
                 </h1>
             </div>
         </div>
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <div class="panel panel-default" id="info">
+                <div class="panel-heading text-center">Encantamientos
+                    <button type="button" class="close" data-target="#info" data-dismiss="alert">
+                        <i class="fa fa-fw fa-lg fa-times-circle"></i>
+                    </button>
+                </div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/temple.jpg') }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12">Aquí puedes intentar romper un <span class="label label-extra">Encantamiento</span> amigo o enemigo que pese sobre tu reino. Si es enemigo, puede que no consigas traspasar su <span class="label label-extra">Defensa Mágica</span>, suma de sus <span class="label label-extra">Barreras</span> y sus hechizos defensivos.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-middle text-center">Fórmula</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-12 text-center text-only">
+                            PROB<sub>éxito</sub> = MAX( 75, 100 - BARRERAS<sub>jugador</sub> * 1 / 100 )
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    <a class="btn btn-default" href="{{ path( 'archmage_game_magic_conjure' ) }}"><i class="fa fa-fw fa-magic"></i><span class="hidden-xs">Conjurar</span></a>
+                </div>
+            </div>
+        </div>
         {% for enchantment in player.enchantments %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
@@ -46,7 +76,7 @@
         {% if player.enchantments is empty and player.curses is empty %}
         <div class="container">
             <div class="col-xs-12 alert alert-danger ribbon text-responsive text-center" role="alert">
-                <i class="fa fa-fw fa-exclamation-triangle"></i> Actualmente no tienes encantamientos en tu reino, amigos o enemigos. Tal vez deberías <i class="fa fa-fw fa-graduation-cap"></i><a href="{{ path('archmage_game_magic_research') }}">Investigar</a> algunos.
+                <i class="fa fa-fw fa-exclamation-triangle"></i>Actualmente no tienes encantamientos en tu reino, amigos o enemigos. Tal vez deberías <i class="fa fa-fw fa-graduation-cap"></i><a href="{{ path('archmage_game_magic_research') }}">Investigar</a> algunos.
             </div>
         </div>
         {% endif %}

@@ -19,6 +19,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setName('Nigromante');
         $hero->setImage('bundles/archmagegame/images/hero/darkness/necromancer.jpg');
         $hero->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $hero->setExperience(300);
         $hero->setGoldMaintenance(3000);
         $hero->setPeopleMaintenance(6000);
         $hero->setManaMaintenance(1000);
@@ -34,6 +35,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setName('Mago Negro');
         $hero->setImage('bundles/archmagegame/images/hero/darkness/blackmage.jpg');
         $hero->setLore('Un pulmón por aquí, un ojo por allá...');
+        $hero->setExperience(300);
         $hero->setGoldMaintenance(8000);
         $hero->setPeopleMaintenance(0);
         $hero->setManaMaintenance(2000);
@@ -49,6 +51,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setName('Rey de los Demonios');
         $hero->setImage('bundles/archmagegame/images/hero/doom/demonking.jpg');
         $hero->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $hero->setExperience(300);
         $hero->setGoldMaintenance(4000);
         $hero->setPeopleMaintenance(2500);
         $hero->setManaMaintenance(3500);
@@ -64,6 +67,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setName('Jinete de Dragones');
         $hero->setImage('bundles/archmagegame/images/hero/doom/dragonrider.jpg');
         $hero->setLore('Valar Morghulis');
+        $hero->setExperience(300);
         $hero->setGoldMaintenance(4000);
         $hero->setManaMaintenance(4500);
         $hero->setPeopleMaintenance(1500);
@@ -79,6 +83,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setName('Chamán');
         $hero->setImage('bundles/archmagegame/images/hero/ghost/shaman.jpg');
         $hero->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $hero->setExperience(300);
         $hero->setGoldMaintenance(8500);
         $hero->setPeopleMaintenance(1500);
         $hero->setManaMaintenance(0);
@@ -94,6 +99,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setName('Maestro de los Elementos');
         $hero->setImage('bundles/archmagegame/images/hero/ghost/elementsmaster.jpg');
         $hero->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $hero->setExperience(300);
         $hero->setGoldMaintenance(7000);
         $hero->setPeopleMaintenance(2000);
         $hero->setManaMaintenance(1000);
@@ -109,6 +115,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setName('Maestro de las Bestias');
         $hero->setImage('bundles/archmagegame/images/hero/nature/beastlord.jpg');
         $hero->setLore('Cuchi, cuchi, cuchi...');
+        $hero->setExperience(300);
         $hero->setGoldMaintenance(6000);
         $hero->setPeopleMaintenance(1500);
         $hero->setManaMaintenance(2500);
@@ -124,6 +131,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setName('Leprechaunt');
         $hero->setImage('bundles/archmagegame/images/hero/nature/leprechaunt.jpg');
         $hero->setLore('No preguntes de dónde sale el dinero');
+        $hero->setExperience(300);
         $hero->setGoldMaintenance(0);
         $hero->setPeopleMaintenance(5500);
         $hero->setManaMaintenance(4500);
@@ -139,6 +147,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setName('Comandante de los Cielos');
         $hero->setImage('bundles/archmagegame/images/hero/holy/heavencommander.jpg');
         $hero->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $hero->setExperience(300);
         $hero->setGoldMaintenance(8500);
         $hero->setPeopleMaintenance(500);
         $hero->setManaMaintenance(1000);
@@ -154,6 +163,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setName('Cruzado');
         $hero->setImage('bundles/archmagegame/images/hero/holy/crusader.jpg');
         $hero->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $hero->setExperience(300);
         $hero->setGoldMaintenance(7500);
         $hero->setPeopleMaintenance(500);
         $hero->setManaMaintenance(2000);

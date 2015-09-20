@@ -33,7 +33,7 @@ class Artifact
      *
      * @ORM\Column(name="lore", type="string", length=255, nullable=false)
      */
-    private $lore;
+    private $lore = 'Lore';
 
     /**
      * @var string
@@ -54,7 +54,7 @@ class Artifact
      *
      * @ORM\Column(name="rarity", type="smallint", nullable=false)
      */
-    private $rarity;
+    private $rarity = 0;
 
     /**
      * @var Faction

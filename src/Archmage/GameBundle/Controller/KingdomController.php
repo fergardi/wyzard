@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Archmage\GameBundle\Entity\Message;
 
 class KingdomController extends Controller
 {
@@ -68,9 +69,21 @@ class KingdomController extends Controller
             if ($auction && $bid && is_numeric($bid) && $auction->getPlayer() != $player && $bid >= $auction->getBid() && $bid <= $player->getGold() && $player->getTurns() >= 1) {
                 //el jugador no puede tener mas de una instancia del heroe o de la research
                 if (!$player->hasContract($auction->getContract()) && !$player->hasResearch($auction->getResearch())) {
-                    //si existia antes un pujante se le devuelve el dinero de la puja
+                    //si existia antes un pujante se le devuelve el dinero de la puja y se le manda un mensaje
                     if ($auction->getPlayer()) {
                         $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + $auction->getBid());
+                        $message = new Message();
+                        $message->setPlayer($auction->getPlayer());
+                        $message->setSubject('Te han sobrepujado en la subasta');
+                        $text = array(
+                            array('danger', 12, 0, 'center', 'Se te ha devuelto '.$this->get('service.controller')->nf($auction->getBid()).' oro. No dejes que te arrebaten lo que deseas, vuelve a pujar en la subasta!'),
+                        );
+                        $message->setText($text);
+                        $message->setClass('danger');
+                        $message->setOwner(null);
+                        $message->setReaded(false);
+                        $manager->persist($message);
+                        $auction->getPlayer()->addMessage($message);
                     }
                     //actualizamos el dinero de la puja y el actual pujante
                     $auction->setPlayer($player);
@@ -108,7 +121,7 @@ class KingdomController extends Controller
         if ($request->isMethod('POST')) {
             $turns = 10;
             $gold = isset($_POST['gold'])?$_POST['gold']:null;
-            if ($gold && is_numeric($gold) && $gold > 0 && $gold <= $player->getGold() && $gold <= $player->getTurns()) {
+            if ($gold && is_numeric($gold) && $gold > 0 && $gold <= $player->getGold() && $turns <= $player->getTurns()) {
 
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');

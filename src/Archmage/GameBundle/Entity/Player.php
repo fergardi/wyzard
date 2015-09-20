@@ -39,35 +39,35 @@ class Player
      *
      * @ORM\Column(name="gold", type="bigint", nullable=false)
      */
-    private $gold;
+    private $gold = 3000000;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="mana", type="bigint", nullable=false)
      */
-    private $mana;
+    private $mana = 10000;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="people", type="bigint", nullable=false)
      */
-    private $people;
+    private $people = 20000;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="magic", type="smallint", nullable=false)
      */
-    private $magic;
+    private $magic = 1;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="turns", type="smallint", nullable=false)
      */
-    private $turns;
+    private $turns = 300;
 
     /**
      * @var item
@@ -147,9 +147,6 @@ class Player
         $this->messages = new ArrayCollection();
         $this->enchantments = new ArrayCollection();
         $this->curses = new ArrayCollection();
-
-        $this->item = null;
-        $this->research = null;
     }
 
 
@@ -659,6 +656,16 @@ class Player
     }
 
     /**
+     * Get free lands
+     *
+     * @return integer
+     */
+    public function getFree()
+    {
+        return $this->getConstruction('Tierras')->getQuantity();
+    }
+
+    /**
      * Get building
      *
      * @return Construction
@@ -693,9 +700,22 @@ class Player
     {
         $guilds = $this->getConstruction('Gremios')->getQuantity();
         $ratio = $this->getConstruction('Gremios')->getBuilding()->getResearchRatio();
-        $percent = $guilds * $ratio / 1000;
+        $percent = $guilds * $ratio / 100;
         $turns = $turns - ceil($turns * $percent / 100);
         return $turns;
+    }
+
+    /**
+     * Get artifact find ratio
+     *
+     * @return integer
+     */
+    public function getArtifactRatio()
+    {
+        $guilds = $this->getConstruction('Gremios')->getQuantity();
+        $ratio = $this->getConstruction('Gremios')->getBuilding()->getArtifactRatio();
+        $chance = ceil($guilds / $ratio);
+        return $chance;
     }
 
     /*
@@ -890,9 +910,40 @@ class Player
         return $people;
     }
 
+    /**
+     * Get artifacts
+     *
+     * @return integer
+     */
+    public function getArtifacts()
+    {
+        $artifacts = 0;
+        foreach ($this->items as $item) {
+            $artifacts += $item->getQuantity();
+        }
+        return $artifacts;
+    }
+
     /*
      * BUSCAR TROPAS, CONTRATOS Y HECHIZOS
      */
+
+    /**
+     * Get hasItem
+     *
+     * @return boolean
+     */
+    public function hasArtifact(Artifact $search = null)
+    {
+        if ($search) {
+            foreach ($this->items as $item) {
+                if ($item->getArtifact()->getName() == $search->getName()) {
+                    return $item;
+                }
+            }
+        }
+        return false;
+    }
 
     /**
      * Get hasUnit

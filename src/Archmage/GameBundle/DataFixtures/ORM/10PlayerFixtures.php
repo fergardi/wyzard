@@ -117,113 +117,12 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);
-        $message->setSubject('Mensaje directo');
+        $message->setSubject('Bienvenido');
         $text = array(
-            'content' => array(
-                '0' => array(
-                    'class' => 'info',
-                    'length' => '12',
-                    'offset' => '0',
-                    'align' => 'center',
-                    'text' => 'Este es un mensaje de bienvenida generado automaticamente por el servidor.',
-                ),
-            ),
+            array('info', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda del juego.'),
         );
-        $message->setText(json_encode($text));
+        $message->setText($text);
         $message->setClass('info');
-        $message->setOwner(null);
-        $message->setReaded(false);
-        $manager->persist($message);
-        $player->addMessage($message);
-
-        //MENSAJES
-        $message = new Message();
-        $message->setPlayer($player);
-        $message->setSubject('Mercado Negro');
-        $text = array(
-            'content' => array(
-                '0' => array(
-                    'class' => 'success',
-                    'length' => '12',
-                    'offset' => '0',
-                    'align' => 'center',
-                    'text' => 'Has ganado una subasta.',
-                ),
-            ),
-        );
-        $message->setText(json_encode($text));
-        $message->setClass('success');
-        $message->setOwner(null);
-        $message->setReaded(false);
-        $manager->persist($message);
-        $player->addMessage($message);
-
-        //MENSAJES
-        $message = new Message();
-        $message->setPlayer($player);
-        $message->setSubject('Reporte de Batalla');
-        $text = array(
-            'content' => array(
-                '0' => array(
-                    'class' => 'default',
-                    'length' => '12',
-                    'align' => 'center',
-                    'offset' => '0',
-                    'text' => 'Inicio de la batalla',
-                ),
-                '1' => array(
-                    'class' => 'warning',
-                    'length' => '9',
-                    'align' => 'left',
-                    'offset' => '0',
-                    'text' => 'Cosas del jugador izquierdo',
-                ),
-                '2' => array(
-                    'class' => 'info',
-                    'length' => '9',
-                    'offset' => '3',
-                    'align' => 'right',
-                    'text' => 'Cosas del jugador derecho',
-                ),
-                '3' => array(
-                    'class' => 'warning',
-                    'length' => '9',
-                    'align' => 'left',
-                    'offset' => '0',
-                    'text' => 'Cosas del jugador izquierdo',
-                ),
-                '4' => array(
-                    'class' => 'info',
-                    'length' => '9',
-                    'offset' => '3',
-                    'align' => 'right',
-                    'text' => 'Cosas del jugador derecho',
-                ),
-                '5' => array(
-                    'class' => 'warning',
-                    'length' => '9',
-                    'align' => 'left',
-                    'offset' => '0',
-                    'text' => 'Cosas del jugador izquierdo',
-                ),
-                '6' => array(
-                    'class' => 'info',
-                    'length' => '9',
-                    'offset' => '3',
-                    'align' => 'right',
-                    'text' => 'Cosas del jugador derecho',
-                ),
-                '7' => array(
-                    'class' => 'default',
-                    'length' => '12',
-                    'offset' => '0',
-                    'align' => 'center',
-                    'text' => 'Resultado final',
-                ),
-            ),
-        );
-        $message->setText(json_encode($text));
-        $message->setClass('danger');
         $message->setOwner(null);
         $message->setReaded(false);
         $manager->persist($message);

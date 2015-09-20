@@ -13,6 +13,36 @@
                 </h1>
             </div>
         </div>
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <div class="panel panel-default" id="info">
+                <div class="panel-heading text-center">Gremios
+                    <button type="button" class="close" data-target="#info" data-dismiss="alert">
+                        <i class="fa fa-fw fa-lg fa-times-circle"></i>
+                    </button>
+                </div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/guild.jpg') }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12">Aquí puedes gastar <span class="label label-extra">Turnos</span> para investigar nuevos hechizos. Cuantos más hechizos tengas, mayor será tu nivel de <span class="label label-extra">Magia</span>, y cuantos más <span class="label label-extra">Gremios</span> tengas, más rápido terminaras las investigaciones.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-middle text-center">Fórmula</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-12 text-center text-only">
+                            TURNOS<sub>reducidos</sub> = GREMIOS<sub>jugador</sub> * 3 / 100
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    <a class="btn btn-default" href="{{ path( 'archmage_game_territory_build' ) }}"><i class="fa fa-fw fa-wrench"></i><span class="hidden-xs">Construir</span></a>
+                </div>
+            </div>
+        </div>
         {% for research in player.researchs if not research.active and research.spell.magic <= player.magic %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ research.spell.faction.class }}">

@@ -249,14 +249,14 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ artifact.skill.description|raw }}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ artifact.goldAuction|nf }}</div>
                             {# row #}
                             <div class="col-xs-12 text-lore"><small><i>"{{ artifact.lore }}"</i></small></div>
                         </div>
                     </div>
                 </div>
                 <div class="panel-footer text-center text-responsive">
-                    Se obtiene en la <span class="label label-extra">Subasta</span>.
+                    <i class="fa fa-fw fa-joomla"></i>{{ artifact.skill.description|raw }}
                 </div>
             </div>
         </div>

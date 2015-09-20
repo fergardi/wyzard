@@ -40,133 +40,147 @@ class Skill
      *
      * @ORM\Column(name="attackBonus", type="smallint", nullable=false)
      */
-    private $attackBonus;
+    private $attackBonus = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="defenseBonus", type="smallint", nullable=false)
      */
-    private $defenseBonus;
+    private $defenseBonus = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="speedBonus", type="smallint", nullable=false)
      */
-    private $speedBonus;
+    private $speedBonus = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="goldBonus", type="smallint", nullable=false)
      */
-    private $goldBonus;
+    private $goldBonus = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="manaBonus", type="smallint", nullable=false)
      */
-    private $manaBonus;
+    private $manaBonus = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="peopleBonus", type="smallint", nullable=false)
      */
-    private $peopleBonus;
+    private $peopleBonus = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="turnsBonus", type="smallint", nullable=false)
+     */
+    private $turnsBonus = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="terrainBonus", type="smallint", nullable=false)
      */
-    private $terrainBonus;
+    private $terrainBonus = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="damageBonus", type="smallint", nullable=false)
      */
-    private $damageBonus;
+    private $damageBonus = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="conversionBonus", type="smallint", nullable=false)
      */
-    private $conversionBonus;
+    private $conversionBonus = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="magicBonus", type="smallint", nullable=false)
      */
-    private $magicBonus;
+    private $magicBonus = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="barrierBonus", type="smallint", nullable=false)
      */
-    private $barrierBonus;
+    private $barrierBonus = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="artifactBonus", type="smallint", nullable=false)
      */
-    private $artifactBonus;
+    private $artifactBonus = 0;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="quantityBonus", type="integer", nullable=false)
      */
-    private $quantityBonus;
+    private $quantityBonus = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="heroBonus", type="smallint", nullable=false)
+     */
+    private $heroBonus = 0;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="dispell", type="boolean", nullable=false)
      */
-    private $dispell;
+    private $dispell = false;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="spy", type="boolean", nullable=false)
      */
-    private $spy;
+    private $spy = false;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="battle", type="boolean", nullable=false)
      */
-    private $battle;
+    private $battle = false;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="self", type="boolean", nullable=false)
      */
-    private $self;
+    private $self = false;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="summon", type="boolean", nullable=false)
      */
-    private $summon;
+    private $summon = false;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="random", type="boolean", nullable=false)
      */
-    private $random;
+    private $random = false;
 
     /**
      * @var Family
@@ -396,6 +410,29 @@ class Skill
     }
 
     /**
+     * Set turnsBonus
+     *
+     * @param integer $turnsBonus
+     * @return Skill
+     */
+    public function setTurnsBonus($turnsBonus)
+    {
+        $this->turnsBonus = $turnsBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get turnsBonus
+     *
+     * @return integer 
+     */
+    public function getTurnsBonus()
+    {
+        return $this->turnsBonus;
+    }
+
+    /**
      * Set terrainBonus
      *
      * @param integer $terrainBonus
@@ -554,6 +591,29 @@ class Skill
     public function getQuantityBonus()
     {
         return $this->quantityBonus;
+    }
+
+    /**
+     * Set heroBonus
+     *
+     * @param integer $heroBonus
+     * @return Skill
+     */
+    public function setHeroBonus($heroBonus)
+    {
+        $this->heroBonus = $heroBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get heroBonus
+     *
+     * @return integer 
+     */
+    public function getHeroBonus()
+    {
+        return $this->heroBonus;
     }
 
     /**

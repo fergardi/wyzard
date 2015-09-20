@@ -63,17 +63,21 @@ class TerritoryController extends Controller
             if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $player->getConstruction('Tierras')->getQuantity()) {
                 $turns = ceil($lands / ceil(($player->getConstruction('Talleres')->getQuantity() + 1) / $construction->getBuilding()->getBuildingRatio()));
                 $gold = $construction->getBuilding()->getGoldCost() * $lands;
-                if ($turns <= $player->getTurns() && $gold <= $player->getGold()) {
+                $people = $construction->getBuilding()->getPeopleCost() * $lands;
+                $mana = $construction->getBuilding()->getManaCost() * $lands;
+                if ($turns <= $player->getTurns() && $gold <= $player->getGold() && $people <= $player->getPeople() && $mana <= $player->getMana()) {
                     $construction->setQuantity($construction->getQuantity() + $lands);
                     $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() - $lands);
                     $player->setGold($player->getGold() - $gold);
+                    $player->setPeople($player->getPeople() - $people);
+                    $player->setMana($player->getMana() - $mana);
                     $player->setTurns($player->getTurns() - $turns);
                     $this->get('service.controller')->checkMaintenances($turns);
                     $manager->persist($player);
                     $manager->flush();
-                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turno(s) y '.$this->get('service.controller')->nf($gold).' oro y construido '.$this->get('service.controller')->nf($lands).' '. $construction->getBuilding()->getName().'.');
+                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos, '.$this->get('service.controller')->nf($gold).' oro, '.$this->get('service.controller')->nf($people).' personas y '.$this->get('service.controller')->nf($mana).' maná, y construido '.$this->get('service.controller')->nf($lands).' '. $construction->getBuilding()->getName().'.');
                 } else {
-                    $this->addFlash('danger', 'No tienes suficientes turnos para eso.');
+                    $this->addFlash('danger', 'No tienes suficientes turnos, oro, personas o maná para eso.');
                 }
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');

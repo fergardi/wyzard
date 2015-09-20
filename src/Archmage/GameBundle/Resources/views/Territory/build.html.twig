@@ -19,8 +19,14 @@
             {% else %}
         <div class="col-xs-12 col-md-6">
             {% endif %}
-            <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-home"></i><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a> [{{ construction.quantity|nf }}]</div>
+            <div class="panel panel-default" id="info">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-home"></i><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a> [{{ construction.quantity|nf }}]
+                {% if loop.first %}
+                    <button type="button" class="close" data-target="#info" data-dismiss="alert">
+                        <i class="fa fa-fw fa-lg fa-times-circle"></i>
+                    </button>
+                {% endif %}
+                </div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -28,26 +34,26 @@
                         </div>
                         {% if loop.first %}
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes invertir tus <span class="label label-extra">Turnos</span>, <span class="label label-extra">Tierras</span>, <span class="label label-extra">Población</span> y <span class="label label-extra">Oro</span> en construir edificios. Las cifras muestran coste de construcción, recurso proporcionado por turno, mantenimiento por turno, y aumento de recurso máximo.</div>
+                            <div class="col-xs-12">Aquí puedes invertir <span class="label label-extra">Turnos</span>, <span class="label label-extra">Tierras</span>, <span class="label label-extra">Población</span> y <span class="label label-extra">Oro</span> en construir edificios. Las cifras muestran <span class="label label-primary">coste</span>, <span class="label label-success">recurso</span> por turno, <span class="label label-danger">mantenimiento</span> por turno, y aumento de recurso <span class="label label-info">máximo</span>. Cuantos más <span class="label label-extra">Talleres</span> tengas, más rápido construirás.</div>
                         </div>
                         {% else %}
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>-{{ construction.building.goldCost|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>-{{ construction.building.peopleCost|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>-{{ construction.building.manaCost|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-primary">-{{ construction.building.goldCost|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-primary">-{{ construction.building.peopleCost|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-primary">-{{ construction.building.manaCost|nf }}</span></div>
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>+{{ construction.building.goldResource|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>+{{ construction.building.peopleResource|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>+{{ construction.building.manaResource|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-success">+{{ construction.building.goldResource|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-success">+{{ construction.building.peopleResource|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-success">+{{ construction.building.manaResource|nf }}</span></div>
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>-{{ construction.building.goldMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>-{{ construction.building.peopleMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>-{{ construction.building.manaMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-danger">-{{ construction.building.goldMaintenance|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-danger">-{{ construction.building.peopleMaintenance|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-danger">-{{ construction.building.manaMaintenance|nf }}</span></div>
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>+{{ construction.building.goldCap|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>+{{ construction.building.peopleCap|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>+{{ construction.building.manaCap|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-info">+{{ construction.building.goldCap|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-info">+{{ construction.building.peopleCap|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-info">+{{ construction.building.manaCap|nf }}</span></div>
                             {# row #}
                             <div class="col-xs-12 text-lore"><small><i>"{{ construction.building.lore }}"</i></small></div>
                         </div>

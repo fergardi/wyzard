@@ -129,9 +129,9 @@ class Spell
     /**
      * @var boolean
      *
-     * @ORM\Column(name="enchant", type="boolean", nullable=false)
+     * @ORM\Column(name="enchantment", type="boolean", nullable=false)
      */
-    private $enchant = false;
+    private $enchantment = false;
 
     /**
      * @var Faction
@@ -368,6 +368,29 @@ class Spell
     }
 
     /**
+     * Set turnsExpiration
+     *
+     * @param integer $turnsExpiration
+     * @return Spell
+     */
+    public function setTurnsExpiration($turnsExpiration)
+    {
+        $this->turnsExpiration = $turnsExpiration;
+
+        return $this;
+    }
+
+    /**
+     * Get turnsExpiration
+     *
+     * @return integer 
+     */
+    public function getTurnsExpiration()
+    {
+        return $this->turnsExpiration;
+    }
+
+    /**
      * Set goldMaintenance
      *
      * @param integer $goldMaintenance
@@ -483,49 +506,26 @@ class Spell
     }
 
     /**
-     * Set enchant
+     * Set enchantment
      *
-     * @param boolean $enchant
+     * @param boolean $enchantment
      * @return Spell
      */
-    public function setEnchant($enchant)
+    public function setEnchantment($enchantment)
     {
-        $this->enchant = $enchant;
+        $this->enchantment = $enchantment;
 
         return $this;
     }
 
     /**
-     * Get enchant
+     * Get enchantment
      *
      * @return boolean 
      */
-    public function getEnchant()
+    public function getEnchantment()
     {
-        return $this->enchant;
-    }
-
-    /**
-     * Set turnsExpiration
-     *
-     * @param integer $turnsExpiration
-     * @return Spell
-     */
-    public function setTurnsExpiration($turnsExpiration)
-    {
-        $this->turnsExpiration = $turnsExpiration;
-
-        return $this;
-    }
-
-    /**
-     * Get turnsExpiration
-     *
-     * @return integer 
-     */
-    public function getTurnsExpiration()
-    {
-        return $this->turnsExpiration;
+        return $this->enchantment;
     }
 
     /**

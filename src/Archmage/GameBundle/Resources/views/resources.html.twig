@@ -1,10 +1,10 @@
 <small class="text-responsive">
-    <span class="label label-extra"><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</span>
+    <span class="label label-extra"><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}/{{ player.turnsCap|nf }}</span>
     <span class="label label-extra"><i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }}</span>
     <span class="label label-extra"><i class="fa fa-fw fa-diamond"></i>{{ player.artifacts|nf }}</span>
     <span class="label label-extra"><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }}</span>
     <br>
-    <span class="label label-extra"><i class="fa fa-fw fa-users"></i>{{ player.people|nf }} / {{ player.peopleCap|nf }}</span>
-    <span class="label label-extra"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }} / {{ player.manaCap|nf }}</span>
-    <span class="label label-extra"><i class="fa fa-fw fa-globe"></i>{{ player.free|nf }} / {{ player.lands|nf }}</span>
+    <span class="label label-extra"><i class="fa fa-fw fa-users"></i>{{ player.people|nf }}/{{ player.peopleCap|nf }}</span>
+    <span class="label label-extra"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }}/{{ player.manaCap|nf }}</span>
+    <span class="label label-extra"><i class="fa fa-fw fa-globe"></i>{{ player.free|nf }}/{{ player.lands|nf }}</span>
 </small>

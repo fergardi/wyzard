@@ -27,12 +27,16 @@ class TerritoryController extends Controller
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
                 $lands = 0;
                 for ($i = 1; $i <= $turns; $i++) {
+                    $lands += $player->getFreePerTurn();
+                    $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $player->getFreePerTurn());
+                    /*
                     if (($player->getLands() + $lands) < self::LANDS_CAP) {
                         $found = floor(abs(self::LANDS_CAP - $player->getLands() - $lands + 333) / 333);
                         $lands += $found;
                     }
+                    */
                 }
-                $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $lands);
+                //$player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $lands);
                 $player->setTurns($player->getTurns() - $turns);
                 $this->get('service.controller')->checkMaintenances($turns);
                 $manager->persist($player);

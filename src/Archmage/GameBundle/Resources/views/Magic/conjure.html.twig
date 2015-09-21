@@ -14,12 +14,8 @@
             </div>
         </div>
         <div class="col-xs-12 col-md-6 col-md-offset-3">
-            <div class="panel panel-default" id="info">
-                <div class="panel-heading text-center">Defensa Mágica
-                    <button type="button" class="close" data-target="#info" data-dismiss="alert">
-                        <i class="fa fa-fw fa-lg fa-times-circle"></i>
-                    </button>
-                </div>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">Defensa Mágica</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -34,7 +30,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-12 text-center text-only">
-                            PROB<sub>éxito</sub> = MAX( 75, 100 - BARRERAS<sub>jugador</sub> * 1 / 100 )
+                            PROB<sub>éxito</sub> = MAX(75, 100 - BARRERAS<sub>jugador</sub> * 1 / 100)
                         </div>
                     </div>
                 </div>
@@ -46,7 +42,7 @@
         {% for research in player.researchs if research.active and research.spell.magic <= player.magic and not research.spell.skill.battle %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ research.spell.faction.class }}">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i><a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
+                <div class="panel-heading text-center">{% if research.spell.enchantment %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -54,11 +50,10 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ research.spell.magic|nf }}</div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ (research.spell.manaCost * player.magic)|nf }}</div>
-                            {# row #}
-                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ research.spell.turnsCost|nf }}</div>
-                            {% if research.spell.enchant %}
+                            <div class="col-xs-4"><i class="fa fa-fw fa-magic"></i>{{ research.spell.magic|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-hourglass-half"></i>{{ research.spell.turnsCost|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{% if research.spell.faction == player.faction %}{{ (research.spell.manaCost * player.magic)|nf }}{% else %}{{ (research.spell.manaCost * player.magic * 2)|nf }}{% endif %}</div>
+                            {% if research.spell.enchantment %}
                             {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ research.spell.goldMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ research.spell.peopleMaintenance|nf }}</div>
@@ -78,14 +73,14 @@
                                 {% if not research.spell.skill.self %}
                                 <select class="form-control selectpicker" id="target" name="target" data-live-search="true">
                                     <option>Objetivo</option>
-                                    {% for target in targets %}
+                                    {% for target in targets if target != player %}
                                         <option value="{{ target.id }}">{{ target.nick }}</option>
                                     {% endfor %}
                                 </select>
                                 {% endif %}
                                 <input type="hidden" id="research" name="research" value="{{ research.id }}" required />
                                 <div class="btn-group" role="group" aria-label="...">
-                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default" {% if research.spell.manaCost > player.mana %}disabled{% endif %}><i class="fa fa-fw fa-tint"></i><span class="hidden-xs">Conjurar</span></button>
+                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default" {% if research.spell.manaCost * player.magic > player.mana %}disabled{% endif %}><i class="fa fa-fw fa-tint"></i><span class="hidden-xs">Conjurar</span></button>
                                     {% if research.spell.skill.battle %}
                                     <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if research == player.research %}disabled{% endif %}><i class="fa fa-fw fa-shield"></i>Defensa</button>
                                     {% endif %}

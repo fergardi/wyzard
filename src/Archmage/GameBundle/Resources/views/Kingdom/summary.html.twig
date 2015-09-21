@@ -25,11 +25,11 @@
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }} <span class="label label-extra">Oro</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.goldresourceperturn|nf }} - {{ player.goldmaintenanceperturn|nf }} = <span class="label label-{% if player.goldresourceperturn -  player.goldmaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.goldresourceperturn -  player.goldmaintenanceperturn)|nf }}</span> <span class="label label-extra">Oro</span> / <i class="fa fa-fw fa-hourglass-half"></i></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.goldresourceperturn|nf }} - {{ player.goldmaintenanceperturn|nf }} = <span class="label label-{% if player.goldresourceperturn -  player.goldmaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.goldresourceperturn -  player.goldmaintenanceperturn)|nf }}</span> <span class="label label-extra">Oro</span>/<span class="label label-extra">Turno</span></div>
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.people|nf }} / {{ player.peoplecap|nf }} <span class="label label-extra">Personas</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.peopleresourceperturn|nf }} - {{ player.peoplemaintenanceperturn|nf }} = <span class="label label-{% if player.peopleresourceperturn -  player.peoplemaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.peopleresourceperturn -  player.peoplemaintenanceperturn)|nf }}</span> <span class="label label-extra">Personas</span> / <i class="fa fa-fw fa-hourglass-half"></i></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.peopleresourceperturn|nf }} - {{ player.peoplemaintenanceperturn|nf }} = <span class="label label-{% if player.peopleresourceperturn -  player.peoplemaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.peopleresourceperturn -  player.peoplemaintenanceperturn)|nf }}</span> <span class="label label-extra">Personas</span>/<span class="label label-extra">Turno</span></div>
                         </div>
                     </div>
                 </div>
@@ -51,9 +51,9 @@
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }} / {{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }} - {{ player.manamaintenanceperturn|nf }} = <span class="label label-{% if player.manaresourceperturn -  player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }}</span> <span class="label label-extra">Maná</span> / <i class="fa fa-fw fa-hourglass-half"></i></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }} - {{ player.manamaintenanceperturn|nf }} = <span class="label label-{% if player.manaresourceperturn -  player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }}</span> <span class="label label-extra">Maná</span>/<span class="label label-extra">Turno</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }} <span class="label label-extra">Magia</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }} <span class="label label-extra">Nivel de Magia</span></div>
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i>{{ player.artifacts|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_magic_artifact') }}">Artefactos</a></span></div>
                         </div>
@@ -99,11 +99,11 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for troop in player.troops %}
-                                {# row #}
-                                <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name|truncate(10, true) }}</a></span> {{ troop.quantity|nf }}</div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ troop.quantity|nf }} <span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name }}</a></span></div>
                             {% else %}
-                                {# row #}
-                                <div class="col-xs-12">No tienes ninguna tropa. Tal vez deberías reclutar alguna.</div>
+                            {# row #}
+                            <div class="col-xs-12">No tienes ninguna tropa. Tal vez deberías reclutar alguna.</div>
                             {% endfor %}
                         </div>
                     </div>
@@ -130,13 +130,6 @@
                             {% else %}
                             {# row #}
                             <div class="col-xs-12">No tienes ningún encantamiento</div>
-                            {% endfor %}
-                            {% for curse in player.curses %}
-                            {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ curse.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ curse.spell.name|slug }}">{{ curse.spell.name }}</a></span></div>
-                            {% else %}
-                            {# row #}
-                            <div class="col-xs-12">No tienes ninguna maldición</div>
                             {% endfor %}
                         </div>
                     </div>

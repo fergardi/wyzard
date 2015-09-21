@@ -14,12 +14,8 @@
             </div>
         </div>
         <div class="col-xs-12 col-md-6 col-md-offset-3">
-            <div class="panel panel-default" id="info">
-                <div class="panel-heading text-center">Gremios
-                    <button type="button" class="close" data-target="#info" data-dismiss="alert">
-                        <i class="fa fa-fw fa-lg fa-times-circle"></i>
-                    </button>
-                </div>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">Velocidad de investigación</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -34,7 +30,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-12 text-center text-only">
-                            TURNOS<sub>reducidos</sub> = GREMIOS<sub>jugador</sub> * 3 / 100
+                            % TURNOS<sub>reducidos</sub> = GREMIOS<sub>jugador</sub> * 3 / 100
                         </div>
                     </div>
                 </div>
@@ -46,7 +42,7 @@
         {% for research in player.researchs if not research.active and research.spell.magic <= player.magic %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ research.spell.faction.class }}">
-                <div class="panel-heading text-center">{% if research.spell.enchant %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
+                <div class="panel-heading text-center">{% if research.spell.enchantment %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -59,7 +55,7 @@
                             {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ research.turns|nf }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ player.researchRatio(research.spell.turnsResearch)|nf }}</div>
-                            {% if research.spell.enchant %}
+                            {% if research.spell.enchantment %}
                             {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ research.spell.goldMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ research.spell.peopleMaintenance|nf }}</div>
@@ -90,7 +86,7 @@
         {% for spell in spells if spell.magic <= player.magic %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ spell.faction.class }}">
-                <div class="panel-heading text-center">{% if spell.enchant %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ spell.name|slug }}" class="link">{{ spell.name }}</a></div>
+                <div class="panel-heading text-center">{% if spell.enchantment %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ spell.name|slug }}" class="link">{{ spell.name }}</a></div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -103,7 +99,7 @@
                             {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>0</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ player.researchRatio(spell.turnsResearch)|nf }}</div>
-                            {% if spell.enchant %}
+                            {% if spell.enchantment %}
                             {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ spell.goldMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ spell.peopleMaintenance|nf }}</div>
@@ -135,7 +131,7 @@
         {% else %}
         <div class="container">
             <div class="col-xs-12 alert alert-danger ribbon text-responsive text-center" role="alert">
-                <i class="fa fa-fw fa-exclamation-triangle"></i>Ya no tienes más hechizos nuevos que investigar. Tal vez puedas comprar alguno más en el <i class="fa fa-fw fa-user-secret"></i><a href="{{ path( 'archmage_game_kingdom_auction' ) }}">Mercado negro</a>.
+                <i class="fa fa-fw fa-exclamation-triangle"></i>Ya no tienes más hechizos nuevos que investigar hasta que aumentes tu nivel. Tal vez puedas comprar alguno más en el <i class="fa fa-fw fa-user-secret"></i><a href="{{ path( 'archmage_game_kingdom_auction' ) }}">Mercado negro</a>.
             </div>
         </div>
         {% endfor %}

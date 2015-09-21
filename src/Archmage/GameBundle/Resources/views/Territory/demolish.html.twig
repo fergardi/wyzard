@@ -19,14 +19,8 @@
             {% else %}
         <div class="col-xs-12 col-md-6">
             {% endif %}
-            <div class="panel panel-default" id="info">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-home"></i><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a> [{{ construction.quantity|nf }}]
-                {% if loop.first %}
-                    <button type="button" class="close" data-target="#info" data-dismiss="alert">
-                        <i class="fa fa-fw fa-lg fa-times-circle"></i>
-                    </button>
-                {% endif %}
-                </div>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-home"></i><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a> [{{ construction.quantity|nf }}]</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -55,7 +49,7 @@
                                 <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-info">+{{ construction.building.peopleCap|nf }}</span></div>
                                 <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-info">+{{ construction.building.manaCap|nf }}</span></div>
                                 {# row #}
-                                <div class="col-xs-12 text-lore"><small><i>"{{ construction.building.lore }}"</i></small></div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ construction.building.description|raw }}</div>
                             </div>
                         {% endif %}
                     </div>

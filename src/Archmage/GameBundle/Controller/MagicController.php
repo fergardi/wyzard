@@ -11,6 +11,8 @@ use Archmage\GameBundle\Entity\Troop;
 
 class MagicController extends Controller
 {
+    const MAX_TROOPS = 5;
+
     /**
      * @Route("/game/magic/charge")
      * @Template("ArchmageGameBundle:Magic:charge.html.twig")
@@ -39,12 +41,74 @@ class MagicController extends Controller
         );
     }
 
+
     /**
      * @Route("/game/magic/conjure")
      * @Template("ArchmageGameBundle:Magic:conjure.html.twig")
      */
     public function conjureAction(Request $request)
     {
+        $manager = $this->getDoctrine()->getManager();
+        $player = $this->getUser()->getPlayer();
+        $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
+        if ($request->isMethod('POST')) {
+            $research = isset($_POST['research'])?$_POST['research']:null;
+            $action = isset($_POST['action'])?$_POST['action']:null;
+            $research = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($research);
+            if ($action && $research) {
+                if ($action == 'defense') {
+                    $turns = 1;
+                    if ($turns <= $player->getTurns()) {
+                        $player->setResearchDefense($research);
+                        $this->get('service.controller')->checkMaintenances($turns);
+                        $player->setTurns($player->getTurns() - $turns);
+                        $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos en defender con '.$research->getSpell()->getName().'.');
+                    } else {
+                        $this->addFlash('danger', 'No tienes los turnos necesarios para cambiar tu defensa.');
+                    }
+                } else {
+                    $turns = $research->getSpell()->getTurnsCost();
+                    $mana = ($research->getSpell()->getFaction() == $player->getFaction())?$research->getSpell()->getManaCost()*$player->getMagic():$research->getSpell()->getManaCost()*$player->getMagic()*2;
+                    if ($turns <= $player->getTurns() && $mana <= $player->getMana()) {
+                        if ($research->getSpell()->getSkill()->getSelf()) {
+                            $this->get('service.controller')->checkMaintenances($turns);
+                            $player->setTurns($player->getTurns() - $turns);
+                            $player->setMana($player->getMana() - $mana);
+                            $this->get('service.controller')->conjureSelf($research->getSpell());
+                            $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y '.$this->get('service.controller')->nf($mana).' maná en conjurar "'.$research->getSpell()->getName().'".');
+                        } else {
+                            $target = isset($_POST['target'])?$_POST['target']:null;
+                            $target = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($target);
+                            if ($target) {
+                                $this->get('service.controller')->checkMaintenances($turns);
+                                $player->setTurns($player->getTurns() - $turns);
+                                $player->setMana($player->getMana() - $mana);
+                                if (rand(0,99) >= $target->getMagicDefense()) {
+                                    $this->get('service.controller')->conjureTarget($research->getSpell(), $target);
+                                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y '.$this->get('service.controller')->nf($mana).' maná en conjurar "'.$research->getSpell()->getName().'" sobre "'.$target->getNick().'".');
+                                } else {
+                                    $this->addFlash('danger', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y '.$this->get('service.controller')->nf($mana).' maná en conjurar "'.$research->getSpell()->getName().'" sobre "'.$target->getNick().'", pero no ha superado las barreras enemigas.');
+                                }
+                            } else {
+                                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+                            }
+                        }
+                    } else {
+                        $this->addFlash('danger', 'No tienes los recursos necesarios para conjurar ese hechizo.');
+                    }
+                }
+                $manager->persist($player);
+                $manager->flush();
+            } else {
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+            }
+        }
+        return array(
+            'player' => $player,
+            'targets' => $targets,
+        );
+    }
+        /*
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
@@ -61,43 +125,47 @@ class MagicController extends Controller
                         $player->setTurns($player->getTurns() - $turns);
                         $this->get('service.controller')->checkMaintenances($turns);
                         $player->setMana($player->getMana() - $mana);
-                        //self
+                        //self, no magidefense
                         if ($research->getSpell()->getSkill()->getSelf()) {
-                            if ($research->getSpell()->getEnchant()) {
-                            //TODO
-                            } else {
-                                if ($research->getSpell()->getSkill()->getSummon()) {
-                                    //TODO
-                                    if ($player->getTroops()->count() >= 5) {
-                                        $quantity = ceil($research->getSpell()->getSkill()->getQuantityBonus() * $player->getMagic() * rand(95,105) / 100);
-                                        $troop = $player->hasUnit($research->getSpell()->getSkill()->getUnit());
-                                        if ($troop) {
-                                            $troop->setQuantity($troop->getQuantity() + $quantity);
-                                        } else {
-                                            $troop = new Troop();
-                                            $manager->persist($troop);
-                                            $troop->setUnit($research->getSpell()->getSkill()->getUnit());
-                                            $troop->setQuantity($quantity);
-                                            $troop->setPlayer($player);
-                                            $player->addTroop($troop);
-                                        }
-                                        $this->addFlash('success', 'Has invocado '.$this->get('service.controller')->nf($quantity).' unidades '.$research->getSpell()->getSkill()->getUnit()->getName().'.');
+                            $chance = 100;
+                        } else {
+                            $target = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($target);
+                            if ($target) $chance = $target->getMagicDefense();
+                            else $chance = 0;
+                        }
+                        if ($research->getSpell()->getEnchant()) {
+
+                        } else {
+                            if ($research->getSpell()->getSkill()->getSummon()) {
+                                //TODO
+                                $quantity = ceil($research->getSpell()->getSkill()->getQuantityBonus() * $player->getMagic() * rand(95,105) / 100);
+                                $troop = $player->hasUnit($research->getSpell()->getSkill()->getUnit());
+                                if ($troop) {
+                                    $troop->setQuantity($troop->getQuantity() + $quantity);
+                                } else {
+                                    if ($player->getTroops()->count() < self::MAX_TROOPS) {
+                                        $troop = new Troop();
+                                        $manager->persist($troop);
+                                        $troop->setUnit($research->getSpell()->getSkill()->getUnit());
+                                        $troop->setQuantity($quantity);
+                                        $troop->setPlayer($player);
+                                        $player->addTroop($troop);
                                     } else {
                                         $this->addFlash('danger', 'No puedes tener más de 5 tropas distintas al mismo tiempo, desbanda algunas.');
+                                        return $this->redirect($this->generateUrl('archmage_game_army_recruit'));
                                     }
                                 }
+                                $this->addFlash('success', 'Has invocado '.$this->get('service.controller')->nf($quantity).' unidades '.$research->getSpell()->getSkill()->getUnit()->getName().'.');
                             }
-                            $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y '.$this->get('service.controller')->nf($mana).' maná en conjurar '.$research->getSpell()->getName().'.');
-                        } else {
-                            //TODO
                         }
+                        $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y '.$this->get('service.controller')->nf($mana).' maná en conjurar '.$research->getSpell()->getName().'.');
                     } else {
                         $this->addFlash('danger', 'No tienes los recursos necesarios para conjurar ese hechizo.');
                     }
                 }
                 if ($action == 'defense') {
                     $turns = 1;
-                    if ($player->getTurns() > 0) {
+                    if ($turns <= $player->getTurns()) {
                         $player->setResearchDefense($research);
                         $player->setTurns($player->getTurns() - $turns);
                         $this->get('service.controller')->checkMaintenances($turns);
@@ -117,7 +185,7 @@ class MagicController extends Controller
             'player' => $player,
             'targets' => $targets,
         );
-    }
+        */
 
     /**
      * @Route("/game/magic/research")

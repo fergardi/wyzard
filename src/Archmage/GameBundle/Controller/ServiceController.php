@@ -4,6 +4,9 @@ namespace Archmage\GameBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Archmage\GameBundle\Entity\Item;
+use Archmage\GameBundle\Entity\Spell;
+use Archmage\GameBundle\Entity\Player;
+use Archmage\GameBundle\Entity\Troop;
 
 class ServiceController extends Controller
 {
@@ -47,12 +50,74 @@ class ServiceController extends Controller
         $notices = $player->getMessages();
         foreach ($notices as $notice) {
             if (!$notice->getReaded()) {
-                //$notice->setReaded(true);
+                $notice->setReaded(true);
                 $this->addFlash($notice->getClass(), '<a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a>');
             }
         }
         $manager->persist($player);
         $manager->flush();
+    }
+
+    /**
+     * Conjure a spell on myself, can be used from conjure/attack/temple
+     */
+    public function conjureSelf(Spell $spell)
+    {
+        $manager = $this->getDoctrine()->getManager();
+        $player = $this->getUser()->getPlayer();
+        if ($spell->getSkill()->getSummon()) {
+            if ($spell->getSkill()->getUnit()) {
+                $unit = $spell->getSkill()->getUnit();
+            } else {
+                $units = $manager->getRepository('ArchmageGameBundle:Unit')->findByFamily($spell->getSkill()->getFamily());
+                shuffle($units);
+                $unit = $units[0];
+            }
+            $troop = $player->hasUnit($unit);
+            $quantity = $spell->getSkill()->getQuantityBonus();
+            if ($troop) {
+                $troop->setQuantity($troop->getQuantity() + $quantity);
+                $this->addFlash('success', 'Has invocado '.$this->nf($quantity).' "'.$troop->getUnit()->getName().'".');
+            } else {
+                if ($player->getTroops()->count() < $player::TROOP_CAP) {
+                    $troop = new Troop();
+                    $manager->persist($troop);
+                    $troop->setUnit($unit);
+                    $troop->setQuantity($quantity);
+                    $troop->setPlayer($player);
+                    $player->addTroop($troop);
+                    $this->addFlash('success', 'Has invocado '.$this->nf($quantity).' "'.$troop->getUnit()->getName().'".');
+                } else {
+                    $this->addFlash('danger', 'No puedes tener más de 5 tropas distintas al mismo tiempo, debes <i class="fa fa-fw fa-user-times"></i><a href='.$this->generateUrl('archmage_game_army_disband').'>Desbandar</a> alguna.');
+                }
+            }
+        } elseif ($spell->getSkill()->getDispell()) {
+            //TODO
+        } elseif ($spell->getEnchant()) {
+            //TODO
+        } else {
+            //TODO
+        }
+        return false;
+    }
+
+    /**
+     * Conjure a spell on target, can be used from conjure/attack
+     */
+    public function conjureTarget(Spell $spell, Player $target)
+    {
+        $manager = $this->getDoctrine()->getManager();
+        $player = $this->getUser()->getPlayer();
+        if ($spell->getSkill()->getSpy()) {
+            //TODO
+        } elseif ($spell->getEnchantment()) {
+            if (!$target->hasEnchantment($spell)) {
+                $this->addFlash('success', 'Se ha encantado al mago "'.$target->getNick().'" con "'.$spell->getName().'".');
+            } else {
+                $this->addFlash('danger', 'Un mago no puede tener el mismo encantamiento repetido.');
+            }
+        }
+        return false;
     }
 
     /**
@@ -79,7 +144,7 @@ class ServiceController extends Controller
                     $item->setPlayer($player);
                     $player->addItem($item);
                 }
-                $this->addFlash('success', 'Has encontrado por casualidad el artefacto "<a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($item->getArtifact()->getName()).'">'.$item->getArtifact()->getName().'</a>".');
+                $this->addFlash('success', 'Has encontrado por casualidad el artefacto "'.$item->getArtifact()->getName().'".');
             }
             //GOLD
             $gold = $player->getGold() + $player->getGoldResourcePerTurn() - $player->getGoldMaintenancePerTurn();
@@ -92,7 +157,7 @@ class ServiceController extends Controller
                             $player->removeTroop($troop);
                             $manager->remove($troop);
                         }
-                        $this->addFlash('danger', 'Se ha desbandado una Tropa por no pagar mantenimientos de Oro.');
+                        $this->addFlash('danger', 'Se ha desbandado "'.$troop->getUnit()->getName().'" por no pagar mantenimientos de Oro.');
                     }
                 }
             }
@@ -102,7 +167,7 @@ class ServiceController extends Controller
                     if ($contract->getHero()->getGoldMaintenance() > 0) {
                         $player->removeContract($contract);
                         $manager->remove($contract);
-                        $this->addFlash('danger', 'Se ha desbandado un Héroe por no pagar mantenimientos de Oro.');
+                        $this->addFlash('danger', 'Se ha desbandado "'.$contract->getHero()->getName().'" por no pagar mantenimientos de Oro.');
                     }
                 }
             }
@@ -112,7 +177,7 @@ class ServiceController extends Controller
                     if ($enchantment->getSpell()->getGoldMaintenance() > 0) {
                         $player->removeEnchantment($enchantment);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto un Encantamiento por no pagar mantenimientos de Oro.');
+                        $this->addFlash('danger', 'Se ha desencantado "'.$enchantment->getSpell()->getName().'" por no pagar mantenimientos de Oro.');
                     }
                 }
             }
@@ -128,7 +193,7 @@ class ServiceController extends Controller
                             $player->removeTroop($troop);
                             $manager->remove($troop);
                         }
-                        $this->addFlash('danger', 'Se ha desbandado una Tropa por no pagar mantenimientos de Personas.');
+                        $this->addFlash('danger', 'Se ha desbandado "'.$troop->getUnit()->getName().'" por no pagar mantenimientos de Personas.');
                     }
                 }
             }
@@ -138,7 +203,7 @@ class ServiceController extends Controller
                     if ($contract->getHero()->getPeopleMaintenance() > 0) {
                         $player->removeContract($contract);
                         $manager->remove($contract);
-                        $this->addFlash('danger', 'Se ha desbandado un Héroe por no pagar mantenimientos de Personas.');
+                        $this->addFlash('danger', 'Se ha desbandado "'.$contract->getHero()->getName().'" por no pagar mantenimientos de Personas.');
                     }
                 }
             }
@@ -148,7 +213,7 @@ class ServiceController extends Controller
                     if ($enchantment->getSpell()->getPeopleMaintenance() > 0) {
                         $player->removeEnchantment($enchantment);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto un Encantamiento por no pagar mantenimientos de Personas.');
+                        $this->addFlash('danger', 'Se ha desencantado "'.$enchantment->getSpell()->getName().'" por no pagar mantenimientos de Personas.');
                     }
                 }
             }
@@ -164,7 +229,7 @@ class ServiceController extends Controller
                             $player->removeTroop($troop);
                             $manager->remove($troop);
                         }
-                        $this->addFlash('danger', 'Se ha desbandado una Tropa por no pagar mantenimientos de Maná.');
+                        $this->addFlash('danger', 'Se ha desbandado "'.$troop->getUnit()->getName().'" por no pagar mantenimientos de Maná.');
                     }
                 }
             }
@@ -174,7 +239,7 @@ class ServiceController extends Controller
                     if ($contract->getHero()->getManaMaintenance() > 0) {
                         $player->removeContract($contract);
                         $manager->remove($contract);
-                        $this->addFlash('danger', 'Se ha desbandado un Héroe por no pagar mantenimientos de Maná.');
+                        $this->addFlash('danger', 'Se ha desbandado "'.$contract->getHero()->getName().'" por no pagar mantenimientos de Maná.');
                     }
                 }
             }
@@ -184,7 +249,7 @@ class ServiceController extends Controller
                     if ($enchantment->getSpell()->getManaMaintenance() > 0) {
                         $player->removeEnchantment($enchantment);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto un Encantamiento por no pagar mantenimientos de Maná.');
+                        $this->addFlash('danger', 'Se ha desencantado "'.$enchantment->getSpell()->getName().'" por no pagar mantenimientos de Maná.');
                     }
                 }
             }
@@ -196,7 +261,7 @@ class ServiceController extends Controller
             if ($contract->getExperience() >= $contract->getHero()->getExperience() * $contract->getLevel()) {
                 $contract->setExperience($contract->getExperience() - $contract->getHero()->getExperience());
                 $contract->setLevel($contract->getLevel() + 1);
-                $this->addFlash('success', 'El Héroe '.$contract->getHero()->getName().' ha subido de nivel.');
+                $this->addFlash('success', 'Tu '.$contract->getHero()->getName().' ha subido de nivel.');
             }
         }
     }

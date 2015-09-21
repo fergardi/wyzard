@@ -22,12 +22,20 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/army.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            Bla
+                            <div class="col-xs-12">Aquí puedes gastar <span class="label label-extra">Turnos</span> y <span class="label label-extra">Oro</span> para reclutar tropas simples para tu ejército. Cuantos más <span class="label label-extra">Barracones</span> tengas, más tropas reclutarás por turno.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-middle text-center">Fórmula</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-12 text-center text-only">
+                            TIERRAS<sub>exploradas</sub> = ({{ 3500|nf }} - TIERRAS<sub>jugador</sub> + 333) / 333
                         </div>
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    Bla
+                    <a class="btn btn-default" href="{{ path( 'archmage_game_army_disband' ) }}"><i class="fa fa-fw fa-user-times"></i><span class="hidden-xs">Desbandar</span></a>
                 </div>
             </div>
         </div>

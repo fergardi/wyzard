@@ -4,6 +4,7 @@ namespace Archmage\GameBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Archmage\GameBundle\Entity\Spell;
 
 /**
  * Player
@@ -14,9 +15,13 @@ use Doctrine\ORM\Mapping as ORM;
 class Player
 {
     /**
-     * research cap
+     * CAPS
      */
     const RESEARCH_CAP = 75;
+    const TURNS_CAP = 30000;
+    const MAGICDEFENSE_CAP = 75;
+    const LANDS_CAP = 3500;
+    const TROOP_CAP = 5;
 
     /**
      * @var integer
@@ -289,7 +294,7 @@ class Player
      */
     public function setTurns($turns)
     {
-        $this->turns = min($turns, $this->getTurnsCap());
+        $this->turns = min($turns, self::TURNS_CAP);
 
         return $this;
     }
@@ -656,6 +661,16 @@ class Player
     }
 
     /**
+     * Get freePerTurn
+     *
+     * @return integer
+     */
+    public function getFreePerTurn()
+    {
+        return floor(abs(self::LANDS_CAP - $this->getLands() + 333) / 333);
+    }
+
+    /**
      * Get free lands
      *
      * @return integer
@@ -700,7 +715,7 @@ class Player
     {
         $guilds = $this->getConstruction('Gremios')->getQuantity();
         $ratio = $this->getConstruction('Gremios')->getBuilding()->getResearchRatio();
-        $percent = $guilds * $ratio / 100;
+        $percent = min(self::RESEARCH_CAP, $guilds * $ratio / 100);
         $turns = $turns - ceil($turns * $percent / 100);
         return $turns;
     }
@@ -719,8 +734,23 @@ class Player
     }
 
     /*
-     * POWER AND RANKING
+     * POWER RANKING MAGICDEFENSE
      */
+
+    /**
+     * Get magicDefense
+     *
+     * @return integer
+     */
+    public function getMagicDefense()
+    {
+        $magicDefense = 5;
+        $magicDefense += $this->getConstruction('Barreras')->getQuantity();
+        foreach ($this->enchantments as $enchantment) {
+            $magicDefense += $enchantment->getSpell()->getSkill()->getBarrierBonus();
+        }
+        return min(75,$magicDefense);
+    }
 
     /**
      * Get power
@@ -763,8 +793,7 @@ class Player
      */
     public function getTurnsCap()
     {
-        return 30000;
-        return 300;
+        return self::TURNS_CAP;
     }
 
     /**
@@ -929,7 +958,7 @@ class Player
      */
 
     /**
-     * Get hasItem
+     * Has item
      *
      * @return boolean
      */
@@ -946,7 +975,7 @@ class Player
     }
 
     /**
-     * Get hasUnit
+     * Has unit
      *
      * @return boolean
      */
@@ -954,7 +983,7 @@ class Player
     {
         if ($search) {
             foreach ($this->troops as $troop) {
-                if ($troop->getUnit()->getName() == $search->getName()) {
+                if ($troop->getUnit() == $search) {
                     return $troop;
                 }
             }
@@ -963,7 +992,7 @@ class Player
     }
 
     /**
-     * Get hasTroop
+     * Has troop
      *
      * @return boolean
      */
@@ -971,7 +1000,7 @@ class Player
     {
         if ($search) {
             foreach ($this->troops as $troop) {
-                if ($troop->getUnit()->getName() == $search->getUnit()->getName()) {
+                if ($troop->getUnit() == $search->getUnit()) {
                     return $troop;
                 }
             }
@@ -980,7 +1009,7 @@ class Player
     }
 
     /**
-     * Get hasContract
+     * HAs contract
      *
      * @return boolean
      */
@@ -988,7 +1017,7 @@ class Player
     {
         if ($search) {
             foreach ($this->contracts as $contract) {
-                if ($contract->getHero()->getName() == $search->getHero()->getName()) {
+                if ($contract->getHero() == $search->getHero()) {
                     return $contract;
                 }
             }
@@ -997,7 +1026,7 @@ class Player
     }
 
     /**
-     * Get hasResearch
+     * Has research
      *
      * @return boolean
      */
@@ -1005,8 +1034,25 @@ class Player
     {
         if ($search) {
             foreach ($this->researchs as $research) {
-                if ($research->getSpell()->getName() == $search->getSpell()->getName()) {
+                if ($research->getSpell() == $search->getSpell()) {
                     return $research;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Has enchantment
+     *
+     * @return boolean
+     */
+    public function hasEnchantment(Spell $search = null)
+    {
+        if ($search) {
+            foreach ($this->enchantments as $enchantment) {
+                if ($enchantment->getSpell() == $search) {
+                    return $enchantment;
                 }
             }
         }

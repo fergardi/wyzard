@@ -202,7 +202,7 @@
         {% for spell in spells %}
         <div class="col-xs-12 col-md-6"><a name="{{ spell.name|slug }}"></a>
             <div class="panel panel-{{ spell.faction.class }}">
-                <div class="panel-heading text-center">{% if spell.enchant %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}{{ spell.name }}</div>
+                <div class="panel-heading text-center">{% if spell.enchantment %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}{{ spell.name }}</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -211,12 +211,12 @@
                         <div class="col-xs-8 text-padded">
                             {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ spell.magic|nf }}</div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ spell.manaCost|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ (spell.manaCost * spell.magic)|nf }}</div>
                             {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ spell.turnsCost|nf }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ spell.turnsResearch }}</div>
                             {# row #}
-                            {% if spell.enchant %}
+                            {% if spell.enchantment %}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ spell.goldMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ spell.peopleMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ spell.manaMaintenance|nf }}</div>

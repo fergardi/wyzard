@@ -9,6 +9,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class HomeController extends Controller
 {
     /**
+     * @Route("/")
+     */
+    public function indexAction()
+    {
+        return $this->redirect($this->generateUrl('fos_user_security_login'));
+    }
+
+    /**
      * @Route("/help")
      * @Template("ArchmageGameBundle:Home:help.html.twig")
      */

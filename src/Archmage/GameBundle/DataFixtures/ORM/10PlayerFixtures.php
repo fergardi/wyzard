@@ -109,11 +109,26 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         */
         //ENCANTAMIENTOS
         $enchantment = new Enchantment();
-        $enchantment->setSpell($this->getReference('Plaga'));
+        $enchantment->setSpell($this->getReference('Plaga enchant'));
         $enchantment->setVictim($player);
         $enchantment->setOwner($player);
         $manager->persist($enchantment);
-        $player->addEnchantment($enchantment);
+        $player->addEnchantmentsOwner($enchantment);
+        $player->addEnchantmentsVictim($enchantment);
+        $enchantment = new Enchantment();
+        $enchantment->setSpell($this->getReference('Paz enchant'));
+        $enchantment->setVictim($player);
+        $enchantment->setOwner($player);
+        $manager->persist($enchantment);
+        $player->addEnchantmentsOwner($enchantment);
+        $player->addEnchantmentsVictim($enchantment);
+        $enchantment = new Enchantment();
+        $enchantment->setSpell($this->getReference('Volcano enchant'));
+        $enchantment->setVictim($player);
+        $enchantment->setOwner($player);
+        $manager->persist($enchantment);
+        $player->addEnchantmentsOwner($enchantment);
+        $player->addEnchantmentsVictim($enchantment);
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);
@@ -131,7 +146,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //gold, people, player, based on constructions should be last
         $player->setGold(3000000);
         $player->setPeople(20000);
-        $player->setMana(1000);
+        $player->setMana(10000);
         $player->setTurns(30000);
         $player->setMagic(1);
 

@@ -19,9 +19,10 @@ class Player
      */
     const RESEARCH_CAP = 75;
     const TURNS_CAP = 30000;
+    const MAGICDEFENSE_BASE= 5;
     const MAGICDEFENSE_CAP = 75;
     const LANDS_CAP = 3500;
-    const TROOP_CAP = 5;
+    const TROOPS_CAP = 5;
 
     /**
      * @var integer
@@ -131,12 +132,12 @@ class Player
     /**
      * @ORM\OneToMany(targetEntity="Enchantment", mappedBy="owner")
      **/
-    private $enchantments;
+    private $enchantmentsOwner;
 
     /**
      * @ORM\OneToMany(targetEntity="Enchantment", mappedBy="victim")
      **/
-    private $curses;
+    private $enchantmentsVictim;
 
 
     /**
@@ -150,10 +151,9 @@ class Player
         $this->items = new ArrayCollection();
         $this->contracts = new ArrayCollection();
         $this->messages = new ArrayCollection();
-        $this->enchantments = new ArrayCollection();
-        $this->curses = new ArrayCollection();
+        $this->enchantmentsOwner = new ArrayCollection();
+        $this->enchantmentsVictim = new ArrayCollection();
     }
-
 
     /**
      * Get id
@@ -577,69 +577,69 @@ class Player
     }
 
     /**
-     * Add enchantments
+     * Add enchantmentsOwner
      *
-     * @param \Archmage\GameBundle\Entity\Enchantment $enchantments
+     * @param \Archmage\GameBundle\Entity\Enchantment $enchantmentOwner
      * @return Player
      */
-    public function addEnchantment(\Archmage\GameBundle\Entity\Enchantment $enchantment)
+    public function addEnchantmentsOwner(\Archmage\GameBundle\Entity\Enchantment $enchantment)
     {
-        $this->enchantments[] = $enchantment;
+        $this->enchantmentsOwner[] = $enchantment;
 
         return $this;
     }
 
     /**
-     * Remove enchantments
+     * Remove enchantmentsOwner
      *
-     * @param \Archmage\GameBundle\Entity\Enchantment $enchantments
+     * @param \Archmage\GameBundle\Entity\Enchantment $enchantment
      */
-    public function removeEnchantment(\Archmage\GameBundle\Entity\Enchantment $enchantment)
+    public function removeEnchantmentsOwner(\Archmage\GameBundle\Entity\Enchantment $enchantment)
     {
-        $this->enchantments->removeElement($enchantment);
+        $this->enchantmentsOwner->removeElement($enchantment);
     }
 
     /**
-     * Get enchantments
+     * Get enchantmentsOwner
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEnchantments()
+    public function getEnchantmentsOwner()
     {
-        return $this->enchantments;
+        return $this->enchantmentsOwner;
     }
 
     /**
-     * Add curses
+     * Add enchantmentsVictim
      *
-     * @param \Archmage\GameBundle\Entity\Enchantment $curses
+     * @param \Archmage\GameBundle\Entity\Enchantment $enchantmentVictim
      * @return Player
      */
-    public function addCurse(\Archmage\GameBundle\Entity\Enchantment $curse)
+    public function addEnchantmentsVictim(\Archmage\GameBundle\Entity\Enchantment $enchantment)
     {
-        $this->curses[] = $curse;
+        $this->enchantmentsVictim[] = $enchantment;
 
         return $this;
     }
 
     /**
-     * Remove curses
+     * Remove enchantmentsVictim
      *
-     * @param \Archmage\GameBundle\Entity\Enchantment $curses
+     * @param \Archmage\GameBundle\Entity\Enchantment $enchantment
      */
-    public function removeCurse(\Archmage\GameBundle\Entity\Enchantment $curse)
+    public function removeEnchantmentsVictim(\Archmage\GameBundle\Entity\Enchantment $enchantment)
     {
-        $this->curses->removeElement($curse);
+        $this->enchantmentsVictim->removeElement($enchantment);
     }
 
     /**
-     * Get curses
+     * Get enchantmentsVictim
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCurses()
+    public function getEnchantmentsVictim()
     {
-        return $this->curses;
+        return $this->enchantmentsVictim;
     }
 
     /*
@@ -667,7 +667,7 @@ class Player
      */
     public function getFreePerTurn()
     {
-        return floor(abs(self::LANDS_CAP - $this->getLands() + 333) / 333);
+        return floor(abs(self::LANDS_CAP - $this->getLands() + 333) / (float)333);
     }
 
     /**
@@ -715,8 +715,8 @@ class Player
     {
         $guilds = $this->getConstruction('Gremios')->getQuantity();
         $ratio = $this->getConstruction('Gremios')->getBuilding()->getResearchRatio();
-        $percent = min(self::RESEARCH_CAP, $guilds * $ratio / 100);
-        $turns = $turns - ceil($turns * $percent / 100);
+        $percent = min(self::RESEARCH_CAP, $guilds * $ratio / (float)100);
+        $turns = $turns - ceil($turns * $percent / (float)100);
         return $turns;
     }
 
@@ -729,7 +729,7 @@ class Player
     {
         $guilds = $this->getConstruction('Gremios')->getQuantity();
         $ratio = $this->getConstruction('Gremios')->getBuilding()->getArtifactRatio();
-        $chance = ceil($guilds / $ratio);
+        $chance = ceil($guilds / (float)$ratio);
         return $chance;
     }
 
@@ -744,7 +744,7 @@ class Player
      */
     public function getMagicDefense()
     {
-        $magicDefense = 5;
+        $magicDefense = self::MAGICDEFENSE_BASE;
         $magicDefense += $this->getConstruction('Barreras')->getQuantity();
         foreach ($this->enchantments as $enchantment) {
             $magicDefense += $enchantment->getSpell()->getSkill()->getBarrierBonus();
@@ -839,21 +839,13 @@ class Player
         foreach ($this->constructions as $construction) {
             $gold += $construction->getQuantity() * $construction->getBuilding()->getGoldResource();
         }
-        return $gold;
-    }
-
-    /**
-     * Get manaResourcePerTurn
-     *
-     * @return integer
-     */
-    public function getManaResourcePerTurn()
-    {
-        $mana = 0;
-        foreach ($this->constructions as $construction) {
-            $mana += $construction->getQuantity() * $construction->getBuilding()->getManaResource();
+        foreach ($this->contracts as $contract) {
+            $gold += floor($gold * $contract->getHero()->getSkill()->getGoldBonus() * $contract->getHero()->getLevel() / (float)100);
         }
-        return $mana;
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            $gold += floor($gold * $enchantment->getSpell()->getSkill()->getGoldBonus() * $enchantment->getOwner()->getMagic() / (float)100);
+        }
+        return $gold;
     }
 
     /**
@@ -867,7 +859,33 @@ class Player
         foreach ($this->constructions as $construction) {
             $people += $construction->getQuantity() * $construction->getBuilding()->getPeopleResource();
         }
+        foreach ($this->contracts as $contract) {
+            $people += floor($people * $contract->getHero()->getSkill()->getPeopleBonus() * $contract->getHero()->getLevel() / (float)100);
+        }
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            $people += floor($people * $enchantment->getSpell()->getSkill()->getPeopleBonus() * $enchantment->getOwner()->getMagic() / (float)100);
+        }
         return $people;
+    }
+
+    /**
+     * Get manaResourcePerTurn
+     *
+     * @return integer
+     */
+    public function getManaResourcePerTurn()
+    {
+        $mana = 0;
+        foreach ($this->constructions as $construction) {
+            $mana += $construction->getQuantity() * $construction->getBuilding()->getManaResource();
+        }
+        foreach ($this->contracts as $contract) {
+            $mana += floor($mana * $contract->getHero()->getSkill()->getManaBonus() * $contract->getHero()->getLevel() / (float)100);
+        }
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            $mana += floor($mana * $enchantment->getSpell()->getSkill()->getManaBonus() * $enchantment->getOwner()->getMagic() / (float)100);
+        }
+        return $mana;
     }
 
     /**
@@ -887,33 +905,10 @@ class Player
         foreach ($this->constructions as $construction) {
             $gold += $construction->getBuilding()->getGoldMaintenance() * $construction->getQuantity();
         }
-        foreach ($this->enchantments as $enchantment) {
-            $gold += $enchantment->getSpell()->getGoldMaintenance();
+        foreach ($this->enchantmentsOwner as $enchantment) {
+            $gold += $enchantment->getSpell()->getGoldMaintenance() * $enchantment->getOwner()->getMagic();
         }
         return $gold;
-    }
-
-    /**
-     * Get manaMaintenancePerTurn
-     *
-     * @return integer
-     */
-    public function getManaMaintenancePerTurn()
-    {
-        $mana = 0;
-        foreach ($this->troops as $troop) {
-            $mana += $troop->getUnit()->getManaMaintenance() * $troop->getQuantity();
-        }
-        foreach ($this->contracts as $contract) {
-            $mana += $contract->getHero()->getManaMaintenance();
-        }
-        foreach ($this->constructions as $construction) {
-            $mana += $construction->getBuilding()->getManaMaintenance() * $construction->getQuantity();
-        }
-        foreach ($this->enchantments as $enchantment) {
-            $mana += $enchantment->getSpell()->getManaMaintenance();
-        }
-        return $mana;
     }
 
     /**
@@ -933,10 +928,33 @@ class Player
         foreach ($this->constructions as $construction) {
             $people += $construction->getBuilding()->getPeopleMaintenance() * $construction->getQuantity();
         }
-        foreach ($this->enchantments as $enchantment) {
-            $people += $enchantment->getSpell()->getPeopleMaintenance();
+        foreach ($this->enchantmentsOwner as $enchantment) {
+            $people += $enchantment->getSpell()->getPeopleMaintenance() * $enchantment->getOwner()->getMagic();
         }
         return $people;
+    }
+
+    /**
+     * Get manaMaintenancePerTurn
+     *
+     * @return integer
+     */
+    public function getManaMaintenancePerTurn()
+    {
+        $mana = 0;
+        foreach ($this->troops as $troop) {
+            $mana += $troop->getUnit()->getManaMaintenance() * $troop->getQuantity();
+        }
+        foreach ($this->contracts as $contract) {
+            $mana += $contract->getHero()->getManaMaintenance();
+        }
+        foreach ($this->constructions as $construction) {
+            $mana += $construction->getBuilding()->getManaMaintenance() * $construction->getQuantity();
+        }
+        foreach ($this->enchantmentsOwner as $enchantment) {
+            $mana += $enchantment->getSpell()->getManaMaintenance() * $enchantment->getOwner()->getMagic();
+        }
+        return $mana;
     }
 
     /**
@@ -1047,10 +1065,10 @@ class Player
      *
      * @return boolean
      */
-    public function hasEnchantment(Spell $search = null)
+    public function hasEnchantmentVictim(Spell $search = null)
     {
         if ($search) {
-            foreach ($this->enchantments as $enchantment) {
+            foreach ($this->enchantmentsVictim as $enchantment) {
                 if ($enchantment->getSpell() == $search) {
                     return $enchantment;
                 }

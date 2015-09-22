@@ -59,7 +59,7 @@ class Construction
      */
     public function setQuantity($quantity)
     {
-        $this->quantity = $quantity;
+        $this->quantity = max(0, $quantity);
 
         return $this;
     }

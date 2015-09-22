@@ -379,7 +379,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(true);
         $spell->setTurnsExpiration(0);
-        $this->setReference($spell->getName(), $spell);
+        $this->setReference($spell->getName().' enchant', $spell);
         $manager->persist($spell);
 
         //VOODOO
@@ -1867,7 +1867,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(true);
         $spell->setTurnsExpiration(0);
-        //$this->setReference($spell->getName(), $spell);
+        $this->setReference($spell->getName().' enchant', $spell);
         $manager->persist($spell);
 
         //CALMA
@@ -2331,7 +2331,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(true);
         $spell->setTurnsExpiration(0);
-        //$this->setReference($spell->getName(), $spell);
+        $this->setReference($spell->getName().' enchant', $spell);
         $manager->persist($spell);
 
         //COMBUSTION

@@ -44,13 +44,13 @@ class Enchantment
     private $spell;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Player", inversedBy="enchantments")
+     * @ORM\ManyToOne(targetEntity="Player", inversedBy="enchantmentsOwner")
      * @ORM\JoinColumn(name="owner", referencedColumnName="id", nullable=false)
      **/
     private $owner;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Player", inversedBy="curses")
+     * @ORM\ManyToOne(targetEntity="Player", inversedBy="enchantmentsVictim")
      * @ORM\JoinColumn(name="victim", referencedColumnName="id", nullable=false)
      **/
     private $victim;

@@ -79,7 +79,7 @@ class ServiceController extends Controller
                 $troop->setQuantity($troop->getQuantity() + $quantity);
                 $this->addFlash('success', 'Has invocado '.$this->nf($quantity).' "'.$troop->getUnit()->getName().'".');
             } else {
-                if ($player->getTroops()->count() < $player::TROOP_CAP) {
+                if ($player->getTroops()->count() < $player::TROOPS_CAP) {
                     $troop = new Troop();
                     $manager->persist($troop);
                     $troop->setUnit($unit);
@@ -88,12 +88,12 @@ class ServiceController extends Controller
                     $player->addTroop($troop);
                     $this->addFlash('success', 'Has invocado '.$this->nf($quantity).' "'.$troop->getUnit()->getName().'".');
                 } else {
-                    $this->addFlash('danger', 'No puedes tener más de 5 tropas distintas al mismo tiempo, debes <i class="fa fa-fw fa-user-times"></i><a href='.$this->generateUrl('archmage_game_army_disband').'>Desbandar</a> alguna.');
+                    $this->addFlash('danger', 'No puedes tener más de '.$player::TROOPS_CAP.' tropas distintas al mismo tiempo, debes <i class="fa fa-fw fa-user-times"></i><a href='.$this->generateUrl('archmage_game_army_disband').'>Desbandar</a> alguna.');
                 }
             }
         } elseif ($spell->getSkill()->getDispell()) {
             //TODO
-        } elseif ($spell->getEnchant()) {
+        } elseif ($spell->getEnchantment()) {
             //TODO
         } else {
             //TODO
@@ -114,7 +114,7 @@ class ServiceController extends Controller
             if (!$target->hasEnchantment($spell)) {
                 $this->addFlash('success', 'Se ha encantado al mago "'.$target->getNick().'" con "'.$spell->getName().'".');
             } else {
-                $this->addFlash('danger', 'Un mago no puede tener el mismo encantamiento repetido.');
+                $this->addFlash('danger', 'Un mago no puede tener el mismo encantamiento varias veces.');
             }
         }
         return false;
@@ -129,10 +129,19 @@ class ServiceController extends Controller
         $player = $this->getUser()->getPlayer();
         $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
         for ($i = 1; $i <= $turns; $i++) {
+            //BUILDINGS
+            foreach ($player->getEnchantmentsVictim() as $enchantment) {
+                if ($enchantment->getSpell()->getSkill()->getTerrainBonus() < 0) {
+                    foreach ($player->getConstructions() as $construction) {
+                        $quantity = (int)round(abs($construction->getQuantity() * $enchantment->getSpell()->getSkill()->getTerrainBonus() * $enchantment->getOwner()->getMagic() / (float)100));
+                        $construction->setQuantity($construction->getQuantity() - $quantity);
+                    }
+                }
+            }
             //ARTIFACTS
             if (rand(0,99) <= $player->getArtifactRatio()) {
                 shuffle($artifacts);
-                $artifact = $artifacts[0];
+                $artifact = $artifacts[0]; //suponemos length > 0
                 $item = $player->hasArtifact($artifact);
                 if ($item) {
                     $item->setQuantity($item->getQuantity() + 1);
@@ -152,7 +161,7 @@ class ServiceController extends Controller
                 $gold = $player->getGold() + $player->getGoldResourcePerTurn() - $player->getGoldMaintenancePerTurn();
                 if ($gold < 0) {
                     if ($troop->getUnit()->getGoldMaintenance() > 0) {
-                        $troop->setQuantity($troop->getQuantity() - ceil(abs($gold) / $troop->getUnit()->getGoldMaintenance()));
+                        $troop->setQuantity($troop->getQuantity() - ceil(abs($gold) / (float)$troop->getUnit()->getGoldMaintenance()));
                         if ($troop->getQuantity() <= 0) {
                             $player->removeTroop($troop);
                             $manager->remove($troop);
@@ -171,13 +180,16 @@ class ServiceController extends Controller
                     }
                 }
             }
-            foreach ($player->getEnchantments() as $enchantment) {
+            foreach ($player->getEnchantmentsOwner() as $enchantment) {
                 $gold = $player->getGold() + $player->getGoldResourcePerTurn() - $player->getGoldMaintenancePerTurn();
                 if ($gold < 0) {
                     if ($enchantment->getSpell()->getGoldMaintenance() > 0) {
-                        $player->removeEnchantment($enchantment);
+                        $victim = $enchantment->getVictim();
+                        $player->removeEnchantmentsOwner($enchantment);
+                        $victim->removeEnchantmentsVictim($enchantment);
+                        $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha desencantado "'.$enchantment->getSpell()->getName().'" por no pagar mantenimientos de Oro.');
+                        $this->addFlash('danger', 'Se ha roto "'.$enchantment->getSpell()->getName().'" por no pagar mantenimientos de Oro.');
                     }
                 }
             }
@@ -188,7 +200,7 @@ class ServiceController extends Controller
                 $people = $player->getPeople() + $player->getPeopleResourcePerTurn() - $player->getPeopleMaintenancePerTurn();
                 if ($people < 0) {
                     if ($troop->getUnit()->getPeopleMaintenance() > 0) {
-                        $troop->setQuantity($troop->getQuantity() - ceil(abs($people) / $troop->getUnit()->getPeopleMaintenance()));
+                        $troop->setQuantity($troop->getQuantity() - ceil(abs($people) / (float)$troop->getUnit()->getPeopleMaintenance()));
                         if ($troop->getQuantity() <= 0) {
                             $player->removeTroop($troop);
                             $manager->remove($troop);
@@ -207,13 +219,16 @@ class ServiceController extends Controller
                     }
                 }
             }
-            foreach ($player->getEnchantments() as $enchantment) {
+            foreach ($player->getEnchantmentsOwner() as $enchantment) {
                 $people = $player->getPeople() + $player->getPeopleResourcePerTurn() - $player->getPeopleMaintenancePerTurn();
                 if ($people < 0) {
                     if ($enchantment->getSpell()->getPeopleMaintenance() > 0) {
-                        $player->removeEnchantment($enchantment);
+                        $victim = $enchantment->getVictim();
+                        $player->removeEnchantmentsOwner($enchantment);
+                        $victim->removeEnchantmentsVictim($enchantment);
+                        $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha desencantado "'.$enchantment->getSpell()->getName().'" por no pagar mantenimientos de Personas.');
+                        $this->addFlash('danger', 'Se ha roto "'.$enchantment->getSpell()->getName().'" por no pagar mantenimientos de Personas.');
                     }
                 }
             }
@@ -224,7 +239,7 @@ class ServiceController extends Controller
                 $mana = $player->getMana() + $player->getManaResourcePerTurn() - $player->getManaMaintenancePerTurn();
                 if ($mana < 0) {
                     if ($troop->getUnit()->getManaMaintenance() > 0) {
-                        $troop->setQuantity($troop->getQuantity() - ceil(abs($mana) / $troop->getUnit()->getManaMaintenance()));
+                        $troop->setQuantity($troop->getQuantity() - ceil(abs($mana) / (float)$troop->getUnit()->getManaMaintenance()));
                         if ($troop->getQuantity() <= 0) {
                             $player->removeTroop($troop);
                             $manager->remove($troop);
@@ -243,25 +258,28 @@ class ServiceController extends Controller
                     }
                 }
             }
-            foreach ($player->getEnchantments() as $enchantment) {
+            foreach ($player->getEnchantmentsOwner() as $enchantment) {
                 $mana = $player->getMana() + $player->getManaResourcePerTurn() - $player->getManaMaintenancePerTurn();
                 if ($mana < 0) {
                     if ($enchantment->getSpell()->getManaMaintenance() > 0) {
-                        $player->removeEnchantment($enchantment);
+                        $victim = $enchantment->getVictim();
+                        $player->removeEnchantmentsOwner($enchantment);
+                        $victim->removeEnchantmentsVictim($enchantment);
+                        $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha desencantado "'.$enchantment->getSpell()->getName().'" por no pagar mantenimientos de Maná.');
+                        $this->addFlash('danger', 'Se ha roto "'.$enchantment->getSpell()->getName().'" por no pagar mantenimientos de Maná.');
                     }
                 }
             }
             $player->setMana($mana);
         }
-        //HEROES
+        //EXPERIENCE
         foreach ($player->getContracts() as $contract) {
             $contract->setExperience($contract->getExperience() + $turns);
             if ($contract->getExperience() >= $contract->getHero()->getExperience() * $contract->getLevel()) {
                 $contract->setExperience($contract->getExperience() - $contract->getHero()->getExperience());
                 $contract->setLevel($contract->getLevel() + 1);
-                $this->addFlash('success', 'Tu '.$contract->getHero()->getName().' ha subido de nivel.');
+                $this->addFlash('success', 'Tu "'.$contract->getHero()->getName().'" ha subido de nivel.');
             }
         }
     }

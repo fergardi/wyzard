@@ -2,6 +2,7 @@
 
 namespace Archmage\GameBundle\Controller;
 
+use Proxies\__CG__\Archmage\GameBundle\Entity\Enchantment;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -116,13 +117,30 @@ class KingdomController extends Controller
     public function templeAction(Request $request)
     {
         $manager = $this->getDoctrine()->getManager();
-        $user = $manager->getRepository('ArchmageUserBundle:User')->findOneByUsername($this->getUser()->getUsername());
-        $player = $user->getPlayer();
+        $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
             $turns = 10;
             $gold = isset($_POST['gold'])?$_POST['gold']:null;
             if ($gold && is_numeric($gold) && $gold > 0 && $gold <= $player->getGold() && $turns <= $player->getTurns()) {
-
+                $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findByEnchantment(true);
+                shuffle($spells);
+                $spell = $spells[0];
+                if ($spell && !$player->hasEnchantmentVictim($spell)) {
+                    $enchantment = new Enchantment();
+                    $enchantment->setSpell($spell);
+                    $enchantment->setVictim($player);
+                    $enchantment->setOwner($player);
+                    $manager->persist($enchantment);
+                    $player->addEnchantmentsVictim($enchantment);
+                    $this->addFlash('success', 'Los Dioses han lanzado el encantamiento '.$enchantment->getSpell()->getName().' en tu reino.');
+                } else {
+                    $this->addFlash('danger', 'Los Dioses no están satisfechos con tu reino y no moverán un dedo.');
+                }
+                $player->setGold($player->getGold() - $gold);
+                $player->setGold($player->getTurns() - $turns);
+                $this->get('service.controller')->checkMaintenances($turns);
+                $manager->persist($player);
+                $manager->flush();
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

@@ -91,6 +91,31 @@
         </div>
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-balance-scale"></i>Templo</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/temple.jpg') }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            {% for enchantment in player.enchantmentsVictim %}
+                            {# row #}
+                                <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}">{{ enchantment.spell.name }}</a></span></div>
+                            {% else %}
+                            {# row #}
+                            <div class="col-xs-12">No tienes ningún encantamiento sobre tu reino</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <a href="{{ path('archmage_game_kingdom_temple') }}" class="btn btn-default"><i class="fa fa-fw fa-link"></i><span class="hidden-xs">Rezar</span></a>
+                    <a href="{{ path('archmage_game_magic_dispell') }}" class="btn btn-default"><i class="fa fa-fw fa-chain-broken"></i><span class="hidden-xs">Desencantar</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-flag-checkered"></i>Ejército</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
@@ -99,11 +124,11 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for troop in player.troops %}
-                            {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ troop.quantity|nf }} <span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name }}</a></span></div>
+                                {# row #}
+                                <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ troop.quantity|nf }} <span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}">{{ troop.unit.name }}</a></span></div>
                             {% else %}
-                            {# row #}
-                            <div class="col-xs-12">No tienes ninguna tropa. Tal vez deberías reclutar alguna.</div>
+                                {# row #}
+                                <div class="col-xs-12">No tienes ninguna tropa. Tal vez deberías reclutar alguna.</div>
                             {% endfor %}
                         </div>
                     </div>
@@ -112,31 +137,6 @@
                     <a href="{{ path('archmage_game_army_recruit') }}" class="btn btn-default"><i class="fa fa-fw fa-user-plus"></i><span class="hidden-xs">Reclutar</span></a>
                     <a href="{{ path('archmage_game_army_disband') }}" class="btn btn-default"><i class="fa fa-fw fa-user-times"></i><span class="hidden-xs">Desbandar</span></a>
                     <a href="{{ path('archmage_game_army_attack') }}" class="btn btn-default"><i class="fa fa-fw fa-flag"></i><span class="hidden-xs">Atacar</span></a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-link"></i>Templo</div>
-                <div class="panel-body text-responsive">
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/temple.jpg') }}">
-                        </div>
-                        <div class="col-xs-8 text-padded">
-                            {% for enchantment in player.enchantments %}
-                            {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}">{{ enchantment.spell.name }}</a></span></div>
-                            {% else %}
-                            {# row #}
-                            <div class="col-xs-12">No tienes ningún encantamiento</div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                    <a href="{{ path('archmage_game_magic_conjure') }}" class="btn btn-default"><i class="fa fa-fw fa-link"></i><span class="hidden-xs">Encantar</span></a>
-                    <a href="{{ path('archmage_game_magic_dispell') }}" class="btn btn-default"><i class="fa fa-fw fa-chain-broken"></i><span class="hidden-xs">Desencantar</span></a>
                 </div>
             </div>
         </div>
@@ -173,9 +173,9 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{% if player.research %}<a href="{{ path('archmage_game_home_help') }}#{{ player.research.spell.name|slug }}"><span class="label label-{{ player.research.spell.faction.class }}">{{ player.research.spell.name }}</span></a>{% else %}Ningún hechizo en defensa{% endif %}</div>
+                            <div class="col-xs-12">{% if player.research %}<i class="fa fa-fw fa-magic"></i><a href="{{ path('archmage_game_home_help') }}#{{ player.research.spell.name|slug }}"><span class="label label-{{ player.research.spell.faction.class }}">{{ player.research.spell.name }}</span></a>{% else %}Ningún hechizo en defensa{% endif %}</div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i>{% if player.item %}<a href="{{ path('archmage_game_home_help') }}#{{ player.item.spell.name|slug }}"><span class="label label-{{ player.item.artifact.class }}">{{ player.item.spell.name }}</span></a>{% else %}Ningún artefacto en defensa{% endif %}</div>
+                            <div class="col-xs-12">{% if player.item %}<i class="fa fa-fw fa-diamond"></i><a href="{{ path('archmage_game_home_help') }}#{{ player.item.spell.name|slug }}"><span class="label label-{{ player.item.artifact.class }}">{{ player.item.spell.name }}</span></a>{% else %}Ningún artefacto en defensa{% endif %}</div>
                         </div>
                     </div>
                 </div>

@@ -31,7 +31,7 @@ class ArmyController extends Controller
                 if ($troop) {
                     $troop->setQuantity($troop->getQuantity() + $quantity);
                 } else {
-                    if ($player->getTroops()->count() < $player::TROOP_CAP) {
+                    if ($player->getTroops()->count() < $player::TROOPS_CAP) {
                         $troop = new Troop();
                         $manager->persist($troop);
                         $troop->setUnit($unit);
@@ -39,7 +39,7 @@ class ArmyController extends Controller
                         $troop->setPlayer($player);
                         $player->addTroop($troop);
                     } else {
-                        $this->addFlash('danger', 'No puedes tener más de 5 tropas distintas al mismo tiempo, debes <i class="fa fa-fw fa-user-times"></i><a href='.$this->generateUrl('archmage_game_army_disband').'>Desbandar</a> alguna.');
+                        $this->addFlash('danger', 'No puedes tener más de '.$player::TROOPS_CAP.' tropas distintas al mismo tiempo, debes <i class="fa fa-fw fa-user-times"></i><a href='.$this->generateUrl('archmage_game_army_disband').'>Desbandar</a> alguna.');
                         return $this->redirect($this->generateUrl('archmage_game_army_recruit'));
                     }
                 }

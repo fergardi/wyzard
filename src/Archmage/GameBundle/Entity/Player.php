@@ -21,6 +21,8 @@ class Player
     const TURNS_CAP = 30000;
     const MAGICDEFENSE_BASE= 5;
     const MAGICDEFENSE_CAP = 75;
+    const ARMYDEFENSE_BASE= 5;
+    const ARMYDEFENSE_CAP = 75;
     const LANDS_CAP = 3500;
     const TROOPS_CAP = 5;
     const ARTIFACT_RATIO = 1;
@@ -76,6 +78,13 @@ class Player
      * @ORM\Column(name="turns", type="smallint", nullable=false)
      */
     private $turns = 300;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="god", type="boolean", nullable=false)
+     */
+    private $god = false;
 
     /**
      * @var item
@@ -160,7 +169,7 @@ class Player
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -207,7 +216,7 @@ class Player
     /**
      * Get gold
      *
-     * @return integer 
+     * @return integer
      */
     public function getGold()
     {
@@ -232,7 +241,7 @@ class Player
     /**
      * Get mana
      *
-     * @return integer 
+     * @return integer
      */
     public function getMana()
     {
@@ -257,7 +266,7 @@ class Player
     /**
      * Get people
      *
-     * @return integer 
+     * @return integer
      */
     public function getPeople()
     {
@@ -272,7 +281,6 @@ class Player
      */
     public function setMagic($magic)
     {
-        if ($magic < 1) $magic = 1;
         $this->magic = $magic;
 
         return $this;
@@ -281,7 +289,7 @@ class Player
     /**
      * Get magic
      *
-     * @return integer 
+     * @return integer
      */
     public function getMagic()
     {
@@ -304,11 +312,34 @@ class Player
     /**
      * Get turns
      *
-     * @return integer 
+     * @return integer
      */
     public function getTurns()
     {
         return $this->turns;
+    }
+
+    /**
+     * Set god
+     *
+     * @param boolean $god
+     * @return Player
+     */
+    public function setGod($god)
+    {
+        $this->god = $god;
+
+        return $this;
+    }
+
+    /**
+     * Get god
+     *
+     * @return boolean
+     */
+    public function getGod()
+    {
+        return $this->god;
     }
 
     /**
@@ -327,7 +358,7 @@ class Player
     /**
      * Get item
      *
-     * @return \Archmage\GameBundle\Entity\Item 
+     * @return \Archmage\GameBundle\Entity\Item
      */
     public function getItem()
     {
@@ -350,7 +381,7 @@ class Player
     /**
      * Get research
      *
-     * @return \Archmage\GameBundle\Entity\Research 
+     * @return \Archmage\GameBundle\Entity\Research
      */
     public function getResearch()
     {
@@ -373,7 +404,7 @@ class Player
     /**
      * Get faction
      *
-     * @return \Archmage\GameBundle\Entity\Faction 
+     * @return \Archmage\GameBundle\Entity\Faction
      */
     public function getFaction()
     {
@@ -406,7 +437,7 @@ class Player
     /**
      * Get constructions
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getConstructions()
     {
@@ -439,7 +470,7 @@ class Player
     /**
      * Get researchs
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getResearchs()
     {
@@ -472,7 +503,7 @@ class Player
     /**
      * Get troops
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getTroops()
     {
@@ -505,7 +536,7 @@ class Player
     /**
      * Get items
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getItems()
     {
@@ -538,7 +569,7 @@ class Player
     /**
      * Get contracts
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getContracts()
     {
@@ -571,7 +602,7 @@ class Player
     /**
      * Get messages
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMessages()
     {
@@ -604,7 +635,7 @@ class Player
     /**
      * Get enchantmentsOwner
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEnchantmentsOwner()
     {
@@ -637,7 +668,7 @@ class Player
     /**
      * Get enchantmentsVictim
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getEnchantmentsVictim()
     {
@@ -744,11 +775,12 @@ class Player
     public function getMagicDefense()
     {
         $magicDefense = self::MAGICDEFENSE_BASE;
-        $magicDefense += $this->getConstruction('Barreras')->getQuantity();
+        $barriers = $this->getConstruction('Barreras');
+        $magicDefense += $barriers->getQuantity() / $barriers->getBuilding()->getMagicDefenseRatio();
         foreach ($this->enchantmentsVictim as $enchantment) {
-            $magicDefense += $enchantment->getSpell()->getSkill()->getMagicDefenseBonus();
+            $magicDefense += $enchantment->getSpell()->getSkill()->getMagicDefenseBonus() * $enchantment->getOwner()->getMagic();
         }
-        return min(self::MAGICDEFENSE_CAP,$magicDefense);
+        return min(self::MAGICDEFENSE_CAP, $magicDefense);
     }
 
     /**
@@ -759,8 +791,11 @@ class Player
     public function getPower()
     {
         $power = 0;
+        foreach ($this->constructions as $construction) {
+            $power += $construction->getQuantity() * $construction->getBuilding()->getPower();
+        }
         foreach ($this->troops as $troop) {
-            $power += $troop->getQuantity() * $troop->getUnit()->getAttack();
+            $power += $troop->getQuantity() * $troop->getUnit()->getPower();
         }
         return $power;
     }

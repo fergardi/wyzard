@@ -80,7 +80,7 @@ class RegistrationController extends BaseController
                 //messages
                 $message = new Message();
                 $message->setPlayer($player);
-                $message->setSubject('Bienvenido al juego');
+                $message->setSubject('Bienvenido al juego, "'.$player->getNick().'"');
                 $text = array(
                     array('info', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda del juego.'),
                 );

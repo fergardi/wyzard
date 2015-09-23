@@ -1276,7 +1276,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsExpiration(0);
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
-        $spell->setEnchantment(true);
+        $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 

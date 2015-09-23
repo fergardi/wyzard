@@ -16,17 +16,15 @@
                         <th class="text-center"><i class="fa fa-fw fa-rocket"></i><span class="hidden-xs">Poder</span></th>
                         <th class="text-center"><i class="fa fa-fw fa-user"></i><span class="hidden-xs">Nick</span></th>
                         <th class="text-center"><i class="fa fa-fw fa-globe"></i><span class="hidden-xs">Tierras</span></th>
-                        <th class="text-center"><i class="fa fa-fw fa-shield"></i><span class="hidden-xs">Fortalezas</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for player in players %}
                     <tr>
                         <td class="text-right">{{ random(10)|nf }}</td>
-                        <td class="text-right">{{ player.power|nf }}</td>
-                        <td class="text-center"><span class="label label-{{ player.faction.class }}"><a href="{{ path('archmage_game_account_profile', { 'player': player.nick } ) }}" class="link">{{ player.nick }}</a></span></td>
+                        <td class="text-right">{{ player.power|nff }}</td>
+                        <td class="text-center"><span class="label label-{{ player.faction.class }}"><a href="{{ path('archmage_game_account_profile', { 'nick': player.nick } ) }}" class="link">{{ player.nick }}</a></span></td>
                         <td class="text-right">{{ player.lands|nf }}</td>
-                        <td class="text-right">{{ player.construction('Fortalezas').quantity|nf }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -42,13 +40,12 @@
     var search = '{{ search }}';
     $(document).ready(function() {
         var oTable = $('#datatable').dataTable({
-            "order": [[ 0, "asc" ]],
+            "order": [[ 1, "desc" ]],
             "aoColumns": [
-                {"sType": "num-fmt", "bSortable": true },
-                {"sType": "num-fmt", "bSortable": true },
+                {"sType": "numeric", "bSortable": true },
+                {"sType": "numeric", "bSortable": true },
                 {"sType": "string", "bSortable": true },
-                {"sType": "num-fmt", "bSortable": true },
-                {"sType": "num-fmt", "bSortable": true }
+                {"sType": "numeric", "bSortable": true }
             ],
             "sDom": 't<"col-xs-12 text-center"fp>',
             "displayStart": 0,

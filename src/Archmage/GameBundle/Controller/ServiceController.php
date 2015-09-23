@@ -7,6 +7,7 @@ use Archmage\GameBundle\Entity\Item;
 use Archmage\GameBundle\Entity\Spell;
 use Archmage\GameBundle\Entity\Player;
 use Archmage\GameBundle\Entity\Troop;
+use Archmage\GameBundle\Entity\Enchantment;
 
 class ServiceController extends Controller
 {
@@ -32,7 +33,7 @@ class ServiceController extends Controller
     }
 
     /**
-     * Number Format for Fixtures
+     * Number Format for Fixtures and Ranking
      */
     public function nff($number, $decimals = 0, $decPoint = ',', $thousandsSep = '.') {
         $price = number_format((float)$number, $decimals, $decPoint, $thousandsSep);
@@ -131,10 +132,10 @@ class ServiceController extends Controller
         for ($i = 1; $i <= $turns; $i++) {
             //BUILDINGS
             foreach ($player->getEnchantmentsVictim() as $enchantment) {
-                if ($enchantment->getSpell()->getSkill()->getTerrainBonus() < 0) {
+                if ($enchantment->getSpell()->getSkill()->getTerrainBonus() != 0) {
                     foreach ($player->getConstructions() as $construction) {
-                        $quantity = (int)round(abs($construction->getQuantity() * $enchantment->getSpell()->getSkill()->getTerrainBonus() * $enchantment->getOwner()->getMagic() / (float)100));
-                        $construction->setQuantity($construction->getQuantity() - $quantity);
+                        $quantity = floor($construction->getQuantity() * $enchantment->getSpell()->getSkill()->getTerrainBonus() * $enchantment->getOwner()->getMagic() / (float)100);
+                        $construction->setQuantity($construction->getQuantity() + $quantity);
                     }
                 }
             }
@@ -272,6 +273,17 @@ class ServiceController extends Controller
                 }
             }
             $player->setMana($mana);
+            //ENCHANTMENTS
+            foreach ($player->getEnchantmentsVictim() as $enchantment) {
+                $enchantment->setExpiration($enchantment->getExpiration() + 1);
+                if ($enchantment->getExpiration() >= $enchantment->getSpell()->getTurnsExpiration()) {
+                    $player->removeEnchantmentsVictim($enchantment);
+                    $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
+                    $manager->remove($enchantment);
+                    $manager->persist($enchantment->getOwner());
+                    $this->addFlash('success', 'Se ha terminado el encantamiento '.$enchantment->getSpell()->getName().'.');
+                }
+            }
         }
         //EXPERIENCE
         foreach ($player->getContracts() as $contract) {

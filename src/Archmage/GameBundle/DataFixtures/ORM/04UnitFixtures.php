@@ -313,7 +313,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setName('Gárgolas');
         $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $unit->setAttack(62500);
-        $unit->setDefense(22500);
+        $unit->setDefense(21000);
         $unit->setSpeed(3);
         $unit->setImage('bundles/archmagegame/images/unit/darkness/gargoile.jpg');
         $unit->setFaction($this->getReference('Oscuridad'));
@@ -536,8 +536,8 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit = new Unit();
         $unit->setName('Hidras');
         $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $unit->setAttack(55000);
-        $unit->setDefense(72500);
+        $unit->setAttack(53000);
+        $unit->setDefense(72000);
         $unit->setSpeed(2);
         $unit->setImage('bundles/archmagegame/images/unit/nature/hydra.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
@@ -558,8 +558,8 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit = new Unit();
         $unit->setName('Dragones Verdes');
         $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $unit->setAttack(60000);
-        $unit->setDefense(42500);
+        $unit->setAttack(58500);
+        $unit->setDefense(41500);
         $unit->setSpeed(1);
         $unit->setImage('bundles/archmagegame/images/unit/nature/greendragon.jpg');
         $unit->setFaction($this->getReference('Naturaleza'));
@@ -782,8 +782,8 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit = new Unit();
         $unit->setName('Leviatanes');
         $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $unit->setAttack(75000);
-        $unit->setDefense(95000);
+        $unit->setAttack(75500);
+        $unit->setDefense(91500);
         $unit->setSpeed(1);
         $unit->setImage('bundles/archmagegame/images/unit/ghost/levyathan.jpg');
         $unit->setFaction($this->getReference('Fantasmal'));
@@ -1007,7 +1007,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setName('Dominions');
         $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $unit->setAttack(80000);
-        $unit->setDefense(87500);
+        $unit->setDefense(87000);
         $unit->setSpeed(1);
         $unit->setImage('bundles/archmagegame/images/unit/holy/dominion.jpg');
         $unit->setFaction($this->getReference('Sagrado'));

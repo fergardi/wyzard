@@ -119,30 +119,41 @@ class KingdomController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
-            $turns = 10;
+            $turns = 1;
             $gold = isset($_POST['gold'])?$_POST['gold']:null;
             if ($gold && is_numeric($gold) && $gold > 0 && $gold <= $player->getGold() && $turns <= $player->getTurns()) {
-                $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findByEnchantment(true);
-                shuffle($spells);
-                $spell = $spells[0];
-                if ($spell && !$player->hasEnchantmentVictim($spell)) {
-                    $enchantment = new Enchantment();
-                    $enchantment->setSpell($spell);
-                    $enchantment->setVictim($player);
-                    $enchantment->setOwner($player);
-                    $manager->persist($enchantment);
-                    $player->addEnchantmentsVictim($enchantment);
-                    $this->addFlash('success', 'Los Dioses han lanzado el encantamiento '.$enchantment->getSpell()->getName().' en tu reino.');
-                } else {
-                    $this->addFlash('danger', 'Los Dioses no están satisfechos con tu reino y no moverán un dedo.');
-                }
+                /*
+                 * MANTENIMIENTOS BEGIN
+                 */
                 $player->setGold($player->getGold() - $gold);
-                $player->setGold($player->getTurns() - $turns);
+                $player->setTurns($player->getTurns() - $turns);
                 $this->get('service.controller')->checkMaintenances($turns);
+                /*
+                 * MANTENIMIENTOS END
+                 */
+                if (true) {
+                    $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findByEnchantment(true);
+                    shuffle($spells);
+                    $spell = $spells[0];
+                    $god = $manager->getRepository('ArchmageGameBundle:Player')->findOneBy(array('god' => true, 'faction' => $spell->getFaction()));
+                    if ($spell && $god && !$player->hasEnchantmentVictim($spell)) {
+                        $enchantment = new Enchantment();
+                        $manager->persist($enchantment);
+                        $enchantment->setSpell($spell);
+                        $enchantment->setVictim($player);
+                        $player->addEnchantmentsVictim($enchantment);
+                        $enchantment->setOwner($god);
+                        $god->addEnchantmentsOwner($enchantment);
+                        $manager->persist($god);
+                        $this->addFlash('success', '"'.$god->getNick().'" te ha lanzado el encantamiento "'.$enchantment->getSpell()->getName().'" en tu reino.');
+                    } else {
+                        $this->addFlash('danger', 'Los Dioses no están satisfechos con tu donativo y no moverán un dedo.');
+                    }
+                }
                 $manager->persist($player);
                 $manager->flush();
             } else {
-                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+                $this->addFlash('danger', 'No tienes los recursos necesarios para eso.');
             }
             return $this->redirect($this->generateUrl('archmage_game_kingdom_temple'));
         }

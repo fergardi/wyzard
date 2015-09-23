@@ -22,15 +22,65 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        //DIOS ROJO
-        //DIOS VERDE
-        //DIOS NEGRO
-        //DIOS AZUL
-        //DIOS BLANCO
+        /*
+         * GODS
+         */
+        $gods = array(
+            array('name' => 'El Dios de la Sangre', 'faction' => 'Caos', 'unit' => 'Dragones Rojos'),
+            array('name' => 'La Diosa de la Muerte', 'faction' => 'Oscuridad', 'unit' => 'Dragones Negros'),
+            array('name' => 'El Dios de la Luz', 'faction' => 'Sagrado', 'unit' => 'Dragones Blancos'),
+            array('name' => 'La Diosa de la Magia', 'faction' => 'Fantasmal', 'unit' => 'Dragones Azules'),
+            array('name' => 'El Dios de la Vida', 'faction' => 'Naturaleza', 'unit' => 'Dragones Verdes'),
+        );
+        foreach ($gods as $god) {
+            $player = new Player();
+            $manager->persist($player);
+            $player->setGod(true);
+            $player->setNick($god['name']);
+            $player->setFaction($this->getReference($god['faction']));
+            $player->setItem(null);
+            $player->setResearch(null);
+            $constructions = array(
+                'Tierras' => 1111,
+                'Granjas' => 1111,
+                'Pueblos' => 1111,
+                'Nodos' => 1111,
+                'Gremios' => 1111,
+                'Talleres' => 1111,
+                'Barracones' => 1111,
+                'Barreras' => 1111,
+                'Fortalezas' => 1111,
+            );
+            foreach ($constructions as $name => $quantity) {
+                $construction = new Construction();
+                $construction->setBuilding($this->getReference($name));
+                $construction->setQuantity($quantity);
+                $construction->setPlayer($player);
+                $manager->persist($construction);
+                $player->addConstruction($construction);
+            }
+            $troops = array(
+                $god['unit'] => 999,
+            );
+            foreach ($troops as $name => $quantity) {
+                $troop = new Troop();
+                $troop->setUnit($this->getReference($name));
+                $troop->setQuantity($quantity);
+                $troop->setPlayer($player);
+                $manager->persist($troop);
+                $player->addTroop($troop);
+            }
+            $player->setGold(999999999);
+            $player->setPeople(999999999);
+            $player->setMana(999999999);
+            $player->setTurns(300);
+            $player->setMagic(5);
+        }
 
-        //FERGARDI
+        //PLAYER
         $player = new Player();
         $player->setFaction($this->getReference('Oscuridad'));
+        $player->setGod(false);
         $player->setItem(null);
         $player->setResearch(null);
         //EDIFICIOS
@@ -113,6 +163,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $player->addItem($item);
         }
         */
+        /*
         //ENCANTAMIENTOS
         $enchantment = new Enchantment();
         $enchantment->setSpell($this->getReference('Plaga enchant'));
@@ -135,6 +186,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($enchantment);
         $player->addEnchantmentsOwner($enchantment);
         $player->addEnchantmentsVictim($enchantment);
+        */
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);
@@ -148,15 +200,13 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $message->setReaded(false);
         $manager->persist($message);
         $player->addMessage($message);
-
-        //gold, people, player, based on constructions should be last
+        //RECURSOS
         $player->setGold(3000000);
         $player->setPeople(20000);
         $player->setMana(10000);
         $player->setTurns(30000);
         $player->setMagic(1);
-
-        //user
+        //FOSUSERBUNDLE
         $user = new User();
         $user->setPlayer($player);
         $user->setUsername('fergardi');

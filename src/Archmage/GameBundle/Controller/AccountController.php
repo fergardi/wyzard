@@ -9,18 +9,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class AccountController extends Controller
 {
     /**
-     * @Route("/game/account/profile/{username}")
+     * @Route("/game/account/profile/{nick}")
      * @Template("ArchmageGameBundle:Account:profile.html.twig")
      */
-    public function profileAction($username = null)
+    public function profileAction($nick = null)
     {
         $manager = $this->getDoctrine()->getManager();
-        if (!$username) {
+        if (!$nick) {
             $player = $this->getUser()->getPlayer();
         } else {
-            $player = $manager->getRepository('ArchmageUserBundle:Player')->findOneByNick($username);
+            $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneByNick($nick);
             if (!$player) {
-                $this->addFlash('danger', 'No existe ningún jugador con ese nombre.');
+                $this->addFlash('danger', 'No existe ningún jugador con ese nick.');
                 return $this->redirectToRoute('archmage_game_account_profile');
             }
         }

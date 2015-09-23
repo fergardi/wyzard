@@ -18,12 +18,11 @@ class AccountController extends Controller
         if (!$username) {
             $player = $this->getUser()->getPlayer();
         } else {
-            $user = $manager->getRepository('ArchmageUserBundle:User')->findOneByUsername($username);
-            if (!$user) {
+            $player = $manager->getRepository('ArchmageUserBundle:Player')->findOneByNick($username);
+            if (!$player) {
                 $this->addFlash('danger', 'No existe ningún jugador con ese nombre.');
                 return $this->redirectToRoute('archmage_game_account_profile');
             }
-            $player = $user->getPlayer();
         }
         $progresses = $manager->getRepository('ArchmageGameBundle:Spell')->findProgressByPlayer($player);
         return array(

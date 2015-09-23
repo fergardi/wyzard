@@ -53,7 +53,7 @@ class Auction
     private $research = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Player", inversedBy="player")
+     * @ORM\ManyToOne(targetEntity="Player")
      * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=true)
      **/
     private $player = null;

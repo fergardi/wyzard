@@ -34,18 +34,20 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setManaCap(0);
         $building->setBuildingRatio(0);
         $building->setResearchRatio(0);
-        $building->setArtifactRatio(0);
+        $building->setMagicDefenseRatio(0);
+        $building->setArmyDefenseRatio(0);
+        $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
         //GRANJAS
         $building = new Building();
         $building->setName('Granjas');
-        $building->setDescription('Otorgan gran cantidad de <span class="label label-extra">Oro</span> por turno.');
+        $building->setDescription('Otorgan gran cantidad de <span class="label label-extra">Oro</span>.');
         $building->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $building->setImage('bundles/archmagegame/images/building/farm.jpg');
-        $building->setGoldCost(1000);
-        $building->setPeopleCost(0);
+        $building->setGoldCost(500);
+        $building->setPeopleCost(100);
         $building->setManaCost(0);
         $building->setGoldMaintenance(0);
         $building->setPeopleMaintenance(2);
@@ -58,7 +60,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setManaCap(0);
         $building->setBuildingRatio(10);
         $building->setResearchRatio(0);
-        $building->setArtifactRatio(0);
+        $building->setMagicDefenseRatio(0);
+        $building->setArmyDefenseRatio(0);
+        $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -68,8 +72,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setDescription('Otorgan e incrementan <span class="label label-extra">Población</span> máxima.');
         $building->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $building->setImage('bundles/archmagegame/images/building/village.jpg');
-        $building->setGoldCost(2000);
-        $building->setPeopleCost(0);
+        $building->setGoldCost(1000);
+        $building->setPeopleCost(100);
         $building->setManaCost(0);
         $building->setGoldMaintenance(3);
         $building->setPeopleMaintenance(0);
@@ -82,7 +86,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setManaCap(0);
         $building->setBuildingRatio(20);
         $building->setResearchRatio(0);
-        $building->setArtifactRatio(0);
+        $building->setMagicDefenseRatio(0);
+        $building->setArmyDefenseRatio(0);
+        $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -92,8 +98,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setDescription('Otorgan e incrementan <span class="label label-extra">Maná</span> máximo.');
         $building->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $building->setImage('bundles/archmagegame/images/building/node.jpg');
-        $building->setGoldCost(3000);
-        $building->setPeopleCost(0);
+        $building->setGoldCost(1500);
+        $building->setPeopleCost(100);
         $building->setManaCost(0);
         $building->setGoldMaintenance(3);
         $building->setPeopleMaintenance(2);
@@ -106,18 +112,20 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setManaCap(1000);
         $building->setBuildingRatio(30);
         $building->setResearchRatio(0);
-        $building->setArtifactRatio(0);
+        $building->setMagicDefenseRatio(0);
+        $building->setArmyDefenseRatio(0);
+        $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
         //BARRERAS
         $building = new Building();
         $building->setName('Barreras');
-        $building->setDescription('Protegen frente a <span class="label label-extra">Hechizos</span> y <span class="label label-extra">Artefactos</span> enemigos.');
+        $building->setDescription('Aumentan la <span class="label label-extra">Defensa Mágica</span> de tu reino.');
         $building->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $building->setImage('bundles/archmagegame/images/building/barrier.jpg');
-        $building->setGoldCost(0);
-        $building->setPeopleCost(0);
+        $building->setGoldCost(1000);
+        $building->setPeopleCost(100);
         $building->setManaCost(5000);
         $building->setGoldMaintenance(30);
         $building->setPeopleMaintenance(20);
@@ -130,18 +138,20 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setManaCap(0);
         $building->setBuildingRatio(300);
         $building->setResearchRatio(0);
-        $building->setArtifactRatio(0);
+        $building->setMagicDefenseRatio(10);
+        $building->setArmyDefenseRatio(0);
+        $building->setPower(5000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
         //FORTALEZAS
         $building = new Building();
         $building->setName('Fortalezas');
-        $building->setDescription('Si te quedas sin ninguna, <span class="label label-extra">Pierdes</span> el juego.');
+        $building->setDescription('Aumentan la <span class="label label-extra">Defensa</span> de tus tropas al defender.');
         $building->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $building->setImage('bundles/archmagegame/images/building/fortress.jpg');
-        $building->setGoldCost(10000);
-        $building->setPeopleCost(0);
+        $building->setGoldCost(5000);
+        $building->setPeopleCost(100);
         $building->setManaCost(0);
         $building->setGoldMaintenance(300);
         $building->setPeopleMaintenance(200);
@@ -154,7 +164,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setManaCap(0);
         $building->setBuildingRatio(100);
         $building->setResearchRatio(0);
-        $building->setArtifactRatio(0);
+        $building->setMagicDefenseRatio(0);
+        $building->setArmyDefenseRatio(20);
+        $building->setPower(5000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -164,8 +176,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> para construir.');
         $building->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $building->setImage('bundles/archmagegame/images/building/workshop.jpg');
-        $building->setGoldCost(3000);
-        $building->setPeopleCost(0);
+        $building->setGoldCost(1500);
+        $building->setPeopleCost(100);
         $building->setManaCost(0);
         $building->setGoldMaintenance(3);
         $building->setPeopleMaintenance(2);
@@ -178,7 +190,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setManaCap(0);
         $building->setBuildingRatio(5);
         $building->setResearchRatio(0);
-        $building->setArtifactRatio(0);
+        $building->setMagicDefenseRatio(0);
+        $building->setArmyDefenseRatio(0);
+        $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -189,8 +203,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $building->setImage('bundles/archmagegame/images/building/guild.jpg');
         $building->setGoldCost(0);
-        $building->setPeopleCost(0);
-        $building->setManaCost(1000);
+        $building->setPeopleCost(100);
+        $building->setManaCost(500);
         $building->setGoldMaintenance(3);
         $building->setPeopleMaintenance(2);
         $building->setManaMaintenance(1);
@@ -202,7 +216,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setManaCap(0);
         $building->setBuildingRatio(50);
         $building->setResearchRatio(30);
-        $building->setArtifactRatio(200);
+        $building->setMagicDefenseRatio(0);
+        $building->setArmyDefenseRatio(0);
+        $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -213,7 +229,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $building->setImage('bundles/archmagegame/images/building/barrack.jpg');
         $building->setGoldCost(0);
-        $building->setPeopleCost(2000);
+        $building->setPeopleCost(500);
         $building->setManaCost(0);
         $building->setGoldMaintenance(3);
         $building->setPeopleMaintenance(2);
@@ -226,7 +242,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setManaCap(0);
         $building->setBuildingRatio(20);
         $building->setResearchRatio(0);
-        $building->setArtifactRatio(0);
+        $building->setMagicDefenseRatio(0);
+        $building->setArmyDefenseRatio(0);
+        $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 

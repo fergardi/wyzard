@@ -100,7 +100,7 @@
                         <div class="col-xs-8 text-padded">
                             {% for enchantment in player.enchantmentsVictim %}
                             {# row #}
-                                <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}">{{ enchantment.spell.name }}</a></span></div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}">{{ enchantment.spell.name }}</a></span> [{{ enchantment.expiration|nf }} / {{ (enchantment.spell.turnsExpiration*enchantment.owner.magic)|nf }}]</div>
                             {% else %}
                             {# row #}
                             <div class="col-xs-12">No tienes ningún encantamiento sobre tu reino</div>

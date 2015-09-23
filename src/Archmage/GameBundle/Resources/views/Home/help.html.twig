@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center text-responsive">
-                    <span class="label label-{{ faction.class }}">{{ faction.slogan }}</span>
+                    <i class="fa fa-fw fa-quote-right"></i><span class="label label-{{ faction.class }}">{{ faction.slogan }}</span>
                 </div>
             </div>
         </div>
@@ -211,7 +211,7 @@
                         <div class="col-xs-8 text-padded">
                             {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ spell.magic|nf }}</div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ (spell.manaCost * spell.magic)|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ spell.manaCost|nf }}</div>
                             {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ spell.turnsCost|nf }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ spell.turnsResearch }}</div>

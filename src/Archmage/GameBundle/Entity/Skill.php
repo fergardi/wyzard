@@ -115,9 +115,9 @@ class Skill
     /**
      * @var integer
      *
-     * @ORM\Column(name="barrierBonus", type="smallint", nullable=false)
+     * @ORM\Column(name="magicDefenseBonus", type="smallint", nullable=false)
      */
-    private $barrierBonus = 0;
+    private $magicDefenseBonus = 0;
 
     /**
      * @var integer
@@ -525,26 +525,26 @@ class Skill
     }
 
     /**
-     * Set barrierBonus
+     * Set magicDefenseBonus
      *
-     * @param integer $barrierBonus
+     * @param integer $magicDefenseBonus
      * @return Skill
      */
-    public function setBarrierBonus($barrierBonus)
+    public function setMagicDefenseBonus($magicDefenseBonus)
     {
-        $this->barrierBonus = $barrierBonus;
+        $this->magicDefenseBonus = $magicDefenseBonus;
 
         return $this;
     }
 
     /**
-     * Get barrierBonus
+     * Get magicDefenseBonus
      *
      * @return integer 
      */
-    public function getBarrierBonus()
+    public function getMagicDefenseBonus()
     {
-        return $this->barrierBonus;
+        return $this->magicDefenseBonus;
     }
 
     /**

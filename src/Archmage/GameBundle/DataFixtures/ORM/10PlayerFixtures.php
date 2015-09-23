@@ -22,7 +22,13 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        //PLAYER
+        //DIOS ROJO
+        //DIOS VERDE
+        //DIOS NEGRO
+        //DIOS AZUL
+        //DIOS BLANCO
+
+        //FERGARDI
         $player = new Player();
         $player->setFaction($this->getReference('Oscuridad'));
         $player->setItem(null);

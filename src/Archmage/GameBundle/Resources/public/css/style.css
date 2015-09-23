@@ -231,7 +231,7 @@ body {
 .progress-bar-striped {
     background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0.15) 75%, transparent 75%, transparent);
 }
-.panel-primary .panel-heading, .primary, .primary a, .panel-primary > .panel-heading a, .progress-bar-primary, span.label-primary, span.label-primary a, .label-primary, .alert-primary, .btn-primary {
+.panel-primary .panel-heading, .panel-primary .panel-footer, .primary, .primary a, .panel-primary > .panel-heading a, .progress-bar-primary, span.label-primary, span.label-primary a, .label-primary, .alert-primary, .btn-primary {
     color: black !important;
 }
 .progress-bar-default {
@@ -240,6 +240,25 @@ body {
 .alert-default {
     background-color: #3E444C;
     border-color: #2E3338;
+}
+/* panel footer same color than panel heading */
+.panel-primary > .panel-footer {
+    background-color: #E9E9E9;
+}
+.panel-danger > .panel-footer {
+    background-color: #C50F0F;
+}
+.panel-success > .panel-footer {
+    background-color: #188B0A;
+}
+.panel-warning > .panel-footer {
+    background-color: #8D3AC6;
+}
+.panel-info > .panel-footer {
+    background-color: #2266D4;
+}
+.panel-default > .panel-footer {
+    background-color: #3E444C;
 }
 /* DATATABLES */
 div.dataTables_paginate, div.dataTables_filter {

@@ -150,9 +150,23 @@ class Building
     /**
      * @var integer
      *
-     * @ORM\Column(name="artifactRatio", type="smallint", nullable=false)
+     * @ORM\Column(name="magicDefenseRatio", type="smallint", nullable=false)
      */
-    private $artifactRatio = 0;
+    private $magicDefenseRatio = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="armyDefenseRatio", type="smallint", nullable=false)
+     */
+    private $armyDefenseRatio = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="power", type="integer", nullable=false)
+     */
+    private $power = 0;
 
 
     /**
@@ -580,25 +594,71 @@ class Building
     }
 
     /**
-     * Set artifactRatio
+     * Set magicDefenseRatio
      *
-     * @param integer $artifactRatio
+     * @param integer $magicDefenseRatio
      * @return Building
      */
-    public function setArtifactRatio($artifactRatio)
+    public function setMagicDefenseRatio($magicDefenseRatio)
     {
-        $this->artifactRatio = $artifactRatio;
+        $this->magicDefenseRatio = $magicDefenseRatio;
 
         return $this;
     }
 
     /**
-     * Get artifactRatio
+     * Get magicDefenseRatio
      *
      * @return integer 
      */
-    public function getArtifactRatio()
+    public function getMagicDefenseRatio()
     {
-        return $this->artifactRatio;
+        return $this->magicDefenseRatio;
+    }
+
+    /**
+     * Set armyDefenseRatio
+     *
+     * @param integer $armyDefenseRatio
+     * @return Building
+     */
+    public function setArmyDefenseRatio($armyDefenseRatio)
+    {
+        $this->armyDefenseRatio = $armyDefenseRatio;
+
+        return $this;
+    }
+
+    /**
+     * Get armyDefenseRatio
+     *
+     * @return integer 
+     */
+    public function getArmyDefenseRatio()
+    {
+        return $this->armyDefenseRatio;
+    }
+
+    /**
+     * Set power
+     *
+     * @param integer $power
+     * @return Building
+     */
+    public function setPower($power)
+    {
+        $this->power = $power;
+
+        return $this;
+    }
+
+    /**
+     * Get power
+     *
+     * @return integer 
+     */
+    public function getPower()
+    {
+        return $this->power;
     }
 }

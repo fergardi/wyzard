@@ -23,6 +23,8 @@ class Player
     const MAGICDEFENSE_CAP = 75;
     const LANDS_CAP = 3500;
     const TROOPS_CAP = 5;
+    const ARTIFACT_RATIO = 1;
+    const MAGICLEVEL_RATIO = 4;
 
     /**
      * @var integer
@@ -715,7 +717,7 @@ class Player
     {
         $guilds = $this->getConstruction('Gremios')->getQuantity();
         $ratio = $this->getConstruction('Gremios')->getBuilding()->getResearchRatio();
-        $percent = min(self::RESEARCH_CAP, $guilds * $ratio / (float)100);
+        $percent = min(self::RESEARCH_CAP, $guilds * $ratio / (float)1000);
         $turns = $turns - ceil($turns * $percent / (float)100);
         return $turns;
     }
@@ -727,10 +729,7 @@ class Player
      */
     public function getArtifactRatio()
     {
-        $guilds = $this->getConstruction('Gremios')->getQuantity();
-        $ratio = $this->getConstruction('Gremios')->getBuilding()->getArtifactRatio();
-        $chance = ceil($guilds / (float)$ratio);
-        return $chance;
+        return self::ARTIFACT_RATIO;
     }
 
     /*
@@ -746,10 +745,10 @@ class Player
     {
         $magicDefense = self::MAGICDEFENSE_BASE;
         $magicDefense += $this->getConstruction('Barreras')->getQuantity();
-        foreach ($this->enchantments as $enchantment) {
-            $magicDefense += $enchantment->getSpell()->getSkill()->getBarrierBonus();
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            $magicDefense += $enchantment->getSpell()->getSkill()->getMagicDefenseBonus();
         }
-        return min(75,$magicDefense);
+        return min(self::MAGICDEFENSE_CAP,$magicDefense);
     }
 
     /**
@@ -779,7 +778,7 @@ class Player
                 $level++;
             }
         }
-        return 1 + floor($level / 4);
+        return 1 + floor($level / self::MAGICLEVEL_RATIO);
     }
 
     /*

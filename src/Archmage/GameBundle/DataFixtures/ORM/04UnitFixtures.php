@@ -36,6 +36,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -57,6 +58,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -78,6 +80,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -99,6 +102,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -120,6 +124,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -145,6 +150,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -166,6 +172,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -187,6 +194,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -208,6 +216,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -229,6 +238,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -250,6 +260,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -271,6 +282,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -292,6 +304,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -313,6 +326,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -334,6 +348,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -359,6 +374,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -380,6 +396,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -401,6 +418,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -422,6 +440,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -443,6 +462,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -464,6 +484,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -485,6 +506,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -506,6 +528,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -527,6 +550,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -548,6 +572,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -573,6 +598,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -594,6 +620,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -615,6 +642,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -636,6 +664,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -657,6 +686,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -678,6 +708,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -699,6 +730,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -720,6 +752,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -741,6 +774,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -762,6 +796,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -783,6 +818,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -808,6 +844,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -829,6 +866,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -850,6 +888,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -871,6 +910,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -892,6 +932,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -913,6 +954,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -934,6 +976,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -955,6 +998,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -976,6 +1020,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -997,6 +1042,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1022,6 +1068,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1043,6 +1090,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1064,6 +1112,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1085,6 +1134,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1106,6 +1156,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1127,6 +1178,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1148,6 +1200,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1169,6 +1222,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1190,6 +1244,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
@@ -1211,6 +1266,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
+        $unit->setPower($unit->getAttack()+$unit->getDefense()*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 

@@ -78,7 +78,7 @@ class ServiceController extends Controller
             $quantity = $spell->getSkill()->getQuantityBonus();
             if ($troop) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
-                $this->addFlash('success', 'Has invocado '.$this->nf($quantity).' "'.$troop->getUnit()->getName().'".');
+                $this->addFlash('success', 'Has invocado '.$this->nf($quantity).' <span class="'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span>.');
             } else {
                 if ($player->getTroops()->count() < $player::TROOPS_CAP) {
                     $troop = new Troop();
@@ -87,7 +87,7 @@ class ServiceController extends Controller
                     $troop->setQuantity($quantity);
                     $troop->setPlayer($player);
                     $player->addTroop($troop);
-                    $this->addFlash('success', 'Has invocado '.$this->nf($quantity).' "'.$troop->getUnit()->getName().'".');
+                    $this->addFlash('success', 'Has invocado '.$this->nf($quantity).' <span class="'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span>.');
                 } else {
                     $this->addFlash('danger', 'No puedes tener más de '.$player::TROOPS_CAP.' tropas distintas al mismo tiempo, debes <i class="fa fa-fw fa-user-times"></i><a href='.$this->generateUrl('archmage_game_army_disband').'>Desbandar</a> alguna.');
                 }
@@ -154,7 +154,7 @@ class ServiceController extends Controller
                     $item->setPlayer($player);
                     $player->addItem($item);
                 }
-                $this->addFlash('success', 'Has encontrado por casualidad el artefacto "'.$item->getArtifact()->getName().'".');
+                $this->addFlash('success', 'Has encontrado por casualidad el artefacto <span class="'.$item->getArtifact()->getFaction()->getClass().'">'.$item->getArtifact()->getName().'</span>.');
             }
             //GOLD
             $gold = $player->getGold() + $player->getGoldResourcePerTurn() - $player->getGoldMaintenancePerTurn();
@@ -167,7 +167,7 @@ class ServiceController extends Controller
                             $player->removeTroop($troop);
                             $manager->remove($troop);
                         }
-                        $this->addFlash('danger', 'Se ha desbandado "'.$troop->getUnit()->getName().'" por no pagar mantenimientos de Oro.');
+                        $this->addFlash('danger', 'Se ha desbandado <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Oro</a>.');
                     }
                 }
             }
@@ -177,7 +177,7 @@ class ServiceController extends Controller
                     if ($contract->getHero()->getGoldMaintenance() > 0) {
                         $player->removeContract($contract);
                         $manager->remove($contract);
-                        $this->addFlash('danger', 'Se ha desbandado "'.$contract->getHero()->getName().'" por no pagar mantenimientos de Oro.');
+                        $this->addFlash('danger', 'Se ha desbandado tu <span class="'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Oro</a>.');
                     }
                 }
             }
@@ -190,7 +190,7 @@ class ServiceController extends Controller
                         $victim->removeEnchantmentsVictim($enchantment);
                         $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto "'.$enchantment->getSpell()->getName().'" por no pagar mantenimientos de Oro.');
+                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="'.$enchantment->getSpell()->getFaction()->getClass().'">'.$enchantment->getSpell()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Oro</a>.');
                     }
                 }
             }
@@ -206,7 +206,7 @@ class ServiceController extends Controller
                             $player->removeTroop($troop);
                             $manager->remove($troop);
                         }
-                        $this->addFlash('danger', 'Se ha desbandado "'.$troop->getUnit()->getName().'" por no pagar mantenimientos de Personas.');
+                        $this->addFlash('danger', 'Se ha desbandado <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Personas</a>.');
                     }
                 }
             }
@@ -216,7 +216,7 @@ class ServiceController extends Controller
                     if ($contract->getHero()->getPeopleMaintenance() > 0) {
                         $player->removeContract($contract);
                         $manager->remove($contract);
-                        $this->addFlash('danger', 'Se ha desbandado "'.$contract->getHero()->getName().'" por no pagar mantenimientos de Personas.');
+                        $this->addFlash('danger', 'Se ha desbandado tu <span class="'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Personas</a>.');
                     }
                 }
             }
@@ -229,7 +229,7 @@ class ServiceController extends Controller
                         $victim->removeEnchantmentsVictim($enchantment);
                         $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto "'.$enchantment->getSpell()->getName().'" por no pagar mantenimientos de Personas.');
+                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="'.$enchantment->getSpell()->getFaction()->getClass().'">'.$enchantment->getSpell()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Personas</a>.');
                     }
                 }
             }
@@ -245,7 +245,7 @@ class ServiceController extends Controller
                             $player->removeTroop($troop);
                             $manager->remove($troop);
                         }
-                        $this->addFlash('danger', 'Se ha desbandado "'.$troop->getUnit()->getName().'" por no pagar mantenimientos de Maná.');
+                        $this->addFlash('danger', 'Se ha desbandado <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Maná</a>.');
                     }
                 }
             }
@@ -255,7 +255,7 @@ class ServiceController extends Controller
                     if ($contract->getHero()->getManaMaintenance() > 0) {
                         $player->removeContract($contract);
                         $manager->remove($contract);
-                        $this->addFlash('danger', 'Se ha desbandado "'.$contract->getHero()->getName().'" por no pagar mantenimientos de Maná.');
+                        $this->addFlash('danger', 'Se ha desbandado tu <span class="'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Maná</a>.');
                     }
                 }
             }
@@ -268,7 +268,7 @@ class ServiceController extends Controller
                         $victim->removeEnchantmentsVictim($enchantment);
                         $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto "'.$enchantment->getSpell()->getName().'" por no pagar mantenimientos de Maná.');
+                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="'.$enchantment->getSpell()->getFaction()->getClass().'">'.$enchantment->getSpell()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Maná</a>.');
                     }
                 }
             }
@@ -276,12 +276,12 @@ class ServiceController extends Controller
             //ENCHANTMENTS
             foreach ($player->getEnchantmentsVictim() as $enchantment) {
                 $enchantment->setExpiration($enchantment->getExpiration() + 1);
-                if ($enchantment->getExpiration() >= $enchantment->getSpell()->getTurnsExpiration()) {
+                if ($enchantment->getExpiration() >= $enchantment->getSpell()->getTurnsExpiration() * $enchantment->getOwner()->getMagic()) {
                     $player->removeEnchantmentsVictim($enchantment);
                     $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
                     $manager->remove($enchantment);
                     $manager->persist($enchantment->getOwner());
-                    $this->addFlash('success', 'Se ha terminado el encantamiento '.$enchantment->getSpell()->getName().'.');
+                    $this->addFlash('success', 'Se ha terminado el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'">'.$enchantment->getSpell()->getName().'</span>.');
                 }
             }
         }
@@ -291,7 +291,7 @@ class ServiceController extends Controller
             if ($contract->getExperience() >= $contract->getHero()->getExperience() * $contract->getLevel()) {
                 $contract->setExperience($contract->getExperience() - $contract->getHero()->getExperience());
                 $contract->setLevel($contract->getLevel() + 1);
-                $this->addFlash('success', 'Tu "'.$contract->getHero()->getName().'" ha subido de nivel.');
+                $this->addFlash('success', 'Tu héroe <span class="'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span> ha subido de nivel.');
             }
         }
     }

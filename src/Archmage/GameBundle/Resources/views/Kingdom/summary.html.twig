@@ -23,11 +23,11 @@
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }} <span class="label label-extra">Oro</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.goldresourceperturn|nf }} - {{ player.goldmaintenanceperturn|nf }} = <span class="label label-{% if player.goldresourceperturn -  player.goldmaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.goldresourceperturn -  player.goldmaintenanceperturn)|nf }}</span> <span class="label label-extra">Oro</span>/<span class="label label-extra">Turno</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.goldresourceperturn|nf }} - {{ player.goldmaintenanceperturn|nf }} = <span class="label label-{% if player.goldresourceperturn -  player.goldmaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.goldresourceperturn -  player.goldmaintenanceperturn)|nf }}</span> <span class="label label-extra">Oro / Turno</span></div>
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.people|nf }} / {{ player.peoplecap|nf }} <span class="label label-extra">Personas</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.peopleresourceperturn|nf }} - {{ player.peoplemaintenanceperturn|nf }} = <span class="label label-{% if player.peopleresourceperturn -  player.peoplemaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.peopleresourceperturn -  player.peoplemaintenanceperturn)|nf }}</span> <span class="label label-extra">Personas</span>/<span class="label label-extra">Turno</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.peopleresourceperturn|nf }} - {{ player.peoplemaintenanceperturn|nf }} = <span class="label label-{% if player.peopleresourceperturn -  player.peoplemaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.peopleresourceperturn -  player.peoplemaintenanceperturn)|nf }}</span> <span class="label label-extra">Personas / Turno</span></div>
                         </div>
                     </div>
                 </div>
@@ -49,11 +49,11 @@
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }} / {{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }} - {{ player.manamaintenanceperturn|nf }} = <span class="label label-{% if player.manaresourceperturn -  player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }}</span> <span class="label label-extra">Maná</span>/<span class="label label-extra">Turno</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }} - {{ player.manamaintenanceperturn|nf }} = <span class="label label-{% if player.manaresourceperturn -  player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }}</span> <span class="label label-extra">Maná / Turno</span></div>
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }} <span class="label label-extra">Nivel de Magia</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i>{{ player.artifacts|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_magic_artifact') }}">Artefactos</a></span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i>{{ player.artifacts|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_magic_artifact') }}" class="link">Artefactos</a></span></div>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                         <div class="col-xs-8 text-padded">
                             {% for enchantment in player.enchantmentsVictim %}
                             {# row #}
-                                <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}" class="link">{{ enchantment.spell.name }}</a></span> ({{ enchantment.expiration|nf }}/{{ (enchantment.spell.turnsExpiration*enchantment.owner.magic)|nf }})</div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}" class="link">{{ enchantment.spell.name }}</a></span> [{{ enchantment.owner.magic }}] ({{ enchantment.expiration|nf }}/{{ (enchantment.spell.turnsExpiration*enchantment.owner.magic)|nf }})</div>
                             {% else %}
                             {# row #}
                             <div class="col-xs-12">Ningún encantamiento en tu templo</div>

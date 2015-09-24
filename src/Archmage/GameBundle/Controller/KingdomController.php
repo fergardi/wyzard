@@ -149,22 +149,22 @@ class KingdomController extends Controller
                 $sacrifice = $sacrifice[rand(0, count($sacrifice) - 1)];
                 if ($sacrifice == 'gold') {
                     $player->setGold($player->getGold() / 2);
-                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tu Oro.');
+                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tu <span class="label label-extra">Oro</span>.');
                 }
                 if ($sacrifice == 'people') {
                     $player->setPeople($player->getPeople() / 2);
-                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tu Población.');
+                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tu <span class="label label-extra">Población</span>.');
                 }
                 if ($sacrifice == 'mana') {
                     $player->setMana($player->getMana() / 2);
-                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tu Maná.');
+                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tu <span class="label label-extra">Maná</span>.');
                 }
                 if ($sacrifice == 'contract') {
                     $contracts = $player->getContracts()->toArray(); //for shuffling
                     shuffle($contracts);
                     $contract = $contracts[0]; //suponemos > 0 por entrar en el array
                     $contract->setLevel($contract->getLevel() - 1);
-                    $this->addFlash('danger', 'Los Dioses han exigido un nivel de tu "'.$contract->getHero()->getName().'".');
+                    $this->addFlash('danger', 'Los Dioses han exigido un nivel de tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span>.');
                     if ($contract->getLevel() <= 0) {
                         $this->addFlash('danger', 'Tu "'.$contract->getHero()->getName().'" ha muerto.');
                         $player->removeContract($contract);
@@ -176,7 +176,7 @@ class KingdomController extends Controller
                     shuffle($troops);
                     $troop = $troops[0]; //suponemos > 0 por entrar en el array
                     $troop->setQuantity($troop->getQuantity() / 2);
-                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tus "'.$troop->getUnit()->getName().'".');
+                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tus <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span>.');
                     if ($troop->getQuantity() <= 0) {
                         $player->removeTroop($troop);
                         $manager->remove($troop);
@@ -187,7 +187,7 @@ class KingdomController extends Controller
                     shuffle($items);
                     $item = $items[0]; //suponemos > 0 por entrar en el array
                     $item->setQuantity($item->getQuantity() - 1);
-                    $this->addFlash('danger', 'Los Dioses han exigido el artefacto "'.$item->getArtifact()->getName().'".');
+                    $this->addFlash('danger', 'Los Dioses han exigido el artefacto <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'">'.$item->getArtifact()->getName().'</span>.');
                     if ($item->getQuantity() <= 0) {
                         $player->removeItem($item);
                         $manager->remove($item);
@@ -207,9 +207,9 @@ class KingdomController extends Controller
                     $enchantment->setOwner($god);
                     $god->addEnchantmentsOwner($enchantment);
                     $manager->persist($god);
-                    $this->addFlash('success', '"'.$god->getNick().'" te ha lanzado el encantamiento "'.$enchantment->getSpell()->getName().'" en tu reino.');
+                    $this->addFlash('success', '<span class="label label-'.$god->getFaction()->getClass().'">'.$god->getNick().'</span> ha lanzado el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'">'.$enchantment->getSpell()->getName().'</span> en tu reino.');
                 } else {
-                    $this->addFlash('danger', 'Los Dioses no están satisfechos con tu sacrificio y no moverán un dedo.');
+                    $this->addFlash('danger', 'Los Dioses no están satisfechos con tu sacrificio y no moverán un dedo por tu reino.');
                 }
                 $manager->persist($player);
                 $manager->flush();

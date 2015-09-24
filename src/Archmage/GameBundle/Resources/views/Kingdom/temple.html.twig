@@ -20,12 +20,12 @@
                                     <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/temple.jpg') }}">
                                 </div>
                                 <div class="col-xs-8 text-padded">
-                                    <div class="col-xs-12">Aquí puedes gastar 1 <span class="label label-extra">Turno</span> para recibir un encantamiento aleatorio de uno de los 5 Dioses, pero exigirán un sacrificio a cambio.</div>
+                                    <div class="col-xs-12">Aquí puedes gastar 1 <span class="label label-extra">Turno</span> para recibir un encantamiento aleatorio, bueno o malo, de uno de los 5 Dioses, pero exigirán un sacrificio a cambio.</div>
                                 </div>
                             </div>
                         </div>
                         <div class="panel-middle text-center">Dioses</div>
-                        <div class="panel-body text-responsive">
+                        <div class="panel-body text-responsive text-only">
                             {% for god in gods %}
                             <div class="col-xs-6 text-center">
                                 <span class="label label-{{ god.faction.class }}"><i class="fa fa-fw fa-rebel"></i><a href="{{ path('archmage_game_account_profile', {'id': god.id}) }}" class="link">{{ god.nick }}</a></span>

@@ -26,9 +26,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setGoldMaintenance(0);
         $building->setPeopleMaintenance(0);
         $building->setManaMaintenance(0);
-        $building->setGoldResource(0);
-        $building->setPeopleResource(0);
-        $building->setManaResource(0);
+        $building->setGoldResource(1);
+        $building->setPeopleResource(1);
+        $building->setManaResource(1);
         $building->setGoldCap(0);
         $building->setPeopleCap(10);
         $building->setManaCap(0);

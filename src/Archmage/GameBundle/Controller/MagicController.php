@@ -177,26 +177,31 @@ class MagicController extends Controller
         $player = $this->getUser()->getPlayer();
         $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
         if ($request->isMethod('POST')) {
-            //recibe datos del form post y busca en databases sus ids
             $turns = 1;
             $item = isset($_POST['item'])?$_POST['item']:null;
             $action = isset($_POST['action'])?$_POST['action']:null;
-            $item = $manager->getRepository('ArchmageGameBundle:Item')->findOneById($item);
-            if ($item && $action && $turns <= $player->getTurns()) {
-                //resta turnos al usarlo
-                $player->setTurns($player->getTurns() - $turns);
-                $this->get('service.controller')->checkMaintenances($turns);
-                if ($action == 'activate') {
-                    //TODO
-                    $this->addFlash('success', 'Has gastado '. $this->get('service.controller')->nf($turns).' turnos en activar '.$item->getArtifact()->getName().'.');
-                } elseif ($action == 'defense') {
-                    $player->setItemDefense($item);
-                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos en defender con '.$item->getArtifact()->getName().'.');
+            if ($turns <= $player->getTurns()) {
+                $item = $manager->getRepository('ArchmageGameBundle:Item')->findOneById($item);
+                if ($item && $action) {
+                    /*
+                     * MANTENIMIENTO
+                     */
+                    $player->setTurns($player->getTurns() - $turns);
+                    $this->get('service.controller')->checkMaintenances($turns);
+                    if ($action == 'activate') {
+                        //TODO
+                        $this->addFlash('success', 'Has gastado '. $this->get('service.controller')->nf($turns).' turnos en activar '.$item->getArtifact()->getName().'.');
+                    } elseif ($action == 'defense') {
+                        $player->setItemDefense($item);
+                        $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos en defender con '.$item->getArtifact()->getName().'.');
+                    }
+                    $manager->persist($player);
+                    $manager->flush();
+                } else {
+                    $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
                 }
-                $manager->persist($player);
-                $manager->flush();
             } else {
-                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+                $this->addFlash('danger', 'No tienes turnos suficientes para eso.');
             }
             return $this->redirect($this->generateUrl('archmage_game_magic_artifact'));
         }
@@ -215,7 +220,35 @@ class MagicController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
-            //TODO
+            $turns = 1;
+            $enchantment = isset($_POST['enchantment'])?$_POST['enchantment']:null;
+            if ($turns <= $player->getTurns()) {
+                $enchantment = $manager->getRepository('ArchmageGameBundle:Enchantment')->findOneById($enchantment);
+                if ($enchantment) {
+                    /*
+                     * MANTENIMIENTO
+                     */
+                    $player->setTurns($player->getTurns() - $turns);
+                    $this->get('service.controller')->checkMaintenances($turns);
+                    $chance = rand(0,99);
+                    if ($chance >= $enchantment->getOwner()->getMagicDefense()) {
+                        $player->removeEnchantmentsVictim($enchantment);
+                        $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
+                        $manager->persist($enchantment->getOwner());
+                        $this->addFlash('success', 'Has roto el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'">'.$enchantment->getSpell()->getName().'</span> de <span class="label label-'.$enchantment->getOwner()->getFaction()->getClass().'">'.$enchantment->getOwner()->getNick().'</span>.');
+                        $manager->remove($enchantment);
+                    } else {
+                        $this->addFlash('danger', 'No has conseguido romper el encantamiento.');
+                    }
+                    $manager->persist($player);
+                    $manager->flush();
+                } else {
+                    $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+                }
+            } else {
+                $this->addFlash('danger', 'No tienes turnos suficientes para eso.');
+            }
+            return $this->redirect($this->generateUrl('archmage_game_magic_dispell'));
         }
         return array(
             'player' => $player,

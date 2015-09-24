@@ -19,6 +19,7 @@
                 </div>
                 <div class="info">
                     <h1 class="text-center">{{ player.nick }}</h1>
+                    <h2>Hechizos</h2>
                     {% for progress in progresses %}
                     <div class="col-xs-12">
                         <div class="progress">
@@ -28,13 +29,14 @@
                         </div>
                     </div>
                     {% endfor %}
+                    <h2>Logros</h2>
                     {% for i in 1..8 %}
                         {% if loop.index is odd %}
-                    <div class="col-xs-12 col-md-4 col-md-offset-1 alert alert-{{ player.faction.class }} ribbon text-center text-responsive">
+                    <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-1 alert alert-{{ player.faction.class }} ribbon text-center text-responsive">
                         <i class="fa fa-fw fa-lg fa-trophy"></i>Logro desbloqueado
                     </div>
                         {% else %}
-                    <div class="col-xs-12 col-md-4 col-md-offset-2 alert alert-{{ player.faction.class }} ribbon text-center text-responsive">
+                    <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-2 alert alert-{{ player.faction.class }} ribbon text-center text-responsive">
                         <i class="fa fa-fw fa-lg fa-trophy"></i>Logro desbloqueado
                     </div>
                         {% endif%}

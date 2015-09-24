@@ -36,10 +36,16 @@ class KingdomController extends Controller
         if ($request->isMethod('POST')) {
             $turns = isset($_POST['turns'])?$_POST['turns']:null;
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
-                $gold = $turns * $player->getGoldResourcePerTurn() * 2;
-                $player->setGold($player->getGold() + $gold);
+                /*
+                 * MANTENIMIENTOS
+                 */
                 $player->setTurns($player->getTurns() - $turns);
                 $this->get('service.controller')->checkMaintenances($turns);
+                /*
+                 * ACCION
+                 */
+                $gold = $turns * $player->getGoldResourcePerTurn() * 2;
+                $player->setGold($player->getGold() + $gold);
                 $manager->persist($player);
                 $manager->flush();
                 $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y recaudado '.$this->get('service.controller')->nf($gold).' oro.');
@@ -68,8 +74,17 @@ class KingdomController extends Controller
             $auction = isset($_POST['auction'])?$_POST['auction']:null;
             $auction = $manager->getRepository('ArchmageGameBundle:Auction')->findOneById($auction);
             if ($auction && $bid && is_numeric($bid) && $auction->getPlayer() != $player && $bid >= $auction->getBid() && $bid <= $player->getGold() && $player->getTurns() >= 1) {
-                //el jugador no puede tener mas de una instancia del heroe o de la research
+                //el jugador no puede tener mas de una instancia del heroe o de la research, pero si de tropas o de artefactos
                 if (!$player->hasContract($auction->getContract()) && !$player->hasResearch($auction->getResearch())) {
+                    /*
+                     * MANTENIMIENTOS
+                     */
+                    $player->setGold($player->getGold() - $bid);
+                    $player->setTurns($player->getTurns() - $turns);
+                    $this->get('service.controller')->checkMaintenances($turns);
+                    /*
+                     * ACCION
+                     */
                     //si existia antes un pujante se le devuelve el dinero de la puja y se le manda un mensaje
                     if ($auction->getPlayer()) {
                         $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + $auction->getBid());
@@ -89,9 +104,6 @@ class KingdomController extends Controller
                     //actualizamos el dinero de la puja y el actual pujante
                     $auction->setPlayer($player);
                     $auction->setBid($bid);
-                    $player->setGold($player->getGold() - $bid);
-                    $player->setTurns($player->getTurns() - $turns);
-                    $this->get('service.controller')->checkMaintenances($turns);
                     $manager->persist($auction);
                     $manager->persist($player);
                     $manager->flush();
@@ -118,37 +130,86 @@ class KingdomController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
+        $gods = $manager->getRepository('ArchmageGameBundle:Player')->findByGod(true);
         if ($request->isMethod('POST')) {
             $turns = 1;
-            $gold = isset($_POST['gold'])?$_POST['gold']:null;
-            if ($gold && is_numeric($gold) && $gold > 0 && $gold <= $player->getGold() && $turns <= $player->getTurns()) {
+            if ($turns <= $player->getTurns()) {
                 /*
-                 * MANTENIMIENTOS BEGIN
+                 * MANTENIMIENTOS
                  */
-                $player->setGold($player->getGold() - $gold);
                 $player->setTurns($player->getTurns() - $turns);
                 $this->get('service.controller')->checkMaintenances($turns);
                 /*
-                 * MANTENIMIENTOS END
+                 * ACCION
                  */
-                if (true) {
-                    $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findByEnchantment(true);
-                    shuffle($spells);
-                    $spell = $spells[0];
-                    $god = $manager->getRepository('ArchmageGameBundle:Player')->findOneBy(array('god' => true, 'faction' => $spell->getFaction()));
-                    if ($spell && $god && !$player->hasEnchantmentVictim($spell)) {
-                        $enchantment = new Enchantment();
-                        $manager->persist($enchantment);
-                        $enchantment->setSpell($spell);
-                        $enchantment->setVictim($player);
-                        $player->addEnchantmentsVictim($enchantment);
-                        $enchantment->setOwner($god);
-                        $god->addEnchantmentsOwner($enchantment);
-                        $manager->persist($god);
-                        $this->addFlash('success', '"'.$god->getNick().'" te ha lanzado el encantamiento "'.$enchantment->getSpell()->getName().'" en tu reino.');
-                    } else {
-                        $this->addFlash('danger', 'Los Dioses no están satisfechos con tu donativo y no moverán un dedo.');
+                $sacrifice = array('gold','mana','people');
+                if ($player->getContracts()->count() > 0) $sacrifice[] = 'contract';
+                if ($player->getTroops()->count() > 0) $sacrifice[] = 'troop';
+                if ($player->getItems()->count() > 0) $sacrifice[] = 'item';
+                $sacrifice = $sacrifice[rand(0, count($sacrifice) - 1)];
+                if ($sacrifice == 'gold') {
+                    $player->setGold($player->getGold() / 2);
+                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tu Oro.');
+                }
+                if ($sacrifice == 'people') {
+                    $player->setPeople($player->getPeople() / 2);
+                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tu Población.');
+                }
+                if ($sacrifice == 'mana') {
+                    $player->setMana($player->getMana() / 2);
+                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tu Maná.');
+                }
+                if ($sacrifice == 'contract') {
+                    $contracts = $player->getContracts()->toArray(); //for shuffling
+                    shuffle($contracts);
+                    $contract = $contracts[0]; //suponemos > 0 por entrar en el array
+                    $contract->setLevel($contract->getLevel() - 1);
+                    $this->addFlash('danger', 'Los Dioses han exigido un nivel de tu "'.$contract->getHero()->getName().'".');
+                    if ($contract->getLevel() <= 0) {
+                        $this->addFlash('danger', 'Tu "'.$contract->getHero()->getName().'" ha muerto.');
+                        $player->removeContract($contract);
+                        $manager->remove($contract);
                     }
+                }
+                if ($sacrifice == 'troop') {
+                    $troops = $player->getTroops()->toArray(); //for shuffling
+                    shuffle($troops);
+                    $troop = $troops[0]; //suponemos > 0 por entrar en el array
+                    $troop->setQuantity($troop->getQuantity() / 2);
+                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tus "'.$troop->getUnit()->getName().'".');
+                    if ($troop->getQuantity() <= 0) {
+                        $player->removeTroop($troop);
+                        $manager->remove($troop);
+                    }
+                }
+                if ($sacrifice == 'item') {
+                    $items = $player->getItems()->toArray(); //for shuffling
+                    shuffle($items);
+                    $item = $items[0]; //suponemos > 0 por entrar en el array
+                    $item->setQuantity($item->getQuantity() - 1);
+                    $this->addFlash('danger', 'Los Dioses han exigido el artefacto "'.$item->getArtifact()->getName().'".');
+                    if ($item->getQuantity() <= 0) {
+                        $player->removeItem($item);
+                        $manager->remove($item);
+                    }
+                }
+                $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findByEnchantment(true);
+                shuffle($spells);
+                $spell = $spells[0];
+                $god = $manager->getRepository('ArchmageGameBundle:Player')->findOneBy(array('god' => true, 'faction' => $spell->getFaction()));
+                //TODO ELIMINAR ARMAGEDDON DE LA LISTA USANDO CRITERIA
+                if ($spell && $god && !$player->hasEnchantmentVictim($spell)) {
+                    $enchantment = new Enchantment();
+                    $manager->persist($enchantment);
+                    $enchantment->setSpell($spell);
+                    $enchantment->setVictim($player);
+                    $player->addEnchantmentsVictim($enchantment);
+                    $enchantment->setOwner($god);
+                    $god->addEnchantmentsOwner($enchantment);
+                    $manager->persist($god);
+                    $this->addFlash('success', '"'.$god->getNick().'" te ha lanzado el encantamiento "'.$enchantment->getSpell()->getName().'" en tu reino.');
+                } else {
+                    $this->addFlash('danger', 'Los Dioses no están satisfechos con tu sacrificio y no moverán un dedo.');
                 }
                 $manager->persist($player);
                 $manager->flush();
@@ -159,6 +220,7 @@ class KingdomController extends Controller
         }
         return array(
             'player' => $player,
+            'gods' => $gods,
         );
     }
 }

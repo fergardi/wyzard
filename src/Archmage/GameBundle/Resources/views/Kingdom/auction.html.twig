@@ -7,10 +7,8 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-user-secret"></i>Mercado negro
-                    <br>
-                    {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
-                </h1>
+                <h1><i class="fa fa-fw fa-user-secret"></i>Mercado negro</h1>
+                {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
         </div>
         <div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -22,7 +20,7 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar <span class="label label-extra">Turnos</span> y <span class="label label-extra">Oro</span> para adquirir diversas <span class="label label-extra">Tropas</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span> y <span class="label label-extra">Hechizos</span> que no podrías obtener de otra forma. Para ganar una puja, debes ser el máximo pujador al acabar la subasta. Si te sobrepujan, se te devolverá el <span class="label label-extra">Oro</span>.</div>
+                            <div class="col-xs-12">Aquí puedes gastar <span class="label label-extra">Turnos</span> y <span class="label label-extra">Oro</span> para adquirir diversas <span class="label label-extra">Tropas</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span> y <span class="label label-extra">Hechizos</span> que no podrías obtener de otra forma. Si te sobrepujan, se te devolverá el <span class="label label-extra">Oro</span>.</div>
                         </div>
                     </div>
                 </div>
@@ -35,7 +33,7 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <a class="btn btn-default" href="{{ path( 'archmage_game_kingdom_tax' ) }}"><i class="fa fa-fw fa-money"></i><span class="hidden-xs">Recaudar</span></a>
+                    <a class="btn btn-default" href="{{ path( 'archmage_game_kingdom_tax' ) }}"><i class="fa fa-fw fa-money"></i>Recaudar</a>
                 </div>
             </div>
         </div>
@@ -62,19 +60,23 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
+                    {% if auction.player != player %}
                     <form id="auction{{ auction.id }}" name="auction{{ auction.id }}" class="form-inline" data-toggle="validator" action="{{ path( 'archmage_game_kingdom_auction' ) }}" method="post">
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i><span class="hidden-xs">Pujar</span></button>
+                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i>Pujar</button>
                                 </div>
-                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %} required />
-                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
                         </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
                     </form>
+                    {% else %}
+                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujador</button>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -108,19 +110,23 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
+                    {% if auction.player != player %}
                     <form id="auction{{ auction.id }}" name="auction{{ auction.id }}" class="form-inline" data-toggle="validator" action="{{ path( 'archmage_game_kingdom_auction' ) }}" method="post">
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i><span class="hidden-xs">Pujar</span></button>
+                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i>Pujar</button>
                                 </div>
-                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %} required />
-                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
                         </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
                     </form>
+                    {% else %}
+                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujador</button>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -153,19 +159,23 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
+                    {% if auction.player != player %}
                     <form id="auction{{ auction.id }}" name="auction{{ auction.id }}" class="form-inline" data-toggle="validator" action="{{ path( 'archmage_game_kingdom_auction' ) }}" method="post">
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i><span class="hidden-xs">Pujar</span></button>
+                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i>Pujar</button>
                                 </div>
-                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %} required />
-                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
                         </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
                     </form>
+                    {% else %}
+                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujador</button>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -186,19 +196,23 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
+                    {% if auction.player != player %}
                     <form id="auction{{ auction.id }}" name="auction{{ auction.id }}" class="form-inline" data-toggle="validator" action="{{ path( 'archmage_game_kingdom_auction' ) }}" method="post">
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i><span class="hidden-xs">Pujar</span></button>
+                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i>Pujar</button>
                                 </div>
-                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %} required />
-                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.player == player or auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
                         </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
                     </form>
+                    {% else %}
+                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujador</button>
+                    {% endif %}
                 </div>
             </div>
         </div>

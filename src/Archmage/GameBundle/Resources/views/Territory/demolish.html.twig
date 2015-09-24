@@ -7,10 +7,8 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-bomb"></i>Demoler
-                    <br>
-                    {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
-                </h1>
+                <h1><i class="fa fa-fw fa-bomb"></i>Demoler</h1>
+                {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
         </div>
         {% for construction in player.constructions %}
@@ -60,7 +58,7 @@
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default" {% if construction.quantity <= 0 %}disabled{% endif %}><i class="fa fa-fw fa-bomb"></i><span class="hidden-xs">Demoler</span></button>
+                                    <button type="submit" class="btn btn-default" {% if construction.quantity <= 0 %}disabled{% endif %}><i class="fa fa-fw fa-bomb"></i>Demoler</button>
                                 </div>
                                 <input type="number" class="form-control" id="lands" name="lands" min="1" max="{{ construction.quantity }}" value="0" {% if construction.quantity <= 0 %}disabled{% endif %} required />
                                 <input type="hidden" id="construction" name="construction" value="{{ construction.id }}" {% if construction.quantity <= 0 %}disabled{% endif %} required />
@@ -69,7 +67,7 @@
                         </div>
                     </form>
                     {% else %}
-                        <a class="btn btn-default" href="{{ path( 'archmage_game_territory_explore' ) }}"><i class="fa fa-fw fa-search"></i><span class="hidden-xs">Explorar</span></a>
+                        <a class="btn btn-default" href="{{ path( 'archmage_game_territory_explore' ) }}"><i class="fa fa-fw fa-search"></i>Explorar</a>
                     {% endif %}
                 </div>
             </div>

@@ -1,12 +1,13 @@
-<small class="text-responsive">
+<p>
     <span class="label label-extra"><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</span>
     <span class="label label-extra"><i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }}</span>
+    <span class="label label-extra"><i class="fa fa-fw fa-diamond"></i>{{ player.artifacts|nf }}</span>
     <span class="label label-extra"><i class="fa fa-fw fa-globe"></i>{{ player.free|nf }} / {{ player.lands|nf }}</span>
+    <br>
     <span class="label label-extra"><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }}</span>
     <span class="label label-{% if player.goldresourceperturn -  player.goldmaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.goldresourceperturn -  player.goldmaintenanceperturn)|nf }} /<i class="fa fa-fw fa-hourglass-half"></i></span>
-    <br>
     <span class="label label-extra"><i class="fa fa-fw fa-users"></i>{{ player.people|nf }} / {{ player.peopleCap|nf }}</span>
     <span class="label label-{% if player.peopleresourceperturn -  player.peoplemaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.peopleresourceperturn -  player.peoplemaintenanceperturn)|nf }} /<i class="fa fa-fw fa-hourglass-half"></i></span>
     <span class="label label-extra"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }} / {{ player.manaCap|nf }}</span>
     <span class="label label-{% if player.manaresourceperturn -  player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }} /<i class="fa fa-fw fa-hourglass-half"></i></span>
-</small>
+</p>

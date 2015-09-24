@@ -26,11 +26,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
          * GODS
          */
         $gods = array(
-            array('name' => 'El Dios de la Sangre', 'faction' => 'Caos', 'unit' => 'Dragones Rojos'),
-            array('name' => 'La Diosa de la Muerte', 'faction' => 'Oscuridad', 'unit' => 'Dragones Negros'),
-            array('name' => 'El Dios de la Luz', 'faction' => 'Sagrado', 'unit' => 'Dragones Blancos'),
-            array('name' => 'La Diosa de la Magia', 'faction' => 'Fantasmal', 'unit' => 'Dragones Azules'),
-            array('name' => 'El Dios de la Vida', 'faction' => 'Naturaleza', 'unit' => 'Dragones Verdes'),
+            array('name' => 'Duggo, Dios de la Sangre', 'faction' => 'Caos', 'unit' => 'Dragones Rojos', 'enchantment' => 'Muro Ígneo enchant'),
+            array('name' => 'Surm, Dios de la Muerte', 'faction' => 'Oscuridad', 'unit' => 'Dragones Negros', 'enchantment' => 'Brujería enchant'),
+            array('name' => 'Lett, Diosa de la Luz', 'faction' => 'Sagrado', 'unit' => 'Dragones Blancos', 'enchantment' => 'Protección Divina enchant'),
+            array('name' => 'Sihir, Diosa de la Magia', 'faction' => 'Fantasmal', 'unit' => 'Dragones Azules', 'enchantment' => 'Barrera Mental enchant'),
+            array('name' => 'Elama, Diosa de la Vida', 'faction' => 'Naturaleza', 'unit' => 'Dragones Verdes', 'enchantment' => 'Favor de la Naturaleza enchant'),
         );
         foreach ($gods as $god) {
             $player = new Player();
@@ -41,15 +41,15 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $player->setItem(null);
             $player->setResearch(null);
             $constructions = array(
-                'Tierras' => 1111,
-                'Granjas' => 1111,
-                'Pueblos' => 1111,
-                'Nodos' => 1111,
-                'Gremios' => 1111,
-                'Talleres' => 1111,
-                'Barracones' => 1111,
-                'Barreras' => 1111,
-                'Fortalezas' => 1111,
+                'Tierras' => 0,
+                'Granjas' => 0,
+                'Pueblos' => 0,
+                'Nodos' => 0,
+                'Gremios' => 0,
+                'Talleres' => 0,
+                'Barracones' => 0,
+                'Barreras' => 9999,
+                'Fortalezas' => 0,
             );
             foreach ($constructions as $name => $quantity) {
                 $construction = new Construction();
@@ -59,8 +59,30 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
                 $manager->persist($construction);
                 $player->addConstruction($construction);
             }
+            $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAll();
+            foreach ($spells as $spell) {
+                $research = new Research();
+                $research->setSpell($spell);
+                $research->setTurns(0);
+                $research->setPlayer($player);
+                $research->setActive(true);
+                $manager->persist($research);
+                $player->addResearch($research);
+            }
+            $enchantments = array(
+                $god['enchantment'],
+            );
+            foreach ($enchantments as $name) {
+                $enchantment = new Enchantment();
+                $enchantment->setSpell($this->getReference($name));
+                $enchantment->setVictim($player);
+                $enchantment->setOwner($player);
+                $manager->persist($enchantment);
+                $player->addEnchantmentsOwner($enchantment);
+                $player->addEnchantmentsVictim($enchantment);
+            }
             $troops = array(
-                $god['unit'] => 999,
+                $god['unit'] => 666,
             );
             foreach ($troops as $name => $quantity) {
                 $troop = new Troop();
@@ -70,10 +92,10 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
                 $manager->persist($troop);
                 $player->addTroop($troop);
             }
-            $player->setGold(999999999);
-            $player->setPeople(999999999);
-            $player->setMana(999999999);
-            $player->setTurns(300);
+            $player->setGold(0);
+            $player->setPeople(0);
+            $player->setMana(0);
+            $player->setTurns(0);
             $player->setMagic(5);
         }
 
@@ -209,7 +231,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //FOSUSERBUNDLE
         $user = new User();
         $user->setPlayer($player);
-        $user->setUsername('fergardi');
+        $user->setUsername('Fergardi');
         $player->setNick($user->getUsername());
         $user->setEmail('fergardi@email.com');
         $user->setPlainPassword('fernando');

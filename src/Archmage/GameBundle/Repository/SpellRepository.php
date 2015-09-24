@@ -55,7 +55,7 @@ class SpellRepository extends EntityRepository
                 r.spell = s.id AND
                 s.faction = f.id AND
                 r.active = TRUE AND
-                p.id = 1
+                p.id = '.$player->getId().'
                 GROUP BY f.id
                 ORDER BY f.name DESC')
             ->getResult();

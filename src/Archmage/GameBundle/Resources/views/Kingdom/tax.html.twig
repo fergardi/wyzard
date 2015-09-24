@@ -7,10 +7,8 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-money"></i>Recaudar oro
-                    <br>
-                    {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
-                </h1>
+                <h1><i class="fa fa-fw fa-money"></i>Recaudar oro</h1>
+                {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
             <div class="row">
                 <div class="col-xs-12 col-md-offset-3 col-md-6">
@@ -39,7 +37,7 @@
                                 <div class="form-group has-feedback">
                                     <div class="input-group">
                                         <div class="input-group-btn">
-                                            <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-hourglass-half"></i><span class="hidden-xs">Recaudar</span></button>
+                                            <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-hourglass-half"></i>Recaudar</button>
                                         </div>
                                         <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ player.turns }}" value="0" required/>
                                         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>

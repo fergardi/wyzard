@@ -85,8 +85,9 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
     color: inherit !important;
 }
 .label {
-    font-size: 95%;
-    padding: 0.1em 0.3em 0.1em 0.3em;
+    font-size: 90%;
+    padding: 0.2em 0.2em 0.1em 0.2em;
+    border: 1px solid black;
 }
 .label-extra {
     background-color: #000000;

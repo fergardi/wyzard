@@ -7,10 +7,8 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-joomla"></i>Activar artefacto
-                    <br>
-                    {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
-                </h1>
+                <h1><i class="fa fa-fw fa-joomla"></i>Activar artefacto</h1>
+                {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
         </div>
         <div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -35,7 +33,7 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <a class="btn btn-default" href="{{ path( 'archmage_game_kingdom_auction' ) }}"><i class="fa fa-fw fa-money"></i><span class="hidden-xs">Subasta</span></a>
+                    <a class="btn btn-default" href="{{ path( 'archmage_game_kingdom_auction' ) }}"><i class="fa fa-fw fa-money"></i>Subasta</a>
                 </div>
             </div>
         </div>

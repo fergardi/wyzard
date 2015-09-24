@@ -364,7 +364,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(true);
-        $this->setReference($spell->getName().' enchant', $spell);
+        //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
         //VOODOO
@@ -433,7 +433,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(true);
-        //$this->setReference($spell->getName(), $spell);
+        $this->setReference($spell->getName().' enchant', $spell);
         $manager->persist($spell);
 
         //ECLIPSE
@@ -867,29 +867,6 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
-        $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(0);
-        $spell->setManaMaintenance(0);
-        $spell->setPeopleMaintenance(0);
-        $spell->setTurnsCost(2);
-        $spell->setTurnsResearch(200);
-        $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
-        $spell->setEnchantment(false);
-        //$this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
-        //CONTROL DEL CLIMA
-        $spell = new Spell();
-        $spell->setSkill($this->getReference('Control del Clima'));
-        $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $spell->setImage('bundles/archmagegame/images/spell/nature/climatecontrol.jpg');
-        $spell->setFaction($this->getReference('Naturaleza'));
-        $spell->setMagic(4);
-        $spell->setGoldCost(0);
         $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
@@ -901,6 +878,29 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(true);
+        $this->setReference($spell->getName().' enchant', $spell);
+        $manager->persist($spell);
+
+        //CONTROL DEL CLIMA
+        $spell = new Spell();
+        $spell->setSkill($this->getReference('Control del Clima'));
+        $spell->setName($spell->getSkill()->getName());
+        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setImage('bundles/archmagegame/images/spell/nature/climatecontrol.jpg');
+        $spell->setFaction($this->getReference('Naturaleza'));
+        $spell->setMagic(4);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(25000);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
+        $spell->setTurnsCost(2);
+        $spell->setTurnsResearch(200);
+        $spell->setTurnsExpiration(0);
+        $spell->setGoldAuction(0);
+        $spell->setRarity(0);
+        $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1369,7 +1369,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(true);
-        //$this->setReference($spell->getName(), $spell);
+        $this->setReference($spell->getName().' enchant', $spell);
         $manager->persist($spell);
 
         //REUNION ELEMENTAL
@@ -1791,7 +1791,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(true);
-        $this->setReference($spell->getName().' enchant', $spell);
+        $this->setReference($spell->getName().' enchant', $spell); //para los dioses
         $manager->persist($spell);
 
         //CALMA
@@ -1837,7 +1837,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(true);
-        //$this->setReference($spell->getName(), $spell);
+        $this->setReference($spell->getName().' enchant', $spell); //para los dioses
         $manager->persist($spell);
 
         //PUERTA DE LOS CIELOS
@@ -2236,7 +2236,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(true);
-        $this->setReference($spell->getName().' enchant', $spell);
+        //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
         //COMBUSTION
@@ -2305,7 +2305,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(true);
-        //$this->setReference($spell->getName(), $spell);
+        $this->setReference($spell->getName().' enchant', $spell); //para los dioses
         $manager->persist($spell);
 
         //PACTO DE SANGRE
@@ -2378,7 +2378,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(true);
-        $this->setReference($spell->getName(), $spell);
+        //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
         $manager->flush();

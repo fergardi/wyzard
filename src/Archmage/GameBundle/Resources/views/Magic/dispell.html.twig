@@ -7,10 +7,8 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-chain-broken"></i>Desencantar
-                    <br>
-                    {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
-                </h1>
+                <h1><i class="fa fa-fw fa-chain-broken"></i>Desencantar</h1>
+                {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
         </div>
         <div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -22,7 +20,7 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/temple.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes intentar romper un <span class="label label-extra">Encantamiento</span> amigo o enemigo que pese sobre tu reino. Si es enemigo, puede que no consigas traspasar su <span class="label label-extra">Defensa Mágica</span>, suma de sus <span class="label label-extra">Barreras</span> y sus hechizos defensivos.</div>
+                            <div class="col-xs-12">Aquí puedes intentar romper un <span class="label label-extra">Encantamiento</span> amigo o enemigo sobre tu reino. Si es enemigo, puede que no consigas traspasar su <span class="label label-extra">Defensa Mágica</span>.</div>
                         </div>
                     </div>
                 </div>
@@ -35,7 +33,7 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <a class="btn btn-default" href="{{ path( 'archmage_game_magic_conjure' ) }}"><i class="fa fa-fw fa-magic"></i><span class="hidden-xs">Conjurar</span></a>
+                    <a class="btn btn-default" href="{{ path( 'archmage_game_magic_conjure' ) }}"><i class="fa fa-fw fa-magic"></i>Conjurar</a>
                 </div>
             </div>
         </div>

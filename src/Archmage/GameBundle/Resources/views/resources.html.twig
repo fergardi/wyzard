@@ -1,10 +1,10 @@
-<p>
+<p class="resources">
     <span class="label label-extra"><i class="fa fa-fw fa-hourglass"></i>{{ player.turns|nf }}</span>
     <span class="label label-extra"><i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }}</span>
     <span class="label label-extra"><i class="fa fa-fw fa-diamond"></i>{{ player.artifacts|nf }}</span>
     <span class="label label-extra"><i class="fa fa-fw fa-globe"></i>{{ player.free|nf }} / {{ player.lands|nf }}</span>
 </p>
-<p>
+<p class="resources">
     <span class="label label-extra"><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }}</span>
     <span class="label label-{% if player.goldresourceperturn -  player.goldmaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.goldresourceperturn -  player.goldmaintenanceperturn)|nf }}</span>
     <span class="label label-extra"><i class="fa fa-fw fa-users"></i>{{ player.people|nf }} / {{ player.peopleCap|nf }}</span>

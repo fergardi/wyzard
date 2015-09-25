@@ -25,23 +25,25 @@ class TerritoryController extends Controller
         if ($request->isMethod('POST')) {
             $turns = isset($_POST['turns'])?$_POST['turns']:null;
             if ($turns && is_numeric($turns) && $turns > 0 && $turns <= $player->getTurns()) {
+                /*
+                 * MANTENIMIENTOS
+                 */
+                $player->setTurns($player->getTurns() - $turns);
+                $this->get('service.controller')->checkMaintenances($turns);
+                /*
+                 * ACCION
+                 */
                 $lands = 0;
                 for ($i = 1; $i <= $turns; $i++) {
                     $lands += $player->getFreePerTurn();
                     $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $player->getFreePerTurn());
-                    /*
-                    if (($player->getLands() + $lands) < self::LANDS_CAP) {
-                        $found = floor(abs(self::LANDS_CAP - $player->getLands() - $lands + 333) / 333);
-                        $lands += $found;
-                    }
-                    */
                 }
-                //$player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $lands);
-                $player->setTurns($player->getTurns() - $turns);
-                $this->get('service.controller')->checkMaintenances($turns);
+                /*
+                 * PERSISTENCIA
+                 */
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y encontrado '.$this->get('service.controller')->nf($lands).' tierras.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y encontrado '.$this->get('service.controller')->nf($lands).' <span class="label label-extra">Tierras</span>.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -70,18 +72,27 @@ class TerritoryController extends Controller
                 $people = $construction->getBuilding()->getPeopleCost() * $lands;
                 $mana = $construction->getBuilding()->getManaCost() * $lands;
                 if ($turns <= $player->getTurns() && $gold <= $player->getGold() && $people <= $player->getPeople() && $mana <= $player->getMana()) {
-                    $construction->setQuantity($construction->getQuantity() + $lands);
-                    $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() - $lands);
+                    /*
+                     * MANTENIMIENTOS
+                     */
                     $player->setGold($player->getGold() - $gold);
                     $player->setPeople($player->getPeople() - $people);
                     $player->setMana($player->getMana() - $mana);
                     $player->setTurns($player->getTurns() - $turns);
                     $this->get('service.controller')->checkMaintenances($turns);
+                    /*
+                     * ACCION
+                     */
+                    $construction->setQuantity($construction->getQuantity() + $lands);
+                    $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() - $lands);
+                    /*
+                     * PERSISTENCIA
+                     */
                     $manager->persist($player);
                     $manager->flush();
-                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos, '.$this->get('service.controller')->nf($gold).' oro, '.$this->get('service.controller')->nf($people).' personas y '.$this->get('service.controller')->nf($mana).' maná, y construido '.$this->get('service.controller')->nf($lands).' '. $construction->getBuilding()->getName().'.');
+                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span>, '.$this->get('service.controller')->nf($gold).' <span class="label label-extra">Oro</span>, '.$this->get('service.controller')->nf($people).' <span class="label label-extra">Personas</span> y '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span>, y construido '.$this->get('service.controller')->nf($lands).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span>.');
                 } else {
-                    $this->addFlash('danger', 'No tienes suficientes turnos, oro, personas o maná para eso.');
+                    $this->addFlash('danger', 'No tienes suficientes <span class="label label-extra">Turnos</span>, <span class="label label-extra">Oro</span>, <span class="label label-extra">Personas</span> o <span class="label label-extra">Maná</span> para eso.');
                 }
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
@@ -107,13 +118,22 @@ class TerritoryController extends Controller
             $construction = isset($_POST['construction'])?$_POST['construction']:null;
             $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
             if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $construction->getQuantity() && $player->getTurns() > 0) {
-                $construction->setQuantity($construction->getQuantity() - $lands);
-                $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $lands);
+                /*
+                 * MANTENIMIENTOS
+                 */
                 $player->setTurns($player->getTurns() - $turns);
                 $this->get('service.controller')->checkMaintenances($turns);
+                /*
+                 * ACCION
+                 */
+                $construction->setQuantity($construction->getQuantity() - $lands);
+                $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $lands);
+                /*
+                 * PERSISTENCIA
+                 */
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turno y derribado '.$this->get('service.controller')->nf($lands).' edificios.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y derribado '.$this->get('service.controller')->nf($lands).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span>.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

@@ -125,22 +125,20 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($construction);
             $player->addConstruction($construction);
         }
-        /*
         //HECHIZOS
         $researchs = array(
-            'Invocar Esqueletos' => 10,
-            'Invocar Zombis' => 0,
+            'Oráculo spell',
+            'Encontrar Artefacto spell',
         );
-        foreach ($researchs as $name => $quantity) {
+        foreach ($researchs as $name) {
             $research = new Research();
             $research->setSpell($this->getReference($name));
-            $research->setTurns($quantity);
+            $research->setTurns(0);
             $research->setPlayer($player);
-            $research->setActive(false);
+            $research->setActive(true);
             $manager->persist($research);
             $player->addResearch($research);
         }
-        */
         //UNIDADES
         $troops = array(
             'Arqueros' => 100,

@@ -1003,6 +1003,20 @@ class Player
         return $artifacts;
     }
 
+    /**
+     * Get units
+     *
+     * @return integer
+     */
+    public function getUnits()
+    {
+        $units = 0;
+        foreach ($this->troops as $troop) {
+            $units += $troop->getQuantity();
+        }
+        return $units;
+    }
+
     /*
      * BUSCAR TROPAS, CONTRATOS Y HECHIZOS
      */

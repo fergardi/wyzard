@@ -65,9 +65,11 @@ class AccountController extends Controller
                 return $this->redirectToRoute('archmage_game_account_message');
             }
             $text = json_decode($message->getText(), true);
+            $player = $this->getUser()->getPlayer();
             return array(
                 'message' => $message,
                 'text' => $text,
+                'player' => $player,
             );
         }
     }

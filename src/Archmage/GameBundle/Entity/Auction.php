@@ -218,7 +218,20 @@ class Auction
         if ($this->getItem()) return $this->getItem()->getArtifact()->getName();
         if ($this->getContract()) return $this->getContract()->getHero()->getName();
         if ($this->getResearch()) return $this->getResearch()->getSpell()->getName();
+        return '';
+    }
 
+    /**
+     * Get class
+     *
+     * @return string
+     */
+    public function getClass()
+    {
+        if ($this->getTroop()) return $this->getTroop()->getUnit()->getFaction()->getClass();
+        if ($this->getItem()) return $this->getItem()->getArtifact()->getFaction()->getClass();
+        if ($this->getContract()) return $this->getContract()->getHero()->getFaction()->getClass();
+        if ($this->getResearch()) return $this->getResearch()->getSpell()->getFaction()->getClass();
         return '';
     }
 }

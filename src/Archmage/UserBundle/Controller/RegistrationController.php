@@ -44,14 +44,14 @@ class RegistrationController extends BaseController
                 //constructions
                 $constructions = array(
                     'Tierras' => 600,
-                    'Granjas' => 20,
-                    'Pueblos' => 20,
-                    'Nodos' => 20,
+                    'Granjas' => 10,
+                    'Pueblos' => 10,
+                    'Nodos' => 10,
                     'Gremios' => 0,
                     'Talleres' => 5,
                     'Barracones' => 0,
                     'Barreras' => 0,
-                    'Fortalezas' => 1,
+                    'Fortalezas' => 0,
                 );
                 foreach ($constructions as $name => $quantity) {
                     $construction = new Construction();
@@ -82,10 +82,10 @@ class RegistrationController extends BaseController
                 $message->setPlayer($player);
                 $message->setSubject('Bienvenido al juego, "'.$player->getNick().'"');
                 $text = array(
-                    array('info', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda del juego.'),
+                    array('default', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda del juego.'),
                 );
                 $message->setText($text);
-                $message->setClass('info');
+                $message->setClass('default');
                 $message->setOwner(null);
                 $message->setReaded(false);
                 $manager->persist($message);
@@ -95,7 +95,7 @@ class RegistrationController extends BaseController
                 $player->setGold(3000000);
                 $player->setPeople(20000);
                 $player->setMana(1000);
-                $player->setTurns(30000);
+                $player->setTurns(300);
                 $player->setMagic(1);
                 //persist && flush
                 $manager->persist($player);

@@ -28,7 +28,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-12 text-center text-only">
-                            PROB<sub>éxito</sub> = MAX(75, 100 - BARRERAS<sub>jugador</sub> * 1 / 100)
+                            PROB<sub>éxito</sub> = MIN(75, 5 + BARRERAS<sub>jugador</sub> * 10 / 100)
                         </div>
                     </div>
                 </div>
@@ -49,8 +49,8 @@
                         <div class="col-xs-8 text-padded">
                             {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-magic"></i>{{ research.spell.magic|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-hourglass-half"></i>{{ research.spell.turnsCost|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{% if research.spell.faction == player.faction %}{{ (research.spell.manaCost * player.magic)|nf }}{% else %}{{ (research.spell.manaCost * player.magic * 2)|nf }}{% endif %}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-hourglass-half"></i>{{ (research.spell.turnsCost * player.magic)|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{% if research.spell.faction == player.faction %}{{ research.spell.manaCost|nf }}{% else %}{{ (research.spell.manaCost * 2)|nf }}{% endif %}</div>
                             {% if research.spell.enchantment %}
                             {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ research.spell.goldMaintenance|nf }}</div>
@@ -72,7 +72,7 @@
                                 <select class="form-control selectpicker" id="target" name="target" data-live-search="true">
                                     <option>Objetivo</option>
                                     {% for target in targets if target != player %}
-                                        <option value="{{ target.id }}">{{ target.nick }}</option>
+                                        <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}'>{{ target.nick }}</span>">{{ target.nick }}</option>
                                     {% endfor %}
                                 </select>
                                 {% endif %}

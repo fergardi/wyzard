@@ -48,7 +48,7 @@ class KingdomController extends Controller
                 $player->setGold($player->getGold() + $gold);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y recaudado '.$this->get('service.controller')->nf($gold).' oro.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y recaudado '.$this->get('service.controller')->nf($gold).' <span class="label label-extra">Oro</span>.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -92,7 +92,7 @@ class KingdomController extends Controller
                         $message->setPlayer($auction->getPlayer());
                         $message->setSubject('Te han sobrepujado en la subasta');
                         $text = array(
-                            array('danger', 12, 0, 'center', 'Se te ha devuelto '.$this->get('service.controller')->nf($auction->getBid()).' oro. No dejes que te arrebaten lo que deseas, vuelve a pujar en la subasta!'),
+                            array('danger', 12, 0, 'center', 'Se te ha devuelto '.$this->get('service.controller')->nf($auction->getBid()).' oro por haber sido sobrepujado en la subasta.'),
                         );
                         $message->setText($text);
                         $message->setClass('danger');
@@ -104,10 +104,13 @@ class KingdomController extends Controller
                     //actualizamos el dinero de la puja y el actual pujante
                     $auction->setPlayer($player);
                     $auction->setBid($bid);
+                    /*
+                     * PERSISTENCIA
+                     */
                     $manager->persist($auction);
                     $manager->persist($player);
                     $manager->flush();
-                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y pujado '.$this->get('service.controller')->nf($bid).' oro en la subasta por "'.$auction->getName().'".');
+                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y pujado '.$this->get('service.controller')->nf($bid).' <span class="label label-extra">Oro</span> por <span class="label label-'.$auction->getClass().'">'.$auction->getName().'</span>.');
                 } else {
                     $this->addFlash('danger', 'No puedes pujar por un héroe o hechizo que ya posees.');
                 }
@@ -166,7 +169,7 @@ class KingdomController extends Controller
                     $contract->setLevel($contract->getLevel() - 1);
                     $this->addFlash('danger', 'Los Dioses han exigido un nivel de tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span>.');
                     if ($contract->getLevel() <= 0) {
-                        $this->addFlash('danger', 'Tu "'.$contract->getHero()->getName().'" ha muerto.');
+                        $this->addFlash('danger', 'Tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span> ha muerto.');
                         $player->removeContract($contract);
                         $manager->remove($contract);
                     }
@@ -197,7 +200,7 @@ class KingdomController extends Controller
                 shuffle($spells);
                 $spell = $spells[0];
                 $god = $manager->getRepository('ArchmageGameBundle:Player')->findOneBy(array('god' => true, 'faction' => $spell->getFaction()));
-                //TODO ELIMINAR ARMAGEDDON DE LA LISTA USANDO CRITERIA
+                //APOCALIPSIS ES UN ENCHANTMENT PERO NO SALE PORQUE NO TIENE GOD DE SU FACCION ASOCIADO
                 if ($spell && $god && !$player->hasEnchantmentVictim($spell)) {
                     $enchantment = new Enchantment();
                     $manager->persist($enchantment);

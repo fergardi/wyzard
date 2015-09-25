@@ -8,6 +8,7 @@ use Archmage\GameBundle\Entity\Spell;
 use Archmage\GameBundle\Entity\Player;
 use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Enchantment;
+use Archmage\GameBundle\Entity\Message;
 
 class ServiceController extends Controller
 {
@@ -78,7 +79,7 @@ class ServiceController extends Controller
             $quantity = $spell->getSkill()->getQuantityBonus();
             if ($troop) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
-                $this->addFlash('success', 'Has invocado '.$this->nf($quantity).' <span class="'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span>.');
+                $this->addFlash('success', 'Has invocado '.$this->nf($quantity).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span>.');
             } else {
                 if ($player->getTroops()->count() < $player::TROOPS_CAP) {
                     $troop = new Troop();
@@ -87,13 +88,11 @@ class ServiceController extends Controller
                     $troop->setQuantity($quantity);
                     $troop->setPlayer($player);
                     $player->addTroop($troop);
-                    $this->addFlash('success', 'Has invocado '.$this->nf($quantity).' <span class="'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span>.');
+                    $this->addFlash('success', 'Has invocado '.$this->nf($quantity).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span>.');
                 } else {
                     $this->addFlash('danger', 'No puedes tener más de '.$player::TROOPS_CAP.' tropas distintas al mismo tiempo, debes <i class="fa fa-fw fa-user-times"></i><a href='.$this->generateUrl('archmage_game_army_disband').'>Desbandar</a> alguna.');
                 }
             }
-        } elseif ($spell->getSkill()->getDispell()) {
-            //TODO
         } elseif ($spell->getEnchantment()) {
             //TODO
         } else {
@@ -110,13 +109,35 @@ class ServiceController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($spell->getSkill()->getSpy()) {
+            $message = new Message();
+            $message->setPlayer($player);
+            $message->setSubject('Reporte de Espionaje de <span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span>');
+            $text = array(
+                array('default', 12, 0, 'center', 'Oro: '.$this->nf($target->getGold())),
+                array('default', 12, 0, 'center', 'Maná: '.$this->nf($target->getMana())),
+                array('default', 12, 0, 'center', 'Personas: '.$this->nf($target->getPeople())),
+                array('default', 12, 0, 'center', 'Tierras libres: '.$this->nf($target->getFree())),
+                array('default', 12, 0, 'center', 'Unidades: '.$this->nf($target->getUnits())),
+                array('default', 12, 0, 'center', 'Héroes: '.$this->nf($target->getContracts()->count())),
+                array('default', 12, 0, 'center', 'Artefactos: '.$this->nf($target->getArtifacts())),
+                array('default', 12, 0, 'center', 'Encantamientos: '.$this->nf($target->getEnchantmentsVictim()->count())),
+            );
+            $message->setText($text);
+            $message->setClass('success');
+            $message->setOwner(null);
+            $message->setReaded(false);
+            $manager->persist($message);
+            $player->addMessage($message);
+        } elseif ($spell->getSkill()->getDispell()) {
             //TODO
         } elseif ($spell->getEnchantment()) {
-            if (!$target->hasEnchantment($spell)) {
-                $this->addFlash('success', 'Se ha encantado al mago "'.$target->getNick().'" con "'.$spell->getName().'".');
+            if (!$target->hasEnchantment($spell) || ($target->hasEnchantment($spell) && $target->hasEnchantment($spell)->getOwner()->getMagic() < $player->getMagic())) {
+                $this->addFlash('success', 'Se ha encantado al mago <span class="'.$target->getFaction()->getClass().'">'.$target->getNick().'</span> con <span class="'.$spell->getFaction()->getClass().'">'.$spell->getName().'</span>.');
             } else {
-                $this->addFlash('danger', 'Un mago no puede tener el mismo encantamiento varias veces.');
+                $this->addFlash('danger', 'El mago objetivo ya tenía ese encantamiento y tu nivel de <span class="label label-extra">Magia</span> no es superior al dueño del mismo.');
             }
+        } else {
+            //TODO
         }
         return false;
     }
@@ -140,7 +161,8 @@ class ServiceController extends Controller
                 }
             }
             //ARTIFACTS
-            if (rand(0,99) <= $player->getArtifactRatio()) {
+            $chance = rand(0,99);
+            if ($chance < $player->getArtifactRatio()) {
                 shuffle($artifacts);
                 $artifact = $artifacts[0]; //suponemos length > 0
                 $item = $player->hasArtifact($artifact);
@@ -154,7 +176,7 @@ class ServiceController extends Controller
                     $item->setPlayer($player);
                     $player->addItem($item);
                 }
-                $this->addFlash('success', 'Has encontrado por casualidad el artefacto <span class="'.$item->getArtifact()->getFaction()->getClass().'">'.$item->getArtifact()->getName().'</span>.');
+                $this->addFlash('success', 'Has encontrado por casualidad el artefacto <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'">'.$item->getArtifact()->getName().'</span>.');
             }
             //GOLD
             $gold = $player->getGold() + $player->getGoldResourcePerTurn() - $player->getGoldMaintenancePerTurn();

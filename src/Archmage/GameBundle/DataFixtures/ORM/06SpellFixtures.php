@@ -73,7 +73,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -96,7 +96,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -119,7 +119,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -142,7 +142,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -165,7 +165,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -188,7 +188,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -211,7 +211,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -234,7 +234,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -307,7 +307,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -330,7 +330,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -353,7 +353,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(50000);
+        $spell->setManaCost(150000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -376,7 +376,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -399,7 +399,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(50000);
+        $spell->setManaCost(200000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -422,7 +422,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(50000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -445,7 +445,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -468,7 +468,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -541,7 +541,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -564,7 +564,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -587,7 +587,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -610,7 +610,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -633,7 +633,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -656,7 +656,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -679,7 +679,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -702,7 +702,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -775,7 +775,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -798,7 +798,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -821,7 +821,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -844,7 +844,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -867,7 +867,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(50000);
+        $spell->setManaCost(200000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -890,7 +890,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -913,7 +913,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -936,7 +936,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1009,7 +1009,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1032,7 +1032,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1055,7 +1055,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1078,7 +1078,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1101,7 +1101,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1124,7 +1124,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1147,7 +1147,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1170,7 +1170,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1231,7 +1231,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
-        //$this->setReference($spell->getName(), $spell);
+        $this->setReference($spell->getName().' spell', $spell);
         $manager->persist($spell);
 
         //CHAMANISMO
@@ -1243,7 +1243,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1266,7 +1266,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1289,7 +1289,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1300,7 +1300,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
-        //$this->setReference($spell->getName(), $spell);
+        $this->setReference($spell->getName().' spell', $spell);
         $manager->persist($spell);
 
         //DESENCANTAR
@@ -1312,7 +1312,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1335,7 +1335,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(50000);
+        $spell->setManaCost(200000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1358,7 +1358,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(50000);
+        $spell->setManaCost(200000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1381,7 +1381,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1404,7 +1404,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1477,7 +1477,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1500,7 +1500,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(210000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1523,7 +1523,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1546,7 +1546,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1569,7 +1569,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1592,7 +1592,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1615,7 +1615,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1638,7 +1638,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(25);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1711,7 +1711,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1734,7 +1734,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1757,7 +1757,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(50000);
+        $spell->setManaCost(150000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1780,7 +1780,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(50000);
+        $spell->setManaCost(150000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1803,7 +1803,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1826,7 +1826,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(50000);
+        $spell->setManaCost(200000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1849,7 +1849,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1872,7 +1872,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1945,7 +1945,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1968,7 +1968,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1991,7 +1991,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2014,7 +2014,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2037,7 +2037,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2060,7 +2060,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2083,7 +2083,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2106,7 +2106,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2179,7 +2179,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2202,7 +2202,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(2);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(50000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2225,7 +2225,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(50000);
+        $spell->setManaCost(150000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2248,7 +2248,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(75000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2271,7 +2271,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(100000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2294,7 +2294,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
-        $spell->setManaCost(50000);
+        $spell->setManaCost(200000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2317,7 +2317,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2340,7 +2340,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(25000);
+        $spell->setManaCost(125000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2367,7 +2367,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Neutral'));
         $spell->setMagic(6);
         $spell->setGoldCost(0);
-        $spell->setManaCost(200000);
+        $spell->setManaCost(1000000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(30000);
         $spell->setPeopleMaintenance(20000);

@@ -53,6 +53,8 @@
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }} <span class="label label-extra">Nivel de Magia</span></div>
                             {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-book"></i>{{ player.spells|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_magic_conjure') }}" class="link">Hechizos</a></span></div>
+                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i>{{ player.artifacts|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_magic_artifact') }}" class="link">Artefactos</a></span></div>
                         </div>
                     </div>

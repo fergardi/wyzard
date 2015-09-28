@@ -182,6 +182,18 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
+        //CEBO
+        $artifact = new Artifact();
+        $artifact->setName('Cebo');
+        $artifact->setImage('bundles/archmagegame/images/artifact/bait.jpg');
+        $artifact->setSkill($this->getReference('Convocar Bestias'));
+        $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $artifact->setGoldAuction(0);
+        $artifact->setRarity(0);
+        $artifact->setFaction($this->getReference('Neutral'));
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
         //HUEVO DE DRAGON
         $artifact = new Artifact();
         $artifact->setName('Huevo de Dragón');
@@ -218,35 +230,23 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //ESPADA LEGENDARIA
-        $artifact = new Artifact();
-        $artifact->setName('Espada Legendaria');
-        $artifact->setImage('bundles/archmagegame/images/artifact/legendarysword.jpg');
-        $artifact->setSkill($this->getReference('Espada Legendaria'));
-        $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //ESCUDO LEGENDARIO
-        $artifact = new Artifact();
-        $artifact->setName('Escudo Legendario');
-        $artifact->setImage('bundles/archmagegame/images/artifact/legendaryshield.jpg');
-        $artifact->setSkill($this->getReference('Escudo Legendario'));
-        $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
         //RELOJ DE ARENA
         $artifact = new Artifact();
         $artifact->setName('Reloj de Arena');
         $artifact->setImage('bundles/archmagegame/images/artifact/hourglass.jpg');
         $artifact->setSkill($this->getReference('Reloj de Arena'));
+        $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $artifact->setGoldAuction(0);
+        $artifact->setRarity(0);
+        $artifact->setFaction($this->getReference('Neutral'));
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //CARTA DEL ESPIA
+        $artifact = new Artifact();
+        $artifact->setName('Carta del Espía');
+        $artifact->setImage('bundles/archmagegame/images/artifact/spyletter.jpg');
+        $artifact->setSkill($this->getReference('Carta del Espía'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);

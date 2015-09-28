@@ -87,6 +87,6 @@ class AuctionFixtures extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 11; // the order in which fixtures will be loaded
+        return 12; // the order in which fixtures will be loaded
     }
 }

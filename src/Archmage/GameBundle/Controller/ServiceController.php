@@ -150,6 +150,7 @@ class ServiceController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
+        $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
         for ($i = 1; $i <= $turns; $i++) {
             //BUILDINGS
             foreach ($player->getEnchantmentsVictim() as $enchantment) {
@@ -314,6 +315,23 @@ class ServiceController extends Controller
                 $contract->setExperience($contract->getExperience() - $contract->getHero()->getExperience());
                 $contract->setLevel($contract->getLevel() + 1);
                 $this->addFlash('success', 'Tu héroe <span class="'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span> ha subido de nivel.');
+            }
+        }
+        //ACHIEVEMENTS
+        foreach ($achievements as $achievement) {
+            if (!$player->hasAchievement($achievement) && (
+                $achievement->getGold() != null && $player->getGold() >= $achievement->getGold() ||
+                $achievement->getPeople() != null && $player->getPeople() >= $achievement->getPeople() ||
+                $achievement->getMana() != null && $player->getMana() >= $achievement->getMana() ||
+                $achievement->getArtifacts() != null && $player->getArtifacts() >= $achievement->getArtifacts() ||
+                $achievement->getHeroes() != null && $player->getHeroes() >= $achievement->getHeroes() ||
+                $achievement->getUnits() != null && $player->getUnits() >= $achievement->getUnits() ||
+                $achievement->getSpells() != null && $player->getSpells() >= $achievement->getSpells() ||
+                $achievement->getPower() != null && $player->getPower() >= $achievement->getPower() ||
+                $achievement->getLands() != null && $player->getLands() >= $achievement->getLands())
+            ) {
+                $player->addAchievement($achievement);
+                $this->addFlash('success', 'Has desbloqueado el logro '.$achievement->getName().'.');
             }
         }
     }

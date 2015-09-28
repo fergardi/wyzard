@@ -906,7 +906,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //CONCILIO DE LAS BESTIAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Concilio de las Bestias'));
+        $spell->setSkill($this->getReference('Convocar Bestias'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/council.jpg');

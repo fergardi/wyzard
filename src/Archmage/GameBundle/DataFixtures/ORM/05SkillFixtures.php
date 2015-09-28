@@ -1039,7 +1039,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
 
         //CONCILIO DE LAS BESTIAS
         $skill = new Skill();
-        $skill->setName('Concilio de las Bestias');
+        $skill->setName('Convocar Bestias');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -2361,7 +2361,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily($this->getReference('Celestiales'));
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('Invoca aleatoriamente <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por nivel.');
+        $skill->setDescription('Invoca aleatoriamente <span class="label label-extra">'.$skill->getFamily()->getName().'</span>.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -2976,7 +2976,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setType(null);
         $skill->setFamily($this->getReference('Demonios'));
-        $skill->setDescription('Invoca aleatoriamente <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por nivel.');
+        $skill->setDescription('Invoca aleatoriamente <span class="label label-extra">'.$skill->getFamily()->getName().'</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3282,7 +3282,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(5);
+        $skill->setTerrainBonus(50);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
@@ -3300,7 +3300,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> a tu reino.');
+        $skill->setDescription('+'.$skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> a tu reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3314,7 +3314,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(-5);
+        $skill->setTerrainBonus(-50);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
@@ -3332,7 +3332,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> al reino enemigo.');
+        $skill->setDescription($skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> al reino enemigo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3689,10 +3689,10 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //ESPADA LEGENDARIA
+        //CARTA DEL ESPIA
         $skill = new Skill();
-        $skill->setName('Espada Legendaria');
-        $skill->setAttackBonus(5);
+        $skill->setName('Carta del Espía');
+        $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
@@ -3710,45 +3710,13 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
-        $skill->setSpy(false);
-        $skill->setBattle(true);
-        $skill->setSelf(true);
+        $skill->setSpy(true);
+        $skill->setBattle(false);
+        $skill->setSelf(false);
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getAttackBonus().' <span class="label label-extra">Ataque</span> a tus tropas.');
-        $skill->setFaction(null);
-        $this->setReference($skill->getName(), $skill);
-        $manager->persist($skill);
-
-        //ESCUDO LEGENDARIO
-        $skill = new Skill();
-        $skill->setName('Escudo Legendario');
-        $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(5);
-        $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
-        $skill->setMagicDefenseBonus(0);
-        $skill->setArtifactBonus(0);
-        $skill->setHeroBonus(0);
-        $skill->setTurnsBonus(0);
-        $skill->setRandom(false);
-        $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
-        $skill->setBattle(true);
-        $skill->setSelf(true);
-        $skill->setUnit(null);
-        $skill->setFamily(null);
-        $skill->setType(null);
-        $skill->setDescription('+'.$skill->getDefenseBonus().' <span class="label label-extra">Defensa</span> a tus tropas.');
+        $skill->setDescription('Obtiene <span class="label label-extra">Información</span> importante del mago objetivo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

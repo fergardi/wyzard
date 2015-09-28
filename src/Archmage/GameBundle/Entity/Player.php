@@ -148,6 +148,15 @@ class Player
      **/
     private $enchantmentsVictim;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Achievement")
+     * @ORM\JoinTable(name="PlayerAchievement",
+     *      joinColumns={@ORM\JoinColumn(name="player_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="achievement_id", referencedColumnName="id")}
+     *      )
+     **/
+    private $achievements;
+
 
     /**
      * Constructor
@@ -162,6 +171,7 @@ class Player
         $this->messages = new ArrayCollection();
         $this->enchantmentsOwner = new ArrayCollection();
         $this->enchantmentsVictim = new ArrayCollection();
+        $this->achievements = new ArrayCollection();
     }
 
     /**
@@ -608,6 +618,39 @@ class Player
     }
 
     /**
+     * Add achievements
+     *
+     * @param \Archmage\GameBundle\Entity\Achievement $achievement
+     * @return Player
+     */
+    public function addAchievement(\Archmage\GameBundle\Entity\Achievement $achievement)
+    {
+        $this->achievements[] = $achievement;
+
+        return $this;
+    }
+
+    /**
+     * Remove achievements
+     *
+     * @param \Archmage\GameBundle\Entity\Achievement $achievements
+     */
+    public function removeAchievement(\Archmage\GameBundle\Entity\Achievement $achievement)
+    {
+        $this->achievements->removeElement($achievement);
+    }
+
+    /**
+     * Get achievements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAchievements()
+    {
+        return $this->achievements;
+    }
+
+    /**
      * Add enchantmentsOwner
      *
      * @param \Archmage\GameBundle\Entity\Enchantment $enchantmentOwner
@@ -1004,6 +1047,16 @@ class Player
     }
 
     /**
+     * Get heroes
+     *
+     * @return integer
+     */
+    public function getHeroes()
+    {
+        return $this->contracts->count();
+    }
+
+    /**
      * Get units
      *
      * @return integer
@@ -1017,9 +1070,40 @@ class Player
         return $units;
     }
 
-    /*
-     * BUSCAR TROPAS, CONTRATOS Y HECHIZOS
+    /**
+     * Get spells
+     *
+     * @return integer
      */
+    public function getSpells()
+    {
+        $spells = 0;
+        foreach ($this->researchs as $research) {
+            if ($research->getActive()) $spells++;
+        }
+        return $spells;
+    }
+
+    /*
+     * BUSCAR TROPAS, CONTRATOS, HECHIZOS Y LOGROS
+     */
+
+    /**
+     * Has achievement
+     *
+     * @return boolean
+     */
+    public function hasAchievement(Achievement $search = null)
+    {
+        if ($search) {
+            foreach ($this->achievements as $achievement) {
+                if ($achievement == $search) {
+                    return $achievement;
+                }
+            }
+        }
+        return false;
+    }
 
     /**
      * Has item

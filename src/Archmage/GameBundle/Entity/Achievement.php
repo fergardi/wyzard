@@ -29,53 +29,81 @@ class Achievement
     private $name;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="gold", type="bigint")
+     * @ORM\Column(name="description", type="string", length=255)
      */
-    private $gold;
+    private $description;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="mana", type="bigint")
+     * @ORM\Column(name="gold", type="bigint", nullable=true)
      */
-    private $mana;
+    private $gold = null;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="people", type="bigint")
+     * @ORM\Column(name="mana", type="bigint", nullable=true)
      */
-    private $people;
+    private $mana = null;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="turns", type="bigint")
+     * @ORM\Column(name="people", type="bigint", nullable=true)
      */
-    private $turns;
+    private $people = null;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="artifacts", type="smallint")
+     * @ORM\Column(name="lands", type="integer", nullable=true)
      */
-    private $artifacts;
+    private $lands = null;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="heroes", type="smallint")
+     * @ORM\Column(name="power", type="bigint", nullable=true)
      */
-    private $heroes;
+    private $power = null;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="units", type="bigint")
+     * @ORM\Column(name="artifacts", type="smallint", nullable=true)
      */
-    private $units;
+    private $artifacts = null;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="heroes", type="smallint", nullable=true)
+     */
+    private $heroes = null;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="units", type="bigint", nullable=true)
+     */
+    private $units = null;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="spells", type="smallint", nullable=true)
+     */
+    private $spells = null;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="defense", type="smallint", nullable=true)
+     */
+    private $defense = null;
 
 
     /**
@@ -109,6 +137,29 @@ class Achievement
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Achievement
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     /**
@@ -181,26 +232,49 @@ class Achievement
     }
 
     /**
-     * Set turns
+     * Set lands
      *
-     * @param integer $turns
+     * @param integer $lands
      * @return Achievement
      */
-    public function setTurns($turns)
+    public function setLands($lands)
     {
-        $this->turns = $turns;
+        $this->lands = $lands;
 
         return $this;
     }
 
     /**
-     * Get turns
+     * Get lands
      *
      * @return integer 
      */
-    public function getTurns()
+    public function getLands()
     {
-        return $this->turns;
+        return $this->lands;
+    }
+
+    /**
+     * Set power
+     *
+     * @param integer $power
+     * @return Achievement
+     */
+    public function setPower($power)
+    {
+        $this->power = $power;
+
+        return $this;
+    }
+
+    /**
+     * Get power
+     *
+     * @return integer 
+     */
+    public function getPower()
+    {
+        return $this->power;
     }
 
     /**
@@ -270,5 +344,51 @@ class Achievement
     public function getUnits()
     {
         return $this->units;
+    }
+
+    /**
+     * Set spells
+     *
+     * @param integer $spells
+     * @return Achievement
+     */
+    public function setSpells($spells)
+    {
+        $this->spells = $spells;
+
+        return $this;
+    }
+
+    /**
+     * Get spells
+     *
+     * @return integer 
+     */
+    public function getSpells()
+    {
+        return $this->spells;
+    }
+
+    /**
+     * Set defense
+     *
+     * @param integer $defense
+     * @return Achievement
+     */
+    public function setDefense($defense)
+    {
+        $this->defense = $defense;
+
+        return $this;
+    }
+
+    /**
+     * Get defense
+     *
+     * @return integer 
+     */
+    public function getDefense()
+    {
+        return $this->defense;
     }
 }

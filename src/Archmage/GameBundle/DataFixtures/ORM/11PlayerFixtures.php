@@ -2,6 +2,7 @@
 
 namespace Archmage\GameBundle\DataFixtures\ORM;
 
+use Archmage\GameBundle\Entity\Achievement;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -41,15 +42,15 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $player->setItem(null);
             $player->setResearch(null);
             $constructions = array(
-                'Tierras' => 0,
-                'Granjas' => 0,
-                'Pueblos' => 0,
-                'Nodos' => 0,
-                'Gremios' => 0,
-                'Talleres' => 0,
-                'Barracones' => 0,
-                'Barreras' => 9999,
-                'Fortalezas' => 0,
+                'Tierras' => 1999,
+                'Granjas' => 1000,
+                'Pueblos' => 1000,
+                'Nodos' => 1000,
+                'Gremios' => 1000,
+                'Talleres' => 1000,
+                'Barracones' => 1000,
+                'Barreras' => 1000,
+                'Fortalezas' => 1000,
             );
             foreach ($constructions as $name => $quantity) {
                 $construction = new Construction();
@@ -59,6 +60,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
                 $manager->persist($construction);
                 $player->addConstruction($construction);
             }
+            $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
+            foreach ($achievements as $achievement) {
+                $player->addAchievement($achievement);
+            }
+            /*
             $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAll();
             foreach ($spells as $spell) {
                 $research = new Research();
@@ -69,6 +75,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
                 $manager->persist($research);
                 $player->addResearch($research);
             }
+            */
             $enchantments = array(
                 $god['enchantment'],
             );
@@ -82,7 +89,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
                 $player->addEnchantmentsVictim($enchantment);
             }
             $troops = array(
-                $god['unit'] => 666,
+                $god['unit'] => 9999,
             );
             foreach ($troops as $name => $quantity) {
                 $troop = new Troop();
@@ -92,10 +99,10 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
                 $manager->persist($troop);
                 $player->addTroop($troop);
             }
-            $player->setGold(0);
-            $player->setPeople(0);
-            $player->setMana(0);
-            $player->setTurns(0);
+            $player->setGold(999999999);
+            $player->setPeople(999999999);
+            $player->setMana(999999999);
+            $player->setTurns(999999999);
             $player->setMagic(5);
         }
 
@@ -125,6 +132,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($construction);
             $player->addConstruction($construction);
         }
+        /*
         //HECHIZOS
         $researchs = array(
             'Oráculo spell',
@@ -248,6 +256,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 10; // the order in which fixtures will be loaded
+        return 11; // the order in which fixtures will be loaded
     }
 }

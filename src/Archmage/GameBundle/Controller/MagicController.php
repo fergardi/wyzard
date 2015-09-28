@@ -80,8 +80,9 @@ class MagicController extends Controller
                         $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios.');
                     }
                 } else {
-                    $turns = $research->getSpell()->getTurnsCost() * $player->getMagic();
-                    $mana = ($research->getSpell()->getFaction() == $player->getFaction())?$research->getSpell()->getManaCost():$research->getSpell()->getManaCost()*2;
+                    $research->getSpell()->getFaction() == $player->getFaction() ? $bonus = 1 : $bonus = 2;
+                    $turns = $research->getSpell()->getTurnsCost() * $player->getMagic() * $bonus;
+                    $mana = $research->getSpell()->getManaCost() * $player->getMagic() * $bonus;
                     if ($turns <= $player->getTurns() && $mana <= $player->getMana()) {
                         if ($research->getSpell()->getSkill()->getSelf()) {
                             /*

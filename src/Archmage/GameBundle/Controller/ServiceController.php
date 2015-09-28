@@ -142,15 +142,29 @@ class ServiceController extends Controller
             $manager->persist($message);
             $player->addMessage($message);
         } elseif ($spell->getSkill()->getDispell()) {
-            //TODO
+            if ($player->getEnchantmentsVictim()->count() > 0) {
+                $enchantments = $player->getEnchantmentsVictim()->toArray();
+                shuffle($enchantments);
+                $enchantment = $enchantments[0]; //TODO comprobar si solo tiene 1 funciona
+                $player->removeEnchantmentsVictim($enchantment);
+                $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
+                $manager->persist($enchantment->getOwner());
+                $manager->remove($enchantment);
+            } else {
+                $this->addFlash('danger', 'Ese mago no tiene ningún encantamiento que romper sobre su reino.');
+            }
         } elseif ($spell->getEnchantment()) {
             if (!$target->hasEnchantment($spell) || ($target->hasEnchantment($spell) && $target->hasEnchantment($spell)->getOwner()->getMagic() <= $player->getMagic())) {
                 $this->addFlash('success', 'Se ha encantado al mago <span class="'.$target->getFaction()->getClass().'">'.$target->getNick().'</span> con <span class="'.$spell->getFaction()->getClass().'">'.$spell->getName().'</span>.');
             } else {
                 $this->addFlash('danger', 'El mago objetivo ya tenía ese encantamiento y tu nivel de <span class="label label-extra">Magia</span> no es superior al dueño del mismo.');
             }
+        } elseif ($spell->getArtifactBonus() < 0) {
+
+        } elseif (true) {
+
         } else {
-            //TODO
+
         }
         return false;
     }

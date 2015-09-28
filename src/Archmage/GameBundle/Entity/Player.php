@@ -25,7 +25,7 @@ class Player
     const TROOPS_CAP = 5;
     const ARTIFACT_RATIO = 1;
     const MAGICLEVEL_RATIO = 4;
-    const MAGICLEVEL_CAP = 10;
+    const MAGICLEVEL_CAP = 6;
 
     /**
      * @var integer

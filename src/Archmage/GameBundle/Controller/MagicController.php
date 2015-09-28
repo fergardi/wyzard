@@ -11,8 +11,6 @@ use Archmage\GameBundle\Entity\Troop;
 
 class MagicController extends Controller
 {
-    const MAX_TROOPS = 5;
-
     /**
      * @Route("/game/magic/charge")
      * @Template("ArchmageGameBundle:Magic:charge.html.twig")

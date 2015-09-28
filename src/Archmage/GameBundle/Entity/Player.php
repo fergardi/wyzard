@@ -25,6 +25,7 @@ class Player
     const TROOPS_CAP = 5;
     const ARTIFACT_RATIO = 1;
     const MAGICLEVEL_RATIO = 4;
+    const MAGICLEVEL_CAP = 10;
 
     /**
      * @var integer
@@ -215,8 +216,8 @@ class Player
      */
     public function setGold($gold)
     {
-        if ($gold < 0) $gold = 0;
-        $this->gold = $gold;
+        //if ($gold < 0) $gold = 0;
+        $this->gold = max(0, $gold);
 
         return $this;
     }
@@ -239,9 +240,11 @@ class Player
      */
     public function setMana($mana)
     {
+        /*
         if ($mana > $this->getManaCap()) $mana = $this->getManaCap();
         if ($mana < 0) $mana = 0;
-        $this->mana = $mana;
+        */
+        $this->mana = max(0, min($this->getManaCap(), $mana));
 
         return $this;
     }
@@ -264,9 +267,11 @@ class Player
      */
     public function setPeople($people)
     {
+        /*
         if ($people > $this->getPeopleCap()) $people = $this->getPeopleCap();
         if ($people < 0) $people = 0;
-        $this->people = $people;
+        */
+        $this->people = max(0, min($this->getPeopleCap(), $people));
 
         return $this;
     }
@@ -289,7 +294,7 @@ class Player
      */
     public function setMagic($magic)
     {
-        $this->magic = $magic;
+        $this->magic = min(self::MAGICLEVEL_CAP, $magic);
 
         return $this;
     }
@@ -312,7 +317,7 @@ class Player
      */
     public function setTurns($turns)
     {
-        $this->turns = min($turns, self::TURNS_CAP);
+        $this->turns = min(self::TURNS_CAP, $turns);
 
         return $this;
     }

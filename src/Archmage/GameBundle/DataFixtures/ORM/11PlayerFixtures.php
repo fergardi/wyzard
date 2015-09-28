@@ -103,7 +103,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $player->setPeople(999999999);
             $player->setMana(999999999);
             $player->setTurns(999999999);
-            $player->setMagic(5);
+            $player->setMagic(10);
         }
 
         //PLAYER
@@ -115,14 +115,14 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //EDIFICIOS
         $constructions = array(
             'Tierras' => 600,
-            'Granjas' => 20,
-            'Pueblos' => 20,
-            'Nodos' => 20,
+            'Granjas' => 30,
+            'Pueblos' => 10,
+            'Nodos' => 10,
             'Gremios' => 0,
-            'Talleres' => 5,
+            'Talleres' => 10,
             'Barracones' => 0,
-            'Barreras' => 0,
-            'Fortalezas' => 1,
+            'Barreras' => 3,
+            'Fortalezas' => 3,
         );
         foreach ($constructions as $name => $quantity) {
             $construction = new Construction();
@@ -132,15 +132,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($construction);
             $player->addConstruction($construction);
         }
-        /*
         //HECHIZOS
-        $researchs = array(
-            'Oráculo spell',
-            'Encontrar Artefacto spell',
-        );
-        foreach ($researchs as $name) {
+        $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAll();
+        foreach ($spells as $spell) {
             $research = new Research();
-            $research->setSpell($this->getReference($name));
+            $research->setSpell($spell);
             $research->setTurns(0);
             $research->setPlayer($player);
             $research->setActive(true);
@@ -233,7 +229,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         $player->setPeople(20000);
         $player->setMana(10000);
         $player->setTurns(30000);
-        $player->setMagic(1);
+        $player->setMagic(10);
         //FOSUSERBUNDLE
         $user = new User();
         $user->setPlayer($player);

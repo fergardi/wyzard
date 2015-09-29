@@ -94,7 +94,20 @@ class ServiceController extends Controller
                 }
             }
         } elseif ($spell->getEnchantment()) {
-            //TODO
+            $enchantment = $player->hasEnchantmentVictim($spell);
+            if ($enchantment) {
+                $player->removeEnchantmentVictim($enchantment);
+                $player->removeEnchantmentOwner($enchantment);
+                $manager->remove($enchantment);
+            }
+            $enchantment = new Enchantment();
+            $manager->persist($enchantment);
+            $enchantment->setSpell($spell);
+            $enchantment->setVictim($player);
+            $player->addEnchantmentsVictim($enchantment);
+            $enchantment->setOwner($player);
+            $player->addEnchantmentsOwner($enchantment);
+            $this->addFlash('success', 'Has lanzado el encantamiento <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '">' . $enchantment->getSpell()->getName() . '</span> en tu reino.');
         } else {
             //TODO
         }
@@ -129,15 +142,29 @@ class ServiceController extends Controller
             $manager->persist($message);
             $player->addMessage($message);
         } elseif ($spell->getSkill()->getDispell()) {
-            //TODO
+            if ($player->getEnchantmentsVictim()->count() > 0) {
+                $enchantments = $player->getEnchantmentsVictim()->toArray();
+                shuffle($enchantments);
+                $enchantment = $enchantments[0]; //TODO comprobar si solo tiene 1 funciona
+                $player->removeEnchantmentsVictim($enchantment);
+                $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
+                $manager->persist($enchantment->getOwner());
+                $manager->remove($enchantment);
+            } else {
+                $this->addFlash('danger', 'Ese mago no tiene ningún encantamiento que romper sobre su reino.');
+            }
         } elseif ($spell->getEnchantment()) {
-            if (!$target->hasEnchantment($spell) || ($target->hasEnchantment($spell) && $target->hasEnchantment($spell)->getOwner()->getMagic() < $player->getMagic())) {
+            if (!$target->hasEnchantment($spell) || ($target->hasEnchantment($spell) && $target->hasEnchantment($spell)->getOwner()->getMagic() <= $player->getMagic())) {
                 $this->addFlash('success', 'Se ha encantado al mago <span class="'.$target->getFaction()->getClass().'">'.$target->getNick().'</span> con <span class="'.$spell->getFaction()->getClass().'">'.$spell->getName().'</span>.');
             } else {
                 $this->addFlash('danger', 'El mago objetivo ya tenía ese encantamiento y tu nivel de <span class="label label-extra">Magia</span> no es superior al dueño del mismo.');
             }
+        } elseif ($spell->getArtifactBonus() < 0) {
+
+        } elseif (true) {
+
         } else {
-            //TODO
+
         }
         return false;
     }
@@ -152,13 +179,14 @@ class ServiceController extends Controller
         $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
         $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
         for ($i = 1; $i <= $turns; $i++) {
-            //BUILDINGS
+            //BUILDINGS ENCHANTMENTS
             foreach ($player->getEnchantmentsVictim() as $enchantment) {
                 if ($enchantment->getSpell()->getSkill()->getTerrainBonus() != 0) {
-                    foreach ($player->getConstructions() as $construction) {
-                        $quantity = floor($construction->getQuantity() * $enchantment->getSpell()->getSkill()->getTerrainBonus() * $enchantment->getOwner()->getMagic() / (float)100);
-                        $construction->setQuantity($construction->getQuantity() + $quantity);
-                    }
+                    $constructions = $player->getConstructions()->toArray();
+                    shuffle($constructions);
+                    $construction = $constructions[0];
+                    $quantity = round($construction->getQuantity() * $enchantment->getSpell()->getSkill()->getTerrainBonus() * $enchantment->getOwner()->getMagic() / (float)100);
+                    $construction->setQuantity($construction->getQuantity() + $quantity);
                 }
             }
             //ARTIFACTS

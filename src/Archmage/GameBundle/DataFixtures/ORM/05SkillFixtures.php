@@ -60,7 +60,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -92,7 +92,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -124,7 +124,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -156,7 +156,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -188,7 +188,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -220,7 +220,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -252,7 +252,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -284,7 +284,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -316,7 +316,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -348,7 +348,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -708,7 +708,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -740,7 +740,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -772,7 +772,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -804,7 +804,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -836,7 +836,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -868,7 +868,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -900,7 +900,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -932,7 +932,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -964,7 +964,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -996,7 +996,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1356,7 +1356,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1388,7 +1388,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1420,7 +1420,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1452,7 +1452,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1484,7 +1484,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1516,7 +1516,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1548,7 +1548,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1580,7 +1580,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1612,7 +1612,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1644,7 +1644,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1771,8 +1771,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSummon(false);
         $skill->setDispell(false);
         $skill->setSpy(false);
-        $skill->setBattle(false);
-        $skill->setSelf(true);
+        $skill->setBattle(true);
+        $skill->setSelf(false);
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
@@ -2004,7 +2004,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2036,7 +2036,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2068,7 +2068,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2100,7 +2100,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2132,7 +2132,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2164,7 +2164,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2196,7 +2196,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2228,7 +2228,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2260,7 +2260,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2292,7 +2292,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2652,7 +2652,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2684,7 +2684,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2716,7 +2716,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2748,7 +2748,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2780,7 +2780,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2812,7 +2812,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2844,7 +2844,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2876,7 +2876,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2908,7 +2908,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -2940,7 +2940,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSelf(true);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Recluta aproximadamente '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
+        $skill->setDescription('Recluta '.$this->container->get('service.controller')->nff($skill->getQuantityBonus()).' <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

@@ -101,7 +101,7 @@ class ArmyController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
-        $targets = $manager->getRepository('ArchmageUserBundle:User')->findAll();
+        $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
         if ($request->isMethod('POST')) {
 
         }

@@ -3282,7 +3282,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(50);
+        $skill->setTerrainBonus(5);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
@@ -3300,7 +3300,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> a tu reino.');
+        $skill->setDescription('+'.$skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> a tu reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3332,7 +3332,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getPeopleBonus().' <span class="label label-extra">Personas</span> al reino enemigo.');
+        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Personas</span> al reino enemigo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

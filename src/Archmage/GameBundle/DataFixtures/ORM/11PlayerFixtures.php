@@ -172,21 +172,16 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $player->addContract($contract);
         }
         */
-        /*
         //ARTEFACTOS
-        $items = array(
-            'Huevo de Dragón' => 1,
-            'Poción de Maná' => 3,
-        );
-        foreach ($items as $name => $quantity) {
+        $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
+        foreach ($artifacts as $artifact) {
             $item = new Item();
-            $item->setArtifact($this->getReference($name));
-            $item->setQuantity($quantity);
+            $item->setArtifact($artifact);
+            $item->setQuantity(10);
             $item->setPlayer($player);
             $manager->persist($item);
             $player->addItem($item);
         }
-        */
         /*
         //ENCANTAMIENTOS
         $enchantment = new Enchantment();

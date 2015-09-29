@@ -102,7 +102,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact = new Artifact();
         $artifact->setName('Carta del Gremio de Espías');
         $artifact->setImage('bundles/archmagegame/images/artifact/spiesguildletter.jpg');
-        $artifact->setSkill($this->getReference('Carta del Gremio de Asesinos'));
+        $artifact->setSkill($this->getReference('Carta del Gremio de Espías'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
@@ -182,10 +182,10 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //CEBO
+        //CEBO VIVO
         $artifact = new Artifact();
-        $artifact->setName('Cebo');
-        $artifact->setImage('bundles/archmagegame/images/artifact/bait.jpg');
+        $artifact->setName('Cebo Vivo');
+        $artifact->setImage('bundles/archmagegame/images/artifact/livebait.jpg');
         $artifact->setSkill($this->getReference('Convocar Bestias'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
@@ -242,11 +242,11 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //CARTA DEL ESPIA
+        //VIAL DE VENENO
         $artifact = new Artifact();
-        $artifact->setName('Carta del Espía');
-        $artifact->setImage('bundles/archmagegame/images/artifact/spyletter.jpg');
-        $artifact->setSkill($this->getReference('Carta del Espía'));
+        $artifact->setName('Vial de Veneno');
+        $artifact->setImage('bundles/archmagegame/images/artifact/poisonvial.jpg');
+        $artifact->setSkill($this->getReference('Vial de Veneno'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);

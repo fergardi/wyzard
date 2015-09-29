@@ -58,17 +58,19 @@
                     <form id="item{{ item.id }}" name="item{{ item.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_magic_artifact') }}" method="post" role="form">
                         <div class="form-group">
                             <div class="input-group">
-                                {% if not item.artifact.skill.self %}
+                                {% if not item.artifact.skill.self and not item.artifact.skill.battle%}
                                 <select class="form-control selectpicker" id="target" name="target" data-live-search="true" data-size="5">
                                     <option>Objetivo</option>
-                                    {% for target in targets %}
-                                        <option value="{{ target.id }}">{{ target.nick }}</option>
+                                    {% for target in targets if target != player %}
+                                        <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}'>{{ target.nick }}</span>">{{ target.nick }}</option>
                                     {% endfor %}
                                 </select>
                                 {% endif %}
                                 <input type="hidden" id="item" name="item" value="{{ item.id }}" required />
                                 <div class="btn-group" role="group" aria-label="...">
+                                    {% if not item.artifact.skill.battle %}
                                     <button type="submit" id="activate" name="action" value="activate" class="btn btn-default"><i class="fa fa-fw fa-joomla"></i>Activar</button>
+                                    {% endif %}
                                     {% if item.artifact.skill.battle %}
                                     <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if item == player.item %}disabled{% endif %}><i class="fa fa-fw fa-shield"></i>Defensa</button>
                                     {% endif %}

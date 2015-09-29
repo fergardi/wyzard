@@ -143,8 +143,8 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setFaction($this->getReference('Oscuridad'));
         $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Melee'));
-        $unit->setGoldMaintenance(0);
-        $unit->setPeopleMaintenance(1);
+        $unit->setGoldMaintenance(1);
+        $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
         $unit->setRarity(0);
@@ -613,9 +613,9 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setFaction($this->getReference('Fantasmal'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Melee'));
-        $unit->setGoldMaintenance(0);
+        $unit->setGoldMaintenance(1);
         $unit->setPeopleMaintenance(0);
-        $unit->setManaMaintenance(1);
+        $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
@@ -1083,8 +1083,8 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Melee'));
-        $unit->setGoldMaintenance(0);
-        $unit->setPeopleMaintenance(1);
+        $unit->setGoldMaintenance(1);
+        $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
         $unit->setRarity(0);

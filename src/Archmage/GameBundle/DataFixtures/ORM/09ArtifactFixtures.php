@@ -26,11 +26,11 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //CARTA DEL OBISPO
+        //CARTA DEL GREMIO DE ASESINOS
         $artifact = new Artifact();
-        $artifact->setName('Carta del Obispo');
-        $artifact->setImage('bundles/archmagegame/images/artifact/bishopletter.jpg');
-        $artifact->setSkill($this->getReference('Carta del Obispo'));
+        $artifact->setName('Carta del Gremio de Asesinos');
+        $artifact->setImage('bundles/archmagegame/images/artifact/assassinsguildletter.jpg');
+        $artifact->setSkill($this->getReference('Carta del Gremio de Asesinos'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
@@ -50,11 +50,11 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //CARTA DEL REY
+        //CARTA DEL GREMIO DE LADRONES
         $artifact = new Artifact();
-        $artifact->setName('Carta del Rey');
-        $artifact->setImage('bundles/archmagegame/images/artifact/kingletter.jpg');
-        $artifact->setSkill($this->getReference('Carta del Rey'));
+        $artifact->setName('Carta del Gremio de Ladrones');
+        $artifact->setImage('bundles/archmagegame/images/artifact/thievesguildletter.jpg');
+        $artifact->setSkill($this->getReference('Carta del Gremio de Ladrones'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
@@ -74,11 +74,11 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //CARTA DEL MAGISTER
+        //CARTA DEL GREMIO DE MAGOS
         $artifact = new Artifact();
-        $artifact->setName('Carta del Magister');
-        $artifact->setImage('bundles/archmagegame/images/artifact/magisterletter.jpg');
-        $artifact->setSkill($this->getReference('Carta del Magister'));
+        $artifact->setName('Carta del Gremio de Magos');
+        $artifact->setImage('bundles/archmagegame/images/artifact/magesguildletter.jpg');
+        $artifact->setSkill($this->getReference('Carta del Gremio de Magos'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);
@@ -98,11 +98,11 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //VIAL DE VENENO
+        //CARTA DEL GREMIO DE ESPIAS
         $artifact = new Artifact();
-        $artifact->setName('Vial de Veneno');
-        $artifact->setImage('bundles/archmagegame/images/artifact/poisonvial.jpg');
-        $artifact->setSkill($this->getReference('Vial de Veneno'));
+        $artifact->setName('Carta del Gremio de Espías');
+        $artifact->setImage('bundles/archmagegame/images/artifact/spiesguildletter.jpg');
+        $artifact->setSkill($this->getReference('Carta del Gremio de Asesinos'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(0);
         $artifact->setRarity(0);

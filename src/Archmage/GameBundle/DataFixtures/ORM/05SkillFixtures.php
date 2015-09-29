@@ -3305,16 +3305,16 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //CARTA DEL OBISPO
+        //CARTA DEL GREMIO DE ASESINOS
         $skill = new Skill();
-        $skill->setName('Carta del Obispo');
+        $skill->setName('Carta del Gremio de Asesinos');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(-50);
+        $skill->setPeopleBonus(-20);
+        $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
@@ -3332,7 +3332,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> al reino enemigo.');
+        $skill->setDescription($skill->getPeopleBonus().' <span class="label label-extra">Personas</span> al reino enemigo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3369,9 +3369,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //CARTA DEL MAGISTER
+        //CARTA DEL GREMIO DE MAGOS
         $skill = new Skill();
-        $skill->setName('Carta del Magister');
+        $skill->setName('Carta del Gremio de Magos');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -3441,8 +3441,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
-        $skill->setPeopleBonus(-20);
-        $skill->setTerrainBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(-5);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
@@ -3460,7 +3460,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Población</span> al reino enemigo.');
+        $skill->setDescription($skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> al reino enemigo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3497,9 +3497,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //CARTA DEL REY
+        //CARTA DEL GREMIO DE LADRONES
         $skill = new Skill();
-        $skill->setName('Carta del Rey');
+        $skill->setName('Carta del Gremio de Ladrones');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -3689,9 +3689,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //CARTA DEL ESPIA
+        //CARTA DEL GREMIO DE ESPIAS
         $skill = new Skill();
-        $skill->setName('Carta del Espía');
+        $skill->setName('Carta del Gremio de Espías');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);

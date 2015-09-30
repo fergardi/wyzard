@@ -8,6 +8,7 @@
         <div class="col-xs-12">
             <div class="page-header text-center">
                 <h1><i class="fa fa-fw fa-line-chart"></i>Ranking</h1>
+                {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
             <table id="datatable" class="table table-striped table-bordered table-condensed text-responsive" cellspacing="0" width="100%">
                 <thead>
@@ -37,7 +38,7 @@
 {% block javascripts %}
 {{ parent() }}
 <script>
-    var search = '{{ search }}';
+    var search = '{{ player.nick }}';
     $(document).ready(function() {
         var oTable = $('#datatable').dataTable({
             "order": [[ 0, "asc" ]],

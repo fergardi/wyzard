@@ -1,0 +1,48 @@
+{% extends "ArchmageGameBundle::layout.html.twig" %}
+
+{% block title %}Balance{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <h1><i class="fa fa-fw fa-balance-scale"></i>Balance</h1>
+                {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
+            </div>
+            <table class="table table-striped table-bordered table-condensed text-responsive">
+                <thead>
+                    <th></th>
+                    <th>Ganado</th>
+                    <th>Gastado</th>
+                    <th>Total</th>
+                </thead>
+                {% for construction in player.constructions %}
+                <tr>
+                    <td>{{ construction.building.name }}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+                {% for enchantment in player.enchantmentsOwner %}
+                <tr>
+                    <td>{{ enchantment.spell.name }}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+                {% for contract in player.contracts %}
+                <tr>
+                    <td>{{ contract.hero.name }}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

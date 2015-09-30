@@ -296,6 +296,9 @@ table a:hover {
     }
 }
 html {-webkit-text-size-adjust: none !important;}
+.bootstrap-select.form-control:not([class*="col-"]) {
+    width: 60%;
+}
 /* ARREGLAR BORDES BLANCOS EN BOOTSRAP SELECT */
 .bootstrap-select {
     border-radius: 3px !important;

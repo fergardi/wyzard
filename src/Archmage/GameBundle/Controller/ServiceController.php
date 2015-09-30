@@ -96,7 +96,7 @@ class ServiceController extends Controller
                     $item->setPlayer($player);
                     $player->addItem($item);
                 }
-                $this->addFlash('success', 'Has encontrado por casualidad el artefacto <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'">'.$item->getArtifact()->getName().'</span>.');
+                $this->addFlash('success', 'Has encontrado por casualidad el artefacto <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
             }
             //GOLD
             $gold = $player->getGold() + $player->getGoldResourcePerTurn() - $player->getGoldMaintenancePerTurn();
@@ -109,7 +109,7 @@ class ServiceController extends Controller
                             $player->removeTroop($troop);
                             $manager->remove($troop);
                         }
-                        $this->addFlash('danger', 'Se ha desbandado <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Oro</span>.');
+                        $this->addFlash('danger', 'Se ha desbandado <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Oro</span>.');
                     }
                 }
             }
@@ -119,7 +119,7 @@ class ServiceController extends Controller
                     if ($contract->getHero()->getGoldMaintenance() > 0) {
                         $player->removeContract($contract);
                         $manager->remove($contract);
-                        $this->addFlash('danger', 'Se ha desbandado tu <span class="'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Oro</span>.');
+                        $this->addFlash('danger', 'Se ha desbandado tu <san class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Oro</span>.');
                     }
                 }
             }
@@ -132,7 +132,7 @@ class ServiceController extends Controller
                         $victim->removeEnchantmentsVictim($enchantment);
                         $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="'.$enchantment->getSpell()->getFaction()->getClass().'">'.$enchantment->getSpell()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Oro</span>.');
+                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Oro</span>.');
                     }
                 }
             }
@@ -148,7 +148,7 @@ class ServiceController extends Controller
                             $player->removeTroop($troop);
                             $manager->remove($troop);
                         }
-                        $this->addFlash('danger', 'Se ha desbandado <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Personas</span>.');
+                        $this->addFlash('danger', 'Se ha desbandado <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Personas</span>.');
                     }
                 }
             }
@@ -158,7 +158,7 @@ class ServiceController extends Controller
                     if ($contract->getHero()->getPeopleMaintenance() > 0) {
                         $player->removeContract($contract);
                         $manager->remove($contract);
-                        $this->addFlash('danger', 'Se ha desbandado tu <span class="'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Personas</span>.');
+                        $this->addFlash('danger', 'Se ha desbandado tu <span class="'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Personas</span>.');
                     }
                 }
             }
@@ -171,7 +171,7 @@ class ServiceController extends Controller
                         $victim->removeEnchantmentsVictim($enchantment);
                         $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="'.$enchantment->getSpell()->getFaction()->getClass().'">'.$enchantment->getSpell()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Personas</span>.');
+                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Personas</span>.');
                     }
                 }
             }
@@ -187,7 +187,7 @@ class ServiceController extends Controller
                             $player->removeTroop($troop);
                             $manager->remove($troop);
                         }
-                        $this->addFlash('danger', 'Se ha desbandado <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Maná</span>.');
+                        $this->addFlash('danger', 'Se ha desbandado <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Maná</span>.');
                     }
                 }
             }
@@ -197,7 +197,7 @@ class ServiceController extends Controller
                     if ($contract->getHero()->getManaMaintenance() > 0) {
                         $player->removeContract($contract);
                         $manager->remove($contract);
-                        $this->addFlash('danger', 'Se ha desbandado tu <span class="'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Maná</span>.');
+                        $this->addFlash('danger', 'Se ha desbandado tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Maná</span>.');
                     }
                 }
             }
@@ -210,7 +210,7 @@ class ServiceController extends Controller
                         $victim->removeEnchantmentsVictim($enchantment);
                         $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="'.$enchantment->getSpell()->getFaction()->getClass().'">'.$enchantment->getSpell()->getName().'</span> por no pagar mantenimientos de <span class="label label-extra">Maná</span>.');
+                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Maná</span>.');
                     }
                 }
             }
@@ -223,7 +223,7 @@ class ServiceController extends Controller
                     $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
                     $manager->remove($enchantment);
                     $manager->persist($enchantment->getOwner());
-                    $this->addFlash('success', 'Se ha terminado el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'">'.$enchantment->getSpell()->getName().'</span>.');
+                    $this->addFlash('success', 'Se ha terminado el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>.');
                 }
             }
         }
@@ -233,7 +233,7 @@ class ServiceController extends Controller
             if ($contract->getExperience() >= $contract->getHero()->getExperience() * $contract->getLevel()) {
                 $contract->setExperience($contract->getExperience() - $contract->getHero()->getExperience());
                 $contract->setLevel($contract->getLevel() + 1);
-                $this->addFlash('success', 'Tu héroe <span class="'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span> ha subido de nivel.');
+                $this->addFlash('success', 'Tu héroe <span class="'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> ha subido de nivel.');
             }
         }
         //ACHIEVEMENTS
@@ -250,7 +250,7 @@ class ServiceController extends Controller
                 $achievement->getLands() != null && $player->getLands() >= $achievement->getLands())
             ) {
                 $player->addAchievement($achievement);
-                $this->addFlash('success', 'Has desbloqueado el logro <span class="label label-'.$player->getFaction()->getClass().'">'.$achievement->getName().'</span>.');
+                $this->addFlash('success', 'Has desbloqueado el logro <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile').'" class="link">'.$achievement->getName().'</a></span>.');
             }
         }
     }

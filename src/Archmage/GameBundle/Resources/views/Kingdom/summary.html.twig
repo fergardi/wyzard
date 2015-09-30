@@ -91,7 +91,7 @@
         </div>
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-balance-scale"></i>Templo</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-bell"></i>Templo</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -173,7 +173,9 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-shield"></i>{{ player.magicDefense|nf }}% <span class="label label-extra">Defensa Mágica</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-shield"></i>{{ player.armyDefense|nf }}% <span class="label label-extra">Defensa Física</span></div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magicDefense|nf }}% <span class="label label-extra">Defensa Mágica</span></div>
                             {# row #}
                             <div class="col-xs-12">{% if player.research %}<i class="fa fa-fw fa-magic"></i><a href="{{ path('archmage_game_home_help') }}#{{ player.research.spell.name|slug }}" class="link"><span class="label label-{{ player.research.spell.faction.class }}">{{ player.research.spell.name }}</span></a>{% else %}Ningún hechizo en defensa{% endif %}</div>
                             {# row #}

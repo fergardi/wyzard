@@ -19,8 +19,10 @@ class Player
      */
     const RESEARCH_CAP = 75;
     const TURNS_CAP = 300;
-    const MAGICDEFENSE_BASE= 5;
+    const MAGICDEFENSE_BASE = 5;
     const MAGICDEFENSE_CAP = 75;
+    const ARMYDEFENSE_BASE = 5;
+    const ARMYDEFENSE_CAP = 75;
     const LANDS_CAP = 3500;
     const TROOPS_CAP = 5;
     const ARTIFACT_RATIO = 1;
@@ -810,7 +812,7 @@ class Player
     }
 
     /*
-     * POWER RANKING MAGICDEFENSE
+     * POWER RANKING MAGICDEFENSE ARMYDEFENSE
      */
 
     /**
@@ -827,6 +829,22 @@ class Player
             $magicDefense += $enchantment->getSpell()->getSkill()->getMagicDefenseBonus() * $enchantment->getOwner()->getMagic();
         }
         return min(self::MAGICDEFENSE_CAP, $magicDefense);
+    }
+
+    /**
+     * Get armyDefense
+     *
+     * @return integer
+     */
+    public function getArmyDefense()
+    {
+        $armyDefense = self::ARMYDEFENSE_BASE;
+        $fortresses = $this->getConstruction('Fortalezas');
+        $armyDefense += $fortresses->getQuantity() / $fortresses->getBuilding()->getArmyDefenseRatio();
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            $armyDefense += $enchantment->getSpell()->getSkill()->getArmyDefenseBonus() * $enchantment->getOwner()->getMagic();
+        }
+        return min(self::ARMYDEFENSE_CAP, $armyDefense);
     }
 
     /**

@@ -47,7 +47,7 @@ class ArmyController extends Controller
                 $this->get('service.controller')->checkMaintenances($turns);
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y reclutado '.$this->get('service.controller')->nf($quantity).' "'.$troop->getUnit()->getName().'".');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y reclutado '.$this->get('service.controller')->nf($quantity).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -68,23 +68,28 @@ class ArmyController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
-            $turns = 1;
+            $turns = 0;
             $quantity = isset($_POST['quantity'])?$_POST['quantity']:null;
             $troop = isset($_POST['troop'])?$_POST['troop']:null;
             $troop = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop);
-            if ($troop && $quantity && is_numeric($quantity) && $turns <= $player->getTurns() && $quantity > 0 && $quantity <= $troop->getQuantity()) {
-                $troop->setQuantity($troop->getQuantity() - $quantity);
-                if ($troop->getQuantity() <= 0) {
-                    $player->removeTroop($troop);
-                    $manager->remove($troop);
+            if ($turns <= $player->getTurns()) {
+                if ($troop && $quantity && is_numeric($quantity) && $quantity > 0 && $quantity <= $troop->getQuantity()) {
+                    $troop->setQuantity($troop->getQuantity() - $quantity);
+                    if ($troop->getQuantity() <= 0) {
+                        $player->removeTroop($troop);
+                        $manager->remove($troop);
+                    }
+                    $player->setTurns($player->getTurns() - $turns);
+                    $this->get('service.controller')->checkMaintenances($turns);
+                    $manager->persist($player);
+                    $manager->flush();
+                    $this->addFlash('success', 'Has gastado ' . $this->get('service.controller')->nf($turns) . ' turnos y desbandado ' . $this->get('service.controller')->nf($quantity) . ' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
+                } else {
+                    $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
                 }
-                $player->setTurns($player->getTurns() - $turns);
-                $this->get('service.controller')->checkMaintenances($turns);
-                $manager->persist($player);
-                $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' turnos y desbandado '.$this->get('service.controller')->nf($quantity).' "'.$troop->getUnit()->getName().'".');
-            } else {
-                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+            }
+            else{
+                $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> suficientes para eso.');
             }
             return $this->redirect($this->generateUrl('archmage_game_army_disband'));
         }
@@ -103,7 +108,7 @@ class ArmyController extends Controller
         $player = $this->getUser()->getPlayer();
         $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
         if ($request->isMethod('POST')) {
-
+            $turns = 2;
         }
         return array(
             'player' => $player,

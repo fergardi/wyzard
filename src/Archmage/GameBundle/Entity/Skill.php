@@ -122,6 +122,13 @@ class Skill
     /**
      * @var integer
      *
+     * @ORM\Column(name="armyDefenseBonus", type="smallint", nullable=false)
+     */
+    private $armyDefenseBonus = 0;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="artifactBonus", type="smallint", nullable=false)
      */
     private $artifactBonus = 0;
@@ -545,6 +552,29 @@ class Skill
     public function getMagicDefenseBonus()
     {
         return $this->magicDefenseBonus;
+    }
+
+    /**
+     * Set armyDefenseBonus
+     *
+     * @param integer $armyDefenseBonus
+     * @return Skill
+     */
+    public function setArmyDefenseBonus($armyDefenseBonus)
+    {
+        $this->armyDefenseBonus = $armyDefenseBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get armyDefenseBonus
+     *
+     * @return integer 
+     */
+    public function getArmyDefenseBonus()
+    {
+        return $this->armyDefenseBonus;
     }
 
     /**

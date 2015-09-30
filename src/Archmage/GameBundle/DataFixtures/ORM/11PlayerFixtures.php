@@ -64,18 +64,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             foreach ($achievements as $achievement) {
                 $player->addAchievement($achievement);
             }
-            /*
-            $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAll();
-            foreach ($spells as $spell) {
-                $research = new Research();
-                $research->setSpell($spell);
-                $research->setTurns(0);
-                $research->setPlayer($player);
-                $research->setActive(true);
-                $manager->persist($research);
-                $player->addResearch($research);
-            }
-            */
             $enchantments = array(
                 $god['enchantment'],
             );
@@ -115,12 +103,12 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //EDIFICIOS
         $constructions = array(
             'Tierras' => 600,
-            'Granjas' => 30,
+            'Granjas' => 10,
             'Pueblos' => 10,
             'Nodos' => 10,
-            'Gremios' => 0,
+            'Gremios' => 10,
             'Talleres' => 10,
-            'Barracones' => 0,
+            'Barracones' => 10,
             'Barreras' => 3,
             'Fortalezas' => 3,
         );
@@ -182,30 +170,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($item);
             $player->addItem($item);
         }
-        /*
-        //ENCANTAMIENTOS
-        $enchantment = new Enchantment();
-        $enchantment->setSpell($this->getReference('Plaga enchant'));
-        $enchantment->setVictim($player);
-        $enchantment->setOwner($player);
-        $manager->persist($enchantment);
-        $player->addEnchantmentsOwner($enchantment);
-        $player->addEnchantmentsVictim($enchantment);
-        $enchantment = new Enchantment();
-        $enchantment->setSpell($this->getReference('Paz enchant'));
-        $enchantment->setVictim($player);
-        $enchantment->setOwner($player);
-        $manager->persist($enchantment);
-        $player->addEnchantmentsOwner($enchantment);
-        $player->addEnchantmentsVictim($enchantment);
-        $enchantment = new Enchantment();
-        $enchantment->setSpell($this->getReference('Volcano enchant'));
-        $enchantment->setVictim($player);
-        $enchantment->setOwner($player);
-        $manager->persist($enchantment);
-        $player->addEnchantmentsOwner($enchantment);
-        $player->addEnchantmentsVictim($enchantment);
-        */
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);

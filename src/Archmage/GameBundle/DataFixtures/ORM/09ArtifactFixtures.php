@@ -20,7 +20,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/magiccompass.jpg');
         $artifact->setSkill($this->getReference('Brújula Mágica'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -32,7 +32,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/assassinsguildletter.jpg');
         $artifact->setSkill($this->getReference('Carta del Gremio de Asesinos'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -44,7 +44,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/treasurechest.jpg');
         $artifact->setSkill($this->getReference('Cofre del Tesoro'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -56,7 +56,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/thievesguildletter.jpg');
         $artifact->setSkill($this->getReference('Carta del Gremio de Ladrones'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -68,7 +68,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/manapotion.jpg');
         $artifact->setSkill($this->getReference('Poción de Maná'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -80,7 +80,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/magesguildletter.jpg');
         $artifact->setSkill($this->getReference('Carta del Gremio de Magos'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -92,7 +92,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/loveelixir.jpg');
         $artifact->setSkill($this->getReference('Elixir de Amor'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -104,7 +104,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/spiesguildletter.jpg');
         $artifact->setSkill($this->getReference('Carta del Gremio de Espías'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -116,7 +116,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/speedshoes.jpg');
         $artifact->setSkill($this->getReference('Botas de Velocidad'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -128,7 +128,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/spiderweb.jpg');
         $artifact->setSkill($this->getReference('Tela de Araña'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -140,7 +140,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/herosmanual.jpg');
         $artifact->setSkill($this->getReference('Manual del Héroe'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -152,7 +152,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/medusahead.jpg');
         $artifact->setSkill($this->getReference('Cabeza de Medusa'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -164,7 +164,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/elementalenciclopedia.jpg');
         $artifact->setSkill($this->getReference('Convocar Elementales'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -176,7 +176,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/necronomicron.jpg');
         $artifact->setSkill($this->getReference('Convocar NoMuertos'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -188,7 +188,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/livebait.jpg');
         $artifact->setSkill($this->getReference('Convocar Bestias'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -200,7 +200,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/dragonegg.jpg');
         $artifact->setSkill($this->getReference('Convocar Dragones'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -212,7 +212,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/holycodex.jpg');
         $artifact->setSkill($this->getReference('Convocar Celestiales'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -224,7 +224,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/cursedskull.jpg');
         $artifact->setSkill($this->getReference('Convocar Demonios'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -236,7 +236,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/hourglass.jpg');
         $artifact->setSkill($this->getReference('Reloj de Arena'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -248,7 +248,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/poisonvial.jpg');
         $artifact->setSkill($this->getReference('Vial de Veneno'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $artifact->setGoldAuction(0);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);

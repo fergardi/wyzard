@@ -20,7 +20,7 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar <span class="label label-extra">Turnos</span> y <span class="label label-extra">Oro</span> para adquirir diversas <span class="label label-extra">Tropas</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span> y <span class="label label-extra">Hechizos</span> que no podrías obtener de otra forma. Si te sobrepujan, se te devolverá el <span class="label label-extra">Oro</span>.</div>
+                            <div class="col-xs-12">Aquí puedes gastar 1 <span class="label label-extra">Turno</span> y <span class="label label-extra">Oro</span> para adquirir diversas <span class="label label-extra">Tropas</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span> y <span class="label label-extra">Hechizos</span> que no podrías obtener de otra forma. Si te sobrepujan, se te devolverá el <span class="label label-extra">Oro</span>.</div>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
             {% if auction.contract is not null and not player.hasContract(auction.contract) %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ auction.contract.hero.faction.class }}">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.contract.hero.name|slug }}" class="link">{{ auction.contract.hero.name }}</a> {{ '{' ~ auction.contract.level|nf ~ '}' }}</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.contract.hero.name|slug }}" class="link">{{ auction.contract.hero.name }}</a> <i class="fa fa-fw fa-star"></i>{{ auction.contract.level|nf }}</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">

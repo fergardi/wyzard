@@ -26,6 +26,18 @@ class KingdomController extends Controller
     }
 
     /**
+     * @Route("/game/kingdom/balance")
+     * @Template("ArchmageGameBundle:Kingdom:balance.html.twig")
+     */
+    public function balanceAction()
+    {
+        $player = $this->getUser()->getPlayer();
+        return array(
+            'player' => $player,
+        );
+    }
+
+    /**
      * @Route("/game/kingdom/tax")
      * @Template("ArchmageGameBundle:Kingdom:tax.html.twig")
      */
@@ -110,7 +122,7 @@ class KingdomController extends Controller
                     $manager->persist($auction);
                     $manager->persist($player);
                     $manager->flush();
-                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y pujado '.$this->get('service.controller')->nf($bid).' <span class="label label-extra">Oro</span> por <span class="label label-'.$auction->getClass().'">'.$auction->getName().'</span>.');
+                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y pujado '.$this->get('service.controller')->nf($bid).' <span class="label label-extra">Oro</span> por <span class="label label-'.$auction->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($auction->getName()).'" class="link">'.$auction->getName().'</a></span>.');
                 } else {
                     $this->addFlash('danger', 'No puedes pujar por un héroe o hechizo que ya posees.');
                 }
@@ -135,7 +147,7 @@ class KingdomController extends Controller
         $player = $this->getUser()->getPlayer();
         $gods = $manager->getRepository('ArchmageGameBundle:Player')->findByGod(true);
         if ($request->isMethod('POST')) {
-            $turns = 1;
+            $turns = 10;
             if ($turns <= $player->getTurns()) {
                 /*
                  * MANTENIMIENTOS
@@ -167,9 +179,9 @@ class KingdomController extends Controller
                     shuffle($contracts);
                     $contract = $contracts[0]; //suponemos > 0 por entrar en el array
                     $contract->setLevel($contract->getLevel() - 1);
-                    $this->addFlash('danger', 'Los Dioses han exigido un nivel de tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span>.');
+                    $this->addFlash('danger', 'Los Dioses han exigido un nivel de tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span>.');
                     if ($contract->getLevel() <= 0) {
-                        $this->addFlash('danger', 'Tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'">'.$contract->getHero()->getName().'</span> ha muerto.');
+                        $this->addFlash('danger', 'Tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> ha muerto.');
                         $player->removeContract($contract);
                         $manager->remove($contract);
                     }
@@ -179,7 +191,7 @@ class KingdomController extends Controller
                     shuffle($troops);
                     $troop = $troops[0]; //suponemos > 0 por entrar en el array
                     $troop->setQuantity($troop->getQuantity() / 2);
-                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tus <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'">'.$troop->getUnit()->getName().'</span>.');
+                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tus <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
                     if ($troop->getQuantity() <= 0) {
                         $player->removeTroop($troop);
                         $manager->remove($troop);
@@ -190,7 +202,7 @@ class KingdomController extends Controller
                     shuffle($items);
                     $item = $items[0]; //suponemos > 0 por entrar en el array
                     $item->setQuantity($item->getQuantity() - 1);
-                    $this->addFlash('danger', 'Los Dioses han exigido el artefacto <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'">'.$item->getArtifact()->getName().'</span>.');
+                    $this->addFlash('danger', 'Los Dioses han exigido el artefacto <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
                     if ($item->getQuantity() <= 0) {
                         $player->removeItem($item);
                         $manager->remove($item);
@@ -210,14 +222,14 @@ class KingdomController extends Controller
                     $enchantment->setOwner($god);
                     $god->addEnchantmentsOwner($enchantment);
                     $manager->persist($god);
-                    $this->addFlash('success', '<span class="label label-'.$god->getFaction()->getClass().'">'.$god->getNick().'</span> ha lanzado el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'">'.$enchantment->getSpell()->getName().'</span> en tu reino.');
+                    $this->addFlash('success', '<span class="label label-'.$god->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $god->getId())).'" class="link">'.$god->getNick().'</a></span> ha lanzado el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> en tu reino.');
                 } else {
                     $this->addFlash('danger', 'Los Dioses no están satisfechos con tu sacrificio y no moverán un dedo por tu reino.');
                 }
                 $manager->persist($player);
                 $manager->flush();
             } else {
-                $this->addFlash('danger', 'No tienes los recursos necesarios para eso.');
+                $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios para eso.');
             }
             return $this->redirect($this->generateUrl('archmage_game_kingdom_temple'));
         }

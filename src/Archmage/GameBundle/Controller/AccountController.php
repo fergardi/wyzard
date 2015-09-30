@@ -40,7 +40,7 @@ class AccountController extends Controller
         $player = $this->getUser()->getPlayer();
         return array(
             'players' => $players,
-            'search' => $player->getNick(),
+            'player' => $player,
         );
     }
 

@@ -18,8 +18,8 @@ class Player
      * CAPS
      */
     const RESEARCH_CAP = 75;
-    const TURNS_CAP = 30000;
-    const MAGICDEFENSE_BASE= 25;
+    const TURNS_CAP = 300;
+    const MAGICDEFENSE_BASE= 5;
     const MAGICDEFENSE_CAP = 75;
     const LANDS_CAP = 3500;
     const TROOPS_CAP = 5;

@@ -33,7 +33,7 @@
             {% else %}
                 {% for i in 0..text|length - 1 %}
             <div class="col-xs-10 col-xs-offset-1 col-md-{{ text[i]['length'] }} col-md-offset-{{ text[i]['offset'] }} alert alert-{{ text[i]['class'] }} ribbon text-{{ text[i]['align'] }} text-responsive" role="alert">
-                <i class="fa fa-fw fa-exclamation-triangle"></i>{{ text[i]['text'] }}
+                <i class="fa fa-fw fa-exclamation-triangle"></i>{{ text[i]['text']|raw }}
             </div>
                 {% endfor %}
             {#

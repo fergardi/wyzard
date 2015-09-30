@@ -12,6 +12,7 @@ use Symfony\Component\Debug\Debug;
 $ips = array(
     '127.0.0.1',
     '10.18.8.125',
+    '192.168.1.15',
     'fe80::1',
     '::1',
 );

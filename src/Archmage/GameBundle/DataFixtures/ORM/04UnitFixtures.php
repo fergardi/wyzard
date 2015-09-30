@@ -586,7 +586,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $unit->setAttack(1);
         $unit->setDefense(1);
-        $unit->setSpeed(0);
+        $unit->setSpeed(1);
         $unit->setImage('bundles/archmagegame/images/unit/ghost/frog.jpg');
         $unit->setFaction($this->getReference('Fantasmal'));
         $unit->setFamily($this->getReference('Elementales'));

@@ -147,19 +147,20 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($troop);
             $player->addTroop($troop);
         }
-        /*
         //HEROES
         $contracts = array(
-            'Jinete de Dragones',
+            'Mago Negro',
+            'Chamán',
+            'Mercader',
         );
         foreach ($contracts as $name) {
             $contract = new Contract();
             $contract->setHero($this->getReference($name));
+            $contract->setLevel(1);
             $contract->setPlayer($player);
             $manager->persist($contract);
             $player->addContract($contract);
         }
-        */
         //ARTEFACTOS
         $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
         foreach ($artifacts as $artifact) {

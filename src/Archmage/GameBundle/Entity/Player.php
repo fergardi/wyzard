@@ -748,7 +748,7 @@ class Player
      */
     public function getFreePerTurn()
     {
-        return floor(abs(self::LANDS_CAP - $this->getLands() + 333) / (float)333);
+        return floor(abs(self::LANDS_CAP - $this->getLands()) / (float)100);
     }
 
     /**
@@ -938,7 +938,7 @@ class Player
             $gold += $construction->getQuantity() * $construction->getBuilding()->getGoldResource();
         }
         foreach ($this->contracts as $contract) {
-            $gold += floor($gold * $contract->getHero()->getSkill()->getGoldBonus() * $contract->getHero()->getLevel() / (float)100);
+            $gold += floor($gold * $contract->getHero()->getSkill()->getGoldBonus() * $contract->getLevel() / (float)100);
         }
         foreach ($this->enchantmentsVictim as $enchantment) {
             $gold += floor($gold * $enchantment->getSpell()->getSkill()->getGoldBonus() * $enchantment->getOwner()->getMagic() / (float)100);
@@ -958,7 +958,7 @@ class Player
             $people += $construction->getQuantity() * $construction->getBuilding()->getPeopleResource();
         }
         foreach ($this->contracts as $contract) {
-            $people += floor($people * $contract->getHero()->getSkill()->getPeopleBonus() * $contract->getHero()->getLevel() / (float)100);
+            $people += floor($people * $contract->getHero()->getSkill()->getPeopleBonus() * $contract->getLevel() / (float)100);
         }
         foreach ($this->enchantmentsVictim as $enchantment) {
             $people += floor($people * $enchantment->getSpell()->getSkill()->getPeopleBonus() * $enchantment->getOwner()->getMagic() / (float)100);
@@ -978,7 +978,7 @@ class Player
             $mana += $construction->getQuantity() * $construction->getBuilding()->getManaResource();
         }
         foreach ($this->contracts as $contract) {
-            $mana += floor($mana * $contract->getHero()->getSkill()->getManaBonus() * $contract->getHero()->getLevel() / (float)100);
+            $mana += floor($mana * $contract->getHero()->getSkill()->getManaBonus() * $contract->getLevel() / (float)100);
         }
         foreach ($this->enchantmentsVictim as $enchantment) {
             $mana += floor($mana * $enchantment->getSpell()->getSkill()->getManaBonus() * $enchantment->getOwner()->getMagic() / (float)100);

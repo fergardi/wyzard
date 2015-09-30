@@ -135,7 +135,7 @@ class MagicController extends Controller
             $player->addEnchantmentsVictim($enchantment);
             $enchantment->setOwner($player);
             $player->addEnchantmentsOwner($enchantment);
-            $this->addFlash('success', 'Has lanzado el encantamiento <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">' . $enchantment->getSpell()->getName() . '</a></span> en tu reino.');
+            $this->addFlash('success', 'Has lanzado el encantamiento <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">' . $enchantment->getSpell()->getName() . '</a></span> en tu Reino.');
         //TERRAIN
         } elseif ($spell->getSkill()->getTerrainBonus() > 0) {
             $free = $player->getLands() * $spell->getSkill()->getTerrainBonus() * $player->getMagic() / (float)100;
@@ -170,7 +170,7 @@ class MagicController extends Controller
                 $contract->setLevel($contract->getLevel() + $spell->getSkill()->getHeroBonus());
                 $this->addFlash('success', 'Tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span>.');
             } else {
-                $this->addFlash('danger', 'No tienes héroes en tu reino.');
+                $this->addFlash('danger', 'No tienes héroes en tu Reino.');
             }
         }
         return false;
@@ -197,7 +197,7 @@ class MagicController extends Controller
                 $manager->persist($enchantment->getOwner());
                 $manager->remove($enchantment);
             } else {
-                $this->addFlash('danger', 'El mago <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> no tiene ningún encantamiento que romper sobre su reino.');
+                $this->addFlash('danger', 'El mago <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> no tiene ningún encantamiento que romper sobre su Reino.');
             }
         //ENCHANTMENT
         } elseif ($spell->getEnchantment()) {
@@ -243,10 +243,10 @@ class MagicController extends Controller
         $message->setPlayer($target);
         $message->setSubject('Reporte de Hechizo');
         $text = array(
-            array('default', 12, 0, 'center', 'Nosotros, el Consejo del Reino de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> hemos decidido lanzar el hechizo <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span> sobre su reino.'),
+            array('default', 12, 0, 'center', 'Nosotros, el Consejo del Reino de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> hemos decidido lanzar el hechizo <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span> sobre su Reino.'),
         );
         $message->setText($text);
-        $message->setClass('danger');
+        $message->setClass('info');
         $message->setOwner($player);
         $message->setReaded(false);
         $manager->persist($message);
@@ -302,7 +302,7 @@ class MagicController extends Controller
                 $contract->setLevel($contract->getLevel() + $artifact->getSkill()->getHeroBonus());
                 $this->addFlash('success', 'Tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> ha subido de nivel.');
             } else {
-                $this->addFlash('danger', 'No tienes héroes en tu reino.');
+                $this->addFlash('danger', 'No tienes héroes en tu Reino.');
             }
         //GOLD
         } elseif ($artifact->getSkill()->getGoldBonus() > 0) {
@@ -353,7 +353,7 @@ class MagicController extends Controller
                     $this->addFlash('success', '<span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> ha bajado de nivel.');
                 }
             } else {
-                $this->addFlash('danger', '<span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> no tiene héroes en su reino.');
+                $this->addFlash('danger', '<span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> no tiene héroes en su Reino.');
             }
         //TERRAIN
         } elseif ($artifact->getSkill()->getTerrainBonus() < 0) {
@@ -381,10 +381,10 @@ class MagicController extends Controller
         $message->setPlayer($target);
         $message->setSubject('Reporte de Artefacto');
         $text = array(
-            array('default', 12, 0, 'center', 'Nosotros, el Consejo del Reino de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link"><span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span></a> hemos decidido lanzar el hechizo <span class="label label-'.$artifact->getFaction()->getClass().'">'.$artifact->getName().'</span> sobre su reino.'),
+            array('default', 12, 0, 'center', 'Nosotros, el Consejo del Reino de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link"><span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span></a> hemos decidido lanzar el hechizo <span class="label label-'.$artifact->getFaction()->getClass().'">'.$artifact->getName().'</span> sobre su Reino.'),
         );
         $message->setText($text);
-        $message->setClass('danger');
+        $message->setClass('info');
         $message->setOwner($player);
         $message->setReaded(false);
         $manager->persist($message);
@@ -640,10 +640,10 @@ class MagicController extends Controller
                         $player->removeEnchantmentsVictim($enchantment);
                         $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
                         $manager->persist($enchantment->getOwner());
-                        $this->addFlash('success', 'Has roto el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> de <span class="label label-'.$enchantment->getOwner()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $enchantment->getOwner()->getId())).'" class="link">'.$enchantment->getOwner()->getNick().'</a></span>.');
+                        $this->addFlash('success', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span> y roto el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> de <span class="label label-'.$enchantment->getOwner()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $enchantment->getOwner()->getId())).'" class="link">'.$enchantment->getOwner()->getNick().'</a></span>.');
                         $manager->remove($enchantment);
                     } else {
-                        $this->addFlash('danger', 'No has conseguido romper el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> de <span class="label label-'.$enchantment->getOwner()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $enchantment->getOwner()->getId())).'" class="link">'.$enchantment->getOwner()->getNick().'</a></span>.');
+                        $this->addFlash('danger', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span>, pero no has conseguido romper el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> de <span class="label label-'.$enchantment->getOwner()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $enchantment->getOwner()->getId())).'" class="link">'.$enchantment->getOwner()->getNick().'</a></span>.');
                     }
                     /*
                      * PERSISTENCIA

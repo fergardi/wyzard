@@ -51,11 +51,9 @@
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }} - {{ player.manamaintenanceperturn|nf }} = <span class="label label-{% if player.manaresourceperturn - player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }}</span> <span class="label label-extra">Maná / Turno</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magic|nf }} <span class="label label-extra">Nivel de Magia</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i><span class="label label-extra">Nivel de Magia</span> {{ player.magic|nf }}</div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-book"></i>{{ player.spells|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_magic_conjure') }}" class="link">Hechizos</a></span></div>
-                            {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i>{{ player.artifacts|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_magic_artifact') }}" class="link">Artefactos</a></span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-extra"><a href="{{ path('archmage_game_magic_artifact') }}" class="link">Artefactos</a></span> {{ player.artifacts|nf }}</div>
                         </div>
                     </div>
                 </div>
@@ -91,7 +89,7 @@
         </div>
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-bell"></i>Templo</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-balance-scale"></i>Templo</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -151,7 +149,7 @@
                         <div class="col-xs-8 text-padded">
                             {% for contract in player.contracts %}
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}" class="link">{{ contract.hero.name }}</a> [{{ contract.hero.level|nf }}]</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}" class="link">{{ contract.hero.name }}</a></span> [{{ contract.level|nf }}] ({{ contract.experience }}/{{ contract.hero.experience * contract.level }})</div>
                             {% else %}
                             <div class="col-xs-12">Ningún héroe en tu reino</div>
                             {% endfor %}
@@ -209,6 +207,118 @@
                     <a href="{{ path('archmage_game_account_message') }}" class="btn btn-default"><i class="fa fa-fw fa-envelope"></i><span class="hidden-xs">Mensajes</span></a>
                     <a href="{{ path('archmage_game_account_ranking') }}" class="btn btn-default"><i class="fa fa-fw fa-line-chart"></i><span class="hidden-xs">Ranking</span></a>
                     <a href="{{ path('archmage_game_account_profile') }}" class="btn btn-default"><i class="fa fa-fw fa-trophy"></i><span class="hidden-xs">Perfil</span></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 hidden-xs hidden-sm">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-pie-chart"></i>Balance total</div>
+                <div class="panel-body">
+                    <table class="table table-striped table-bordered table-condensed text-responsive" style="box-shadow: none !important; margin-bottom:0 !important;">
+                        <thead>
+                            <tr>
+                                <th class="text-center" colspan="3"></th>
+                                <th class="text-center" colspan="3">Ganancia</th>
+                                <th class="text-center" colspan="3">Pérdida</th>
+                                <th class="text-center" colspan="3">Total</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center">Posesión</th>
+                                <th class="text-center">?</th>
+                                <th class="text-center"><i class="fa fa-fw fa-rocket"></i></th>
+                                <th class="text-center"><i class="fa fa-fw fa-money"></i></th>
+                                <th class="text-center"><i class="fa fa-fw fa-group"></i></th>
+                                <th class="text-center"><i class="fa fa-fw fa-tint"></i></th>
+                                <th class="text-center"><i class="fa fa-fw fa-money"></i></th>
+                                <th class="text-center"><i class="fa fa-fw fa-group"></i></th>
+                                <th class="text-center"><i class="fa fa-fw fa-tint"></i></th>
+                                <th class="text-center"><i class="fa fa-fw fa-money"></i></th>
+                                <th class="text-center"><i class="fa fa-fw fa-group"></i></th>
+                                <th class="text-center"><i class="fa fa-fw fa-tint"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for construction in player.constructions %}
+                            <tr>
+                                <td class="text-left"><i class="fa fa-fw fa-home"></i><span class="label label-extra"><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a></span></td>
+                                <td class="text-right">{{ construction.quantity|nf }}</td>
+                                <td class="text-right">{{ (construction.quantity * construction.building.power)|nf }}</td>
+                                <td class="text-right">{{ (construction.quantity * construction.building.goldResource)|nf }}</td>
+                                <td class="text-right">{{ (construction.quantity * construction.building.peopleResource)|nf }}</td>
+                                <td class="text-right">{{ (construction.quantity * construction.building.manaResource)|nf }}</td>
+                                <td class="text-right">-{{ (construction.quantity * construction.building.goldMaintenance)|nf }}</td>
+                                <td class="text-right">-{{ (construction.quantity * construction.building.peopleMaintenance)|nf }}</td>
+                                <td class="text-right">-{{ (construction.quantity * construction.building.manaMaintenance)|nf }}</td>
+                                <td class="text-right">{{ (construction.quantity * construction.building.goldResource - construction.quantity * construction.building.goldMaintenance)|nf }}</td>
+                                <td class="text-right">{{ (construction.quantity * construction.building.peopleResource - construction.quantity * construction.building.peopleMaintenance)|nf }}</td>
+                                <td class="text-right">{{ (construction.quantity * construction.building.manaResource - construction.quantity * construction.building.manaMaintenance)|nf }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% for troop in player.troops %}
+                            <tr>
+                                <td class="text-left"><i class="fa fa-fw fa-group"></i><span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}" class="link">{{ troop.unit.name }}</a></span></td>
+                                <td class="text-right">{{ troop.quantity|nf }}</td>
+                                <td class="text-right">{{ (troop.quantity * troop.unit.power)|nf }}</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">-{{ (troop.quantity * troop.unit.goldMaintenance)|nf }}</td>
+                                <td class="text-right">-{{ (troop.quantity * troop.unit.peopleMaintenance)|nf }}</td>
+                                <td class="text-right">-{{ (troop.quantity * troop.unit.manaMaintenance)|nf }}</td>
+                                <td class="text-right">-{{ (troop.quantity * troop.unit.goldMaintenance)|nf }}</td>
+                                <td class="text-right">-{{ (troop.quantity * troop.unit.peopleMaintenance)|nf }}</td>
+                                <td class="text-right">-{{ (troop.quantity * troop.unit.manaMaintenance)|nf }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% for contract in player.contracts %}
+                            <tr>
+                                <td class="text-left"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}" class="link">{{ contract.hero.name }}</a></span></td>
+                                <td class="text-right">{{ contract.level|nf }}</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">-{{ (contract.level * contract.hero.goldMaintenance)|nf }}</td>
+                                <td class="text-right">-{{ (contract.level * contract.hero.peopleMaintenance)|nf }}</td>
+                                <td class="text-right">-{{ (contract.level * contract.hero.manaMaintenance)|nf }}</td>
+                                <td class="text-right">-{{ (contract.level * contract.hero.goldMaintenance)|nf }}</td>
+                                <td class="text-right">-{{ (contract.level * contract.hero.peopleMaintenance)|nf }}</td>
+                                <td class="text-right">-{{ (contract.level * contract.hero.manaMaintenance)|nf }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% for enchantment in player.enchantmentsOwner %}
+                            <tr>
+                                <td class="text-left"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}" class="link">{{ enchantment.spell.name }}</a></span> a <span class="label label-{{ enchantment.victim.faction.class }}"><a href="{{ path('archmage_game_account_profile', {'id': enchantment.victim.id}) }}" class="link">{{ enchantment.victim.nick }}</a></span></td>
+                                <td class="text-right">1</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">-{{ (enchantment.spell.goldMaintenance * enchantment.owner.magic)|nf }}</td>
+                                <td class="text-right">-{{ (enchantment.spell.peopleMaintenance * enchantment.owner.magic)|nf }}</td>
+                                <td class="text-right">-{{ (enchantment.spell.manaMaintenance * enchantment.owner.magic)|nf }}</td>
+                                <td class="text-right">-{{ (enchantment.spell.goldMaintenance * enchantment.owner.magic)|nf }}</td>
+                                <td class="text-right">-{{ (enchantment.spell.peopleMaintenance * enchantment.owner.magic)|nf }}</td>
+                                <td class="text-right">-{{ (enchantment.spell.manaMaintenance * enchantment.owner.magic)|nf }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td class="text-center" colspan="2">Total</td>
+                                <td class="text-right">{{ player.power|nf }}</td>
+                                <td class="text-right">{{ player.goldResourcePerTurn|nf }}</td>
+                                <td class="text-right">{{ player.peopleResourcePerTurn|nf }}</td>
+                                <td class="text-right">{{ player.manaResourcePerTurn|nf }}</td>
+                                <td class="text-right">-{{ player.goldMaintenancePerTurn|nf }}</td>
+                                <td class="text-right">-{{ player.peopleMaintenancePerTurn|nf }}</td>
+                                <td class="text-right">-{{ player.manaMaintenancePerTurn|nf }}</td>
+                                <td class="text-right"><span class="label label-{% if (player.goldResourcePerTurn - player.goldMaintenancePerTurn) >= 0 %}success{% else %}danger{% endif %}">{{ (player.goldResourcePerTurn - player.goldMaintenancePerTurn)|nf }}</span></td>
+                                <td class="text-right"><span class="label label-{% if (player.peopleResourcePerTurn - player.peopleMaintenancePerTurn) >= 0 %}success{% else %}danger{% endif %}">{{ (player.peopleResourcePerTurn - player.peopleMaintenancePerTurn)|nf }}</span></td>
+                                <td class="text-right"><span class="label label-{% if (player.manaResourcePerTurn - player.manaMaintenancePerTurn) >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaResourcePerTurn - player.manaMaintenancePerTurn)|nf }}</span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
             </div>
         </div>

@@ -34,7 +34,7 @@ class ServiceController extends Controller
     }
 
     /**
-     * Number Format for Fixtures and Ranking
+     * Number Format for Fixtures and Ranking (without adding a K)
      */
     public function nff($number, $decimals = 0, $decPoint = ',', $thousandsSep = '.') {
         $price = number_format((float)$number, $decimals, $decPoint, $thousandsSep);
@@ -47,13 +47,17 @@ class ServiceController extends Controller
     public function addNews()
     {
         $manager = $this->getDoctrine()->getManager();
-        $user = $this->getUser();
-        $player = $user->getPlayer();
+        $player = $this->getUser()->getPlayer();
         $notices = $player->getMessages();
+        foreach ($player->getEnchantmentsVictim() as $enchantment) {
+            if ($enchantment->getSpell()->getSkill()->getTerrainBonus() < 0 || $enchantment->getSpell()->getSkill()->getPeopleBonus() < 0) {
+                $this->addFlash('danger', 'Recuerda que sobre tu Reino pesa el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>, deberías <i class="fa fa-fw fa-chain-broken"></i><a href="'.$this->generateUrl('archmage_game_magic_dispell').'" class="link">Desencantarlo</a>.');
+            }
+        }
         foreach ($notices as $notice) {
             if (!$notice->getReaded()) {
                 $notice->setReaded(true);
-                $this->addFlash($notice->getClass(), '<a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a>');
+                $this->addFlash($notice->getClass(), 'Tienes un nuevo mensaje: "<a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a>"');
             }
         }
         $manager->persist($player);
@@ -132,7 +136,7 @@ class ServiceController extends Controller
                         $victim->removeEnchantmentsVictim($enchantment);
                         $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Oro</span>.');
+                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Oro</span>.');
                     }
                 }
             }
@@ -158,7 +162,7 @@ class ServiceController extends Controller
                     if ($contract->getHero()->getPeopleMaintenance() > 0) {
                         $player->removeContract($contract);
                         $manager->remove($contract);
-                        $this->addFlash('danger', 'Se ha desbandado tu <span class="'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Personas</span>.');
+                        $this->addFlash('danger', 'Se ha desbandado tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Personas</span>.');
                     }
                 }
             }
@@ -210,7 +214,7 @@ class ServiceController extends Controller
                         $victim->removeEnchantmentsVictim($enchantment);
                         $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Maná</span>.');
+                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Maná</span>.');
                     }
                 }
             }
@@ -226,14 +230,14 @@ class ServiceController extends Controller
                     $this->addFlash('success', 'Se ha terminado el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>.');
                 }
             }
-        }
-        //EXPERIENCE
-        foreach ($player->getContracts() as $contract) {
-            $contract->setExperience($contract->getExperience() + $turns);
-            if ($contract->getExperience() >= $contract->getHero()->getExperience() * $contract->getLevel()) {
-                $contract->setExperience($contract->getExperience() - $contract->getHero()->getExperience());
-                $contract->setLevel($contract->getLevel() + 1);
-                $this->addFlash('success', 'Tu héroe <span class="'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> ha subido de nivel.');
+            //EXPERIENCE
+            foreach ($player->getContracts() as $contract) {
+                $contract->setExperience($contract->getExperience() + 1);
+                if ($contract->getExperience() >= $contract->getHero()->getExperience() * $contract->getLevel()) {
+                    $contract->setLevel($contract->getLevel() + 1);
+                    $contract->setExperience(0);
+                    $this->addFlash('success', 'Tu héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> ha subido de nivel.');
+                }
             }
         }
         //ACHIEVEMENTS

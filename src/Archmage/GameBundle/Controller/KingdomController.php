@@ -17,20 +17,7 @@ class KingdomController extends Controller
      */
     public function summaryAction()
     {
-        //cargar noticias
         $this->get('service.controller')->addNews();
-        $player = $this->getUser()->getPlayer();
-        return array(
-            'player' => $player,
-        );
-    }
-
-    /**
-     * @Route("/game/kingdom/balance")
-     * @Template("ArchmageGameBundle:Kingdom:balance.html.twig")
-     */
-    public function balanceAction()
-    {
         $player = $this->getUser()->getPlayer();
         return array(
             'player' => $player,
@@ -222,9 +209,9 @@ class KingdomController extends Controller
                     $enchantment->setOwner($god);
                     $god->addEnchantmentsOwner($enchantment);
                     $manager->persist($god);
-                    $this->addFlash('success', '<span class="label label-'.$god->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $god->getId())).'" class="link">'.$god->getNick().'</a></span> ha lanzado el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> en tu reino.');
+                    $this->addFlash('success', '<span class="label label-'.$god->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $god->getId())).'" class="link">'.$god->getNick().'</a></span> ha lanzado el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> en tu Reino.');
                 } else {
-                    $this->addFlash('danger', 'Los Dioses no están satisfechos con tu sacrificio y no moverán un dedo por tu reino.');
+                    $this->addFlash('danger', 'Los Dioses no están satisfechos con tu sacrificio y no moverán un dedo por tu Reino.');
                 }
                 $manager->persist($player);
                 $manager->flush();

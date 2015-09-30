@@ -12,7 +12,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
     /**
      * Constants
      */
-    const EXPERIENCE_LEVEL = 100;
+    const EXPERIENCE_LEVEL = 50;
 
     /**
      * {@inheritDoc}
@@ -227,10 +227,10 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
-        //COMANDANTE DE LOS CIELOS
+        //COMANDANTE
         $hero = new Hero();
-        $hero->setName('Comandante de los Cielos');
-        $hero->setImage('bundles/archmagegame/images/hero/holy/skycommander.jpg');
+        $hero->setName('Comandante');
+        $hero->setImage('bundles/archmagegame/images/hero/holy/commander.jpg');
         $hero->setLore('Me envía el de arriba.');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(50);

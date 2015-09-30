@@ -10,11 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 class TerritoryController extends Controller
 {
     /**
-     * lands cap
-     */
-    const LANDS_CAP = 3500;
-
-    /**
      * @Route("/game/territory/explore")
      * @Template("ArchmageGameBundle:Territory:explore.html.twig")
      */

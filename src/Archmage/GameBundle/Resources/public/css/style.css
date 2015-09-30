@@ -304,6 +304,12 @@ html {-webkit-text-size-adjust: none !important;}
     border-radius: 3px !important;
     background-color: inherit !important;
 }
+.bootstrap-select .dropdown-toggle {
+    border-radius: 3px !important;
+}
+.bootstrap-select.btn-group .dropdown-toggle .filter-option {
+    overflow: visible;
+}
 /* FONTAWESOME */
 .fa {
     margin-right: 2px !important;

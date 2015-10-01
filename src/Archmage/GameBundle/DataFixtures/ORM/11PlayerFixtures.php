@@ -120,6 +120,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($construction);
             $player->addConstruction($construction);
         }
+        /*
         //HECHIZOS
         $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAll();
         foreach ($spells as $spell) {
@@ -131,6 +132,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($research);
             $player->addResearch($research);
         }
+        */
         //UNIDADES
         $troops = array(
             'Arqueros' => 100,
@@ -147,6 +149,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($troop);
             $player->addTroop($troop);
         }
+        /*
         //HEROES
         $contracts = array(
             'Mago Negro',
@@ -171,12 +174,13 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($item);
             $player->addItem($item);
         }
+        */
         //MENSAJES
         $message = new Message();
         $message->setPlayer($player);
         $message->setSubject('Bienvenido');
         $text = array(
-            array('info', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda del juego.'),
+            array('default', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda del juego.'),
         );
         $message->setText($text);
         $message->setClass('info');
@@ -187,9 +191,9 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         //RECURSOS
         $player->setGold(3000000);
         $player->setPeople(20000);
-        $player->setMana(10000);
+        $player->setMana(1000);
         $player->setTurns(30000);
-        $player->setMagic(10);
+        $player->setMagic(1);
         //FOSUSERBUNDLE
         $user = new User();
         $user->setPlayer($player);

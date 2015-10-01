@@ -46,6 +46,9 @@ class KingdomController extends Controller
                  */
                 $gold = $turns * $player->getGoldResourcePerTurn() * 2;
                 $player->setGold($player->getGold() + $gold);
+                /*
+                 * PERSISTENCIA
+                 */
                 $manager->persist($player);
                 $manager->flush();
                 $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y recaudado '.$this->get('service.controller')->nf($gold).' <span class="label label-extra">Oro</span>.');
@@ -86,9 +89,9 @@ class KingdomController extends Controller
                     /*
                      * ACCION
                      */
-                    //si existia antes un pujante se le devuelve el dinero de la puja y se le manda un mensaje
+                    //si existia antes un pujante se le devuelve el dinero de la puja menos la comision y se le manda un mensaje
                     if ($auction->getPlayer()) {
-                        $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + $auction->getBid());
+                        $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + floor($auction->getBid() * 0.95));
                         $message = new Message();
                         $message->setPlayer($auction->getPlayer());
                         $message->setSubject('Te han sobrepujado en la subasta');

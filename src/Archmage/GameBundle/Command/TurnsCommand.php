@@ -27,6 +27,5 @@ class TurnsCommand extends ContainerAwareCommand
             $manager->persist($player);
         }
         $manager->flush();
-        $output->writeln('OK');
     }
 }

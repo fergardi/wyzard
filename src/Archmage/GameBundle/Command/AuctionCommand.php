@@ -18,6 +18,7 @@ class AuctionCommand extends ContainerAwareCommand
     /**
      * Constants
      */
+    const AUCTION_PRICE = 1000000;
     const AUCTION_TROOPS = 2;
     const AUCTION_ITEMS = 2;
     const AUCTION_CONTRACTS = 1;
@@ -103,11 +104,11 @@ class AuctionCommand extends ContainerAwareCommand
             $item = new Item();
             $manager->persist($item);
             $item->setArtifact($artifact);
-            $item->setQuantity(rand(1,5));
+            $item->setQuantity(rand(1,3));
             $item->setPlayer(null);
             $auction->setPlayer(null);
             $auction->setItem($item);
-            $auction->setBid($item->getArtifact()->getGoldAuction());
+            $auction->setBid(self::AUCTION_PRICE);
             $manager->persist($auction);
         }
         //TROOP
@@ -119,11 +120,11 @@ class AuctionCommand extends ContainerAwareCommand
             $troop = new Troop();
             $manager->persist($troop);
             $troop->setUnit($unit);
-            $troop->setQuantity(rand(1,500));
+            $troop->setQuantity(rand(1, $unit->getQuantityAuction() - 1));
             $troop->setPlayer(null);
             $auction->setPlayer(null);
             $auction->setTroop($troop);
-            $auction->setBid($troop->getUnit()->getGoldAuction());
+            $auction->setBid(self::AUCTION_PRICE);
             $manager->persist($auction);
         }
         //CONTRACT
@@ -140,7 +141,7 @@ class AuctionCommand extends ContainerAwareCommand
             $contract->setPlayer(null);
             $auction->setPlayer(null);
             $auction->setContract($contract);
-            $auction->setBid($contract->getHero()->getGoldAuction());
+            $auction->setBid(self::AUCTION_PRICE);
             $manager->persist($auction);
         }
         //RESEARCH
@@ -157,9 +158,10 @@ class AuctionCommand extends ContainerAwareCommand
             $research->setActive(true);
             $auction->setPlayer(null);
             $auction->setResearch($research);
-            $auction->setBid($research->getSpell()->getGoldAuction());
+            $auction->setBid(self::AUCTION_PRICE);
             $manager->persist($auction);
         }
         $manager->flush();
+        return true;
     }
 }

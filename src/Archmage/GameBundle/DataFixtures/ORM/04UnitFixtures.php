@@ -33,6 +33,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(2500);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -55,6 +56,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(2000);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -77,6 +79,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(5000);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -99,6 +102,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(3335);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -121,6 +125,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(10000);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -147,6 +152,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(10000);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -169,6 +175,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(1);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(3850);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -191,6 +198,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(6);
         $unit->setManaMaintenance(3);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(834);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -213,6 +221,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(4);
         $unit->setManaMaintenance(4);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(445);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -235,6 +244,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(30);
         $unit->setManaMaintenance(60);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(75);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -257,6 +267,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(40);
         $unit->setManaMaintenance(30);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(108);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -279,6 +290,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(550);
         $unit->setManaMaintenance(100);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(8);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -301,6 +313,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(500);
         $unit->setManaMaintenance(300);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(12);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -323,6 +336,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(4500);
         $unit->setManaMaintenance(1500);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(2);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -345,6 +359,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(3000);
         $unit->setManaMaintenance(2000);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(5);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -371,6 +386,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(1);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(2000);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -393,6 +409,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(1);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(1820);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -415,6 +432,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(1);
         $unit->setManaMaintenance(7);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(435);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -437,6 +455,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(2);
         $unit->setManaMaintenance(3);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(1670);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -459,6 +478,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(55);
         $unit->setManaMaintenance(10);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(77);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -481,6 +501,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(15);
         $unit->setManaMaintenance(60);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(58);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -503,6 +524,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(250);
         $unit->setManaMaintenance(450);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(12);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -525,6 +547,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(100);
         $unit->setManaMaintenance(550);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(20);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -547,6 +570,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(2000);
         $unit->setManaMaintenance(2000);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(2);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -569,6 +593,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(1000);
         $unit->setManaMaintenance(3000);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(5);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -595,6 +620,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setManaMaintenance(0);
         $unit->setPeopleMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(25000);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -617,6 +643,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(3750);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -639,6 +666,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(1);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(3350);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -661,6 +689,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(2);
         $unit->setManaMaintenance(5);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(1000);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -683,6 +712,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(1);
         $unit->setManaMaintenance(6);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(785);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -705,6 +735,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(30);
         $unit->setManaMaintenance(40);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(75);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -727,6 +758,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(30);
         $unit->setManaMaintenance(30);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(75);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -749,6 +781,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(200);
         $unit->setManaMaintenance(200);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(20);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -771,6 +804,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(150);
         $unit->setManaMaintenance(450);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(12);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -793,6 +827,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(1500);
         $unit->setManaMaintenance(2500);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(3);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -815,6 +850,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(2500);
         $unit->setManaMaintenance(2500);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(5);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -841,6 +877,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(3575);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -863,6 +900,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(4170);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -885,6 +923,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(2);
         $unit->setManaMaintenance(3);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(515);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -907,6 +946,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(3);
         $unit->setManaMaintenance(6);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(515);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -929,6 +969,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(10);
         $unit->setManaMaintenance(30);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(54);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -951,6 +992,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(30);
         $unit->setManaMaintenance(20);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(60);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -973,6 +1015,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(100);
         $unit->setManaMaintenance(200);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(8);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -995,6 +1038,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(100);
         $unit->setManaMaintenance(500);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(12);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -1017,6 +1061,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(500);
         $unit->setManaMaintenance(500);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(3);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -1039,6 +1084,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(1500);
         $unit->setManaMaintenance(1000);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(5);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -1065,6 +1111,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(1);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(1540);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -1087,6 +1134,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(0);
         $unit->setManaMaintenance(0);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(3130);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -1109,6 +1157,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(3);
         $unit->setManaMaintenance(3);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(400);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -1131,6 +1180,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(6);
         $unit->setManaMaintenance(1);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(785);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -1153,6 +1203,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(30);
         $unit->setManaMaintenance(20);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(120);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -1175,6 +1226,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(20);
         $unit->setManaMaintenance(40);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(120);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -1197,6 +1249,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(550);
         $unit->setManaMaintenance(250);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(12);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -1219,6 +1272,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(350);
         $unit->setManaMaintenance(500);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(48);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -1241,6 +1295,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(2500);
         $unit->setManaMaintenance(5000);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(1);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);
@@ -1263,6 +1318,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setPeopleMaintenance(4000);
         $unit->setManaMaintenance(3500);
         $unit->setGoldAuction(0);
+        $unit->setQuantityAuction(5);
         $unit->setRarity(0);
         $unit->setGoldRecruit(0);
         $unit->setSkill(null);

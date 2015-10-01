@@ -87,6 +87,13 @@ class Unit
     /**
      * @var integer
      *
+     * @ORM\Column(name="quantityAuction", type="bigint", nullable=false)
+     */
+    private $quantityAuction = 0;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="goldAuction", type="integer", nullable=false)
      */
     private $goldAuction = 0;
@@ -360,6 +367,29 @@ class Unit
     public function getPeopleMaintenance()
     {
         return $this->peopleMaintenance;
+    }
+
+    /**
+     * Set quantityAuction
+     *
+     * @param integer $quantityAuction
+     * @return Unit
+     */
+    public function setQuantityAuction($quantityAuction)
+    {
+        $this->quantityAuction = $quantityAuction;
+
+        return $this;
+    }
+
+    /**
+     * Get quantityAuction
+     *
+     * @return integer 
+     */
+    public function getQuantityAuction()
+    {
+        return $this->quantityAuction;
     }
 
     /**

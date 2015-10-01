@@ -15,6 +15,7 @@ class TerritoryController extends Controller
      */
     public function exploreAction(Request $request)
     {
+        $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
@@ -42,7 +43,7 @@ class TerritoryController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            return $this->redirect($this->generateUrl('archmage_game_territory_explore'));
+            //return $this->redirect($this->generateUrl('archmage_game_territory_explore'));
         }
         return array(
             'player' => $player,
@@ -55,6 +56,7 @@ class TerritoryController extends Controller
      */
     public function buildAction(Request $request)
     {
+        $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
@@ -92,7 +94,7 @@ class TerritoryController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            return $this->redirect($this->generateUrl('archmage_game_territory_build'));
+            //return $this->redirect($this->generateUrl('archmage_game_territory_build'));
         }
         return array(
             'player' => $player,
@@ -105,6 +107,7 @@ class TerritoryController extends Controller
      */
     public function demolishAction(Request $request)
     {
+        $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
@@ -132,7 +135,7 @@ class TerritoryController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            return $this->redirect($this->generateUrl('archmage_game_territory_demolish'));
+            //return $this->redirect($this->generateUrl('archmage_game_territory_demolish'));
         }
         return array(
             'player' => $player,

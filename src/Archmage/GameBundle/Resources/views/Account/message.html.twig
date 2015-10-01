@@ -33,18 +33,15 @@
             {% else %}
                 {% for i in 0..text|length - 1 %}
             <div class="col-xs-10 col-xs-offset-1 col-md-{{ text[i]['length'] }} col-md-offset-{{ text[i]['offset'] }} alert alert-{{ text[i]['class'] }} ribbon text-{{ text[i]['align'] }} text-responsive" role="alert">
-                <i class="fa fa-fw fa-exclamation-triangle"></i>{{ text[i]['text']|raw }}
+                {{ text[i]['text']|raw }}
             </div>
                 {% endfor %}
-            {#
             <div class="col-xs-12 col-md-6 col-md-offset-3">
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a href="{{ path('archmage_game_account_message') }}" class="btn btn-default"><i class="fa fa-fw fa-arrow-left"></i><span class="hidden-xs">Volver</span></a>
-                    <a href="{{ path('archmage_game_account_message') }}" class="btn btn-default"><i class="fa fa-fw fa-mail-reply"></i><span class="hidden-xs">Responder</span></a>
                     <a href="{{ path('archmage_game_account_message') }}" class="btn btn-default"><i class="fa fa-fw fa-trash"></i><span class="hidden-xs">Borrar</span></a>
                 </div>
             </div>
-            #}
             {% endif %}
         </div>
     </div>

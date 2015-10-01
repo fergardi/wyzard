@@ -32,8 +32,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <select class="form-control selectpicker show-tick dropup" id="target" name="target" data-live-search="true" data-size="5">
-                                            <option>Objetivo</option>
-                                            {% for target in targets %}
+                                            {% for target in targets if target != player %}
                                             <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}'>{{ target.nick }}</span>">{{ target.nick }}</option>
                                             {% endfor %}
                                         </select>
@@ -102,8 +101,8 @@
                     <div class="panel-footer text-center">
                         <div class="form-group has-feedback">
                             <div class="input-group">
-                                <input type="number" class="form-control" id="quantity" name="quantity" min="0" max="{{ troop.quantity }}" value="{{ troop.quantity }}" required />
-                                <input type="hidden" id="troop" name="troop" value="{{ troop.id }}" required />
+                                <input type="number" class="form-control" id="quantity{{ loop.index }}" name="quantity{{ loop.index }}" min="0" max="{{ troop.quantity }}" value="{{ troop.quantity }}" required />
+                                <input type="hidden" id="troop{{ loop.index }}" name="troop{{ loop.index }}" value="{{ troop.id }}" required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
                         </div>

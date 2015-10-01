@@ -30,6 +30,7 @@ class KingdomController extends Controller
      */
     public function taxAction(Request $request)
     {
+        $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
@@ -51,7 +52,7 @@ class KingdomController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            return $this->redirect($this->generateUrl('archmage_game_kingdom_tax'));
+            //return $this->redirect($this->generateUrl('archmage_game_kingdom_tax'));
         }
         return array(
             'player' => $player,
@@ -64,6 +65,7 @@ class KingdomController extends Controller
      */
     public function auctionAction(Request $request)
     {
+        $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         $auctions = $manager->getRepository('ArchmageGameBundle:Auction')->findAll();
@@ -116,7 +118,7 @@ class KingdomController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            return $this->redirect($this->generateUrl('archmage_game_kingdom_auction'));
+            //return $this->redirect($this->generateUrl('archmage_game_kingdom_auction'));
         }
         return array(
             'player' => $player,
@@ -130,6 +132,7 @@ class KingdomController extends Controller
      */
     public function templeAction(Request $request)
     {
+        $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         $gods = $manager->getRepository('ArchmageGameBundle:Player')->findByGod(true);
@@ -218,7 +221,7 @@ class KingdomController extends Controller
             } else {
                 $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios para eso.');
             }
-            return $this->redirect($this->generateUrl('archmage_game_kingdom_temple'));
+            //return $this->redirect($this->generateUrl('archmage_game_kingdom_temple'));
         }
         return array(
             'player' => $player,

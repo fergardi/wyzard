@@ -35,7 +35,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setGoldAuction(0);
         $unit->setQuantityAuction(2500);
         $unit->setRarity(0);
-        $unit->setGoldRecruit(0);
+        $unit->setGoldRecruit(1000);
         $unit->setSkill(null);
         $unit->setPower(($unit->getAttack()+$unit->getDefense())*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
@@ -58,7 +58,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setGoldAuction(0);
         $unit->setQuantityAuction(2000);
         $unit->setRarity(0);
-        $unit->setGoldRecruit(0);
+        $unit->setGoldRecruit(1000);
         $unit->setSkill(null);
         $unit->setPower(($unit->getAttack()+$unit->getDefense())*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
@@ -81,7 +81,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setGoldAuction(0);
         $unit->setQuantityAuction(5000);
         $unit->setRarity(0);
-        $unit->setGoldRecruit(0);
+        $unit->setGoldRecruit(1000);
         $unit->setSkill(null);
         $unit->setPower(($unit->getAttack()+$unit->getDefense())*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
@@ -104,7 +104,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setGoldAuction(0);
         $unit->setQuantityAuction(3335);
         $unit->setRarity(0);
-        $unit->setGoldRecruit(0);
+        $unit->setGoldRecruit(1000);
         $unit->setSkill(null);
         $unit->setPower(($unit->getAttack()+$unit->getDefense())*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);
@@ -127,7 +127,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setGoldAuction(0);
         $unit->setQuantityAuction(10000);
         $unit->setRarity(0);
-        $unit->setGoldRecruit(0);
+        $unit->setGoldRecruit(1000);
         $unit->setSkill(null);
         $unit->setPower(($unit->getAttack()+$unit->getDefense())*$unit->getSpeed());
         $this->setReference($unit->getName(), $unit);

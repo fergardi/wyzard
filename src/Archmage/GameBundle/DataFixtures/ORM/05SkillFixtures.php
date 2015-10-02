@@ -522,7 +522,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSummon(false);
         $skill->setDispell(false);
         $skill->setSpy(false);
-        $skill->setBattle(true);
+        $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
         $skill->setType(null);
@@ -1924,7 +1924,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSummon(false);
         $skill->setDispell(false);
         $skill->setSpy(false);
-        $skill->setBattle(true);
+        $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit($this->getReference('Ranas'));
         $skill->setFamily(null);
@@ -3260,7 +3260,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSummon(false);
         $skill->setDispell(false);
         $skill->setSpy(false);
-        $skill->setBattle(true);
+        $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
         $skill->setType(null);

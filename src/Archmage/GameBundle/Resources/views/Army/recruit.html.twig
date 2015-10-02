@@ -32,7 +32,7 @@
         {% for unit in units %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-group"></i><a href="{{ path('archmage_game_home_help') }}#{{ unit.name|slug }}" class="link">{{ unit.name }}</a> [{{ player.hasUnit(unit).quantity|default(0)|nf }}]</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-group"></i><a href="{{ path('archmage_game_home_help') }}#{{ unit.name|slug }}" class="link">{{ unit.name }}</a> [{{ player.hasUnit(unit).quantity|default(0)|nf }}] ({{ max(player.construction('Barracones').quantity,1)|nf }}/<i class="fa fa-fw fa-hourglass-half"></i>)</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">

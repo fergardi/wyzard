@@ -93,31 +93,22 @@ class MagicController extends Controller
                     $turns = $research->getSpell()->getTurnsCost();
                     $mana = $research->getSpell()->getManaCost() * $bonus;
                     if ($turns <= $player->getTurns() && $mana <= $player->getMana()) {
+                        /*
+                         * MANTENIMIENTOS
+                         */
+                        $player->setTurns($player->getTurns() - $turns);
+                        $player->setMana($player->getMana() - $mana);
+                        $this->get('service.controller')->checkMaintenances($turns);
+                        /*
+                         * ACCION
+                         */
                         if ($research->getSpell()->getSkill()->getSelf()) {
-                            /*
-                             * MANTENIMIENTOS
-                             */
-                            $player->setTurns($player->getTurns() - $turns);
-                            $player->setMana($player->getMana() - $mana);
-                            $this->get('service.controller')->checkMaintenances($turns);
-                            /*
-                             * ACCION
-                             */
                             $this->conjureSelf($research->getSpell());
                             $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span> en conjurar <span class="label label-'.$research->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($research->getSpell()->getName()).'" class="link">'.$research->getSpell()->getName().'</a></span>.');
                         } else {
                             $target = isset($_POST['target'])?$_POST['target']:null;
                             $target = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($target);
                             if ($target) {
-                                /*
-                                 * MANTENIMIENTOS
-                                 */
-                                $player->setTurns($player->getTurns() - $turns);
-                                $player->setMana($player->getMana() - $mana);
-                                $this->get('service.controller')->checkMaintenances($turns);
-                                /*
-                                 * ACCION
-                                 */
                                 if (rand(0,99) >= $target->getMagicDefense()) {
                                     $this->conjureTarget($research->getSpell(), $target);
                                     $manager->persist($target);
@@ -133,6 +124,9 @@ class MagicController extends Controller
                         $this->addFlash('danger', 'No tienes los recursos necesarios para conjurar ese hechizo.');
                     }
                 }
+                /*
+                 * PERSISTENCIA
+                 */
                 $manager->persist($player);
                 $manager->flush();
             } else {

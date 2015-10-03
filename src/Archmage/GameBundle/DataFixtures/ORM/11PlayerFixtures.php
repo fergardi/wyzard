@@ -77,7 +77,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
                 $player->addEnchantmentsVictim($enchantment);
             }
             $troops = array(
-                $god['unit'] => 9999,
+                $god['unit'] => 1,
             );
             foreach ($troops as $name => $quantity) {
                 $troop = new Troop();

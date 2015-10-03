@@ -221,11 +221,11 @@ class ArmyController extends Controller
     }
 
     /**
-     * ordering
+     * usort sorting function
      */
-    function sort_by_speed($a, $b)
+    function sortBySpeed($row1, $row2)
     {
-        return $a[4] - $b[4];
+        return ($row1[4] >= $row2[4]) ? -1 : 1;
     }
 
     /**
@@ -330,7 +330,13 @@ class ArmyController extends Controller
                     $speedBonus += $skill->getSpeedBonus();
                 }
             }
-            $attackerArmy[] = array($troop, $quantity, $attackBonus, $defenseBonus, $speedBonus);
+            $attackerArmy[] = array(
+                $troop,
+                $quantity, //selected in form
+                $troop->getUnit()->getAttack() * $quantity,
+                $troop->getUnit()->getDefense() * $quantity,
+                $troop->getUnit()->getSpeed() + $speedBonus,
+            );
         }
         //DEFENDER
         $defenderArmy = array();
@@ -375,12 +381,17 @@ class ArmyController extends Controller
                     $speedBonus += $skill->getSpeedBonus();
                 }
             }
-            $defenderArmy[] = array($troop, $troop->getQuantity(), $attackBonus, $defenseBonus, $speedBonus);
+            $defenderArmy[] = array(
+                $troop,
+                $troop->getQuantity(), //full
+                $troop->getUnit()->getAttack() * $troop->getQuantity(),
+                $troop->getUnit()->getDefense() * $troop->getQuantity(),
+                $troop->getUnit()->getSpeed() + $speedBonus,
+            );
         }
         //ORDERING BY SPEED
-        //usort($attackerArmy, 'sort_by_speed');
-        //usort($defenderArmy, 'sort_by_speed');
-        //ladybug_dump_die($attackerArmy, $defenderArmy);
+        usort($attackerArmy, array($this, "sortBySpeed"));
+        usort($defenderArmy, array($this, "sortBySpeed"));
         //BATTLE
         $attackerTurn = 0;
         $defenderTurn = 0;
@@ -389,24 +400,46 @@ class ArmyController extends Controller
             //si ya no nos quedan tropas volvemos a empezar
             if (!array_key_exists($attackerTurn, $attackerArmy)) $attackerTurn = 0;
             if (!array_key_exists($defenderTurn, $defenderArmy)) $defenderTurn = 0;
-            $attackerTroop = $attackerArmy[$attackerTurn];
-            $attackerAttack = $attackerTroop->getUnit()->getAttack();
-            $attackerDefense = $attackerTroop->getUnit()->getDefense();
-            $defenderTroop = $defenderArmy[$defenderTurn];
-            $defenserAttack = $defenderTroop->getUnit()->getAttack();
-            $defenserDefense = $defenderTroop->getUnit()->getDefense();
-            if ($attackerTroop->getUnit()->getSpeed() == $defenderTroop->getUnit()->getSpeed()) {
-
+            $attackerTroop = $attackerArmy[$attackerTurn][0];
+            $attackerQuantity = $attackerArmy[$attackerTurn][1];
+            $attackerAttack = $attackerArmy[$attackerTurn][2];
+            $attackerDefense = $attackerArmy[$attackerTurn][3];
+            $attackerSpeed = $attackerArmy[$attackerTurn][4];
+            $defenderTroop = $defenderArmy[$defenderTurn][0];
+            $defenderQuantity = $defenderArmy[$defenderTurn][1];
+            $defenderAttack = $defenderArmy[$defenderTurn][2];
+            $defenderDefense = $defenderArmy[$defenderTurn][3];
+            $defenderSpeed = $defenderArmy[$defenderTurn][4];
+            //DEBUG
+            echo "RONDA ".($i+1)." de ".$rounds."<br>";
+            echo "<hr>";
+            echo $attackerTroop->getUnit()->getName()." (".$attackerQuantity.") vs ".$defenderTroop->getUnit()->getName()." (".$defenderQuantity.")<br>";
+            echo $attackerSpeed." SPEED vs ".$defenderSpeed." SPEED<br>";
+            if ($attackerSpeed == $defenderSpeed) {
+                echo "ATACANTE IGUAL VELOCIDAD QUE DEFENSOR, ATACAN Y DEFIENDEN A LA VEZ<br>";;
+                echo $attackerAttack." ATK ==> ".$defenderDefense." DEF<br>";
+                $defenderCasualties = (($defenderDefense - $attackerAttack) / $defenderTroop->getUnit()->getDefense());
+                echo $defenderCasualties."<br>";
+                echo $attackerDefense." DEF <== ".$defenderAttack." ATK<br>";
+                $attackerCasualties = (($attackerDefense - $defenderAttack) / $attackerTroop->getUnit()->getDefense());
+                echo $attackerCasualties."<br>";
             }
-            if ($attackerTroop->getUnit()->getSpeed() > $defenderTroop->getUnit()->getSpeed()) {
-
+            if ($attackerSpeed > $defenderSpeed) {
+                echo "ATACANTE MAYOR VELOCIDAD QUE DEFENSOR, ATACA PRIMERO<br>";
+                echo $attackerAttack." ATK ==> ".$defenderDefense." DEF<br>";
+                echo $attackerDefense." DEF <== ".$defenderAttack." ATK<br>";
             }
-            if ($attackerTroop->getUnit()->getSpeed() < $defenderTroop->getUnit()->getSpeed()) {
-
+            if ($attackerSpeed < $defenderSpeed) {
+                echo "ATACANTE MENOR VELOCIDAD QUE DEFENSOR, DEFIENDE EN VEZ DE ATACAR<br>";
+                echo $attackerDefense." DEF <== ".$defenderAttack." ATK<br>";
+                echo $attackerAttack." ATK ==> ".$defenderDefense." DEF<br>";
             }
+            echo "<hr>";
+            //DEBUG
             $attackerTurn++;
             $defenderTurn++;
         }
+        die();
         //END MESSAGE
         $text[] = array('default', 12, 0, 'center', 'Fin de Combate');
         $message->setText($text);

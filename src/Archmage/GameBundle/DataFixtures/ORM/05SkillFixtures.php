@@ -669,7 +669,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Miedo');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(-2);
+        $skill->setSpeedBonus(-1);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
@@ -683,7 +683,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setArtifactBonus(0);
         $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
-        $skill->setRandom(true);
+        $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
         $skill->setSpy(false);
@@ -1351,7 +1351,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setArtifactBonus(0);
         $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
-        $skill->setRandom(true);
+        $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
         $skill->setSpy(false);
@@ -2654,7 +2654,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setArtifactBonus(0);
         $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
-        $skill->setRandom(true);
+        $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
         $skill->setSpy(false);
@@ -3322,7 +3322,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setArtifactBonus(0);
         $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
-        $skill->setRandom(true);
+        $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
         $skill->setSpy(false);
@@ -4403,7 +4403,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Si lo mantienes 24 horas, <span class="label label-extra">Termina el Juego</span>.');
+        $skill->setDescription('Si lo mantienes hasta que se gaste, <span class="label label-extra">Termina el Juego</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

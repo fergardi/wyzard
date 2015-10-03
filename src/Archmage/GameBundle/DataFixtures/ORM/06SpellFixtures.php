@@ -286,29 +286,6 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //MIEDO
-        $spell = new Spell();
-        $spell->setSkill($this->getReference('Miedo'));
-        $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $spell->setImage('bundles/archmagegame/images/spell/darkness/fear.jpg');
-        $spell->setFaction($this->getReference('Oscuridad'));
-        $spell->setMagic(1);
-        $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
-        $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(0);
-        $spell->setManaMaintenance(0);
-        $spell->setPeopleMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_BATTLE);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
-        $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
-        $spell->setEnchantment(false);
-        //$this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
         //AQUELARRE
         $spell = new Spell();
         $spell->setSkill($this->getReference('Aquelarre'));
@@ -316,7 +293,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/coven.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
-        $spell->setMagic(2);
+        $spell->setMagic(1);
         $spell->setGoldCost(0);
         $spell->setManaCost(self::MANA_COST * $spell->getMagic());
         $spell->setPeopleCost(0);
@@ -338,6 +315,29 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/unholystrength.jpg');
+        $spell->setFaction($this->getReference('Oscuridad'));
+        $spell->setMagic(2);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
+        $spell->setTurnsCost(self::TURNS_BATTLE);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
+        $spell->setTurnsExpiration(0);
+        $spell->setGoldAuction(0);
+        $spell->setRarity(0);
+        $spell->setEnchantment(false);
+        //$this->setReference($spell->getName(), $spell);
+        $manager->persist($spell);
+
+        //MIEDO
+        $spell = new Spell();
+        $spell->setSkill($this->getReference('Miedo'));
+        $spell->setName($spell->getSkill()->getName());
+        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setImage('bundles/archmagegame/images/spell/darkness/fear.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(2);
         $spell->setGoldCost(0);
@@ -754,12 +754,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //PRISA
+        //HURACAN
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Prisa'));
+        $spell->setSkill($this->getReference('Huracán'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $spell->setImage('bundles/archmagegame/images/spell/nature/haste.jpg');
+        $spell->setImage('bundles/archmagegame/images/spell/nature/hurricane.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(1);
         $spell->setGoldCost(0);
@@ -823,12 +823,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //HURACAN
+        //IRA DEL BOSQUE
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Huracán'));
+        $spell->setSkill($this->getReference('Ira del Bosque'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $spell->setImage('bundles/archmagegame/images/spell/nature/hurricane.jpg');
+        $spell->setImage('bundles/archmagegame/images/spell/nature/forestwrath.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
@@ -846,12 +846,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //IRA DEL BOSQUE
+        //PRISA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Ira del Bosque'));
+        $spell->setSkill($this->getReference('Prisa'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $spell->setImage('bundles/archmagegame/images/spell/nature/forestwrath.jpg');
+        $spell->setImage('bundles/archmagegame/images/spell/nature/haste.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
@@ -1690,12 +1690,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //VOLAR
+        //CALMA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Volar'));
+        $spell->setSkill($this->getReference('Calma'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $spell->setImage('bundles/archmagegame/images/spell/holy/fly.jpg');
+        $spell->setImage('bundles/archmagegame/images/spell/holy/pacifism.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(1);
         $spell->setGoldCost(0);
@@ -1805,12 +1805,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($spell->getName().' enchant', $spell); // para los dioses
         $manager->persist($spell);
 
-        //CALMA
+        //VOLAR
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Calma'));
+        $spell->setSkill($this->getReference('Volar'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $spell->setImage('bundles/archmagegame/images/spell/holy/pacifism.jpg');
+        $spell->setImage('bundles/archmagegame/images/spell/holy/fly.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
@@ -2158,12 +2158,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //ALAS FLAMIGUERAS
+        //TAMBORES DE GUERRA
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Alas Flamígueras'));
+        $spell->setSkill($this->getReference('Tambores de Guerra'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $spell->setImage('bundles/archmagegame/images/spell/doom/flamingwings.jpg');
+        $spell->setImage('bundles/archmagegame/images/spell/doom/wardrums.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(1);
         $spell->setGoldCost(0);
@@ -2273,29 +2273,6 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //TAMBORES DE GUERRA
-        $spell = new Spell();
-        $spell->setSkill($this->getReference('Tambores de Guerra'));
-        $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $spell->setImage('bundles/archmagegame/images/spell/doom/wardrums.jpg');
-        $spell->setFaction($this->getReference('Caos'));
-        $spell->setMagic(4);
-        $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
-        $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(0);
-        $spell->setManaMaintenance(0);
-        $spell->setPeopleMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_BATTLE);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
-        $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
-        $spell->setEnchantment(false);
-        //$this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
         //MURO IGNEO
         $spell = new Spell();
         $spell->setSkill($this->getReference('Muro Ígneo'));
@@ -2317,6 +2294,29 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(true);
         $this->setReference($spell->getName().' enchant', $spell); // para los dioses
+        $manager->persist($spell);
+
+        //ALAS FLAMIGUERAS
+        $spell = new Spell();
+        $spell->setSkill($this->getReference('Alas Flamígueras'));
+        $spell->setName($spell->getSkill()->getName());
+        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setImage('bundles/archmagegame/images/spell/doom/flamingwings.jpg');
+        $spell->setFaction($this->getReference('Caos'));
+        $spell->setMagic(4);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setPeopleMaintenance(0);
+        $spell->setTurnsCost(self::TURNS_BATTLE);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
+        $spell->setTurnsExpiration(0);
+        $spell->setGoldAuction(0);
+        $spell->setRarity(0);
+        $spell->setEnchantment(false);
+        //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
         //PACTO DE SANGRE
@@ -2383,9 +2383,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldMaintenance(500);
         $spell->setPeopleMaintenance(500);
         $spell->setManaMaintenance(500);
-        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
+        $spell->setTurnsCost(self::TURNS_ENCHANTMENT * 2);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
-        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
+        $spell->setTurnsExpiration(self::TURNS_EXPIRATION * 2);
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(true);

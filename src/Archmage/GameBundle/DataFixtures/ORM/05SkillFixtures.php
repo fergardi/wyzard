@@ -692,7 +692,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setType(null);
         $skill->setFamily(null);
-        $skill->setDescription($skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> de una tropa enemiga al azar por nivel.');
+        $skill->setDescription($skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a las tropas enemigas por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1361,7 +1361,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('+'.$skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> de una tropa aliada al azar por nivel.');
+        $skill->setDescription('+'.$skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a tus tropas por nivel.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1897,7 +1897,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('+'.$skill->getHeroBonus().' nivel a uno de tus <span class="label label-extra">Héroes</span> al azar.');
+        $skill->setDescription('+'.$skill->getHeroBonus().' nivel a un <span class="label label-extra">Héroe</span> al azar.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -2640,7 +2640,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Volar');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(2);
+        $skill->setSpeedBonus(1);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
@@ -2664,7 +2664,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('+'.$skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> de una tropa aliada al azar por nivel.');
+        $skill->setDescription('+'.$skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a tus tropas por nivel.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -3303,12 +3303,12 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //ALAS FLAMIGUERAS
+        //QUEMAR ALAS
         $skill = new Skill();
-        $skill->setName('Alas Flamígueras');
+        $skill->setName('Quemar Alas');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(1);
+        $skill->setSpeedBonus(-1);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
@@ -3331,7 +3331,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setType(null);
         $skill->setFamily(null);
-        $skill->setDescription('+'.$skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> de una tropa aliada al azar por nivel.');
+        $skill->setDescription($skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a las tropas enemigas por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3642,7 +3642,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Botas de Velocidad');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(1);
+        $skill->setSpeedBonus(5);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
@@ -3675,7 +3675,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Tela de Araña');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(-1);
+        $skill->setSpeedBonus(-5);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
@@ -3970,7 +3970,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Población</span> al reino enemigo en combate por nivel.');
+        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Población</span> al reino enemigo por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -4003,7 +4003,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getTurnsBonus().'% <span class="label label-extra">Turnos</span> al reino enemigo en combate por nivel.');
+        $skill->setDescription($skill->getTurnsBonus().'% <span class="label label-extra">Turnos</span> al reino enemigo por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -4069,7 +4069,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getManaBonus().'% <span class="label label-extra">Maná</span> al reino enemigo en combate por nivel.');
+        $skill->setDescription($skill->getManaBonus().'% <span class="label label-extra">Maná</span> al reino enemigo por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -4102,7 +4102,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span> al reino enemigo en combate por nivel.');
+        $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span> al reino enemigo por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

@@ -86,7 +86,7 @@ class Message
     public function __construct()
     {
         $this->datetime = new \DateTime('now');
-        $this->hash = substr(md5(microtime()),0,6);
+        $this->hash = substr(md5(microtime()),0,7); //semi unique hash for sharing
         $this->readed = false;
     }
 

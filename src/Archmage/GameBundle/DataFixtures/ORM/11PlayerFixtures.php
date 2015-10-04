@@ -5,6 +5,8 @@ namespace Archmage\GameBundle\DataFixtures\ORM;
 use Archmage\GameBundle\Entity\Achievement;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Archmage\GameBundle\Entity\Player;
 use Archmage\GameBundle\Entity\Construction;
@@ -16,8 +18,21 @@ use Archmage\GameBundle\Entity\Message;
 use Archmage\GameBundle\Entity\Enchantment;
 use Archmage\UserBundle\Entity\User;
 
-class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
+class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -27,11 +42,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
          * GODS
          */
         $gods = array(
-            array('name' => 'Duggo, Dios de la Sangre', 'faction' => 'Caos', 'unit' => 'Dragones Rojos', 'enchantment' => 'Muro Ígneo enchant'),
-            array('name' => 'Surm, Dios de la Muerte', 'faction' => 'Oscuridad', 'unit' => 'Dragones Negros', 'enchantment' => 'Brujería enchant'),
-            array('name' => 'Lett, Diosa de la Luz', 'faction' => 'Sagrado', 'unit' => 'Dragones Blancos', 'enchantment' => 'Protección Divina enchant'),
-            array('name' => 'Sihir, Diosa de la Magia', 'faction' => 'Fantasmal', 'unit' => 'Dragones Azules', 'enchantment' => 'Barrera Mental enchant'),
-            array('name' => 'Elama, Diosa de la Vida', 'faction' => 'Naturaleza', 'unit' => 'Dragones Verdes', 'enchantment' => 'Favor de la Naturaleza enchant'),
+            array('name' => 'Duggo, Dios de la Sangre', 'faction' => 'Caos'),
+            array('name' => 'Surm, Dios de la Muerte', 'faction' => 'Oscuridad'),
+            array('name' => 'Lett, Diosa de la Luz', 'faction' => 'Sagrado'),
+            array('name' => 'Sihir, Diosa de la Magia', 'faction' => 'Fantasmal'),
+            array('name' => 'Elama, Diosa de la Vida', 'faction' => 'Naturaleza'),
         );
         foreach ($gods as $god) {
             $player = new Player();
@@ -64,20 +79,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
             foreach ($achievements as $achievement) {
                 $player->addAchievement($achievement);
             }
-            $enchantments = array(
-                $god['enchantment'],
-            );
-            foreach ($enchantments as $name) {
-                $enchantment = new Enchantment();
-                $enchantment->setSpell($this->getReference($name));
-                $enchantment->setVictim($player);
-                $enchantment->setOwner($player);
-                $manager->persist($enchantment);
-                $player->addEnchantmentsOwner($enchantment);
-                $player->addEnchantmentsVictim($enchantment);
-            }
             $troops = array(
-                $god['unit'] => 1,
+                'Goblins' => 300,
+                'Elfos' => 600,
+                'Tritones' => 150,
+                'Arqueros' => 500,
             );
             foreach ($troops as $name => $quantity) {
                 $troop = new Troop();
@@ -176,18 +182,10 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface
         }
         */
         //MENSAJES
-        $message = new Message();
-        $message->setPlayer($player);
-        $message->setSubject('Bienvenido');
-        $text = array(
-            array('default', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda del juego.'),
-        );
-        $message->setText($text);
-        $message->setClass('info');
-        $message->setOwner(null);
-        $message->setReaded(false);
-        $manager->persist($message);
-        $player->addMessage($message);
+        $subject = 'Bienvenido';
+        $text = array();
+        $text[] = array('default', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda');
+        $this->container->get('service.controller')->sendMessage($player, $player, $subject, $text);
         //RECURSOS
         $player->setGold(3000000);
         $player->setPeople(20000);

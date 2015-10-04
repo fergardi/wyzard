@@ -15,7 +15,7 @@
             </select>
             {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Usuario' } }) }}
             {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'Contraseña' } }) }}
-            {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Repetir' } }) }}
+            {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Repetir contraseña' } }) }}
             {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'E@mail.com' } }) }}
             {{ form_rest(form) }}
             <button type="submit" id="submit" name="_submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-sign-in"></i>Registrarse</button>

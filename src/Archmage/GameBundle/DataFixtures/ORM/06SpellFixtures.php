@@ -2296,12 +2296,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($spell->getName().' enchant', $spell); // para los dioses
         $manager->persist($spell);
 
-        //ALAS FLAMIGUERAS
+        //QUEMAR ALAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Alas Flamígueras'));
+        $spell->setSkill($this->getReference('Quemar Alas'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $spell->setImage('bundles/archmagegame/images/spell/doom/flamingwings.jpg');
+        $spell->setImage('bundles/archmagegame/images/spell/doom/burnedwings.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);

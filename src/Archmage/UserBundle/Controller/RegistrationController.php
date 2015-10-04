@@ -33,11 +33,9 @@ class RegistrationController extends BaseController
             if ($form->isValid()) {
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
-
                 /*
                  * BEGIN OWN CODE
                  */
-
                 //player
                 $player = new Player();
                 $player->setFaction($manager->getRepository('ArchmageGameBundle:Faction')->findOneById($_POST['faction']));
@@ -47,11 +45,11 @@ class RegistrationController extends BaseController
                     'Granjas' => 10,
                     'Pueblos' => 10,
                     'Nodos' => 10,
-                    'Gremios' => 0,
-                    'Talleres' => 5,
-                    'Barracones' => 0,
-                    'Barreras' => 0,
-                    'Fortalezas' => 0,
+                    'Gremios' => 10,
+                    'Talleres' => 10,
+                    'Barracones' => 10,
+                    'Barreras' => 3,
+                    'Fortalezas' => 3,
                 );
                 foreach ($constructions as $name => $quantity) {
                     $construction = new Construction();
@@ -78,18 +76,10 @@ class RegistrationController extends BaseController
                     $player->addTroop($troop);
                 }
                 //messages
-                $message = new Message();
-                $message->setPlayer($player);
-                $message->setSubject('Bienvenido al juego, "'.$player->getNick().'"');
-                $text = array(
-                    array('default', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda del juego.'),
-                );
-                $message->setText($text);
-                $message->setClass('default');
-                $message->setOwner(null);
-                $message->setReaded(false);
-                $manager->persist($message);
-                $player->addMessage($message);
+                $text = array();
+                $text[] = array('default', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda');
+                $subject = 'Bienvenido al juego, '.$player->getNick();
+                $this->get('service.controller')->sendMessage($player, $player, $subject, $text);
                 //resources
                 $player->setNick($user->getUsername());
                 $player->setGold(3000000);
@@ -102,11 +92,9 @@ class RegistrationController extends BaseController
                 $user->setPlayer($player);
                 $manager->persist($user);
                 $manager->flush();
-
                 /*
                  * END OWN CODE
                  */
-
                 $userManager->updateUser($user);
                 if (null === $response = $event->getResponse()) {
                     $url = $this->container->get('router')->generate('fos_user_registration_confirmed');

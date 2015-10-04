@@ -213,6 +213,7 @@ class ArmyController extends Controller
             } else {
                 $this->addFlash('danger', 'No tienes los <span class="label label-extra">Recursos</span> necesarios para eso.');
             }
+            return $this->redirect($this->generateUrl('archmage_game_army_attack'));
         }
         return array(
             'player' => $player,
@@ -236,27 +237,23 @@ class ArmyController extends Controller
         $manager = $this->getDoctrine()->getManager(); //TODO COMPROBAR SI HAY ALGUN CONFLICTO CON 2 MANAGER TRABAJANDO SOBRE LA MISMA ENTIDAD
         $player = $this->getUser()->getPlayer();
         //MESSAGE
-        $message = new Message();
-        $message->setPlayer($player); //TODO CAMBIAR POR TARGET, AHORA ESTA PLAYER PARA LEERLO YO MISMO
-        $message->setSubject('Reporte de Batalla');
         $text = array();
-        $text[] = array('default', 12, 0, 'center', 'Inicio de Combate');
         //ATTACKER ITEM AND RESEARCH
         if ($attackerResearch) {
             $chance = 100; //TODO CAMBIAR POR DEFENSA MAGICA
             if ($chance > $target->getMagicDefense()) {
-                $text[] = array('success', 8, 4, 'center', 'El mago atacante lanza el Hechizo '.$attackerResearch->getSpell()->getName().'.');
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante lanza el Hechizo '.$attackerResearch->getSpell()->getName().'.');
             } else {
-                $text[] = array('danger', 8, 4, 'center', 'El mago atacante no ha logrado lanzar el Hechizo '.$attackerResearch->getSpell()->getName().'.');
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante no ha logrado lanzar el Hechizo '.$attackerResearch->getSpell()->getName().'.');
             }
         }
         $attackerItem = $target->getItem();
         if ($attackerItem) {
             $chance = 100; //TODO CAMBIAR POR DEFENSA MAGICA
             if ($chance > $target->getMagicDefense()) {
-                $text[] = array('success', 8, 4, 'center', 'El mago atacante activa el Artefacto '.$attackerItem->getArtifact()->getName().'.');
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante activa el Artefacto '.$attackerItem->getArtifact()->getName().'.');
             } else {
-                $text[] = array('danger', 8, 4, 'center', 'El mago atacante no ha logrado activar el Artefacto '.$attackerItem->getArtifact()->getName().'.');
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante no ha logrado activar el Artefacto '.$attackerItem->getArtifact()->getName().'.');
             }
         }
         //DEFENDER ITEM AND RESEARCH
@@ -266,23 +263,23 @@ class ArmyController extends Controller
             $mana = $defenderResearch->getSpell()->getManaCost() * $bonus;
             if ($mana <= $target->getMana()) {
                 $target->setMana($target->getMana() - $mana);
-                $text[] = array('success', 8, 4, 'center', 'El mago defensor lanza el Hechizo '.$defenderResearch->getSpell()->getName().'.');
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor lanza el Hechizo '.$defenderResearch->getSpell()->getName().'.');
             } else {
-                $text[] = array('danger', 8, 4, 'center', 'El mago defensor no tiene Maná para lanzar el Hechizo '.$defenderResearch->getSpell()->getName().'.');
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor no tiene Maná para lanzar el Hechizo '.$defenderResearch->getSpell()->getName().'.');
                 $defenderResearch = null;
             }
         }
         $defenderItem = $target->getItem();
         if ($defenderItem) {
             if ($defenderItem->getQuantity() > 0) {
-                $text[] = array('success', 8, 4, 'center', 'El mago defensor activa el Artefacto '.$defenderItem->getArtifact()->getName().'.');
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor activa el Artefacto '.$defenderItem->getArtifact()->getName().'.');
                 $defenderItem->setQuantity($defenderItem->getQuantity() - 1);
                 if ($defenderItem <= 0) {
                     $target->removeItem($defenderItem);
                     $manager->remove($defenderItem);
                 }
             } else {
-                $text[] = array('danger', 8, 4, 'center', 'El mago defensor no tiene reservas del Artefacto '.$defenderItem->getArtifact()->getName().'.');
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor no tiene reservas del Artefacto '.$defenderItem->getArtifact()->getName().'.');
             }
         }
         //ATTACKER
@@ -332,9 +329,9 @@ class ArmyController extends Controller
             }
             $attackerArmy[] = array(
                 $troop,
-                $quantity, //selected in form
-                $troop->getUnit()->getAttack() * $quantity,
-                $troop->getUnit()->getDefense() * $quantity,
+                $quantity, //$_POST
+                $attackBonus,
+                $defenseBonus,
                 $troop->getUnit()->getSpeed() + $speedBonus,
             );
         }
@@ -383,9 +380,9 @@ class ArmyController extends Controller
             }
             $defenderArmy[] = array(
                 $troop,
-                $troop->getQuantity(), //full
-                $troop->getUnit()->getAttack() * $troop->getQuantity(),
-                $troop->getUnit()->getDefense() * $troop->getQuantity(),
+                $troop->getQuantity(), //ALL
+                $attackBonus,
+                $defenseBonus,
                 $troop->getUnit()->getSpeed() + $speedBonus,
             );
         }
@@ -401,52 +398,65 @@ class ArmyController extends Controller
             if (!array_key_exists($attackerTurn, $attackerArmy)) $attackerTurn = 0;
             if (!array_key_exists($defenderTurn, $defenderArmy)) $defenderTurn = 0;
             $attackerTroop = $attackerArmy[$attackerTurn][0];
-            $attackerQuantity = $attackerArmy[$attackerTurn][1];
-            $attackerAttack = $attackerArmy[$attackerTurn][2];
-            $attackerDefense = $attackerArmy[$attackerTurn][3];
+            //paso por referencia para modificar directamente los valores del array para la siguiente ronda
+            $attackerQuantity = &$attackerArmy[$attackerTurn][1];
+            $attackerAttack = $attackerTroop->getUnit()->getAttack() * $attackerQuantity; //TODO BONUS
+            $attackerDefense = $attackerTroop->getUnit()->getDefense() * $attackerQuantity; //TODO BONUS
             $attackerSpeed = $attackerArmy[$attackerTurn][4];
             $defenderTroop = $defenderArmy[$defenderTurn][0];
-            $defenderQuantity = $defenderArmy[$defenderTurn][1];
-            $defenderAttack = $defenderArmy[$defenderTurn][2];
-            $defenderDefense = $defenderArmy[$defenderTurn][3];
+            //paso por referencia para modificar directamente los valores del array para la siguiente ronda
+            $defenderQuantity = &$defenderArmy[$defenderTurn][1];
+            $defenderAttack = $defenderTroop->getUnit()->getAttack() * $defenderQuantity; //TODO BONUS
+            $defenderDefense = $defenderTroop->getUnit()->getDefense() * $defenderQuantity; //TODO BONUS
             $defenderSpeed = $defenderArmy[$defenderTurn][4];
-            //DEBUG
-            echo "RONDA ".($i+1)." de ".$rounds."<br>";
-            echo "<hr>";
-            echo $attackerTroop->getUnit()->getName()." (".$attackerQuantity.") vs ".$defenderTroop->getUnit()->getName()." (".$defenderQuantity.")<br>";
-            echo $attackerSpeed." SPEED vs ".$defenderSpeed." SPEED<br>";
+            //comprobar velocidades
+            $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).'/'.$rounds.': <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"> '.$attackerTroop->getUnit()->getName().'</span> con '.$attackerSpeed.' Velocidad contra <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'">'.$defenderTroop->getUnit()->getName().'</span> con '.$defenderSpeed.' Velocidad');
             if ($attackerSpeed == $defenderSpeed) {
-                echo "ATACANTE IGUAL VELOCIDAD QUE DEFENSOR, ATACAN Y DEFIENDEN A LA VEZ<br>";;
-                echo $attackerAttack." ATK ==> ".$defenderDefense." DEF<br>";
-                $defenderCasualties = (($defenderDefense - $attackerAttack) / $defenderTroop->getUnit()->getDefense());
-                echo $defenderCasualties."<br>";
-                echo $attackerDefense." DEF <== ".$defenderAttack." ATK<br>";
-                $attackerCasualties = (($attackerDefense - $defenderAttack) / $attackerTroop->getUnit()->getDefense());
-                echo $attackerCasualties."<br>";
+                //atacante igual velocidad que defensor, atacan y defienden a la vez
+                //atacante => defensor
+                $defenderCasualties = min($defenderQuantity, (int)floor($attackerAttack / $defenderTroop->getUnit()->getDefense()));
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', $this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'">'.$attackerTroop->getUnit()->getName().'</span> impactan con '.$this->get('service.controller')->nf($attackerAttack).' ataque a '.$this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'">'.$defenderTroop->getUnit()->getName().'</span> con '.$this->get('service.controller')->nf($defenderDefense).' defensa, matando a '.$this->get('service.controller')->nf($defenderCasualties).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'">'.$defenderTroop->getUnit()->getName().'</span>');
+                //defensor => atacante
+                $attackerCasualties = min($attackerQuantity, (int)floor($defenderAttack / $attackerTroop->getUnit()->getDefense()));
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', $this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'">'.$defenderTroop->getUnit()->getName().'</span> impactan con '.$this->get('service.controller')->nf($defenderAttack).' ataque a '.$this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'">'.$attackerTroop->getUnit()->getName().'</span> con '.$this->get('service.controller')->nf($attackerDefense).' defensa, matando a '.$this->get('service.controller')->nf($attackerCasualties).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'">'.$attackerTroop->getUnit()->getName().'</span>');
+                //modifico por referencia
+                $attackerQuantity -= $attackerCasualties;
+                $defenderQuantity -= $defenderCasualties;
             }
             if ($attackerSpeed > $defenderSpeed) {
-                echo "ATACANTE MAYOR VELOCIDAD QUE DEFENSOR, ATACA PRIMERO<br>";
-                echo $attackerAttack." ATK ==> ".$defenderDefense." DEF<br>";
-                echo $attackerDefense." DEF <== ".$defenderAttack." ATK<br>";
+                //atacante mayor velocidad que defensor, atacante ataca primero
+                //atacante => defensor
+                $defenderCasualties = min($defenderQuantity, (int)floor($attackerAttack / $defenderTroop->getUnit()->getDefense()));
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', $this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'">'.$attackerTroop->getUnit()->getName().'</span> impactan con '.$this->get('service.controller')->nf($attackerAttack).' ataque a '.$this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'">'.$defenderTroop->getUnit()->getName().'</span> con '.$this->get('service.controller')->nf($defenderDefense).' defensa, matando a '.$this->get('service.controller')->nf($defenderCasualties).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'">'.$defenderTroop->getUnit()->getName().'</span>');
+                //modifico por referencia
+                $defenderQuantity -= $defenderCasualties;
+                //recalculamos ataque del defensor por si ha sufrido bajas
+                $defenderAttack = $defenderTroop->getUnit()->getAttack() * $defenderQuantity; //TODO BONUS
+                //defensor => atacante
+                $attackerCasualties = min($attackerQuantity, (int)floor($defenderAttack / $attackerTroop->getUnit()->getDefense()));
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', $this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'">'.$defenderTroop->getUnit()->getName().'</span> impactan con '.$this->get('service.controller')->nf($defenderAttack).' ataque a '.$this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'">'.$attackerTroop->getUnit()->getName().'</span> con '.$this->get('service.controller')->nf($attackerDefense).' defensa, matando a '.$this->get('service.controller')->nf($attackerCasualties).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'">'.$attackerTroop->getUnit()->getName().'</span>');
+                //modifico por referencia
+                $attackerQuantity -= $attackerCasualties;
             }
             if ($attackerSpeed < $defenderSpeed) {
-                echo "ATACANTE MENOR VELOCIDAD QUE DEFENSOR, DEFIENDE EN VEZ DE ATACAR<br>";
-                echo $attackerDefense." DEF <== ".$defenderAttack." ATK<br>";
-                echo $attackerAttack." ATK ==> ".$defenderDefense." DEF<br>";
+                //atacante menor velocidad que defensor, defensor ataca primero
+                //defensor => atacante
+                $attackerCasualties = min($attackerQuantity, (int)floor($defenderAttack / $attackerTroop->getUnit()->getDefense()));
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', $this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'">'.$defenderTroop->getUnit()->getName().'</span> impactan con '.$this->get('service.controller')->nf($defenderAttack).' ataque a '.$this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'">'.$attackerTroop->getUnit()->getName().'</span> con '.$this->get('service.controller')->nf($attackerDefense).' defensa, matando a '.$this->get('service.controller')->nf($attackerCasualties).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'">'.$attackerTroop->getUnit()->getName().'</span>');
+                //modifico por referencia
+                $attackerQuantity -= $attackerCasualties;
+                //recalculamos ataque del atacante por si ha sufrido bajas y contraatacamos
+                $attackerAttack = $attackerTroop->getUnit()->getAttack() * $attackerQuantity; //TODO BONUS
+                //atacante => defensor
+                $defenderCasualties = min($defenderQuantity, (int)floor($attackerAttack / $defenderTroop->getUnit()->getDefense()));
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', $this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'">'.$attackerTroop->getUnit()->getName().'</span> impactan con '.$this->get('service.controller')->nf($attackerAttack).' ataque a '.$this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'">'.$defenderTroop->getUnit()->getName().'</span> con '.$this->get('service.controller')->nf($defenderDefense).' defensa, matando a '.$this->get('service.controller')->nf($defenderCasualties).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'">'.$defenderTroop->getUnit()->getName().'</span>');
+                //modifico por referencia
+                $defenderQuantity -= $defenderCasualties;
             }
-            echo "<hr>";
-            //DEBUG
+            //siguiente ronda
             $attackerTurn++;
             $defenderTurn++;
         }
-        die();
-        //END MESSAGE
-        $text[] = array('default', 12, 0, 'center', 'Fin de Combate');
-        $message->setText($text);
-        $message->setClass('danger');
-        $message->setOwner($player);
-        $message->setReaded(false);
-        $manager->persist($message);
-        $player->addMessage($message); //TODO CAMBIAR POR TARGET
+        $this->get('service.controller')->sendMessage($player, $player, 'Reporte de Batalla', $text); //TODO CAMBIAR PLAYER POR TARGET
     }
 }

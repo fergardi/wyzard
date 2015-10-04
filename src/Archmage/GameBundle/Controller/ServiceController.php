@@ -8,6 +8,7 @@ use Archmage\GameBundle\Entity\Spell;
 use Archmage\GameBundle\Entity\Player;
 use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Enchantment;
+use Archmage\GameBundle\Entity\Achievement;
 use Archmage\GameBundle\Entity\Message;
 
 class ServiceController extends Controller
@@ -60,8 +61,48 @@ class ServiceController extends Controller
                 $this->addFlash($notice->getClass(), 'Tienes un nuevo mensaje: "<a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a>"');
             }
         }
+        //Para que un usuario pueda usar Telegram, debe escribir el hash de su player como un mensaje al bot @ArchmageBot
+        //De esa forma, comparo los hashes con los que tengo en mi DB y saco el CHATID del mensaje para usarlo en adelante
+        $api = $this->container->get('shaygan.telegram_bot_api');
+        foreach ($api->getUpdates() as $update) {
+            if (!$player->getChat() && $update['message']->getText() == $player->getTelegram()) {
+                $player->setChat($update['message']->getChat()->getId());
+            }
+        }
+        /*
+         * PERSISTENCIA
+         */
         $manager->persist($player);
         $manager->flush();
+    }
+
+    /**
+     * Message wrapper & telegram bot
+     */
+    public function sendMessage($sender, $receiver, $subject, $text, $class='default')
+    {
+        //NEW MESSAGE
+        $manager = $this->getDoctrine()->getManager();
+        $message = new Message();
+        $message->setOwner($sender);
+        $message->setPlayer($receiver);
+        $message->setSubject($subject);
+        $message->setText($text);
+        $message->setClass($class);
+        $manager->persist($message);
+        $receiver->addMessage($message);
+
+        //TELEGRAM BOT https://core.telegram.org/bots & https://unnikked.ga/getting-started-with-telegram-bots/
+        $api = $this->container->get('shaygan.telegram_bot_api');
+        $telegram = "Hola!\nTienes un mensaje nuevo:\n'".$subject."'\n".$this->generateUrl('archmage_game_account_message', array('hash' => $message->getHash()), true);
+        try {
+            if ($receiver->getChat()) {
+                $api->sendSticker($receiver->getChat(), "BQADBAADRQADyIsGAAHtBskMy6GoLAI");
+                $api->sendMessage($receiver->getChat(), $telegram);
+            }
+        } catch (Exception $e) {
+            //TODO EXCEPTION TELEGRAM BOT API
+        }
     }
 
     /**

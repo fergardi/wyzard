@@ -19,7 +19,7 @@
                     <i class="fa fa-fw fa-4x fa-user"></i>
                 </div>
                 <div class="info">
-                    <h1 class="text-center">{{ player.nick }}</h1>
+                    <h1 class="text-center">{{ player.nick }}{% if player == profile %}<br><small>(#{{ player.telegram }})</small>{% endif %}</h1>
                     <h2><i class="fa fa-fw fa-rocket"></i>{{ player.power|nf }}</h2>
                     <br>
                     {% for achievement in player.achievements %}

@@ -79,3 +79,7 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Archmage\UserBundle\Entity\User
+
+# TELEGRAM BOT https://core.telegram.org/bots
+shaygan_telegram_bot_api:
+    token: "%telegram_token%"

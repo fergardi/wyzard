@@ -81,6 +81,20 @@ class Player
     private $turns = 300;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="telegram", type="string", length=225, nullable=false)
+     */
+    private $telegram;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="chat", type="bigint", nullable=true)
+     */
+    private $chat = null;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="god", type="boolean", nullable=false)
@@ -175,6 +189,8 @@ class Player
         $this->enchantmentsOwner = new ArrayCollection();
         $this->enchantmentsVictim = new ArrayCollection();
         $this->achievements = new ArrayCollection();
+
+        $this->telegram = substr(md5(microtime()),0,13); //semi unique hash for telegram
     }
 
     /**
@@ -332,6 +348,52 @@ class Player
     public function getTurns()
     {
         return $this->turns;
+    }
+
+    /**
+     * Set telegram
+     *
+     * @param string $telegram
+     * @return Player
+     */
+    public function setTelegram($telegram)
+    {
+        $this->telegram = $telegram;
+
+        return $this;
+    }
+
+    /**
+     * Get telegram
+     *
+     * @return string
+     */
+    public function getTelegram()
+    {
+        return $this->telegram;
+    }
+
+    /**
+     * Set chat
+     *
+     * @param integer $chat
+     * @return Player
+     */
+    public function setChat($chat)
+    {
+        $this->chat = $chat;
+
+        return $this;
+    }
+
+    /**
+     * Get chat
+     *
+     * @return integer
+     */
+    public function getChat()
+    {
+        return $this->chat;
     }
 
     /**

@@ -14,18 +14,21 @@ class AccountController extends Controller
      */
     public function profileAction($id = null)
     {
+        $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
+        $player = $this->getUser()->getPlayer();
         if (!$id) {
-            $player = $this->getUser()->getPlayer();
+            $profile = $player;
         } else {
-            $player = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($id);
-            if (!$player) {
+            $profile = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($id);
+            if (!$profile) {
                 $this->addFlash('danger', 'Ese jugador no existe.');
                 return $this->redirectToRoute('archmage_game_account_profile');
             }
         }
         return array(
             'player' => $player,
+            'profile' => $profile,
         );
     }
 
@@ -35,6 +38,7 @@ class AccountController extends Controller
      */
     public function rankingAction()
     {
+        $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         $players = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
         $player = $this->getUser()->getPlayer();
@@ -50,6 +54,7 @@ class AccountController extends Controller
      */
     public function messageAction($hash = null)
     {
+        $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         if (!$hash) {
             $player = $this->getUser()->getPlayer();

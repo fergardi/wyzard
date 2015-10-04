@@ -22,7 +22,8 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "friendsofsymfony/user-bundle": "~2.0@dev",
-        "raulfraile/ladybug-bundle": "dev-master"
+        "raulfraile/ladybug-bundle": "dev-master",
+        "shaygan/telegram-bot-api-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

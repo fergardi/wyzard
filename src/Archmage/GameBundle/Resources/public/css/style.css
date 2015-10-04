@@ -299,8 +299,11 @@ table a:hover {
     }
 }
 html {-webkit-text-size-adjust: none !important;}
-.bootstrap-select.form-control:not([class*="col-"]) {
+.bootstrap-select.form-control {
     width: 60%;
+}
+.form-signin .bootstrap-select.form-control {
+    width: 100%;
 }
 /* ARREGLAR BORDES BLANCOS EN BOOTSRAP SELECT */
 .bootstrap-select {

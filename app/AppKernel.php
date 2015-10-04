@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
+            new Shaygan\TelegramBotApiBundle\ShayganTelegramBotApiBundle(),
             new Archmage\GameBundle\ArchmageGameBundle(),
             new Archmage\UserBundle\ArchmageUserBundle(),
         );

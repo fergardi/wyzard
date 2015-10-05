@@ -844,7 +844,7 @@ class Player
     public function setConstruction($name, $quantity)
     {
         foreach ($this->constructions as $construction) {
-            if ($construction->getBuilding()->getName() == $name) $construction->setQuantity($quantity);
+            if ($construction->getBuilding()->getName() == $name) $construction->setQuantity(max(0,$quantity));
         }
         return $this;
     }

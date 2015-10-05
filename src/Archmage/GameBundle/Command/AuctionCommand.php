@@ -42,6 +42,11 @@ class AuctionCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $manager = $this->getContainer()->get('doctrine')->getManager();
+        //CONTEXT OVERRIDE FOR GENERATEURL IN COMMANDS BUG (see http://symfony.com/doc/current/cookbook/console/sending_emails.html#configuring-the-request-context-per-command and https://github.com/symfony/symfony-docs/issues/1112#issuecomment-4240333)
+        $context = $this->getContainer()->get('router')->getContext();
+        $context->setHost('archmage.local');
+        $context->setScheme('http');
+        $this->getContainer()->get('router')->setContext($context);
         //OLD AUCTIONS
         $auctions = $manager->getRepository('ArchmageGameBundle:Auction')->findAll();
         foreach ($auctions as $auction) {
@@ -50,6 +55,8 @@ class AuctionCommand extends ContainerAwareCommand
             $troop = $auction->getTroop();
             $contract = $auction->getContract();
             $research = $auction->getResearch();
+            $subject = 'Has ganado una subasta!';
+            $text = array();
             if ($winner) {
                 if ($item) {
                     if ($winner->hasItem($item)) {
@@ -68,7 +75,7 @@ class AuctionCommand extends ContainerAwareCommand
                             $troop->setPlayer($winner);
                             $winner->addTroop($troop);
                         } else {
-                            //TODO MANDAR MENSAJE NEGATIVO
+                            $text[] = array('default', 12, 0, 'center', 'No tienes espacio suficiente en tu ejército, por lo que se han desbandado las nuevas tropas automáticamente.');
                             $manager->remove($troop);
                         }
                     }
@@ -77,7 +84,7 @@ class AuctionCommand extends ContainerAwareCommand
                         $contract->setPlayer($winner);
                         $winner->addContract($contract);
                     } else {
-                        //TODO MANDAR MENSAJE NEGATIVO
+                        $text[] = array('default', 12, 0, 'center', 'Ya tienes ese héroe, no puedes tener duplicados, por lo que se ha desbandado el héroe automáticamente.');
                         $manager->remove($contract);
                     }
                 } elseif ($research) {
@@ -85,11 +92,12 @@ class AuctionCommand extends ContainerAwareCommand
                         $research->setPlayer($winner);
                         $winner->addResearch($research);
                     } else {
-                        //TODO MANDAR MENSAJE NEGATIVO
+                        $text[] = array('default', 12, 0, 'center', 'Ya tienes ese hechizo, no puedes tener duplicados, por lo que se ha perdido automáticamente.');
                         $manager->remove($research);
                     }
                 }
-                //TODO MANDAR MENSAJE POSITIVO
+                $text[] = array('default', 12, 0, 'center', 'Has ganado la subasta de <span class="label label-'.$auction->getClass().'"><a href="'.$auction->getName().'#'.$this->getContainer()->get('service.controller')->toSlug($auction->getName()).'" class="link">'.$auction->getName().'</a></span>');
+                $this->getContainer()->get('service.controller')->sendMessage($winner, $winner, $subject, $text, 'auction');
                 $manager->persist($winner);
             }
             $manager->remove($auction);
@@ -120,7 +128,7 @@ class AuctionCommand extends ContainerAwareCommand
             $troop = new Troop();
             $manager->persist($troop);
             $troop->setUnit($unit);
-            $troop->setQuantity(rand(1, $unit->getQuantityAuction() - 1));
+            $troop->setQuantity(rand($unit->getQuantityAuction() / 2, $unit->getQuantityAuction() - 1));
             $troop->setPlayer(null);
             $auction->setPlayer(null);
             $auction->setTroop($troop);

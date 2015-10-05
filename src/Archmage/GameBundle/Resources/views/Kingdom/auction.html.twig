@@ -7,13 +7,13 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-user-secret"></i>Mercado negro</h1>
+                <h1><i class="fa fa-fw fa-legal"></i>Subasta</h1>
                 {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
         </div>
         <div class="col-xs-12 col-md-6 col-md-offset-3">
             <div class="panel panel-default">
-                <div class="panel-heading text-center">Pujar en subastas</div>
+                <div class="panel-heading text-center">Pujar</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -75,7 +75,7 @@
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
                     </form>
                     {% else %}
-                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujador</button>
+                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujante</button>
                     {% endif %}
                 </div>
             </div>
@@ -125,7 +125,7 @@
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
                     </form>
                     {% else %}
-                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujador</button>
+                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujante</button>
                     {% endif %}
                 </div>
             </div>
@@ -174,7 +174,7 @@
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
                     </form>
                     {% else %}
-                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujador</button>
+                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujante</button>
                     {% endif %}
                 </div>
             </div>
@@ -211,7 +211,7 @@
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
                     </form>
                     {% else %}
-                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujador</button>
+                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujante</button>
                     {% endif %}
                 </div>
             </div>

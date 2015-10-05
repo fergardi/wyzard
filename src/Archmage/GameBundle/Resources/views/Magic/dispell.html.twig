@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-9"><i class="fa fa-fw fa-rebel"></i><span class="label label-{{ enchantment.owner.faction.class }}"><a href="{{ path('archmage_game_account_profile', {'id': enchantment.owner.id}) }}" class="link">{{ enchantment.owner.nick }}</a></label></div>
+                            <div class="col-xs-9"><i class="fa fa-fw fa-rebel"></i><span class="label label-{{ enchantment.owner.faction.class }}"><a href="{{ path('archmage_game_account_profile', {'id': enchantment.owner.id}) }}" class="link">{{ enchantment.owner.nick }}</a></span></div>
                             <div class="col-xs-3"><i class="fa fa-fw fa-magic"></i>{{ enchantment.owner.magic|nf }}</div>
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-hourglass"></i>{{ enchantment.expiration|nf }}/{{ (enchantment.spell.turnsExpiration * enchantment.owner.magic)|nf }}</div>

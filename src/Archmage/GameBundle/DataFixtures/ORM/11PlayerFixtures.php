@@ -184,7 +184,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         //MENSAJES
         $subject = 'Bienvenido';
         $text = array();
-        $text[] = array('default', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda');
+        $text[] = array('default', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda.');
         $this->container->get('service.controller')->sendMessage($player, $player, $subject, $text);
         //RECURSOS
         $player->setGold(3000000);

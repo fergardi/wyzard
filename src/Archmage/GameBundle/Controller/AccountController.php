@@ -17,6 +17,25 @@ class AccountController extends Controller
         $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
+        //Para que un usuario pueda usar Telegram, debe escribir el hash de su player como un mensaje al bot @ArchmageBot
+        //De esa forma, comparo los hashes con los que tengo en mi DB y saco el CHATID del mensaje y lo guardo
+        $api = $this->container->get('shaygan.telegram_bot_api');
+        foreach ($api->getUpdates() as $update) {
+            if (!$player->getChat() && $update['message']->getText() == $player->getTelegram()) {
+                $player->setChat($update['message']->getChat()->getId());
+                try {
+                    $telegram = "Hola!\nSoy el Bot de Telegram del Archmage, @ArchmageBot.\nAhora estás conectado por Telegram y recibirás mensajes si te llega algún correo al juego, como avisos de subastas, ataques, conjuros, encantamientos o artefactos en tu reino.";
+                    $connection = "BQADBAADRQADyIsGAAHtBskMy6GoLAI";
+                    $api->sendSticker($player->getChat(), $connection);
+                    $api->sendMessage($player->getChat(), $telegram);
+                } catch (Exception $e) {
+                    //si por alguna razon $receiver->getChat() es incorrecto, la API de Telegram lanzara una excepcion
+                    //TODO EXCEPTION TELEGRAM BOT API
+                }
+            }
+        }
+        $manager->persist($player);
+        $manager->flush();
         if (!$id) {
             $profile = $player;
         } else {

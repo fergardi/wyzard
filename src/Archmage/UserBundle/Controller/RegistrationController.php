@@ -75,11 +75,6 @@ class RegistrationController extends BaseController
                     $manager->persist($troop);
                     $player->addTroop($troop);
                 }
-                //messages
-                $text = array();
-                $text[] = array('default', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda');
-                $subject = 'Bienvenido al juego, '.$player->getNick();
-                $this->get('service.controller')->sendMessage($player, $player, $subject, $text);
                 //resources
                 $player->setNick($user->getUsername());
                 $player->setGold(3000000);
@@ -87,6 +82,11 @@ class RegistrationController extends BaseController
                 $player->setMana(1000);
                 $player->setTurns(300);
                 $player->setMagic(1);
+                //messages
+                $text = array();
+                $text[] = array('default', 12, 0, 'center', 'Te doy la bienvenida a Archmage, '.$player->getNick().'. Te recomiendo encarecidamente que te des un paseo por la Ayuda.');
+                $subject = 'Bienvenido al Juego';
+                $this->get('service.controller')->sendMessage($player, $player, $subject, $text);
                 //persist && flush
                 $manager->persist($player);
                 $user->setPlayer($player);

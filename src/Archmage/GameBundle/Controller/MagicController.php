@@ -109,7 +109,8 @@ class MagicController extends Controller
                             $target = isset($_POST['target'])?$_POST['target']:null;
                             $target = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($target);
                             if ($target) {
-                                if (rand(0,99) >= $target->getMagicDefense()) {
+                                $chance = rand(0,99);
+                                if ($chance >= $target->getMagicDefense()) {
                                     $this->conjureTarget($research->getSpell(), $target);
                                     $manager->persist($target);
                                     $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span> en conjurar <span class="label label-'.$research->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($research->getSpell()->getName()).'" class="link">'.$research->getSpell()->getName().'</a></span> sobre <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
@@ -239,7 +240,8 @@ class MagicController extends Controller
                             $this->activateSelf($item->getArtifact());
                             $this->addFlash('success', 'Has gastado '. $this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
                         } else {
-                            if (rand(0, 99) >= $target->getMagicDefense()) {
+                            $chance = rand(0,99);
+                            if ($chance >= $target->getMagicDefense()) {
                                 $this->activateTarget($item->getArtifact(), $target);
                                 $manager->persist($target);
                                 $this->addFlash('success', 'Has gastado ' . $this->get('service.controller')->nf($turns) . ' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span> sobre <span class="label label-' . $target->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">' . $target->getNick() . '</a></span>.');
@@ -331,12 +333,10 @@ class MagicController extends Controller
      */
     public function createSpionage(Player $target)
     {
-        $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
-        $message = new Message();
-        $message->setPlayer($player);
-        $message->setSubject('Reporte de Espionaje de <a href="'.$this>generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>');
+        $subject = 'Reporte de Espionaje';
         $text = array(
+            array('default', 12, 0, 'center', 'Reporte de Espionaje de <a href="'.$this>generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>'),
             array('default', 12, 0, 'center', 'Oro: '.$this->get('service.controller')->nf($target->getGold())),
             array('default', 12, 0, 'center', 'Maná: '.$this->get('service.controller')->nf($target->getMana())),
             array('default', 12, 0, 'center', 'Personas: '.$this->get('service.controller')->nf($target->getPeople())),
@@ -347,12 +347,7 @@ class MagicController extends Controller
             array('default', 12, 0, 'center', 'Artefactos: '.$this->get('service.controller')->nf($target->getArtifacts())),
             array('default', 12, 0, 'center', 'Encantamientos: '.$this->get('service.controller')->nf($target->getEnchantmentsVictim()->count())),
         );
-        $message->setText($text);
-        $message->setClass('success');
-        $message->setOwner(null);
-        $message->setReaded(false);
-        $manager->persist($message);
-        $player->addMessage($message);
+        $this->get('service.controller')->sendMessage($player, $target, $subject, $text, 'espionage');
         return false;
     }
 
@@ -541,7 +536,7 @@ class MagicController extends Controller
                 $unit = $units[0];
             }
             $troop = $player->hasUnit($unit);
-            $quantity = $artifact->getSkill()->getQuantityBonus();
+            $quantity = rand(1, $artifact->getSkill()->getQuantityBonus());
             if ($troop) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
                 $this->addFlash('success', 'Has invocado '.$this->get('service.controller')->nf($quantity).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');

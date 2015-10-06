@@ -810,7 +810,7 @@ class Player
      */
     public function getFreePerTurn()
     {
-        return floor(abs(self::LANDS_CAP - $this->getLands()) / (float)100);
+        return max(0, floor((self::LANDS_CAP - $this->getLands()) / (float)100));
     }
 
     /**

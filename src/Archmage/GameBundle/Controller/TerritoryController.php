@@ -111,7 +111,7 @@ class TerritoryController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
-            $turns = 1;
+            $turns = 0;
             $lands = isset($_POST['lands'])?$_POST['lands']:null;
             $construction = isset($_POST['construction'])?$_POST['construction']:null;
             $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);

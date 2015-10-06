@@ -96,7 +96,7 @@ class AuctionCommand extends ContainerAwareCommand
                         $manager->remove($research);
                     }
                 }
-                $text[] = array('default', 12, 0, 'center', 'Has ganado la subasta de <span class="label label-'.$auction->getClass().'"><a href="'.$auction->getName().'#'.$this->getContainer()->get('service.controller')->toSlug($auction->getName()).'" class="link">'.$auction->getName().'</a></span>');
+                $text[] = array('default', 12, 0, 'center', 'Has ganado la subasta de <span class="label label-'.$auction->getClass().'"><a href="'.$this->getContainer()->get('router')->generate('archmage_game_home_help').'#'.$this->getContainer()->get('service.controller')->toSlug($auction->getName()).'" class="link">'.$auction->getName().'</a></span> por '.$this->getContainer()->get('service.controller')->nf($auction->getBid()).' <span class="label label-extra">Oro</span>.');
                 $this->getContainer()->get('service.controller')->sendMessage($winner, $winner, $subject, $text, 'auction');
                 $manager->persist($winner);
             }

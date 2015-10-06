@@ -1191,7 +1191,7 @@ class Player
     }
 
     /**
-     * Has item
+     * Has artifact
      *
      * @return boolean
      */
@@ -1200,6 +1200,23 @@ class Player
         if ($search) {
             foreach ($this->items as $item) {
                 if ($item->getArtifact()->getName() == $search->getName()) {
+                    return $item;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Has item
+     *
+     * @return boolean
+     */
+    public function hasItem(Item $search = null)
+    {
+        if ($search) {
+            foreach ($this->items as $item) {
+                if ($item->getArtifact() == $search->getArtifact()) {
                     return $item;
                 }
             }

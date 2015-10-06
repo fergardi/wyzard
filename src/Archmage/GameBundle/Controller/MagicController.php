@@ -336,7 +336,7 @@ class MagicController extends Controller
         $player = $this->getUser()->getPlayer();
         $subject = 'Reporte de Espionaje';
         $text = array(
-            array('default', 12, 0, 'center', 'Reporte de Espionaje de <a href="'.$this>generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>'),
+            array('default', 12, 0, 'center', 'Reporte de Espionaje de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>'),
             array('default', 12, 0, 'center', 'Oro: '.$this->get('service.controller')->nf($target->getGold())),
             array('default', 12, 0, 'center', 'Maná: '.$this->get('service.controller')->nf($target->getMana())),
             array('default', 12, 0, 'center', 'Personas: '.$this->get('service.controller')->nf($target->getPeople())),

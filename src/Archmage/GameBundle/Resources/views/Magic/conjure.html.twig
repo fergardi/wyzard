@@ -25,12 +25,8 @@
                     </div>
                 </div>
                 <div class="panel-middle text-center">Fórmula</div>
-                <div class="panel-body text-responsive">
-                    <div class="row">
-                        <div class="col-xs-12 text-center text-only">
-                            PROB<sub>éxito</sub> = MIN(75, 5 + BARRERAS<sub>jugador</sub> * 10 / 100)
-                        </div>
-                    </div>
+                <div class="panel-body text-responsive text-center text-only">
+                    <p>PROB<sub>éxito</sub> = MIN(75, 5 + BARRERAS<sub>jugador</sub> * 10 / 100)</p>
                 </div>
                 <div class="panel-footer text-center">
                     <a class="btn btn-default" href="{{ path( 'archmage_game_magic_charge' ) }}"><i class="fa fa-fw fa-tint"></i>Cargar</a>
@@ -69,7 +65,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 {% if not research.spell.skill.self %}
-                                <select class="form-control selectpicker" id="target" name="target" data-live-search="true">
+                                <select class="form-control selectpicker show-tick dropup" id="target" name="target" data-live-search="true" data-size="5">
                                     <option>Objetivo</option>
                                     {% for target in targets if target != player %}
                                         <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}'>{{ target.nick }}</span>">{{ target.nick }}</option>

@@ -41,7 +41,7 @@ img.background {
     margin: 0;
 }
 .text-only {
-    padding: 15px;
+    padding: 0 15px 15px 15px;
 }
 .text-lore {
     text-align: right;
@@ -318,7 +318,7 @@ html {-webkit-text-size-adjust: none !important;}
 }
 /* FONTAWESOME */
 .fa {
-    margin-right: 2px !important;
+    margin-right: 1px !important;
 }
 .panel-middle {
     padding: 10px 15px;

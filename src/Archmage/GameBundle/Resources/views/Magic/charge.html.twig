@@ -20,17 +20,13 @@
                                     <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/magic.jpg') }}">
                                 </div>
                                 <div class="col-xs-8 text-padded">
-                                    <div class="col-xs-12">Aquí puedes gastar <span class="label label-extra">Turnos</span> y recargar tus reservas de <span class="label label-extra">Maná</span> para lanzar los hechizos más caros y poderosos o pagar mantenimientos de unidades, edificios, héroes y encantamientos.</div>
+                                    <div class="col-xs-12">Aquí puedes gastar <span class="label label-extra">Turnos</span> y recargar tus reservas de <span class="label label-extra">Maná</span> para lanzar los hechizos más caros y poderosos o pagar mantenimientos de unidades, edificios, héroes o encantamientos.</div>
                                 </div>
                             </div>
                         </div>
                         <div class="panel-middle text-center">Fórmula</div>
-                        <div class="panel-body text-responsive">
-                            <div class="row">
-                                <div class="col-xs-12 text-center text-only">
-                                    MANA<sub>cargado</sub> = NODOS<sub>jugador</sub> * 20
-                                </div>
-                            </div>
+                        <div class="panel-body text-responsive text-only text-center">
+                            <p>MANA<sub>cargado</sub> = NODOS<sub>jugador</sub> * 20</p>
                         </div>
                         <div class="panel-footer text-center">
                             <form class="form-inline" data-toggle="validator" action="{{ path('archmage_game_magic_charge') }}" method="post">

@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="panel-middle text-center">Dioses</div>
-                        <div class="panel-body text-responsive text-only">
+                        <div class="panel-body text-responsive">
                             {% for god in gods %}
                             <div class="col-xs-6 text-center">
                                 <span class="label label-{{ god.faction.class }}"><i class="fa fa-fw fa-rebel"></i><a href="{{ path('archmage_game_account_profile', {'id': god.id}) }}" class="link">{{ god.nick }}</a></span>

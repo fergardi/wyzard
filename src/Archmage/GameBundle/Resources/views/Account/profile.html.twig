@@ -21,7 +21,7 @@
                 <div class="info">
                     <h1 class="text-center">{{ profile.nick }}</h1>
                     {% if profile == player and not profile.chat %}
-                        {{ profile.telegram }}
+                        Conecta tu cuenta con Telegram agregando al usuario @ArchmageBot y escribiendo {{ profile.telegram }}
                     {% endif %}
                     <h2><i class="fa fa-fw fa-rocket"></i>{{ profile.power|nf }}</h2>
                     <br>

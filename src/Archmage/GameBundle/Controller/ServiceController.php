@@ -58,7 +58,7 @@ class ServiceController extends Controller
         foreach ($notices as $notice) {
             if (!$notice->getReaded()) {
                 $notice->setReaded(true);
-                $this->addFlash($notice->getClass(), 'Tienes un nuevo mensaje: "<a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a>"');
+                $this->addFlash($notice->getClass(), 'Tienes un nuevo mensaje: <span class="label label-extra"><a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a></span>"');
             }
         }
         /*

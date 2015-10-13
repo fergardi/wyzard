@@ -25,12 +25,8 @@
                     </div>
                 </div>
                 <div class="panel-middle text-center">Fórmula</div>
-                <div class="panel-body text-responsive">
-                    <div class="row">
-                        <div class="col-xs-12 text-center text-only">
-                            PROB<sub>éxito</sub> = MIN(75, 5 + BARRERAS<sub>jugador</sub> * 10 / 100)
-                        </div>
-                    </div>
+                <div class="panel-body text-responsive text-only text-center">
+                    <p>PROB<sub>éxito</sub> = MIN(75, 5 + BARRERAS<sub>jugador</sub> * 10 / 100)</p>
                 </div>
                 <div class="panel-footer text-center">
                     <a class="btn btn-default" href="{{ path( 'archmage_game_kingdom_auction' ) }}"><i class="fa fa-fw fa-money"></i>Subasta</a>
@@ -84,7 +80,7 @@
         {% else %}
         <div class="container">
             <div class="col-xs-12 alert alert-danger ribbon text-responsive text-center" role="alert">
-                <i class="fa fa-fw fa-exclamation-triangle"></i>Actualmente no tienes artefactos en tu poder. Tal vez deberías comprar alguno en el <i class="fa fa-fw fa-user-secret"></i><a href="{{ path('archmage_game_kingdom_auction') }}">Mercado negro</a>.
+                <i class="fa fa-fw fa-exclamation-triangle"></i>Actualmente no tienes artefactos en tu poder. Tal vez deberías comprar alguno en la <i class="fa fa-fw fa-legal"></i><a href="{{ path('archmage_game_kingdom_auction') }}">Subasta</a>.
             </div>
         </div>
         {% endfor %}

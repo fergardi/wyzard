@@ -627,7 +627,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setType(null);
         $skill->setFamily(null);
         $skill->setFaction($this->getReference('Fantasmal'));
-        $skill->setDescription($skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de las tropas <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span> enemigas por nivel.');
+        $skill->setDescription($skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de los <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span> enemigos por nivel.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1064,7 +1064,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType($this->getReference('Volador'));
         $skill->setFaction(null);
-        $skill->setDescription($skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y '.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de los <span class="label label-extra">'.$skill->getType()->getName().'</span> enemigas por nivel.');
+        $skill->setDescription($skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y '.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de los <span class="label label-extra">'.$skill->getType()->getName().'</span> enemigos por nivel.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1798,7 +1798,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('Obtiene <span class="label label-extra">Información</span> importante del mago objetivo.');
+        $skill->setDescription('Obtiene <span class="label label-extra">Información</span> importante del Reino objetivo.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1897,7 +1897,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('+'.$skill->getHeroBonus().' nivel a un <span class="label label-extra">Héroe</span> al azar.');
+        $skill->setDescription('+'.$skill->getHeroBonus().' nivel a un <span class="label label-extra">Héroe</span> aliado al azar.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1996,7 +1996,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('+'.$skill->getArtifactBonus().' <span class="label label-extra">Artefacto</span> aleatorio por nivel.');
+        $skill->setDescription('+'.$skill->getArtifactBonus().' <span class="label label-extra">Artefacto</span> al azar por nivel.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -2029,7 +2029,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('Rompe un <span class="label label-extra">Encantamiento</span> aleatorio de un reino enemigo.');
+        $skill->setDescription('Rompe un <span class="label label-extra">Encantamiento</span> aleatorio del Reino objetivo.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -2536,9 +2536,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //VALOR
+        //FERVOR
         $skill = new Skill();
-        $skill->setName('Valor');
+        $skill->setName('Fervor');
         $skill->setAttackBonus(3);
         $skill->setDefenseBonus(3);
         $skill->setSpeedBonus(0);
@@ -3166,7 +3166,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setType(null);
         $skill->setFamily(null);
-        $skill->setDescription($skill->getManaBonus().'% del <span class="label label-extra">Maná</span> enemigo actual por nivel.');
+        $skill->setDescription($skill->getManaBonus().'% <span class="label label-extra">Maná</span> enemigo actual por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3200,7 +3200,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setType(null);
         $skill->setFamily(null);
         $skill->setFaction($this->getReference('Naturaleza'));
-        $skill->setDescription($skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de los <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span> enemigas por nivel.');
+        $skill->setDescription($skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de los <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span> enemigos por nivel.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -3401,7 +3401,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> a tu reino.');
+        $skill->setDescription('+'.$skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> a tu Reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3434,7 +3434,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Personas</span> al reino enemigo.');
+        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Personas</span> al Reino enemigo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3467,7 +3467,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getManaBonus().'% <span class="label label-extra">Maná</span> a tu reino.');
+        $skill->setDescription('+'.$skill->getManaBonus().'% <span class="label label-extra">Maná</span> a tu Reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3500,7 +3500,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getManaBonus().'% <span class="label label-extra">Maná</span> al reino enemigo.');
+        $skill->setDescription($skill->getManaBonus().'% <span class="label label-extra">Maná</span> al Reino enemigo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3533,7 +3533,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getPeopleBonus().'% <span class="label label-extra">Población</span> a tu reino.');
+        $skill->setDescription('+'.$skill->getPeopleBonus().'% <span class="label label-extra">Población</span> a tu Reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3566,7 +3566,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> al reino enemigo.');
+        $skill->setDescription($skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> al Reino enemigo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3599,7 +3599,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getGoldBonus().'% <span class="label label-extra">Oro</span> a tu reino.');
+        $skill->setDescription('+'.$skill->getGoldBonus().'% <span class="label label-extra">Oro</span> a tu Reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3632,7 +3632,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span> al reino enemigo.');
+        $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span> al Reino enemigo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3797,7 +3797,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getTurnsBonus().' <span class="label label-extra">Turnos</span> a tu reino.');
+        $skill->setDescription('+'.$skill->getTurnsBonus().' <span class="label label-extra">Turnos</span> a tu Reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3830,7 +3830,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Obtiene <span class="label label-extra">Información</span> importante del mago objetivo.');
+        $skill->setDescription('Obtiene <span class="label label-extra">Información</span> importante del Reino objetivo.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3904,7 +3904,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> al reino enemigo por nivel.');
+        $skill->setDescription($skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> al Reino enemigo por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3937,7 +3937,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getManaBonus().'% <span class="label label-extra">Maná</span> a tu reino al turno por nivel.');
+        $skill->setDescription('+'.$skill->getManaBonus().'% <span class="label label-extra">Maná</span> a tu Reino al turno por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3970,7 +3970,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Población</span> al reino enemigo por nivel.');
+        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Población</span> al Reino enemigo por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -4003,7 +4003,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getTurnsBonus().'% <span class="label label-extra">Turnos</span> al reino enemigo por nivel.');
+        $skill->setDescription($skill->getTurnsBonus().'% <span class="label label-extra">Turnos</span> al Reino enemigo por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -4036,7 +4036,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getGoldBonus().'% <span class="label label-extra">Oro</span> a tu reino al turno por nivel.');
+        $skill->setDescription('+'.$skill->getGoldBonus().'% <span class="label label-extra">Oro</span> a tu Reino al turno por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -4069,7 +4069,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getManaBonus().'% <span class="label label-extra">Maná</span> al reino enemigo por nivel.');
+        $skill->setDescription($skill->getManaBonus().'% <span class="label label-extra">Maná</span> al Reino enemigo por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -4102,7 +4102,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span> al reino enemigo por nivel.');
+        $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span> al Reino enemigo por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -4135,7 +4135,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getPeopleBonus().'% <span class="label label-extra">Población</span> a tu reino al turno por nivel.');
+        $skill->setDescription('+'.$skill->getPeopleBonus().'% <span class="label label-extra">Población</span> a tu Reino al turno por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

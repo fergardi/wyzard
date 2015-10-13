@@ -198,8 +198,7 @@ class ArmyController extends Controller
                 if ($troop5 && $quantity5 > 0) $attackerArmy[] = array($troop5, $quantity5);
                 //quantity > 0
                 if ($player->getTroops()->count() > 0 && !empty($attackerArmy) && $target) {
-                    $chance = 100;
-                    //$chance = rand(0,99); //TODO CAMBIAR POR RAND
+                    $chance = rand(0,99);
                     if ($chance >= $target->getArmyDefense()) {
                         $this->attackTarget($attackerArmy, $attackerResearch, $attackerItem, $target);
                         $manager->persist($target);
@@ -455,7 +454,7 @@ class ArmyController extends Controller
                 $defenderDefense = $defenderTroop->getUnit()->getDefense() * $defenderQuantity; //TODO BONUS
                 $defenderSpeed = $defenderArmy[$defenderTurn][4];
                 //comprobar velocidades
-                $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).': <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"> con '.$attackerTroop->getUnit()->getName().'</span> '.$attackerSpeed.' Velocidad contra <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'">'.$defenderTroop->getUnit()->getName().'</span> con '.$defenderSpeed.' Velocidad.');
+                $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).': <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> con '.$attackerSpeed.' Velocidad contra <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> con '.$defenderSpeed.' Velocidad.');
                 if ($attackerSpeed == $defenderSpeed) {
                     //atacante igual velocidad que defensor, atacan y defienden a la vez
                     //atacante => defensor

@@ -63,6 +63,14 @@ class Faction
      */
     private $slogan;
 
+    /**
+     * @var Faction
+     *
+     * @ORM\OneToOne(targetEntity="Faction")
+     * @ORM\JoinColumn(name="opposite", referencedColumnName="id", nullable=true)
+     */
+    private $opposite = null; //nullable true por el selfreferencing, se modifican despues de persistirlo y da error
+
 
     /**
      * Get id
@@ -210,5 +218,28 @@ class Faction
     public function getSlogan()
     {
         return $this->slogan;
+    }
+
+    /**
+     * Set opposite
+     *
+     * @param \Archmage\GameBundle\Entity\Faction $opposite
+     * @return Faction
+     */
+    public function setOpposite(\Archmage\GameBundle\Entity\Faction $opposite)
+    {
+        $this->opposite = $opposite;
+
+        return $this;
+    }
+
+    /**
+     * Get opposite
+     *
+     * @return \Archmage\GameBundle\Entity\Faction
+     */
+    public function getOpposite()
+    {
+        return $this->opposite;
     }
 }

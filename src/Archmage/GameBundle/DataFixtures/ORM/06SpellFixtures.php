@@ -1736,12 +1736,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //VALOR
+        //FERVOR
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Valor'));
+        $spell->setSkill($this->getReference('Fervor'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $spell->setImage('bundles/archmagegame/images/spell/holy/valor.jpg');
+        $spell->setImage('bundles/archmagegame/images/spell/holy/fervor.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(2);
         $spell->setGoldCost(0);

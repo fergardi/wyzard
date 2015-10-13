@@ -74,6 +74,14 @@ class FactionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->addReference($faction->getName(), $faction);
         $manager->persist($faction);
 
+        //SELFREFERENCING
+        $this->getReference('Caos')->setOpposite($this->getReference('Naturaleza'));
+        $this->getReference('Naturaleza')->setOpposite($this->getReference('Sagrado'));
+        $this->getReference('Sagrado')->setOpposite($this->getReference('Oscuridad'));
+        $this->getReference('Oscuridad')->setOpposite($this->getReference('Fantasmal'));
+        $this->getReference('Fantasmal')->setOpposite($this->getReference('Caos'));
+        $this->getReference('Neutral')->setOpposite($this->getReference('Neutral'));
+
         $manager->flush();
     }
 

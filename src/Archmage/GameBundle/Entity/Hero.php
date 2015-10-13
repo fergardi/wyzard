@@ -96,9 +96,9 @@ class Hero
      * @var Skill
      *
      * @ORM\ManyToOne(targetEntity="Skill")
-     * @ORM\JoinColumn(name="skill", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="skill", referencedColumnName="id", nullable=false)
      */
-    private $skill = null; //TODO todo heroe debe tener skill
+    private $skill;
 
 
     /**

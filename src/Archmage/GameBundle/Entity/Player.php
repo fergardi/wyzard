@@ -18,7 +18,7 @@ class Player
      * CAPS
      */
     const RESEARCH_CAP = 75;
-    const TURNS_CAP = 3000;
+    const TURNS_CAP = 300;
     const MAGICDEFENSE_BASE = 5;
     const MAGICDEFENSE_CAP = 75;
     const ARMYDEFENSE_BASE = 5;
@@ -859,7 +859,7 @@ class Player
         $guilds = $this->getConstruction('Gremios')->getQuantity();
         $ratio = $this->getConstruction('Gremios')->getBuilding()->getResearchRatio();
         $percent = min(self::RESEARCH_CAP, $guilds * $ratio / (float)1000);
-        $turns = $turns - ceil($turns * $percent / (float)100);
+        $turns = $turns - floor($turns * $percent / (float)100);
         return $turns;
     }
 

@@ -28,7 +28,7 @@
                             <img class="factions" src="{{ asset('bundles/archmagegame/images/factions.png') }}">
                             <div class="caption">
                                 <h2>Bonus de facción</h2>
-                                <p>Cada facción tiene una opuesta y aumentará su daño en combate un +10% contra ella. Así, si un <span class="label label-danger">Caos</span> atacase a un <span class="label label-primary">Sagrado</span> u <span class="label label-warning">Oscuridad</span>, su bonus sería del 0%; si atacase a un <span class="label label-success">Naturaleza</span> o <span class="label label-default">Neutral</span>, del +10%; y si atacase a un <span class="label label-info">Fantasmal</span>, -10%.</p>
+                                <p>Cada facción tiene una opuesta y aumentará su daño en combate un +10% contra ella. <span class="label label-danger">Caos</span> > <span class="label label-success">Naturaleza</span> > <span class="label label-primary">Sagrado</span> > <span class="label label-warning">Oscuridad</span> > <span class="label label-info">Fantasmal</span> > <span class="label label-danger">Caos</span></p>
                             </div>
                         </div>
                         {# row #}
@@ -36,7 +36,7 @@
                             <img class="factions" src="{{ asset('bundles/archmagegame/images/units.png') }}">
                             <div class="caption">
                                 <h2>Bonus de unidad</h2>
-                                <p>Cada unidad tiene un tipo opuesto y aumentará su daño en combate un +10% contra ella. Así, si una tropa <span class="label label-extra">Distancia</span> ataca a una <span class="label label-extra">Voladora</span>, tendrá un bonus del +10% adicional, pero si ataca a cualquier otra, no tendrá bonificación.</p>
+                                <p>Cada tipo de unidad tiene un opuesto y aumentará su daño en combate un +10% contra él. <span class="label label-default">Asedio</span> > <span class="label label-default">Distancia</span> > <span class="label label-default">Volador</span> > <span class="label label-default">Magia</span> > <span class="label label-default">Melee</span> > <span class="label label-default">Asedio</span></p>
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                             {# row #}
                             <div class="col-xs-12">{{ faction.description }}</div>
                             {# row #}
-                            <div class="col-xs-12 text-lore"><small><i>"{{ faction.lore }}"</i></small></div>
+                            <div class="col-xs-12 text-lore"><small><i>{{ faction.lore }}</i></small></div>
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ building.peopleMaintenance|nf }}</div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ building.manaMaintenance|nf }}</div>
                             {# row #}
-                            <div class="col-xs-12 text-lore"><small><i>"{{ building.lore }}"</i></small></div>
+                            <div class="col-xs-12 text-lore"><small><i>{{ building.lore }}</i></small></div>
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
                             <div class="col-xs-6"><i class="fa fa-fw fa-user"></i>{{ unit.family.name }}</div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i>{{ unit.type.name }}</div>
                             {# row #}
-                            <div class="col-xs-12 text-lore"><small><i>"{{ unit.lore }}"</i></small></div>
+                            <div class="col-xs-12 text-lore"><small><i>{{ unit.lore }}</i></small></div>
                         </div>
                     </div>
                 </div>
@@ -179,11 +179,11 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ hero.goldMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ hero.peopleMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ hero.manaMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ hero.goldMaintenance|nf }} / <i class="fa fa-fw fa-star"></i></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ hero.peopleMaintenance|nf }} / <i class="fa fa-fw fa-star"></i></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ hero.manaMaintenance|nf }} / <i class="fa fa-fw fa-star"></i></div>
                             {# row #}
-                            <div class="col-xs-12 text-lore"><small><i>"{{ hero.lore }}"</i></small></div>
+                            <div class="col-xs-12 text-lore"><small><i>{{ hero.lore }}</i></small></div>
                         </div>
                     </div>
                 </div>
@@ -217,12 +217,12 @@
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ spell.turnsResearch }}</div>
                             {# row #}
                             {% if spell.enchantment %}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ spell.goldMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ spell.peopleMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ spell.manaMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ spell.goldMaintenance|nf }} / <i class="fa fa-fw fa-magic"></i></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ spell.peopleMaintenance|nf }} / <i class="fa fa-fw fa-magic"></i></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ spell.manaMaintenance|nf }} / <i class="fa fa-fw fa-magic"></i></div>
                             {% endif %}
                             {# row #}
-                            <div class="col-xs-12 text-lore"><small><i>"{{ spell.lore }}"</i></small></div>
+                            <div class="col-xs-12 text-lore"><small><i>{{ spell.lore }}</i></small></div>
                         </div>
                     </div>
                 </div>
@@ -249,9 +249,7 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ artifact.goldAuction|nf }}</div>
-                            {# row #}
-                            <div class="col-xs-12 text-lore"><small><i>"{{ artifact.lore }}"</i></small></div>
+                            <div class="col-xs-12 text-lore"><small><i>{{ artifact.lore }}</i></small></div>
                         </div>
                     </div>
                 </div>

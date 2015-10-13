@@ -19,7 +19,7 @@ class AuctionCommand extends ContainerAwareCommand
      * Constants
      */
     const AUCTION_PRICE = 1000000;
-    const AUCTION_TROOPS = 2;
+    const AUCTION_TROOPS = 4;
     const AUCTION_ITEMS = 2;
     const AUCTION_CONTRACTS = 1;
     const AUCTION_RESEARCHS = 1;
@@ -42,7 +42,9 @@ class AuctionCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $manager = $this->getContainer()->get('doctrine')->getManager();
-        //CONTEXT OVERRIDE FOR GENERATEURL IN COMMANDS BUG (see http://symfony.com/doc/current/cookbook/console/sending_emails.html#configuring-the-request-context-per-command and https://github.com/symfony/symfony-docs/issues/1112#issuecomment-4240333)
+        //CONTEXT OVERRIDE FOR GENERATEURL IN COMMANDS BUG
+        //see http://symfony.com/doc/current/cookbook/console/sending_emails.html#configuring-the-request-context-per-command
+        //https://github.com/symfony/symfony-docs/issues/1112#issuecomment-4240333
         $context = $this->getContainer()->get('router')->getContext();
         $context->setHost('archmage.local');
         $context->setScheme('http');
@@ -112,7 +114,7 @@ class AuctionCommand extends ContainerAwareCommand
             $item = new Item();
             $manager->persist($item);
             $item->setArtifact($artifact);
-            $item->setQuantity(rand(1,3));
+            $item->setQuantity(rand(1,5));
             $item->setPlayer(null);
             $auction->setPlayer(null);
             $auction->setItem($item);
@@ -128,7 +130,7 @@ class AuctionCommand extends ContainerAwareCommand
             $troop = new Troop();
             $manager->persist($troop);
             $troop->setUnit($unit);
-            $troop->setQuantity(rand($unit->getQuantityAuction() / 2, $unit->getQuantityAuction() - 1));
+            $troop->setQuantity(rand(ceil($troop->getUnit()->getQuantityAuction() / 2), $troop->getUnit()->getQuantityAuction()));
             $troop->setPlayer(null);
             $auction->setPlayer(null);
             $auction->setTroop($troop);

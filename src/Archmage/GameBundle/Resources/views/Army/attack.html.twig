@@ -27,7 +27,7 @@
                     </div>
                     <div class="panel-middle text-center">Fórmula</div>
                     <div class="panel-body text-responsive text-center text-only">
-                        <p>TURNOS<sub>reducidos</sub> = GREMIOS<sub>jugador</sub> * 3 / 100</p>
+                        <p>PROB<sub>éxito</sub> = MIN(75, 5 + FORTALEZAS<sub>jugador</sub> * 10 / 100)</p>
                     </div>
                     <div class="panel-middle text-center">Opciones</div>
                     <div class="panel-body text-center">
@@ -98,7 +98,7 @@
                                 {# row #}
                                 {# <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i><a href="#">Habilidad</a></div> #}
                                 {# row #}
-                                <div class="col-xs-12 text-lore"><small><i>"{{ troop.unit.lore }}"</i></small></div>
+                                <div class="col-xs-12 text-lore"><small><i>{{ troop.unit.lore }}</i></small></div>
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                                 {# row #}
                                 <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{% if contract.hero.skill %}{{ contract.hero.skill.description|raw }}{% else %}Ninguna{% endif %}</div>
                                 {# row #}
-                                <div class="col-xs-12 text-lore"><small><i>"{{ contract.hero.lore }}"</i></small></div>
+                                <div class="col-xs-12 text-lore"><small><i>{{ contract.hero.lore }}</i></small></div>
                             </div>
                         </div>
                     </div>

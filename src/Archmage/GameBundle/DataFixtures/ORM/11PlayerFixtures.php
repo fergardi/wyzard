@@ -57,7 +57,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $player->setItem(null);
             $player->setResearch(null);
             $constructions = array(
-                'Tierras' => 1999,
+                'Tierras' => 1000,
                 'Granjas' => 1000,
                 'Pueblos' => 1000,
                 'Nodos' => 1000,
@@ -80,10 +80,10 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 $player->addAchievement($achievement);
             }
             $troops = array(
-                'Goblins' => 300,
-                'Elfos' => 600,
+                'Goblins' => 30,
+                'Elfos' => 60,
                 'Tritones' => 150,
-                'Arqueros' => 500,
+                'Arqueros' => 100,
             );
             foreach ($troops as $name => $quantity) {
                 $troop = new Troop();
@@ -188,7 +188,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         $this->container->get('service.controller')->sendMessage($player, $player, $subject, $text);
         //RECURSOS
         $player->setGold(3000000);
-        $player->setPeople(20000);
+        $player->setPeople(10000);
         $player->setMana(1000);
         $player->setTurns(30000);
         $player->setMagic(1);

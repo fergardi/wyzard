@@ -4,11 +4,26 @@ namespace Archmage\GameBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Archmage\GameBundle\Entity\Achievement;
 
-class AchievementFixtures extends AbstractFixture implements OrderedFixtureInterface
+class AchievementFixtures extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
+    /**
+     * @var ContainerInterface
+     */
+    private $container;
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -16,8 +31,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
     {
         $achievement = new Achievement();
         $achievement->setName('Acomodado');
-        $achievement->setDescription('Atesora más de 1000 de Oro');
-        $achievement->setGold(1000);
+        $achievement->setGold(500000000);
         $achievement->setMana(null);
         $achievement->setPeople(null);
         $achievement->setLands(null);
@@ -27,13 +41,13 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
+        $achievement->setDescription('Atesora '.$this->container->get('service.controller')->nff($achievement->getGold()).' de Oro');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
         $achievement->setName('Adicto');
-        $achievement->setDescription('Almacena más de 1000 de Maná');
         $achievement->setGold(null);
-        $achievement->setMana(1000);
+        $achievement->setMana(2000000);
         $achievement->setPeople(null);
         $achievement->setLands(null);
         $achievement->setArtifacts(null);
@@ -42,14 +56,14 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
+        $achievement->setDescription('Almacena '.$this->container->get('service.controller')->nff($achievement->getMana()).' de Maná');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
         $achievement->setName('Popular');
-        $achievement->setDescription('Refugia más de 1000 Personas');
         $achievement->setGold(null);
         $achievement->setMana(null);
-        $achievement->setPeople(1000);
+        $achievement->setPeople(2000000);
         $achievement->setLands(null);
         $achievement->setArtifacts(null);
         $achievement->setHeroes(null);
@@ -57,71 +71,71 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
+        $achievement->setDescription('Refugia más de '.$this->container->get('service.controller')->nff($achievement->getPeople()).' Personas');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
         $achievement->setName('Conquistador');
-        $achievement->setDescription('Controla más de 999 Tierras');
         $achievement->setGold(null);
         $achievement->setMana(null);
         $achievement->setPeople(null);
-        $achievement->setLands(999);
+        $achievement->setLands(5000);
         $achievement->setArtifacts(null);
         $achievement->setHeroes(null);
         $achievement->setSpells(null);
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
+        $achievement->setDescription('Controla más de '.$this->container->get('service.controller')->nff($achievement->getLands()).' Tierras');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
         $achievement->setName('Coleccionista');
-        $achievement->setDescription('Encuentra más de 5 Artefactos');
         $achievement->setGold(null);
         $achievement->setMana(null);
         $achievement->setPeople(null);
         $achievement->setLands(null);
-        $achievement->setArtifacts(5);
+        $achievement->setArtifacts(100);
         $achievement->setHeroes(null);
         $achievement->setSpells(null);
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
+        $achievement->setDescription('Encuentra más de '.$this->container->get('service.controller')->nff($achievement->getArtifacts()).' Artefactos');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
         $achievement->setName('Aventurero');
-        $achievement->setDescription('Contrata más de 2 Héroes');
         $achievement->setGold(null);
         $achievement->setMana(null);
         $achievement->setPeople(null);
         $achievement->setLands(null);
         $achievement->setArtifacts(null);
-        $achievement->setHeroes(2);
+        $achievement->setHeroes(5);
         $achievement->setSpells(null);
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
+        $achievement->setDescription('Contrata más de '.$this->container->get('service.controller')->nff($achievement->getHeroes()).' Héroes');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
         $achievement->setName('Erudito');
-        $achievement->setDescription('Investiga más de 2 Hechizos');
         $achievement->setGold(null);
         $achievement->setMana(null);
         $achievement->setPeople(null);
         $achievement->setLands(null);
         $achievement->setArtifacts(null);
         $achievement->setHeroes(null);
-        $achievement->setSpells(2);
+        $achievement->setSpells(20);
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
+        $achievement->setDescription('Investiga más de '.$this->container->get('service.controller')->nff($achievement->getSpells()).' Hechizos');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
         $achievement->setName('Poderoso');
-        $achievement->setDescription('Concentra más de 10000 Poder');
         $achievement->setGold(null);
         $achievement->setMana(null);
         $achievement->setPeople(null);
@@ -129,14 +143,14 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setArtifacts(null);
         $achievement->setHeroes(null);
         $achievement->setSpells(null);
-        $achievement->setPower(10000);
+        $achievement->setPower(50000000);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
+        $achievement->setDescription('Concentra más de '.$this->container->get('service.controller')->nff($achievement->getPower()).' Poder');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
-        $achievement->setName('Mariscal');
-        $achievement->setDescription('Comanda más de 5000 Unidades');
+        $achievement->setName('Líder');
         $achievement->setGold(null);
         $achievement->setMana(null);
         $achievement->setPeople(null);
@@ -145,14 +159,14 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setHeroes(null);
         $achievement->setSpells(null);
         $achievement->setPower(null);
-        $achievement->setUnits(5000);
+        $achievement->setUnits(100000);
         $achievement->setDefense(null);
+        $achievement->setDescription('Comanda más de '.$this->container->get('service.controller')->nff($achievement->getUnits()).' Unidades');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
-        $achievement->setName('Seguro');
-        $achievement->setDescription('Acumula más de 50% Defensa Mágica');
-        $achievement->setGold(1000);
+        $achievement->setName('Protegido');
+        $achievement->setGold(null);
         $achievement->setMana(null);
         $achievement->setPeople(null);
         $achievement->setLands(null);
@@ -161,7 +175,8 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setSpells(null);
         $achievement->setPower(null);
         $achievement->setUnits(null);
-        $achievement->setDefense(20);
+        $achievement->setDefense(50);
+        $achievement->setDescription('Acumula más de '.$this->container->get('service.controller')->nff($achievement->getDefense()).' Defensa Mágica o Física');
         $manager->persist($achievement);
 
         $manager->flush();

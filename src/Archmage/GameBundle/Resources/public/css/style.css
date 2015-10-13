@@ -31,20 +31,21 @@ img.background {
     padding: 0;
 }
 .panel-body .text-padded {
-    padding-top: 5px;
+    padding-top: 3px;
     padding-left: 0;
+    padding-right: 3px;
 }
 .panel-body p {
     padding-top: 8px;
     padding-left: 0;
-    padding-right: 15px;
+    padding-right: 0;
     margin: 0;
 }
 .text-only {
     padding: 0 15px 15px 15px;
 }
 .text-lore {
-    text-align: right;
+    text-align: left;
     margin-top: 4px;
     color: #cc7c26;
 }
@@ -86,7 +87,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
 }
 .label {
     font-size: 90%;
-    padding: 0.2em 0.3em 0.1em 0.3em;
+    padding: 0.1em 0.3em 0.1em 0.3em;
     border: 1px solid black;
 }
 .label-extra {
@@ -318,7 +319,7 @@ html {-webkit-text-size-adjust: none !important;}
 }
 /* FONTAWESOME */
 .fa {
-    margin-right: 1px !important;
+    margin-right: 2px !important;
 }
 .panel-middle {
     padding: 10px 15px;
@@ -339,7 +340,7 @@ html {-webkit-text-size-adjust: none !important;}
 .alert.ribbon {
     margin-top: 0;
     margin-bottom: 15px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 2;
     padding: 6px 12px;

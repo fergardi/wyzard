@@ -58,7 +58,7 @@ class ServiceController extends Controller
         foreach ($notices as $notice) {
             if (!$notice->getReaded()) {
                 $notice->setReaded(true);
-                $this->addFlash($notice->getClass(), 'Tienes un nuevo mensaje: <span class="label label-extra"><a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a></span>"');
+                $this->addFlash($notice->getClass(), 'Tienes un nuevo mensaje: <span class="label label-extra"><a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a></span>');
             }
         }
         /*
@@ -89,11 +89,12 @@ class ServiceController extends Controller
         if ($receiver->getChat()) {
             try {
                 $telegram = "Hola!\nTienes un mensaje nuevo:\n'".$subject."'\n".$this->generateUrl('archmage_game_account_message', array('hash' => $message->getHash()), true);
+                $connection = "BQADBAADRQADyIsGAAHtBskMy6GoLAI";
                 $auction = "BQADBAADPAADyIsGAAHHj-tPF_0RGAI";
                 $battle = "BQADBAADOgADyIsGAAFRwAYXeDzUugI";
                 $magic = "BQADBAADLQADyIsGAAE_-arlvGeRjgI";
                 $espionage = "BQADBAADFAADyIsGAAGkx4rtY09EtwI";
-                $stickers = array('auction' => $auction, 'battle' => $battle, 'magic' => $magic, 'espionage' => $espionage);
+                $stickers = array('auction' => $auction, 'battle' => $battle, 'magic' => $magic, 'espionage' => $espionage, 'connection' => $connection);
                 if ($type) $api->sendSticker($receiver->getChat(), $stickers[$type]);
                 $api->sendMessage($receiver->getChat(), $telegram);
             } catch (Exception $e) {
@@ -290,10 +291,12 @@ class ServiceController extends Controller
                 $achievement->getUnits() != null && $player->getUnits() >= $achievement->getUnits() ||
                 $achievement->getSpells() != null && $player->getSpells() >= $achievement->getSpells() ||
                 $achievement->getPower() != null && $player->getPower() >= $achievement->getPower() ||
-                $achievement->getLands() != null && $player->getLands() >= $achievement->getLands())
+                $achievement->getLands() != null && $player->getLands() >= $achievement->getLands() ||
+                $achievement->getDefense() != null && ($player->getMagicDefense() >= $achievement->getDefense() || $player->getArmyDefense() >= $achievement->getDefense())
+                )
             ) {
                 $player->addAchievement($achievement);
-                $this->addFlash('success', 'Has desbloqueado el logro <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile').'" class="link">'.$achievement->getName().'</a></span>.');
+                $this->addFlash('success', '¡Has desbloqueado el logro <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile').'" class="link">'.$achievement->getName().'</a></span>!');
             }
         }
     }

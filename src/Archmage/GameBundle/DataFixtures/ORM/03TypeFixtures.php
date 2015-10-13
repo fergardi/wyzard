@@ -39,6 +39,13 @@ class TypeFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->addReference($type->getName(), $type);
         $manager->persist($type);
 
+        //SELFREFERENCING
+        $this->getReference('Asedio')->setOpposite($this->getReference('Distancia'));
+        $this->getReference('Distancia')->setOpposite($this->getReference('Volador'));
+        $this->getReference('Volador')->setOpposite($this->getReference('Magia'));
+        $this->getReference('Magia')->setOpposite($this->getReference('Melee'));
+        $this->getReference('Melee')->setOpposite($this->getReference('Asedio'));
+
         $manager->flush();
     }
 

@@ -42,14 +42,14 @@ class RegistrationController extends BaseController
                 //constructions
                 $constructions = array(
                     'Tierras' => 600,
-                    'Granjas' => 10,
-                    'Pueblos' => 10,
-                    'Nodos' => 10,
-                    'Gremios' => 10,
-                    'Talleres' => 10,
-                    'Barracones' => 10,
-                    'Barreras' => 3,
-                    'Fortalezas' => 3,
+                    'Granjas' => 11,
+                    'Pueblos' => 11,
+                    'Nodos' => 11,
+                    'Gremios' => 11,
+                    'Talleres' => 11,
+                    'Barracones' => 11,
+                    'Barreras' => 0,
+                    'Fortalezas' => 0,
                 );
                 foreach ($constructions as $name => $quantity) {
                     $construction = new Construction();
@@ -78,7 +78,7 @@ class RegistrationController extends BaseController
                 //resources
                 $player->setNick($user->getUsername());
                 $player->setGold(3000000);
-                $player->setPeople(20000);
+                $player->setPeople(10000);
                 $player->setMana(1000);
                 $player->setTurns(300);
                 $player->setMagic(1);

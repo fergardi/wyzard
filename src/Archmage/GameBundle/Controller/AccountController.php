@@ -23,15 +23,6 @@ class AccountController extends Controller
         foreach ($api->getUpdates() as $update) {
             if (!$player->getChat() && $update['message']->getText() == $player->getTelegram()) {
                 $player->setChat($update['message']->getChat()->getId());
-                try {
-                    $telegram = "Hola!\nSoy el Bot de Telegram del Archmage, @ArchmageBot.\nAhora estás conectado por Telegram y recibirás mensajes si te llega algún correo al juego, como avisos de subastas, ataques, conjuros, encantamientos o artefactos en tu reino.";
-                    $connection = "BQADBAADRQADyIsGAAHtBskMy6GoLAI";
-                    $api->sendSticker($player->getChat(), $connection);
-                    $api->sendMessage($player->getChat(), $telegram);
-                } catch (Exception $e) {
-                    //si por alguna razon $receiver->getChat() es incorrecto, la API de Telegram lanzara una excepcion
-                    //TODO EXCEPTION TELEGRAM BOT API
-                }
             }
         }
         $manager->persist($player);

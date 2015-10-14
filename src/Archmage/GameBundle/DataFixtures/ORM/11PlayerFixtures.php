@@ -42,11 +42,51 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
          * GODS
          */
         $gods = array(
-            array('name' => 'Duggo, Dios de la Sangre', 'faction' => 'Caos'),
-            array('name' => 'Surm, Dios de la Muerte', 'faction' => 'Oscuridad'),
-            array('name' => 'Lett, Diosa de la Luz', 'faction' => 'Sagrado'),
-            array('name' => 'Sihir, Diosa de la Magia', 'faction' => 'Fantasmal'),
-            array('name' => 'Elama, Diosa de la Vida', 'faction' => 'Naturaleza'),
+            array(
+                'name' => 'Duggo, Dios de la Sangre',
+                'faction' => 'Caos',
+                'research' => 'Quemar Alas',
+                'item' => 'Tela de Araña',
+                'troops' => array(
+                    'Dragones Rojos' => 9999,
+                ),
+            ),
+            array(
+                'name' => 'Surm, Dios de la Muerte',
+                'faction' => 'Oscuridad',
+                'research' => 'Miedo',
+                'item' => 'Tela de Araña',
+                'troops' => array(
+                    'Dragones Negros' => 9999,
+                ),
+            ),
+            array(
+                'name' => 'Lett, Diosa de la Luz',
+                'faction' => 'Sagrado',
+                'research' => 'Volar',
+                'item' => 'Tela de Araña',
+                'troops' => array(
+                    'Dragones Blancos' => 9999,
+                ),
+            ),
+            array(
+                'name' => 'Sihir, Diosa de la Magia',
+                'faction' => 'Fantasmal',
+                'research' => 'Quemar Alas',
+                'item' => 'Tela de Araña',
+                'troops' => array(
+                    'Dragones Azules' => 9999,
+                ),
+            ),
+            array(
+                'name' => 'Elama, Diosa de la Vida',
+                'faction' => 'Naturaleza',
+                'research' => 'Prisa',
+                'item' => 'Tela de Araña',
+                'troops' => array(
+                    'Dragones Verdes' => 9999,
+                ),
+            ),
         );
         foreach ($gods as $god) {
             $player = new Player();
@@ -75,16 +115,30 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 $manager->persist($construction);
                 $player->addConstruction($construction);
             }
+            //spells
+            $research = new Research();
+            $research->setSpell($this->getReference($god['research']));
+            $research->setTurns(0);
+            $research->setPlayer($player);
+            $research->setActive(true);
+            $manager->persist($research);
+            $player->addResearch($research);
+            $player->setResearch($research);
+            //items
+            $item = new Item();
+            $item->setArtifact($this->getReference($god['item']));
+            $item->setQuantity(9999);
+            $item->setPlayer($player);
+            $manager->persist($item);
+            $player->addItem($item);
+            $player->setItem($item);
+            //achievements
             $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
             foreach ($achievements as $achievement) {
                 $player->addAchievement($achievement);
             }
-            $troops = array(
-                'Goblins' => 30,
-                'Elfos' => 60,
-                'Tritones' => 150,
-                'Arqueros' => 100,
-            );
+            //troops
+            $troops = $god['troops'];
             foreach ($troops as $name => $quantity) {
                 $troop = new Troop();
                 $troop->setUnit($this->getReference($name));
@@ -93,6 +147,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 $manager->persist($troop);
                 $player->addTroop($troop);
             }
+            //resources
             $player->setGold(999999999);
             $player->setPeople(999999999);
             $player->setMana(999999999);
@@ -100,7 +155,9 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $player->setMagic(10);
         }
 
-        //PLAYER
+        /*
+         * TESTING PLAYER
+         */
         $player = new Player();
         $player->setFaction($this->getReference('Oscuridad'));
         $player->setGod(false);
@@ -109,9 +166,9 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         //EDIFICIOS
         $constructions = array(
             'Tierras' => 600,
-            'Granjas' => 10,
-            'Pueblos' => 10,
-            'Nodos' => 10,
+            'Granjas' => 1000,
+            'Pueblos' => 1000,
+            'Nodos' => 1000,
             'Gremios' => 10,
             'Talleres' => 10,
             'Barracones' => 10,
@@ -126,7 +183,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $manager->persist($construction);
             $player->addConstruction($construction);
         }
-        /*
         //HECHIZOS
         $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAll();
         foreach ($spells as $spell) {
@@ -138,7 +194,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $manager->persist($research);
             $player->addResearch($research);
         }
-        */
         //UNIDADES
         $troops = array(
             'Arqueros' => 100,
@@ -182,16 +237,16 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         }
         */
         //MENSAJES
-        $subject = 'Bienvenido';
         $text = array();
-        $text[] = array('default', 12, 0, 'center', 'Te doy la bienvenida a mi juego. Te recomiendo encarecidamente que te des un paseo por la Ayuda.');
+        $text[] = array('default', 12, 0, 'center', 'Te damos la bienvenida, novicio! El Consejo de Sabios de tu Reino recomienda que leas la <i class="fa fa-fw fa-book"></i><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'" class="link">Sagrada Ayuda del Juego</a>.');
+        $subject = 'Bienvenido!';
         $this->container->get('service.controller')->sendMessage($player, $player, $subject, $text);
         //RECURSOS
-        $player->setGold(3000000);
-        $player->setPeople(10000);
-        $player->setMana(1000);
-        $player->setTurns(30000);
-        $player->setMagic(1);
+        $player->setGold(999999999);
+        $player->setPeople(999999999);
+        $player->setMana(999999999);
+        $player->setTurns(999999999);
+        $player->setMagic(5);
         //FOSUSERBUNDLE
         $user = new User();
         $user->setPlayer($player);

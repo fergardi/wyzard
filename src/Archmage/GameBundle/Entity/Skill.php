@@ -101,13 +101,6 @@ class Skill
     /**
      * @var integer
      *
-     * @ORM\Column(name="conversionBonus", type="smallint", nullable=false)
-     */
-    private $conversionBonus = 0;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="magicBonus", type="smallint", nullable=false)
      */
     private $magicBonus = 0;
@@ -483,29 +476,6 @@ class Skill
     public function getDamageBonus()
     {
         return $this->damageBonus;
-    }
-
-    /**
-     * Set conversionBonus
-     *
-     * @param integer $conversionBonus
-     * @return Skill
-     */
-    public function setConversionBonus($conversionBonus)
-    {
-        $this->conversionBonus = $conversionBonus;
-
-        return $this;
-    }
-
-    /**
-     * Get conversionBonus
-     *
-     * @return integer 
-     */
-    public function getConversionBonus()
-    {
-        return $this->conversionBonus;
     }
 
     /**

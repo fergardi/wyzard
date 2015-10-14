@@ -58,7 +58,7 @@ class ServiceController extends Controller
         foreach ($notices as $notice) {
             if (!$notice->getReaded()) {
                 $notice->setReaded(true);
-                $this->addFlash($notice->getClass(), 'Tienes un nuevo mensaje: <span class="label label-extra"><a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a></span>');
+                $this->addFlash($notice->getClass(), 'Tienes un nuevo mensaje, <span class="label label-extra"><a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a></span>.');
             }
         }
         /*
@@ -296,7 +296,7 @@ class ServiceController extends Controller
                 )
             ) {
                 $player->addAchievement($achievement);
-                $this->addFlash('success', '¡Has desbloqueado el logro <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile').'" class="link">'.$achievement->getName().'</a></span>!');
+                $this->addFlash('success', 'Has desbloqueado el logro <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile').'" class="link">'.$achievement->getName().'</a></span>.');
             }
         }
     }

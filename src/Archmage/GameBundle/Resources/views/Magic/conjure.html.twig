@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        {% for research in player.researchs if research.active and research.spell.magic <= player.magic and not research.spell.skill.battle %}
+        {% for research in player.researchs if research.active %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ research.spell.faction.class }}">
                 <div class="panel-heading text-center">{% if research.spell.enchantment %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
@@ -61,6 +61,7 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
+                    {% if research.spell.magic <= player.magic %}
                     <form id="research{{ research.id }}" name="research{{ research.id }}" class="form-inline" action="{{ path('archmage_game_magic_conjure') }}" method="post" role="form">
                         <div class="form-group">
                             <div class="input-group">
@@ -83,6 +84,9 @@
                             </div>
                         </div>
                     </form>
+                    {% else %}
+                    <button class="btn btn-default" disabled><i class="fa fa-fw fa-ban"></i>Bloqueado</button>
+                    {% endif %}
                 </div>
             </div>
         </div>

@@ -47,7 +47,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -80,7 +79,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -113,7 +111,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -146,7 +143,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -179,7 +175,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -212,7 +207,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -245,7 +239,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -278,7 +271,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -311,7 +303,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -344,7 +335,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -380,7 +370,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(1200); //media
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -413,7 +402,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -446,7 +434,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -479,7 +466,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -512,7 +498,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(-2);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -545,7 +530,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -578,7 +562,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(1);
         $skill->setArmyDefenseBonus(1);
         $skill->setArtifactBonus(0);
@@ -611,7 +594,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -644,7 +626,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -677,7 +658,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -694,7 +674,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setDescription($skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a las tropas enemigas por nivel.');
         $skill->setFaction(null);
-        $this->setReference($skill->getName(), $skill);
+        $this->setReference($skill->getName().' aux', $skill);
         $manager->persist($skill);
 
         /*
@@ -715,7 +695,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -748,7 +727,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -781,7 +759,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -814,7 +791,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -847,7 +823,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -880,7 +855,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -913,7 +887,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -946,7 +919,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -979,7 +951,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1012,7 +983,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1048,7 +1018,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1081,7 +1050,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(350); // media de bestias
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1114,7 +1082,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1147,7 +1114,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1180,7 +1146,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1213,7 +1178,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1246,7 +1210,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1279,7 +1242,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(1);
         $skill->setArmyDefenseBonus(1);
         $skill->setArtifactBonus(0);
@@ -1312,7 +1274,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1345,7 +1306,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1362,7 +1322,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setType(null);
         $skill->setFaction(null);
         $skill->setDescription('+'.$skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a tus tropas por nivel.');
-        $this->setReference($skill->getName(), $skill);
+        $this->setReference($skill->getName().' aux', $skill);
         $manager->persist($skill);
 
         /*
@@ -1383,7 +1343,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1416,7 +1375,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1449,7 +1407,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1482,7 +1439,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1515,7 +1471,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1548,7 +1503,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1581,7 +1535,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1614,7 +1567,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1647,7 +1599,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1680,7 +1631,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1716,7 +1666,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1749,7 +1698,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(20); //media de elementales
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1782,7 +1730,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1815,7 +1762,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1848,7 +1794,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1881,7 +1826,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -1911,26 +1855,25 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(0);
+        $skill->setDamageBonus(-3);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(-10);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
         $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
-        $skill->setRandom(true);
+        $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
         $skill->setSpy(false);
         $skill->setBattle(false);
         $skill->setSelf(false);
-        $skill->setUnit($this->getReference('Ranas'));
+        $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('Convierte tropas al azar en <span class="label label-extra">Ranas</span> un '.$skill->getConversionBonus().'% por nivel.');
+        $skill->setDescription('<span class="label label-extra">Destruye</span> '.$skill->getDamageBonus().'% de una tropa enemiga al azar por nivel.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1947,7 +1890,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(1);
         $skill->setArmyDefenseBonus(1);
         $skill->setArtifactBonus(0);
@@ -1980,7 +1922,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(1);
@@ -2013,7 +1954,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2051,7 +1991,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2084,7 +2023,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2117,7 +2055,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2150,7 +2087,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2183,7 +2119,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2216,7 +2151,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2249,7 +2183,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2282,7 +2215,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2315,7 +2247,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2348,7 +2279,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2384,7 +2314,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(-1);
@@ -2417,7 +2346,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(10); //media de celestiales
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2450,7 +2378,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2483,7 +2410,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2516,7 +2442,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(1);
         $skill->setArmyDefenseBonus(1);
         $skill->setArtifactBonus(0);
@@ -2549,7 +2474,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2582,7 +2506,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2615,7 +2538,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2648,7 +2570,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2665,7 +2586,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setType(null);
         $skill->setFaction(null);
         $skill->setDescription('+'.$skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a tus tropas por nivel.');
-        $this->setReference($skill->getName(), $skill);
+        $this->setReference($skill->getName().' aux', $skill);
         $manager->persist($skill);
 
         //PROSPERIDAD
@@ -2681,7 +2602,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2719,7 +2639,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2752,7 +2671,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2785,7 +2703,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2818,7 +2735,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2851,7 +2767,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2884,7 +2799,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2917,7 +2831,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2950,7 +2863,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2983,7 +2895,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3016,7 +2927,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3052,7 +2962,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(400); //media de demonios
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3085,7 +2994,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3118,7 +3026,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3151,7 +3058,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3184,7 +3090,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3217,7 +3122,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3250,7 +3154,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(-2);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3283,7 +3186,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(1);
         $skill->setArmyDefenseBonus(1);
         $skill->setArtifactBonus(0);
@@ -3316,7 +3218,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3327,13 +3228,13 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDispell(false);
         $skill->setSpy(false);
         $skill->setBattle(true);
-        $skill->setSelf(true);
+        $skill->setSelf(false);
         $skill->setUnit(null);
         $skill->setType(null);
         $skill->setFamily(null);
         $skill->setDescription($skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a las tropas enemigas por nivel.');
         $skill->setFaction(null);
-        $this->setReference($skill->getName(), $skill);
+        $this->setReference($skill->getName().' aux', $skill);
         $manager->persist($skill);
 
         //FURIA DEMONIACA
@@ -3349,7 +3250,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3386,7 +3286,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3419,7 +3318,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3452,7 +3350,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3485,7 +3382,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3518,7 +3414,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3551,7 +3446,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3584,7 +3478,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3617,7 +3510,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3650,7 +3542,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3683,7 +3574,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3716,7 +3606,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3749,7 +3638,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3782,7 +3670,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3815,7 +3702,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3852,7 +3738,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(3); //media de dragones
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3889,7 +3774,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3922,7 +3806,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3955,7 +3838,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -3988,7 +3870,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -4021,7 +3902,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -4054,7 +3934,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -4087,7 +3966,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -4120,7 +3998,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -4153,7 +4030,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -4186,7 +4062,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -4219,7 +4094,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -4252,7 +4126,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -4285,7 +4158,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -4318,7 +4190,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -4351,7 +4222,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -4388,7 +4258,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
-        $skill->setConversionBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);

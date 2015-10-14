@@ -64,7 +64,7 @@ class AccountController extends Controller
      */
     public function messageAction($hash = null)
     {
-        //$this->get('service.controller')->addNews();
+        $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         if (!$hash) {
             $player = $this->getUser()->getPlayer();

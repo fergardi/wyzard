@@ -199,12 +199,13 @@ class ArmyController extends Controller
                 //quantity > 0
                 if ($player->getTroops()->count() > 0 && !empty($attackerArmy) && $target) {
                     $chance = rand(0,99);
+                    $chance = 100; //TODO
                     if ($chance >= $target->getArmyDefense()) {
                         $this->attackTarget($attackerArmy, $attackerResearch, $attackerItem, $target);
                         $manager->persist($target);
                         $this->addFlash('danger', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span> en atacar al mago <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                     } else {
-                        $this->addFlash('danger', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span> en atacar, pero no has conseguido traspasar las Fortalezas de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+                        $this->addFlash('danger', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span> en atacar, pero no has conseguido traspasar la <span class="label label-extra">Defensa Física</span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                     }
                     /*
                      * PERSISTENCIA
@@ -246,18 +247,22 @@ class ArmyController extends Controller
         //ATTACKER ITEM AND RESEARCH
         if ($attackerResearch) {
             $chance = rand(0,99);
+            $chance = 100; //TODO
             if ($chance > $target->getMagicDefense()) {
-                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante lanza el Hechizo <span class="label label-'.$attackerResearch->getSpell()->getFaction()->getClass().'">'.$attackerResearch->getSpell()->getName().'</span>.');
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante lanza el Hechizo <span class="label label-'.$attackerResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerResearch->getSpell()->getName()).'" class="link">'.$attackerResearch->getSpell()->getName().'</a></span>.');
             } else {
-                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante no ha logrado lanzar el Hechizo <span class="label label-'.$attackerResearch->getSpell()->getFaction()->getClass().'">'.$attackerResearch->getSpell()->getName().'</span>.');
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante no ha logrado lanzar el Hechizo <span class="label label-'.$attackerResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerResearch->getSpell()->getName()).'" class="link">'.$attackerResearch->getSpell()->getName().'</a></span>.');
+                $attackerResearch = null;
             }
         }
         if ($attackerItem) {
             $chance = rand(0,99);
+            $chance = 100; //TODO
             if ($chance > $target->getMagicDefense()) {
-                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante activa el Artefacto <span class="label label-'.$attackerItem->getArtifact()->getFaction()->getClass().'">'.$attackerItem->getArtifact()->getName().'</span>.');
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante activa el Artefacto <span class="label label-'.$attackerItem->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerItem->getArtifact()->getName()).'" class="link">'.$attackerItem->getArtifact()->getName().'</a></span>.');
             } else {
-                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante no ha logrado activar el Artefacto <span class="label label-'.$attackerItem->getArtifact()->getFaction()->getClass().'">'.$attackerItem->getArtifact()->getName().'</span>.');
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante no ha logrado activar el Artefacto <span class="label label-'.$attackerItem->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerItem->getArtifact()->getName()).'" class="link">'.$attackerItem->getArtifact()->getName().'</a></span>.');
+                $attackerItem = null;
             }
         }
         //DEFENDER ITEM AND RESEARCH
@@ -267,23 +272,24 @@ class ArmyController extends Controller
             $mana = $defenderResearch->getSpell()->getManaCost() * $bonus;
             if ($mana <= $target->getMana()) {
                 $target->setMana($target->getMana() - $mana);
-                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor lanza el Hechizo <span class="label label-'.$defenderResearch->getSpell()->getFaction()->getClass().'">'.$defenderResearch->getSpell()->getName().'</span>.');
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor lanza el Hechizo <span class="label label-'.$defenderResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderResearch->getSpell()->getName()).'" class="link">'.$defenderResearch->getSpell()->getName().'</a></span>.');
             } else {
-                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor no tiene Maná para lanzar el Hechizo <span class="label label-'.$defenderResearch->getSpell()->getFaction()->getClass().'">'.$defenderResearch->getSpell()->getName().'</span>.');
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor no tiene Maná para lanzar el Hechizo <span class="label label-'.$defenderResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderResearch->getSpell()->getName()).'" class="link">'.$defenderResearch->getSpell()->getName().'</a></span>.');
                 $defenderResearch = null;
             }
         }
         $defenderItem = $target->getItem();
         if ($defenderItem) {
             if ($defenderItem->getQuantity() > 0) {
-                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor activa el Artefacto <span class="label label-'.$defenderItem->getArtifact()->getFaction()->getClass().'">'.$defenderItem->getArtifact()->getName().'</span>.');
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor activa el Artefacto <span class="label label-'.$defenderItem->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderItem->getArtifact()->getName()).'" class="link">'.$defenderItem->getArtifact()->getName().'</a></span>.');
                 $defenderItem->setQuantity($defenderItem->getQuantity() - 1);
-                if ($defenderItem <= 0) {
+                if ($defenderItem->getQuantity() <= 0) {
                     $target->removeItem($defenderItem);
                     $manager->remove($defenderItem);
                 }
             } else {
-                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor no tiene reservas del Artefacto <span class="label label-'.$defenderItem->getArtifact()->getFaction()->getClass().'">'.$defenderItem->getArtifact()->getName().'</span>.');
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor no tiene reservas del Artefacto <span class="label label-'.$defenderItem->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderItem->getArtifact()->getName()).'" class="link">'.$defenderItem->getArtifact()->getName().'</a></span>.');
+                $defenderItem = null;
             }
         }
         //ATTACKER
@@ -292,40 +298,40 @@ class ArmyController extends Controller
             $troop = $arr[0];
             $quantity = $arr[1];
             //base bonuses
-            $attackBonus = 0;
-            $defenseBonus = 0;
+            $attackBonus = 100;
+            $defenseBonus = 100;
             $speedBonus = 0;
             //attacker -> self research bonuses
-            if ($attackerResearch && $attackerResearch->getSelf()) {
+            if ($attackerResearch && $attackerResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $attackerResearch->getSpell()->getSkill();
-                if ($skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
                     $attackBonus += $skill->getAttackBonus() * $player->getMagic();
                     $defenseBonus += $skill->getDefenseBonus() * $player->getMagic();
                     $speedBonus += $skill->getSpeedBonus() * $player->getMagic();
                 }
             }
             //defender -> attacker research bonuses
-            if ($defenderResearch && !$defenderResearch->getSelf()) {
+            if ($defenderResearch && !$defenderResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $defenderResearch->getSpell()->getSkill();
-                if ($skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
                     $attackBonus += $skill->getAttackBonus() * $target->getMagic();
                     $defenseBonus += $skill->getDefenseBonus() * $target->getMagic();
                     $speedBonus += $skill->getSpeedBonus() * $target->getMagic();
                 }
             }
             //attacker -> self artifact bonuses
-            if ($attackerItem && $attackerItem->getSelf()) {
-                $skill = $attackerItem->getSpell()->getSkill();
-                if ($skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+            if ($attackerItem && $attackerItem->getArtifact()->getSkill()->getSelf()) {
+                $skill = $attackerItem->getArtifact()->getSkill();
+                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
                     $attackBonus += $skill->getAttackBonus();
                     $defenseBonus += $skill->getDefenseBonus();
                     $speedBonus += $skill->getSpeedBonus();
                 }
             }
             //defender -> attacker artifact bonuses
-            if ($defenderItem && !$defenderItem->getSelf()) {
-                $skill = $defenderItem->getSpell()->getSkill();
-                if ($skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+            if ($defenderItem && !$defenderItem->getArtifact()->getSkill()->getSelf()) {
+                $skill = $defenderItem->getArtifact()->getSkill();
+                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
                     $attackBonus += $skill->getAttackBonus();
                     $defenseBonus += $skill->getDefenseBonus();
                     $speedBonus += $skill->getSpeedBonus();
@@ -334,7 +340,7 @@ class ArmyController extends Controller
             //attacker -> self hero bonuses
             foreach ($player->getContracts() as $contract) {
                 $skill = $contract->getHero()->getSkill();
-                if ($skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
                     $attackBonus += $skill->getAttackBonus() * $contract->getLevel();
                     $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel();
                     $speedBonus += $skill->getSpeedBonus() * $contract->getLevel();
@@ -343,8 +349,8 @@ class ArmyController extends Controller
             $attackerArmy[] = array(
                 $troop,
                 $quantity, //$_POST
-                $attackBonus,
-                $defenseBonus,
+                $attackBonus / (float)100,
+                $defenseBonus / (float)100,
                 $troop->getUnit()->getSpeed() + $speedBonus, //total porque hay que ordenarlo por speed
             );
         }
@@ -352,40 +358,40 @@ class ArmyController extends Controller
         $defenderArmy = array();
         foreach ($target->getTroops() as $troop) {
             //base bonuses
-            $attackBonus = 0;
-            $defenseBonus = 0;
+            $attackBonus = 100;
+            $defenseBonus = 100;
             $speedBonus = 0;
             //defender -> self research bonuses
-            if ($defenderResearch && $defenderResearch->getSelf()) {
+            if ($defenderResearch && $defenderResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $defenderResearch->getSpell()->getSkill();
-                if ($skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
                     $attackBonus += $skill->getAttackBonus() * $target->getMagic();
                     $defenseBonus += $skill->getDefenseBonus() * $target->getMagic();
                     $speedBonus += $skill->getSpeedBonus() * $target->getMagic();
                 }
             }
             //attacker -> defender research bonuses
-            if ($defenderResearch && !$defenderResearch->getSelf()) {
-                $skill = $defenderResearch->getSpell()->getSkill();
-                if ($skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+            if ($attackerResearch && !$attackerResearch->getSpell()->getSkill()->getSelf()) {
+                $skill = $attackerResearch->getSpell()->getSkill();
+                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
                     $attackBonus += $skill->getAttackBonus() * $player->getMagic();
                     $defenseBonus += $skill->getDefenseBonus() * $player->getMagic();
                     $speedBonus += $skill->getSpeedBonus() * $player->getMagic();
                 }
             }
             //defender -> self artifact bonuses
-            if ($attackerItem && $attackerItem->getSelf()) {
-                $skill = $attackerItem->getSpell()->getSkill();
-                if ($skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+            if ($defenderItem && $defenderItem->getArtifact()->getSkill()->getSelf()) {
+                $skill = $defenderItem->getArtifact()->getSkill();
+                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
                     $attackBonus += $skill->getAttackBonus();
                     $defenseBonus += $skill->getDefenseBonus();
                     $speedBonus += $skill->getSpeedBonus();
                 }
             }
             //attacker -> defender artifact bonuses
-            if ($defenderItem && !$defenderItem->getSelf()) {
-                $skill = $defenderItem->getSpell()->getSkill();
-                if ($skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+            if ($attackerItem && !$attackerItem->getArtifact()->getSkill()->getSelf()) {
+                $skill = $attackerItem->getArtifact()->getSkill();
+                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
                     $attackBonus += $skill->getAttackBonus();
                     $defenseBonus += $skill->getDefenseBonus();
                     $speedBonus += $skill->getSpeedBonus();
@@ -394,7 +400,7 @@ class ArmyController extends Controller
             //defender -> self hero bonuses
             foreach ($target->getContracts() as $contract) {
                 $skill = $contract->getHero()->getSkill();
-                if ($skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
                     $attackBonus += $skill->getAttackBonus() * $contract->getLevel();
                     $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel();
                     $speedBonus += $skill->getSpeedBonus() * $contract->getLevel();
@@ -403,11 +409,12 @@ class ArmyController extends Controller
             $defenderArmy[] = array(
                 $troop,
                 $troop->getQuantity(), //ALL
-                $attackBonus,
-                $defenseBonus,
+                $attackBonus / (float)100,
+                $defenseBonus / (float)100,
                 $troop->getUnit()->getSpeed() + $speedBonus, //total, porque hay que ordenarlo por speed
             );
         }
+        //ladybug_dump_die($attackerArmy,$defenderArmy);
         //POWER BEFORE
         $attackerPowerBefore = 0;
         foreach ($attackerArmy as $troop) {
@@ -441,17 +448,21 @@ class ArmyController extends Controller
                 if ($defenderTurn >= count($defenderArmy)) break;
                 //atacante
                 $attackerTroop = $attackerArmy[$attackerTurn][0];
-                //paso por referencia para modificar directamente los valores del array para la siguiente ronda
+                //paso por referencia para modificar directamente la cantidad de tropas del array para la siguiente ronda
                 $attackerQuantity = &$attackerArmy[$attackerTurn][1];
-                $attackerAttack = $attackerTroop->getUnit()->getAttack() * $attackerQuantity; //TODO BONUS
-                $attackerDefense = $attackerTroop->getUnit()->getDefense() * $attackerQuantity; //TODO BONUS
+                $attackerAttackBonus = $attackerArmy[$attackerTurn][2];
+                $attackerAttack = $attackerTroop->getUnit()->getAttack() * $attackerQuantity * $attackerAttackBonus;
+                $attackerDefenseBonus = $attackerArmy[$attackerTurn][3];
+                $attackerDefense = $attackerTroop->getUnit()->getDefense() * $attackerQuantity * $attackerDefenseBonus;
                 $attackerSpeed = $attackerArmy[$attackerTurn][4];
                 //defensor
                 $defenderTroop = $defenderArmy[$defenderTurn][0];
-                //paso por referencia para modificar directamente los valores del array para la siguiente ronda
+                //paso por referencia para modificar directamente la cantidad de tropas del array para la siguiente ronda
                 $defenderQuantity = &$defenderArmy[$defenderTurn][1];
-                $defenderAttack = $defenderTroop->getUnit()->getAttack() * $defenderQuantity; //TODO BONUS
-                $defenderDefense = $defenderTroop->getUnit()->getDefense() * $defenderQuantity; //TODO BONUS
+                $defenderAttackBonus = $defenderArmy[$defenderTurn][2];
+                $defenderAttack = $defenderTroop->getUnit()->getAttack() * $defenderQuantity * $defenderAttackBonus;
+                $defenderDefenseBonus = $defenderArmy[$defenderTurn][3];
+                $defenderDefense = $defenderTroop->getUnit()->getDefense() * $defenderQuantity * $defenderDefenseBonus;
                 $defenderSpeed = $defenderArmy[$defenderTurn][4];
                 //comprobar velocidades
                 $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).': <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> con '.$attackerSpeed.' Velocidad contra <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> con '.$defenderSpeed.' Velocidad.');
@@ -479,7 +490,7 @@ class ArmyController extends Controller
                         $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'Han muerto todos las tropas de <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span>, por lo que no pueden contraatacar.');
                     } else {
                         //recalculamos ataque del defensor por si ha sufrido bajas
-                        $defenderAttack = $defenderTroop->getUnit()->getAttack() * $defenderQuantity; //TODO BONUS
+                        $defenderAttack = $defenderTroop->getUnit()->getAttack() * $defenderQuantity * $defenderAttackBonus;
                         //defensor => atacante
                         $attackerCasualties = min($attackerQuantity, (int)floor($defenderAttack / $attackerTroop->getUnit()->getDefense()));
                         $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', $this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> atacan con '.$this->get('service.controller')->nf($defenderAttack).' Ataque a '.$this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> con '.$this->get('service.controller')->nf($attackerDefense).' Defensa, matando a '.$this->get('service.controller')->nf($attackerCasualties).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span>.');
@@ -499,7 +510,7 @@ class ArmyController extends Controller
                         $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Han muerto todos las tropas de <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span>, por lo que no pueden contraatacar.');
                     } else {
                         //recalculamos ataque del atacante por si ha sufrido bajas y contraatacamos
-                        $attackerAttack = $attackerTroop->getUnit()->getAttack() * $attackerQuantity; //TODO BONUS
+                        $attackerAttack = $attackerTroop->getUnit()->getAttack() * $attackerQuantity * $attackerAttackBonus;
                         //atacante => defensor
                         $defenderCasualties = min($defenderQuantity, (int)floor($attackerAttack / $defenderTroop->getUnit()->getDefense()));
                         $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', $this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> atacan con '.$this->get('service.controller')->nf($attackerAttack).' Ataque a '.$this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> con '.$this->get('service.controller')->nf($defenderDefense).' Defensa, matando a '.$this->get('service.controller')->nf($defenderCasualties).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span>.');
@@ -550,12 +561,12 @@ class ArmyController extends Controller
                     $defenderConstruction->setQuantity($defenderConstruction->getQuantity() - $new);
                     $attackerConstruction->setQuantity($attackerConstruction->getQuantity() + $new);
                 }
-                $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> gana el ataque por perder mucho menos poder y roba un '.$percent.'% de los edificios de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
-            //VICTORIA SIMPLE, nada
+                $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> gana el ataque por perder mucho menos poder y roba un '.self::CONSTRUCTIONS.'% de los edificios de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+            //VICTORIA SIMPLE, no ganamos nada
             } else {
                 $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> gana el ataque por perder menos poder que <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>, pero no consigue robar nada.');
             }
-            //HEROES TRAS COMBATE VICTORIOSO
+            //HEROES DEL ATACANTE TRAS COMBATE VICTORIOSO
             foreach ($player->getContracts() as $contract) {
                 $skill = $contract->getHero()->getSkill();
                 if ($skill->getBattle()) {
@@ -586,6 +597,7 @@ class ArmyController extends Controller
                     }
                 }
             }
+            //bajamos un nivel de un heroe enemigo al azar porque ha perdido
             if ($target->getHeroes() > 0) {
                 $contracts = $target->getContracts()->toArray();
                 shuffle($contracts);

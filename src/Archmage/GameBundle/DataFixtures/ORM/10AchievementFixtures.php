@@ -71,7 +71,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
-        $achievement->setDescription('Refugia más de '.$this->container->get('service.controller')->nff($achievement->getPeople()).' Personas');
+        $achievement->setDescription('Refugia '.$this->container->get('service.controller')->nff($achievement->getPeople()).' Personas');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
@@ -86,7 +86,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
-        $achievement->setDescription('Controla más de '.$this->container->get('service.controller')->nff($achievement->getLands()).' Tierras');
+        $achievement->setDescription('Controla '.$this->container->get('service.controller')->nff($achievement->getLands()).' Tierras');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
@@ -101,7 +101,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
-        $achievement->setDescription('Encuentra más de '.$this->container->get('service.controller')->nff($achievement->getArtifacts()).' Artefactos');
+        $achievement->setDescription('Encuentra '.$this->container->get('service.controller')->nff($achievement->getArtifacts()).' Artefactos');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
@@ -116,7 +116,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
-        $achievement->setDescription('Contrata más de '.$this->container->get('service.controller')->nff($achievement->getHeroes()).' Héroes');
+        $achievement->setDescription('Contrata '.$this->container->get('service.controller')->nff($achievement->getHeroes()).' Héroes');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
@@ -131,7 +131,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
-        $achievement->setDescription('Investiga más de '.$this->container->get('service.controller')->nff($achievement->getSpells()).' Hechizos');
+        $achievement->setDescription('Investiga '.$this->container->get('service.controller')->nff($achievement->getSpells()).' Hechizos');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
@@ -146,7 +146,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setPower(50000000);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
-        $achievement->setDescription('Concentra más de '.$this->container->get('service.controller')->nff($achievement->getPower()).' Poder');
+        $achievement->setDescription('Concentra '.$this->container->get('service.controller')->nff($achievement->getPower()).' Poder');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
@@ -161,7 +161,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setPower(null);
         $achievement->setUnits(100000);
         $achievement->setDefense(null);
-        $achievement->setDescription('Comanda más de '.$this->container->get('service.controller')->nff($achievement->getUnits()).' Unidades');
+        $achievement->setDescription('Comanda '.$this->container->get('service.controller')->nff($achievement->getUnits()).' Unidades');
         $manager->persist($achievement);
 
         $achievement = new Achievement();
@@ -176,7 +176,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(50);
-        $achievement->setDescription('Acumula más de '.$this->container->get('service.controller')->nff($achievement->getDefense()).' Defensa Mágica o Física');
+        $achievement->setDescription('Acumula '.$this->container->get('service.controller')->nff($achievement->getDefense()).' Defensa');
         $manager->persist($achievement);
 
         $manager->flush();

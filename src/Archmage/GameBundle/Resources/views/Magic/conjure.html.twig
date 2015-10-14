@@ -61,11 +61,10 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    {% if research.spell.magic <= player.magic %}
                     <form id="research{{ research.id }}" name="research{{ research.id }}" class="form-inline" action="{{ path('archmage_game_magic_conjure') }}" method="post" role="form">
                         <div class="form-group">
                             <div class="input-group">
-                                {% if not research.spell.skill.self %}
+                                {% if not research.spell.skill.self and not research.spell.skill.battle %}
                                 <select class="form-control selectpicker show-tick dropup" id="target" name="target" data-live-search="true" data-size="5">
                                     <option>Objetivo</option>
                                     {% for target in targets if target != player %}
@@ -76,7 +75,7 @@
                                 <input type="hidden" id="research" name="research" value="{{ research.id }}" required />
                                 <div class="btn-group" role="group" aria-label="...">
                                     {% if research.spell.faction == player.faction %}{% set bonus = 1 %}{% else %}{% set bonus = 2 %}{% endif %}
-                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default" {% if research.spell.manaCost * bonus > player.mana or research.spell.turnsCost > player.turns %}disabled{% endif %}><i class="fa fa-fw fa-tint"></i>Conjurar</button>
+                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default" {% if research.spell.manaCost * bonus > player.mana or research.spell.turnsCost > player.turns or research.spell.skill.battle or player.magic < research.spell.magic %}disabled{% endif %}><i class="fa fa-fw fa-tint"></i>Conjurar</button>
                                     {% if research.spell.skill.battle %}
                                     <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if research == player.research %}disabled{% endif %}><i class="fa fa-fw fa-shield"></i>Defensa</button>
                                     {% endif %}
@@ -84,9 +83,6 @@
                             </div>
                         </div>
                     </form>
-                    {% else %}
-                    <button class="btn btn-default" disabled><i class="fa fa-fw fa-ban"></i>Bloqueado</button>
-                    {% endif %}
                 </div>
             </div>
         </div>

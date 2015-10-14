@@ -25,12 +25,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel-middle text-center">Fórmula</div>
-                    <div class="panel-body text-responsive text-center text-only">
-                        <p>% ÉXITO<sub>ataque</sub> >= % DEFENSA<sub>física</sub></p>
-                        <p>% ÉXITO<sub>hechizo</sub> >= % DEFENSA<sub>mágica</sub></p>
-                        <p>% ÉXITO<sub>artefacto</sub> >= % DEFENSA<sub>mágica</sub></p>
-                    </div>
                     <div class="panel-middle text-center">Opciones</div>
                     <div class="panel-body text-center">
                         <div class="row">
@@ -118,7 +112,7 @@
             {% else %}
             <div class="container">
                 <div class="col-xs-12 alert alert-danger ribbon text-responsive text-center" role="alert">
-                    <i class="fa fa-fw fa-exclamation-triangle"></i> Actualmente no tienes tropas en tu ejército. Tal vez deberías <i class="fa fa-fw fa-user-plus"></i><a href="{{ path('archmage_game_army_recruit') }}">Reclutar</a> alguna.
+                    <i class="fa fa-fw fa-exclamation-triangle"></i>Actualmente no tienes tropas en tu ejército. Tal vez deberías <i class="fa fa-fw fa-user-plus"></i><a href="{{ path('archmage_game_army_recruit') }}">Reclutar</a> alguna.
                 </div>
             </div>
             {% endfor %}

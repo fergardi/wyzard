@@ -45,8 +45,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             array(
                 'name' => 'Duggo, Dios de la Sangre',
                 'faction' => 'Caos',
-                'research' => 'Quemar Alas',
+                'research' => 'Quemar Alas defense', //nombre auxiliar porque el SpellFixture coincide con SkillFixture
                 'item' => 'Tela de Araña',
+                'heroes' => array(
+                    'Jinete de Dragones',
+                ),
                 'troops' => array(
                     'Dragones Rojos' => 9999,
                 ),
@@ -54,8 +57,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             array(
                 'name' => 'Surm, Dios de la Muerte',
                 'faction' => 'Oscuridad',
-                'research' => 'Miedo',
+                'research' => 'Miedo defense', //nombre auxiliar porque el SpellFixture coincide con SkillFixture
                 'item' => 'Tela de Araña',
+                'heroes' => array(
+                    'Jinete de Dragones',
+                ),
                 'troops' => array(
                     'Dragones Negros' => 9999,
                 ),
@@ -63,8 +69,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             array(
                 'name' => 'Lett, Diosa de la Luz',
                 'faction' => 'Sagrado',
-                'research' => 'Volar',
+                'research' => 'Volar defense', //nombre auxiliar porque el SpellFixture coincide con SkillFixture
                 'item' => 'Tela de Araña',
+                'heroes' => array(
+                    'Jinete de Dragones',
+                ),
                 'troops' => array(
                     'Dragones Blancos' => 9999,
                 ),
@@ -72,8 +81,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             array(
                 'name' => 'Sihir, Diosa de la Magia',
                 'faction' => 'Fantasmal',
-                'research' => 'Quemar Alas',
+                'research' => 'Lentitud defense', //nombre auxiliar porque el SpellFixture coincide con SkillFixture
                 'item' => 'Tela de Araña',
+                'heroes' => array(
+                    'Jinete de Dragones',
+                ),
                 'troops' => array(
                     'Dragones Azules' => 9999,
                 ),
@@ -81,12 +93,26 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             array(
                 'name' => 'Elama, Diosa de la Vida',
                 'faction' => 'Naturaleza',
-                'research' => 'Prisa',
+                'research' => 'Prisa defense', //nombre auxiliar porque el SpellFixture coincide con SkillFixture
                 'item' => 'Tela de Araña',
+                'heroes' => array(
+                    'Jinete de Dragones',
+                ),
                 'troops' => array(
                     'Dragones Verdes' => 9999,
                 ),
             ),
+        );
+        $constructions = array(
+            'Tierras' => 1000,
+            'Granjas' => 1000,
+            'Pueblos' => 1000,
+            'Nodos' => 1000,
+            'Gremios' => 1000,
+            'Talleres' => 1000,
+            'Barracones' => 1000,
+            'Barreras' => 1000,
+            'Fortalezas' => 1000,
         );
         foreach ($gods as $god) {
             $player = new Player();
@@ -96,17 +122,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $player->setFaction($this->getReference($god['faction']));
             $player->setItem(null);
             $player->setResearch(null);
-            $constructions = array(
-                'Tierras' => 1000,
-                'Granjas' => 1000,
-                'Pueblos' => 1000,
-                'Nodos' => 1000,
-                'Gremios' => 1000,
-                'Talleres' => 1000,
-                'Barracones' => 1000,
-                'Barreras' => 1000,
-                'Fortalezas' => 1000,
-            );
+            //constructions
             foreach ($constructions as $name => $quantity) {
                 $construction = new Construction();
                 $construction->setBuilding($this->getReference($name));
@@ -123,7 +139,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $research->setActive(true);
             $manager->persist($research);
             $player->addResearch($research);
-            $player->setResearch($research);
             //items
             $item = new Item();
             $item->setArtifact($this->getReference($god['item']));
@@ -131,12 +146,9 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $item->setPlayer($player);
             $manager->persist($item);
             $player->addItem($item);
+            //defense
+            $player->setResearch($research);
             $player->setItem($item);
-            //achievements
-            $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
-            foreach ($achievements as $achievement) {
-                $player->addAchievement($achievement);
-            }
             //troops
             $troops = $god['troops'];
             foreach ($troops as $name => $quantity) {
@@ -147,12 +159,27 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 $manager->persist($troop);
                 $player->addTroop($troop);
             }
+            //heroes
+            $contracts = $god['heroes'];
+            foreach ($contracts as $name) {
+                $contract = new Contract();
+                $contract->setHero($this->getReference($name));
+                $contract->setLevel(25);
+                $contract->setPlayer($player);
+                $manager->persist($contract);
+                $player->addContract($contract);
+            }
             //resources
             $player->setGold(999999999);
             $player->setPeople(999999999);
             $player->setMana(999999999);
             $player->setTurns(999999999);
             $player->setMagic(10);
+            //achievements
+            $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
+            foreach ($achievements as $achievement) {
+                $player->addAchievement($achievement);
+            }
         }
 
         /*

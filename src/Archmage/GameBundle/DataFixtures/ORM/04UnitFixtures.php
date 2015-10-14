@@ -605,29 +605,6 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
          * FANTASMAL
          */
 
-        //RANAS
-        $unit = new Unit();
-        $unit->setName('Ranas');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
-        $unit->setAttack(1);
-        $unit->setDefense(1);
-        $unit->setSpeed(1);
-        $unit->setImage('bundles/archmagegame/images/unit/ghost/frog.jpg');
-        $unit->setFaction($this->getReference('Fantasmal'));
-        $unit->setFamily($this->getReference('Elementales'));
-        $unit->setType($this->getReference('Magia'));
-        $unit->setGoldMaintenance(1);
-        $unit->setManaMaintenance(0);
-        $unit->setPeopleMaintenance(0);
-        $unit->setGoldAuction(0);
-        $unit->setQuantityAuction(25000);
-        $unit->setRarity(0);
-        $unit->setGoldRecruit(0);
-        $unit->setSkill(null);
-        $unit->setPower(($unit->getAttack()+$unit->getDefense())*$unit->getSpeed());
-        $this->setReference($unit->getName(), $unit);
-        $manager->persist($unit);
-
         //TRITONES
         $unit = new Unit();
         $unit->setName('Tritones');

@@ -674,7 +674,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setDescription($skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a las tropas enemigas por nivel.');
         $skill->setFaction(null);
-        $this->setReference($skill->getName().' aux', $skill);
+        $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
         /*
@@ -1322,7 +1322,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setType(null);
         $skill->setFaction(null);
         $skill->setDescription('+'.$skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a tus tropas por nivel.');
-        $this->setReference($skill->getName().' aux', $skill);
+        $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
         /*
@@ -1813,12 +1813,12 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //SABIDURIA
+        //LENTITUD
         $skill = new Skill();
-        $skill->setName('Sabiduría');
+        $skill->setName('Lentitud');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
-        $skill->setSpeedBonus(0);
+        $skill->setSpeedBonus(-1);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
@@ -1829,19 +1829,19 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
-        $skill->setHeroBonus(1);
+        $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
-        $skill->setRandom(true);
+        $skill->setRandom(false);
         $skill->setSummon(false);
         $skill->setDispell(false);
         $skill->setSpy(false);
-        $skill->setBattle(false);
-        $skill->setSelf(true);
+        $skill->setBattle(true);
+        $skill->setSelf(false);
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('+'.$skill->getHeroBonus().' nivel a un <span class="label label-extra">Héroe</span> aliado al azar.');
+        $skill->setDescription($skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a las tropas enemigas por nivel.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -2586,7 +2586,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setType(null);
         $skill->setFaction(null);
         $skill->setDescription('+'.$skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a tus tropas por nivel.');
-        $this->setReference($skill->getName().' aux', $skill);
+        $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
         //PROSPERIDAD
@@ -3234,7 +3234,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setDescription($skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a las tropas enemigas por nivel.');
         $skill->setFaction(null);
-        $this->setReference($skill->getName().' aux', $skill);
+        $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
         //FURIA DEMONIACA

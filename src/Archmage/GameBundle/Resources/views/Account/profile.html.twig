@@ -20,10 +20,12 @@
                 </div>
                 <div class="info">
                     <h1 class="text-center">{{ profile.nick }}</h1>
-                    {% if profile == player and not profile.chat %}
-                        Conecta tu cuenta con Telegram agregando al usuario @ArchmageBot y escribiendo {{ profile.telegram }}
+                    {% if profile == player %}
+                        {% if not profile.chat %}
+                            <p>Conecta tu cuenta con Telegram agregando al usuario @ArchmageBot y escribiendo "{{ profile.telegram }}"</p>
+                        {% endif %}
+                        <a href="{{ path('fos_user_change_password') }}" class="btn btn-default">Cambiar contraseña</a>
                     {% endif %}
-                    <h2><i class="fa fa-fw fa-rocket"></i>{{ profile.power|nf }}</h2>
                     <br>
                     {% for achievement in profile.achievements %}
                     <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-{% if loop.index is odd %}1{% else %}2{% endif %} alert alert-{{ profile.faction.class }} ribbon text-center text-responsive">

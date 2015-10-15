@@ -1,0 +1,13 @@
+{% extends "ArchmageUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+<div class="container">
+    <div class="jumbotron text-center">
+        {% include "ArchmageUserBundle::logo.html.twig" %}
+        <form id="request" name="request" class="form-signin" data-toggle="validator" action="{{ path('fos_user_resetting_send_email') }}" {{ form_enctype(form) }} method="post">
+            <input type="text" id="username" name="username" required="required" />
+            <button type="submit" id="submit" name="_submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-refresh"></i>Resetear</button>
+        </form>
+    </div>
+</div>
+{% endblock fos_user_content %}

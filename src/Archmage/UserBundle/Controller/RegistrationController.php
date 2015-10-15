@@ -115,6 +115,7 @@ class RegistrationController extends BaseController
     {
         $response = parent::confirmedAction();
 
+        //CUSTOM REDIRECT
         return $this->redirectToRoute('archmage_game_kingdom_summary');
     }
 }

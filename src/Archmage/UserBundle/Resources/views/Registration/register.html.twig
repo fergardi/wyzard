@@ -5,8 +5,7 @@
 {% block fos_user_content %}
 <div class="container">
     <div class="jumbotron text-center">
-        <h1>Arch<i class="fa fa-fw fa-eye"></i>Mage</h1>
-        <h3>- BETA -</h3>
+        {% include "ArchmageUserBundle::logo.html.twig" %}
         <form id="register" name="register" class="form-signin" data-toggle="validator" action="{{ path("fos_user_registration_register") }}" {{ form_enctype(form) }} method="post">
             <select class="form-control selectpicker show-tick" id="faction" name="faction" data-live-search="false" data-style="btn-default btn-lg">
                 {% for faction in factions if faction.name != 'Neutral' %}

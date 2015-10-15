@@ -12,10 +12,10 @@
                 <option value="{{ faction.id }}" data-content="<span class='label label-{{ faction.class }}'>{{ faction.name }}</span>">{{ faction.name }}</option>
                 {% endfor %}
             </select>
-            {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Usuario', 'maxlength': '10' } }) }}
+            {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Usuario', 'maxlength': '20' } }) }}
             {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'Contraseña', 'maxlength': '20' } }) }}
             {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Repetir contraseña', 'maxlength': '20' } }) }}
-            {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'E@mail.com', 'maxlength': '20' } }) }}
+            {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'E@mail.com', 'maxlength': '50' } }) }}
             {{ form_rest(form) }}
             <button type="submit" id="submit" name="_submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-sign-in"></i>Registrarse</button>
         </form>

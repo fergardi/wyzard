@@ -265,8 +265,8 @@ class ServiceController extends Controller
                 if ($enchantment->getExpiration() >= $enchantment->getSpell()->getTurnsExpiration() * $enchantment->getOwner()->getMagic()) {
                     $player->removeEnchantmentsVictim($enchantment);
                     $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
-                    $manager->remove($enchantment);
                     $manager->persist($enchantment->getOwner());
+                    $manager->remove($enchantment);
                     $this->addFlash('success', 'Se ha terminado el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>.');
                 }
             }

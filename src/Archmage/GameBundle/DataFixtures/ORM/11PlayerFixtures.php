@@ -139,6 +139,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $research->setActive(true);
             $manager->persist($research);
             $player->addResearch($research);
+            /*
             //items
             $item = new Item();
             $item->setArtifact($this->getReference($god['item']));
@@ -146,9 +147,10 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $item->setPlayer($player);
             $manager->persist($item);
             $player->addItem($item);
+            */
             //defense
             $player->setResearch($research);
-            $player->setItem($item);
+            //$player->setItem($item);
             //troops
             $troops = $god['troops'];
             foreach ($troops as $name => $quantity) {
@@ -183,8 +185,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         }
 
         /*
-         * TESTING PLAYER
-         */
+        //TESTING PLAYER
         $player = new Player();
         $player->setFaction($this->getReference('Oscuridad'));
         $player->setGod(false);
@@ -237,7 +238,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $manager->persist($troop);
             $player->addTroop($troop);
         }
-        /*
         //HEROES
         $contracts = array(
             'Mago Negro',
@@ -262,7 +262,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $manager->persist($item);
             $player->addItem($item);
         }
-        */
         //MENSAJES
         $text = array();
         $text[] = array('default', 12, 0, 'center', 'Te damos la bienvenida, novicio! El Consejo de Sabios de tu Reino recomienda que leas la <i class="fa fa-fw fa-book"></i><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'" class="link">Sagrada Ayuda del Juego</a>.');
@@ -285,9 +284,12 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         $user->setRoles(array('ROLE_USER'));
         $manager->persist($user);
 
-        //PERSIST && FLUSH
+        //PERSIST
         $this->setReference($user->getUsername(), $player);
         $manager->persist($player);
+        */
+
+        //FLUSH
         $manager->flush();
     }
 

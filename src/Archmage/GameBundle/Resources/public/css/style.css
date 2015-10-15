@@ -156,7 +156,6 @@ body {
     max-width: 280px;
     padding: 15px;
     margin: 0 auto;
-    margin-top: 0;
 }
 .form-signin .form-signin-heading, .form-signin {
     margin-bottom: 0;
@@ -187,7 +186,6 @@ body {
 }
 .form-signin input[type="password"] {
     margin-top: -1px;
-    border-top-style: none;
     border-right-style: solid;
     border-bottom-style: solid;
     border-left-style: solid;
@@ -196,9 +194,7 @@ body {
 }
 .form-signin input[type="email"] {
     margin-top: -1px;
-    border-top-style: none;
     border-right-style: solid;
-    border-bottom-style: solid;
     border-left-style: solid;
     border-color: rgb(0, 0, 0);
     border-top: 1px solid rgba(0, 0, 0, 0.08);
@@ -316,6 +312,9 @@ html {-webkit-text-size-adjust: none !important;}
 }
 .bootstrap-select.btn-group .dropdown-toggle .filter-option {
     overflow: visible;
+}
+.form-signin .dropdown-toggle {
+    border-radius: 6px !important;
 }
 /* FONTAWESOME */
 .fa {

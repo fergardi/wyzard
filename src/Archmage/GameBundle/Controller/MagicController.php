@@ -629,9 +629,13 @@ class MagicController extends Controller
             }
             //TERRAIN
         } elseif ($artifact->getSkill()->getTerrainBonus() < 0) {
-            $free = $target->getLands() * $artifact->getSkill()->getTerrainBonus() / (float)100;
-            $target->setConstruction('Tierras', $target->getFree() + $free);
-            $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nf($free).' <span class="label label-extra">Tierras</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
+            $total = 0;
+            foreach ($target->getConstructions() as $construction) {
+                $lost = $construction->getQuantity() * $artifact->getSkill()->getTerrainBonus() / (float)100;
+                $construction->setQuantity($construction->getQuantity() + $lost);
+                $total += abs($lost);
+            }
+            $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nf($total).' <span class="label label-extra">Edificios</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
             //GOLD
         } elseif ($artifact->getSkill()->getGoldBonus() < 0) {
             $gold = $target->getGold() * $artifact->getSkill()->getGoldBonus() / (float)100;

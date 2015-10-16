@@ -71,9 +71,11 @@
                     $('.selectpicker').selectpicker('mobile');
                 } else {
                     $('.selectpicker').selectpicker({
-
                     });
                 }
+                $(function () {
+                    $('[data-toggle="tooltip"]').tooltip()
+                })
             });
         </script>
         {% endjavascripts %}

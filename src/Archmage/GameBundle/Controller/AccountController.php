@@ -5,6 +5,7 @@ namespace Archmage\GameBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class AccountController extends Controller
 {
@@ -43,6 +44,14 @@ class AccountController extends Controller
     }
 
     /**
+     * usort sorting function
+     */
+    function sortByPower($row1, $row2)
+    {
+        return ($row1[1] >= $row2[1]) ? -1 : 1;
+    }
+
+    /**
      * @Route("/game/account/ranking")
      * @Template("ArchmageGameBundle:Account:ranking.html.twig")
      */
@@ -51,6 +60,15 @@ class AccountController extends Controller
         $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         $players = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
+        $array = array();
+        foreach ($players as $player) {
+            $array[] = array($player, $player->getPower());
+        }
+        usort($array, array($this, "sortByPower"));
+        $players = new ArrayCollection();
+        foreach ($array as $row) {
+            $players[] = $row[0];
+        }
         $player = $this->getUser()->getPlayer();
         return array(
             'players' => $players,

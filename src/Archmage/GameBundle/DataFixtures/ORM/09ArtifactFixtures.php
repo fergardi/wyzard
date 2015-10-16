@@ -242,11 +242,11 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //VIAL DE VENENO
+        //BARRIL DE POLVORA
         $artifact = new Artifact();
-        $artifact->setName('Vial de Veneno');
-        $artifact->setImage('bundles/archmagegame/images/artifact/poisonvial.jpg');
-        $artifact->setSkill($this->getReference('Vial de Veneno'));
+        $artifact->setName('Barril de Pólvora');
+        $artifact->setImage('bundles/archmagegame/images/artifact/powderbarrel.jpg');
+        $artifact->setSkill($this->getReference('Barril de Pólvora'));
         $artifact->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);

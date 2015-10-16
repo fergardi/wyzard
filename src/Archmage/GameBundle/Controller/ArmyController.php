@@ -306,7 +306,7 @@ class ArmyController extends Controller
             //attacker -> self research bonuses
             if ($attackerResearch && $attackerResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $attackerResearch->getSpell()->getSkill();
-                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() * $player->getMagic();
                     $defenseBonus += $skill->getDefenseBonus() * $player->getMagic();
                     $speedBonus += $skill->getSpeedBonus() * $player->getMagic();
@@ -315,7 +315,7 @@ class ArmyController extends Controller
             //defender -> attacker research bonuses
             if ($defenderResearch && !$defenderResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $defenderResearch->getSpell()->getSkill();
-                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() * $target->getMagic();
                     $defenseBonus += $skill->getDefenseBonus() * $target->getMagic();
                     $speedBonus += $skill->getSpeedBonus() * $target->getMagic();
@@ -324,7 +324,7 @@ class ArmyController extends Controller
             //attacker -> self artifact bonuses
             if ($attackerItem && $attackerItem->getArtifact()->getSkill()->getSelf()) {
                 $skill = $attackerItem->getArtifact()->getSkill();
-                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus();
                     $defenseBonus += $skill->getDefenseBonus();
                     $speedBonus += $skill->getSpeedBonus();
@@ -333,7 +333,7 @@ class ArmyController extends Controller
             //defender -> attacker artifact bonuses
             if ($defenderItem && !$defenderItem->getArtifact()->getSkill()->getSelf()) {
                 $skill = $defenderItem->getArtifact()->getSkill();
-                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus();
                     $defenseBonus += $skill->getDefenseBonus();
                     $speedBonus += $skill->getSpeedBonus();
@@ -342,7 +342,7 @@ class ArmyController extends Controller
             //attacker -> self hero bonuses
             foreach ($player->getContracts() as $contract) {
                 $skill = $contract->getHero()->getSkill();
-                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() * $contract->getLevel();
                     $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel();
                     $speedBonus += $skill->getSpeedBonus() * $contract->getLevel();
@@ -366,7 +366,7 @@ class ArmyController extends Controller
             //defender -> self research bonuses
             if ($defenderResearch && $defenderResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $defenderResearch->getSpell()->getSkill();
-                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() * $target->getMagic();
                     $defenseBonus += $skill->getDefenseBonus() * $target->getMagic();
                     $speedBonus += $skill->getSpeedBonus() * $target->getMagic();
@@ -375,7 +375,7 @@ class ArmyController extends Controller
             //attacker -> defender research bonuses
             if ($attackerResearch && !$attackerResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $attackerResearch->getSpell()->getSkill();
-                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() * $player->getMagic();
                     $defenseBonus += $skill->getDefenseBonus() * $player->getMagic();
                     $speedBonus += $skill->getSpeedBonus() * $player->getMagic();
@@ -384,7 +384,7 @@ class ArmyController extends Controller
             //defender -> self artifact bonuses
             if ($defenderItem && $defenderItem->getArtifact()->getSkill()->getSelf()) {
                 $skill = $defenderItem->getArtifact()->getSkill();
-                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus();
                     $defenseBonus += $skill->getDefenseBonus();
                     $speedBonus += $skill->getSpeedBonus();
@@ -393,7 +393,7 @@ class ArmyController extends Controller
             //attacker -> defender artifact bonuses
             if ($attackerItem && !$attackerItem->getArtifact()->getSkill()->getSelf()) {
                 $skill = $attackerItem->getArtifact()->getSkill();
-                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus();
                     $defenseBonus += $skill->getDefenseBonus();
                     $speedBonus += $skill->getSpeedBonus();
@@ -402,7 +402,7 @@ class ArmyController extends Controller
             //defender -> self hero bonuses
             foreach ($target->getContracts() as $contract) {
                 $skill = $contract->getHero()->getSkill();
-                if ((!$skill->getFamily() && !$skill->getType()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType()) {
+                if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() * $contract->getLevel();
                     $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel();
                     $speedBonus += $skill->getSpeedBonus() * $contract->getLevel();
@@ -562,13 +562,15 @@ class ArmyController extends Controller
         if ($attackerPower <= $defenderPower) {
             //VICTORIA TOTAL, robo de edificios
             if ($attackerPower * 1.30 <= $defenderPower) {
+                $loses = 0;
                 foreach ($player->getConstructions() as $attackerConstruction) {
                     $defenderConstruction = $target->getConstruction($attackerConstruction->getBuilding()->getName());
                     $new = $defenderConstruction->getQuantity() * self::CONSTRUCTIONS / 100;
                     $defenderConstruction->setQuantity($defenderConstruction->getQuantity() - $new);
                     $attackerConstruction->setQuantity($attackerConstruction->getQuantity() + $new);
+                    $loses += $new;
                 }
-                $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> gana el ataque por perder mucho menos poder y roba un '.self::CONSTRUCTIONS.'% de los edificios de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+                $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> gana el ataque por perder mucho menos poder y roba '.$this->get('service.controller')->nf($loses).' de los edificios de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
             //VICTORIA SIMPLE, no ganamos nada
             } else {
                 $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> gana el ataque por perder menos poder que <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>, pero no consigue robar nada.');
@@ -580,27 +582,27 @@ class ArmyController extends Controller
                     if ($skill->getPeopleBonus() < 0) {
                         $people = $contract->getLevel() * $skill->getPeopleBonus() * $target->getPeople() / 100;
                         $target->setPeople($target->getPeople() + $people);
-                        $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> elimina '.$this->get('service.controller')->nf($people).' <span class="label label-extra">Personas</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+                        $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> elimina '.$this->get('service.controller')->nf($people).' <span class="label label-extra">Personas</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                     }
                     if ($skill->getGoldBonus() < 0) {
                         $gold = $contract->getLevel() * $skill->getGoldBonus() * $target->getGold() / 100;
                         $target->setGold($target->getGold() + $gold);
-                        $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> elimina '.$this->get('service.controller')->nf($gold).' <span class="label label-extra">Oro</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+                        $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> elimina '.$this->get('service.controller')->nf($gold).' <span class="label label-extra">Oro</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                     }
                     if ($skill->getManaBonus() < 0) {
                         $mana = $contract->getLevel() * $skill->getManaBonus() * $target->getMana() / 100;
                         $target->setMana($target->getMana() + $mana);
-                        $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> elimina '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+                        $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> elimina '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                     }
                     if ($skill->getTurnsBonus() < 0) {
                         $turns = $contract->getLevel() * $skill->getTurnsBonus() * $target->getTurns() / 100;
                         $target->setTurns($target->getTurns() + $turns);
-                        $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> elimina '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+                        $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> elimina '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                     }
                     if ($skill->getTerrainBonus() < 0) {
                         $free = $contract->getLevel() * $skill->getTerrainBonus() * $target->getFree() / 100;
                         $target->setConstruction('Tierras', $target->getFree() + $free);
-                        $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> elimina '.$this->get('service.controller')->nf($free).' <span class="label label-extra">Tierras</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+                        $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> elimina '.$this->get('service.controller')->nf($free).' <span class="label label-extra">Tierras</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                     }
                 }
             }
@@ -610,15 +612,28 @@ class ArmyController extends Controller
                 shuffle($contracts);
                 $contract = $contracts[0]; //suponemos > 0
                 $contract->setLevel($contract->getLevel() - 1);
-                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El Héroe <span class="label label-' . $contract->getHero()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">' . $contract->getHero()->getName() . '</a></span> pierde un nivel.');
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El Héroe <span class="label label-' . $contract->getHero()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">' . $contract->getHero()->getName() . '</a></span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> pierde un nivel.');
                 if ($contract->getLevel() <= 0) {
-                    $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El Héroe <span class="label label-' . $contract->getHero()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">' . $contract->getHero()->getName() . '</a></span> ha muerto.');
+                    $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El Héroe <span class="label label-' . $contract->getHero()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">' . $contract->getHero()->getName() . '</a></span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> ha muerto.');
                     $target->removeContract($contract);
                     $manager->remove($contract);
                 }
             }
         } else {
             //derrota
+            //bajamos un nivel de un heroe aliado al azar porque ha perdido
+            if ($player->getHeroes() > 0) {
+                $contracts = $player->getContracts()->toArray();
+                shuffle($contracts);
+                $contract = $contracts[0]; //suponemos > 0
+                $contract->setLevel($contract->getLevel() - 1);
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-' . $contract->getHero()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">' . $contract->getHero()->getName() . '</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> pierde un nivel.');
+                if ($contract->getLevel() <= 0) {
+                    $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-' . $contract->getHero()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">' . $contract->getHero()->getName() . '</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ha muerto.');
+                    $player->removeContract($contract);
+                    $manager->remove($contract);
+                }
+            }
             $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> pierde el ataque por perder más poder que <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
         }
         //mensajes al objetivo y al jugador

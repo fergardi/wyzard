@@ -16,6 +16,8 @@ class ArmyController extends Controller
      * Const
      */
     const CONSTRUCTIONS = 5;
+    const FACTION_BONUS = 10;
+    const TYPE_BONUS = 10;
 
     /**
      * @Route("/game/army/recruit")
@@ -446,20 +448,25 @@ class ArmyController extends Controller
                 while (array_key_exists($defenderTurn, $defenderArmy) && $defenderArmy[$defenderTurn][1] <= 0) $defenderTurn++;
                 //si no me quedan tropas vivas, se acabo la batalla
                 if ($defenderTurn >= count($defenderArmy)) break;
-                //atacante
+                //tropas atacantes y defensoras
                 $attackerTroop = $attackerArmy[$attackerTurn][0];
+                $defenderTroop = $defenderArmy[$defenderTurn][0];
+                //atacante
                 //paso por referencia para modificar directamente la cantidad de tropas del array para la siguiente ronda
                 $attackerQuantity = &$attackerArmy[$attackerTurn][1];
                 $attackerAttackBonus = $attackerArmy[$attackerTurn][2];
+                if ($attackerTroop->getUnit()->getFaction()->getOpposite() == $defenderTroop->getUnit()->getFaction()) $attackerAttackBonus += self::FACTION_BONUS;
+                if ($attackerTroop->getUnit()->getType()->getOpposite() == $defenderTroop->getUnit()->getType()) $attackerAttackBonus += self::TYPE_BONUS;
                 $attackerAttack = $attackerTroop->getUnit()->getAttack() * $attackerQuantity * $attackerAttackBonus;
                 $attackerDefenseBonus = $attackerArmy[$attackerTurn][3];
                 $attackerDefense = $attackerTroop->getUnit()->getDefense() * $attackerQuantity * $attackerDefenseBonus;
                 $attackerSpeed = $attackerArmy[$attackerTurn][4];
                 //defensor
-                $defenderTroop = $defenderArmy[$defenderTurn][0];
                 //paso por referencia para modificar directamente la cantidad de tropas del array para la siguiente ronda
                 $defenderQuantity = &$defenderArmy[$defenderTurn][1];
                 $defenderAttackBonus = $defenderArmy[$defenderTurn][2];
+                if ($defenderTroop->getUnit()->getFaction()->getOpposite() == $attackerTroop->getUnit()->getFaction()) $defenderAttackBonus += self::FACTION_BONUS;
+                if ($defenderTroop->getUnit()->getType()->getOpposite() == $attackerTroop->getUnit()->getType()) $defenderAttackBonus += self::TYPE_BONUS;
                 $defenderAttack = $defenderTroop->getUnit()->getAttack() * $defenderQuantity * $defenderAttackBonus;
                 $defenderDefenseBonus = $defenderArmy[$defenderTurn][3];
                 $defenderDefense = $defenderTroop->getUnit()->getDefense() * $defenderQuantity * $defenderDefenseBonus;

@@ -21,10 +21,8 @@
                 <div class="info">
                     <h1 class="text-center">{{ profile.nick }}</h1>
                     {% if profile == player %}
-                        {% if not profile.chat %}
-                            <p>Conecta tu cuenta con Telegram agregando al usuario @ArchmageBot y escribiendo "{{ profile.telegram }}"</p>
-                        {% endif %}
-                        <a href="{{ path('fos_user_change_password') }}" class="btn btn-default">Cambiar contraseña</a>
+                        Conecta con <a href="https://telegram.org/" class="link">Telegram</a> agregando a <a href="http://telegram.me/archmagebot" class="link">@ArchmageBot</a> y escribiéndole '{{ profile.telegram }}' |
+                        <a href="{{ path('fos_user_change_password') }}" class="link">Cambiar contraseña</a>
                     {% endif %}
                     <br>
                     {% for achievement in profile.achievements %}

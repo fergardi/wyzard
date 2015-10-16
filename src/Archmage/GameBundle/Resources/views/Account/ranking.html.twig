@@ -42,18 +42,12 @@
     $(document).ready(function() {
         var oTable = $('#datatable').dataTable({
             "order": [[ 0, "asc" ]],
-            "decimal": ",",
-            "thousands": ".",
-            "aoColumns": [
-                {"sType": "numeric", "bSortable": true },
-                {"sType": "numeric", "bSortable": true },
-                {"sType": "string", "bSortable": true },
-                {"sType": "numeric", "bSortable": true }
-            ],
             "sDom": 't<"col-xs-12 text-center"fp>',
             "displayStart": 0,
             'pagingType': 'full_numbers',
             "language": {
+                "decimal": ",",
+                "thousands": ".",
                 "sProcessing": "Procesando...",
                 "sLengthMenu": "Ver _MENU_",
                 "sZeroRecords": "No se encontraron resultados",

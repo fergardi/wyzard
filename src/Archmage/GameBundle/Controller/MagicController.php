@@ -629,13 +629,12 @@ class MagicController extends Controller
             }
             //TERRAIN
         } elseif ($artifact->getSkill()->getTerrainBonus() < 0) {
-            $total = 0;
-            foreach ($target->getConstructions() as $construction) {
-                $lost = $construction->getQuantity() * $artifact->getSkill()->getTerrainBonus() / (float)100;
-                $construction->setQuantity($construction->getQuantity() + $lost);
-                $total += abs($lost);
-            }
-            $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nf($total).' <span class="label label-extra">Edificios</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
+            $constructions = $target->getConstructions()->toArray();
+            shuffle($constructions);
+            $construction = $constructions[0]; //suponemos > 0
+            $destroyed = $artifact->getSkill()->getTerrainBonus() * $construction->getQuantity();
+            $construction->setQuantity($construction->getQuantity() + $destroyed);
+            $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nf($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
             //GOLD
         } elseif ($artifact->getSkill()->getGoldBonus() < 0) {
             $gold = $target->getGold() * $artifact->getSkill()->getGoldBonus() / (float)100;

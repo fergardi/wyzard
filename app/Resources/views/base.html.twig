@@ -9,7 +9,7 @@
         {# block css #}
         {% block stylesheets %}
             {# con los css no funciona el @Bundle shortcut #}
-            {% stylesheets output='css/base.min.css' filter='cssrewrite'
+            {% stylesheets filter='uglifycss' filter='cssrewrite' output='css/base.min.css'
             'bower/normalize-css/normalize.css'
             'bower/fontawesome/css/font-awesome.css'
             '@ArchmageGameBundle/Resources/public/css/theme.css'
@@ -55,7 +55,7 @@
     {% block footer %}{% endblock %}
     {# block js #}
     {% block javascripts %}
-        {% javascripts output='js/base.min.js'
+        {% javascripts filter='uglifyjs2' output='js/base.min.js'
             'bower/jquery/jquery.js'
             'bower/datatables/media/js/jquery.dataTables.js'
             'bower/datatables-bootstrap3-plugin/media/js/datatables-bootstrap3.js'

@@ -559,9 +559,9 @@ class ArmyController extends Controller
         //CONDICIONES DE VICTORIA
         $attackerPower = abs($attackerPowerBefore - $attackerPowerAfter);
         $defenderPower = abs($defenderPowerBefore - $defenderPowerAfter);
-        if ($attackerPower <= $defenderPower) {
+        if ($attackerPower < $defenderPower) {
             //VICTORIA TOTAL, robo de edificios
-            if ($attackerPower * 1.30 <= $defenderPower) {
+            if ($attackerPower * 3 < $defenderPower) {
                 $total = 0;
                 foreach ($player->getConstructions() as $attackerConstruction) {
                     $defenderConstruction = $target->getConstruction($attackerConstruction->getBuilding()->getName());

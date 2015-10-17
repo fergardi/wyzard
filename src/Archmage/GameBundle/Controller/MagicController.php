@@ -632,7 +632,7 @@ class MagicController extends Controller
             $constructions = $target->getConstructions()->toArray();
             shuffle($constructions);
             $construction = $constructions[0]; //suponemos > 0
-            $destroyed = $artifact->getSkill()->getTerrainBonus() * $construction->getQuantity();
+            $destroyed = floor($artifact->getSkill()->getTerrainBonus() * $construction->getQuantity() / (float)100);
             $construction->setQuantity($construction->getQuantity() + $destroyed);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nf($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
             //GOLD

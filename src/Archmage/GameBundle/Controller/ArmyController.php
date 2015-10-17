@@ -15,7 +15,7 @@ class ArmyController extends Controller
     /**
      * Const
      */
-    const CONSTRUCTIONS = 5;
+    const CONSTRUCTIONS_STEAL = 5;
     const FACTION_BONUS = 10;
     const TYPE_BONUS = 10;
 
@@ -565,7 +565,7 @@ class ArmyController extends Controller
                 $total = 0;
                 foreach ($player->getConstructions() as $attackerConstruction) {
                     $defenderConstruction = $target->getConstruction($attackerConstruction->getBuilding()->getName());
-                    $stolen = $defenderConstruction->getQuantity() * self::CONSTRUCTIONS / 100;
+                    $stolen = $defenderConstruction->getQuantity() * self::CONSTRUCTIONS_STEAL / 100;
                     $defenderConstruction->setQuantity($defenderConstruction->getQuantity() - $stolen);
                     $attackerConstruction->setQuantity($attackerConstruction->getQuantity() + $stolen);
                     $total += abs($stolen);
@@ -620,6 +620,7 @@ class ArmyController extends Controller
                 }
             }
         } else {
+            /*
             //derrota
             //bajamos un nivel de un heroe aliado al azar porque ha perdido
             if ($player->getHeroes() > 0) {
@@ -634,6 +635,7 @@ class ArmyController extends Controller
                     $manager->remove($contract);
                 }
             }
+            */
             $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> pierde el ataque por perder más poder que <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
         }
         //mensajes al objetivo y al jugador

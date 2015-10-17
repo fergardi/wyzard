@@ -46,6 +46,7 @@ while getopts "ubdisfcthrlp" opt; do
             ;;
         c)
             echo "Cache clear..."
+            rm -rf cache/*
             php app/console cache:clear --env=dev --no-warmup
             php app/console cache:clear --env=prod
             echo "OK"

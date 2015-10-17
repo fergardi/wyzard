@@ -1647,7 +1647,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
-        $spell->setMagic(25);
+        $spell->setMagic(5);
         $spell->setGoldCost(0);
         $spell->setManaCost(self::MANA_COST * $spell->getMagic());
         $spell->setPeopleCost(0);

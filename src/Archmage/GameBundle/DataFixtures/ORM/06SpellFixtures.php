@@ -479,7 +479,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic() / 2);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -924,7 +924,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic() / 2);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1392,7 +1392,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic() / 2);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -1860,7 +1860,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic() / 2);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);
@@ -2328,7 +2328,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic() / 2);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(0);
         $spell->setManaMaintenance(0);

@@ -999,12 +999,18 @@ class Player
         foreach ($this->constructions as $construction) {
             $gold += $construction->getQuantity() * $construction->getBuilding()->getGoldResource();
         }
+        $bonus = 0;
         foreach ($this->contracts as $contract) {
-            $gold += floor($gold * $contract->getHero()->getSkill()->getGoldBonus() * $contract->getLevel() / (float)100);
+            if ($contract->getHero()->getSkill()->getGoldBonus() > 0) {
+                $bonus += $contract->getHero()->getSkill()->getGoldBonus() * $contract->getLevel();
+            }
         }
         foreach ($this->enchantmentsVictim as $enchantment) {
-            $gold += floor($gold * $enchantment->getSpell()->getSkill()->getGoldBonus() * $enchantment->getOwner()->getMagic() / (float)100);
+            if ($enchantment->getHero()->getSkill()->getGoldBonus() > 0) {
+                $bonus += $enchantment->getSpell()->getSkill()->getGoldBonus() * $enchantment->getOwner()->getMagic();
+            }
         }
+        $gold += floor($gold * $bonus / (float)100);
         return $gold;
     }
 
@@ -1019,12 +1025,18 @@ class Player
         foreach ($this->constructions as $construction) {
             $people += $construction->getQuantity() * $construction->getBuilding()->getPeopleResource();
         }
+        $bonus = 0;
         foreach ($this->contracts as $contract) {
-            $people += floor($people * $contract->getHero()->getSkill()->getPeopleBonus() * $contract->getLevel() / (float)100);
+            if ($contract->getHero()->getSkill()->getPeopleBonus() > 0) {
+                $bonus += $contract->getHero()->getSkill()->getPeopleBonus() * $contract->getLevel();
+            }
         }
         foreach ($this->enchantmentsVictim as $enchantment) {
-            $people += floor($people * $enchantment->getSpell()->getSkill()->getPeopleBonus() * $enchantment->getOwner()->getMagic() / (float)100);
+            if ($enchantment->getHero()->getSkill()->getPeopleBonus() > 0) {
+                $bonus += $enchantment->getSpell()->getSkill()->getPeopleBonus() * $enchantment->getOwner()->getMagic();
+            }
         }
+        $people += floor($people * $bonus / (float)100);
         return $people;
     }
 
@@ -1039,12 +1051,18 @@ class Player
         foreach ($this->constructions as $construction) {
             $mana += $construction->getQuantity() * $construction->getBuilding()->getManaResource();
         }
+        $bonus = 0;
         foreach ($this->contracts as $contract) {
-            $mana += floor($mana * $contract->getHero()->getSkill()->getManaBonus() * $contract->getLevel() / (float)100);
+            if ($contract->getHero()->getSkill()->getManaBonus() > 0) {
+                $bonus += $contract->getHero()->getSkill()->getManaBonus() * $contract->getLevel();
+            }
         }
         foreach ($this->enchantmentsVictim as $enchantment) {
-            $mana += floor($mana * $enchantment->getSpell()->getSkill()->getManaBonus() * $enchantment->getOwner()->getMagic() / (float)100);
+            if ($enchantment->getHero()->getSkill()->getManaBonus() > 0) {
+                $bonus += $enchantment->getSpell()->getSkill()->getManaBonus() * $enchantment->getOwner()->getMagic();
+            }
         }
+        $mana += floor($mana * $bonus / (float)100);
         return $mana;
     }
 

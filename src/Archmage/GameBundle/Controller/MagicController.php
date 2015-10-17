@@ -110,7 +110,6 @@ class MagicController extends Controller
                             $target = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($target);
                             if ($target) {
                                 $chance = rand(0,99);
-                                $chance = 100; //TODO
                                 if ($chance >= $target->getMagicDefense()) {
                                     $this->conjureTarget($research->getSpell(), $target);
                                     $manager->persist($target);
@@ -243,7 +242,6 @@ class MagicController extends Controller
                             $this->addFlash('success', 'Has gastado '. $this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
                         } else {
                             $chance = rand(0,99);
-                            $chance = 100; //TODO
                             if ($chance >= $target->getMagicDefense()) {
                                 $this->activateTarget($item->getArtifact(), $target);
                                 $manager->persist($target);
@@ -522,7 +520,7 @@ class MagicController extends Controller
         //MESSAGE
         $text = array();
         $text[] = array('default', 12, 0, 'center', 'Nosotros, el Consejo del Reino de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> hemos decidido lanzar el hechizo <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span> sobre su Reino.');
-        $this->get('service.controller')->sendMessage($target, $player, 'Reporte de Hechizo', $text, 'magic');
+        $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Hechizo', $text, 'magic');
         return false;
     }
 
@@ -654,7 +652,7 @@ class MagicController extends Controller
         //MESSAGE
         $text = array();
         $text[] = array('default', 12, 0, 'center', 'Nosotros, el Consejo del Reino de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link"><span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span></a> hemos decidido lanzar el hechizo <span class="label label-'.$artifact->getFaction()->getClass().'">'.$artifact->getName().'</span> sobre su Reino.');
-        $this->get('service.controller')->sendMessage($target, $player, 'Reporte de Artefacto', $text, 'magic');
+        $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Artefacto', $text, 'magic');
         return false;
     }
 }

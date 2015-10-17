@@ -201,7 +201,6 @@ class ArmyController extends Controller
                 //quantity > 0
                 if ($player->getTroops()->count() > 0 && !empty($attackerArmy) && $target) {
                     $chance = rand(0,99);
-                    $chance = 100; //TODO
                     if ($chance >= $target->getArmyDefense()) {
                         $this->attackTarget($attackerArmy, $attackerResearch, $attackerItem, $target);
                         $manager->persist($target);
@@ -249,7 +248,6 @@ class ArmyController extends Controller
         //ATTACKER ITEM AND RESEARCH
         if ($attackerResearch) {
             $chance = rand(0,99);
-            $chance = 100; //TODO
             if ($chance > $target->getMagicDefense()) {
                 $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante lanza el Hechizo <span class="label label-'.$attackerResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerResearch->getSpell()->getName()).'" class="link">'.$attackerResearch->getSpell()->getName().'</a></span>.');
             } else {
@@ -259,7 +257,6 @@ class ArmyController extends Controller
         }
         if ($attackerItem) {
             $chance = rand(0,99);
-            $chance = 100; //TODO
             if ($chance > $target->getMagicDefense()) {
                 $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante activa el Artefacto <span class="label label-'.$attackerItem->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerItem->getArtifact()->getName()).'" class="link">'.$attackerItem->getArtifact()->getName().'</a></span>.');
             } else {

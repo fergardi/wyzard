@@ -139,7 +139,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $research->setActive(true);
             $manager->persist($research);
             $player->addResearch($research);
-            /*
             //items
             $item = new Item();
             $item->setArtifact($this->getReference($god['item']));
@@ -147,10 +146,9 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $item->setPlayer($player);
             $manager->persist($item);
             $player->addItem($item);
-            */
             //defense
             $player->setResearch($research);
-            //$player->setItem($item);
+            $player->setItem($item);
             //troops
             $troops = $god['troops'];
             foreach ($troops as $name => $quantity) {

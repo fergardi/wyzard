@@ -113,7 +113,7 @@ class AuctionCommand extends ContainerAwareCommand
             $item = new Item();
             $manager->persist($item);
             $item->setArtifact($artifact);
-            $item->setQuantity(rand(1,5));
+            $item->setQuantity(rand(1,2));
             $item->setPlayer(null);
             $auction->setPlayer(null);
             $auction->setItem($item);
@@ -146,7 +146,7 @@ class AuctionCommand extends ContainerAwareCommand
             $manager->persist($contract);
             $contract->setHero($hero);
             $contract->setExperience(0);
-            $contract->setLevel(rand(1,10));
+            $contract->setLevel(rand(1,5));
             $contract->setPlayer(null);
             $auction->setPlayer(null);
             $auction->setContract($contract);

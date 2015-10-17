@@ -275,9 +275,9 @@
                                 <td class="text-left"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}" class="link">{{ contract.hero.name }}</a></span></td>
                                 <td class="text-right">{{ contract.level|nf }}</td>
                                 <td class="text-right">0</td>
-                                <td class="text-right">+{{ (contract.level * contract.hero.skill.goldBonus)|nf }}%</td>
-                                <td class="text-right">+{{ (contract.level * contract.hero.skill.manaBonus)|nf }}%</td>
-                                <td class="text-right">+{{ (contract.level * contract.hero.skill.peopleBonus)|nf }}%</td>
+                                <td class="text-right">{% if contract.hero.skill.goldBonus > 0 %}+{{ (contract.level * contract.hero.skill.goldBonus)|nf }}{% else %}0{% endif %}%</td>
+                                <td class="text-right">{% if contract.hero.skill.peopleBonus > 0 %}+{{ (contract.level * contract.hero.skill.peopleBonus)|nf }}{% else %}0{% endif %}%</td>
+                                <td class="text-right">{% if contract.hero.skill.manaBonus > 0 %}+{{ (contract.level * contract.hero.skill.manaBonus)|nf }}{% else %}0{% endif %}%</td>
                                 <td class="text-right">-{{ (contract.level * contract.hero.goldMaintenance)|nf }}</td>
                                 <td class="text-right">-{{ (contract.level * contract.hero.peopleMaintenance)|nf }}</td>
                                 <td class="text-right">-{{ (contract.level * contract.hero.manaMaintenance)|nf }}</td>
@@ -289,7 +289,7 @@
                             {% for enchantment in player.enchantmentsOwner %}
                             <tr>
                                 <td class="text-left"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}" class="link">{{ enchantment.spell.name }}</a></span> a <span class="label label-{{ enchantment.victim.faction.class }}"><a href="{{ path('archmage_game_account_profile', {'id': enchantment.victim.id}) }}" class="link">{{ enchantment.victim.nick }}</a></span></td>
-                                <td class="text-right">{{ enchantment.owner.magic)|nf }}</td>
+                                <td class="text-right">{{ enchantment.owner.magic|nf }}</td>
                                 <td class="text-right">0</td>
                                 <td class="text-right">0</td>
                                 <td class="text-right">0</td>

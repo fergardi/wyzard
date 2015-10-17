@@ -886,7 +886,7 @@ class Player
     {
         $magicDefense = self::MAGICDEFENSE_BASE;
         $barriers = $this->getConstruction('Barreras');
-        $magicDefense += $barriers->getQuantity() / $barriers->getBuilding()->getMagicDefenseRatio();
+        $magicDefense += floor($barriers->getQuantity() / (float)$barriers->getBuilding()->getMagicDefenseRatio());
         foreach ($this->enchantmentsVictim as $enchantment) {
             $magicDefense += $enchantment->getSpell()->getSkill()->getMagicDefenseBonus() * $enchantment->getOwner()->getMagic();
         }
@@ -902,7 +902,7 @@ class Player
     {
         $armyDefense = self::ARMYDEFENSE_BASE;
         $fortresses = $this->getConstruction('Fortalezas');
-        $armyDefense += $fortresses->getQuantity() / $fortresses->getBuilding()->getArmyDefenseRatio();
+        $armyDefense += floor($fortresses->getQuantity() / (float)$fortresses->getBuilding()->getArmyDefenseRatio());
         foreach ($this->enchantmentsVictim as $enchantment) {
             $armyDefense += $enchantment->getSpell()->getSkill()->getArmyDefenseBonus() * $enchantment->getOwner()->getMagic();
         }

@@ -147,79 +147,84 @@ class ArmyController extends Controller
             $turns = 2;
             $target = isset($_POST['target'])?$_POST['target']:null;
             $target = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($target);
-            $attackerResearch = isset($_POST['research'])?$_POST['research']:null;
-            $attackerResearch = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($attackerResearch);
-            $mana = 0;
-            if ($attackerResearch) {
-                $attackerResearch->getSpell()->getFaction() == $player->getFaction() ? $bonus = 1 : $bonus = 2;
-                $mana = $attackerResearch->getSpell()->getManaCost() * $bonus;
-            }
-            $attackerItem = isset($_POST['item'])?$_POST['item']:null;
-            $attackerItem = $manager->getRepository('ArchmageGameBundle:Item')->findOneById($attackerItem);
-            if ($attackerItem) {
-                $attackerItem->setQuantity($attackerItem->getQuantity() - 1);
-                if ($attackerItem->getQuantity() <= 0) {
-                    $player->removeItem($attackerItem);
-                    $manager->remove($attackerItem);
+            if ($target && $player->getPower() < $target->getPower() * 1.10) {
+                $attackerResearch = isset($_POST['research']) ? $_POST['research'] : null;
+                $attackerResearch = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($attackerResearch);
+                $mana = 0;
+                if ($attackerResearch) {
+                    $attackerResearch->getSpell()->getFaction() == $player->getFaction() ? $bonus = 1 : $bonus = 2;
+                    $mana = $attackerResearch->getSpell()->getManaCost() * $bonus;
                 }
-            }
-            if ($turns <= $player->getTurns() && $mana <= $player->getMana()) {
-                /*
-                 * MANTENIMIENTOS
-                 */
-                $player->setTurns($player->getTurns() - $turns);
-                $player->setMana($player->getMana() - $mana);
-                $this->get('service.controller')->checkMaintenances($turns);
-                /*
-                 * ACCION
-                 */
-                $attackerArmy = array();
-                //tropa1
-                $troop1 = isset($_POST['troop1'])?$_POST['troop1']:null;
-                $troop1 = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop1);
-                $quantity1 = isset($_POST['quantity1'])?$_POST['quantity1']:null;
-                if ($troop1 && $quantity1 > 0) $attackerArmy[] = array($troop1, $quantity1);
-                //tropa2
-                $troop2 = isset($_POST['troop2'])?$_POST['troop2']:null;
-                $troop2 = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop2);
-                $quantity2 = isset($_POST['quantity2'])?$_POST['quantity2']:null;
-                if ($troop2 && $quantity2 > 0) $attackerArmy[] = array($troop2, $quantity2);
-                //tropa3
-                $troop3 = isset($_POST['troop3'])?$_POST['troop3']:null;
-                $troop3 = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop3);
-                $quantity3 = isset($_POST['quantity3'])?$_POST['quantity3']:null;
-                if ($troop3 && $quantity3 > 0) $attackerArmy[] = array($troop3, $quantity3);
-                //tropa4
-                $troop4 = isset($_POST['troop4'])?$_POST['troop4']:null;
-                $troop4 = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop4);
-                $quantity4 = isset($_POST['quantity4'])?$_POST['quantity4']:null;
-                if ($troop4 && $quantity4 > 0) $attackerArmy[] = array($troop4, $quantity4);
-                //tropa5
-                $troop5 = isset($_POST['troop5'])?$_POST['troop5']:null;
-                $troop5 = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop5);
-                $quantity5 = isset($_POST['quantity5'])?$_POST['quantity5']:null;
-                if ($troop5 && $quantity5 > 0) $attackerArmy[] = array($troop5, $quantity5);
-                //quantity > 0
-                if ($player->getUnits() > 0 && !empty($attackerArmy) && $target) {
-                    $chance = rand(0,99);
-                    if ($chance >= $target->getArmyDefense()) {
-                        $this->attackTarget($attackerArmy, $attackerResearch, $attackerItem, $target);
-                        $manager->persist($target);
-                        $this->addFlash('success', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span> en atacar al mago <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
-                    } else {
-                        $this->addFlash('danger', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span> en atacar, pero no has conseguido traspasar la <span class="label label-extra">Defensa Física</span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+                $attackerItem = isset($_POST['item']) ? $_POST['item'] : null;
+                $attackerItem = $manager->getRepository('ArchmageGameBundle:Item')->findOneById($attackerItem);
+                if ($attackerItem) {
+                    $attackerItem->setQuantity($attackerItem->getQuantity() - 1);
+                    if ($attackerItem->getQuantity() <= 0) {
+                        $player->removeItem($attackerItem);
+                        $manager->remove($attackerItem);
                     }
+                }
+                if ($turns <= $player->getTurns() && $mana <= $player->getMana()) {
                     /*
-                     * PERSISTENCIA
+                     * MANTENIMIENTOS
                      */
-                    $manager->persist($player);
-                    $manager->flush();
+                    $player->setTurns($player->getTurns() - $turns);
+                    $player->setMana($player->getMana() - $mana);
+                    $this->get('service.controller')->checkMaintenances($turns);
+                    /*
+                     * ACCION
+                     */
+                    $attackerArmy = array();
+                    //tropa1
+                    $troop1 = isset($_POST['troop1']) ? $_POST['troop1'] : null;
+                    $troop1 = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop1);
+                    $quantity1 = isset($_POST['quantity1']) ? $_POST['quantity1'] : null;
+                    if ($troop1 && $quantity1 > 0) $attackerArmy[] = array($troop1, $quantity1);
+                    //tropa2
+                    $troop2 = isset($_POST['troop2']) ? $_POST['troop2'] : null;
+                    $troop2 = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop2);
+                    $quantity2 = isset($_POST['quantity2']) ? $_POST['quantity2'] : null;
+                    if ($troop2 && $quantity2 > 0) $attackerArmy[] = array($troop2, $quantity2);
+                    //tropa3
+                    $troop3 = isset($_POST['troop3']) ? $_POST['troop3'] : null;
+                    $troop3 = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop3);
+                    $quantity3 = isset($_POST['quantity3']) ? $_POST['quantity3'] : null;
+                    if ($troop3 && $quantity3 > 0) $attackerArmy[] = array($troop3, $quantity3);
+                    //tropa4
+                    $troop4 = isset($_POST['troop4']) ? $_POST['troop4'] : null;
+                    $troop4 = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop4);
+                    $quantity4 = isset($_POST['quantity4']) ? $_POST['quantity4'] : null;
+                    if ($troop4 && $quantity4 > 0) $attackerArmy[] = array($troop4, $quantity4);
+                    //tropa5
+                    $troop5 = isset($_POST['troop5']) ? $_POST['troop5'] : null;
+                    $troop5 = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop5);
+                    $quantity5 = isset($_POST['quantity5']) ? $_POST['quantity5'] : null;
+                    if ($troop5 && $quantity5 > 0) $attackerArmy[] = array($troop5, $quantity5);
+                    //quantity > 0
+                    if ($player->getUnits() > 0 && !empty($attackerArmy) && $target) {
+                        $chance = rand(0, 99);
+                        if ($chance >= $target->getArmyDefense()) {
+                            $this->attackTarget($attackerArmy, $attackerResearch, $attackerItem, $target);
+                            $manager->persist($target);
+                            $this->addFlash('success', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar al mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span>.');
+                        } else {
+                            $this->addFlash('danger', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar, pero no has conseguido traspasar la <span class="label label-extra">Defensa Física</span> de <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span>.');
+                        }
+                        /*
+                         * PERSISTENCIA
+                         */
+                        $manager->persist($player);
+                        $manager->flush();
+                    } else {
+                        $this->addFlash('danger', 'Debes atacar con al menos 1 unidad.');
+                    }
                 } else {
-                    $this->addFlash('danger', 'Debes atacar con al menos 1 unidad.');
+                    $this->addFlash('danger', 'No tienes los <span class="label label-extra">Recursos</span> necesarios para eso.');
                 }
             } else {
-                $this->addFlash('danger', 'No tienes los <span class="label label-extra">Recursos</span> necesarios para eso.');
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
+
             return $this->redirect($this->generateUrl('archmage_game_army_attack'));
         }
         return array(

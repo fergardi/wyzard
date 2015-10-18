@@ -21,7 +21,7 @@
                                 <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/army.jpg') }}">
                             </div>
                             <div class="col-xs-8 text-padded">
-                                <div class="col-xs-12">Aquí puedes gastar 2 <span class="label label-extra">Turnos</span> y atacar a otro jugador para intentar disminuir su poder y, dependiendo de la gravedad de la victoria, robarle <span class="label label-extra">Tierras</span>.</div>
+                                <div class="col-xs-12">Aquí puedes gastar 2 <span class="label label-extra">Turnos</span> y atacar a otro mago para intentar disminuir su poder e incluso robarle <span class="label label-extra">Tierras</span> y <span class="label label-extra">Oro</span>. No puedes atacar a otro mago mucho más débil (-10% poder o menos) que tú.</div>
                             </div>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                                     <div class="input-group">
                                         <select class="form-control selectpicker show-tick dropup" id="target" name="target" data-live-search="true" data-size="5">
                                             {% for target in targets if target != player %}
-                                            <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}'>{{ target.nick }}</span>">{{ target.nick }}</option>
+                                            <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}' {% if player.power > target.power * 1.10 %}disabled{% endif %}>{{ target.nick }}</span>">{{ target.nick }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>

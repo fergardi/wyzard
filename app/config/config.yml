@@ -37,17 +37,17 @@ assetic:
     debug:          "%kernel.debug%"
     use_controller: false
     bundles:        [ ]
-    node: /usr/local/bin/node
-    #node: /usr/bin/node
+    #node: /usr/local/bin/node
+    node: /usr/bin/node
     filters:
         cssrewrite: ~
         #http://symfony.com/doc/current/cookbook/assetic/uglifyjs.html instead of yuicompressor
         uglifyjs2:
-            bin: /usr/local/share/npm/bin/uglifyjs
-            #bin: /usr/bin/uglifyjs
+            #bin: /usr/local/share/npm/bin/uglifyjs
+            bin: /usr/bin/uglifyjs
         uglifycss:
-            bin: /usr/local/share/npm/bin/uglifycss
-            #bin: /usr/bin/uglifycss
+            #bin: /usr/local/share/npm/bin/uglifycss
+            bin: /usr/bin/uglifycss
 
 # Doctrine Configuration
 doctrine:

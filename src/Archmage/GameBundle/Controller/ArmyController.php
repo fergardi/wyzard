@@ -15,9 +15,10 @@ class ArmyController extends Controller
     /**
      * Const
      */
-    const CONSTRUCTIONS_STEAL = 5;
+    const STEAL_PERCENT = 5;
     const FACTION_BONUS = 10;
     const TYPE_BONUS = 10;
+    const HERO_EXPERIENCE = 20;
 
     /**
      * @Route("/game/army/recruit")
@@ -199,7 +200,7 @@ class ArmyController extends Controller
                 $quantity5 = isset($_POST['quantity5'])?$_POST['quantity5']:null;
                 if ($troop5 && $quantity5 > 0) $attackerArmy[] = array($troop5, $quantity5);
                 //quantity > 0
-                if ($player->getTroops()->count() > 0 && !empty($attackerArmy) && $target) {
+                if ($player->getUnits() > 0 && !empty($attackerArmy) && $target) {
                     $chance = rand(0,99);
                     if ($chance >= $target->getArmyDefense()) {
                         $this->attackTarget($attackerArmy, $attackerResearch, $attackerItem, $target);
@@ -556,18 +557,22 @@ class ArmyController extends Controller
         //CONDICIONES DE VICTORIA
         $attackerPower = abs($attackerPowerBefore - $attackerPowerAfter);
         $defenderPower = abs($defenderPowerBefore - $defenderPowerAfter);
-        if ($attackerPower < $defenderPower) {
+        if ($player->getUnits() > 0 && ($attackerPower < $defenderPower || $target->getUnits() <= 0)) {
             //VICTORIA TOTAL, robo de edificios
-            if ($attackerPower * 3 < $defenderPower) {
+            if ($attackerPower * 3 < $defenderPower || $target->getUnits() <= 0) {
                 $total = 0;
                 foreach ($player->getConstructions() as $attackerConstruction) {
                     $defenderConstruction = $target->getConstruction($attackerConstruction->getBuilding()->getName());
-                    $stolen = $defenderConstruction->getQuantity() * self::CONSTRUCTIONS_STEAL / 100;
+                    $stolen = $defenderConstruction->getQuantity() * self::STEAL_PERCENT / 100;
                     $defenderConstruction->setQuantity($defenderConstruction->getQuantity() - $stolen);
                     $attackerConstruction->setQuantity($attackerConstruction->getQuantity() + $stolen);
                     $total += abs($stolen);
                 }
                 $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> gana el ataque por perder mucho menos poder y roba '.$this->get('service.controller')->nf($total).' edificios de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+                $robbery = $target->getGold() * self::STEAL_PERCENT / 100;
+                $target->setGold($target->getGold() - $robbery);
+                $player->setGold($player->getGold() + $robbery);
+                $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> roba '.$this->get('service.controller')->nf($robbery).' <span class="label label-extra">Oro</span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
             //VICTORIA SIMPLE, no ganamos nada
             } else {
                 $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> gana el ataque por perder menos poder que <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>, pero no consigue robar nada.');
@@ -606,18 +611,10 @@ class ArmyController extends Controller
                     }
                 }
             }
-            //bajamos un nivel de un heroe enemigo al azar porque ha perdido
-            if ($target->getHeroes() > 0) {
-                $contracts = $target->getContracts()->toArray();
-                shuffle($contracts);
-                $contract = $contracts[0]; //suponemos > 0
-                $contract->setLevel($contract->getLevel() - 1);
-                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El Héroe <span class="label label-' . $contract->getHero()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">' . $contract->getHero()->getName() . '</a></span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> pierde un nivel.');
-                if ($contract->getLevel() <= 0) {
-                    $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El Héroe <span class="label label-' . $contract->getHero()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">' . $contract->getHero()->getName() . '</a></span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> ha muerto.');
-                    $target->removeContract($contract);
-                    $manager->remove($contract);
-                }
+            //ganamos experiencia con todos nuestros heroes
+            foreach ($player->getContracts() as $contract) {
+                $contract->setExperience($contract->getExperience() + self::HERO_EXPERIENCE);
+                $text[] = array('default', 11, 0, 'center', 'Los héroes de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ganan '.self::HERO_EXPERIENCE.' experiencia.');
             }
         } else {
             //derrota

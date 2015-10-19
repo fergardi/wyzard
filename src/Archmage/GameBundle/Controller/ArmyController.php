@@ -272,14 +272,14 @@ class ArmyController extends Controller
         }
         //DEFENDER ITEM AND RESEARCH
         $defenderResearch = $target->getResearch();
-        if ($defenderResearch) {
+        if ($defenderResearch && $player->getPower() > $target->getPower()) {
             $defenderResearch->getSpell()->getFaction() == $target->getFaction() ? $bonus = 1 : $bonus = 2;
             $mana = $defenderResearch->getSpell()->getManaCost() * $bonus;
             if ($mana <= $target->getMana()) {
                 $target->setMana($target->getMana() - $mana);
                 $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor lanza el Hechizo <span class="label label-'.$defenderResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderResearch->getSpell()->getName()).'" class="link">'.$defenderResearch->getSpell()->getName().'</a></span>.');
             } else {
-                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor no tiene Maná para lanzar el Hechizo <span class="label label-'.$defenderResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderResearch->getSpell()->getName()).'" class="link">'.$defenderResearch->getSpell()->getName().'</a></span>.');
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor no tiene <span class="label label-extra">Maná</span> para lanzar el Hechizo <span class="label label-'.$defenderResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderResearch->getSpell()->getName()).'" class="link">'.$defenderResearch->getSpell()->getName().'</a></span>.');
                 $defenderResearch = null;
             }
         }
@@ -420,7 +420,6 @@ class ArmyController extends Controller
                 $troop->getUnit()->getSpeed() + $speedBonus, //total, porque hay que ordenarlo por speed
             );
         }
-        //ladybug_dump_die($attackerArmy,$defenderArmy);
         //POWER BEFORE
         $attackerPowerBefore = 0;
         foreach ($attackerArmy as $troop) {
@@ -563,7 +562,7 @@ class ArmyController extends Controller
         //CONDICIONES DE VICTORIA
         $attackerPower = abs($attackerPowerBefore - $attackerPowerAfter);
         $defenderPower = abs($defenderPowerBefore - $defenderPowerAfter);
-        if ($player->getUnits() > 0 && ($attackerPower < $defenderPower || $target->getUnits() <= 0)) {
+        if ($attackerPowerAfter > 0 && ($attackerPower < $defenderPower || $target->getUnits() <= 0)) {
             //VICTORIA TOTAL, robo de edificios
             if ($attackerPower * 3 < $defenderPower || $target->getUnits() <= 0) {
                 $total = 0;

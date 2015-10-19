@@ -1,8 +1,11 @@
 @font-face {
     font-family: 'AntykwaTorunskaBold';
     font-style: normal;
-    font-weight: 400;
-    src:    url(/bundles/archmagegame/css/AntykwaTorunskaRegular.ttf) format('truetype'),
-            url(/bundles/archmagegame/css/AntykwaTorunskaRegular.woff) format('woff')
+    font-weight: 500;
+    src:
+        url(/bundles/archmagegame/css/AntykwaTorunskaRegular.ttf) format('truetype'),
+        url(/bundles/archmagegame/css/AntykwaTorunskaRegular.woff) format('woff'),
+        url(/bundles/archmagegame/css/AntykwaTorunskaRegular.woff2) format('woff2'),
+        url(/bundles/archmagegame/css/AntykwaTorunskaRegular.eot) format('eot')
     ;
 }

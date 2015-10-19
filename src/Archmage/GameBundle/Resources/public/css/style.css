@@ -1,3 +1,6 @@
+body {
+    text-rendering: auto;
+}
 /* default background for each faction */
 img.background {
     /* Set rules to fill background */

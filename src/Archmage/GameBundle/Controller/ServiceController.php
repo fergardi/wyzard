@@ -88,7 +88,7 @@ class ServiceController extends Controller
         $api = $this->container->get('shaygan.telegram_bot_api');
         if ($receiver->getChat()) {
             try {
-                $telegram = "Hola!\nTienes un mensaje nuevo:\n'".$subject."'\n".$this->generateUrl('archmage_game_account_message', array('hash' => $message->getHash()), true);
+                $telegram = $subject.":\n".$this->generateUrl('archmage_game_account_message', array('hash' => $message->getHash()), true);
                 $connection = "BQADBAADRQADyIsGAAHtBskMy6GoLAI";
                 $auction = "BQADBAADPAADyIsGAAHHj-tPF_0RGAI";
                 $battle = "BQADBAADOgADyIsGAAFRwAYXeDzUugI";

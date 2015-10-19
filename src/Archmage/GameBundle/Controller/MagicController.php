@@ -450,6 +450,9 @@ class MagicController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
+        //MESSAGE
+        $text = array();
+        $text[] = array('default', 12, 0, 'center', 'Nosotros, el Consejo del Reino de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> hemos decidido lanzar el hechizo <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span> sobre su Reino.');
         //ESPIONAGE
         if ($spell->getSkill()->getSpy()) {
             $this->createEspionage($target);
@@ -517,9 +520,6 @@ class MagicController extends Controller
             $target->setMana($target->getMana() + $mana);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
         }
-        //MESSAGE
-        $text = array();
-        $text[] = array('default', 12, 0, 'center', 'Nosotros, el Consejo del Reino de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> hemos decidido lanzar el hechizo <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span> sobre su Reino.');
         $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Hechizo', $text, 'magic');
         return false;
     }
@@ -605,25 +605,32 @@ class MagicController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
+        //MESSAGE
+        $text = array();
+        $text[] = array('default', 12, 0, 'center', 'El mago <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link"><span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span></a> ha activado el Artefacto <span class="label label-'.$artifact->getFaction()->getClass().'">'.$artifact->getName().'</span> sobre su Reino.');
         //SPIONAGE
         if ($artifact->getSkill()->getSpy()) {
             $this->createEspionage($target);
             //HERO LEVEL
-        } elseif ($artifact->getSkill()->getHeroBonus() > 0) {
+        } elseif ($artifact->getSkill()->getHeroBonus() < 0) {
             if ($target->getHeroes() > 0) {
                 $contracts = $target->getContracts()->toArray();
                 shuffle($contracts);
                 $contract = $contracts[0]; //suponemos > 0
-                $contract->setLevel($contract->getLevel() + $artifact->getSkill()->getHeroBonus());
+                $levels = $artifact->getSkill()->getHeroBonus();
+                $contract->setLevel($contract->getLevel() + $levels);
                 if ($contract->getLevel() <= 0) {
                     $target->removeContract($contract);
                     $manager->remove($contract);
                     $this->addFlash('success', '<span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> ha muerto.');
+                    $text[] = array('default', 12, 0, 'center', 'Tu héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> ha perdido '.$levels.' niveles y ha muerto.');
                 } else {
                     $this->addFlash('success', '<span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> ha bajado de nivel.');
+                    $text[] = array('default', 12, 0, 'center', 'Tu héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> ha perdido '.$levels.' niveles.');
                 }
             } else {
                 $this->addFlash('danger', '<span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> no tiene héroes en su Reino.');
+                $text[] = array('default', 12, 0, 'center', 'No tienes héroes en tu reino.');
             }
             //TERRAIN
         } elseif ($artifact->getSkill()->getTerrainBonus() < 0) {
@@ -633,25 +640,26 @@ class MagicController extends Controller
             $destroyed = floor($artifact->getSkill()->getTerrainBonus() * $construction->getQuantity() / (float)100);
             $construction->setQuantity($construction->getQuantity() + $destroyed);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nf($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
+            $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nf($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span>.');
             //GOLD
         } elseif ($artifact->getSkill()->getGoldBonus() < 0) {
             $gold = $target->getGold() * $artifact->getSkill()->getGoldBonus() / (float)100;
             $target->setGold($target->getGold() + $gold);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nf($gold).' <span class="label label-extra">Oro</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
+            $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nf($gold).' <span class="label label-extra">Oro</span>.');
             //PEOPLE
         } elseif ($artifact->getSkill()->getPeopleBonus() < 0) {
             $people = $target->getPeople() * $artifact->getSkill()->getPeopleBonus() / (float)100;
             $target->setPeople($target->getPeople() + $people);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nf($people).' <span class="label label-extra">Personas</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
+            $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nf($people).' <span class="label label-extra">Personas</span>.');
             //MANA
         } elseif ($artifact->getSkill()->getManaBonus() < 0) {
             $mana = $target->getMana() * $artifact->getSkill()->getManaBonus() / (float)100;
             $target->setMana($target->getMana() + $mana);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span> de <span class="label label-' . $target->getFaction()->getClass() . '">' . $target->getNick() . '</span>.');
+            $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span>.');
         }
-        //MESSAGE
-        $text = array();
-        $text[] = array('default', 12, 0, 'center', 'Nosotros, el Consejo del Reino de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link"><span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span></a> hemos decidido lanzar el hechizo <span class="label label-'.$artifact->getFaction()->getClass().'">'.$artifact->getName().'</span> sobre su Reino.');
         $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Artefacto', $text, 'magic');
         return false;
     }

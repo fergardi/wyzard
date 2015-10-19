@@ -12,7 +12,7 @@
                 <option value="{{ faction.id }}" data-content="<span class='label label-{{ faction.class }}'>{{ faction.name }}</span>">{{ faction.name }}</option>
                 {% endfor %}
             </select>
-            {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Usuario (5-20)', 'data-minlength': '5', 'maxlength': '20' } }) }}
+            {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Usuario (3-20)', 'data-minlength': '3', 'maxlength': '20' } }) }}
             {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'Contraseña (5-20)', 'data-minlength': '5', 'maxlength': '20' } }) }}
             {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Repetir contraseña (5-20)', 'data-minlength': '5', 'maxlength': '20' } }) }}
             {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'Email@unico.com (5-20)', 'data-minlength': '5', 'maxlength': '20' } }) }}

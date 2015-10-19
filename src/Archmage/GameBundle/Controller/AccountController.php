@@ -18,18 +18,18 @@ class AccountController extends Controller
         $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
-        //Para que un usuario pueda usar Telegram, debe escribir el hash de su player como un mensaje al bot @ArchmageBot
-        //De esa forma, comparo los hashes con los que tengo en mi DB y saco el CHATID del mensaje y lo guardo
-        $api = $this->container->get('shaygan.telegram_bot_api');
-        foreach ($api->getUpdates() as $update) {
-            if (!$player->getChat() && $update['message']->getText() == $player->getTelegram()) {
-                $player->setChat($update['message']->getChat()->getId());
-            }
-        }
-        $manager->persist($player);
-        $manager->flush();
         if (!$id) {
             $profile = $player;
+            //Para que un usuario pueda usar Telegram, debe escribir el hash de su player como un mensaje al bot @ArchmageBot
+            //De esa forma, comparo los hashes con los que tengo en mi DB y saco el CHATID del mensaje y lo guardo
+            $api = $this->container->get('shaygan.telegram_bot_api');
+            foreach ($api->getUpdates() as $update) {
+                if (!$player->getChat() && $update['message']->getText() == $player->getTelegram()) {
+                    $player->setChat($update['message']->getChat()->getId());
+                }
+            }
+            $manager->persist($player);
+            $manager->flush();
         } else {
             $profile = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($id);
             if (!$profile) {

@@ -405,7 +405,7 @@ class MagicController extends Controller
             $this->addFlash('success', 'Has lanzado el encantamiento <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">' . $enchantment->getSpell()->getName() . '</a></span> en tu Reino.');
             //TERRAIN
         } elseif ($spell->getSkill()->getTerrainBonus() > 0) {
-            $free = $player->getLands() * $spell->getSkill()->getTerrainBonus() * $player->getMagic() / (float)100;
+            $free = $spell->getSkill()->getTerrainBonus() * $player->getMagic();
             $player->setConstruction('Tierras', $player->getFree() + $free);
             $this->addFlash('success', 'Has encontrado ' . $this->get('service.controller')->nf($free) . ' <span class="label label-extra">Tierras</span>.');
             //ARTIFACT
@@ -570,7 +570,7 @@ class MagicController extends Controller
             }
             //TERRAIN
         } elseif ($artifact->getSkill()->getTerrainBonus() > 0) {
-            $free = $player->getLands() * $artifact->getSkill()->getTerrainBonus() / (float)100;
+            $free = $artifact->getSkill()->getTerrainBonus();
             $player->setConstruction('Tierras', $player->getFree() + $free);
             $this->addFlash('success', 'Has encontrado '.$this->get('service.controller')->nf($free).' <span class="label label-extra">Tierras</span>.');
             //HERO LEVEL
@@ -647,7 +647,7 @@ class MagicController extends Controller
             $constructions = $target->getConstructions()->toArray();
             shuffle($constructions);
             $construction = $constructions[0]; //suponemos > 0
-            $destroyed = floor($artifact->getSkill()->getTerrainBonus() * $construction->getQuantity() / (float)100);
+            $destroyed = $artifact->getSkill()->getTerrainBonus();
             $construction->setQuantity($construction->getQuantity() + $destroyed);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nf($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
             $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nf($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span>.');

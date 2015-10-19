@@ -23,6 +23,7 @@
                     {% if profile == player %}
                         Conecta con <a href="https://telegram.org/" class="link">Telegram</a> agregando a <a href="http://telegram.me/archmagebot" class="link">@ArchmageBot</a> y escribiéndole '{{ profile.telegram }}' |
                         <a href="{{ path('fos_user_change_password') }}" class="link">Cambiar contraseña</a>
+                        <br>
                     {% endif %}
                     <br>
                     {% for achievement in profile.achievements %}

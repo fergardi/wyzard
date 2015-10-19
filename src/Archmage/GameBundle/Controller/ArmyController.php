@@ -312,7 +312,7 @@ class ArmyController extends Controller
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() * $player->getMagic() / 100;
                     $defenseBonus += $skill->getDefenseBonus() * $player->getMagic() / 100;
-                    $speedBonus += $skill->getSpeedBonus() * $player->getMagic() / 100;
+                    $speedBonus += $skill->getSpeedBonus() * $player->getMagic();
                 }
             }
             //defender -> attacker research bonuses
@@ -321,7 +321,7 @@ class ArmyController extends Controller
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() * $target->getMagic() / 100;
                     $defenseBonus += $skill->getDefenseBonus() * $target->getMagic() / 100;
-                    $speedBonus += $skill->getSpeedBonus() * $target->getMagic() / 100;
+                    $speedBonus += $skill->getSpeedBonus() * $target->getMagic();
                 }
             }
             //attacker -> self artifact bonuses
@@ -330,7 +330,7 @@ class ArmyController extends Controller
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() / 100;
                     $defenseBonus += $skill->getDefenseBonus() / 100;
-                    $speedBonus += $skill->getSpeedBonus() / 100;
+                    $speedBonus += $skill->getSpeedBonus();
                 }
             }
             //defender -> attacker artifact bonuses
@@ -339,7 +339,7 @@ class ArmyController extends Controller
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() / 100;
                     $defenseBonus += $skill->getDefenseBonus() / 100;
-                    $speedBonus += $skill->getSpeedBonus() / 100;
+                    $speedBonus += $skill->getSpeedBonus();
                 }
             }
             //attacker -> self hero bonuses
@@ -348,7 +348,7 @@ class ArmyController extends Controller
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() * $contract->getLevel() / 100;
                     $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel() / 100;
-                    $speedBonus += $skill->getSpeedBonus() * $contract->getLevel() / 100;
+                    $speedBonus += $skill->getSpeedBonus() * $contract->getLevel();
                 }
             }
             $attackerArmy[] = array(
@@ -373,7 +373,7 @@ class ArmyController extends Controller
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() * $target->getMagic() / 100;
                     $defenseBonus += $skill->getDefenseBonus() * $target->getMagic() / 100;
-                    $speedBonus += $skill->getSpeedBonus() * $target->getMagic() / 100;
+                    $speedBonus += $skill->getSpeedBonus() * $target->getMagic();
                 }
             }
             //attacker -> defender research bonuses
@@ -382,7 +382,7 @@ class ArmyController extends Controller
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() * $player->getMagic() / 100;
                     $defenseBonus += $skill->getDefenseBonus() * $player->getMagic() / 100;
-                    $speedBonus += $skill->getSpeedBonus() * $player->getMagic() / 100;
+                    $speedBonus += $skill->getSpeedBonus() * $player->getMagic();
                 }
             }
             //defender -> self artifact bonuses
@@ -391,7 +391,7 @@ class ArmyController extends Controller
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() / 100;
                     $defenseBonus += $skill->getDefenseBonus() / 100;
-                    $speedBonus += $skill->getSpeedBonus() / 100;
+                    $speedBonus += $skill->getSpeedBonus();
                 }
             }
             //attacker -> defender artifact bonuses
@@ -400,7 +400,7 @@ class ArmyController extends Controller
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() / 100;
                     $defenseBonus += $skill->getDefenseBonus() / 100;
-                    $speedBonus += $skill->getSpeedBonus() / 100;
+                    $speedBonus += $skill->getSpeedBonus();
                 }
             }
             //defender -> self hero bonuses
@@ -409,7 +409,7 @@ class ArmyController extends Controller
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
                     $attackBonus += $skill->getAttackBonus() * $contract->getLevel() / 100;
                     $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel() / 100;
-                    $speedBonus += $skill->getSpeedBonus() * $contract->getLevel() / 100;
+                    $speedBonus += $skill->getSpeedBonus() * $contract->getLevel();
                 }
             }
             $defenderArmy[] = array(

@@ -24,8 +24,8 @@ class AccountController extends Controller
             //De esa forma, comparo los hashes con los que tengo en mi DB y saco el CHATID del mensaje y lo guardo
             $api = $this->container->get('shaygan.telegram_bot_api');
             foreach ($api->getUpdates() as $update) {
-                if (!$player->getChat() && $update['message']->getText() == $player->getTelegram()) {
-                    $player->setChat($update['message']->getChat()->getId());
+                if (!$player->getChat() && $update->getMessage()->getText() == $player->getTelegram()) {
+                    $player->setChat($update->getMessage()->getChat()->getId());
                 }
             }
             $manager->persist($player);

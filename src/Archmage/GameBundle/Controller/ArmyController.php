@@ -303,59 +303,59 @@ class ArmyController extends Controller
             $troop = $arr[0];
             $quantity = $arr[1];
             //base bonuses
-            $attackBonus = 100;
-            $defenseBonus = 100;
+            $attackBonus = 1;
+            $defenseBonus = 1;
             $speedBonus = 0;
             //attacker -> self research bonuses
             if ($attackerResearch && $attackerResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $attackerResearch->getSpell()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $player->getMagic();
-                    $defenseBonus += $skill->getDefenseBonus() * $player->getMagic();
-                    $speedBonus += $skill->getSpeedBonus() * $player->getMagic();
+                    $attackBonus += $skill->getAttackBonus() * $player->getMagic() / 100;
+                    $defenseBonus += $skill->getDefenseBonus() * $player->getMagic() / 100;
+                    $speedBonus += $skill->getSpeedBonus() * $player->getMagic() / 100;
                 }
             }
             //defender -> attacker research bonuses
             if ($defenderResearch && !$defenderResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $defenderResearch->getSpell()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $target->getMagic();
-                    $defenseBonus += $skill->getDefenseBonus() * $target->getMagic();
-                    $speedBonus += $skill->getSpeedBonus() * $target->getMagic();
+                    $attackBonus += $skill->getAttackBonus() * $target->getMagic() / 100;
+                    $defenseBonus += $skill->getDefenseBonus() * $target->getMagic() / 100;
+                    $speedBonus += $skill->getSpeedBonus() * $target->getMagic() / 100;
                 }
             }
             //attacker -> self artifact bonuses
             if ($attackerItem && $attackerItem->getArtifact()->getSkill()->getSelf()) {
                 $skill = $attackerItem->getArtifact()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus();
-                    $defenseBonus += $skill->getDefenseBonus();
-                    $speedBonus += $skill->getSpeedBonus();
+                    $attackBonus += $skill->getAttackBonus() / 100;
+                    $defenseBonus += $skill->getDefenseBonus() / 100;
+                    $speedBonus += $skill->getSpeedBonus() / 100;
                 }
             }
             //defender -> attacker artifact bonuses
             if ($defenderItem && !$defenderItem->getArtifact()->getSkill()->getSelf()) {
                 $skill = $defenderItem->getArtifact()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus();
-                    $defenseBonus += $skill->getDefenseBonus();
-                    $speedBonus += $skill->getSpeedBonus();
+                    $attackBonus += $skill->getAttackBonus() / 100;
+                    $defenseBonus += $skill->getDefenseBonus() / 100;
+                    $speedBonus += $skill->getSpeedBonus() / 100;
                 }
             }
             //attacker -> self hero bonuses
             foreach ($player->getContracts() as $contract) {
                 $skill = $contract->getHero()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $contract->getLevel();
-                    $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel();
-                    $speedBonus += $skill->getSpeedBonus() * $contract->getLevel();
+                    $attackBonus += $skill->getAttackBonus() * $contract->getLevel() / 100;
+                    $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel() / 100;
+                    $speedBonus += $skill->getSpeedBonus() * $contract->getLevel() / 100;
                 }
             }
             $attackerArmy[] = array(
                 $troop,
                 $quantity, //$_POST
-                $attackBonus / (float)100,
-                $defenseBonus / (float)100,
+                $attackBonus,
+                $defenseBonus,
                 $troop->getUnit()->getSpeed() + $speedBonus, //total porque hay que ordenarlo por speed
                 $quantity, //numero original para restar las bajas
             );
@@ -364,59 +364,59 @@ class ArmyController extends Controller
         $defenderArmy = array();
         foreach ($target->getTroops() as $troop) {
             //base bonuses
-            $attackBonus = 100;
-            $defenseBonus = 100;
+            $attackBonus = 1;
+            $defenseBonus = 1;
             $speedBonus = 0;
             //defender -> self research bonuses
             if ($defenderResearch && $defenderResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $defenderResearch->getSpell()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $target->getMagic();
-                    $defenseBonus += $skill->getDefenseBonus() * $target->getMagic();
-                    $speedBonus += $skill->getSpeedBonus() * $target->getMagic();
+                    $attackBonus += $skill->getAttackBonus() * $target->getMagic() / 100;
+                    $defenseBonus += $skill->getDefenseBonus() * $target->getMagic() / 100;
+                    $speedBonus += $skill->getSpeedBonus() * $target->getMagic() / 100;
                 }
             }
             //attacker -> defender research bonuses
             if ($attackerResearch && !$attackerResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $attackerResearch->getSpell()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $player->getMagic();
-                    $defenseBonus += $skill->getDefenseBonus() * $player->getMagic();
-                    $speedBonus += $skill->getSpeedBonus() * $player->getMagic();
+                    $attackBonus += $skill->getAttackBonus() * $player->getMagic() / 100;
+                    $defenseBonus += $skill->getDefenseBonus() * $player->getMagic() / 100;
+                    $speedBonus += $skill->getSpeedBonus() * $player->getMagic() / 100;
                 }
             }
             //defender -> self artifact bonuses
             if ($defenderItem && $defenderItem->getArtifact()->getSkill()->getSelf()) {
                 $skill = $defenderItem->getArtifact()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus();
-                    $defenseBonus += $skill->getDefenseBonus();
-                    $speedBonus += $skill->getSpeedBonus();
+                    $attackBonus += $skill->getAttackBonus() / 100;
+                    $defenseBonus += $skill->getDefenseBonus() / 100;
+                    $speedBonus += $skill->getSpeedBonus() / 100;
                 }
             }
             //attacker -> defender artifact bonuses
             if ($attackerItem && !$attackerItem->getArtifact()->getSkill()->getSelf()) {
                 $skill = $attackerItem->getArtifact()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus();
-                    $defenseBonus += $skill->getDefenseBonus();
-                    $speedBonus += $skill->getSpeedBonus();
+                    $attackBonus += $skill->getAttackBonus() / 100;
+                    $defenseBonus += $skill->getDefenseBonus() / 100;
+                    $speedBonus += $skill->getSpeedBonus() / 100;
                 }
             }
             //defender -> self hero bonuses
             foreach ($target->getContracts() as $contract) {
                 $skill = $contract->getHero()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $contract->getLevel();
-                    $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel();
-                    $speedBonus += $skill->getSpeedBonus() * $contract->getLevel();
+                    $attackBonus += $skill->getAttackBonus() * $contract->getLevel() / 100;
+                    $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel() / 100;
+                    $speedBonus += $skill->getSpeedBonus() * $contract->getLevel() / 100;
                 }
             }
             $defenderArmy[] = array(
                 $troop,
                 $troop->getQuantity(), //ALL
-                $attackBonus / (float)100,
-                $defenseBonus / (float)100,
+                $attackBonus,
+                $defenseBonus,
                 $troop->getUnit()->getSpeed() + $speedBonus, //total, porque hay que ordenarlo por speed
             );
         }
@@ -459,8 +459,8 @@ class ArmyController extends Controller
                 //paso por referencia para modificar directamente la cantidad de tropas del array para la siguiente ronda
                 $attackerQuantity = &$attackerArmy[$attackerTurn][1];
                 $attackerAttackBonus = $attackerArmy[$attackerTurn][2];
-                if ($attackerTroop->getUnit()->getFaction()->getOpposite() == $defenderTroop->getUnit()->getFaction()) $attackerAttackBonus += self::FACTION_BONUS;
-                if ($attackerTroop->getUnit()->getType()->getOpposite() == $defenderTroop->getUnit()->getType()) $attackerAttackBonus += self::TYPE_BONUS;
+                if ($attackerTroop->getUnit()->getFaction()->getOpposite() == $defenderTroop->getUnit()->getFaction()) $attackerAttackBonus += self::FACTION_BONUS / 100;
+                if ($attackerTroop->getUnit()->getType()->getOpposite() == $defenderTroop->getUnit()->getType()) $attackerAttackBonus += self::TYPE_BONUS / 100;
                 $attackerAttack = $attackerTroop->getUnit()->getAttack() * $attackerQuantity * $attackerAttackBonus;
                 $attackerDefenseBonus = $attackerArmy[$attackerTurn][3];
                 $attackerDefense = $attackerTroop->getUnit()->getDefense() * $attackerQuantity * $attackerDefenseBonus;
@@ -469,8 +469,8 @@ class ArmyController extends Controller
                 //paso por referencia para modificar directamente la cantidad de tropas del array para la siguiente ronda
                 $defenderQuantity = &$defenderArmy[$defenderTurn][1];
                 $defenderAttackBonus = $defenderArmy[$defenderTurn][2];
-                if ($defenderTroop->getUnit()->getFaction()->getOpposite() == $attackerTroop->getUnit()->getFaction()) $defenderAttackBonus += self::FACTION_BONUS;
-                if ($defenderTroop->getUnit()->getType()->getOpposite() == $attackerTroop->getUnit()->getType()) $defenderAttackBonus += self::TYPE_BONUS;
+                if ($defenderTroop->getUnit()->getFaction()->getOpposite() == $attackerTroop->getUnit()->getFaction()) $defenderAttackBonus += self::FACTION_BONUS / 100;
+                if ($defenderTroop->getUnit()->getType()->getOpposite() == $attackerTroop->getUnit()->getType()) $defenderAttackBonus += self::TYPE_BONUS / 100;
                 $defenderAttack = $defenderTroop->getUnit()->getAttack() * $defenderQuantity * $defenderAttackBonus;
                 $defenderDefenseBonus = $defenderArmy[$defenderTurn][3];
                 $defenderDefense = $defenderTroop->getUnit()->getDefense() * $defenderQuantity * $defenderDefenseBonus;
@@ -536,7 +536,7 @@ class ArmyController extends Controller
             //UPDATE ARMIES
             foreach ($attackerArmy as $row) {
                 $troop = $player->hasTroop($row[0]);
-                $troop->setQuantity($troop->getQuantity() + $row[5] - $row[1]);
+                $troop->setQuantity($troop->getQuantity() - $row[5] + $row[1]);
                 if ($troop->getQuantity() <= 0) {
                     $player->removeTroop($troop);
                     $manager->remove($troop);

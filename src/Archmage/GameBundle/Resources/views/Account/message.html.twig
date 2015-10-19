@@ -32,7 +32,7 @@
             {# show message #}
             {% else %}
                 {% for i in 0..text|length - 1 %}
-            <div class="col-xs-12 col-md-{{ text[i]['length'] }} col-md-offset-{{ text[i]['offset'] }} alert alert-{{ text[i]['class'] }} text-{{ text[i]['align'] }} text-responsive" role="alert">
+            <div class="col-xs-{{ text[i]['length'] }} col-xs-offset-{{ text[i]['offset'] }} alert alert-{{ text[i]['class'] }} text-{{ text[i]['align'] }} text-responsive" role="alert">
                 {{ text[i]['text']|raw }}
             </div>
                 {% endfor %}

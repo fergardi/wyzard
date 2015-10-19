@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
-        return $this->redirect($this->generateUrl('fos_user_security_login'));
+        return $this->redirect($this->generateUrl('archmage_game_kingdom_summary'));
     }
 
     /**

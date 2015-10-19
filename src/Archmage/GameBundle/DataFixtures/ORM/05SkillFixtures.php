@@ -3359,7 +3359,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSummon(false);
         $skill->setDispell(false);
         $skill->setSpy(false);
-        $skill->setBattle(false);
+        $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
         $skill->setFamily(null);

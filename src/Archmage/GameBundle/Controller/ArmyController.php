@@ -272,7 +272,7 @@ class ArmyController extends Controller
         }
         //DEFENDER ITEM AND RESEARCH
         $defenderResearch = $target->getResearch();
-        if ($defenderResearch && $player->getPower() > $target->getPower()) {
+        if ($defenderResearch) {
             $defenderResearch->getSpell()->getFaction() == $target->getFaction() ? $bonus = 1 : $bonus = 2;
             $mana = $defenderResearch->getSpell()->getManaCost() * $bonus;
             if ($mana <= $target->getMana()) {

@@ -60,9 +60,6 @@ img.background {
     .text-responsive {
         font-size:10px !important;
     }
-    .alert.ribbon {
-        line-height: 1.5 !important;
-    }
 }
 @media screen and (min-width: 401px) and (max-width: 700px) {
     .text-responsive {
@@ -89,7 +86,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
     color: inherit !important;
 }
 .label {
-    font-size: 90%;
+    font-size: 95%;
     padding: 0.2em 0.2em 0.1em 0.2em;
     border: 1px solid black;
 }
@@ -331,73 +328,4 @@ html {-webkit-text-size-adjust: none !important;}
     border-radius: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.6);
     border-bottom: 1px solid rgba(0, 0, 0, 0.6);
-}
-/* RIBBONS */
-.alert-dismissible .close {
-    position: relative;
-    top: 0;
-    color: inherit;
-    right: 0;
-}
-.alert.ribbon {
-    margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 2;
-    padding: 6px 12px;
-    border-radius: 4px;
-    border: 1px solid transparent;
-}
-.alert.ribbon:before {
-    left: -35px;
-    border-width: 17px;
-}
-.alert.ribbon:after {
-    right: -35px;
-    border-width: 17px;
-}
-.alert.ribbon:before, .alert.ribbon:after {
-    content: '';
-    position: absolute;
-    height: 0;
-    width: 0;
-    border-style: solid;
-    top: 3px;
-}
-.alert.alert-default:before {
-    border-color: #757575 #757575 #757575 transparent;
-}
-.alert.alert-default:after {
-    border-color: #757575 transparent #757575 #757575;
-}
-.alert.alert-primary:before {
-    border-color: #c5c5c5 #c5c5c5 #c5c5c5 transparent;
-}
-.alert.alert-primary:after {
-    border-color: #c5c5c5 transparent #c5c5c5 #c5c5c5;
-}
-.alert.alert-success:before {
-    border-color: #1e5b07 #1e5b07 #1e5b07 transparent;
-}
-.alert.alert-success:after {
-    border-color: #1e5b07 transparent #1e5b07 #1e5b07;
-}
-.alert.alert-info:before {
-    border-color: #1A4D9F #1A4D9F #1A4D9F transparent;
-}
-.alert.alert-info:after {
-    border-color: #1A4D9F transparent #1A4D9F #1A4D9F;
-}
-.alert.alert-warning:before {
-    border-color: #6330a7 #6330a7 #6330a7 transparent;
-}
-.alert.alert-warning:after {
-    border-color: #6330a7 transparent #6330a7 #6330a7;
-}
-.alert.alert-danger:before {
-    border-color: #9f0c25 #9f0c25 #9f0c25 transparent;
-}
-.alert.alert-danger:after {
-    border-color: #9f0c25 transparent #9f0c25 #9f0c25;
 }

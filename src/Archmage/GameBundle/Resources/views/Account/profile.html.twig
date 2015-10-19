@@ -27,7 +27,7 @@
                     {% endif %}
                     <br>
                     {% for achievement in profile.achievements %}
-                    <div class="col-xs-10 col-xs-offset-1 col-md-4 col-md-offset-{% if loop.index is odd %}1{% else %}2{% endif %} alert alert-{{ profile.faction.class }} ribbon text-center text-responsive">
+                    <div class="col-xs-12 col-md-5 col-md-offset-{% if loop.index is odd %}0{% else %}2{% endif %} alert alert-{{ profile.faction.class }} text-center text-responsive">
                         <i class="fa fa-fw fa-lg fa-trophy"></i>{{ achievement.name }}
                         <small>({{ achievement.description }})</small>
                     </div>

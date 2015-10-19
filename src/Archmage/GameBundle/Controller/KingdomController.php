@@ -94,7 +94,7 @@ class KingdomController extends Controller
                         $payback = floor($auction->getBid() * 0.95);
                         $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + $payback);
                         $text = array();
-                        $text[] = array('danger', 12, 0, 'center', 'Se te ha devuelto '.$this->get('service.controller')->nf($payback).' Oro, tu puja anterior menos el 5% de comisión, por haber sido sobrepujado en la subasta de <span class="label label-'.$auction->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($auction->getName()).'" class="link">'.$auction->getName().'</a></span>.');
+                        $text[] = array('default', 12, 0, 'center', 'Se te ha devuelto '.$this->get('service.controller')->nf($payback).' Oro, tu puja anterior menos el 5% de comisión, por haber sido sobrepujado en la subasta de <span class="label label-'.$auction->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($auction->getName()).'" class="link">'.$auction->getName().'</a></span>.');
                         $this->get('service.controller')->sendMessage($auction->getPlayer(), $auction->getPlayer(), 'Te han sobrepujado', $text, 'auction');
                     }
                     //actualizamos el dinero de la puja y el actual pujante

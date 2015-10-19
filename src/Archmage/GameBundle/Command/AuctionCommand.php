@@ -85,7 +85,7 @@ class AuctionCommand extends ContainerAwareCommand
                         $contract->setPlayer($winner);
                         $winner->addContract($contract);
                     } else {
-                        $text[] = array('default', 12, 0, 'center', 'Ya tienes ese héroe, no puedes tener duplicados, por lo que se ha desbandado el héroe automáticamente.');
+                        $text[] = array('default', 12, 0, 'center', 'Ya tienes ese héroe, pero no puedes tener duplicados, por lo que se ha desbandado el héroe automáticamente.');
                         $manager->remove($contract);
                     }
                 } elseif ($research) {
@@ -93,7 +93,7 @@ class AuctionCommand extends ContainerAwareCommand
                         $research->setPlayer($winner);
                         $winner->addResearch($research);
                     } else {
-                        $text[] = array('default', 12, 0, 'center', 'Ya tienes ese hechizo, no puedes tener duplicados, por lo que se ha perdido automáticamente.');
+                        $text[] = array('default', 12, 0, 'center', 'Ya tienes ese hechizo, pero no puedes tener duplicados, por lo que se ha perdido automáticamente.');
                         $manager->remove($research);
                     }
                 }

@@ -51,7 +51,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Jinete de Dragones',
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => 9999,
+                    'Dragones Rojos' => 999,
                 ),
             ),
             array(
@@ -63,7 +63,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Jinete de Dragones',
                 ),
                 'troops' => array(
-                    'Dragones Negros' => 9999,
+                    'Dragones Negros' => 999,
                 ),
             ),
             array(
@@ -75,7 +75,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Jinete de Dragones',
                 ),
                 'troops' => array(
-                    'Dragones Blancos' => 9999,
+                    'Dragones Blancos' => 999,
                 ),
             ),
             array(
@@ -87,7 +87,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Jinete de Dragones',
                 ),
                 'troops' => array(
-                    'Dragones Azules' => 9999,
+                    'Dragones Azules' => 999,
                 ),
             ),
             array(
@@ -99,12 +99,12 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Jinete de Dragones',
                 ),
                 'troops' => array(
-                    'Dragones Verdes' => 9999,
+                    'Dragones Verdes' => 999,
                 ),
             ),
         );
         $constructions = array(
-            'Tierras' => 1000,
+            'Tierras' => 1999,
             'Granjas' => 1000,
             'Pueblos' => 1000,
             'Nodos' => 1000,

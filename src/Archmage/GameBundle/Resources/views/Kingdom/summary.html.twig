@@ -23,11 +23,11 @@
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }} <span class="label label-extra">Oro</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.goldresourceperturn|nf }} - {{ player.goldmaintenanceperturn|nf }} = <span class="label label-{% if player.goldresourceperturn -  player.goldmaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.goldresourceperturn -  player.goldmaintenanceperturn)|nf }}</span> <span class="label label-extra">Oro / Turno</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.goldresourceperturn|nf }}-{{ player.goldmaintenanceperturn|nf }} = <span class="label label-{% if player.goldresourceperturn -  player.goldmaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.goldresourceperturn -  player.goldmaintenanceperturn)|nf }}</span> <span class="label label-extra">Oro/Turno</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.people|nf }} / {{ player.peoplecap|nf }} <span class="label label-extra">Personas</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.people|nf }}/{{ player.peoplecap|nf }} <span class="label label-extra">Personas</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.peopleresourceperturn|nf }} - {{ player.peoplemaintenanceperturn|nf }} = <span class="label label-{% if player.peopleresourceperturn -  player.peoplemaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.peopleresourceperturn -  player.peoplemaintenanceperturn)|nf }}</span> <span class="label label-extra">Personas / Turno</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.peopleresourceperturn|nf }}-{{ player.peoplemaintenanceperturn|nf }} = <span class="label label-{% if player.peopleresourceperturn -  player.peoplemaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.peopleresourceperturn -  player.peoplemaintenanceperturn)|nf }}</span> <span class="label label-extra">Personas/Turno</span></div>
                         </div>
                     </div>
                 </div>
@@ -47,9 +47,9 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }} / {{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }}/{{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }} - {{ player.manamaintenanceperturn|nf }} = <span class="label label-{% if player.manaresourceperturn - player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }}</span> <span class="label label-extra">Maná / Turno</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }}-{{ player.manamaintenanceperturn|nf }} = <span class="label label-{% if player.manaresourceperturn - player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }}</span> <span class="label label-extra">Maná/Turno</span></div>
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i><span class="label label-extra">Nivel de Magia</span> {{ player.magic|nf }}</div>
                             {# row #}

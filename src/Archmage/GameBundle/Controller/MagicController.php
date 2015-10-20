@@ -252,7 +252,7 @@ class MagicController extends Controller
                         }
                         $item->setQuantity($item->getQuantity() - 1);
                         if ($item->getQuantity() <= 0) {
-                            if ($player->getItem()->getArtifact() == $item->getArtifact()) $player->setItem(null);
+                            if ($player->getItem() && $player->getItem()->getArtifact() == $item->getArtifact()) $player->setItem(null);
                             $player->removeItem($item);
                             $manager->remove($item);
                         }
@@ -491,7 +491,7 @@ class MagicController extends Controller
                     $item = $items[0];
                     $item->setQuantity($item->getQuantity() - 1);
                     if ($item->getQuantity() <= 0) {
-                        if ($target->getItem()->getArtifact() == $item->getArtifact()) $target->setItem(null);
+                        if ($target->getItem() && $target->getItem()->getArtifact() == $item->getArtifact()) $target->setItem(null);
                         $target->removeItem($item);
                         $manager->remove($item);
                     }

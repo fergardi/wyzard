@@ -289,6 +289,7 @@ class ArmyController extends Controller
                 $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor activa el Artefacto <span class="label label-'.$defenderItem->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderItem->getArtifact()->getName()).'" class="link">'.$defenderItem->getArtifact()->getName().'</a></span>.');
                 $defenderItem->setQuantity($defenderItem->getQuantity() - 1);
                 if ($defenderItem->getQuantity() <= 0) {
+                    $target->setItem(null);
                     $target->removeItem($defenderItem);
                     $manager->remove($defenderItem);
                 }

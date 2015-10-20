@@ -252,6 +252,7 @@ class MagicController extends Controller
                         }
                         $item->setQuantity($item->getQuantity() - 1);
                         if ($item->getQuantity() <= 0) {
+                            if ($player->getItem()->getArtifact() == $item->getArtifact()) $player->setItem(null);
                             $player->removeItem($item);
                             $manager->remove($item);
                         }
@@ -466,7 +467,7 @@ class MagicController extends Controller
                 $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
                 $manager->persist($enchantment->getOwner());
                 $manager->remove($enchantment);
-                $text[] = array('default', 12, 0, 'center', 'Te han desencantado <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchatment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>.');
+                $text[] = array('default', 12, 0, 'center', 'Te han desencantado <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>.');
             } else {
                 $this->addFlash('danger', 'El mago <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> no tiene ningún encantamiento que romper sobre su Reino.');
                 $text[] = array('default', 12, 0, 'center', 'No te han desencantado nada.');
@@ -490,6 +491,7 @@ class MagicController extends Controller
                     $item = $items[0];
                     $item->setQuantity($item->getQuantity() - 1);
                     if ($item->getQuantity() <= 0) {
+                        if ($target->getItem()->getArtifact() == $item->getArtifact()) $target->setItem(null);
                         $target->removeItem($item);
                         $manager->remove($item);
                     }
@@ -570,7 +572,7 @@ class MagicController extends Controller
             }
             //TERRAIN
         } elseif ($artifact->getSkill()->getTerrainBonus() > 0) {
-            $free = $artifact->getSkill()->getTerrainBonus();
+            $free = $artifact->getSkill()->getTerrainBonus() * $player->getLands() / 100;
             $player->setConstruction('Tierras', $player->getFree() + $free);
             $this->addFlash('success', 'Has encontrado '.$this->get('service.controller')->nf($free).' <span class="label label-extra">Tierras</span>.');
             //HERO LEVEL

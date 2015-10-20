@@ -459,11 +459,11 @@ class MagicController extends Controller
             $this->createEspionage($target);
         //DISPELL
         } elseif ($spell->getSkill()->getDispell()) {
-            if ($player->getEnchantmentsVictim()->count() > 0) {
-                $enchantments = $player->getEnchantmentsVictim()->toArray();
+            if ($target->getEnchantmentsVictim()->count() > 0) {
+                $enchantments = $target->getEnchantmentsVictim()->toArray();
                 shuffle($enchantments);
                 $enchantment = $enchantments[0];
-                $player->removeEnchantmentsVictim($enchantment);
+                $target->removeEnchantmentsVictim($enchantment);
                 $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
                 $manager->persist($enchantment->getOwner());
                 $manager->remove($enchantment);

@@ -5,11 +5,16 @@
 {% block body %}
 <div class="container">
     <div class="row">
-        <a name="top"></a>
-        <div class="col-xs-12 searchbox">
-            <div class="form-group">
+        <!-- TOP button -->
+        <span id="top-link-block" class="hidden">
+            <a href="#top" class="btn btn-sm btn-default" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+                <i class="fa fa-fw fa-lg fa-arrow-circle-up"></i>
+            </a>
+        </span>
+        <div class="col-xs-12">
+            <div class="form-group searchbox">
                 <div class="input-group stylish-input-group">
-                    <input type="text" id="searchbox" name="searchbox" class="form-control" placeholder="hechizos, unidades, tropas, caos, bestias, asedio, turnos, oro, etc...">
+                    <input type="text" id="searchbox" name="searchbox" class="form-control" placeholder="Buscar por facciones, hechizos, encantamientos, unidades, artefactos, tipos, familias, recursos, etc...">
                     <span class="input-group-addon">
                         &nbsp;<i class="fa fa-fw fa-lg fa-search fa-inverse"></i>&nbsp;
                     </span>
@@ -23,45 +28,45 @@
         </div>
         <div class="col-xs-12 manual">
             <div class="panel panel-default">
-                <div class="panel-heading text-center">Introducción</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-question-circle"></i>Introducción</div>
                 <div class="panel-body text-responsive text-only">
-                    <p>En ArchMage, asumirás el rol de un Mago o Maga novici@ intentando hacerse un hueco en un mundo plagado de enemigos. Competirás contra otros jugadores y NPCs por la supremacía en una carrera económica y militar, investigando diversos y poderosos Hechizos, reclutando gran variedad de Tropas, contratando Héroes que ayudarán en tu campaña y encontrando misteriosos Artefactos que usar en tu beneficio, o incluso en perjuicio de otros.</p>
+                    <p>En ArchMage, asumirás el rol de un Mago o Maga novici@ intentando hacerse un hueco en un mundo plagado de enemigos. Competirás contra otros jugadores y NPCs por la supremacía en una carrera económica y militar, investigando diversos y poderosos <span class="label label-extra">Hechizos</span>, reclutando gran variedad de <span class="label label-extra">Unidades</span>, contratando <span class="label label-extra">Héroes</span> que ayudarán en tu campaña y encontrando misteriosos <span class="label label-extra">Artefactos</span> que usar en tu beneficio, o incluso en perjuicio de otros.</p>
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading text-center">Turnos</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-hourglass-half"></i>Turnos</div>
                 <div class="panel-body text-responsive text-only">
-                    <p>El motor del juego son los <span class="label label-extra">Turnos</span>. Todos los magos ganan 1 <span class="label label-extra">Turno</span> cada 3 minutos, y acumulan hasta un máximo de 300. Con ellos, el jugador tiene a su disposición un amplio abanico de posibilidades, como construir edificios que mejoren su producción, investigación o almacenamiento y producción de recursos como <span class="label label-extra">Oro</span>, <span class="label label-extra">Personas</span> o <span class="label label-extra">Maná</span>, o incluso mejorar su ratio de <span class="label label-extra">Defensa Mágica</span> y <span class="label label-extra">Defensa Física</span>, aumentando su protección contra Hechizos, Artefactos y ataques enemigos.</p>
+                    <p>El motor del juego son los <span class="label label-extra">Turnos</span>. Todos los magos ganan 1 <span class="label label-extra">Turno</span> cada 3 minutos, y acumulan hasta un máximo de 300. Con ellos, el jugador tiene a su disposición un amplio abanico de posibilidades, como construir <span class="label label-extra">Edificios</span> que mejoren su producción, velocidad de investigación o almacenamiento y producción de recursos como el <span class="label label-extra">Oro</span>, las <span class="label label-extra">Personas</span> o el <span class="label label-extra">Maná</span>, o incluso mejorar su capacidad de <span class="label label-extra">Defensa Mágica</span> y <span class="label label-extra">Defensa Física</span>, aumentando su protección contra <span class="label label-extra">Hechizos</span>, <span class="label label-extra">Artefactos</span> y ataques enemigos.</p>
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading text-center">Territorio</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-globe"></i>Territorio</div>
                 <div class="panel-body text-responsive text-only">
-                    <p>Otra parte muy importante del juego son los <span class="label label-extra">Edificios</span>, sin los cuales tu Reino no será capaz de prosperar adecuadamente. Dado que es un juego de turnos y de recursos, aprovechar al máximo los efectos de los edificios es indispensable para avanzar en el ranking más rápido que tus adversarios. Para poder encontrar nuevas tierras libres donde construir, deberás gastar <span class="label label-extra">Turnos</span> en explorar, atacar a otros jugadores y obtenerlas como botín, o usando determinados Artefacos y Hechizos. Construyendo <span class="label label-extra">Granjas</span> aumentarás tu producción de <span class="label label-extra">Oro</span> al turno, con el que podrás construir más edificios, pagar mantenimientos, o adquirir nuevos objetos en la subasta. Con los <span class="label label-extra">Pueblos</span> aumentarás tus <span class="label label-extra">Personas</span>, y con los <span class="label label-extra">Nodos</span> tu <span class="label label-extra">Maná</span>. Todo es importante y solo tú decidirás a qué le das prioridad, puesto que las tierras para construir son muy limitadas, y los costes de mantenimiento de los más podersoso encantamientos, Héroes y Tropas, extremadamente altos de pagar. Los valores que indican los edificios en sus descripciones, referidos a <span class="label label-extra">Oro</span>, <span class="label label-extra">Personas</span> y <span class="label label-extra">Maná</span> son: costes de construcción, recursos proporcionados por turno, costes de mantenimiento y aumento de capacidad máxima de recurso.</p>
+                    <p>Otra parte muy importante del juego son los <span class="label label-extra">Edificios</span>, sin los cuales tu Reino no será capaz de prosperar. Dado que es un juego de <span class="label label-extra">Turnos</span> y de recursos, aprovechar al máximo los efectos de los <span class="label label-extra">Edificios</span> es indispensable para avanzar en el ranking más rápido que tus adversarios. Para poder encontrar nuevas <span class="label label-extra">Tierras</span> libres donde construir, deberás gastar <span class="label label-extra">Turnos</span> en explorar, atacar a otros jugadores para obtenerlas como botín, o lanzando determinados <span class="label label-extra">Artefactos</span> y <span class="label label-extra">Hechizos</span>. Construyendo <span class="label label-extra">Granjas</span> aumentarás tu producción de <span class="label label-extra">Oro</span> al turno, con el que podrás construir más <span class="label label-extra">Edificios</span>, pagar mantenimientos, o pujar en las subastas. Con los <span class="label label-extra">Pueblos</span> aumentarás tus <span class="label label-extra">Personas</span>, y con los <span class="label label-extra">Nodos</span> tu <span class="label label-extra">Maná</span>. Todo es importante y solo tú decidirás a qué le das prioridad, puesto que las <span class="label label-extra">Tierras</span> para construir son muy limitadas, y los costes de mantenimiento de los más podersoso <span class="label label-extra">Encantamientos</span>, <span class="label label-extra">Héroes</span> y <span class="label label-extra">Unidades</span>, son extremadamente caros. Los valores que indican los <span class="label label-extra">Edificios</span> en sus descripciones, referidos a <span class="label label-extra">Oro</span>, <span class="label label-extra">Personas</span> y <span class="label label-extra">Maná</span> son: costes de construcción, recursos proporcionados por turno, costes de mantenimiento y aumento de capacidad máxima de recurso.</p>
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading text-center">Subasta</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-legal"></i>Subasta</div>
                 <div class="panel-body text-responsive text-only">
-                    <p>Además de los métodos habituales para obtener Hechizos, Artefactos y Tropas, puedes intentar obtener elementos muy poco frecuentes para tu facción en la subasta, como Héroes o Hechizos de otras facciones. Las subastas terminan a cada hora en punto, y el máximo pujante se lleva el premio. Recuerda que no puedes tener más de 5 tipos de Tropas diferentes, así que si ganas una subasta y ya estás lleno, se desbandará la nueva tropa automáticamente. Lo mismo ocurre con Héroes y Hechizos, no puedes tener duplicados y los recién adquiridos se descartan. Si te sobrepujan, se te devolverá el <span class="label label-extra">Oro</span> de tu puja anterior menos un 5% de comisión.</p>
+                    <p>Además de los métodos habituales para obtener <span class="label label-extra">Hechizos</span>, <span class="label label-extra">Artefactos</span> y <span class="label label-extra">Unidades</span>, puedes intentar obtener premios muy poco frecuentes para tu facción en la subasta, como <span class="label label-extra">Héroes</span> o <span class="label label-extra">Hechizos</span> de otras facciones. Las subastas terminan a cada hora en punto, y el máximo pujante en ese momento se llevará el premio. Recuerda que no puedes tener más de 5 tipos de <span class="label label-extra">Unidades</span> diferentes, así que si ganas una subasta y no te caben más, se desbandará la nueva tropa automáticamente. Lo mismo ocurre con <span class="label label-extra">Héroes</span> y <span class="label label-extra">Hechizos</span>, ya que no puedes tener duplicados, y los recién adquiridos se descartarán. Si te sobrepujan, se te devolverá el <span class="label label-extra">Oro</span> de tu puja anterior menos un 5% de comisión.</p>
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading text-center">Templo</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-balance-scale"></i>Templo</div>
                 <div class="panel-body text-responsive text-only">
-                    <p>Si te crees lo suficientemente afortunado, puedes intentar ofrecer un sacrificio a los dioses para que te bendigan con un encantamiento de nivel 10. Pero cuidado, el encantamiento puede ser tanto una bendición como una maldición, pues los dioses son caprichosos. Normalmente exigirán la mitad de uno de tus recursos, aunque también pueden quedarse con la mitad de una de tus Tropas, un artefacto tuyo o quizás incluso hasta un nivel de experiencia de uno de tus Héroes, así que piénsalo bien antes de orar.</p>
+                    <p>Si te crees lo suficientemente afortunado, puedes intentar ofrecer un sacrificio a los Dioses para que te bendigan con un <span class="label label-extra">Encantamiento</span> de nivel 10. Los <span class="label label-extra">Encantamientos</span> son <span class="label label-extra">Hechizos</span> que duran un número determinado de <span class="label label-extra">Turnos</span> o hasta que se desencantan. Pero cuidado, el <span class="label label-extra">Encantamiento</span> puede ser tanto una bendición como una maldición, pues los Dioses son caprichosos. Normalmente exigirán la mitad de uno de tus recursos, aunque también pueden quedarse con la mitad de una de tus <span class="label label-extra">Unidades</span>, un <span class="label label-extra">Artefacto</span> o quizás incluso hasta un nivel de experiencia de uno de tus <span class="label label-extra">Héroes</span>, así que piénsalo bien antes de rezarles.</p>
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading text-center">Magia</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i>Magia</div>
                 <div class="panel-body text-responsive text-only">
-                    <p>En el juego existen multitud de Hechizos que el jugador podrá conjurar sobre sí mismo o sobre otros para obtener ventaja directa en combate, invocar Tropas o lanzar encantamientos, entre otras cosas. El nivel de <span class="label label-extra">Magia</span> de un mago determina la potencia y duración de los Hechizos, así como su nivel de investigación, y viene dado por la cantidad de Hechizos de su color que tiene investigados, dividido entre 4. Así, un mago novició con nivel 1 podrá investigar sus cuatro Hechizos de nivel 1 para acceder al nivel 2, y así sucesivamente hasta el nivel 6. También pueden ser adquiridos Hechizos de otros colores en la subasta para beneficiarse de sus propiedades, aunque éstos no incrementarán el nivel de <span class="label label-extra">Magia</span> como los propios. Para obtener un nuevo hechizo un mago debe emplear turnos en completar la investigación, que serán más reducidos cuantos más <span class="label label-extra">Gremios</span> posea. Una vez investigado, podrá conjurarlo, siempre que tenga el nivel de <span class="label label-extra">Magia</span>, el <span class="label label-extra">Maná</span> y los <span class="label label-extra">Turnos</span> necesarios. Algunos Hechizos incluso pueden colocarse en <span class="label label-extra">Defensa</span> y se activarán sólo si te atacan. También podrás activar Artefactos y desencatar encantamientos, aliados o enemigos, con cierta probabilidad de éxito.</p>
+                    <p>En el juego existen multitud de <span class="label label-extra">Hechizos</span> que el jugador podrá conjurar sobre sí mismo o sobre otros para obtener ventaja directa en combate, invocar <span class="label label-extra">Unidades</span> o <span class="label label-extra">Encantamientos</span>, entre otros. El nivel de <span class="label label-extra">Magia</span> de un mago determina la potencia y duración de los mismos, así como su nivel de investigación, y viene dado por la cantidad de <span class="label label-extra">Hechizos</span> de su color que tiene investigados, dividido entre 4. Así, un mago novició con nivel 1 podrá investigar sus cuatro <span class="label label-extra">Hechizos</span> de nivel 1 para acceder al nivel 2, y así sucesivamente hasta el nivel 5. También pueden ser adquiridos <span class="label label-extra">Hechizos</span> de otros colores en la subasta para beneficiarse de sus propiedades, aunque éstos no incrementarán el nivel de <span class="label label-extra">Magia</span> como los propios. Para obtener un nuevo <span class="label label-extra">Hechizo</span>, un mago debe emplear <span class="label label-extra">Turnos</span> en completar la investigación, que serán más reducidos cuantos más <span class="label label-extra">Gremios</span> tenga construidos. Una vez investigado, podrá conjurarlo cuando quiera, siempre que tenga el nivel de <span class="label label-extra">Magia</span>, el <span class="label label-extra">Maná</span> y los <span class="label label-extra">Turnos</span> necesarios para hacerlo. Algunos <span class="label label-extra">Hechizos</span> y <span class="label label-extra">Artefactos</span> pueden colocarse en <span class="label label-extra">Defensa</span> gastando 1 <span class="label label-extra">Turno</span> y se activarán cuando te ataquen, pudiendo cambiar las tornas en una batalla importante. También podrás activar <span class="label label-extra">Artefactos</span> y romper <span class="label label-extra">Encantamientos</span>, aliados o enemigos, con cierta probabilidad de éxito, dependiendo de la <span class="label label-extra">Defensa Mágica</span> del adversario.</p>
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading text-center">Batalla</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-flag-checkered"></i>Batalla</div>
                 <div class="panel-body text-responsive text-only">
-                    <p>El principal atractivo del juego es el ataque entre jugadores. Esto permite rápidos y emocionantes cambios en el ranking de magos, creando oportunidades contra jugadores muy poderosos que normalmente lideran el ranking impunemente. Al atacar a otro mago, puedes seleccionar qué cantidad de Tropas vas a llevar a la batalla, así como si quieres utilizar algún hechizo o artefacto diseñado para la batalla. Los Héroes que tengas irán contigo a la guerra, sirvan o no para ella. Además, dado que pueden atacarte mientras no estás conectado al juego, tienes la posibilidad de escoger uno de tus Hechizos y/o Artefactos para que se activen automáticamente en defensa, junto con la totalidad de tus Tropas y Héroes.</p>
+                    <p>El principal atractivo del juego es el ataque entre jugadores. Esto permite rápidos y emocionantes cambios en el ranking de magos, creando oportunidades contra jugadores muy poderosos que normalmente lideran el ranking. Al atacar a otro mago, puedes seleccionar qué cantidad de <span class="label label-extra">Unidades</span> vas a llevar a la batalla, así como si quieres lanzar algún <span class="label label-extra">Hechizo</span> o <span class="label label-extra">Artefacto</span> especial para la batalla. Los <span class="label label-extra">Héroes</span> que tengas siempre irán contigo a la guerra. Además, dado que pueden atacarte mientras no estás conectado al juego, tienes la posibilidad de escoger uno de tus <span class="label label-extra">Hechizos</span> y/o <span class="label label-extra">Artefactos</span> para que se activen automáticamente en defensa, junto con la totalidad de tus <span class="label label-extra">Unidades</span> y Héroes.</p>
                     <br>
                     <div class="row text-center">
                         {# row #}
@@ -82,10 +87,10 @@
                         </div>
                     </div>
                     <br>
-                    <p>Los valores indicados en las descripciones de las unidades indican <span class="label label-extra">Ataque</span>, <span class="label label-extra">Defensa</span> y <span class="label label-extra">Velocidad</span>. El combate es bastante simple. Durante un máximo de 5 rondas, cada tropa de cada ejército se empareja 1 a 1, ordenadas siempre por su <span class="label label-extra">Velocidad</span> de mayor a menor, es decir, las unidades más rápidas entran antes en combate. Una vez emparejadas, se calculan todos los bonuses pertinentes, como Hechizos, Artefactos, Héroes y facciones o tipos de unidades opuestos, y se calcula su ataque y su defensa totales. A igual <span class="label label-extra">Velocidad</span>, las Tropas atacan y defienden al mismo tiempo. A mayor velocidad del atacante, éste ataca primero e inflinge bajas al defensor, que luego contraatacará con sus Tropas restantes, si queda alguna. A menor velocidad del atacante, es el defensor quien ataca primero e infingle las bajas al atacante, que luego contraatacará con sus Tropas restantes, de quedar alguna. Al final de la batalla, el jugador que haya perdido menos poder gana.</p>
-                    <p>Para poder atacar a otro mago, deberás traspasar su <span class="label label-extra">Defensa Física</span>, y para lanzarle Hechizos y activar Artefactos, su <span class="label label-extra">Defensa Mágica</span>, las cuales empiezan con un 5% de base y son incrementados mediante edificios (Barreras y Fortalezas) y encantamientos.</p>
-                    <p>Si ganas la batalla, normalmente debilitarás a tu contrincante lo suficiente como para reducir su ranking bastantes puestos. Si ganas de forma apastante, podrás robarle un 5% de edificios y <span class="label label-extra">Oro</span>, y tus Héroes ganarán 20 de experiencia en combate. No obstante, si pierdes el ataque, no ganarás absolutamente nada, y probablemente quedarás expuesto a futuras represalias.</p>
-                    <p>Los Dioses son jugadores NPC no controlados, con una defensa altísima y unas Tropas impresionantes, que normalmente nadie podría enfrentar. Pero tal vez a base de muchos ataques especiales y coordinados, podáis igualar e incluso derrotar a estos gigantes de la magia, y ganar una enorme recompensa.</p>
+                    <p>Para poder atacar a otro mago, deberás traspasar su <span class="label label-extra">Defensa Física</span>, y para lanzarle <span class="label label-extra">Hechizos</span> y <span class="label label-extra">Artefactos</span> en combate, también su <span class="label label-extra">Defensa Mágica</span>.</p>
+                    <p>Los valores indicados en las descripciones de las unidades indican <span class="label label-extra">Ataque</span>, <span class="label label-extra">Defensa</span> y <span class="label label-extra">Velocidad</span>. El combate es bastante simple: Durante un máximo de 5 rondas, cada tropa de cada ejército se empareja 1 a 1, ordenadas siempre por su <span class="label label-extra">Velocidad</span> de mayor a menor, es decir, las unidades más rápidas entran antes en combate. Una vez emparejadas, se calculan todos los bonuses pertinentes, como <span class="label label-extra">Hechizos</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span>, y se calcula su <span class="label label-extra">Ataque</span> y su <span class="label label-extra">Defensa</span> totales. A igual <span class="label label-extra">Velocidad</span>, las <span class="label label-extra">Unidades</span> atacan y defienden al mismo tiempo. A mayor velocidad del atacante, éste ataca primero e inflinge bajas al defensor, que luego contraatacará con sus <span class="label label-extra">Unidades</span> restantes, si queda alguna. A menor velocidad del atacante, es el defensor quien ataca primero e infingle las bajas al atacante, que luego contraatacará con sus <span class="label label-extra">Unidaeds</span> restantes, de quedar alguna. Al final de la batalla, el jugador que haya perdido menos <span class="label label-extra">Poder</span>, gana.</p>
+                    <p>Si ganas la batalla, normalmente debilitarás a tu contrincante lo suficiente como para reducir su ranking bastantes puestos. Si ganas de forma apastante, podrás robarle un 5% de sus <span class="label label-extra">Edificios</span> y <span class="label label-extra">Oro</span>, y tus <span class="label label-extra">Héroes</span> ganarán 20 de <span class="label label-extra">Experiencia</span> en combate. No obstante, si pierdes el ataque, no ganarás absolutamente nada, y probablemente quedarás expuesto a futuras represalias.</p>
+                    <p>Los Dioses son jugadores NPC no controlados, con una defensa altísima y un ejército impresionante, que normalmente nadie podría derrotar. Pero tal vez a base de muchos ataques especiales y coordinados, podáis igualar e incluso superar a estos gigantes de la magia, y ganar con ello una enorme recompensa.</p>
                 </div>
             </div>
         </div>
@@ -114,10 +119,10 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center text-responsive">
-                    <i class="fa fa-fw fa-quote-right"></i><span class="label label-{{ faction.class }}">{{ faction.slogan }}</span>
+                    <i class="fa fa-fw fa-quote-right"></i>{{ faction.slogan }}
                 </div>
                 {# TAGS FOR SEARCH #}
-                <span class="hidden">Facciones, {{ unit.faction.name }}</span>
+                <span class="hidden">Facciones, {{ faction.name }}</span>
             </div>
         </div>
         {% endfor %}
@@ -162,7 +167,7 @@
                     <i class="fa fa-fw fa-joomla"></i>{{ building.description|raw }}
                 </div>
                 {# TAGS FOR SEARCH #}
-                <span class="hidden">Edificios, {{ unit.faction.name }}</span>
+                <span class="hidden">Edificios}</span>
             </div>
         </div>
         {% endfor %}
@@ -315,6 +320,16 @@
 
 {% block javascripts %}
 {{ parent() }}
+<script>
+    // Only enable if the document has a long scroll bar
+    // Note the window height + offset
+    if ( ($(window).height() + 100) < $(document).height() ) {
+        $('#top-link-block').removeClass('hidden').affix({
+            // how far to scroll down before link "slides" into view
+            offset: {top:100}
+        });
+    }
+</script>
 <script>
     //BUSCADOR
     $(document).ready(function() {

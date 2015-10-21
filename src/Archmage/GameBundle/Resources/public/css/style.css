@@ -20,7 +20,7 @@ img.background {
         left: 50%;
         margin-left: -512px; }
 }
-.panel, .jumbotron, .alert, .navbar, .well, .table, ul.pagination {
+.panel, .jumbotron, .alert, .navbar, .well, .table, ul.pagination, .searchbox {
     opacity: 0.90;
     box-shadow: 3px 3px 15px black;
 }
@@ -332,4 +332,20 @@ html {-webkit-text-size-adjust: none !important;}
 /* SEARCH */
 .searchbox {
     margin-bottom: 20px;
+}
+#top-link-block.affix-top {
+    position: absolute; /* allows it to "slide" up into view */
+    bottom: -80px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 10;
+}
+#top-link-block.affix {
+    position: fixed; /* keeps it on the bottom once in view */
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 10;
 }

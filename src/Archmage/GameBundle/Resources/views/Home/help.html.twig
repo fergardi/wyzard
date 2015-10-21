@@ -116,6 +116,8 @@
                 <div class="panel-footer text-center text-responsive">
                     <i class="fa fa-fw fa-quote-right"></i><span class="label label-{{ faction.class }}">{{ faction.slogan }}</span>
                 </div>
+                {# TAGS FOR SEARCH #}
+                <span class="hidden">Facciones, {{ unit.faction.name }}</span>
             </div>
         </div>
         {% endfor %}
@@ -159,6 +161,8 @@
                 <div class="panel-footer text-center text-responsive">
                     <i class="fa fa-fw fa-joomla"></i>{{ building.description|raw }}
                 </div>
+                {# TAGS FOR SEARCH #}
+                <span class="hidden">Edificios, {{ unit.faction.name }}</span>
             </div>
         </div>
         {% endfor %}
@@ -198,7 +202,7 @@
                     <i class="fa fa-fw fa-joomla"></i>{% if unit.skill %}{{ unit.skill.description|raw }}{% else %}Ninguna{% endif %}
                 </div>
                 {# TAGS FOR SEARCH #}
-                <span class="hidden">{{ unit.faction.name }}</span>
+                <span class="hidden">Unidades, Tropas, {{ unit.faction.name }}</span>
             </div>
         </div>
         {% endfor %}
@@ -219,9 +223,9 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ hero.goldMaintenance|nf }} / <i class="fa fa-fw fa-star"></i></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ hero.peopleMaintenance|nf }} / <i class="fa fa-fw fa-star"></i></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ hero.manaMaintenance|nf }} / <i class="fa fa-fw fa-star"></i></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ hero.goldMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ hero.peopleMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ hero.manaMaintenance|nf }}</div>
                             {# row #}
                             <div class="col-xs-12 text-lore"><small><i>{{ hero.lore }}</i></small></div>
                         </div>
@@ -230,6 +234,8 @@
                 <div class="panel-footer text-center text-responsive">
                     <i class="fa fa-fw fa-joomla"></i>{% if hero.skill %}{{ hero.skill.description|raw }}{% else %}Ninguna{% endif %}
                 </div>
+                {# TAGS FOR SEARCH #}
+                <span class="hidden">Héroes, Heroes, {{ hero.faction.name }}</span>
             </div>
         </div>
         {% endfor %}

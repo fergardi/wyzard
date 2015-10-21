@@ -18,7 +18,7 @@ class AuctionCommand extends ContainerAwareCommand
     /**
      * Constants
      */
-    const AUCTION_PRICE = 1000000;
+    const AUCTION_PRICE = 5000000;
     const AUCTION_TROOPS = 1;
     const AUCTION_ITEMS = 1;
     const AUCTION_CONTRACTS = 1;

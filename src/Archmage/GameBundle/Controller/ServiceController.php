@@ -50,6 +50,8 @@ class ServiceController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         $notices = $player->getMessages();
+        //NOTICIA PERMANENTE
+        $this->addFlash('info', 'Reset del servidor programado para el 23/10/2015.');
         foreach ($player->getEnchantmentsVictim() as $enchantment) {
             if ($enchantment->getSpell()->getSkill()->getTerrainBonus() < 0 || $enchantment->getSpell()->getSkill()->getPeopleBonus() < 0) {
                 $this->addFlash('danger', 'Recuerda que sobre tu Reino pesa el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>, deberías <i class="fa fa-fw fa-chain-broken"></i><a href="'.$this->generateUrl('archmage_game_magic_dispell').'" class="link">Desencantarlo</a>.');

@@ -23,7 +23,7 @@
                     {% for message in player.messages %}
                     <tr>
                         <td class="text-center">{{ message.datetime|date('d/m/Y H:i:s') }}</td>
-                        <td class="text-center"><a href="{{ path('archmage_game_account_profile', { 'id': message.owner.id|default(player.id) } ) }}" class="link"><span class="label label-{{ message.owner.faction.class|default('extra') }}">{{ message.owner.nick|default('Admin') }}</span></a></td>
+                        <td class="text-center"><span class="label label-{{ message.owner.faction.class|default('extra') }}"><a href="{{ path('archmage_game_account_profile', { 'id': message.owner.id|default(player.id) } ) }}" class="link">{{ message.owner.nick|default('Admin') }}</a></span></td>
                         <td class="text-center"><i class="fa fa-fw fa-envelop"></i><a href="{{ path( 'archmage_game_account_message', { 'hash': message.hash } ) }}" class="link">{{ message.subject|truncate(30) }}</a></td>
                     </tr>
                     {% endfor %}

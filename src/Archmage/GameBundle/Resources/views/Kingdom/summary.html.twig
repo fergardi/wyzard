@@ -175,9 +175,9 @@
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magicDefense|nf }}% <span class="label label-extra">Defensa Mágica</span></div>
                             {# row #}
-                            <div class="col-xs-12">{% if player.research %}<i class="fa fa-fw fa-magic"></i><a href="{{ path('archmage_game_home_help') }}#{{ player.research.spell.name|slug }}" class="link"><span class="label label-{{ player.research.spell.faction.class }}">{{ player.research.spell.name }}</span></a>{% else %}Ningún hechizo en defensa{% endif %}</div>
+                            <div class="col-xs-12">{% if player.research %}<i class="fa fa-fw fa-magic"></i><span class="label label-{{ player.research.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ player.research.spell.name|slug }}" class="link">{{ player.research.spell.name }}</a></span>{% else %}Ningún hechizo en defensa{% endif %}</div>
                             {# row #}
-                            <div class="col-xs-12">{% if player.item %}<i class="fa fa-fw fa-diamond"></i><a href="{{ path('archmage_game_home_help') }}#{{ player.item.spell.name|slug }}" class="link"><span class="label label-{{ player.item.artifact.class }}">{{ player.item.spell.name }}</span></a>{% else %}Ningún artefacto en defensa{% endif %}</div>
+                            <div class="col-xs-12">{% if player.item %}<i class="fa fa-fw fa-diamond"></i><span class="label label-{{ player.item.artifact.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ player.item.spell.name|slug }}" class="link">{{ player.item.spell.name }}</a></span>{% else %}Ningún artefacto en defensa{% endif %}</div>
                         </div>
                     </div>
                 </div>
@@ -197,9 +197,9 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <a href="{{ path('archmage_game_account_message') }}" class="link"><span class="label label-extra">Mensajes</span></a></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_account_message') }}" class="link">Mensajes</a></span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-rocket"></i>{{ player.power|nf }} <a href="{{ path('archmage_game_account_ranking') }}" class="link"><span class="label label-extra">Poder</span></a></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-rocket"></i>{{ player.power|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_account_ranking') }}" class="link">Poder</a></span></div>
                         </div>
                     </div>
                 </div>

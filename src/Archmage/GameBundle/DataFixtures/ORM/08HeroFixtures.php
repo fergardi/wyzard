@@ -23,7 +23,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Nigromante');
         $hero->setImage('bundles/archmagegame/images/hero/darkness/necromancer.jpg');
-        $hero->setLore('Cómo que es ilegal profanar tumbas?');
+        $hero->setLore('¿Cómo que es ilegal profanar tumbas?');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);

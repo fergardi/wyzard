@@ -411,9 +411,9 @@ class MagicController extends Controller
             $this->addFlash('success', 'Has encontrado ' . $this->get('service.controller')->nf($free) . ' <span class="label label-extra">Tierras</span>.');
             //ARTIFACT
         } elseif ($spell->getSkill()->getArtifactBonus() > 0) {
-            $maxchance = abs($spell->getSkill()->getArtifactBonus()) * $player->getMagic();
+            $maxchance = $spell->getSkill()->getArtifactBonus() * $player->getMagic();
             $chance = rand(0,99);
-            if ($chance < $maxchance) {
+            if ($chance <= $maxchance) {
                 $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
                 shuffle($artifacts);
                 $artifact = $artifacts[0]; //suponemos length > 0
@@ -474,6 +474,13 @@ class MagicController extends Controller
         //ENCHANTMENT
         } elseif ($spell->getEnchantment()) {
             if (!$target->hasEnchantmentVictim($spell) || ($target->hasEnchantmentVictim($spell) && $target->hasEnchantmentVictim($spell)->getOwner()->getMagic() <= $player->getMagic())) {
+                $enchantment = new Enchantment();
+                $manager->persist($enchantment);
+                $enchantment->setSpell($spell);
+                $enchantment->setVictim($target);
+                $enchantment->setOwner($player);
+                $target->addEnchantmentsVictim($enchantment);
+                $player->addEnchantmentsOwner($enchantment);
                 $this->addFlash('success', 'Se ha encantado al mago <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> con <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span>.');
                 $text[] = array('default', 12, 0, 'center', 'Te han encantado con <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span>.');
             } else {
@@ -484,7 +491,7 @@ class MagicController extends Controller
         } elseif ($spell->getSkill()->getArtifactBonus() < 0) {
             $maxchance = abs($spell->getSkill()->getArtifactBonus()) * $player->getMagic();
             $chance = rand(0,99);
-            if ($chance < $maxchance) {
+            if ($chance <= $maxchance) {
                 $items = $target->getItems()->toArray();
                 shuffle($items);
                 $item = $items[0];

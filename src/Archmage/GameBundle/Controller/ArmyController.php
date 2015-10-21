@@ -224,8 +224,7 @@ class ArmyController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-
-            return $this->redirect($this->generateUrl('archmage_game_army_attack'));
+            //return $this->redirect($this->generateUrl('archmage_game_army_attack'));
         }
         return array(
             'player' => $player,

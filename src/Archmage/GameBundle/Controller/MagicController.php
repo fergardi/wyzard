@@ -133,7 +133,7 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            return $this->redirect($this->generateUrl('archmage_game_magic_conjure'));
+            //return $this->redirect($this->generateUrl('archmage_game_magic_conjure'));
         }
         return array(
             'player' => $player,
@@ -200,7 +200,7 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            return $this->redirect($this->generateUrl('archmage_game_magic_research'));
+            //return $this->redirect($this->generateUrl('archmage_game_magic_research'));
         }
         return array(
             'player' => $player,
@@ -271,7 +271,7 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'No tienes <span class="label label-extra">Turnos</span> suficientes para eso.');
             }
-            return $this->redirect($this->generateUrl('archmage_game_magic_artifact'));
+            //return $this->redirect($this->generateUrl('archmage_game_magic_artifact'));
         }
         return array(
             'player' => $player,
@@ -323,7 +323,7 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'No tienes <span class="label label-extra">Turnos</span> suficientes para eso.');
             }
-            return $this->redirect($this->generateUrl('archmage_game_magic_dispell'));
+            //return $this->redirect($this->generateUrl('archmage_game_magic_dispell'));
         }
         return array(
             'player' => $player,

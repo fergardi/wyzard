@@ -416,22 +416,20 @@ class MagicController extends Controller
             if ($chance < $maxchance) {
                 $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
                 $number = $spell->getSkill()->getArtifactBonus() * $player->getMagic();
-                for ($i = 0; $i < $number; $i++) {
-                    shuffle($artifacts);
-                    $artifact = $artifacts[0]; //suponemos length > 0
-                    $item = $player->hasArtifact($artifact);
-                    if ($item) {
-                        $item->setQuantity($item->getQuantity() + 1);
-                    } else {
-                        $item = new Item();
-                        $manager->persist($item);
-                        $item->setArtifact($artifact);
-                        $item->setQuantity(1);
-                        $item->setPlayer($player);
-                        $player->addItem($item);
-                    }
-                    $this->addFlash('success', 'Has encontrado el artefacto <span class="label label-' . $item->getArtifact()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
+                shuffle($artifacts);
+                $artifact = $artifacts[0]; //suponemos length > 0
+                $item = $player->hasArtifact($artifact);
+                if ($item) {
+                    $item->setQuantity($item->getQuantity() + 1);
+                } else {
+                    $item = new Item();
+                    $manager->persist($item);
+                    $item->setArtifact($artifact);
+                    $item->setQuantity(1);
+                    $item->setPlayer($player);
+                    $player->addItem($item);
                 }
+                $this->addFlash('success', 'Has encontrado el artefacto <span class="label label-' . $item->getArtifact()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');}
             } else {
                 $this->addFlash('danger', 'No has encontrado nada.');
             }

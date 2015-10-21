@@ -1161,7 +1161,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('+'.$skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> y +'.$skill->getGoldBonus().'% <span class="label label-extra">Oro</span> por nivel.');
+        $skill->setDescription('+'.$skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> y +'.$skill->getGoldBonus().'% <span class="label label-extra">Oro</span> por turno por nivel.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1937,7 +1937,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('+'.$skill->getArtifactBonus().'% por nivel de encontrar un <span class="label label-extra">Artefacto</span>.');
+        $skill->setDescription($skill->getArtifactBonus().'% por nivel de encontrar un <span class="label label-extra">Artefacto</span>.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

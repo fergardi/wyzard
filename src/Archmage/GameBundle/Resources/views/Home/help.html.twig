@@ -5,12 +5,23 @@
 {% block body %}
 <div class="container">
     <div class="row">
-        <div class="col-xs-12"><a name="top"></a>
+        <a name="top"></a>
+        <div class="col-xs-12 searchbox">
+            <div class="form-group">
+                <div class="input-group stylish-input-group">
+                    <input type="text" id="searchbox" name="searchbox" class="form-control" placeholder="'hechizos', 'caos', 'bestias', 'asedio', 'turnos', 'oro', ...">
+                    <span class="input-group-addon">
+                        &nbsp;<i class="fa fa-fw fa-lg fa-search fa-inverse"></i>&nbsp;
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
             <div class="page-header text-center">
                 <h1><i class="fa fa-fw fa-info-circle"></i>Ayuda</h1>
             </div>
         </div>
-        <div class="col-xs-12">
+        <div class="col-xs-12 manual">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Introducción</div>
                 <div class="panel-body text-responsive text-only">
@@ -186,6 +197,8 @@
                 <div class="panel-footer text-center text-responsive">
                     <i class="fa fa-fw fa-joomla"></i>{% if unit.skill %}{{ unit.skill.description|raw }}{% else %}Ninguna{% endif %}
                 </div>
+                {# TAGS FOR SEARCH #}
+                <span class="hidden">{{ unit.faction.name }}</span>
             </div>
         </div>
         {% endfor %}
@@ -256,6 +269,8 @@
                 <div class="panel-footer text-center text-responsive">
                     <i class="fa fa-fw fa-joomla"></i>{{ spell.skill.description|raw }}
                 </div>
+                {# TAGS FOR SEARCH #}
+                <span class="hidden">Hechizos, {% if spell.enchantment %}Encantamientos{% endif %}, {{ spell.faction.name }}</span>
             </div>
         </div>
         {% endfor %}
@@ -283,9 +298,50 @@
                 <div class="panel-footer text-center text-responsive">
                     <i class="fa fa-fw fa-joomla"></i>{{ artifact.skill.description|raw }}
                 </div>
+                {# TAGS FOR SEARCH #}
+                <span class="hidden">Artefactos, {{ artifact.faction.name }}</span>
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script>
+    //BUSCADOR
+    $(document).ready(function() {
+        $.expr[':'].icontains = $.expr.createPseudo(function(text) {
+            return function(e) {
+                return $(e).text().toUpperCase().indexOf(text.toUpperCase()) >= 0;
+            };
+        });
+        $("#searchbox").val("");
+        $("#searchbox").keyup(function () {
+            var tags = $("#searchbox").val();
+            if (tags != "") {
+                //REMOVE HEADERS
+                $(".page-header").parent().each(function () {
+                    $(this).css("display", "none");
+                });
+                $(".panel").parent().each(function () {
+                    $(this).css("display", "none");
+                    if($(this).is(':icontains("'+tags+'")')) {
+                        $(this).css("display", "block");
+                    }
+                });
+                //REMOVE TOP HELP FOR BETTER READABILITY
+                $(".manual").css("display", "none");
+            } else {
+                $(".page-header").parent().each(function () {
+                    $(this).css("display", "block");
+                });
+                $(".panel").parent().each(function () {
+                    $(this).css("display", "block");
+                });
+            }
+        });
+    });
+</script>
 {% endblock %}

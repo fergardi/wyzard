@@ -1924,7 +1924,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
-        $skill->setArtifactBonus(1);
+        $skill->setArtifactBonus(15);
         $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
@@ -1937,7 +1937,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('+'.$skill->getArtifactBonus().' <span class="label label-extra">Artefacto</span> al azar por nivel.');
+        $skill->setDescription('+'.$skill->getArtifactBonus().'% por nivel de encontrar un <span class="label label-extra">Artefacto</span>.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -2316,7 +2316,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
-        $skill->setArtifactBonus(-1);
+        $skill->setArtifactBonus(-15);
         $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
@@ -2329,7 +2329,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription($skill->getArtifactBonus().' <span class="label label-extra">Artefacto</span> enemigo al azar por nivel.');
+        $skill->setDescription(abs($skill->getArtifactBonus()).'% por nivel de eliminar un <span class="label label-extra">Artefacto</span> enemigo.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -3282,7 +3282,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(50);
+        $skill->setTerrainBonus(5);
         $skill->setDamageBonus(0);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);

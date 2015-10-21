@@ -411,34 +411,29 @@ class MagicController extends Controller
             $this->addFlash('success', 'Has encontrado ' . $this->get('service.controller')->nf($free) . ' <span class="label label-extra">Tierras</span>.');
             //ARTIFACT
         } elseif ($spell->getSkill()->getArtifactBonus() > 0) {
-            $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
-            $number = $spell->getSkill()->getArtifactBonus() * $player->getMagic();
-            for ($i = 0; $i < $number; $i++) {
-                shuffle($artifacts);
-                $artifact = $artifacts[0]; //suponemos length > 0
-                $item = $player->hasArtifact($artifact);
-                if ($item) {
-                    $item->setQuantity($item->getQuantity() + 1);
-                } else {
-                    $item = new Item();
-                    $manager->persist($item);
-                    $item->setArtifact($artifact);
-                    $item->setQuantity(1);
-                    $item->setPlayer($player);
-                    $player->addItem($item);
+            $maxchance = abs($spell->getSkill()->getArtifactBonus()) * $player->getMagic();
+            $chance = rand(0,99);
+            if ($chance < $maxchance) {
+                $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
+                $number = $spell->getSkill()->getArtifactBonus() * $player->getMagic();
+                for ($i = 0; $i < $number; $i++) {
+                    shuffle($artifacts);
+                    $artifact = $artifacts[0]; //suponemos length > 0
+                    $item = $player->hasArtifact($artifact);
+                    if ($item) {
+                        $item->setQuantity($item->getQuantity() + 1);
+                    } else {
+                        $item = new Item();
+                        $manager->persist($item);
+                        $item->setArtifact($artifact);
+                        $item->setQuantity(1);
+                        $item->setPlayer($player);
+                        $player->addItem($item);
+                    }
+                    $this->addFlash('success', 'Has encontrado el artefacto <span class="label label-' . $item->getArtifact()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
                 }
-                $this->addFlash('success', 'Has encontrado el artefacto <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
-            }
-            //HERO LEVEL
-        } elseif ($spell->getSkill()->getHeroBonus() > 0) {
-            if ($player->getHeroes() > 0) {
-                $contracts = $player->getContracts()->toArray();
-                shuffle($contracts);
-                $contract = $contracts[0]; //suponemos > 0
-                $contract->setLevel($contract->getLevel() + $spell->getSkill()->getHeroBonus());
-                $this->addFlash('success', 'Tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span>.');
             } else {
-                $this->addFlash('danger', 'No tienes héroes en tu Reino.');
+                $this->addFlash('danger', 'No has encontrado nada.');
             }
         }
         return false;
@@ -458,19 +453,26 @@ class MagicController extends Controller
         if ($spell->getSkill()->getSpy()) {
             $this->createEspionage($target);
         //DISPELL
-        } elseif ($spell->getSkill()->getDispell()) {
+        } elseif ($spell->getSkill()->getDispell()) { //TODO getDispellBonus() > 0
             if ($target->getEnchantmentsVictim()->count() > 0) {
-                $enchantments = $target->getEnchantmentsVictim()->toArray();
-                shuffle($enchantments);
-                $enchantment = $enchantments[0];
-                $target->removeEnchantmentsVictim($enchantment);
-                $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
-                $manager->persist($enchantment->getOwner());
-                $manager->remove($enchantment);
-                $text[] = array('default', 12, 0, 'center', 'Te han desencantado <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>.');
+                $maxchance = 15 * $player->getMagic(); //TODO setDispellBonus(15) getDispellBonus()
+                $chance = rand(0, 99);
+                if ($chance < $maxchance) {
+                    $enchantments = $target->getEnchantmentsVictim()->toArray();
+                    shuffle($enchantments);
+                    $enchantment = $enchantments[0];
+                    $target->removeEnchantmentsVictim($enchantment);
+                    $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
+                    $manager->persist($enchantment->getOwner());
+                    $manager->remove($enchantment);
+                    $text[] = array('default', 12, 0, 'center', 'Te han desencantado <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($enchantment->getSpell()->getName()) . '" class="link">' . $enchantment->getSpell()->getName() . '</a></span>.');
+                } else {
+                    $this->addFlash('danger', 'El mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span> no tiene ningún encantamiento que romper sobre su Reino.');
+                    $text[] = array('default', 12, 0, 'center', 'Han intentado desencantarte, pero no lo han logrado.');
+                }
             } else {
-                $this->addFlash('danger', 'El mago <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> no tiene ningún encantamiento que romper sobre su Reino.');
-                $text[] = array('default', 12, 0, 'center', 'No te han desencantado nada.');
+                $this->addFlash('danger', 'El mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span> no tiene ningún encantamiento que romper sobre su Reino.');
+                $text[] = array('default', 12, 0, 'center', 'Han intentado desencantarte, pero no tenías ningún encantamiento en tu reino.');
             }
         //ENCHANTMENT
         } elseif ($spell->getEnchantment()) {
@@ -483,22 +485,24 @@ class MagicController extends Controller
             }
         //ARTIFACT
         } elseif ($spell->getSkill()->getArtifactBonus() < 0) {
-            $number = $spell->getSkill()->getArtifactBonus() * $player->getMagic();
-            for ($i = 0; $i < $number; $i++) {
-                if ($target->getArtifacts() > 0) {
-                    $items = $target->getItems()->toArray();
-                    shuffle($items);
-                    $item = $items[0];
-                    $item->setQuantity($item->getQuantity() - 1);
-                    if ($item->getQuantity() <= 0) {
-                        if ($target->getItem() && $target->getItem()->getArtifact() == $item->getArtifact()) $target->setItem(null);
-                        $target->removeItem($item);
-                        $manager->remove($item);
-                    }
+            $maxchance = abs($spell->getSkill()->getArtifactBonus()) * $player->getMagic();
+            $chance = rand(0,99);
+            if ($chance < $maxchance) {
+                $items = $target->getItems()->toArray();
+                shuffle($items);
+                $item = $items[0];
+                $item->setQuantity($item->getQuantity() - 1);
+                if ($item->getQuantity() <= 0) {
+                    if ($target->getItem() && $target->getItem()->getArtifact() == $item->getArtifact()) $target->setItem(null);
+                    $target->removeItem($item);
+                    $manager->remove($item);
                 }
+                $this->addFlash('success', 'Has destruido el Artefacto <span class="label label-' . $item->getArtifact()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span> de <a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link"><span class="label label-' . $target->getFaction()->getClass() . '">' . $target->getNick() . '</span></a>.');
+                $text[] = array('default', 12, 0, 'center', 'Te han destruido el Artefacto <span class="label label-' . $item->getArtifact()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
+            } else {
+                $this->addFlash('success', 'No has logrado destruir nada <a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link"><span class="label label-' . $target->getFaction()->getClass() . '">' . $target->getNick() . '</span></a>.');
+                $text[] = array('default', 12, 0, 'center', 'Te han intentado destruir un Artefacto, pero no lo han logrado.');
             }
-            $this->addFlash('success', 'Has destruido ' . $number . ' Artefactos de <a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link"><span class="label label-' . $target->getFaction()->getClass() . '">' . $target->getNick() . '</span></a>.');
-            $text[] = array('default', 12, 0, 'center', 'Te han destruido ' . $number . ' Artefactos.');
         //DAMAGE
         } elseif ($spell->getSkill()->getDamageBonus() < 0) {
             if ($target->getUnits() > 0) {
@@ -649,7 +653,7 @@ class MagicController extends Controller
             $constructions = $target->getConstructions()->toArray();
             shuffle($constructions);
             $construction = $constructions[0]; //suponemos > 0
-            $destroyed = $artifact->getSkill()->getTerrainBonus();
+            $destroyed = $artifact->getSkill()->getTerrainBonus() * $construction->getQuantity() / 100;
             $construction->setQuantity($construction->getQuantity() + $destroyed);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nf($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
             $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nf($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span>.');

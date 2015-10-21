@@ -118,7 +118,7 @@ class ArmyController extends Controller
                      */
                     $manager->persist($player);
                     $manager->flush();
-                    $this->addFlash('success', 'Has gastado ' . $this->get('service.controller')->nf($turns) . ' turnos y desbandado ' . $this->get('service.controller')->nf($quantity) . ' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
+                    $this->addFlash('success', 'Has gastado ' . $this->get('service.controller')->nf($turns) . ' <span class="label label-extra">Turnos</span> y desbandado ' . $this->get('service.controller')->nf($quantity) . ' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
                 } else {
                     $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
                 }

@@ -495,7 +495,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(-2);
+        $skill->setDamageBonus(-1);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
@@ -3151,7 +3151,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(-2);
+        $skill->setDamageBonus(-1);
         $skill->setMagicBonus(0);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
@@ -3492,7 +3492,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getGoldBonus().'% <span class="label label-extra">Oro</span> a tu Reino.');
+        $skill->setDescription('Hasta +'.$this->container->get('service.controller')->nff($skill->getGoldBonus()).'% <span class="label label-extra">Oro</span> a tu Reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3684,7 +3684,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getTurnsBonus().' <span class="label label-extra">Turnos</span> a tu Reino.');
+        $skill->setDescription('Hasta +'.$skill->getTurnsBonus().' <span class="label label-extra">Turnos</span> a tu Reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

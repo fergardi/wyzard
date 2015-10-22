@@ -55,8 +55,7 @@
                         <div class="form-group">
                             <div class="input-group">
                                 {% if not item.artifact.skill.self and not item.artifact.skill.battle%}
-                                <select class="form-control selectpicker" id="target" name="target" data-live-search="true" data-size="5">
-                                    <option>Objetivo</option>
+                                <select class="form-control selectpicker" id="target" name="target" data-live-search="true" data-size="5" title="Objetivo">
                                     {% for target in targets if target != player %}
                                         <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}'>{{ target.nick }}</span>">{{ target.nick }}</option>
                                     {% endfor %}

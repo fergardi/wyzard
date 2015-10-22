@@ -601,7 +601,7 @@ class MagicController extends Controller
             }
             //GOLD
         } elseif ($artifact->getSkill()->getGoldBonus() > 0) {
-            $gold = $player->getGold() * $artifact->getSkill()->getGoldBonus() / (float)100;
+            $gold = rand($artifact->getSkill()->getGoldBonus() / 2, $artifact->getSkill()->getGoldBonus());
             $player->setGold($player->getGold() + $gold);
             $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nf($gold).' <span class="label label-extra">Oro</span>.');
             //PEOPLE
@@ -616,7 +616,7 @@ class MagicController extends Controller
             $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span>.');
             //TURNS
         } elseif ($artifact->getSkill()->getTurnsBonus() > 0) {
-            $turns = $artifact->getSkill()->getTurnsBonus();
+            $turns = rand($artifact->getSkill()->getTurnsBonus() / 2, $artifact->getSkill()->getTurnsBonus());
             $player->setTurns($player->getTurns() + $turns);
             $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span>.');
         }

@@ -260,16 +260,7 @@ class ArmyController extends Controller
         //MESSAGE
         $text = array();
         $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ataca a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
-        //ATTACKER ITEM AND RESEARCH
-        if ($attackerResearch) {
-            $chance = rand(0,99);
-            if ($chance > $target->getMagicDefense()) {
-                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante lanza el Hechizo <span class="label label-'.$attackerResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerResearch->getSpell()->getName()).'" class="link">'.$attackerResearch->getSpell()->getName().'</a></span>.');
-            } else {
-                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante no ha logrado lanzar el Hechizo <span class="label label-'.$attackerResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerResearch->getSpell()->getName()).'" class="link">'.$attackerResearch->getSpell()->getName().'</a></span>.');
-                $attackerResearch = null;
-            }
-        }
+        //ATTACKER ITEM
         if ($attackerItem) {
             $chance = rand(0,99);
             if ($chance > $target->getMagicDefense()) {
@@ -279,7 +270,37 @@ class ArmyController extends Controller
                 $attackerItem = null;
             }
         }
-        //DEFENDER ITEM AND RESEARCH
+        //ATTACKER RESEARCH
+        if ($attackerResearch) {
+            $chance = rand(0,99);
+            if ($chance > $target->getMagicDefense()) {
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante lanza el Hechizo <span class="label label-'.$attackerResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerResearch->getSpell()->getName()).'" class="link">'.$attackerResearch->getSpell()->getName().'</a></span>.');
+            } else {
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El mago atacante no ha logrado lanzar el Hechizo <span class="label label-'.$attackerResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerResearch->getSpell()->getName()).'" class="link">'.$attackerResearch->getSpell()->getName().'</a></span>.');
+                $attackerResearch = null;
+            }
+        }
+        //DEFENDER ITEM
+        $defenderItem = $target->getItem();
+        if ($defenderItem) {
+            if ($defenderItem->getQuantity() > 0) {
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor activa el Artefacto <span class="label label-'.$defenderItem->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderItem->getArtifact()->getName()).'" class="link">'.$defenderItem->getArtifact()->getName().'</a></span>.');
+                if ($defenderItem->getArtifact()->getSkill()->getManaBonus() > 0) {
+                    $mana = floor($target->getMana() * $defenderItem->getArtifact()->getSkill()->getManaBonus() / (float)100);
+                    $target->setMana($target->getMana() + $mana);
+                }
+                $defenderItem->setQuantity($defenderItem->getQuantity() - 1);
+                if ($defenderItem->getQuantity() <= 0) {
+                    $target->setItem(null);
+                    $target->removeItem($defenderItem);
+                    $manager->remove($defenderItem);
+                }
+            } else {
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor no tiene reservas del Artefacto <span class="label label-'.$defenderItem->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderItem->getArtifact()->getName()).'" class="link">'.$defenderItem->getArtifact()->getName().'</a></span>.');
+                $defenderItem = null;
+            }
+        }
+        //DEFENDER RESEARCH
         $defenderResearch = $target->getResearch();
         if ($defenderResearch) {
             $defenderResearch->getSpell()->getFaction() == $target->getFaction() ? $bonus = 1 : $bonus = 2;
@@ -290,21 +311,6 @@ class ArmyController extends Controller
             } else {
                 $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor no tiene <span class="label label-extra">Maná</span> para lanzar el Hechizo <span class="label label-'.$defenderResearch->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderResearch->getSpell()->getName()).'" class="link">'.$defenderResearch->getSpell()->getName().'</a></span>.');
                 $defenderResearch = null;
-            }
-        }
-        $defenderItem = $target->getItem();
-        if ($defenderItem) {
-            if ($defenderItem->getQuantity() > 0) {
-                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor activa el Artefacto <span class="label label-'.$defenderItem->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderItem->getArtifact()->getName()).'" class="link">'.$defenderItem->getArtifact()->getName().'</a></span>.');
-                $defenderItem->setQuantity($defenderItem->getQuantity() - 1);
-                if ($defenderItem->getQuantity() <= 0) {
-                    $target->setItem(null);
-                    $target->removeItem($defenderItem);
-                    $manager->remove($defenderItem);
-                }
-            } else {
-                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor no tiene reservas del Artefacto <span class="label label-'.$defenderItem->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderItem->getArtifact()->getName()).'" class="link">'.$defenderItem->getArtifact()->getName().'</a></span>.');
-                $defenderItem = null;
             }
         }
         //ATTACKER

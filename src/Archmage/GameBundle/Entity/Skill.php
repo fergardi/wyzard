@@ -59,7 +59,7 @@ class Skill
     /**
      * @var integer
      *
-     * @ORM\Column(name="goldBonus", type="smallint", nullable=false)
+     * @ORM\Column(name="goldBonus", type="integer", nullable=false)
      */
     private $goldBonus = 0;
 

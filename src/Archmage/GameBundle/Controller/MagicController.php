@@ -200,7 +200,7 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_magic_research'));
+            return $this->redirect($this->generateUrl('archmage_game_magic_research'));
         }
         return array(
             'player' => $player,

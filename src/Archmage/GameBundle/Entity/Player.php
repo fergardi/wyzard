@@ -1293,6 +1293,23 @@ class Player
     }
 
     /**
+     * Has spell
+     *
+     * @return boolean
+     */
+    public function hasSpell(Spell $search = null)
+    {
+        if ($search) {
+            foreach ($this->researchs as $research) {
+                if ($research->getSpell() == $search) {
+                    return $research;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * Has enchantment
      *
      * @return boolean

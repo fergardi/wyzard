@@ -76,7 +76,7 @@
             </div>
         </div>
         {% endfor %}
-        {% for spell in spells if spell.magic <= player.magic %}
+        {% for spell in spells if spell.magic <= player.magic and not player.hasSpell(spell) %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ spell.faction.class }}">
                 <div class="panel-heading text-center">{% if spell.enchantment %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ spell.name|slug }}" class="link">{{ spell.name }}</a></div>

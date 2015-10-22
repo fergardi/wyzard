@@ -3008,7 +3008,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setType(null);
         $skill->setFamily(null);
-        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Población</span> y '.$skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> enemigas por turno por nivel.');
+        $skill->setDescription($skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> y '.$skill->getPeopleBonus().'% <span class="label label-extra">Población</span> enemiga por turno por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

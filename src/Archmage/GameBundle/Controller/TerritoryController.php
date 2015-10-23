@@ -43,7 +43,7 @@ class TerritoryController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_territory_explore'));
+            return $this->redirect($this->generateUrl('archmage_game_territory_explore'));
         }
         return array(
             'player' => $player,
@@ -94,7 +94,7 @@ class TerritoryController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_territory_build'));
+            return $this->redirect($this->generateUrl('archmage_game_territory_build'));
         }
         return array(
             'player' => $player,
@@ -135,7 +135,7 @@ class TerritoryController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_territory_demolish'));
+            return $this->redirect($this->generateUrl('archmage_game_territory_demolish'));
         }
         return array(
             'player' => $player,

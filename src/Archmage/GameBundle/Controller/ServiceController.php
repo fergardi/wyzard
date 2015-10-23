@@ -50,12 +50,14 @@ class ServiceController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         $notices = $player->getMessages();
+        //limpiar mensaje tipo info
+        $this->container->get('session')->getFlashBag()->get('info');
         //NOTICIA PERMANENTE
         $this->addFlash('info', 'Reset del servidor programado para Sábado 24 de Octubre 10:00AM.');
         foreach ($player->getEnchantmentsVictim() as $enchantment) {
             $skill = $enchantment->getSpell()->getSkill();
             if ($skill->getTerrainBonus() < 0 || $skill->getPeopleBonus() < 0 || $skill->getManaBonus() < 0) {
-                $this->addFlash('danger', 'Recuerda que sobre tu Reino pesa el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>, deberías <i class="fa fa-fw fa-chain-broken"></i><a href="'.$this->generateUrl('archmage_game_magic_dispell').'" class="link">Desencantarlo</a>.');
+                $this->addFlash('info', 'Recuerda que sobre tu Reino pesa el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>, deberías <i class="fa fa-fw fa-chain-broken"></i><a href="'.$this->generateUrl('archmage_game_magic_dispell').'" class="link">Desencantarlo</a>.');
             }
         }
         foreach ($notices as $notice) {

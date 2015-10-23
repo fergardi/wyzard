@@ -55,7 +55,7 @@ class KingdomController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_kingdom_tax'));
+            return $this->redirect($this->generateUrl('archmage_game_kingdom_tax'));
         }
         return array(
             'player' => $player,
@@ -113,7 +113,7 @@ class KingdomController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_kingdom_auction'));
+            return $this->redirect($this->generateUrl('archmage_game_kingdom_auction'));
         }
         return array(
             'player' => $player,
@@ -216,7 +216,7 @@ class KingdomController extends Controller
             } else {
                 $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios para eso.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_kingdom_temple'));
+            return $this->redirect($this->generateUrl('archmage_game_kingdom_temple'));
         }
         return array(
             'player' => $player,

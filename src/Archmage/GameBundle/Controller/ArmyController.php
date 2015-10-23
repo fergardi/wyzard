@@ -77,7 +77,7 @@ class ArmyController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_army_recruit'));
+            return $this->redirect($this->generateUrl('archmage_game_army_recruit'));
         }
         return array(
             'player' => $player,
@@ -137,7 +137,7 @@ class ArmyController extends Controller
             else{
                 $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> suficientes para eso.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_army_disband'));
+            return $this->redirect($this->generateUrl('archmage_game_army_disband'));
         }
         return array(
             'player' => $player,
@@ -214,6 +214,7 @@ class ArmyController extends Controller
                     //quantity > 0
                     if ($player->getUnits() > 0 && !empty($attackerArmy) && $target) {
                         $chance = rand(0, 99);
+                        $report = null;
                         if ($chance >= $target->getArmyDefense()) {
                             $report = $this->attackTarget($attackerArmy, $attackerResearch, $attackerItem, $target);
                             $manager->persist($target);
@@ -226,6 +227,8 @@ class ArmyController extends Controller
                          */
                         $manager->persist($player);
                         $manager->flush();
+                        //redirect to battle report
+                        if ($report != null) return $this->redirect($this->generateUrl('archmage_game_account_message', array('hash' => $report->getHash())));
                     } else {
                         $this->addFlash('danger', 'Debes atacar con al menos 1 unidad.');
                     }
@@ -235,7 +238,7 @@ class ArmyController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            if ($report) return $this->redirect($this->generateUrl('archmage_game_account_message', array('hash' => $report->getHash())));
+            return $this->redirect($this->generateUrl('archmage_game_army_attack'));
         }
         return array(
             'player' => $player,

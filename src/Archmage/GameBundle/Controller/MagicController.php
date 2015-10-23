@@ -50,7 +50,7 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'No tienes suficientes <span class="label label-extra">Turnos</span> para eso.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_magic_charge'));
+            return $this->redirect($this->generateUrl('archmage_game_magic_charge'));
         }
         return array(
             'player' => $player,
@@ -133,7 +133,7 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_magic_conjure'));
+            return $this->redirect($this->generateUrl('archmage_game_magic_conjure'));
         }
         return array(
             'player' => $player,
@@ -327,7 +327,7 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'No tienes <span class="label label-extra">Turnos</span> suficientes para eso.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_magic_dispell'));
+            return $this->redirect($this->generateUrl('archmage_game_magic_dispell'));
         }
         return array(
             'player' => $player,
@@ -351,14 +351,13 @@ class MagicController extends Controller
             array('default', 5, 2, 'center', 'Héroes: '.$this->get('service.controller')->nf($target->getContracts()->count())),
             array('default', 5, 0, 'center', 'Artefactos: '.$this->get('service.controller')->nf($target->getArtifacts())),
             array('default', 5, 2, 'center', 'Encantamientos: '.$this->get('service.controller')->nf($target->getEnchantmentsVictim()->count())),
-            array('default', 5, 2, 'center', 'Defensa Mágica: '.$this->get('service.controller')->nf($target->getMagicDefense())),
-            array('default', 5, 0, 'center', 'Defensa Física: '.$this->get('service.controller')->nf($target->getArmyDefense())),
+            array('default', 5, 0, 'center', 'Defensa Mágica: '.$this->get('service.controller')->nf($target->getMagicDefense())),
+            array('default', 5, 2, 'center', 'Defensa Física: '.$this->get('service.controller')->nf($target->getArmyDefense())),
             array('default', 5, 0, 'center', 'Poder: '.$this->get('service.controller')->nf($target->getPower())),
             array('default', 5, 2, 'center', 'Unidades: '.$this->get('service.controller')->nf($target->getUnits())),
             array('default', 12, 0, 'center', 'Ejército: '.$target->getArmyToString()),
         );
         $this->get('service.controller')->sendMessage($target, $player, $subject, $text, 'espionage');
-        return false;
     }
 
     /**
@@ -440,7 +439,6 @@ class MagicController extends Controller
                 $this->addFlash('danger', 'No has encontrado nada.');
             }
         }
-        return false;
     }
 
     /**
@@ -549,7 +547,6 @@ class MagicController extends Controller
             $text[] = array('default', 12, 0, 'center', 'Has perdido '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span>.');
         }
         $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Hechizo', $text, 'magic');
-        return false;
     }
 
     /**
@@ -623,7 +620,6 @@ class MagicController extends Controller
             $player->setTurns($player->getTurns() + $turns);
             $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span>.');
         }
-        return false;
     }
 
     /**
@@ -689,6 +685,5 @@ class MagicController extends Controller
             $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span>.');
         }
         $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Artefacto', $text, 'magic');
-        return false;
     }
 }

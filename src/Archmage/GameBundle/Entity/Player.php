@@ -1147,6 +1147,20 @@ class Player
     }
 
     /**
+     * Get army
+     *
+     * @return string
+     */
+    public function getArmyToString()
+    {
+        $units = array();
+        foreach ($this->troops as $troop) {
+            $units[] = '<span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>';
+        }
+        return implode(', ', $units);
+    }
+
+    /**
      * Get spells
      *
      * @return integer

@@ -32,7 +32,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <select class="form-control selectpicker show-tick dropup" id="target" name="target" data-live-search="true" data-size="5" title="Objetivo">
-                                            {% for target in targets if target != player %}
+                                            {% for target in targets if target != player and player.power * 0.80 < target.power %}
                                             <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}'>{{ target.nick }}</span>">{{ target.nick }}</option>
                                             {% endfor %}
                                         </select>

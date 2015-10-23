@@ -53,7 +53,8 @@ class ServiceController extends Controller
         //NOTICIA PERMANENTE
         $this->addFlash('info', 'Reset del servidor programado para Sábado 24 de Octubre 10:00AM.');
         foreach ($player->getEnchantmentsVictim() as $enchantment) {
-            if ($enchantment->getSpell()->getSkill()->getTerrainBonus() < 0 || $enchantment->getSpell()->getSkill()->getPeopleBonus() < 0) {
+            $skill = $enchantment->getSpell()->getSkill();
+            if ($skill->getTerrainBonus() < 0 || $skill->getPeopleBonus() < 0 || $skill->getManaBonus() < 0) {
                 $this->addFlash('danger', 'Recuerda que sobre tu Reino pesa el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>, deberías <i class="fa fa-fw fa-chain-broken"></i><a href="'.$this->generateUrl('archmage_game_magic_dispell').'" class="link">Desencantarlo</a>.');
             }
         }
@@ -85,7 +86,6 @@ class ServiceController extends Controller
         $message->setClass('default');
         $manager->persist($message);
         $receiver->addMessage($message);
-
         //TELEGRAM BOT https://core.telegram.org/bots & https://unnikked.ga/getting-started-with-telegram-bots/
         $api = $this->container->get('shaygan.telegram_bot_api');
         if ($receiver->getChat()) {
@@ -104,6 +104,7 @@ class ServiceController extends Controller
                 //TODO EXCEPTION TELEGRAM BOT API
             }
         }
+        return $message;
     }
 
     /**

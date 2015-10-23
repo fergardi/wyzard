@@ -158,7 +158,7 @@ class ArmyController extends Controller
             $turns = 2;
             $target = isset($_POST['target'])?$_POST['target']:null;
             $target = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($target);
-            if ($target && $player->getPower() < $target->getPower() * 1.20) {
+            if ($target && $player->getPower() * 0.80 < $target->getPower()) {
                 $attackerResearch = isset($_POST['research']) ? $_POST['research'] : null;
                 $attackerResearch = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($attackerResearch);
                 $mana = 0;
@@ -215,7 +215,7 @@ class ArmyController extends Controller
                     if ($player->getUnits() > 0 && !empty($attackerArmy) && $target) {
                         $chance = rand(0, 99);
                         if ($chance >= $target->getArmyDefense()) {
-                            $this->attackTarget($attackerArmy, $attackerResearch, $attackerItem, $target);
+                            $report = $this->attackTarget($attackerArmy, $attackerResearch, $attackerItem, $target);
                             $manager->persist($target);
                             $this->addFlash('success', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar al mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span>.');
                         } else {
@@ -235,7 +235,7 @@ class ArmyController extends Controller
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
-            //return $this->redirect($this->generateUrl('archmage_game_army_attack'));
+            if ($report) return $this->redirect($this->generateUrl('archmage_game_account_message', array('hash' => $report->getHash())));
         }
         return array(
             'player' => $player,
@@ -653,6 +653,8 @@ class ArmyController extends Controller
         $manager->persist($counter);
         //mensajes al objetivo y al jugador
         $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Batalla', $text, 'battle');
-        $this->get('service.controller')->sendMessage($target, $player, 'Reporte de Batalla', $text, 'battle');
+        $report = $this->get('service.controller')->sendMessage($target, $player, 'Reporte de Batalla', $text, 'battle');
+        //redirect to see message
+        return $report;
     }
 }

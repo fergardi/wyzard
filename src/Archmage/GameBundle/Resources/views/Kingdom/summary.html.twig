@@ -149,7 +149,7 @@
                         <div class="col-xs-8 text-padded">
                             {% for contract in player.contracts %}
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}" class="link">{{ contract.hero.name }}</a></span> [{{ contract.level|nf }}] ({{ contract.experience }}/{{ contract.hero.experience * contract.level }})</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}" class="link">{{ contract.hero.name }}</a></span> [<i class="fa fa-fw fa-star"></i>{{ contract.level|nf }}] ({{ contract.experience }}/{{ contract.hero.experience * contract.level }})</div>
                             {% else %}
                             <div class="col-xs-12">Ningún héroe en tu reino</div>
                             {% endfor %}

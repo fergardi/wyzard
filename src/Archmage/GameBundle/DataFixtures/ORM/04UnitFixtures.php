@@ -894,7 +894,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(3);
         $unit->setImage('bundles/archmagegame/images/unit/holy/unicorn.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Bestias'));
+        $unit->setFamily($this->getReference('Celestiales'));
         $unit->setType($this->getReference('Magia'));
         $unit->setGoldMaintenance(5);
         $unit->setPeopleMaintenance(2);
@@ -917,7 +917,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setSpeed(3);
         $unit->setImage('bundles/archmagegame/images/unit/holy/pegasus.jpg');
         $unit->setFaction($this->getReference('Sagrado'));
-        $unit->setFamily($this->getReference('Bestias'));
+        $unit->setFamily($this->getReference('Celestiales'));
         $unit->setType($this->getReference('Volador'));
         $unit->setGoldMaintenance(1);
         $unit->setPeopleMaintenance(3);

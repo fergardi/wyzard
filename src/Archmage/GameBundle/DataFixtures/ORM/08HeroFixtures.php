@@ -69,9 +69,9 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //REY DE LOS DEMONIOS
         $hero = new Hero();
-        $hero->setName('Rey de los Demonios');
+        $hero->setName('Rey Demonio');
         $hero->setImage('bundles/archmagegame/images/hero/doom/demonking.jpg');
-        $hero->setLore('Uno no llega a rey sin hacer algunos enemigos');
+        $hero->setLore('Uno no llega a Rey sin hacer algunos enemigos');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -149,8 +149,8 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //MAESTRO DE ELEMENTALES
         $hero = new Hero();
-        $hero->setName('Maestro de los Elementos');
-        $hero->setImage('bundles/archmagegame/images/hero/ghost/elementsmaster.jpg');
+        $hero->setName('Elementalista');
+        $hero->setImage('bundles/archmagegame/images/hero/ghost/elementalist.jpg');
         $hero->setLore('Ahora tengo frío, ahora tengo calor...');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
@@ -165,8 +165,8 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //SEÑOR DE LAS BESTIAS
         $hero = new Hero();
-        $hero->setName('Maestro de las Bestias');
-        $hero->setImage('bundles/archmagegame/images/hero/nature/beastlord.jpg');
+        $hero->setName('Cazador');
+        $hero->setImage('bundles/archmagegame/images/hero/nature/hunter.jpg');
         $hero->setLore('Cuchi, cuchi, cuchi...');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
@@ -229,8 +229,8 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         //COMANDANTE
         $hero = new Hero();
-        $hero->setName('Comandante');
-        $hero->setImage('bundles/archmagegame/images/hero/holy/commander.jpg');
+        $hero->setName('Serafín');
+        $hero->setImage('bundles/archmagegame/images/hero/holy/seraph.jpg');
         $hero->setLore('Me envía el de arriba.');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);

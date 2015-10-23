@@ -45,7 +45,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             array(
                 'name' => 'Duggo, Dios de la Sangre',
                 'faction' => 'Caos',
-                'item' => array(
+                'items' => array(
                     'Botas de Velocidad' => 9999,
                 ),
                 'heroes' => array(
@@ -58,7 +58,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             array(
                 'name' => 'Surm, Dios de la Muerte',
                 'faction' => 'Oscuridad',
-                'item' => array(
+                'items' => array(
                     'Botas de Velocidad' => 9999,
                 ),
                 'heroes' => array(
@@ -71,7 +71,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             array(
                 'name' => 'Lett, Diosa de la Luz',
                 'faction' => 'Sagrado',
-                'item' => array(
+                'items' => array(
                     'Botas de Velocidad' => 9999,
                 ),
                 'heroes' => array(
@@ -84,7 +84,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             array(
                 'name' => 'Sihir, Diosa de la Magia',
                 'faction' => 'Fantasmal',
-                'item' => array(
+                'items' => array(
                     'Botas de Velocidad' => 9999,
                 ),
                 'heroes' => array(
@@ -97,7 +97,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             array(
                 'name' => 'Elama, Diosa de la Vida',
                 'faction' => 'Naturaleza',
-                'item' => array(
+                'items' => array(
                     'Botas de Velocidad' => 9999,
                 ),
                 'heroes' => array(
@@ -137,14 +137,17 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 $player->addConstruction($construction);
             }
             //items
-            $item = new Item();
-            $item->setArtifact($this->getReference($god['item'][0]));
-            $item->setQuantity($god['item'][1]);
-            $item->setPlayer($player);
-            $manager->persist($item);
-            $player->addItem($item);
-            //defense
-            $player->setItem($item);
+            $items = $god['items'];
+            foreach ($items as $name => $quantity) {
+                $item = new Item();
+                $item->setArtifact($this->getReference($name));
+                $item->setQuantity($quantity);
+                $item->setPlayer($player);
+                $manager->persist($item);
+                $player->addItem($item);
+                //defense
+                $player->setItem($item);
+            }
             //troops
             $troops = $god['troops'];
             foreach ($troops as $name => $quantity) {
@@ -177,7 +180,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 $player->addAchievement($achievement);
             }
         }
-
         //FLUSH
         $manager->flush();
     }

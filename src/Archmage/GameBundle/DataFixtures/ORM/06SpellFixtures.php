@@ -918,7 +918,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //CONCILIO DE LAS BESTIAS
         $spell = new Spell();
         $spell->setSkill($this->getReference('Convocar Bestias'));
-        $spell->setName($spell->getSkill()->getName());
+        $spell->setName('Concilio de las Bestias');
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/nature/council.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
@@ -1386,7 +1386,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //REUNION ELEMENTAL
         $spell = new Spell();
         $spell->setSkill($this->getReference('Convocar Elementales'));
-        $spell->setName($spell->getSkill()->getName());
+        $spell->setName('Reunión Elemental');
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/elementalgathering.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
@@ -1854,7 +1854,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //PUERTA DE LOS CIELOS
         $spell = new Spell();
         $spell->setSkill($this->getReference('Convocar Celestiales'));
-        $spell->setName($spell->getSkill()->getName());
+        $spell->setName('Puerta de los Cielos');
         $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
         $spell->setImage('bundles/archmagegame/images/spell/holy/heavensdoor.jpg');
         $spell->setFaction($this->getReference('Sagrado'));

@@ -234,7 +234,6 @@ class Player
      */
     public function setGold($gold)
     {
-        //if ($gold < 0) $gold = 0;
         $this->gold = max(0, $gold);
 
         return $this;
@@ -258,10 +257,6 @@ class Player
      */
     public function setMana($mana)
     {
-        /*
-        if ($mana > $this->getManaCap()) $mana = $this->getManaCap();
-        if ($mana < 0) $mana = 0;
-        */
         $this->mana = max(0, min($this->getManaCap(), $mana));
 
         return $this;
@@ -285,10 +280,6 @@ class Player
      */
     public function setPeople($people)
     {
-        /*
-        if ($people > $this->getPeopleCap()) $people = $this->getPeopleCap();
-        if ($people < 0) $people = 0;
-        */
         $this->people = max(0, min($this->getPeopleCap(), $people));
 
         return $this;

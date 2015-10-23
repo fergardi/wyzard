@@ -118,17 +118,17 @@ class ServiceController extends Controller
         for ($i = 1; $i <= $turns; $i++) {
             //BUILDINGS ENCHANTMENTS
             foreach ($player->getEnchantmentsVictim() as $enchantment) {
-                //enemigos, porcentajes y aleatorio
+                //enemigos, aleatorio
                 if ($enchantment->getSpell()->getSkill()->getTerrainBonus() < 0) {
                     $constructions = $player->getConstructions()->toArray();
                     shuffle($constructions);
                     $construction = $constructions[0];
-                    $quantity = round($construction->getQuantity() * $enchantment->getSpell()->getSkill()->getTerrainBonus() * $enchantment->getOwner()->getMagic() / (float)100);
-                    $construction->setQuantity($construction->getQuantity() + $quantity);
+                    $quantity = $enchantment->getSpell()->getSkill()->getTerrainBonus() * $enchantment->getOwner()->getMagic();
+                    $construction->setQuantity(max(0,$construction->getQuantity() + $quantity));
                 }
-                //aliados, positivos y sin bonus por getmagic (+1 tierra)
+                //aliados, positivos (+1 tierra maximo, sin importar el nivel de magia)
                 if ($enchantment->getSpell()->getSkill()->getTerrainBonus() > 0) {
-                    $player->setLands($player->getLands() + $enchantment->getSpell()->getSkill()->getTerrainBonus());
+                    $player->setBuilding('Tierras', $player->getFree() + $enchantment->getSpell()->getSkill()->getTerrainBonus());
                 }
             }
             //ARTIFACTS

@@ -352,7 +352,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
-        $this->setReference($spell->getName().' defense', $spell); //gods
+        //$this->setReference($spell->getName().' defense', $spell); //gods
         $manager->persist($spell);
 
         //PLAGA
@@ -866,7 +866,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
-        $this->setReference($spell->getName().' defense', $spell); //gods
+        //$this->setReference($spell->getName().' defense', $spell); //gods
         $manager->persist($spell);
 
         //FAVOR DE LA NATURALEZA
@@ -1288,7 +1288,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
-        $this->setReference($spell->getName().' defense', $spell);
+        //$this->setReference($spell->getName().' defense', $spell);
         $manager->persist($spell);
 
         //ENCONTRAR ARTEFACTO
@@ -1825,7 +1825,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
-        $this->setReference($spell->getName().' defense', $spell); //gods
+        //$this->setReference($spell->getName().' defense', $spell); //gods
         $manager->persist($spell);
 
         //PROTECCION DIVINA
@@ -2316,7 +2316,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
-        $this->setReference($spell->getName().' defense', $spell); //gods
+        //$this->setReference($spell->getName().' defense', $spell); //gods
         $manager->persist($spell);
 
         //PACTO DE SANGRE

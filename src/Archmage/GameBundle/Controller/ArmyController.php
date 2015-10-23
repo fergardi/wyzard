@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Collections\ArrayCollection;
 use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Message;
+use Archmage\GameBundle\Entity\Attack;
 
 class ArmyController extends Controller
 {
@@ -644,6 +645,12 @@ class ArmyController extends Controller
         /*
          * FIN
          */
+        //nuevo registro en la tabla de ataques para contraataques
+        $counter = new Attack();
+        $counter->setAttacker($player);
+        $counter->setDefender($target);
+        $counter->setDatetime(new \DateTime('now'));
+        $manager->persist($counter);
         //mensajes al objetivo y al jugador
         $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Batalla', $text, 'battle');
         $this->get('service.controller')->sendMessage($target, $player, 'Reporte de Batalla', $text, 'battle');

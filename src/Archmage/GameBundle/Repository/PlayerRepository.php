@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class PlayerRepository extends EntityRepository
 {
+    public function findAllSpellsResearchablesByPlayer(Player $player)
+    {
+        //buscar todos los targets que puedan ser atacados por este jugador (un mago no puede atacar dos veces a otro mago en 12h pero si puede realizar contraataques)
+        $qb = $this->_em->createQueryBuilder();
+
+
+        return $qb->getQuery()->getResult();
+    }
 }

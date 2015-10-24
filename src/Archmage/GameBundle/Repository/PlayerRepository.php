@@ -3,6 +3,7 @@
 namespace Archmage\GameBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Archmage\GameBundle\Entity\Player;
 
 /**
  * PlayerRepository
@@ -12,12 +13,32 @@ use Doctrine\ORM\EntityRepository;
  */
 class PlayerRepository extends EntityRepository
 {
-    public function findAllSpellsResearchablesByPlayer(Player $player)
+    public function findAllValidAttackTargetsByPlayer(Player $player)
     {
-        //buscar todos los targets que puedan ser atacados por este jugador (un mago no puede atacar dos veces a otro mago en 12h pero si puede realizar contraataques)
         $qb = $this->_em->createQueryBuilder();
 
+        //COUNTERS
+        $counters = $qb->select('a.attacker')
+            ->from('ArchmageGameBundle:Attack', 'a')
+            ->where($qb->expr()->eq('a.defender', $player))
+            ->getQuery()
+            ->getResult();
 
-        return $qb->getQuery()->getResult();
+        //BLACKLIST
+        $blacklist = $qb->select('a.defender')
+            ->from('ArchmageGameBundle:Attack', 'a')
+            ->where($qb->expr()->eq('a.attacker', $player))
+            ->getQuery()
+            ->getResult();
+
+        //TARGETS
+        $targets = $qb->select('p')
+            ->from('ArchmageGameBundle:Player', 'p')
+            ->andWhere($qb->expr()->In('p.id', $counters))
+            ->andWhere($qb->expr()->notIn('p.id', $blacklist))
+            ->getQuery()
+            ->getResult();
+
+        return $targets;
     }
 }

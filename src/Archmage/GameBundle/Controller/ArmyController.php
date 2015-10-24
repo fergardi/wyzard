@@ -31,7 +31,7 @@ class ArmyController extends Controller
         if ($this->get('service.controller')->checkWinner()) return $this->redirect($this->generateUrl('archmage_game_account_legend'));
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
-        $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
+        $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAllAttackables();
         if ($request->isMethod('POST')) {
             $turns = 2;
             $target = isset($_POST['target'])?$_POST['target']:null;
@@ -655,7 +655,6 @@ class ArmyController extends Controller
         $counter = new Attack();
         $counter->setAttacker($player);
         $counter->setDefender($target);
-        $counter->setDatetime(new \DateTime('now'));
         $manager->persist($counter);
         //mensajes al objetivo y al jugador
         $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Batalla', $text, 'battle');

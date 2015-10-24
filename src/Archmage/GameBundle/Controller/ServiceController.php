@@ -49,13 +49,7 @@ class ServiceController extends Controller
     public function checkWinner()
     {
         $manager = $this->getDoctrine()->getManager();
-        $winner = $manager->getRepository('ArchmageGameBundle:Player')->findOneByWinner(true);
-        if ($winner) {
-            $this->addFlash('info', 'El mago <span class="label label-'.$winner->getFaction()->getClass().'">'.$winner->getNick().'</span> ha ganado el juego.');
-            //redirect, so nobody can play again until reset
-            return true;
-        }
-        return false;
+        return $manager->getRepository('ArchmageGameBundle:Player')->findOneByWinner(true);
     }
 
     /**
@@ -75,6 +69,12 @@ class ServiceController extends Controller
         if ($apocalypse) {
             $this->addFlash('info', 'Alguien ha convocado el <span class="label label-'.$apocalypse->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($apocalypse->getSpell()->getName()).'" class="link">'.$apocalypse->getSpell()->getName().'</a></span>, impedidlo antes de que sea tarde!');
         }
+        //WINNER CONDITION
+        $winner = $this->checkWinner();
+        if ($winner) {
+            $this->addFlash('info', 'El mago <span class="label label-'.$winner->getFaction()->getClass().'">'.$winner->getNick().'</span> ha ganado el juego.');
+        }
+        //ENCHANTMENTS
         foreach ($player->getEnchantmentsVictim() as $enchantment) {
             $skill = $enchantment->getSpell()->getSkill();
             if ($skill->getTerrainBonus() < 0 || $skill->getPeopleBonus() < 0 || $skill->getManaBonus() < 0) {

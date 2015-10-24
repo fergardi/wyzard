@@ -46,6 +46,14 @@ class Attack
 
 
     /**
+     * Constructor
+     **/
+    public function __construct()
+    {
+        $this->datetime = new \DateTime('now');
+    }
+
+    /**
      * Get id
      *
      * @return integer 

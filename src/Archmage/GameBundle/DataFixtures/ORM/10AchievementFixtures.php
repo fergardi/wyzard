@@ -176,7 +176,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(50);
-        $achievement->setDescription('Acumula '.$this->container->get('service.controller')->nff($achievement->getDefense()).' Defensa');
+        $achievement->setDescription('Acumula '.$this->container->get('service.controller')->nff($achievement->getDefense()).'% Defensa');
         $manager->persist($achievement);
 
         $manager->flush();

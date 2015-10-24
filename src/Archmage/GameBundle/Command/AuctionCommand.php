@@ -163,17 +163,19 @@ class AuctionCommand extends ContainerAwareCommand
         for ($i = 0; $i < self::AUCTION_RESEARCHS; $i++) {
             shuffle($spells);
             $spell = $spells[0]; // suponemos > 0
-            $auction = new Auction();
-            $research = new Research();
-            $manager->persist($research);
-            $research->setSpell($spell);
-            $research->setTurns(0);
-            $research->setPlayer(null);
-            $research->setActive(true);
-            $auction->setPlayer(null);
-            $auction->setResearch($research);
-            $auction->setBid(self::AUCTION_PRICE);
-            $manager->persist($auction);
+            if (!$spell->getSkill()->getWin()) { //no puede salir apocalipsis en subasta
+                $auction = new Auction();
+                $research = new Research();
+                $manager->persist($research);
+                $research->setSpell($spell);
+                $research->setTurns(0);
+                $research->setPlayer(null);
+                $research->setActive(true);
+                $auction->setPlayer(null);
+                $auction->setResearch($research);
+                $auction->setBid(self::AUCTION_PRICE);
+                $manager->persist($auction);
+            }
         }
         $manager->flush();
         return true;

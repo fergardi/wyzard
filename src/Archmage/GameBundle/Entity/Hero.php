@@ -85,6 +85,13 @@ class Hero
     private $rarity = 0;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="power", type="integer", nullable=false)
+     */
+    private $power = 0;
+
+    /**
      * @var Faction
      *
      * @ORM\ManyToOne(targetEntity="Faction")
@@ -316,6 +323,29 @@ class Hero
     public function getRarity()
     {
         return $this->rarity;
+    }
+
+    /**
+     * Set power
+     *
+     * @param integer $power
+     * @return Hero
+     */
+    public function setPower($power)
+    {
+        $this->power = $power;
+
+        return $this;
+    }
+
+    /**
+     * Get power
+     *
+     * @return integer
+     */
+    public function getPower()
+    {
+        return $this->power;
     }
 
     /**

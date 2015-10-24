@@ -10,6 +10,7 @@ use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Enchantment;
 use Archmage\GameBundle\Entity\Achievement;
 use Archmage\GameBundle\Entity\Message;
+use Archmage\GameBundle\Entity\Legend;
 
 class ServiceController extends Controller
 {
@@ -43,6 +44,21 @@ class ServiceController extends Controller
     }
 
     /**
+     * Check Win condition
+     */
+    public function checkWinner()
+    {
+        $manager = $this->getDoctrine()->getManager();
+        $winner = $manager->getRepository('ArchmageGameBundle:Player')->findOneByWinner(true);
+        if ($winner) {
+            $this->addFlash('info', 'El mago <span class="label label-'.$winner->getFaction()->getClass().'">'.$winner->getNick().'</span> ha ganado el juego.');
+            //redirect, so nobody can play again until reset
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Flashbags notices
      */
     public function addNews()
@@ -50,14 +66,19 @@ class ServiceController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         $notices = $player->getMessages();
-        //limpiar mensaje tipo info
+        //limpiar mensaje tipo info para evitar duplicados ya que hacemos redirects en los controladores
         $this->container->get('session')->getFlashBag()->get('info');
         //NOTICIA PERMANENTE
-        $this->addFlash('info', 'Reset del servidor programado para Sábado 24 de Octubre 10:00AM.');
+        //$this->addFlash('info', 'Reset del servidor programado para Sábado 24 de Octubre 10:00AM.');
+        //APOCALIPSIS
+        $apocalypse = $manager->getRepository('ArchmageGameBundle:Enchantment')->findOneBySpell($manager->getRepository('ArchmageGameBundle:Spell')->findByName('Apocalipsis'));
+        if ($apocalypse) {
+            $this->addFlash('info', 'Alguien ha convocado el <span class="label label-'.$apocalypse->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($apocalypse->getSpell()->getName()).'" class="link">'.$apocalypse->getSpell()->getName().'</a></span>, impedidlo antes de que sea tarde!');
+        }
         foreach ($player->getEnchantmentsVictim() as $enchantment) {
             $skill = $enchantment->getSpell()->getSkill();
             if ($skill->getTerrainBonus() < 0 || $skill->getPeopleBonus() < 0 || $skill->getManaBonus() < 0) {
-                $this->addFlash('info', 'Recuerda que sobre tu Reino pesa el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>, deberías <i class="fa fa-fw fa-chain-broken"></i><a href="'.$this->generateUrl('archmage_game_magic_dispell').'" class="link">Desencantarlo</a>.');
+                $this->addFlash('info', 'Recuerda que sobre tu Reino pesa el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>.');
             }
         }
         foreach ($notices as $notice) {
@@ -275,12 +296,21 @@ class ServiceController extends Controller
                 if ($enchantment->getExpiration() >= $enchantment->getSpell()->getTurnsExpiration() * $enchantment->getOwner()->getMagic()) {
                     $player->removeEnchantmentsVictim($enchantment);
                     $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
+                    if ($enchantment->getSpell()->getSkill()->getWin()) {
+                        $this->addFlash('success', 'Has convocado completamente <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>, ganas el juego!');
+                        $legend = new Legend();
+                        $legend->setNick('<span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span>');
+                        $legend->setLands($player->getLands());
+                        $legend->setPower($player->getPower());
+                        $manager->persist($legend);
+                        $player->setWinner(true);
+                    }
                     $manager->persist($enchantment->getOwner());
                     $manager->remove($enchantment);
                     $this->addFlash('success', 'Se ha terminado el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>.');
                 }
             }
-            //EXPERIENCE
+            //HEROES EXPERIENCE
             foreach ($player->getContracts() as $contract) {
                 $contract->setExperience($contract->getExperience() + 1);
                 if ($contract->getExperience() >= $contract->getHero()->getExperience() * $contract->getLevel()) {

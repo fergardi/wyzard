@@ -20,13 +20,13 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/temple.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar 5 <span class="label label-extra">Turnos</span> para intentar romper un <span class="label label-extra">Encantamiento</span> amigo o enemigo sobre tu reino. Si es enemigo, puede que no consigas traspasar su <span class="label label-extra">Defensa Mágica</span>.</div>
+                            <div class="col-xs-12">Aquí puedes gastar 5 <span class="label label-extra">Turnos</span> para intentar romper un <span class="label label-extra">Encantamiento</span> amigo o enemigo sobre tu reino. Si es enemigo, debes traspasar su <span class="label label-extra">Defensa Mágica</span> para lograrlo.</div>
                         </div>
                     </div>
                 </div>
                 <div class="panel-middle text-center">Fórmula</div>
                 <div class="panel-body text-responsive text-only text-center">
-                    <p>PROB<sub>éxito</sub> = MIN(75, 5 + BARRERAS<sub>jugador</sub> * 10 / 100)</p>
+                    <p>PROB<sub>éxito</sub> = MIN (75, DEFENSA MÁGICA<sub>dueño</sub>)</p>
                 </div>
                 <div class="panel-footer text-center">
                     <a class="btn btn-default" href="{{ path( 'archmage_game_magic_conjure' ) }}"><i class="fa fa-fw fa-magic"></i>Conjurar</a>

@@ -141,18 +141,18 @@ class Skill
     private $heroBonus = 0;
 
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="dispell", type="boolean", nullable=false)
+     * @ORM\Column(name="dispellBonus", type="smallint", nullable=false)
      */
-    private $dispell = false;
+    private $dispellBonus = 0;
 
     /**
-     * @var boolean
+     * @var integer
      *
-     * @ORM\Column(name="spy", type="boolean", nullable=false)
+     * @ORM\Column(name="spyBonus", type="smallint", nullable=false)
      */
-    private $spy = false;
+    private $spyBonus = 0;
 
     /**
      * @var boolean
@@ -181,6 +181,13 @@ class Skill
      * @ORM\Column(name="random", type="boolean", nullable=false)
      */
     private $random = false;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="win", type="boolean", nullable=false)
+     */
+    private $win = false;
 
     /**
      * @var Family
@@ -617,49 +624,49 @@ class Skill
     }
 
     /**
-     * Set dispell
+     * Set dispellBonus
      *
-     * @param boolean $dispell
+     * @param integer $dispellBonus
      * @return Skill
      */
-    public function setDispell($dispell)
+    public function setDispellBonus($dispellBonus)
     {
-        $this->dispell = $dispell;
+        $this->dispellBonus = $dispellBonus;
 
         return $this;
     }
 
     /**
-     * Get dispell
+     * Get dispellBonus
      *
-     * @return boolean 
+     * @return integer
      */
-    public function getDispell()
+    public function getDispellBonus()
     {
-        return $this->dispell;
+        return $this->dispellBonus;
     }
 
     /**
-     * Set spy
+     * Set spyBonus
      *
-     * @param boolean $spy
+     * @param integer $spyBonus
      * @return Skill
      */
-    public function setSpy($spy)
+    public function setSpyBonus($spyBonus)
     {
-        $this->spy = $spy;
+        $this->spyBonus = $spyBonus;
 
         return $this;
     }
 
     /**
-     * Get spy
+     * Get spyBonus
      *
-     * @return boolean 
+     * @return integer
      */
-    public function getSpy()
+    public function getSpyBonus()
     {
-        return $this->spy;
+        return $this->spyBonus;
     }
 
     /**
@@ -752,6 +759,29 @@ class Skill
     public function getRandom()
     {
         return $this->random;
+    }
+
+    /**
+     * Set win
+     *
+     * @param boolean $win
+     * @return Skill
+     */
+    public function setWin($win)
+    {
+        $this->win = $win;
+
+        return $this;
+    }
+
+    /**
+     * Get win
+     *
+     * @return boolean
+     */
+    public function getWin()
+    {
+        return $this->win;
     }
 
     /**

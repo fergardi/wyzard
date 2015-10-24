@@ -16,7 +16,7 @@
             {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Usuario (6-20)', 'data-minlength': '6', 'maxlength': '20' } }) }}
             {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'Contraseña (6-20)', 'data-minlength': '6', 'maxlength': '20' } }) }}
             {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Repetir contraseña (6-20)', 'data-minlength': '6', 'maxlength': '20' } }) }}
-            {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'Email@unico.com (5-30)', 'data-minlength': '5', 'maxlength': '30' } }) }}
+            {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'Email@unico.com (6-30)', 'data-minlength': '6', 'maxlength': '30' } }) }}
             {{ form_rest(form) }}
             <button type="submit" id="submit" name="_submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-sign-in"></i>Registrarse</button>
         </form>

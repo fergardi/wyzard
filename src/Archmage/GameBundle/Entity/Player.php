@@ -102,6 +102,13 @@ class Player
     private $god = false;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="winner", type="boolean", nullable=false)
+     */
+    private $winner = false;
+
+    /**
      * @var item
      *
      * @ORM\ManyToOne(targetEntity="Item")
@@ -408,6 +415,29 @@ class Player
     public function getGod()
     {
         return $this->god;
+    }
+
+    /**
+     * Set winner
+     *
+     * @param boolean $winner
+     * @return Player
+     */
+    public function setWinner($winner)
+    {
+        $this->winner = $winner;
+
+        return $this;
+    }
+
+    /**
+     * Get winner
+     *
+     * @return boolean
+     */
+    public function getWinner()
+    {
+        return $this->winner;
     }
 
     /**
@@ -914,6 +944,9 @@ class Player
         foreach ($this->troops as $troop) {
             $power += $troop->getQuantity() * $troop->getUnit()->getPower();
         }
+        foreach ($this->contracts as $contract) {
+            $power += $contract->getLevel() * $contract->getHero()->getPower();
+        }
         return $power;
     }
 
@@ -980,6 +1013,20 @@ class Player
      */
 
     /**
+     * Get terrainResourcePerTurn
+     *
+     * @return integer
+     */
+    public function getTerrainResourcePerTurn()
+    {
+        $terrain = 0;
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            if ($enchantment->getSpell()->getSkill()->getTerrainBonus() > 0)$terrain += $enchantment->getSpell()->getSkill()->getTerrainBonus();
+        }
+        return $terrain;
+    }
+
+    /**
      * Get goldResourcePerTurn
      *
      * @return integer
@@ -1037,6 +1084,20 @@ class Player
             $mana += floor($mana * $enchantment->getSpell()->getSkill()->getManaBonus() * $enchantment->getOwner()->getMagic() / (float)100);
         }
         return $mana;
+    }
+
+    /**
+     * Get terrainMaintenancePerTurn
+     *
+     * @return integer
+     */
+    public function getTerrainMaintenancePerTurn()
+    {
+        $terrain = 0;
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            if ($enchantment->getSpell()->getSkill()->getTerrainBonus () < 0) $terrain += $enchantment->getSpell()->getSkill()->getTerrainBonus() * $enchantment->getOwner()->getMagic();
+        }
+        return $terrain;
     }
 
     /**

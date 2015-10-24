@@ -7,8 +7,8 @@
     <div class="jumbotron text-center">
         {% include "ArchmageUserBundle::logo.html.twig" %}
         <form id="login" name="login" class="form-signin" data-toggle="validator" action="{{ path("fos_user_security_check") }}" method="post">
-            <input type="text" id="username" name="_username" class="form-control" placeholder="Usuario (3-20)" value="{{ last_username }}" data-minlength="3" maxlength="20" required />
-            <input type="password" id="password" name="_password" class="form-control" placeholder="Contraseña (5-20)" data-minlength="5" maxlength="20" required />
+            <input type="text" id="username" name="_username" class="form-control" placeholder="Usuario (6-20)" value="{{ last_username }}" data-minlength="6" maxlength="20" required />
+            <input type="password" id="password" name="_password" class="form-control" placeholder="Contraseña (6-20)" data-minlength="6" maxlength="20" required />
             <button type="submit" id="submit" name="_submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-sign-in"></i>Entrar</button>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
         </form>

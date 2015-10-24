@@ -18,6 +18,7 @@ class KingdomController extends Controller
     public function summaryAction()
     {
         $this->get('service.controller')->addNews();
+        if ($this->get('service.controller')->checkWinner()) return $this->redirect($this->generateUrl('archmage_game_account_legend'));
         $player = $this->getUser()->getPlayer();
         return array(
             'player' => $player,
@@ -31,6 +32,7 @@ class KingdomController extends Controller
     public function taxAction(Request $request)
     {
         $this->get('service.controller')->addNews();
+        if ($this->get('service.controller')->checkWinner()) return $this->redirect($this->generateUrl('archmage_game_account_legend'));
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
@@ -69,6 +71,7 @@ class KingdomController extends Controller
     public function auctionAction(Request $request)
     {
         $this->get('service.controller')->addNews();
+        if ($this->get('service.controller')->checkWinner()) return $this->redirect($this->generateUrl('archmage_game_account_legend'));
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         $auctions = $manager->getRepository('ArchmageGameBundle:Auction')->findAll();
@@ -128,6 +131,7 @@ class KingdomController extends Controller
     public function templeAction(Request $request)
     {
         $this->get('service.controller')->addNews();
+        if ($this->get('service.controller')->checkWinner()) return $this->redirect($this->generateUrl('archmage_game_account_legend'));
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         $gods = $manager->getRepository('ArchmageGameBundle:Player')->findByGod(true);
@@ -148,16 +152,16 @@ class KingdomController extends Controller
                 if ($player->getItems()->count() > 0) $sacrifice[] = 'item';
                 $sacrifice = $sacrifice[rand(0, count($sacrifice) - 1)];
                 if ($sacrifice == 'gold') {
-                    $player->setGold($player->getGold() / 2);
-                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tu <span class="label label-extra">Oro</span>.');
+                    $player->setGold($player->getGold() * 0.90);
+                    $this->addFlash('danger', 'Los Dioses han exigido un diezmo de tu <span class="label label-extra">Oro</span>.');
                 }
                 if ($sacrifice == 'people') {
-                    $player->setPeople($player->getPeople() / 2);
-                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tu <span class="label label-extra">Población</span>.');
+                    $player->setPeople($player->getPeople() * 0.90);
+                    $this->addFlash('danger', 'Los Dioses han exigido un diezmo de tu <span class="label label-extra">Población</span>.');
                 }
                 if ($sacrifice == 'mana') {
-                    $player->setMana($player->getMana() / 2);
-                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tu <span class="label label-extra">Maná</span>.');
+                    $player->setMana($player->getMana() * 0.90);
+                    $this->addFlash('danger', 'Los Dioses han exigido un diezmo de tu <span class="label label-extra">Maná</span>.');
                 }
                 if ($sacrifice == 'contract') {
                     $contracts = $player->getContracts()->toArray(); //for shuffling
@@ -175,8 +179,8 @@ class KingdomController extends Controller
                     $troops = $player->getTroops()->toArray(); //for shuffling
                     shuffle($troops);
                     $troop = $troops[0]; //suponemos > 0 por entrar en el array
-                    $troop->setQuantity($troop->getQuantity() / 2);
-                    $this->addFlash('danger', 'Los Dioses han exigido la mitad de tus <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
+                    $troop->setQuantity($troop->getQuantity() * 0.90);
+                    $this->addFlash('danger', 'Los Dioses han exigido un diezmo de tus <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
                     if ($troop->getQuantity() <= 0) {
                         $player->removeTroop($troop);
                         $manager->remove($troop);
@@ -187,8 +191,9 @@ class KingdomController extends Controller
                     shuffle($items);
                     $item = $items[0]; //suponemos > 0 por entrar en el array
                     $item->setQuantity($item->getQuantity() - 1);
-                    $this->addFlash('danger', 'Los Dioses han exigido el artefacto <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
+                    $this->addFlash('danger', 'Los Dioses han exigido un <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
                     if ($item->getQuantity() <= 0) {
+                        if ($player->getItem() && $player->getItem()->getArtifact() == $item->getArtifact()) $player->setItem(null);
                         $player->removeItem($item);
                         $manager->remove($item);
                     }

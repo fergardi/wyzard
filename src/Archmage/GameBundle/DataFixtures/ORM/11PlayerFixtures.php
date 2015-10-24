@@ -123,6 +123,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $player = new Player();
             $manager->persist($player);
             $player->setGod(true);
+            $player->setWinner(false);
             $player->setNick($god['name']);
             $player->setFaction($this->getReference($god['faction']));
             $player->setItem(null);

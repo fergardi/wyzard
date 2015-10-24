@@ -45,7 +45,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -54,8 +54,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -77,7 +77,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -86,8 +86,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -109,7 +109,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -118,8 +118,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -141,7 +141,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -150,8 +150,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -173,7 +173,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -182,8 +182,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -205,7 +205,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -214,8 +214,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -237,7 +237,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -246,8 +246,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -269,7 +269,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -278,8 +278,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -301,7 +301,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -310,8 +310,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -333,7 +333,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -342,8 +342,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -368,8 +368,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(1200); //media
+        $skill->setWin(false);
+        $skill->setQuantityBonus(500); //media
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -377,8 +377,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -400,7 +400,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(-1);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -409,8 +409,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -432,7 +432,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -441,8 +441,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -464,7 +464,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -473,8 +473,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -496,7 +496,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(-1);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -505,8 +505,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -528,7 +528,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(-1);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -537,8 +537,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -560,7 +560,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(1);
         $skill->setArmyDefenseBonus(1);
@@ -569,8 +569,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -592,7 +592,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -601,8 +601,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -624,7 +624,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -633,8 +633,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -656,7 +656,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -665,8 +665,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -693,7 +693,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -702,8 +702,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -725,7 +725,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -734,8 +734,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -757,7 +757,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -766,8 +766,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -789,7 +789,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -798,8 +798,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -821,7 +821,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -830,8 +830,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -853,7 +853,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -862,8 +862,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -885,7 +885,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -894,8 +894,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -917,7 +917,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -926,8 +926,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -949,7 +949,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -958,8 +958,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -981,7 +981,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -990,8 +990,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -1016,7 +1016,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1025,8 +1025,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -1048,7 +1048,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(350); // media de bestias
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1057,8 +1057,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -1080,7 +1080,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1089,8 +1089,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -1112,7 +1112,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1121,8 +1121,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -1139,12 +1139,12 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(1);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
+        $skill->setGoldBonus(-1);
+        $skill->setManaBonus(-1);
+        $skill->setPeopleBonus(-1);
         $skill->setTerrainBonus(1);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1153,15 +1153,15 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('+'.$skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> y +'.$skill->getGoldBonus().'% <span class="label label-extra">Oro</span> por turno por nivel.');
+        $skill->setDescription('+'.$skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> y -1% <span class="label label-extra">Recursos</span> por turno por nivel.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1176,7 +1176,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1185,8 +1185,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -1208,7 +1208,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1217,8 +1217,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -1240,7 +1240,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(1);
         $skill->setArmyDefenseBonus(1);
@@ -1249,8 +1249,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -1272,7 +1272,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1282,8 +1282,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setFamily(null);
@@ -1304,7 +1304,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1313,8 +1313,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -1341,7 +1341,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1350,8 +1350,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -1373,7 +1373,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1382,8 +1382,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -1405,7 +1405,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1414,8 +1414,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -1437,7 +1437,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1446,8 +1446,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -1469,7 +1469,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1478,8 +1478,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -1501,7 +1501,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1510,8 +1510,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -1533,7 +1533,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1542,8 +1542,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -1565,7 +1565,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1574,8 +1574,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -1597,7 +1597,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1606,8 +1606,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -1629,7 +1629,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1638,8 +1638,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -1659,12 +1659,12 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(-5);
+        $skill->setGoldBonus(-1);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1673,8 +1673,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -1696,7 +1696,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(150); //media de elementales
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1705,8 +1705,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -1728,7 +1728,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1737,8 +1737,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(true);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(15);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -1760,7 +1760,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1769,8 +1769,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -1792,7 +1792,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1801,8 +1801,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -1824,7 +1824,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1833,8 +1833,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -1856,7 +1856,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(-3);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1865,8 +1865,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -1888,7 +1888,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(1);
         $skill->setArmyDefenseBonus(1);
@@ -1897,8 +1897,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -1920,7 +1920,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1929,8 +1929,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -1952,7 +1952,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1961,15 +1961,15 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(false);
-        $skill->setDispell(true);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(15);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('Rompe un <span class="label label-extra">Encantamiento</span> aleatorio del Reino objetivo.');
+        $skill->setDescription($skill->getArtifactBonus().'% por nivel de romper un <span class="label label-extra">Encantamiento</span> enemigo.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1989,7 +1989,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -1998,8 +1998,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2021,7 +2021,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2030,8 +2030,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2053,7 +2053,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2062,8 +2062,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2085,7 +2085,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2094,8 +2094,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2117,7 +2117,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2126,8 +2126,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2149,7 +2149,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2158,8 +2158,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2181,7 +2181,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2190,8 +2190,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2213,7 +2213,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2222,8 +2222,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2245,7 +2245,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2254,8 +2254,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2277,7 +2277,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2286,8 +2286,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2312,7 +2312,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2321,8 +2321,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -2344,8 +2344,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
-        $skill->setQuantityBonus(10); //media de celestiales
+        $skill->setWin(false);
+        $skill->setQuantityBonus(350); //media de celestiales
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
@@ -2353,8 +2353,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -2376,7 +2376,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2385,8 +2385,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -2408,7 +2408,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2417,8 +2417,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -2440,7 +2440,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(1);
         $skill->setArmyDefenseBonus(1);
@@ -2449,8 +2449,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -2472,7 +2472,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2481,8 +2481,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -2504,7 +2504,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2513,8 +2513,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -2536,7 +2536,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(1);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2545,8 +2545,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -2568,7 +2568,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2577,8 +2577,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -2600,7 +2600,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2609,8 +2609,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(true);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -2637,7 +2637,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2646,8 +2646,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2669,7 +2669,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2678,8 +2678,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2701,7 +2701,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2710,8 +2710,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2733,7 +2733,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2742,8 +2742,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2765,7 +2765,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2774,8 +2774,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2797,7 +2797,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2806,8 +2806,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2829,7 +2829,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2838,8 +2838,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2861,7 +2861,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2870,8 +2870,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2893,7 +2893,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2902,8 +2902,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2925,7 +2925,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus($skill->getUnit()->getQuantityAuction());
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2934,8 +2934,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setFamily(null);
@@ -2960,7 +2960,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(400); //media de demonios
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -2969,8 +2969,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -2992,7 +2992,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(-1);
         $skill->setTerrainBonus(-1);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3001,8 +3001,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3024,7 +3024,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3033,8 +3033,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3056,7 +3056,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3065,8 +3065,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3088,7 +3088,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3097,8 +3097,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3120,7 +3120,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3129,8 +3129,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3152,7 +3152,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(-1);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3161,8 +3161,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3184,7 +3184,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(1);
         $skill->setArmyDefenseBonus(1);
@@ -3193,8 +3193,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3216,7 +3216,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3225,8 +3225,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3248,7 +3248,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3257,8 +3257,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3282,9 +3282,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
-        $skill->setTerrainBonus(5);
+        $skill->setTerrainBonus(150);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3293,14 +3293,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> libres a tu Reino.');
+        $skill->setDescription('Hasta +'.$skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> libres a tu Reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3316,7 +3316,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(-20);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3325,8 +3325,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3348,7 +3348,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3357,8 +3357,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3380,7 +3380,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3389,8 +3389,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3412,7 +3412,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(20);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3421,8 +3421,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3444,7 +3444,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(-5);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3453,8 +3453,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3476,7 +3476,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3485,8 +3485,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3508,7 +3508,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3517,8 +3517,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3540,7 +3540,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3549,8 +3549,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3572,7 +3572,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3581,8 +3581,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3604,7 +3604,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3613,8 +3613,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3636,7 +3636,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3645,8 +3645,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3668,17 +3668,17 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
         $skill->setHeroBonus(0);
-        $skill->setTurnsBonus(50);
+        $skill->setTurnsBonus(25);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3700,7 +3700,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3709,8 +3709,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(true);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(100);
         $skill->setBattle(false);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3736,7 +3736,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(3); //media de dragones
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3745,8 +3745,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(true);
         $skill->setSummon(true);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3772,7 +3772,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(-1);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3781,8 +3781,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3804,7 +3804,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3813,8 +3813,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3836,7 +3836,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(-1);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3845,8 +3845,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3868,7 +3868,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3877,8 +3877,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(-1);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3900,7 +3900,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3909,8 +3909,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -3932,7 +3932,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3941,8 +3941,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3964,7 +3964,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -3973,8 +3973,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(false);
         $skill->setUnit(null);
@@ -3996,7 +3996,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(1);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -4005,8 +4005,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -4028,7 +4028,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -4037,8 +4037,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -4060,7 +4060,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -4069,8 +4069,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -4092,7 +4092,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -4101,8 +4101,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -4124,7 +4124,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -4133,8 +4133,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -4156,7 +4156,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -4165,8 +4165,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -4188,7 +4188,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -4197,8 +4197,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -4220,7 +4220,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -4229,8 +4229,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit(null);
@@ -4256,7 +4256,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
-        $skill->setMagicBonus(0);
+        $skill->setWin(true);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
         $skill->setArmyDefenseBonus(0);
@@ -4265,8 +4265,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setTurnsBonus(0);
         $skill->setRandom(false);
         $skill->setSummon(false);
-        $skill->setDispell(false);
-        $skill->setSpy(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);

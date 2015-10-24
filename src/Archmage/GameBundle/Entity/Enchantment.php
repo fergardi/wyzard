@@ -29,13 +29,6 @@ class Enchantment
     private $expiration = 0;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="gameover", type="datetime", nullable=true)
-     */
-    private $gameover = null;
-
-    /**
      * @var Spell
      *
      * @ORM\ManyToOne(targetEntity="Spell")
@@ -87,29 +80,6 @@ class Enchantment
     public function getExpiration()
     {
         return $this->expiration;
-    }
-
-    /**
-     * Set gameover
-     *
-     * @param \DateTime $gameover
-     * @return Enchantment
-     */
-    public function setGameover($gameover)
-    {
-        $this->gameover = $gameover;
-
-        return $this;
-    }
-
-    /**
-     * Get gameover
-     *
-     * @return \DateTime 
-     */
-    public function getGameover()
-    {
-        return $this->gameover;
     }
 
     /**

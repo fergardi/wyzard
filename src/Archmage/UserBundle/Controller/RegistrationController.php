@@ -39,6 +39,8 @@ class RegistrationController extends BaseController
                 //player
                 $player = new Player();
                 $player->setFaction($manager->getRepository('ArchmageGameBundle:Faction')->findOneById($_POST['faction']));
+                $player->setGod(false);
+                $player->setWinner(false);
                 //constructions
                 $constructions = array(
                     'Tierras' => 600,
@@ -78,8 +80,8 @@ class RegistrationController extends BaseController
                 //resources
                 $player->setNick($user->getUsername());
                 $player->setGold(3000000);
-                $player->setPeople(10000);
-                $player->setMana(1000);
+                $player->setPeople(20000);
+                $player->setMana(20000);
                 $player->setTurns(300);
                 $player->setMagic(1);
                 //messages

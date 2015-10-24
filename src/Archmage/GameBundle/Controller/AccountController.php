@@ -104,4 +104,18 @@ class AccountController extends Controller
             );
         }
     }
+
+    /**
+     * @Route("/game/account/legend")
+     * @Template("ArchmageGameBundle:Account:legend.html.twig")
+     */
+    public function legendAction()
+    {
+        $this->get('service.controller')->addNews();
+        $manager = $this->getDoctrine()->getManager();
+        $legends = $manager->getRepository('ArchmageGameBundle:Legend')->findAll();
+        return array(
+            'legends' => $legends,
+        );
+    }
 }

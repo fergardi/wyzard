@@ -425,7 +425,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Aquelarre');
         $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(1);
+        $skill->setDefenseBonus(3);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -456,8 +456,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //FUERZA IMPIA
         $skill = new Skill();
         $skill->setName('Fuerza Impía');
-        $skill->setAttackBonus(2);
-        $skill->setDefenseBonus(-2);
+        $skill->setAttackBonus(5);
+        $skill->setDefenseBonus(-5);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -616,7 +616,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //MALDICION
         $skill = new Skill();
         $skill->setName('Maldición');
-        $skill->setAttackBonus(-2);
+        $skill->setAttackBonus(-5);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
@@ -1008,8 +1008,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //HURACAN
         $skill = new Skill();
         $skill->setName('Huracán');
-        $skill->setAttackBonus(-2);
-        $skill->setDefenseBonus(-2);
+        $skill->setAttackBonus(-5);
+        $skill->setDefenseBonus(-5);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -1072,8 +1072,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //AGRANDAR ANIMAL
         $skill = new Skill();
         $skill->setName('Agrandar Animales');
-        $skill->setAttackBonus(2);
-        $skill->setDefenseBonus(-2);
+        $skill->setAttackBonus(5);
+        $skill->setDefenseBonus(-5);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -1200,7 +1200,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //IRA DEL BOSQUE
         $skill = new Skill();
         $skill->setName('Ira del Bosque');
-        $skill->setAttackBonus(3);
+        $skill->setAttackBonus(5);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
@@ -1788,7 +1788,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
-        $skill->setManaBonus(1);
+        $skill->setManaBonus(2);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
@@ -1855,7 +1855,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
-        $skill->setDamageBonus(-3);
+        $skill->setDamageBonus(-1);
         $skill->setWin(false);
         $skill->setQuantityBonus(0);
         $skill->setMagicDefenseBonus(0);
@@ -2369,7 +2369,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Calma');
         $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(-1);
+        $skill->setDefenseBonus(-3);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -2393,7 +2393,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription($skill->getDefenseBonus().'% <span class="label label-extra">Ataque</span> de las tropas enemigas por nivel.');
+        $skill->setDescription($skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de las tropas enemigas por nivel.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -2464,8 +2464,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //FERVOR
         $skill = new Skill();
         $skill->setName('Fervor');
-        $skill->setAttackBonus(3);
-        $skill->setDefenseBonus(3);
+        $skill->setAttackBonus(-5);
+        $skill->setDefenseBonus(5);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -2489,7 +2489,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily($this->getReference('Celestiales'));
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por nivel.');
+        $skill->setDescription($skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por nivel.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -2497,7 +2497,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Sanación');
         $skill->setAttackBonus(0);
-        $skill->setDefenseBonus(2);
+        $skill->setDefenseBonus(3);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -2533,7 +2533,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
-        $skill->setPeopleBonus(1);
+        $skill->setPeopleBonus(2);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setWin(false);
@@ -2595,7 +2595,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(1);
+        $skill->setGoldBonus(2);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
@@ -3016,8 +3016,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //FLECHAS ARDIENTES
         $skill = new Skill();
         $skill->setName('Flechas Ardientes');
-        $skill->setAttackBonus(3);
-        $skill->setDefenseBonus(0);
+        $skill->setAttackBonus(5);
+        $skill->setDefenseBonus(-5);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -3040,7 +3040,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setType($this->getReference('Distancia'));
         $skill->setFamily(null);
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> de tus <span class="label label-extra">'.$skill->getType()->getName().'</span> por nivel.');
+        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y '.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de tus <span class="label label-extra">'.$skill->getType()->getName().'</span> por nivel.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3052,7 +3052,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
-        $skill->setManaBonus(-10);
+        $skill->setManaBonus(-5);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
@@ -3112,7 +3112,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //TAMBORES DE GUERRA
         $skill = new Skill();
         $skill->setName('Tambores de Guerra');
-        $skill->setAttackBonus(2);
+        $skill->setAttackBonus(3);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
@@ -3240,8 +3240,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //FURIA DEMONIACA
         $skill = new Skill();
         $skill->setName('Furia Demoníaca');
-        $skill->setAttackBonus(3);
-        $skill->setDefenseBonus(-3);
+        $skill->setAttackBonus(5);
+        $skill->setDefenseBonus(-5);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);

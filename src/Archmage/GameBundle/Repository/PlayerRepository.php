@@ -16,26 +16,29 @@ class PlayerRepository extends EntityRepository
     public function findAllValidAttackTargetsByPlayer(Player $player)
     {
         $qb = $this->_em->createQueryBuilder();
+        $now = new \DateTime('-12 hour');
+        $now = "'".$now->format('Y-m-d H:i:s')."'";
 
         //COUNTERS
-        $counters = $qb->select('a.attacker')
-            ->from('ArchmageGameBundle:Attack', 'a')
-            ->where($qb->expr()->eq('a.defender', $player))
-            ->getQuery()
-            ->getResult();
+        $counters = $this->_em->createQueryBuilder()
+            ->select('identity(counter.attacker)')
+            ->from('ArchmageGameBundle:Attack', 'counter')
+            ->andWhere($qb->expr()->eq('counter.defender', $player->getId()))
+            ->andWhere($qb->expr()->gte('counter.datetime', $now));
 
         //BLACKLIST
-        $blacklist = $qb->select('a.defender')
-            ->from('ArchmageGameBundle:Attack', 'a')
-            ->where($qb->expr()->eq('a.attacker', $player))
-            ->getQuery()
-            ->getResult();
+        $blacklist = $this->_em->createQueryBuilder()
+            ->select('identity(blacklist.defender)')
+            ->from('ArchmageGameBundle:Attack', 'blacklist')
+            ->andWhere($qb->expr()->eq('blacklist.attacker', $player->getId()))
+            ->andWhere($qb->expr()->gte('blacklist.datetime', $now));
 
         //TARGETS
-        $targets = $qb->select('p')
-            ->from('ArchmageGameBundle:Player', 'p')
-            ->andWhere($qb->expr()->In('p.id', $counters))
-            ->andWhere($qb->expr()->notIn('p.id', $blacklist))
+        $targets = $this->_em->createQueryBuilder()
+            ->select('player')
+            ->from('ArchmageGameBundle:Player', 'player')
+            ->andWhere($qb->expr()->In('player.id', $counters->getDQL()))
+            ->orWhere($qb->expr()->notIn('player.id', $blacklist->getDQL()))
             ->getQuery()
             ->getResult();
 

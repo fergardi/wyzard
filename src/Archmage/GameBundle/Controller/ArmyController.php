@@ -31,12 +31,12 @@ class ArmyController extends Controller
         if ($this->get('service.controller')->checkWinner()) return $this->redirect($this->generateUrl('archmage_game_account_legend'));
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
-        $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAllAttackables();
+        $targets = $manager->getRepository('ArchmageGameBundle:Player')->findAllValidAttackTargetsByPlayer($player);
         if ($request->isMethod('POST')) {
             $turns = 2;
             $target = isset($_POST['target'])?$_POST['target']:null;
             $target = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($target);
-            if ($target && $player->getPower() * 0.80 < $target->getPower()) {
+            if ($target && in_array($target, $targets) && $player->getPower() * 0.80 < $target->getPower()) {
                 $attackerResearch = isset($_POST['research']) ? $_POST['research'] : null;
                 $attackerResearch = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($attackerResearch);
                 $mana = 0;
@@ -651,15 +651,23 @@ class ArmyController extends Controller
         /*
          * FIN
          */
-        //nuevo registro en la tabla de ataques para contraataques
-        $counter = new Attack();
-        $counter->setAttacker($player);
-        $counter->setDefender($target);
-        $manager->persist($counter);
+        $blacklist = $manager->getRepository('ArchmageGameBundle:Attack')->findOneBy(array('attacker' => $player, 'defender' => $target));
+        if ($blacklist) {
+            //actualizar ataque
+            $blacklist->setDateTime(new \DateTime("now"));
+        } else {
+            //nuevo registro en la tabla de ataques para contraataques
+            $blacklist = new Attack();
+            $blacklist->setAttacker($player);
+            $blacklist->setDefender($target);
+            $manager->persist($blacklist);
+        }
+        $counter = $manager->getRepository('ArchmageGameBundle:Attack')->findOneBy(array('attacker' => $target, 'defender' => $player));
+        if ($counter) $manager->remove($counter);
         //mensajes al objetivo y al jugador
         $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Batalla', $text, 'battle');
-        $report = $this->get('service.controller')->sendMessage($target, $player, 'Reporte de Batalla', $text, 'battle');
+        $redirect = $this->get('service.controller')->sendMessage($target, $player, 'Reporte de Batalla', $text, 'battle');
         //redirect to see message
-        return $report;
+        return $redirect;
     }
 }

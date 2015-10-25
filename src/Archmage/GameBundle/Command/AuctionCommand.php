@@ -31,7 +31,7 @@ class AuctionCommand extends ContainerAwareCommand
     {
         $this
             ->setName('auction:refresh')
-            ->setDescription('Refresh the auctions, set winners and create new ones')
+            ->setDescription('Acaba las subastas actuales y comienza otras nuevas')
         ;
     }
 

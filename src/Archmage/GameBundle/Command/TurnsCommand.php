@@ -14,7 +14,7 @@ class TurnsCommand extends ContainerAwareCommand
     {
         $this
             ->setName('turns:add')
-            ->setDescription('Add +1 turns to every player')
+            ->setDescription('Suma 1 turno a cada jugador, crontab cada 3 minutos')
         ;
     }
 

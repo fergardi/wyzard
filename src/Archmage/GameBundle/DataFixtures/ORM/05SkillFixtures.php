@@ -3492,7 +3492,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Hasta +'.$this->container->get('service.controller')->nff($skill->getGoldBonus()).'% <span class="label label-extra">Oro</span> a tu Reino.');
+        $skill->setDescription('Hasta +'.$this->container->get('service.controller')->nff($skill->getGoldBonus()).' <span class="label label-extra">Oro</span> a tu Reino.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

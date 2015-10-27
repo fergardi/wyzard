@@ -378,13 +378,14 @@ class MagicController extends Controller
         if ($spell->getSkill()->getSummon()) {
             if ($spell->getSkill()->getUnit()) {
                 $unit = $spell->getSkill()->getUnit();
+                $quantity = $spell->getSkill()->getQuantityBonus();
             } elseif ($spell->getSkill()->getRandom()) {
                 $units = $manager->getRepository('ArchmageGameBundle:Unit')->findByFamily($spell->getSkill()->getFamily());
                 shuffle($units);
                 $unit = $units[0];
+                $quantity = $spell->getSkill()->getQuantityBonus() / $unit->getPower();
             }
             $troop = $player->hasUnit($unit);
-            $quantity = $spell->getSkill()->getQuantityBonus() / $unit->getPower();
             if ($troop) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
                 $this->addFlash('success', 'Has invocado '.$this->get('service.controller')->nf($quantity).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');

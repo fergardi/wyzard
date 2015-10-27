@@ -129,7 +129,7 @@ class Skill
     /**
      * @var integer
      *
-     * @ORM\Column(name="quantityBonus", type="integer", nullable=false)
+     * @ORM\Column(name="quantityBonus", type="bigint", nullable=false)
      */
     private $quantityBonus = 0;
 

@@ -36,7 +36,7 @@ class ArmyController extends Controller
             $turns = 2;
             $target = isset($_POST['target'])?$_POST['target']:null;
             $target = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($target);
-            if ($target && in_array($target, $targets) && $player->getPower() * 0.80 < $target->getPower()) {
+            if ($target && in_array($target, $targets)) {
                 $attackerResearch = isset($_POST['research']) ? $_POST['research'] : null;
                 $attackerResearch = $manager->getRepository('ArchmageGameBundle:Research')->findOneById($attackerResearch);
                 $mana = 0;

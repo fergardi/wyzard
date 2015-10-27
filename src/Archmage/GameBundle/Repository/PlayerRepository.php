@@ -13,32 +13,64 @@ use Archmage\GameBundle\Entity\Player;
  */
 class PlayerRepository extends EntityRepository
 {
+    /**
+     * Función que devuelve un array con todos los jugadores que son objetivos legales de este jugador
+     * Un objetivo legal debe cumplir estas condiciones
+     * No ser mas debil que el jugador en al menos 20% de poder O BIEN
+     * Ser mas debil y estar en la lista de contraataques validos O BIEN
+     * No estar en la blacklist por haberle atacado ya
+     *
+     * @param Player $player
+     * @return array
+     */
     public function findAllValidAttackTargetsByPlayer(Player $player)
     {
+        //QUERYBUILDER AUXILIAR PARA USARLO DENTRO DE LAS CONSULTAS Y QUE NO DE ERROR AL USAR EL MISMO EN DOS CONSULTAS DIFERENTES
         $qb = $this->_em->createQueryBuilder();
+        //HORARIO DE PROTECCION DEL TARGET, SI HA SIDO ATACADO UNA VEZ EN 12H NO SE LE PUEDE VOLVER A ATACAR POR ESTE JUGADOR
         $now = new \DateTime('-12 hour');
         $now = "'".$now->format('Y-m-d H:i:s')."'";
 
-        //COUNTERS
-        $counters = $this->_em->createQueryBuilder()
-            ->select('identity(counter.attacker)')
-            ->from('ArchmageGameBundle:Attack', 'counter')
-            ->andWhere($qb->expr()->eq('counter.defender', $player->getId()))
-            ->andWhere($qb->expr()->gte('counter.datetime', $now));
+        //DEBILES, CALCULADO USANDO POWER QUE NO ESTA EN LA DB, SE TIENE QUE CALCULAR AL VUELO
+        $weaks = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
+        $targets = $this->_em->getRepository('ArchmageGameBundle:Player')->findAll();
+        foreach ($targets as $target) {
+            if ($player->getPower() * 0.80 > $target->getPower()) {
+                $weaks[] = $target->getId();
+            }
+        }
 
-        //BLACKLIST
+        //COUNTERS, SI ALGUIEN TE ATACA PUEDES CONTRAATACARLE IGNORANDO CUALQUIER OTRA CONDICION
+        $counterA = $this->_em->createQueryBuilder()
+            ->select('identity(counterA.attacker)')
+            ->from('ArchmageGameBundle:Attack', 'counterA')
+            ->andWhere($qb->expr()->eq('counterA.defender', $player->getId()))
+            ->andWhere($qb->expr()->gte('counterA.datetime', $now));
+
+        //REPETIDO PARA USARLO DOS VECES EN LA MISMA CONSULTA, PARA QUE NO DE ERROR AL USAR EL MISMO ALIAS DOS VECES
+        $counterB = $this->_em->createQueryBuilder()
+            ->select('identity(counterB.attacker)')
+            ->from('ArchmageGameBundle:Attack', 'counterB')
+            ->andWhere($qb->expr()->eq('counterB.defender', $player->getId()))
+            ->andWhere($qb->expr()->gte('counterB.datetime', $now));
+
+        //BLACKLIST, SI YA HAS ATACADO A ESTE JUGADOR EN MENOS DE 12H NO PUEDES VOLVER A HACERLO, EXCEPTUANDO LA ANTERIOR CONDICION
         $blacklist = $this->_em->createQueryBuilder()
             ->select('identity(blacklist.defender)')
             ->from('ArchmageGameBundle:Attack', 'blacklist')
             ->andWhere($qb->expr()->eq('blacklist.attacker', $player->getId()))
             ->andWhere($qb->expr()->gte('blacklist.datetime', $now));
 
-        //TARGETS
+        //TARGETS, LISTA DE TODOS LOS PLAYERS QUE CUMPLAN LAS 3 CONDICIONES ANTERIORES
         $targets = $this->_em->createQueryBuilder()
             ->select('player')
             ->from('ArchmageGameBundle:Player', 'player')
-            ->andWhere($qb->expr()->In('player.id', $counters->getDQL()))
-            ->orWhere($qb->expr()->notIn('player.id', $blacklist->getDQL()))
+            ->orWhere($qb->expr()->in('player.id', $counterA->getDQL()))
+            ->orWhere($qb->expr()->andX(
+                $qb->expr()->notIn('player.id', $counterB->getDQL()),
+                $qb->expr()->notIn('player.id', $blacklist->getDQL()),
+                $qb->expr()->notIn('player.id', $weaks)
+            ))
             ->getQuery()
             ->getResult();
 

@@ -131,7 +131,7 @@ class ServiceController extends Controller
     }
 
     /**
-     * Turn maintenances and consequences
+     * ESTA FUNCION
      */
     public function checkMaintenances($turns)
     {
@@ -139,6 +139,9 @@ class ServiceController extends Controller
         $player = $this->getUser()->getPlayer();
         $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
         $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
+        /*
+         *
+         */
         for ($i = 1; $i <= $turns; $i++) {
             //BUILDINGS ENCHANTMENTS
             foreach ($player->getEnchantmentsVictim() as $enchantment) {

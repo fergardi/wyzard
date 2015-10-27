@@ -40,8 +40,15 @@
     $(document).ready(function() {
         var oTable = $('#datatable').dataTable({
             "order": [[ 0, "asc" ]],
+            "aoColumns": [
+                {"sType": "date-euro", "bSortable": true },
+                null,
+                null,
+                null
+            ],
             "sDom": 't<"col-xs-12 text-center"fp>',
             "displayStart": 0,
+            "pageLength": 10,
             'pagingType': 'full_numbers',
             "language": {
                 "decimal": ",",

@@ -155,7 +155,7 @@ class ServiceController extends Controller
                 }
                 //aliados, positivos (+1 tierra maximo, sin importar el nivel de magia)
                 if ($enchantment->getSpell()->getSkill()->getTerrainBonus() > 0) {
-                    $player->setBuilding('Tierras', $player->getFree() + $enchantment->getSpell()->getSkill()->getTerrainBonus());
+                    $player->setConstruction('Tierras', $player->getFree() + $enchantment->getSpell()->getSkill()->getTerrainBonus());
                 }
             }
             //ARTIFACTS

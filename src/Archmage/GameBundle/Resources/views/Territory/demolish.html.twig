@@ -60,7 +60,7 @@
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default" {% if construction.quantity <= 0 %}disabled{% endif %}><i class="fa fa-fw fa-bomb"></i>Demoler</button>
                                 </div>
-                                <input type="number" class="form-control" id="lands" name="lands" min="1" max="{{ construction.quantity }}" value="0" {% if construction.quantity <= 0 %}disabled{% endif %} required />
+                                <input type="number" class="form-control" id="lands" name="lands" min="1" max="{{ construction.quantity }}" value="" placeholder="0" {% if construction.quantity <= 0 %}disabled{% endif %} required />
                                 <input type="hidden" id="construction" name="construction" value="{{ construction.id }}" {% if construction.quantity <= 0 %}disabled{% endif %} required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>

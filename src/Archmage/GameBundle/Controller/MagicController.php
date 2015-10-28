@@ -181,7 +181,7 @@ class MagicController extends Controller
                             $target = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($target);
                             if ($target) {
                                 $chance = rand(0,99);
-                                if ($chance >= $target->getMagicDefense()) {
+                                if ($chance > $target->getMagicDefense()) {
                                     $this->conjureTarget($research->getSpell(), $target);
                                     $manager->persist($target);
                                     $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span> en conjurar <span class="label label-'.$research->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($research->getSpell()->getName()).'" class="link">'.$research->getSpell()->getName().'</a></span> sobre <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
@@ -238,7 +238,7 @@ class MagicController extends Controller
                      * ACCION
                      */
                     $chance = rand(0,99);
-                    if ($chance >= $enchantment->getOwner()->getMagicDefense()) {
+                    if ($chance > $enchantment->getOwner()->getMagicDefense()) {
                         //MESSAGE
                         $text = array();
                         $player->removeEnchantmentsVictim($enchantment);
@@ -304,7 +304,7 @@ class MagicController extends Controller
                             $this->addFlash('success', 'Has gastado '. $this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
                         } else {
                             $chance = rand(0,99);
-                            if ($chance >= $target->getMagicDefense()) {
+                            if ($chance > $target->getMagicDefense()) {
                                 $this->activateTarget($item->getArtifact(), $target);
                                 $manager->persist($target);
                                 $this->addFlash('success', 'Has gastado ' . $this->get('service.controller')->nf($turns) . ' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span> sobre <span class="label label-' . $target->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">' . $target->getNick() . '</a></span>.');
@@ -422,7 +422,7 @@ class MagicController extends Controller
             //ARTIFACT
             $maxchance = $spell->getSkill()->getArtifactBonus() * $player->getMagic();
             $chance = rand(0,99);
-            if ($chance <= $maxchance) {
+            if ($chance < $maxchance) {
                 $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
                 shuffle($artifacts);
                 $artifact = $artifacts[0]; //suponemos length > 0
@@ -512,7 +512,7 @@ class MagicController extends Controller
         } elseif ($spell->getSkill()->getArtifactBonus() < 0) {
             $maxchance = abs($spell->getSkill()->getArtifactBonus()) * $player->getMagic();
             $chance = rand(0,99);
-            if ($chance <= $maxchance) {
+            if ($chance < $maxchance) {
                 $items = $target->getItems()->toArray();
                 shuffle($items);
                 $item = $items[0];

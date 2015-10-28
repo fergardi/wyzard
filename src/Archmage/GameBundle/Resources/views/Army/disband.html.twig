@@ -64,7 +64,7 @@
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-user-times"></i>Desbandar</button>
                                 </div>
-                                <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="{{ troop.quantity }}" value="" placeholder="{{ troop.quantity }}" required />
+                                <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="{{ troop.quantity }}" value="{{ troop.quantity }}" required />
                                 <input type="hidden" id="troop" name="troop" value="{{ troop.id }}" required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>

@@ -93,7 +93,7 @@ class ArmyController extends Controller
                     if ($player->getUnits() > 0 && !empty($attackerArmy) && $target) {
                         $chance = rand(0, 99);
                         $report = null;
-                        if ($chance >= $target->getArmyDefense()) {
+                        if ($chance > $target->getArmyDefense()) {
                             $report = $this->attackTarget($attackerArmy, $attackerResearch, $attackerItem, $target);
                             $manager->persist($target);
                             $this->addFlash('success', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar al mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span>.');

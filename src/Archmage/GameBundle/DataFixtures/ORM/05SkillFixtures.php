@@ -3344,7 +3344,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
-        $skill->setManaBonus(20);
+        $skill->setManaBonus(50);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);

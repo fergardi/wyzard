@@ -46,10 +46,10 @@
                             <div class="col-xs-12">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <select class="form-control selectpicker show-tick dropup" id="research" name="research" data-live-search="true" data-size="5">
-                                            <option>Hechizo</option>
-                                            {% for research in player.researchs if research.active and research.spell.skill.battle %}
-                                            <option value="{{ research.id }}" data-content="<span class='label label-{{ research.spell.faction.class }}'>{{ research.spell.name }}</span>">{{ research.spell.name }}</option>
+                                        <select class="form-control selectpicker show-tick dropup" id="item" name="item" data-live-search="true" data-size="5">
+                                            <option>Artefacto</option>
+                                            {% for item in player.items if item.quantity > 0 and item.artifact.skill.battle and item.artifact.skill.manaBonus <= 0 %}
+                                                <option value="{{ item.id }}" data-content="<span class='label label-{{ item.artifact.faction.class }}'>{{ item.artifact.name }}</span>">{{ item.artifact.name }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>
@@ -58,10 +58,10 @@
                             <div class="col-xs-12">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <select class="form-control selectpicker show-tick dropup" id="item" name="item" data-live-search="true" data-size="5">
-                                            <option>Artefacto</option>
-                                            {% for item in player.items if item.quantity > 0 and item.artifact.skill.battle %}
-                                            <option value="{{ item.id }}" data-content="<span class='label label-{{ item.artifact.faction.class }}'>{{ item.artifact.name }}</span>">{{ item.artifact.name }}</option>
+                                        <select class="form-control selectpicker show-tick dropup" id="research" name="research" data-live-search="true" data-size="5">
+                                            <option>Hechizo</option>
+                                            {% for research in player.researchs if research.active and research.spell.skill.battle %}
+                                            <option value="{{ research.id }}" data-content="<span class='label label-{{ research.spell.faction.class }}'>{{ research.spell.name }}</span>">{{ research.spell.name }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>

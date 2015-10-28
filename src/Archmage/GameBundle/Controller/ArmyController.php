@@ -293,7 +293,7 @@ class ArmyController extends Controller
             if ($defenderItem->getQuantity() > 0) {
                 $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'El mago defensor activa el Artefacto <span class="label label-'.$defenderItem->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderItem->getArtifact()->getName()).'" class="link">'.$defenderItem->getArtifact()->getName().'</a></span>.');
                 if ($defenderItem->getArtifact()->getSkill()->getManaBonus() > 0) {
-                    $mana = floor($target->getMana() * $defenderItem->getArtifact()->getSkill()->getManaBonus() / (float)100);
+                    $mana = floor($target->getManaCap() * $defenderItem->getArtifact()->getSkill()->getManaBonus() / (float)100);
                     $target->setMana($target->getMana() + $mana);
                 }
                 $defenderItem->setQuantity($defenderItem->getQuantity() - 1);

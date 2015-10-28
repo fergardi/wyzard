@@ -357,12 +357,13 @@ class MagicController extends Controller
             array('default', 5, 0, 'center', 'Tierras libres: '.$this->get('service.controller')->nf($target->getFree())),
             array('default', 5, 2, 'center', 'Héroes: '.$this->get('service.controller')->nf($target->getContracts()->count())),
             array('default', 5, 0, 'center', 'Artefactos: '.$this->get('service.controller')->nf($target->getArtifacts())),
-            array('default', 5, 2, 'center', 'Encantamientos: '.$this->get('service.controller')->nf($target->getEnchantmentsVictim()->count())),
+            array('default', 5, 2, 'center', 'Magia: '.$this->get('service.controller')->nf($target->getMagic())),
             array('default', 5, 0, 'center', 'Defensa Mágica: '.$this->get('service.controller')->nf($target->getMagicDefense())),
             array('default', 5, 2, 'center', 'Defensa Física: '.$this->get('service.controller')->nf($target->getArmyDefense())),
             array('default', 5, 0, 'center', 'Poder: '.$this->get('service.controller')->nf($target->getPower())),
             array('default', 5, 2, 'center', 'Unidades: '.$this->get('service.controller')->nf($target->getUnits())),
             array('default', 12, 0, 'center', 'Ejército: '.$target->getArmyToString()),
+            array('default', 12, 0, 'center', 'Encantamientos: '.$target->getEnchantmentsVictimToString()),
         );
         $this->get('service.controller')->sendMessage($target, $player, $subject, $text, 'espionage');
     }

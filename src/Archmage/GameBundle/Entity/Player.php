@@ -1222,6 +1222,20 @@ class Player
     }
 
     /**
+     * Get enchantments
+     *
+     * @return string
+     */
+    public function getEnchantmentsVictimToString()
+    {
+        $enchantments = array();
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            $enchantments[] = '<span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'">'.$enchantment->getSpell()->getName().'</span>';
+        }
+        return implode(', ', $enchantments);
+    }
+
+    /**
      * Get spells
      *
      * @return integer

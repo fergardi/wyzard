@@ -87,7 +87,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
 }
 .label {
     font-size: 95%;
-    padding: 2px 2px 0px 2px;
+    padding: 0px 5px 0px 5px !important;
     border: 1px solid black;
 }
 .label-extra {

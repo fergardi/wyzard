@@ -48,7 +48,7 @@
                                     <div class="input-group">
                                         <select class="form-control selectpicker show-tick dropup" id="item" name="item" data-live-search="true" data-size="5">
                                             <option>Artefacto</option>
-                                            {% for item in player.items if item.quantity > 0 and item.artifact.skill.battle and item.artifact.skill.manaBonus <= 0 %}
+                                            {% for item in player.items if item.quantity > 0 and item.artifact.skill.battle %}
                                                 <option value="{{ item.id }}" data-content="<span class='label label-{{ item.artifact.faction.class }}'>{{ item.artifact.name }}</span>">{{ item.artifact.name }}</option>
                                             {% endfor %}
                                         </select>

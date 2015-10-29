@@ -59,16 +59,16 @@ class Building
     /**
      * @var integer
      *
-     * @ORM\Column(name="manaCost", type="smallint", nullable=false)
+     * @ORM\Column(name="peopleCost", type="smallint", nullable=false)
      */
-    private $manaCost = 0;
+    private $peopleCost = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="peopleCost", type="smallint", nullable=false)
+     * @ORM\Column(name="manaCost", type="smallint", nullable=false)
      */
-    private $peopleCost = 0;
+    private $manaCost = 0;
 
     /**
      * @var integer
@@ -80,16 +80,16 @@ class Building
     /**
      * @var integer
      *
-     * @ORM\Column(name="manaMaintenance", type="smallint", nullable=false)
+     * @ORM\Column(name="peopleMaintenance", type="smallint", nullable=false)
      */
-    private $manaMaintenance = 0;
+    private $peopleMaintenance = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="peopleMaintenance", type="smallint", nullable=false)
+     * @ORM\Column(name="manaMaintenance", type="smallint", nullable=false)
      */
-    private $peopleMaintenance = 0;
+    private $manaMaintenance = 0;
 
     /**
      * @var integer
@@ -101,16 +101,16 @@ class Building
     /**
      * @var integer
      *
-     * @ORM\Column(name="manaResource", type="smallint", nullable=false)
+     * @ORM\Column(name="peopleResource", type="smallint", nullable=false)
      */
-    private $manaResource = 0;
+    private $peopleResource = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="peopleResource", type="smallint", nullable=false)
+     * @ORM\Column(name="manaResource", type="smallint", nullable=false)
      */
-    private $peopleResource = 0;
+    private $manaResource = 0;
 
     /**
      * @var integer
@@ -122,16 +122,16 @@ class Building
     /**
      * @var integer
      *
-     * @ORM\Column(name="manaCap", type="bigint", nullable=false)
+     * @ORM\Column(name="peopleCap", type="bigint", nullable=false)
      */
-    private $manaCap = 0;
+    private $peopleCap = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="peopleCap", type="bigint", nullable=false)
+     * @ORM\Column(name="manaCap", type="bigint", nullable=false)
      */
-    private $peopleCap = 0;
+    private $manaCap = 0;
 
     /**
      * @var integer

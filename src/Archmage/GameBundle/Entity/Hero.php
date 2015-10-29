@@ -59,16 +59,16 @@ class Hero
     /**
      * @var integer
      *
-     * @ORM\Column(name="manaMaintenance", type="bigint", nullable=false)
+     * @ORM\Column(name="peopleMaintenance", type="bigint", nullable=false)
      */
-    private $manaMaintenance = 0;
+    private $peopleMaintenance = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="peopleMaintenance", type="bigint", nullable=false)
+     * @ORM\Column(name="manaMaintenance", type="bigint", nullable=false)
      */
-    private $peopleMaintenance = 0;
+    private $manaMaintenance = 0;
 
     /**
      * @var integer

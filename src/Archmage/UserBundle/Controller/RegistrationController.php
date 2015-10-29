@@ -81,7 +81,7 @@ class RegistrationController extends BaseController
                 $player->setNick($user->getUsername());
                 $player->setGold(3000000);
                 $player->setPeople(20000);
-                $player->setMana(20000);
+                $player->setMana(10000);
                 $player->setTurns(300);
                 $player->setMagic(1);
                 //messages

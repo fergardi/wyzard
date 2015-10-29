@@ -1745,7 +1745,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription('Obtiene <span class="label label-extra">Información</span> importante del Reino objetivo.');
+        $skill->setDescription('+'.$skill->getSpyBonus().'% por nivel de obtener <span class="label label-extra">Información</span> del objetivo.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

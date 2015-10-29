@@ -55,16 +55,16 @@ class Player
     /**
      * @var integer
      *
-     * @ORM\Column(name="mana", type="bigint", nullable=false)
+     * @ORM\Column(name="people", type="bigint", nullable=false)
      */
-    private $mana = 10000;
+    private $people = 20000;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="people", type="bigint", nullable=false)
+     * @ORM\Column(name="mana", type="bigint", nullable=false)
      */
-    private $people = 20000;
+    private $mana = 10000;
 
     /**
      * @var integer

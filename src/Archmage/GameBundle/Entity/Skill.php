@@ -66,16 +66,16 @@ class Skill
     /**
      * @var integer
      *
-     * @ORM\Column(name="manaBonus", type="smallint", nullable=false)
+     * @ORM\Column(name="peopleBonus", type="smallint", nullable=false)
      */
-    private $manaBonus = 0;
+    private $peopleBonus = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="peopleBonus", type="smallint", nullable=false)
+     * @ORM\Column(name="manaBonus", type="smallint", nullable=false)
      */
-    private $peopleBonus = 0;
+    private $manaBonus = 0;
 
     /**
      * @var integer

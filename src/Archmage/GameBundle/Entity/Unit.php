@@ -73,16 +73,16 @@ class Unit
     /**
      * @var integer
      *
-     * @ORM\Column(name="manaMaintenance", type="integer", nullable=false)
+     * @ORM\Column(name="peopleMaintenance", type="integer", nullable=false)
      */
-    private $manaMaintenance = 0;
+    private $peopleMaintenance = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="peopleMaintenance", type="integer", nullable=false)
+     * @ORM\Column(name="manaMaintenance", type="integer", nullable=false)
      */
-    private $peopleMaintenance = 0;
+    private $manaMaintenance = 0;
 
     /**
      * @var integer

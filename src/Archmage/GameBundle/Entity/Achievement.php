@@ -45,16 +45,16 @@ class Achievement
     /**
      * @var integer
      *
-     * @ORM\Column(name="mana", type="bigint", nullable=true)
+     * @ORM\Column(name="people", type="bigint", nullable=true)
      */
-    private $mana = null;
+    private $people = null;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="people", type="bigint", nullable=true)
+     * @ORM\Column(name="mana", type="bigint", nullable=true)
      */
-    private $people = null;
+    private $mana = null;
 
     /**
      * @var integer

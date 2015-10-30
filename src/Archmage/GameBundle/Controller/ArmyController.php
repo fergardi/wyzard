@@ -49,6 +49,7 @@ class ArmyController extends Controller
                 if ($attackerItem) {
                     $attackerItem->setQuantity($attackerItem->getQuantity() - 1);
                     if ($attackerItem->getQuantity() <= 0) {
+                        if ($player->getItem() && $player->getItem()->getArtifact() == $attackerItem->getArtifact()) $player->setItem(null);
                         $player->removeItem($attackerItem);
                         $manager->remove($attackerItem);
                     }

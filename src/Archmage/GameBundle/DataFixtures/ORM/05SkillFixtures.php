@@ -1969,7 +1969,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription($skill->getDispellBonus().'% por nivel de romper un <span class="label label-extra">Encantamiento</span> enemigo.');
+        $skill->setDescription($skill->getDispellBonus().'% por nivel de romper un <span class="label label-extra">Encantamiento</span> de otro Reino.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

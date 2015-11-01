@@ -33,7 +33,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Esqueletos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
@@ -56,7 +56,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Zombis'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
@@ -79,7 +79,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Hombres Lobo'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
@@ -102,7 +102,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Espectros'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
@@ -125,7 +125,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Liches'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
@@ -148,7 +148,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Vampiros'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
@@ -171,7 +171,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Caballeros Negros'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
@@ -194,7 +194,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Elementales de Sombra'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
@@ -217,7 +217,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Gárgolas'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
@@ -240,7 +240,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Dragones Negros'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
@@ -501,7 +501,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Gorilas'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
@@ -524,7 +524,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Elfos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
@@ -547,7 +547,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Druidas'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
@@ -570,7 +570,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Trolls'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
@@ -593,7 +593,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Ents'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
@@ -616,7 +616,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Behemoths'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
@@ -639,7 +639,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Sierpes Colosales'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
@@ -662,7 +662,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Elementales de Tierra'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
@@ -685,7 +685,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Hidras'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
@@ -708,7 +708,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Dragones Verdes'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
@@ -969,7 +969,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Tritones'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
@@ -992,7 +992,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Sirenas'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
@@ -1015,7 +1015,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Hadas'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
@@ -1038,7 +1038,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Magos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
@@ -1061,7 +1061,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Nagas'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
@@ -1084,7 +1084,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Djinnis'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
@@ -1107,7 +1107,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Elementales de Agua'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
@@ -1130,7 +1130,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Titanes'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
@@ -1153,7 +1153,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Leviatanes'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
@@ -1176,7 +1176,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Dragones Azules'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
@@ -1437,7 +1437,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Monjes'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
@@ -1460,7 +1460,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Paladines'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
@@ -1483,7 +1483,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Unicornios'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
@@ -1506,7 +1506,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Pegasos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
@@ -1529,7 +1529,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Ángeles'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
@@ -1552,7 +1552,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Grifos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
@@ -1575,7 +1575,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Elementales de Aire'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
@@ -1598,7 +1598,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Arcángeles'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
@@ -1621,7 +1621,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Dominions'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
@@ -1644,7 +1644,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Dragones Blancos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
@@ -1905,7 +1905,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Goblins'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
@@ -1928,7 +1928,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Cerberos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(1);
@@ -1951,7 +1951,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Minotauros'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
@@ -1974,7 +1974,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Ogros'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(2);
@@ -1997,7 +1997,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Quimeras'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
@@ -2020,7 +2020,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Salamandras'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(3);
@@ -2043,7 +2043,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Elementales de Lava'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
@@ -2066,7 +2066,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Diablos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(4);
@@ -2089,7 +2089,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Fénix'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);
@@ -2112,7 +2112,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Generar Dragones Rojos'));
         $spell->setName('Invocar '.$spell->getSkill()->getUnit()->getName());
-        $spell->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $spell->setLore($spell->getSkill()->getUnit()->getLore());
         $spell->setImage($spell->getSkill()->getUnit()->getImage());
         $spell->setFaction($spell->getSkill()->getUnit()->getFaction());
         $spell->setMagic(5);

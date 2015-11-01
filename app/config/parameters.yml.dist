@@ -13,3 +13,4 @@ parameters:
     locale:             es
     secret:             ThisTokenIsNotSoSecretChangeIt
     telegram_token:     ThisTokenIsNotSoSecretChangeIt
+    assets_version:     v1

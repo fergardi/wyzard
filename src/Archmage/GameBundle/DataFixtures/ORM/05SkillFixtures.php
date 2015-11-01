@@ -2329,7 +2329,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription(abs($skill->getArtifactBonus()).'% por nivel de eliminar un <span class="label label-extra">Artefacto</span> enemigo.');
+        $skill->setDescription('+'.abs($skill->getArtifactBonus()).'% por nivel de eliminar un <span class="label label-extra">Artefacto</span> enemigo.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

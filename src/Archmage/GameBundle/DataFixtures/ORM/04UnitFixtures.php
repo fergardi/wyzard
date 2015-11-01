@@ -21,7 +21,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ARQUEROS
         $unit = new Unit();
         $unit->setName('Arqueros');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Mercenarios, pero con una puntería impresionante.');
         $unit->setAttack(8);
         $unit->setDefense(2);
         $unit->setSpeed(4);
@@ -44,7 +44,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //CABALLEROS
         $unit = new Unit();
         $unit->setName('Caballeros');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Mercenarios, pero sus caballos nunca se cansan.');
         $unit->setAttack(5);
         $unit->setDefense(5);
         $unit->setSpeed(5);
@@ -67,7 +67,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //PIQUEROS
         $unit = new Unit();
         $unit->setName('Piqueros');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Mercenarios, pero sus picas nunca se parten.');
         $unit->setAttack(3);
         $unit->setDefense(7);
         $unit->setSpeed(2);
@@ -87,10 +87,10 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($unit->getName(), $unit);
         $manager->persist($unit);
 
-        //MILICIA
+        //MILICIAS
         $unit = new Unit();
         $unit->setName('Milicias');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Mercenarios, pero sus hachas nunca se mellan.');
         $unit->setAttack(6);
         $unit->setDefense(4);
         $unit->setSpeed(3);
@@ -113,7 +113,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //CATAPULTAS
         $unit = new Unit();
         $unit->setName('Catapultas');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Mercenarios, pero sus impactos nunca cesan.');
         $unit->setAttack(9);
         $unit->setDefense(1);
         $unit->setSpeed(1);
@@ -140,7 +140,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ESQUELETOS
         $unit = new Unit();
         $unit->setName('Esqueletos');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Sacos de huesos sin alma, pero perfectos como soldados rasos.');
         $unit->setAttack(7);
         $unit->setDefense(3);
         $unit->setSpeed(1);
@@ -163,7 +163,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ZOMBIS
         $unit = new Unit();
         $unit->setName('Zombis');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Los esqueletos al menos tienen cerebro. Éstos idiotas no.');
         $unit->setAttack(8);
         $unit->setDefense(5);
         $unit->setSpeed(2);
@@ -186,7 +186,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ESPECTROS
         $unit = new Unit();
         $unit->setName('Espectros');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Almas atrapadas sin descanso. Pueden servir para aterrorizar a los enemigos.');
         $unit->setAttack(50);
         $unit->setDefense(30);
         $unit->setSpeed(3);
@@ -209,7 +209,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //HOMBRES LOBO
         $unit = new Unit();
         $unit->setName('Hombres Lobo');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Son muy rápidos y están hambrientos, aunque huelen a perro mojado.');
         $unit->setAttack(75);
         $unit->setDefense(15);
         $unit->setSpeed(5);
@@ -232,7 +232,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //LICHES
         $unit = new Unit();
         $unit->setName('Liches');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Nada como unos expertos en nigromancia para animar a las tropas.');
         $unit->setAttack(300);
         $unit->setDefense(700);
         $unit->setSpeed(4);
@@ -255,7 +255,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //VAMPIROS
         $unit = new Unit();
         $unit->setName('Vampiros');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Su sed infinita los hace temibles, y sus alas baten rápidas antes de moderte.');
         $unit->setAttack(500);
         $unit->setDefense(900);
         $unit->setSpeed(2);
@@ -278,7 +278,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //CABALLEROS NEGROS
         $unit = new Unit();
         $unit->setName('Caballeros Negros');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Ninguna víctima pued escapar de estos caballeros y sus oscuros corceles.');
         $unit->setAttack(5500);
         $unit->setDefense(4500);
         $unit->setSpeed(5);
@@ -301,7 +301,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ELEMENTALES DE SOMBRA
         $unit = new Unit();
         $unit->setName('Elementales de Sombra');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Cuando la magia atrapa a la oscuridad, nacen los elementales de sombra.');
         $unit->setAttack(6000);
         $unit->setDefense(2500);
         $unit->setSpeed(4);
@@ -324,7 +324,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //GARGOLAS
         $unit = new Unit();
         $unit->setName('Gárgolas');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Su piel de piedra puede resultar imposible de traspasar.');
         $unit->setAttack(62500);
         $unit->setDefense(21000);
         $unit->setSpeed(3);
@@ -347,7 +347,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //DRAGONES NEGROS
         $unit = new Unit();
         $unit->setName('Dragones Negros');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Se alimentan de personas y desesperación, y su apetito no conoce límites.');
         $unit->setAttack(90000);
         $unit->setDefense(10000);
         $unit->setSpeed(1);
@@ -374,7 +374,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //GORILAS
         $unit = new Unit();
         $unit->setName('Gorilas');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Son muy agresivos, pero te servirán bien si les pagas en comida.');
         $unit->setAttack(5);
         $unit->setDefense(5);
         $unit->setSpeed(5);
@@ -397,7 +397,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ELFOS
         $unit = new Unit();
         $unit->setName('Elfos');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Huidizos y desconfiados, los elfos de los bosques siempre defienden sus fronteras.');
         $unit->setAttack(4);
         $unit->setDefense(7);
         $unit->setSpeed(5);
@@ -420,7 +420,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //DRUIDAS
         $unit = new Unit();
         $unit->setName('Druidas');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Conocedores de secretos ancestrales, siempre encuentran la manera de proteger al bosque.');
         $unit->setAttack(60);
         $unit->setDefense(55);
         $unit->setSpeed(4);
@@ -443,7 +443,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ENTS
         $unit = new Unit();
         $unit->setName('Ents');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Árboles andantes, estas criaturas de dura corteza no dudarán en descargar su furia.');
         $unit->setAttack(85);
         $unit->setDefense(35);
         $unit->setSpeed(1);
@@ -466,7 +466,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //TROLLS
         $unit = new Unit();
         $unit->setName('Trolls');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Criaturas simples y estúpidas, pero podrían matarte con un solo golpe de su maza.');
         $unit->setAttack(700);
         $unit->setDefense(600);
         $unit->setSpeed(3);
@@ -489,7 +489,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //BEHEMOTHS
         $unit = new Unit();
         $unit->setName('Behemoths');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Los terrores de los bosques. Si ves uno, huye, aunque corre más que tú.');
         $unit->setAttack(900);
         $unit->setDefense(400);
         $unit->setSpeed(4);
@@ -512,7 +512,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //SIERPES COLOSALES
         $unit = new Unit();
         $unit->setName('Sierpes Colosales');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Incluso siendo enormes, son sigilosas, y solo las oirás cuando estén a punto de comerte.');
         $unit->setAttack(9500);
         $unit->setDefense(1500);
         $unit->setSpeed(3);
@@ -535,7 +535,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ELEMENTALES DE TIERRA
         $unit = new Unit();
         $unit->setName('Elementales de Tierra');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Cuando magia toca la piedra, nacen los elementales de tierra.');
         $unit->setAttack(2000);
         $unit->setDefense(8000);
         $unit->setSpeed(2);
@@ -558,7 +558,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //HIDRAS
         $unit = new Unit();
         $unit->setName('Hidras');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Si cortas una de sus muchas cabezas, crecerán dos más en su lugar.');
         $unit->setAttack(53000);
         $unit->setDefense(72000);
         $unit->setSpeed(2);
@@ -581,7 +581,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //DRAGONES VERDES
         $unit = new Unit();
         $unit->setName('Dragones Verdes');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('No confundas su naturaleza amistosa con debilidad. Siguen siendo dragones.');
         $unit->setAttack(58500);
         $unit->setDefense(41500);
         $unit->setSpeed(1);
@@ -608,7 +608,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //TRITONES
         $unit = new Unit();
         $unit->setName('Tritones');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Viven en el mar pacíficamente, pero en grupos grandes son como pirañas.');
         $unit->setAttack(4);
         $unit->setDefense(5);
         $unit->setSpeed(3);
@@ -631,7 +631,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //SIRENAS
         $unit = new Unit();
         $unit->setName('Sirenas');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Sus melosos cánticos te llevarán a la locura.');
         $unit->setAttack(4);
         $unit->setDefense(2);
         $unit->setSpeed(5);
@@ -654,7 +654,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //NAGAS
         $unit = new Unit();
         $unit->setName('Nagas');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Nacidas de las medusas, las nagas nada tienen que envidiar a sus progenitoras.');
         $unit->setAttack(30);
         $unit->setDefense(20);
         $unit->setSpeed(2);
@@ -677,7 +677,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //MAGOS
         $unit = new Unit();
         $unit->setName('Magos');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Sedientos de reconocimiento y admiración, su ego no tiene fronteras.');
         $unit->setAttack(45);
         $unit->setDefense(40);
         $unit->setSpeed(3);
@@ -700,7 +700,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //HADAS
         $unit = new Unit();
         $unit->setName('Hadas');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Pueden parecer hermosas por fuera, pero sus dientecillos afilados resultan letales.');
         $unit->setAttack(550);
         $unit->setDefense(450);
         $unit->setSpeed(4);
@@ -723,7 +723,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //DJINNIS
         $unit = new Unit();
         $unit->setName('Djinnis');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('No son como los genios de los cuentos. No cumpirán tus deseos, sino tus pesadillas.');
         $unit->setAttack(300);
         $unit->setDefense(700);
         $unit->setSpeed(4);
@@ -746,7 +746,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //TITANES
         $unit = new Unit();
         $unit->setName('Titanes');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Estos colosos llevan largo tiempo encerrados en las profundidades submarinas.');
         $unit->setAttack(6500);
         $unit->setDefense(3500);
         $unit->setSpeed(2);
@@ -769,7 +769,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ELEMENTALES DE AGUA
         $unit = new Unit();
         $unit->setName('Elementales de Agua');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Cuando la magia adopta la forma de las olas, nacen los elementales de agua.');
         $unit->setAttack(2500);
         $unit->setDefense(4250);
         $unit->setSpeed(5);
@@ -792,7 +792,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //LEVIATANES
         $unit = new Unit();
         $unit->setName('Leviatanes');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Estas monstruosas criaturas marinas despedazan barcos como si fueran maquetas de madera.');
         $unit->setAttack(75500);
         $unit->setDefense(91500);
         $unit->setSpeed(1);
@@ -815,7 +815,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //DRAGONES AZULES
         $unit = new Unit();
         $unit->setName('Dragones Azules');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Estas criaturas fantásticas viven en las nubes y nunca olvidan el sabor del maná.');
         $unit->setAttack(50000);
         $unit->setDefense(50000);
         $unit->setSpeed(1);
@@ -842,7 +842,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //MONJES
         $unit = new Unit();
         $unit->setName('Monjes');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('No te matarán precisamente con sus sermones, eso te lo aseguro.');
         $unit->setAttack(5);
         $unit->setDefense(7);
         $unit->setSpeed(2);
@@ -865,7 +865,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //PALADINES
         $unit = new Unit();
         $unit->setName('Paladines');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Siempre dispuestos a defender la luz de la oscuridad.');
         $unit->setAttack(6);
         $unit->setDefense(8);
         $unit->setSpeed(2);
@@ -888,7 +888,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //UNICORNIOS
         $unit = new Unit();
         $unit->setName('Unicornios');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Estas magníficas bestias salvajes de cuento de hadas son dignas de temer en combate.');
         $unit->setAttack(60);
         $unit->setDefense(70);
         $unit->setSpeed(3);
@@ -911,7 +911,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //PEGASOS
         $unit = new Unit();
         $unit->setName('Pegasos');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Sacados de los cuentos, nada detiene a un caballo alado en la batalla.');
         $unit->setAttack(80);
         $unit->setDefense(50);
         $unit->setSpeed(3);
@@ -934,7 +934,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ANGELES
         $unit = new Unit();
         $unit->setName('Ángeles');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Su pureza sólo es igualada por su agilidad y su destreza con la espada.');
         $unit->setAttack(500);
         $unit->setDefense(900);
         $unit->setSpeed(4);
@@ -957,7 +957,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //GRIFOS
         $unit = new Unit();
         $unit->setName('Grifos');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Ésta mezcla de águila y león puede destrozar a un hombre en segundos.');
         $unit->setAttack(750);
         $unit->setDefense(500);
         $unit->setSpeed(4);
@@ -980,7 +980,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ARCANGELES
         $unit = new Unit();
         $unit->setName('Arcángeles');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Solo los ángeles más poderosos ascienden en el escalafón celestial.');
         $unit->setAttack(3500);
         $unit->setDefense(6500);
         $unit->setSpeed(5);
@@ -1003,7 +1003,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ELEMENTALES DE AIRE
         $unit = new Unit();
         $unit->setName('Elementales de Aire');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Cuando la magia abraza el viento, nacen los elementales de aire.');
         $unit->setAttack(5000);
         $unit->setDefense(1750);
         $unit->setSpeed(5);
@@ -1026,7 +1026,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //DOMINIONS
         $unit = new Unit();
         $unit->setName('Dominions');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Éstos colosos generados mediante huracanes y tornados, arrasan con todo a su paso.');
         $unit->setAttack(80000);
         $unit->setDefense(87000);
         $unit->setSpeed(1);
@@ -1049,7 +1049,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //DRAGONES BLANCOS
         $unit = new Unit();
         $unit->setName('Dragones Blancos');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Los más puros de los dragones, y también los más indestructibles.');
         $unit->setAttack(25000);
         $unit->setDefense(75000);
         $unit->setSpeed(1);
@@ -1076,7 +1076,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //GOBLINS
         $unit = new Unit();
         $unit->setName('Goblins');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Éstas criaturitas molestas atacan en manadas.');
         $unit->setAttack(9);
         $unit->setDefense(4);
         $unit->setSpeed(5);
@@ -1099,7 +1099,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //CERBEROS
         $unit = new Unit();
         $unit->setName('Cerberos');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Los perros de tres cabezas son los compañeros ideales. Pueden recoger 3 pelotas a la vez!');
         $unit->setAttack(9);
         $unit->setDefense(7);
         $unit->setSpeed(2);
@@ -1122,7 +1122,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //MINOTAUROS
         $unit = new Unit();
         $unit->setName('Minotauros');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Mezcla de hombre y toro, su fuerza solo es igualada por su furia descontrolada.');
         $unit->setAttack(60);
         $unit->setDefense(40);
         $unit->setSpeed(5);
@@ -1145,7 +1145,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //OGROS
         $unit = new Unit();
         $unit->setName('Ogros');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Tontos como piedras, pero duros como rocas.');
         $unit->setAttack(70);
         $unit->setDefense(15);
         $unit->setSpeed(3);
@@ -1168,7 +1168,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //QUIMERAS
         $unit = new Unit();
         $unit->setName('Quimeras');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Esta mezcla de león con escorpión y serpiente es tan aterradora como letal.');
         $unit->setAttack(800);
         $unit->setDefense(450);
         $unit->setSpeed(2);
@@ -1191,7 +1191,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //SALAMANDRAS
         $unit = new Unit();
         $unit->setName('Salamandras');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Aunque son de sangre fría, escupen fuego y destrozan huesos con sus mandíbulas.');
         $unit->setAttack(575);
         $unit->setDefense(275);
         $unit->setSpeed(3);
@@ -1214,7 +1214,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //DIABLOS
         $unit = new Unit();
         $unit->setName('Diablos');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Sacados de tus peores pesadillas, estos engendros de sombra y fuego consumen todo lo que tocan.');
         $unit->setAttack(6500);
         $unit->setDefense(1750);
         $unit->setSpeed(4);
@@ -1237,7 +1237,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ELEMENTAL DE LAVA
         $unit = new Unit();
         $unit->setName('Elementales de Lava');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Cuando la magia conquista al fuego, nacen los elementales de lava.');
         $unit->setAttack(7000);
         $unit->setDefense(1250);
         $unit->setSpeed(1);
@@ -1260,7 +1260,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //FENIX
         $unit = new Unit();
         $unit->setName('Fénix');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Resurgen de sus cenizas al morir, lo que los convierte en prácticamente inmortales.');
         $unit->setAttack(40000);
         $unit->setDefense(85000);
         $unit->setSpeed(4);
@@ -1283,7 +1283,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //DRAGON ROJO
         $unit = new Unit();
         $unit->setName('Dragones Rojos');
-        $unit->setLore('Ejemplo de lore extenso en un par de frases cortas para ver si cabe en el chisme');
+        $unit->setLore('Se alimentan de cenizas y fuego. Son ideales para destruir y erradicar toda esperanza.');
         $unit->setAttack(80000);
         $unit->setDefense(20000);
         $unit->setSpeed(1);

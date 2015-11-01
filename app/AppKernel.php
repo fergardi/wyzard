@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             new Shaygan\TelegramBotApiBundle\ShayganTelegramBotApiBundle(),
+            new Kachkaev\AssetsVersionBundle\KachkaevAssetsVersionBundle(),
             new Archmage\GameBundle\ArchmageGameBundle(),
             new Archmage\UserBundle\ArchmageUserBundle(),
         );

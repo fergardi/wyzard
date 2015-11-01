@@ -397,7 +397,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
-        $skill->setPeopleBonus(-1);
+        $skill->setPeopleBonus(-5);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setWin(false);
@@ -562,8 +562,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setWin(false);
         $skill->setQuantityBonus(0);
-        $skill->setMagicDefenseBonus(1);
-        $skill->setArmyDefenseBonus(1);
+        $skill->setMagicDefenseBonus(2);
+        $skill->setArmyDefenseBonus(2);
         $skill->setArtifactBonus(0);
         $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
@@ -1139,9 +1139,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(-1);
-        $skill->setManaBonus(-1);
-        $skill->setPeopleBonus(-1);
+        $skill->setGoldBonus(-5);
+        $skill->setManaBonus(-5);
+        $skill->setPeopleBonus(-5);
         $skill->setTerrainBonus(1);
         $skill->setDamageBonus(0);
         $skill->setWin(false);
@@ -1242,8 +1242,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setWin(false);
         $skill->setQuantityBonus(0);
-        $skill->setMagicDefenseBonus(1);
-        $skill->setArmyDefenseBonus(1);
+        $skill->setMagicDefenseBonus(2);
+        $skill->setArmyDefenseBonus(2);
         $skill->setArtifactBonus(0);
         $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
@@ -1788,7 +1788,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
-        $skill->setManaBonus(2);
+        $skill->setManaBonus(5);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
@@ -1890,8 +1890,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setWin(false);
         $skill->setQuantityBonus(0);
-        $skill->setMagicDefenseBonus(1);
-        $skill->setArmyDefenseBonus(1);
+        $skill->setMagicDefenseBonus(2);
+        $skill->setArmyDefenseBonus(2);
         $skill->setArtifactBonus(0);
         $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
@@ -1937,7 +1937,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription($skill->getArtifactBonus().'% por nivel de encontrar un <span class="label label-extra">Artefacto</span>.');
+        $skill->setDescription('+'.$skill->getArtifactBonus().'% por nivel de encontrar un <span class="label label-extra">Artefacto</span>.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1969,7 +1969,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setFaction(null);
-        $skill->setDescription($skill->getDispellBonus().'% por nivel de romper un <span class="label label-extra">Encantamiento</span> de otro Reino.');
+        $skill->setDescription('+'.$skill->getDispellBonus().'% por nivel de romper un <span class="label label-extra">Encantamiento</span> de otro Reino.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -2442,8 +2442,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setWin(false);
         $skill->setQuantityBonus(0);
-        $skill->setMagicDefenseBonus(1);
-        $skill->setArmyDefenseBonus(1);
+        $skill->setMagicDefenseBonus(2);
+        $skill->setArmyDefenseBonus(2);
         $skill->setArtifactBonus(0);
         $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
@@ -2533,7 +2533,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
-        $skill->setPeopleBonus(2);
+        $skill->setPeopleBonus(5);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setWin(false);
@@ -2595,7 +2595,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(2);
+        $skill->setGoldBonus(5);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
@@ -2989,7 +2989,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
-        $skill->setPeopleBonus(-1);
+        $skill->setPeopleBonus(-5);
         $skill->setTerrainBonus(-1);
         $skill->setDamageBonus(0);
         $skill->setWin(false);
@@ -3186,8 +3186,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDamageBonus(0);
         $skill->setWin(false);
         $skill->setQuantityBonus(0);
-        $skill->setMagicDefenseBonus(1);
-        $skill->setArmyDefenseBonus(1);
+        $skill->setMagicDefenseBonus(2);
+        $skill->setArmyDefenseBonus(2);
         $skill->setArtifactBonus(0);
         $skill->setHeroBonus(0);
         $skill->setTurnsBonus(0);
@@ -4020,8 +4020,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR DRAGONES
         $skill = new Skill();
         $skill->setName('Comandar Dragones');
-        $skill->setAttackBonus(1);
-        $skill->setDefenseBonus(1);
+        $skill->setAttackBonus(2);
+        $skill->setDefenseBonus(2);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4052,8 +4052,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR DEMONIOS
         $skill = new Skill();
         $skill->setName('Comandar Demonios');
-        $skill->setAttackBonus(1);
-        $skill->setDefenseBonus(1);
+        $skill->setAttackBonus(3);
+        $skill->setDefenseBonus(3);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4084,8 +4084,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR ELEMENTALES
         $skill = new Skill();
         $skill->setName('Comandar Elementales');
-        $skill->setAttackBonus(1);
-        $skill->setDefenseBonus(1);
+        $skill->setAttackBonus(4);
+        $skill->setDefenseBonus(4);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4116,8 +4116,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR HUMANOS
         $skill = new Skill();
         $skill->setName('Comandar Humanos');
-        $skill->setAttackBonus(1);
-        $skill->setDefenseBonus(1);
+        $skill->setAttackBonus(4);
+        $skill->setDefenseBonus(4);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4148,8 +4148,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR CELESTIALES
         $skill = new Skill();
         $skill->setName('Comandar Celestiales');
-        $skill->setAttackBonus(1);
-        $skill->setDefenseBonus(1);
+        $skill->setAttackBonus(2);
+        $skill->setDefenseBonus(2);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4180,8 +4180,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR BESTIAS
         $skill = new Skill();
         $skill->setName('Comandar Bestias');
-        $skill->setAttackBonus(1);
-        $skill->setDefenseBonus(1);
+        $skill->setAttackBonus(2);
+        $skill->setDefenseBonus(2);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4212,8 +4212,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR NOMUERTOS
         $skill = new Skill();
         $skill->setName('Comandar NoMuertos');
-        $skill->setAttackBonus(1);
-        $skill->setDefenseBonus(1);
+        $skill->setAttackBonus(3);
+        $skill->setDefenseBonus(3);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4251,9 +4251,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(0);
-        $skill->setManaBonus(0);
-        $skill->setPeopleBonus(0);
+        $skill->setGoldBonus(-5);
+        $skill->setManaBonus(-5);
+        $skill->setPeopleBonus(-5);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setWin(true);
@@ -4272,7 +4272,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Si lo mantienes hasta que se gaste, <span class="label label-extra">Termina el Juego</span>.');
+        $skill->setDescription('Si lo mantienes hasta que se gaste, <span class="label label-extra">Ganas el Juego</span>.');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

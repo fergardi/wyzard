@@ -21,8 +21,9 @@
                 <div class="info">
                     <h1 class="text-center">{{ profile.nick }}</h1>
                     {% if profile == player %}
-                        {% if not player.chat %}Conecta con <a href="https://telegram.org/" class="link">Telegram</a> agregando a <a href="http://telegram.me/archmagebot" class="link">@ArchmageBot</a> y escribiéndole '{{ profile.telegram }}'{% else %}Conectado con <a href="https://telegram.org/" class="link">Telegram</a>{% endif %} |
-                        <a href="{{ path('fos_user_change_password') }}" class="link">Cambiar contraseña</a>
+                        {% if not player.chat %}Conecta con <a href="https://telegram.org/" class="link">Telegram</a> agregando a <a href="http://telegram.me/archmagebot" class="link">@ArchmageBot</a>, escribiendo '{{ profile.telegram }}' y actualizando ésta página{% else %}Conectado con <a href="https://telegram.org/" class="link">Telegram</a>{% endif %} |
+                        <a href="{{ path('fos_user_change_password') }}" class="link">Cambiar contraseña</a> |
+                        <a href="#" class="link">Borrar cuenta</a>
                         <br>
                     {% endif %}
                     <br>

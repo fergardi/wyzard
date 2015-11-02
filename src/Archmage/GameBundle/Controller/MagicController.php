@@ -610,7 +610,7 @@ class MagicController extends Controller
                 $contracts = $player->getContracts()->toArray();
                 shuffle($contracts);
                 $contract = $contracts[0]; //suponemos > 0
-                $contract->setLevel($contract->getLevel() + $artifact->getSkill()->getHeroBonus());
+                $contract->setLevel($contract->getLevel() + rand(1, $artifact->getSkill()->getHeroBonus()));
                 $this->addFlash('success', 'Tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> ha subido de nivel.');
             } else {
                 $this->addFlash('danger', 'No tienes héroes en tu Reino.');
@@ -647,7 +647,7 @@ class MagicController extends Controller
         $player = $this->getUser()->getPlayer();
         //MESSAGE
         $text = array();
-        $text[] = array('default', 12, 0, 'center', 'El mago <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link"><span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span></a> ha activado el Artefacto <span class="label label-'.$artifact->getFaction()->getClass().'">'.$artifact->getName().'</span> sobre su Reino.');
+        $text[] = array('default', 12, 0, 'center', 'El mago <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link"><span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span></a> ha activado el Artefacto <span class="label label-'.$artifact->getFaction()->getClass().'">'.$artifact->getName().'</span> sobre tu Reino.');
         //SPIONAGE
         if ($artifact->getSkill()->getSpyBonus() > 0) {
             $this->createEspionage($target);
@@ -658,7 +658,7 @@ class MagicController extends Controller
                 $contracts = $target->getContracts()->toArray();
                 shuffle($contracts);
                 $contract = $contracts[0]; //suponemos > 0
-                $levels = $artifact->getSkill()->getHeroBonus();
+                $levels = rand(1, abs($artifact->getSkill()->getHeroBonus()));
                 $contract->setLevel($contract->getLevel() + $levels);
                 if ($contract->getLevel() <= 0) {
                     $target->removeContract($contract);

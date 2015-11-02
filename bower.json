@@ -1,20 +1,22 @@
 {
-    "name": "Archmage",
-    "version": "4.0",
-    "dependencies": {
-        "modernizr": "2.*",
-        "normalize-css": "2.*",
-        "jquery": "1.10.*",
-        "jquery-ui": "1.10.*",
-        "bootstrap": "3.*",
-        "fontawesome": "4.*",
-        "bootstrap-validator": "*",
-        "datatables": "1.10.*",
-        "datatables-bootstrap3-plugin": "*",
-        "bootstrap-select": "master",
-        "moment": "master"
-    },
-    "resolutions": {
-        "jquery": ">= 1.10.*"
-    }
+  "name": "Archmage",
+  "version": "4.0",
+  "dependencies": {
+    "modernizr": "2.*",
+    "normalize-css": "2.*",
+    "jquery": "1.10.*",
+    "jquery-ui": "1.10.*",
+    "bootstrap": "3.*",
+    "fontawesome": "4.*",
+    "bootstrap-validator": "*",
+    "datatables": "1.10.*",
+    "datatables-bootstrap3-plugin": "*",
+    "bootstrap-select": "master",
+    "moment": "master",
+    "datatables-sorting-datetime-moment": "master"
+  },
+  "resolutions": {
+    "jquery": ">= 1.10.*",
+    "moment": ">= 1.9.4"
+  }
 }

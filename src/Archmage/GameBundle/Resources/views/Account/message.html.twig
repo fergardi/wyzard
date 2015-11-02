@@ -46,22 +46,7 @@
 {{ parent() }}
 <script>
     $(document).ready(function() {
-        $.fn.dataTable.moment = function ( format, locale ) {
-            var types = $.fn.dataTable.ext.type;
-
-            // Add type detection
-            types.detect.unshift( function ( d ) {
-                return moment( d, format, locale, true ).isValid() ?
-                'moment-'+format :
-                        null;
-            } );
-
-            // Add sorting method - use an integer for the sorting
-            types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
-                return moment( d, format, locale, true ).unix();
-            };
-        };
-        $.fn.dataTable.moment( 'dd/mm/YYYY HH:ii:ss' );
+        $.fn.dataTable.moment('dd/mm/YYYY HH:ii:ss');
         $('#datatable').dataTable({
             "order": [[ 0, "desc" ]],
             "sDom": 't<"col-xs-12 text-center"fp>',

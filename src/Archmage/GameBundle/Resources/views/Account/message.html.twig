@@ -47,12 +47,9 @@
 <script>
     $(document).ready(function() {
         $('#datatable').dataTable({
-            "aoColumns": [
-                {"sType": "date-euro", "bSortable": true },
-                {"bSortable": false },
-                {"bSortable": false }
+            columnDefs: [
+                { type: 'date-euro', targets: 0 }
             ],
-            "order": [[ 0, "desc" ]],
             "sDom": 't<"col-xs-12 text-center"fp>',
             "displayStart": 0,
             "pageLength": 10,

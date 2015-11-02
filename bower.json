@@ -11,6 +11,7 @@
     "bootstrap-validator": "*",
     "datatables": "1.10.*",
     "datatables-bootstrap3-plugin": "*",
+    "drmonty-datatables-plugins": "master",
     "bootstrap-select": "master"
   },
   "resolutions": {

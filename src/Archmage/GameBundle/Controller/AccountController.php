@@ -86,8 +86,9 @@ class AccountController extends Controller
         $manager = $this->getDoctrine()->getManager();
         if (!$hash) {
             $player = $this->getUser()->getPlayer();
+            $messages = $manager->getRepository('ArchmageGameBundle:Message')->findBy(array('player' => $player), array('datetime' => 'asc'));
             return array(
-                'player' => $player,
+                'messages' => $messages,
             );
         } else {
             $message = $manager->getRepository('ArchmageGameBundle:Message')->findOneByHash($hash);
@@ -97,11 +98,10 @@ class AccountController extends Controller
             }
             $text = json_decode($message->getText(), true);
             $player = $this->getUser()->getPlayer();
-            $messages = $manager->getRepository('ArchmageGameBundle:Message')->findBy(array('player' => $player), array('datetime' => 'asc'));
             return array(
                 'message' => $message,
                 'text' => $text,
-                'messages' => $messages,
+                'player' => $player,
             );
         }
     }
@@ -114,7 +114,7 @@ class AccountController extends Controller
     {
         $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
-        $legends = $manager->getRepository('ArchmageGameBundle:Legend')->findBy(array(), array('datetime' => 'DESC'));
+        $legends = $manager->getRepository('ArchmageGameBundle:Legend')->findBy(array(), array('datetime' => 'asc'));
         return array(
             'legends' => $legends,
         );

@@ -40,12 +40,12 @@
 <script>
     var search = '{{ player.nick }}';
     $(document).ready(function() {
-        var oTable = $('#datatable').dataTable({
+        var oTable = $("#datatable").dataTable({
             "order": [[ 0, "asc" ]],
             "sDom": 't<"col-xs-12 text-center"fp>',
             "displayStart": 0,
             "pageLength": 50,
-            'pagingType': 'full_numbers',
+            "pagingType": "full_numbers",
             "language": {
                 "decimal": ",",
                 "thousands": ".",

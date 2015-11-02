@@ -46,14 +46,15 @@
 {{ parent() }}
 <script>
     $(document).ready(function() {
-        $('#datatable').dataTable({
-            columnDefs: [
-                { type: 'date-euro', targets: 0 }
+        $("#datatable").dataTable({
+            "columnDefs": [
+                { "type": "date-euro", "targets": 0 }
             ],
+            "order": [[0, "desc"]],
             "sDom": 't<"col-xs-12 text-center"fp>',
             "displayStart": 0,
             "pageLength": 10,
-            'pagingType': 'full_numbers',
+            "pagingType": "full_numbers",
             "language": {
                 "sProcessing": "Procesando...",
                 "sLengthMenu": "Ver _MENU_",

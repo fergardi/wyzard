@@ -38,18 +38,15 @@
 {{ parent() }}
 <script>
     $(document).ready(function() {
-        var oTable = $('#datatable').dataTable({
-            "aoColumns": [
-                {"sType": "date-euro", "bSortable": false },
-                {"bSortable": false },
-                {"bSortable": false },
-                {"bSortable": false }
+        var oTable = $("#datatable").dataTable({
+            "columnDefs": [
+                { "type": "date-euro", "targets": 0 }
             ],
-            "order": [[ 0, "desc" ]],
+            "order": [[0, "desc"]],
             "sDom": 't<"col-xs-12 text-center"fp>',
             "displayStart": 0,
             "pageLength": 10,
-            'pagingType': 'full_numbers',
+            "pagingType": "full_numbers",
             "language": {
                 "decimal": ",",
                 "thousands": ".",

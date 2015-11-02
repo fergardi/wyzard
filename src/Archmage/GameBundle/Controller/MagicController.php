@@ -407,8 +407,8 @@ class MagicController extends Controller
         } elseif ($spell->getEnchantment()) {
             $enchantment = $player->hasEnchantmentVictim($spell);
             if ($enchantment) {
-                $player->removeEnchantmentVictim($enchantment);
-                $player->removeEnchantmentOwner($enchantment);
+                $player->removeEnchantmentsVictim($enchantment);
+                $player->removeEnchantmentsOwner($enchantment);
                 $manager->remove($enchantment);
             }
             $enchantment = new Enchantment();

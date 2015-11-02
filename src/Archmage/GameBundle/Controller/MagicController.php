@@ -610,8 +610,9 @@ class MagicController extends Controller
                 $contracts = $player->getContracts()->toArray();
                 shuffle($contracts);
                 $contract = $contracts[0]; //suponemos > 0
-                $contract->setLevel($contract->getLevel() + rand(1, $artifact->getSkill()->getHeroBonus()));
-                $this->addFlash('success', 'Tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> ha subido de nivel.');
+                $levels = rand(1, $artifact->getSkill()->getHeroBonus());
+                $contract->setLevel($contract->getLevel() + $levels);
+                $this->addFlash('success', 'Tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> ha subido '.$levels.' niveles.');
             } else {
                 $this->addFlash('danger', 'No tienes héroes en tu Reino.');
             }

@@ -38,14 +38,24 @@
 {{ parent() }}
 <script>
     $(document).ready(function() {
+        $.fn.dataTable.moment = function ( format, locale ) {
+            var types = $.fn.dataTable.ext.type;
+
+            // Add type detection
+            types.detect.unshift( function ( d ) {
+                return moment( d, format, locale, true ).isValid() ?
+                'moment-'+format :
+                        null;
+            } );
+
+            // Add sorting method - use an integer for the sorting
+            types.order[ 'moment-'+format+'-pre' ] = function ( d ) {
+                return moment( d, format, locale, true ).unix();
+            };
+        };
+        $.fn.dataTable.moment( 'dd/mm/YYYY HH:ii:ss' );
         var oTable = $('#datatable').dataTable({
             "order": [[ 0, "asc" ]],
-            "aoColumns": [
-                {"sType": "date-euro", "bSortable": true },
-                null,
-                null,
-                null
-            ],
             "sDom": 't<"col-xs-12 text-center"fp>',
             "displayStart": 0,
             "pageLength": 10,

@@ -276,6 +276,9 @@ table a:hover {
     -moz-border-radius: 3px !important;
     border-radius: 3px !important;
 }
+.pagination {
+    font-size: 12px !important;
+}
 /* NAVBAR PADDING FOR COLLAPSABLE COL-SM DEVICES */
 .nav > li > a {
     padding-left: 5px;

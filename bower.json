@@ -11,7 +11,8 @@
         "bootstrap-validator": "*",
         "datatables": "1.10.*",
         "datatables-bootstrap3-plugin": "*",
-        "bootstrap-select": "master"
+        "bootstrap-select": "master",
+        "moment": "master"
     },
     "resolutions": {
         "jquery": ">= 1.10.*"

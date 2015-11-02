@@ -13,6 +13,11 @@ use Archmage\GameBundle\Entity\Player;
  */
 class PlayerRepository extends EntityRepository
 {
+    public function findAll()
+    {
+        return $this->findBy(array(), array('datetime'=>'asc'));
+    }
+
     /**
      * Función que devuelve un array con todos los jugadores que son objetivos legales de este jugador
      * Un objetivo legal debe cumplir estas condiciones

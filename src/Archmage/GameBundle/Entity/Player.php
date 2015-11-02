@@ -159,7 +159,6 @@ class Player
 
     /**
      * @ORM\OneToMany(targetEntity="Message", mappedBy="player")
-     * @ORM\OrderBy({"datetime" = "DESC"})
      **/
     private $messages;
 

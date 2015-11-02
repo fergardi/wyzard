@@ -53,7 +53,7 @@ class KingdomController extends Controller
                  */
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y recaudado '.$this->get('service.controller')->nf($gold).' <span class="label label-extra">Oro</span>.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> y recaudado '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span>.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -80,38 +80,47 @@ class KingdomController extends Controller
             $bid = isset($_POST['bid'])?$_POST['bid']:null;
             $auction = isset($_POST['auction'])?$_POST['auction']:null;
             $auction = $manager->getRepository('ArchmageGameBundle:Auction')->findOneById($auction);
-            if ($auction && $bid && is_numeric($bid) && $auction->getPlayer() != $player && $bid >= $auction->getBid() && $bid <= $player->getGold() && $player->getTurns() >= 1) {
-                //el jugador no puede tener mas de una instancia del heroe o de la research, pero si de tropas o de artefactos
-                if (!$player->hasContract($auction->getContract()) && !$player->hasResearch($auction->getResearch())) {
-                    /*
-                     * MANTENIMIENTOS
-                     */
-                    $player->setGold($player->getGold() - $bid);
-                    $player->setTurns($player->getTurns() - $turns);
-                    $this->get('service.controller')->checkMaintenances($turns);
-                    /*
-                     * ACCION
-                     */
-                    //si existia antes un pujante se le devuelve el dinero de la puja menos la comision y se le manda un mensaje
-                    if ($auction->getPlayer()) {
-                        $payback = floor($auction->getBid() * 0.95);
-                        $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + $payback);
-                        $text = array();
-                        $text[] = array('default', 12, 0, 'center', 'Se te ha devuelto '.$this->get('service.controller')->nf($payback).' Oro, tu puja anterior menos el 5% de comisión, por haber sido sobrepujado en la subasta de <span class="label label-'.$auction->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($auction->getName()).'" class="link">'.$auction->getName().'</a></span>.');
-                        $this->get('service.controller')->sendMessage($auction->getPlayer(), $auction->getPlayer(), 'Te han sobrepujado', $text, 'auction');
+            if ($auction && $bid && is_numeric($bid) && $auction->getPlayer() != $player) {
+                if ($bid <= $player->getGold() && $player->getTurns() >= 1) {
+                    //el jugador no puede tener mas de una instancia del heroe o de la research, pero si de tropas o de artefactos
+                    if (!$player->hasContract($auction->getContract()) && !$player->hasResearch($auction->getResearch())) {
+                        /*
+                         * MANTENIMIENTOS
+                         */
+                        $player->setGold($player->getGold() - $bid);
+                        $player->setTurns($player->getTurns() - $turns);
+                        $this->get('service.controller')->checkMaintenances($turns);
+                        /*
+                         * ACCION
+                         */
+                        if ($bid > $auction->getTop()) {
+                            if ($auction->getPlayer()) {
+                                $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + $auction->getTop());
+                                $text = array();
+                                $text[] = array('default', 12, 0, 'center', 'Se te ha devuelto ' . $this->get('service.controller')->nff($auction->getTop()) . ' <span class="label label-extra">Oro</span>, por haber sido sobrepujado en la subasta de <span class="label label-' . $auction->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($auction->getName()) . '" class="link">' . $auction->getName() . '</a></span>.');
+                                $this->get('service.controller')->sendMessage($auction->getPlayer(), $auction->getPlayer(), 'Te han sobrepujado', $text, 'auction');
+                                $manager->persist($auction->getPlayer());
+                            }
+                            $auction->setBid($auction->getTop());
+                            $auction->setTop($bid);
+                            $auction->setPlayer($player);
+                            $this->addFlash('success', 'Has gastado ' . $this->get('service.controller')->nff($turns) . ' <span class="label label-extra">Turnos</span> y pujado ' . $this->get('service.controller')->nff($bid) . ' <span class="label label-extra">Oro</span> por <span class="label label-' . $auction->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($auction->getName()) . '" class="link">' . $auction->getName() . '</a></span>.');
+                        } else {
+                            $auction->setBid($bid);
+                            $player->setGold($player->getGold() + $bid);
+                            $this->addFlash('danger', 'Has gastado ' . $this->get('service.controller')->nff($turns) . ' <span class="label label-extra">Turnos</span> y pujado ' . $this->get('service.controller')->nff($bid) . ' <span class="label label-extra">Oro</span> por <span class="label label-' . $auction->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($auction->getName()) . '" class="link">' . $auction->getName() . '</a></span>, pero te han sobrepujado.');
+                        }
+                        /*
+                         * PERSISTENCIA
+                         */
+                        $manager->persist($auction);
+                        $manager->persist($player);
+                        $manager->flush();
+                    } else {
+                        $this->addFlash('danger', 'No puedes pujar por un héroe o hechizo que ya posees.');
                     }
-                    //actualizamos el dinero de la puja y el actual pujante
-                    $auction->setPlayer($player);
-                    $auction->setBid($bid);
-                    /*
-                     * PERSISTENCIA
-                     */
-                    $manager->persist($auction);
-                    $manager->persist($player);
-                    $manager->flush();
-                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y pujado '.$this->get('service.controller')->nf($bid).' <span class="label label-extra">Oro</span> por <span class="label label-'.$auction->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($auction->getName()).'" class="link">'.$auction->getName().'</a></span>.');
                 } else {
-                    $this->addFlash('danger', 'No puedes pujar por un héroe o hechizo que ya posees.');
+                    $this->addFlash('danger', 'No tienes el <span class="label label-extra">Oro</span> o los <span class="label label-extra">Turnos</span> suficientes para eso.');
                 }
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');

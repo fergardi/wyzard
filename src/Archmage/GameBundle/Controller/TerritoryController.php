@@ -40,7 +40,7 @@ class TerritoryController extends Controller
                  */
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y encontrado '.$this->get('service.controller')->nf($lands).' <span class="label label-extra">Tierras</span>.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> y encontrado '.$this->get('service.controller')->nff($lands).' <span class="label label-extra">Tierras</span>.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
@@ -89,7 +89,7 @@ class TerritoryController extends Controller
                      */
                     $manager->persist($player);
                     $manager->flush();
-                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span>, '.$this->get('service.controller')->nf($gold).' <span class="label label-extra">Oro</span>, '.$this->get('service.controller')->nf($people).' <span class="label label-extra">Personas</span> y '.$this->get('service.controller')->nf($mana).' <span class="label label-extra">Maná</span>, y construido '.$this->get('service.controller')->nf($lands).' <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($construction->getBuilding()->getName()).'" class="link">'.$construction->getBuilding()->getName().'</a></span>.');
+                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span>, '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span>, '.$this->get('service.controller')->nff($people).' <span class="label label-extra">Personas</span> y '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span>, y construido '.$this->get('service.controller')->nff($lands).' <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($construction->getBuilding()->getName()).'" class="link">'.$construction->getBuilding()->getName().'</a></span>.');
                 } else {
                     $this->addFlash('danger', 'No tienes suficientes <span class="label label-extra">Recursos</span> para eso.');
                 }
@@ -134,7 +134,7 @@ class TerritoryController extends Controller
                  */
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nf($turns).' <span class="label label-extra">Turnos</span> y derribado '.$this->get('service.controller')->nf($lands).' <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($construction->getBuilding()->getName()).'" class="link">'.$construction->getBuilding()->getName().'</a></span>.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> y derribado '.$this->get('service.controller')->nff($lands).' <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($construction->getBuilding()->getName()).'" class="link">'.$construction->getBuilding()->getName().'</a></span>.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

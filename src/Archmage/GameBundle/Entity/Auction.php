@@ -29,6 +29,13 @@ class Auction
     private $bid;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="top", type="bigint", nullable=false)
+     */
+    private $top;
+
+    /**
      * @ORM\OneToOne(targetEntity="Troop")
      * @ORM\JoinColumn(name="troop", referencedColumnName="id", nullable=true)
      **/
@@ -90,6 +97,29 @@ class Auction
     public function getBid()
     {
         return $this->bid;
+    }
+
+    /**
+     * Set top
+     *
+     * @param integer $top
+     * @return Auction
+     */
+    public function setTop($top)
+    {
+        $this->top = $top;
+
+        return $this;
+    }
+
+    /**
+     * Get top
+     *
+     * @return integer
+     */
+    public function getTop()
+    {
+        return $this->top;
     }
 
     /**

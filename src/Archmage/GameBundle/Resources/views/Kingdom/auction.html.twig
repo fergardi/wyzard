@@ -20,13 +20,13 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar 1 <span class="label label-extra">Turno</span> y <span class="label label-extra">Oro</span> para adquirir diversas <span class="label label-extra">Tropas</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span> y <span class="label label-extra">Hechizos</span> que no podrías obtener de otra forma. Si te sobrepujan, se te devolverá el <span class="label label-extra">Oro</span> menos el 5% de comisión.</div>
+                            <div class="col-xs-12">Aquí puedes gastar 1 <span class="label label-extra">Turno</span> y <span class="label label-extra">Oro</span> para adquirir <span class="label label-extra">Tropas</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span> y <span class="label label-extra">Hechizos</span>. Si pujas por un valor mucho mayor que el actual, puedes asegurarte de ganar varias sobrepujas. Al terminar, se te devolverá el <span class="label label-extra">Oro</span> sobrante menos el 10% de comisión.</div>
                         </div>
                     </div>
                 </div>
                 <div class="panel-middle text-center">Fórmula</div>
                 <div class="panel-body text-responsive text-only text-center">
-                    <p>PUJA<sub>nueva</sub> &ge; PUJA<sub>actual</sub> + 10%</p>
+                    <p>PUJA<sub>máxima</sub> &ge; PUJA<sub>nueva</sub> &gt; PUJA<sub>actual</sub></p>
                 </div>
                 <div class="panel-footer text-center">
                     <a class="btn btn-default" href="{{ path( 'archmage_game_kingdom_tax' ) }}"><i class="fa fa-fw fa-money"></i>Recaudar</a>
@@ -63,7 +63,7 @@
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i>Pujar</button>
                                 </div>
-                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="number" class="form-control" id="bid" name="bid" min="{{ auction.bid + 1 }}" max="{{ player.gold }}" value="{{ auction.bid + 1 }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
@@ -113,7 +113,7 @@
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i>Pujar</button>
                                 </div>
-                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="number" class="form-control" id="bid" name="bid" min="{{ auction.bid + 1 }}" max="{{ player.gold }}" value="{{ auction.bid + 1 }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
@@ -162,7 +162,7 @@
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i>Pujar</button>
                                 </div>
-                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="number" class="form-control" id="bid" name="bid" min="{{ auction.bid + 1 }}" max="{{ player.gold }}" value="{{ auction.bid + 1 }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
@@ -199,7 +199,7 @@
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i>Pujar</button>
                                 </div>
-                                <input type="number" class="form-control" id="bid" name="bid" min="{{ (auction.bid * 1.1)|round }}" max="{{ player.gold }}" value="{{ (auction.bid * 1.1)|round }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="number" class="form-control" id="bid" name="bid" min="{{ auction.bid + 1 }}" max="{{ player.gold }}" value="{{ auction.bid + 1 }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>

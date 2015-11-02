@@ -63,7 +63,7 @@ class ServiceController extends Controller
         //limpiar mensaje tipo info para evitar duplicados ya que hacemos redirects en los controladores
         $this->container->get('session')->getFlashBag()->get('info');
         //NOTICIA PERMANENTE
-        //$this->addFlash('info', 'Se han incrementado notablemente los porcentajes de bonus de Héroes.');
+        $this->addFlash('info', 'Ahora las subastas funcionan con pujas máximas secretas, como en eBay.');
         //APOCALIPSIS
         $apocalypse = $manager->getRepository('ArchmageGameBundle:Enchantment')->findOneBySpell($manager->getRepository('ArchmageGameBundle:Spell')->findByName('Apocalipsis'));
         if ($apocalypse) {

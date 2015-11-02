@@ -97,10 +97,11 @@ class AccountController extends Controller
             }
             $text = json_decode($message->getText(), true);
             $player = $this->getUser()->getPlayer();
+            $messages = $manager->getRepository('ArchmageGameBundle:Message')->findBy(array('player' => $player), array('datetime' => 'asc'));
             return array(
                 'message' => $message,
                 'text' => $text,
-                'player' => $player,
+                'messages' => $messages,
             );
         }
     }

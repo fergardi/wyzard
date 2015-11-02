@@ -20,7 +20,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    {% for message in player.messages %}
+                    {% for message in messages %}
                     <tr>
                         <td class="text-center">{{ message.datetime|date('d/m/Y H:i:s') }}</td>
                         <td class="text-center"><span class="label label-{{ message.owner.faction.class|default('extra') }}"><a href="{{ path('archmage_game_account_profile', { 'id': message.owner.id|default(player.id) } ) }}" class="link">{{ message.owner.nick|default('Admin') }}</a></span></td>

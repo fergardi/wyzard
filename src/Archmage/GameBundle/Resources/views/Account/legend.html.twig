@@ -40,11 +40,12 @@
     $(document).ready(function() {
         var oTable = $('#datatable').dataTable({
             "aoColumns": [
-                {"bSortable": false },
+                {"sType": "date-euro", "bSortable": false },
                 {"bSortable": false },
                 {"bSortable": false },
                 {"bSortable": false }
             ],
+            "order": [[ 0, "desc" ]],
             "sDom": 't<"col-xs-12 text-center"fp>',
             "displayStart": 0,
             "pageLength": 10,

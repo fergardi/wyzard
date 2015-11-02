@@ -20,7 +20,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    {% for message in messages %}
+                    {% for message in player.messages %}
                     <tr>
                         <td class="text-center">{{ message.datetime|date('d/m/Y H:i:s') }}</td>
                         <td class="text-center"><span class="label label-{{ message.owner.faction.class|default('extra') }}"><a href="{{ path('archmage_game_account_profile', { 'id': message.owner.id|default(player.id) } ) }}" class="link">{{ message.owner.nick|default('Admin') }}</a></span></td>
@@ -48,10 +48,11 @@
     $(document).ready(function() {
         $('#datatable').dataTable({
             "aoColumns": [
-                {"bSortable": false },
+                {"sType": "date-euro", "bSortable": true },
                 {"bSortable": false },
                 {"bSortable": false }
             ],
+            "order": [[ 0, "desc" ]],
             "sDom": 't<"col-xs-12 text-center"fp>',
             "displayStart": 0,
             "pageLength": 10,

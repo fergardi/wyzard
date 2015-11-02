@@ -21,7 +21,7 @@
                 <tbody>
                     {% for legend in legends %}
                     <tr>
-                        <td class="text-center">{{ legend.datetime|date('Y/m/d H:i:s') }}</td>
+                        <td class="text-center">{{ legend.datetime|date('d/m/Y H:i:s') }}</td>
                         <td class="text-center">{{ legend.nick|raw }}</td>
                         <td class="text-right">{{ legend.power|nf }}</td>
                         <td class="text-right">{{ legend.lands|nf }}</td>
@@ -38,9 +38,13 @@
 {{ parent() }}
 <script>
     $(document).ready(function() {
-        $.fn.dataTable.moment('dd/mm/YYYY HH:ii:ss');
         var oTable = $('#datatable').dataTable({
-            "order": [[ 0, "asc" ]],
+            "aoColumns": [
+                {"bSortable": false },
+                {"bSortable": false },
+                {"bSortable": false },
+                {"bSortable": false }
+            ],
             "sDom": 't<"col-xs-12 text-center"fp>',
             "displayStart": 0,
             "pageLength": 10,

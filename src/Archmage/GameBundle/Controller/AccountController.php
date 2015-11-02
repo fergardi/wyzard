@@ -113,7 +113,7 @@ class AccountController extends Controller
     {
         $this->get('service.controller')->addNews();
         $manager = $this->getDoctrine()->getManager();
-        $legends = $manager->getRepository('ArchmageGameBundle:Legend')->findAll();
+        $legends = $manager->getRepository('ArchmageGameBundle:Legend')->findBy(array(), array('datetime' => 'DESC'));
         return array(
             'legends' => $legends,
         );

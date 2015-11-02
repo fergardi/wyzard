@@ -46,9 +46,12 @@
 {{ parent() }}
 <script>
     $(document).ready(function() {
-        $.fn.dataTable.moment('dd/mm/YYYY HH:ii:ss');
         $('#datatable').dataTable({
-            "order": [[ 0, "desc" ]],
+            "aoColumns": [
+                {"bSortable": false },
+                {"bSortable": false },
+                {"bSortable": false }
+            ],
             "sDom": 't<"col-xs-12 text-center"fp>',
             "displayStart": 0,
             "pageLength": 10,

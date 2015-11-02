@@ -89,8 +89,3 @@ fos_user:
 shaygan_telegram_bot_api:
     token: "%telegram_token%"
 
-# AssetsVersion
-kachkaev_assets_version:
-    filename: %kernel.root_dir%/config/parameters.yml          # name of the file where application parameters are stored
-    parametername: assets_version                              # name of property that defines assets version in that file
-    manager: Kachkaev\AssetsVersionBundle\AssetsVersionManager # location of version manager

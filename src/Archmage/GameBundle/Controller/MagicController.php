@@ -163,7 +163,7 @@ class MagicController extends Controller
                     $research->getSpell()->getFaction() == $player->getFaction() ? $bonus = 1 : $bonus = 2;
                     $turns = $research->getSpell()->getTurnsCost();
                     $mana = $research->getSpell()->getManaCost() * $bonus;
-                    if ($turns <= $player->getTurns() && $mana <= $player->getMana() && !$apocalypse) {
+                    if ($turns <= $player->getTurns() && $mana <= $player->getMana()) {
                         /*
                          * MANTENIMIENTOS
                          */

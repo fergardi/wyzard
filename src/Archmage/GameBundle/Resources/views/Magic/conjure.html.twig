@@ -74,7 +74,7 @@
                                 <input type="hidden" id="research" name="research" value="{{ research.id }}" required />
                                 <div class="btn-group" role="group" aria-label="...">
                                     {% if research.spell.faction == player.faction %}{% set bonus = 1 %}{% else %}{% set bonus = 2 %}{% endif %}
-                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default" {% if research.spell.manaCost * bonus > player.mana or research.spell.turnsCost > player.turns or research.spell.skill.battle or player.magic < research.spell.magic or apocalypse %}disabled{% endif %}><i class="fa fa-fw fa-tint"></i>Conjurar</button>
+                                    <button type="submit" id="conjure" name="action" value="conjure" class="btn btn-default" {% if research.spell.manaCost * bonus > player.mana or research.spell.turnsCost > player.turns or research.spell.skill.battle or player.magic < research.spell.magic or (apocalypse and research.spell.skill.win) %}disabled{% endif %}><i class="fa fa-fw fa-tint"></i>Conjurar</button>
                                     {% if research.spell.skill.battle %}
                                     <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if research == player.research %}disabled{% endif %}><i class="fa fa-fw fa-shield"></i>Defensa</button>
                                     {% endif %}

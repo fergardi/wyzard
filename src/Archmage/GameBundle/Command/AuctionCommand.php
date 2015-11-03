@@ -99,7 +99,7 @@ class AuctionCommand extends ContainerAwareCommand
                 }
                 $text[] = array('default', 12, 0, 'center', 'Has ganado la subasta de <span class="label label-'.$auction->getClass().'"><a href="'.$this->getContainer()->get('router')->generate('archmage_game_home_help').'#'.$this->getContainer()->get('service.controller')->toSlug($auction->getName()).'" class="link">'.$auction->getName().'</a></span> por '.$this->getContainer()->get('service.controller')->nff($auction->getBid()).' <span class="label label-extra">Oro</span>.');
                 if ($auction->getTop() > $auction->getBid()) {
-                    $rest = ($auction->getTop() - $auction->getBid()) * 0.90;
+                    $rest = floor(($auction->getTop() - $auction->getBid()) * 0.90);
                     $winner->setGold($winner->getGold() + $rest);
                     $text[] = array('default', 12, 0, 'center', 'Se te ha devuelto el sobrante de tu puja máxima menos el 10% de comisión, '.$this->getContainer()->get('service.controller')->nff($rest).' <span class="label label-extra">Oro</span>.');
                 }

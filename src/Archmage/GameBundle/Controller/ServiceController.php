@@ -63,7 +63,7 @@ class ServiceController extends Controller
         //limpiar mensaje tipo info para evitar duplicados ya que hacemos redirects en los controladores
         $this->container->get('session')->getFlashBag()->get('info');
         //NOTICIA PERMANENTE
-        $this->addFlash('info', 'Ahora las subastas funcionan con pujas máximas secretas, como en eBay.');
+        //$this->addFlash('info', 'Ahora las subastas funcionan con pujas máximas secretas, como en eBay.');
         //APOCALIPSIS
         $apocalypse = $manager->getRepository('ArchmageGameBundle:Enchantment')->findOneBySpell($manager->getRepository('ArchmageGameBundle:Spell')->findByName('Apocalipsis'));
         if ($apocalypse) {
@@ -178,6 +178,19 @@ class ServiceController extends Controller
             }
             //GOLD
             $gold = $player->getGold() + $player->getGoldResourcePerTurn() - $player->getGoldMaintenancePerTurn();
+            foreach ($player->getEnchantmentsOwner() as $enchantment) {
+                $gold = $player->getGold() + $player->getGoldResourcePerTurn() - $player->getGoldMaintenancePerTurn();
+                if ($gold < 0) {
+                    if ($enchantment->getSpell()->getGoldMaintenance() > 0) {
+                        $victim = $enchantment->getVictim();
+                        $player->removeEnchantmentsOwner($enchantment);
+                        $victim->removeEnchantmentsVictim($enchantment);
+                        $manager->persist($victim);
+                        $manager->remove($enchantment);
+                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Oro</span>.');
+                    }
+                }
+            }
             foreach ($player->getTroops() as $troop) {
                 $gold = $player->getGold() + $player->getGoldResourcePerTurn() - $player->getGoldMaintenancePerTurn();
                 if ($gold < 0) {
@@ -201,22 +214,22 @@ class ServiceController extends Controller
                     }
                 }
             }
+            $player->setGold($gold);
+            //PEOPLE
+            $people = $player->getPeople() + $player->getPeopleResourcePerTurn() - $player->getPeopleMaintenancePerTurn();
             foreach ($player->getEnchantmentsOwner() as $enchantment) {
-                $gold = $player->getGold() + $player->getGoldResourcePerTurn() - $player->getGoldMaintenancePerTurn();
-                if ($gold < 0) {
-                    if ($enchantment->getSpell()->getGoldMaintenance() > 0) {
+                $people = $player->getPeople() + $player->getPeopleResourcePerTurn() - $player->getPeopleMaintenancePerTurn();
+                if ($people < 0) {
+                    if ($enchantment->getSpell()->getPeopleMaintenance() > 0) {
                         $victim = $enchantment->getVictim();
                         $player->removeEnchantmentsOwner($enchantment);
                         $victim->removeEnchantmentsVictim($enchantment);
                         $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Oro</span>.');
+                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Personas</span>.');
                     }
                 }
             }
-            $player->setGold($gold);
-            //PEOPLE
-            $people = $player->getPeople() + $player->getPeopleResourcePerTurn() - $player->getPeopleMaintenancePerTurn();
             foreach ($player->getTroops() as $troop) {
                 $people = $player->getPeople() + $player->getPeopleResourcePerTurn() - $player->getPeopleMaintenancePerTurn();
                 if ($people < 0) {
@@ -240,22 +253,22 @@ class ServiceController extends Controller
                     }
                 }
             }
+            $player->setPeople($people);
+            //MANA
+            $mana = $player->getMana() + $player->getManaResourcePerTurn() - $player->getManaMaintenancePerTurn();
             foreach ($player->getEnchantmentsOwner() as $enchantment) {
-                $people = $player->getPeople() + $player->getPeopleResourcePerTurn() - $player->getPeopleMaintenancePerTurn();
-                if ($people < 0) {
-                    if ($enchantment->getSpell()->getPeopleMaintenance() > 0) {
+                $mana = $player->getMana() + $player->getManaResourcePerTurn() - $player->getManaMaintenancePerTurn();
+                if ($mana < 0) {
+                    if ($enchantment->getSpell()->getManaMaintenance() > 0) {
                         $victim = $enchantment->getVictim();
                         $player->removeEnchantmentsOwner($enchantment);
                         $victim->removeEnchantmentsVictim($enchantment);
                         $manager->persist($victim);
                         $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Personas</span>.');
+                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Maná</span>.');
                     }
                 }
             }
-            $player->setPeople($people);
-            //MANA
-            $mana = $player->getMana() + $player->getManaResourcePerTurn() - $player->getManaMaintenancePerTurn();
             foreach ($player->getTroops() as $troop) {
                 $mana = $player->getMana() + $player->getManaResourcePerTurn() - $player->getManaMaintenancePerTurn();
                 if ($mana < 0) {
@@ -276,19 +289,6 @@ class ServiceController extends Controller
                         $player->removeContract($contract);
                         $manager->remove($contract);
                         $this->addFlash('danger', 'Se ha desbandado tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Maná</span>.');
-                    }
-                }
-            }
-            foreach ($player->getEnchantmentsOwner() as $enchantment) {
-                $mana = $player->getMana() + $player->getManaResourcePerTurn() - $player->getManaMaintenancePerTurn();
-                if ($mana < 0) {
-                    if ($enchantment->getSpell()->getManaMaintenance() > 0) {
-                        $victim = $enchantment->getVictim();
-                        $player->removeEnchantmentsOwner($enchantment);
-                        $victim->removeEnchantmentsVictim($enchantment);
-                        $manager->persist($victim);
-                        $manager->remove($enchantment);
-                        $this->addFlash('danger', 'Se ha roto el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> por no pagar mantenimientos de <span class="label label-extra">Maná</span>.');
                     }
                 }
             }

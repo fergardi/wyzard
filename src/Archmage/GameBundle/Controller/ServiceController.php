@@ -92,6 +92,12 @@ class ServiceController extends Controller
          */
         $manager->persist($player);
         $manager->flush();
+
+        //codigo para averiguar los hashes de los stickers de telegram
+        /*
+        $api = $this->container->get('shaygan.telegram_bot_api');
+        ladybug_dump_die($api->getUpdates()[0]->getMessage());
+        */
     }
 
     /**
@@ -114,12 +120,12 @@ class ServiceController extends Controller
         if ($receiver->getChat()) {
             try {
                 $telegram = $subject.":\n".$this->generateUrl('archmage_game_account_message', array('hash' => $message->getHash()), true);
-                $connection = "BQADBAADRQADyIsGAAHtBskMy6GoLAI";
                 $auction = "BQADBAADPAADyIsGAAHHj-tPF_0RGAI";
                 $battle = "BQADBAADOgADyIsGAAFRwAYXeDzUugI";
                 $magic = "BQADBAADLQADyIsGAAE_-arlvGeRjgI";
                 $espionage = "BQADBAADFAADyIsGAAGkx4rtY09EtwI";
-                $stickers = array('auction' => $auction, 'battle' => $battle, 'magic' => $magic, 'espionage' => $espionage, 'connection' => $connection);
+                $apocalypse = "BQADBAADMAADyIsGAAHU8vIAAev_v-UC";
+                $stickers = array('auction' => $auction, 'battle' => $battle, 'magic' => $magic, 'espionage' => $espionage, 'apocalypse' => $apocalypse);
                 if ($type) $api->sendSticker($receiver->getChat(), $stickers[$type]);
                 $api->sendMessage($receiver->getChat(), $telegram);
             } catch (Exception $e) {

@@ -193,7 +193,7 @@ class MagicController extends Controller
                             }
                         }
                     } else {
-                        $this->addFlash('danger', 'No tienes los recursos necesarios para conjurar ese hechizo.');
+                        $this->addFlash('danger', 'No tienes los <span class="label label-extra">Recursos</span> necesarios para conjurar ese hechizo.');
                     }
                 }
                 /*
@@ -419,6 +419,15 @@ class MagicController extends Controller
             $enchantment->setOwner($player);
             $player->addEnchantmentsOwner($enchantment);
             $this->addFlash('success', 'Has lanzado el encantamiento <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">' . $enchantment->getSpell()->getName() . '</a></span> sobre tu Reino.');
+            if ($enchantment->getSpell()->getSkill()->getWin()) {
+                $players = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
+                $subject = 'Apocalipsis';
+                $text = array();
+                $text[] = array('default', 12, 0, 'center', 'Alguien ha convocado el <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>, impedidlo antes de que sea tarde!');
+                foreach ($players as $player) {
+                    $this->get('service.controller')->sendMessage($player, $player, $subject, $text, 'apocalypse');
+                }
+            }
         } elseif ($spell->getSkill()->getArtifactBonus() > 0) {
             //ARTIFACT
             $maxchance = $spell->getSkill()->getArtifactBonus() * $player->getMagic();
@@ -454,7 +463,7 @@ class MagicController extends Controller
         $player = $this->getUser()->getPlayer();
         //MESSAGE
         $text = array();
-        $text[] = array('default', 12, 0, 'center', 'El mago <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ha lanzado el Hechizo <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span> sobre su Reino.');
+        $text[] = array('default', 12, 0, 'center', 'El mago <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ha lanzado el Hechizo <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span> sobre tu Reino.');
         //ESPIONAGE
         if ($spell->getSkill()->getSpyBonus() > 0) {
             $maxchance = $spell->getSkill()->getSpyBonus() * $player->getMagic();

@@ -4052,8 +4052,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR DEMONIOS
         $skill = new Skill();
         $skill->setName('Comandar Demonios');
-        $skill->setAttackBonus(3);
-        $skill->setDefenseBonus(3);
+        $skill->setAttackBonus(2);
+        $skill->setDefenseBonus(2);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4084,8 +4084,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR ELEMENTALES
         $skill = new Skill();
         $skill->setName('Comandar Elementales');
-        $skill->setAttackBonus(4);
-        $skill->setDefenseBonus(4);
+        $skill->setAttackBonus(2);
+        $skill->setDefenseBonus(2);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4116,8 +4116,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR HUMANOS
         $skill = new Skill();
         $skill->setName('Comandar Humanos');
-        $skill->setAttackBonus(4);
-        $skill->setDefenseBonus(4);
+        $skill->setAttackBonus(2);
+        $skill->setDefenseBonus(2);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4212,8 +4212,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR NOMUERTOS
         $skill = new Skill();
         $skill->setName('Comandar NoMuertos');
-        $skill->setAttackBonus(3);
-        $skill->setDefenseBonus(3);
+        $skill->setAttackBonus(2);
+        $skill->setDefenseBonus(2);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);

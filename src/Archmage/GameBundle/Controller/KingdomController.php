@@ -95,9 +95,10 @@ class KingdomController extends Controller
                          */
                         if ($bid > $auction->getTop()) {
                             if ($auction->getPlayer()) {
-                                $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + $auction->getTop());
+                                $payback = floor($auction->getTop() * 0.95);
+                                $auction->getPlayer()->setGold($auction->getPlayer()->getGold() + $payback);
                                 $text = array();
-                                $text[] = array('default', 12, 0, 'center', 'Se te ha devuelto ' . $this->get('service.controller')->nff($auction->getTop()) . ' <span class="label label-extra">Oro</span>, por haber sido sobrepujado en la subasta de <span class="label label-' . $auction->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($auction->getName()) . '" class="link">' . $auction->getName() . '</a></span>.');
+                                $text[] = array('default', 12, 0, 'center', 'Se te ha devuelto ' . $this->get('service.controller')->nff($payback) . ' <span class="label label-extra">Oro</span>, tu puja máxima anterior menos el 5% de comisión, por haber sido sobrepujado en la subasta de <span class="label label-' . $auction->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($auction->getName()) . '" class="link">' . $auction->getName() . '</a></span>.');
                                 $this->get('service.controller')->sendMessage($auction->getPlayer(), $auction->getPlayer(), 'Te han sobrepujado', $text, 'auction');
                                 $manager->persist($auction->getPlayer());
                             }
@@ -108,7 +109,8 @@ class KingdomController extends Controller
                         } else {
                             $auction->setBid($bid);
                             $player->setGold($player->getGold() + $bid);
-                            $this->addFlash('danger', 'Has gastado ' . $this->get('service.controller')->nff($turns) . ' <span class="label label-extra">Turnos</span> y pujado ' . $this->get('service.controller')->nff($bid) . ' <span class="label label-extra">Oro</span> por <span class="label label-' . $auction->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($auction->getName()) . '" class="link">' . $auction->getName() . '</a></span>, pero te han sobrepujado.');
+                            $this->addFlash('danger', 'Has gastado ' . $this->get('service.controller')->nff($turns) . ' <span class="label label-extra">Turnos</span> y pujado ' . $this->get('service.controller')->nff($bid) . ' <span class="label label-extra">Oro</span> por <span class="label label-' . $auction->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($auction->getName()) . '" class="link">' . $auction->getName() . '</a></span>, pero otro tenía una puja máxima superior.');
+                            $this->addFlash('success', 'Se te ha devuelto ' . $this->get('service.controller')->nff($bid) . ' <span class="label label-extra">Oro</span>.');
                         }
                         /*
                          * PERSISTENCIA

@@ -934,7 +934,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ANGELES
         $unit = new Unit();
         $unit->setName('Ángeles');
-        $unit->setLore('Su pureza sólo es igualada por su agilidad y su destreza con la espada.');
+        $unit->setLore('Su pureza sólo es igualada por su agilidad y destreza con la espada.');
         $unit->setAttack(500);
         $unit->setDefense(900);
         $unit->setSpeed(4);

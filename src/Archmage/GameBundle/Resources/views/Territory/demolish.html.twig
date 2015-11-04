@@ -1,6 +1,6 @@
 {% extends "ArchmageGameBundle::layout.html.twig" %}
 
-{% block title %}Derribar{% endblock %}
+{% block title %}Demoler{% endblock %}
 
 {% block body %}
 <div class="container">
@@ -26,29 +26,29 @@
                         </div>
                         {% if loop.first %}
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí destruir gratuitamente tus estructuras para recuperar <span class="label label-extra">Tierras</span> libres y reutilizarlas. Las cifras muestran <span class="label label-primary">coste</span>, <span class="label label-success">recurso</span> por turno, <span class="label label-danger">mantenimiento</span> por turno, y aumento de recurso <span class="label label-info">máximo</span>.</div>
+                            <div class="col-xs-12">Aquí puedes destruir, sin costes de <span class="label label-extra">Turnos</span> ni de <span class="label label-extra">Recursos</span>, tus edificaciones para recuperar <span class="label label-extra">Tierras</span> libres y reutilizarlas para construir nuevos edificios.</div>
                         </div>
                         {% else %}
-                            <div class="col-xs-8 text-padded">
-                                {# row #}
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-primary" data-toggle="tooltip" data-placement="top" title="Coste de Oro por edificio">-{{ construction.building.goldCost|nf }}</span></div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-primary" data-toggle="tooltip" data-placement="top" title="Coste de Personas por edificio">-{{ construction.building.peopleCost|nf }}</span></div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-primary" data-toggle="tooltip" data-placement="top" title="Coste de Maná por edificio">-{{ construction.building.manaCost|nf }}</span></div>
-                                {# row #}
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-success" data-toggle="tooltip" data-placement="top" title="Cantidad de Oro por edificio al turno">+{{ construction.building.goldResource|nf }}</span></div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-success" data-toggle="tooltip" data-placement="top" title="Cantidad de Personas por edificio al turno">+{{ construction.building.peopleResource|nf }}</span></div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-success" data-toggle="tooltip" data-placement="top" title="Cantidad de Maná por edificio al turno">+{{ construction.building.manaResource|nf }}</span></div>
-                                {# row #}
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-danger" data-toggle="tooltip" data-placement="top" title="Coste de Oro por edificio al turno">-{{ construction.building.goldMaintenance|nf }}</span></div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-danger" data-toggle="tooltip" data-placement="top" title="Coste de Personas por edificio al turno">-{{ construction.building.peopleMaintenance|nf }}</span></div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-danger" data-toggle="tooltip" data-placement="top" title="Coste de Maná por edificio al turno">-{{ construction.building.manaMaintenance|nf }}</span></div>
-                                {# row #}
-                                <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-info" data-toggle="tooltip" data-placement="top" title="Aumento de almacenamiento de Oro por edificio">+{{ construction.building.goldCap|nf }}</span></div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-info" data-toggle="tooltip" data-placement="top" title="Aumento de almacenamiento de Personas por edificio">+{{ construction.building.peopleCap|nf }}</span></div>
-                                <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-info" data-toggle="tooltip" data-placement="top" title="Aumento de almacenamiento de Maná por edificio">+{{ construction.building.manaCap|nf }}</span></div>
-                                {# row #}
-                                <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ construction.building.description|raw }}</div>
-                            </div>
+                        <div class="col-xs-8 text-padded">
+                            {# row #}
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Coste de Oro por edificio">-{{ construction.building.goldCost|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Coste de Personas por edificio">-{{ construction.building.peopleCost|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Coste de Maná por edificio">-{{ construction.building.manaCost|nf }}</span></div>
+                            {# row #}
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Cantidad de Oro ganado al turno por edificio">+{{ construction.building.goldResource|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Cantidad de Personas ganadas al turno por edificio">+{{ construction.building.peopleResource|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Cantidad de Maná ganado al turno por edificio">+{{ construction.building.manaResource|nf }}</span></div>
+                            {# row #}
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Cantidad de Oro gastado al turno por edificio">-{{ construction.building.goldMaintenance|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Cantidad de Personas gastadas al turno por edificio">-{{ construction.building.peopleMaintenance|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Cantidad de Maná gastado al turno por edificio">-{{ construction.building.manaMaintenance|nf }}</span></div>
+                            {# row #}
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Aumento de capacidad de Oro por edificio">+{{ construction.building.goldCap|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Aumento de capacidad de Personas por edificio">+{{ construction.building.peopleCap|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Aumento de capacidad de Maná por edificio">+{{ construction.building.manaCap|nf }}</span></div>
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ construction.building.description|raw }}</div>
+                        </div>
                         {% endif %}
                     </div>
                 </div>

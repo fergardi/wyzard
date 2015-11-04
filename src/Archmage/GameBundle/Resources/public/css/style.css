@@ -279,6 +279,9 @@ table a:hover {
 .pagination {
     font-size: 12px !important;
 }
+.dataTables_empty {
+    text-align: center !important;
+}
 /* NAVBAR PADDING FOR COLLAPSABLE COL-SM DEVICES */
 .nav > li > a {
     padding-left: 5px;

@@ -20,7 +20,7 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar 1 <span class="label label-extra">Turno</span> y <span class="label label-extra">Oro</span> para adquirir <span class="label label-extra">Tropas</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span> y <span class="label label-extra">Hechizos</span>. Si pujas por un valor mucho mayor que el actual, puedes asegurarte el ganar varias sobrepujas. Al terminar, se te devolverá el <span class="label label-extra">Oro</span> sobrante menos el 10% de comisión.</div>
+                            <div class="col-xs-12">Aquí puedes gastar 1 <span class="label label-extra">Turno</span> y <span class="label label-extra">Oro</span> en pujar por <span class="label label-extra">Tropas</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span> y <span class="label label-extra">Hechizos</span>. Si ofreces una cantidad mayor que la actual, asegurarás ganar varias sobrepujas. Al terminar, se devolverá el <span class="label label-extra">Oro</span> sobrante menos el 10% de comisión.</div>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
             {% if auction.contract is not null and not player.hasContract(auction.contract) %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ auction.contract.hero.faction.class }}">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.contract.hero.name|slug }}" class="link">{{ auction.contract.hero.name }}</a> <i class="fa fa-fw fa-star"></i>{{ auction.contract.level|nf }}</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.contract.hero.name|slug }}" class="link">{{ auction.contract.hero.name }}</a> <span data-toggle="tooltip" data-placement="top" title="Nivel del Héroe"><i class="fa fa-fw fa-star"></i>{{ auction.contract.level|nf }}</span></div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -45,9 +45,9 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ (auction.contract.hero.goldMaintenance * auction.contract.level)|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ (auction.contract.hero.peopleMaintenance * auction.contract.level)|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ (auction.contract.hero.manaMaintenance * auction.contract.level)|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimento de Oro al turno por nivel">{{ (auction.contract.hero.goldMaintenance * auction.contract.level)|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimento de Personas al turno por nivel">{{ (auction.contract.hero.peopleMaintenance * auction.contract.level)|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimento de Maná al turno por nivel">{{ (auction.contract.hero.manaMaintenance * auction.contract.level)|nf }}</span></div>
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ auction.contract.hero.skill.description|raw }}</div>
                             {# row #}
@@ -87,16 +87,14 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i>{{ auction.research.spell.magic|nf }}</div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i>{{ auction.research.spell.manaCost|nf }}</div>
-                            {# row #}
-                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i>{{ auction.research.spell.turnsCost|nf }}</div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i>{{ auction.research.spell.turnsResearch|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-magic"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Nivel de Magia mínimo para conjurar">{{ auction.research.spell.magic|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-hourglass-half"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Coste de Turnos para conjurar">{{ auction.research.spell.turnsCost|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Coste de Maná para conjurar">{{ auction.research.spell.manaCost|nf }}</span></div>
                             {# row #}
                             {% if auction.research.spell.enchantment %}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ auction.research.spell.goldMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ auction.research.spell.peopleMaintenance|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ auction.research.spell.manaMaintenance|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro al turno por nivel de Magia">{{ auction.research.spell.goldMaintenance|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento de Personas al turno por nivel de Magia">{{ auction.research.spell.peopleMaintenance|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento de Maná al turno por nivel de Magia">{{ auction.research.spell.manaMaintenance|nf }}</span></div>
                             {% endif %}
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ auction.research.spell.skill.description|raw }}</div>
@@ -129,7 +127,7 @@
             {% elseif auction.troop is not null %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ auction.troop.unit.faction.class }}">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-users"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.troop.unit.name|slug }}" class="link">{{ auction.troop.unit.name }}</a> [{{ auction.troop.quantity|nf }}]</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-users"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.troop.unit.name|slug }}" class="link">{{ auction.troop.unit.name }}</a> <span data-toggle="tooltip" data-placement="top" title="Cantidad de tropas">[{{ auction.troop.quantity|nf }}]</span></div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -137,16 +135,16 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-crosshairs"></i>{{ auction.troop.unit.attack|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-shield"></i>{{ auction.troop.unit.defense|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-flash"></i>{{ auction.troop.unit.speed|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-crosshairs"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Ataque total de la tropa">{{ (auction.troop.unit.attack * auction.troop.quantity)|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-shield"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Defensa total de la tropa">{{ (auction.troop.unit.defense * auction.troop.quantity)|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-flash"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Velocidad de la tropa">{{ auction.troop.unit.speed|nf }}</span></div>
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i>{{ (auction.troop.unit.goldMaintenance * auction.troop.quantity)|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i>{{ (auction.troop.unit.peopleMaintenance * auction.troop.quantity)|nf }}</div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i>{{ (auction.troop.unit.manaMaintenance * auction.troop.quantity)|nf }}</div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento total de Oro al turno">{{ (auction.troop.unit.goldMaintenance * auction.troop.quantity)|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento total de Personas al turno">{{ (auction.troop.unit.peopleMaintenance * auction.troop.quantity)|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento total de Maná al turno">{{ (auction.troop.unit.manaMaintenance * auction.troop.quantity)|nf }}</span></div>
                             {# row #}
-                            <div class="col-xs-6"><i class="fa fa-fw fa-user"></i>{{ auction.troop.unit.family.name }}</div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i>{{ auction.troop.unit.type.name }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-user"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Familia de la tropa">{{ auction.troop.unit.family.name }}</span></div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Tipo de la tropa">{{ auction.troop.unit.type.name }}</span></div>
                             {# row #}
                             {# <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{% if auction.troop.unit.skill is not null %}{{ auction.troop.unit.skill.description|raw }}{% else %}Ninguna{% endif %}</div> #}
                             {# row #}
@@ -178,7 +176,7 @@
             {% elseif auction.item is not null %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ auction.item.artifact.faction.class }}">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-diamond"></i><a href="{{ path('archmage_game_home_help') }}#{{ auction.item.artifact.name|slug }}" class="link">{{ auction.item.artifact.name }}</a> [{{ auction.item.quantity|nf }}]</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-diamond"></i><a href="{{ path('archmage_game_home_help') }}#{{ auction.item.artifact.name|slug }}" class="link">{{ auction.item.artifact.name }}</a> <span data-toggle="tooltip" data-placement="top" title="Cantidad de Artefactos">[{{ auction.item.quantity|nf }}]</span></div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">

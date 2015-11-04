@@ -420,12 +420,12 @@ class MagicController extends Controller
             $player->addEnchantmentsOwner($enchantment);
             $this->addFlash('success', 'Has lanzado el encantamiento <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">' . $enchantment->getSpell()->getName() . '</a></span> sobre tu Reino.');
             if ($enchantment->getSpell()->getSkill()->getWin()) {
-                $players = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
+                $receivers = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
                 $subject = 'Apocalipsis';
                 $text = array();
-                $text[] = array('default', 12, 0, 'center', 'Alguien ha convocado el <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>, impedidlo antes de que sea tarde!');
-                foreach ($players as $player) {
-                    $this->get('service.controller')->sendMessage($player, $player, $subject, $text, 'apocalypse');
+                $text[] = array('default', 12, 0, 'center', 'Alguien ha convocado el <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>, impedidlo antes de que sea tarde!');
+                foreach ($receivers as $receiver) {
+                    if ($receiver != $player) $this->get('service.controller')->sendMessage($receiver, $receiver, $subject, $text, 'apocalypse');
                 }
             }
         } elseif ($spell->getSkill()->getArtifactBonus() > 0) {

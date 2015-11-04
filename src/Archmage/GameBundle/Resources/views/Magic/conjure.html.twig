@@ -45,8 +45,8 @@
                         <div class="col-xs-8 text-padded">
                             {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-magic"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Nivel de Magia mínimo para conjurar">{{ research.spell.magic|nf }}</span></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-hourglass-half"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Coste de Turnos para conjurar">{{ research.spell.turnsCost|nf }}</span></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Coste de Maná para conjurar">{% if research.spell.faction == player.faction %}{{ research.spell.manaCost|nf }}{% else %}{{ (research.spell.manaCost * 2)|nf }}{% endif %}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-hourglass-half"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Coste de Turnos para conjurar">-{{ research.spell.turnsCost|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Coste de Maná para conjurar">-{% if research.spell.faction == player.faction %}{{ research.spell.manaCost|nf }}{% else %}{{ (research.spell.manaCost * 2)|nf }}{% endif %}</span></div>
                             {% if research.spell.enchantment %}
                             {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro del Encantamiento al turno">{{ (research.spell.goldMaintenance * player.magic)|nf }}</span></div>

@@ -3313,7 +3313,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
-        $skill->setPeopleBonus(-20);
+        $skill->setPeopleBonus(-15);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setWin(false);
@@ -3344,7 +3344,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
-        $skill->setManaBonus(50);
+        $skill->setManaBonus(30);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
@@ -3376,7 +3376,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
-        $skill->setManaBonus(-20);
+        $skill->setManaBonus(-15);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
@@ -3409,7 +3409,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
-        $skill->setPeopleBonus(20);
+        $skill->setPeopleBonus(30);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setWin(false);
@@ -3503,7 +3503,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(-20);
+        $skill->setGoldBonus(-15);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);

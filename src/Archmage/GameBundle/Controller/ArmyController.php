@@ -503,7 +503,7 @@ class ArmyController extends Controller
                 $defenderDefense = $defenderTroop->getUnit()->getDefense() * $defenderQuantity * $defenderDefenseBonus;
                 $defenderSpeed = $defenderArmy[$defenderTurn][4];
                 //comprobar velocidades
-                $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).': <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> con '.$attackerSpeed.' Velocidad contra <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> con '.$defenderSpeed.' Velocidad.');
+                $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).': '.$this->get('service.controller')->nff($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> con '.$attackerSpeed.' Velocidad contra '.$this->get('service.controller')->nff($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> con '.$defenderSpeed.' Velocidad.');
                 if ($attackerSpeed == $defenderSpeed) {
                     //atacante igual velocidad que defensor, atacan y defienden a la vez
                     //atacante => defensor
@@ -578,6 +578,7 @@ class ArmyController extends Controller
                 }
             }
         }
+        $text[] = array('default', 12, 0, 'center', 'Fin del ataque.');
         //POWER AFTER
         $attackerPowerAfter = 0;
         foreach ($attackerArmy as $troop) {

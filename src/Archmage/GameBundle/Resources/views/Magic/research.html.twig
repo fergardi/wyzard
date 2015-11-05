@@ -44,14 +44,14 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-magic"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Nivel de Magia mínimo para investigar">{{ research.spell.magic|nf }}</span></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-hourglass-half"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Cantidad de Turnos para investigar completamente el Hechizo">{{ research.turns|nf }} / {{ player.researchRatio(research.spell.turnsResearch)|nf }}</span></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Coste de Maná para conjurar">-{{ research.spell.manaCost|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-magic"></i><span data-toggle="tooltip" data-placement="top" title="Nivel de Magia mínimo para investigar">{{ research.spell.magic|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-hourglass-half"></i><span data-toggle="tooltip" data-placement="top" title="Cantidad de Turnos para investigar completamente el Hechizo">{{ research.turns|nf }} / {{ player.researchRatio(research.spell.turnsResearch)|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Coste de Maná para conjurar">-{{ research.spell.manaCost|nf }}</span></div>
                             {% if research.spell.enchantment %}
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro del Encantamiento al turno">-{{ research.spell.goldMaintenance|nf }}</span></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento de Personas del Encantamiento al turno">-{{ research.spell.peopleMaintenance|nf }}</span></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento de Maná del Encantamiento al turno">-{{ research.spell.manaMaintenance|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro del Encantamiento al turno">-{{ research.spell.goldMaintenance|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Personas del Encantamiento al turno">-{{ research.spell.peopleMaintenance|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Maná del Encantamiento al turno">-{{ research.spell.manaMaintenance|nf }}</span></div>
                             {% endif %}
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ research.spell.skill.description|raw }}</div>
@@ -88,14 +88,14 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-magic"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Nivel de Magia mínimo para investigar">{{ spell.magic|nf }}</span></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-hourglass-half"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Cantidad de Turnos para investigar completamente el Hechizo">0/{{ player.researchRatio(spell.turnsResearch)|nf }}</span></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Coste de Maná para conjurar">-{{ spell.manaCost|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-magic"></i><span data-toggle="tooltip" data-placement="top" title="Nivel de Magia mínimo para investigar">{{ spell.magic|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-hourglass-half"></i><span data-toggle="tooltip" data-placement="top" title="Cantidad de Turnos para investigar completamente el Hechizo">0/{{ player.researchRatio(spell.turnsResearch)|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Coste de Maná para conjurar">-{{ spell.manaCost|nf }}</span></div>
                             {% if spell.enchantment %}
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro del Encantamiento al turno">-{{ spell.goldMaintenance|nf }}</span></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento de Personas del Encantamiento al turno">-{{ spell.peopleMaintenance|nf }}</span></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mantenimiento de Maná del Encantamiento al turno">-{{ spell.manaMaintenance|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro del Encantamiento al turno">-{{ spell.goldMaintenance|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Personas del Encantamiento al turno">-{{ spell.peopleMaintenance|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Maná del Encantamiento al turno">-{{ spell.manaMaintenance|nf }}</span></div>
                             {% endif %}
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ spell.skill.description|raw }}</div>

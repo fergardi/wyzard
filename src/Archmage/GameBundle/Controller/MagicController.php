@@ -237,19 +237,27 @@ class MagicController extends Controller
                     /*
                      * ACCION
                      */
-                    $chance = rand(0,99);
-                    if ($chance > $enchantment->getOwner()->getMagicDefense()) {
-                        //MESSAGE
-                        $text = array();
+                    if ($enchantment->getOwner() == $player) {
                         $player->removeEnchantmentsVictim($enchantment);
-                        $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
-                        $manager->persist($enchantment->getOwner());
-                        $this->addFlash('success', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span> y roto el Encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> de <span class="label label-'.$enchantment->getOwner()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $enchantment->getOwner()->getId())).'" class="link">'.$enchantment->getOwner()->getNick().'</a></span>.');
-                        $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ha roto tu Encantamiento <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($enchantment->getSpell()->getName()) . '" class="link">' . $enchantment->getSpell()->getName() . '</a></span>.');
-                        if ($enchantment->getOwner() != $player) $this->get('service.controller')->sendMessage($player, $enchantment->getOwner(), 'Reporte de Hechizo', $text, 'magic');
+                        $player->removeEnchantmentsOwner($enchantment);
+                        $this->addFlash('success', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span> y roto el Encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>.');
+                        if ($enchantment->getSpell()->getSkill()->getWin()) $player->setUncovered(false);
                         $manager->remove($enchantment);
                     } else {
-                        $this->addFlash('danger', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span>, pero no has conseguido romper el Encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> de <span class="label label-'.$enchantment->getOwner()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $enchantment->getOwner()->getId())).'" class="link">'.$enchantment->getOwner()->getNick().'</a></span>.');
+                        $chance = rand(0,99);
+                        if ($chance > $enchantment->getOwner()->getMagicDefense()) {
+                            //MESSAGE
+                            $text = array();
+                            $player->removeEnchantmentsVictim($enchantment);
+                            $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
+                            $manager->persist($enchantment->getOwner());
+                            $this->addFlash('success', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span> y roto el Encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> de <span class="label label-'.$enchantment->getOwner()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $enchantment->getOwner()->getId())).'" class="link">'.$enchantment->getOwner()->getNick().'</a></span>.');
+                            $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ha roto tu Encantamiento <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($enchantment->getSpell()->getName()) . '" class="link">' . $enchantment->getSpell()->getName() . '</a></span>.');
+                            $this->get('service.controller')->sendMessage($player, $enchantment->getOwner(), 'Reporte de Hechizo', $text, 'magic');
+                            $manager->remove($enchantment);
+                        } else {
+                            $this->addFlash('danger', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span>, pero no has conseguido romper el Encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> de <span class="label label-'.$enchantment->getOwner()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $enchantment->getOwner()->getId())).'" class="link">'.$enchantment->getOwner()->getNick().'</a></span>.');
+                        }
                     }
                     /*
                      * PERSISTENCIA
@@ -346,25 +354,29 @@ class MagicController extends Controller
      */
     public function createEspionage(Player $target)
     {
+        $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         $subject = 'Reporte de Espionaje';
         $text = array(
             array('default', 12, 0, 'center', 'Reporte de Espionaje de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>'),
-            array('default', 5, 0, 'center', 'Oro: '.$this->get('service.controller')->nff($target->getGold())),
-            array('default', 5, 2, 'center', 'Maná: '.$this->get('service.controller')->nff($target->getMana())),
-            array('default', 5, 0, 'center', 'Personas: '.$this->get('service.controller')->nff($target->getPeople())),
-            array('default', 5, 2, 'center', 'Tierras: '.$this->get('service.controller')->nff($target->getLands())),
-            array('default', 5, 0, 'center', 'Tierras libres: '.$this->get('service.controller')->nff($target->getFree())),
-            array('default', 5, 2, 'center', 'Héroes: '.$this->get('service.controller')->nff($target->getContracts()->count())),
-            array('default', 5, 0, 'center', 'Artefactos: '.$this->get('service.controller')->nff($target->getArtifacts())),
-            array('default', 5, 2, 'center', 'Magia: '.$this->get('service.controller')->nff($target->getMagic())),
-            array('default', 5, 0, 'center', 'Defensa Mágica: '.$this->get('service.controller')->nff($target->getMagicDefense()).'%'),
-            array('default', 5, 2, 'center', 'Defensa Física: '.$this->get('service.controller')->nff($target->getArmyDefense()).'%'),
-            array('default', 5, 0, 'center', 'Poder: '.$this->get('service.controller')->nff($target->getPower())),
-            array('default', 5, 2, 'center', 'Unidades: '.$this->get('service.controller')->nff($target->getUnits())),
+            array('default', 12, 0, 'center', 'Oro: '.$this->get('service.controller')->nff($target->getGold())),
+            array('default', 12, 0, 'center', 'Maná: '.$this->get('service.controller')->nff($target->getMana())),
+            array('default', 12, 0, 'center', 'Personas: '.$this->get('service.controller')->nff($target->getPeople())),
+            array('default', 12, 0, 'center', 'Tierras: '.$this->get('service.controller')->nff($target->getLands())),
+            array('default', 12, 0, 'center', 'Tierras libres: '.$this->get('service.controller')->nff($target->getFree())),
+            array('default', 12, 0, 'center', 'Héroes: '.$this->get('service.controller')->nff($target->getContracts()->count())),
+            array('default', 12, 0, 'center', 'Artefactos: '.$this->get('service.controller')->nff($target->getArtifacts())),
+            array('default', 12, 0, 'center', 'Magia: '.$this->get('service.controller')->nff($target->getMagic())),
+            array('default', 12, 0, 'center', 'Defensa Mágica: '.$this->get('service.controller')->nff($target->getMagicDefense()).'%'),
+            array('default', 12, 0, 'center', 'Defensa Física: '.$this->get('service.controller')->nff($target->getArmyDefense()).'%'),
+            array('default', 12, 0, 'center', 'Poder: '.$this->get('service.controller')->nff($target->getPower())),
+            array('default', 12, 0, 'center', 'Unidades: '.$this->get('service.controller')->nff($target->getUnits())),
             array('default', 12, 0, 'center', 'Ejército: '.$target->getArmyToString()),
             array('default', 12, 0, 'center', 'Encantamientos: '.$target->getEnchantmentsVictimToString()),
         );
+        $target->setUncovered($target->getApocalypse());
+        $manager->persist($target);
+        $manager->flush();
         $this->get('service.controller')->sendMessage($target, $player, $subject, $text, 'espionage');
     }
 

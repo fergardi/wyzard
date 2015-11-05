@@ -109,6 +109,13 @@ class Player
     private $winner = false;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="uncovered", type="boolean", nullable=false)
+     */
+    private $uncovered = false;
+
+    /**
      * @var item
      *
      * @ORM\ManyToOne(targetEntity="Item")
@@ -438,6 +445,29 @@ class Player
     public function getWinner()
     {
         return $this->winner;
+    }
+
+    /**
+     * Set uncovered
+     *
+     * @param boolean $uncovered
+     * @return Player
+     */
+    public function setUncovered($uncovered)
+    {
+        $this->uncovered = $uncovered;
+
+        return $this;
+    }
+
+    /**
+     * Get uncovered
+     *
+     * @return boolean
+     */
+    public function getUncovered()
+    {
+        return $this->uncovered;
     }
 
     /**
@@ -1402,6 +1432,18 @@ class Player
                     return $enchantment;
                 }
             }
+        }
+        return false;
+    }
+
+    /**
+     * Get Apocalypse
+     *
+     * @return boolean
+     */
+    public function getApocalypse() {
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            if ($enchantment->getSpell()->getSkill()->getWin()) return true;
         }
         return false;
     }

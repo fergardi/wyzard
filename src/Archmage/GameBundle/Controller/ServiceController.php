@@ -188,6 +188,7 @@ class ServiceController extends Controller
                 $gold = $player->getGold() + $player->getGoldResourcePerTurn() - $player->getGoldMaintenancePerTurn();
                 if ($gold < 0) {
                     if ($enchantment->getSpell()->getGoldMaintenance() > 0) {
+                        if ($enchantment->getSpell()->getSkill()->getWin()) $player->setUncovered(false);
                         $victim = $enchantment->getVictim();
                         $player->removeEnchantmentsOwner($enchantment);
                         $victim->removeEnchantmentsVictim($enchantment);
@@ -227,6 +228,7 @@ class ServiceController extends Controller
                 $people = $player->getPeople() + $player->getPeopleResourcePerTurn() - $player->getPeopleMaintenancePerTurn();
                 if ($people < 0) {
                     if ($enchantment->getSpell()->getPeopleMaintenance() > 0) {
+                        if ($enchantment->getSpell()->getSkill()->getWin()) $player->setUncovered(false);
                         $victim = $enchantment->getVictim();
                         $player->removeEnchantmentsOwner($enchantment);
                         $victim->removeEnchantmentsVictim($enchantment);
@@ -266,6 +268,7 @@ class ServiceController extends Controller
                 $mana = $player->getMana() + $player->getManaResourcePerTurn() - $player->getManaMaintenancePerTurn();
                 if ($mana < 0) {
                     if ($enchantment->getSpell()->getManaMaintenance() > 0) {
+                        if ($enchantment->getSpell()->getSkill()->getWin()) $player->setUncovered(false);
                         $victim = $enchantment->getVictim();
                         $player->removeEnchantmentsOwner($enchantment);
                         $victim->removeEnchantmentsVictim($enchantment);
@@ -306,7 +309,6 @@ class ServiceController extends Controller
                     $player->removeEnchantmentsVictim($enchantment);
                     $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
                     if ($enchantment->getSpell()->getSkill()->getWin()) {
-                        $this->addFlash('success', 'Has convocado completamente <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>, ganas el juego!');
                         $legend = new Legend();
                         $legend->setNick('<span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span>');
                         $legend->setLands($player->getLands());

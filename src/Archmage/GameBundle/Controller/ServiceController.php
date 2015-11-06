@@ -116,9 +116,9 @@ class ServiceController extends Controller
         $manager->persist($message);
         $receiver->addMessage($message);
         //TELEGRAM BOT https://core.telegram.org/bots & https://unnikked.ga/getting-started-with-telegram-bots/
-        $api = $this->container->get('shaygan.telegram_bot_api');
         if ($receiver->getChat()) {
             try {
+                $api = $this->container->get('shaygan.telegram_bot_api');
                 $telegram = $subject.":\n".$this->generateUrl('archmage_game_account_message', array('hash' => $message->getHash()), true);
                 $auction = "BQADBAADPAADyIsGAAHHj-tPF_0RGAI";
                 $battle = "BQADBAADOgADyIsGAAFRwAYXeDzUugI";
@@ -130,7 +130,7 @@ class ServiceController extends Controller
                 $api->sendMessage($receiver->getChat(), $telegram);
             } catch (Exception $e) {
                 //si por alguna razon $receiver->getChat() es incorrecto, la API de Telegram lanzara una excepcion
-                //TODO EXCEPTION TELEGRAM BOT API
+                $this->addFlash('danger', 'Has ocurrido un error con Telegram, puede que el mensaje no haya podido ser enviado.');
             }
         }
         return $message;

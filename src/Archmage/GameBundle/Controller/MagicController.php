@@ -517,7 +517,7 @@ class MagicController extends Controller
         //ENCHANTMENT
         } elseif ($spell->getEnchantment()) {
             $previous = $target->hasEnchantmentVictim($spell);
-            if (!$previous || ($previous && $previous->getOwner()->getMagic() <= $player->getMagic())) {
+            if (!$previous || ($previous && $previous->getOwner()->getMagic() <= $player->getMagic() && $previous->getOwner()->getMagicDefense() <= $player->getMagicDefense())) {
                 if ($previous) {
                     $text2 = array();
                     $text2[] = array('default', 12, 0, 'center', 'Alguien ha sobreescrito tu Encantamiento <span class="label label-' . $previous->getSpell()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($previous->getSpell()->getName()) . '" class="link">' . $previous->getSpell()->getName() . '</a></span> a <span class="label label-' . $previous->getVictim()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $previous->getVictim()->getId())) . '" class="link">' . $previous->getVictim()->getNick() . '</a></span> con el suyo propio.');
@@ -538,7 +538,7 @@ class MagicController extends Controller
                 $this->addFlash('success', 'Se ha encantado al mago <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> con <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span>.');
                 $text[] = array('default', 12, 0, 'center', 'Te han encantado con <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span>.');
             } else {
-                $this->addFlash('danger', 'El mago <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> ya tenía ese encantamiento y tu <span class="label label-extra">Magia</span> no lo supera.');
+                $this->addFlash('danger', 'El mago <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> ya tenía ese Encantamiento y tu <span class="label label-extra">Magia</span> y <span class="label label-extra">Defensa Mágica</span> no los superan para sustituirlo.');
                 $text[] = array('default', 12, 0, 'center', 'No te han podido encantar con <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span>.');
             }
         //ARTIFACT

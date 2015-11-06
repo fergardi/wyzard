@@ -516,7 +516,18 @@ class MagicController extends Controller
             }
         //ENCHANTMENT
         } elseif ($spell->getEnchantment()) {
-            if (!$target->hasEnchantmentVictim($spell) || ($target->hasEnchantmentVictim($spell) && $target->hasEnchantmentVictim($spell)->getOwner()->getMagic() <= $player->getMagic())) {
+            $previous = $target->hasEnchantmentVictim($spell);
+            if (!$previous || ($previous && $previous->getOwner()->getMagic() <= $player->getMagic())) {
+                if ($previous) {
+                    $text2 = array();
+                    $text2[] = array('default', 12, 0, 'center', 'Alguien ha sobreescrito tu Encantamiento <span class="label label-' . $previous->getSpell()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($previous->getSpell()->getName()) . '" class="link">' . $previous->getSpell()->getName() . '</a></span> a <span class="label label-' . $previous->getVictim()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $previous->getVictim()->getId())) . '" class="link">' . $previous->getVictim()->getNick() . '</a></span> con el suyo propio.');
+                    $this->get('service.controller')->sendMessage($previous->getVictim(), $previous->getOwner(), 'Reporte de Hechizo', $text2, 'magic');
+                    $previous->getVictim()->removeEnchantmentVictim($previous);
+                    $manager->persist($previous->getVictim());
+                    $previous->getOwner()->removeEnchantmentOwner($previous);
+                    $manager->persist($previous->getOwner());
+                    $manager->remove($previous);
+                }
                 $enchantment = new Enchantment();
                 $manager->persist($enchantment);
                 $enchantment->setSpell($spell);

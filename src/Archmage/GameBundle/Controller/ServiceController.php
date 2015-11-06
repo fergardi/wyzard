@@ -96,7 +96,7 @@ class ServiceController extends Controller
         //codigo para averiguar los hashes de los stickers de telegram
         /*
         $api = $this->container->get('shaygan.telegram_bot_api');
-        ladybug_dump_die($api->getUpdates()[0]->getMessage());
+        ladybug_dump_die($api->getUpdates()[count($api->getUpdates())-1]->getMessage());
         */
     }
 
@@ -125,7 +125,7 @@ class ServiceController extends Controller
             $apocalypse = "BQADBAADMAADyIsGAAHU8vIAAev_v-UC";
             $stickers = array('auction' => $auction, 'battle' => $battle, 'magic' => $magic, 'espionage' => $espionage, 'apocalypse' => $apocalypse);
             $api = $this->container->get('shaygan.telegram_bot_api');
-            if ($type) $api->sendSticker($receiver->getChat(), $stickers[$type]);
+            //if ($type) $api->sendSticker($receiver->getChat(), $stickers[$type]);
             $api->sendMessage($receiver->getChat(), $telegram);
         }
         return $message;

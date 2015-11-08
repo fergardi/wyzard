@@ -33,10 +33,14 @@ class PlayerRepository extends EntityRepository
 
         //DEBILES, CALCULADO USANDO POWER QUE NO ESTA EN LA DB, SE TIENE QUE CALCULAR AL VUELO
         $weaks = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
+        $strongs = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
         $targets = $this->_em->getRepository('ArchmageGameBundle:Player')->findAll();
         foreach ($targets as $target) {
             if ($player->getPower() * 0.80 > $target->getPower()) {
                 $weaks[] = $target->getId();
+            }
+            if ($player->getPower() * 1.80 > $target->getPower()) {
+                $strongs[] = $target->getId();
             }
         }
 
@@ -69,7 +73,8 @@ class PlayerRepository extends EntityRepository
             ->orWhere($qb->expr()->andX(
                 $qb->expr()->notIn('player.id', $counterB->getDQL()),
                 $qb->expr()->notIn('player.id', $blacklist->getDQL()),
-                $qb->expr()->notIn('player.id', $weaks)
+                $qb->expr()->notIn('player.id', $weaks),
+                $qb->expr()->notIn('player.id', $strongs)
             ))
             ->getQuery()
             ->getResult();

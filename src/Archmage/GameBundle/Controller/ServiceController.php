@@ -63,7 +63,7 @@ class ServiceController extends Controller
         //limpiar mensaje tipo info para evitar duplicados ya que hacemos redirects en los controladores
         $this->container->get('session')->getFlashBag()->get('info');
         //NOTICIA PERMANENTE
-        $this->addFlash('info', 'Los mensajes de Telegram están dando errores, los hemos deshabilitado de momento.');
+        //$this->addFlash('info', 'Nueva temporada! Echa un vistazo a los últimos <a href="'.$this->generateUrl('archmage_game_home_help').'#batalla" class="link">cambios</a>.');
         //APOCALIPSIS
         $apocalypse = $manager->getRepository('ArchmageGameBundle:Enchantment')->findOneBySpell($manager->getRepository('ArchmageGameBundle:Spell')->findByName('Apocalipsis'));
         if ($apocalypse) {
@@ -116,7 +116,6 @@ class ServiceController extends Controller
         $manager->persist($message);
         $receiver->addMessage($message);
         //TELEGRAM BOT https://core.telegram.org/bots & https://unnikked.ga/getting-started-with-telegram-bots/
-        /*
         if ($receiver->getChat()) {
             $telegram = $subject.":\n".$this->generateUrl('archmage_game_account_message', array('hash' => $message->getHash()), true);
             $auction = "BQADBAADPAADyIsGAAHHj-tPF_0RGAI";
@@ -126,10 +125,9 @@ class ServiceController extends Controller
             $apocalypse = "BQADBAADMAADyIsGAAHU8vIAAev_v-UC";
             $stickers = array('auction' => $auction, 'battle' => $battle, 'magic' => $magic, 'espionage' => $espionage, 'apocalypse' => $apocalypse);
             $api = $this->container->get('shaygan.telegram_bot_api');
-            if ($type) $api->sendSticker($receiver->getChat(), $stickers[$type]);
+            $api->sendSticker($receiver->getChat(), $stickers[$type]);
             $api->sendMessage($receiver->getChat(), $telegram);
         }
-        */
         return $message;
     }
 

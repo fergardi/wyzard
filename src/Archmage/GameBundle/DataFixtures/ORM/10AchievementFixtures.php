@@ -31,7 +31,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
     {
         $achievement = new Achievement();
         $achievement->setName('Acomodado');
-        $achievement->setGold(500000000);
+        $achievement->setGold(100000000);
         $achievement->setMana(null);
         $achievement->setPeople(null);
         $achievement->setLands(null);
@@ -79,7 +79,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setGold(null);
         $achievement->setMana(null);
         $achievement->setPeople(null);
-        $achievement->setLands(5000);
+        $achievement->setLands(6000);
         $achievement->setArtifacts(null);
         $achievement->setHeroes(null);
         $achievement->setSpells(null);
@@ -127,7 +127,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setLands(null);
         $achievement->setArtifacts(null);
         $achievement->setHeroes(null);
-        $achievement->setSpells(20);
+        $achievement->setSpells(30);
         $achievement->setPower(null);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
@@ -143,7 +143,7 @@ class AchievementFixtures extends AbstractFixture implements OrderedFixtureInter
         $achievement->setArtifacts(null);
         $achievement->setHeroes(null);
         $achievement->setSpells(null);
-        $achievement->setPower(50000000);
+        $achievement->setPower(10000000);
         $achievement->setUnits(null);
         $achievement->setDefense(null);
         $achievement->setDescription('Concentra '.$this->container->get('service.controller')->nff($achievement->getPower()).' Poder');

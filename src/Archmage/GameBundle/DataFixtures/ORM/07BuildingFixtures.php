@@ -17,7 +17,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //TIERRAS
         $building = new Building();
         $building->setName('Tierras');
-        $building->setDescription('Otorgan <span class="label label-extra">Espacio</span> de construcción adicional');
+        $building->setDescription('Otorgan <span class="label label-extra">Espacio</span> de construcción adicional.');
         $building->setLore('Antes, todo esto era campo.');
         $building->setImage('bundles/archmagegame/images/building/land.jpg');
         $building->setGoldCost(0);
@@ -43,7 +43,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //GRANJAS
         $building = new Building();
         $building->setName('Granjas');
-        $building->setDescription('Otorgan gran cantidad de <span class="label label-extra">Oro</span>');
+        $building->setDescription('Otorgan gran cantidad de <span class="label label-extra">Oro</span>.');
         $building->setLore('La leche fresca se vende bien.');
         $building->setImage('bundles/archmagegame/images/building/farm.jpg');
         $building->setGoldCost(500);
@@ -69,7 +69,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //PUEBLOS
         $building = new Building();
         $building->setName('Pueblos');
-        $building->setDescription('Otorgan e incrementan <span class="label label-extra">Población</span> máxima');
+        $building->setDescription('Otorgan e incrementan <span class="label label-extra">Población</span> máxima.');
         $building->setLore('Todo el mundo debería tener un hogar.');
         $building->setImage('bundles/archmagegame/images/building/village.jpg');
         $building->setGoldCost(1000);
@@ -95,7 +95,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //NODOS
         $building = new Building();
         $building->setName('Nodos');
-        $building->setDescription('Otorgan e incrementan <span class="label label-extra">Maná</span> máximo');
+        $building->setDescription('Otorgan e incrementan <span class="label label-extra">Maná</span> máximo.');
         $building->setLore('Es como una piscina municipal. Pero de magia.');
         $building->setImage('bundles/archmagegame/images/building/node.jpg');
         $building->setGoldCost(1500);
@@ -121,7 +121,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //BARRERAS
         $building = new Building();
         $building->setName('Barreras');
-        $building->setDescription('Aumentan la <span class="label label-extra">Defensa Mágica</span> de tu reino');
+        $building->setDescription('Aumentan la <span class="label label-extra">Defensa Mágica</span> de tu reino.');
         $building->setLore('Caras pero efectivas, al menos contra la magia.');
         $building->setImage('bundles/archmagegame/images/building/barrier.jpg');
         $building->setGoldCost(1000);
@@ -138,7 +138,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setManaCap(0);
         $building->setBuildingRatio(200);
         $building->setResearchRatio(0);
-        $building->setMagicDefenseRatio(10);
+        $building->setMagicDefenseRatio(5);
         $building->setArmyDefenseRatio(0);
         $building->setPower(5000);
         $this->addReference($building->getName(), $building);
@@ -147,7 +147,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //FORTALEZAS
         $building = new Building();
         $building->setName('Fortalezas');
-        $building->setDescription('Aumentan la <span class="label label-extra">Defensa Física</span> de tu reino');
+        $building->setDescription('Aumentan la <span class="label label-extra">Defensa Física</span> de tu reino.');
         $building->setLore('Caras pero efectivas, al menos contra los ataques.');
         $building->setImage('bundles/archmagegame/images/building/fortress.jpg');
         $building->setGoldCost(2500);
@@ -165,7 +165,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setBuildingRatio(200);
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
-        $building->setArmyDefenseRatio(10);
+        $building->setArmyDefenseRatio(5);
         $building->setPower(5000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -173,7 +173,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //TALLERES
         $building = new Building();
         $building->setName('Talleres');
-        $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> para construir');
+        $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> para construir.');
         $building->setLore('Alguien tiene que poner la mano de obra.');
         $building->setImage('bundles/archmagegame/images/building/workshop.jpg');
         $building->setGoldCost(1500);
@@ -199,7 +199,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //GREMIOS
         $building = new Building();
         $building->setName('Gremios');
-        $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> para investigar');
+        $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> para investigar.');
         $building->setLore('Donde nace la magia. O al menos, donde se investiga.');
         $building->setImage('bundles/archmagegame/images/building/guild.jpg');
         $building->setGoldCost(0);
@@ -225,7 +225,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //BARRACONES
         $building = new Building();
         $building->setName('Barracones');
-        $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> para reclutar');
+        $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> para reclutar.');
         $building->setLore('Borrachos y maleantes. Y tuyos, si les pagas bien.');
         $building->setImage('bundles/archmagegame/images/building/barrack.jpg');
         $building->setGoldCost(0);

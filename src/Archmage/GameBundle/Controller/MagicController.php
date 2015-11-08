@@ -430,7 +430,7 @@ class MagicController extends Controller
             $player->addEnchantmentsVictim($enchantment);
             $enchantment->setOwner($player);
             $player->addEnchantmentsOwner($enchantment);
-            $this->addFlash('success', 'Has lanzado el encantamiento <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">' . $enchantment->getSpell()->getName() . '</a></span> sobre tu Reino.');
+            $this->addFlash('success', 'Has lanzado el Encantamiento <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">' . $enchantment->getSpell()->getName() . '</a></span> sobre tu Reino.');
             if ($enchantment->getSpell()->getSkill()->getWin()) {
                 $receivers = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
                 $subject = 'Apocalipsis';
@@ -459,7 +459,7 @@ class MagicController extends Controller
                     $item->setPlayer($player);
                     $player->addItem($item);
                 }
-                $this->addFlash('success', 'Has encontrado el artefacto <span class="label label-' . $item->getArtifact()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
+                $this->addFlash('success', 'Has encontrado el Artefacto <span class="label label-' . $item->getArtifact()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
             } else {
                 $this->addFlash('danger', 'No has encontrado nada.');
             }
@@ -507,12 +507,12 @@ class MagicController extends Controller
                         $text[] = array('default', 12, 0, 'center', 'No te pueden desencantar un Apocalipsis.');
                     }
                 } else {
-                    $this->addFlash('danger', 'El mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span> no tiene ningún encantamiento que romper sobre su Reino.');
+                    $this->addFlash('danger', 'El mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span> no tiene ningún Encantamiento que romper sobre su Reino.');
                     $text[] = array('default', 12, 0, 'center', 'Han intentado desencantarte, pero no lo han logrado.');
                 }
             } else {
-                $this->addFlash('danger', 'El mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span> no tiene ningún encantamiento que romper sobre su Reino.');
-                $text[] = array('default', 12, 0, 'center', 'Han intentado desencantarte, pero no tenías ningún encantamiento en tu reino.');
+                $this->addFlash('danger', 'El mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span> no tiene ningún Encantamiento que romper sobre su Reino.');
+                $text[] = array('default', 12, 0, 'center', 'Han intentado desencantarte, pero no tenías ningún Encantamiento en tu reino.');
             }
         //ENCHANTMENT
         } elseif ($spell->getEnchantment()) {
@@ -663,12 +663,25 @@ class MagicController extends Controller
             $mana = $player->getManaCap() * $artifact->getSkill()->getManaBonus() / (float)100;
             $player->setMana($player->getMana() + $mana);
             $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span>.');
-            //TURNS
-        } elseif ($artifact->getSkill()->getTurnsBonus() > 0) {
-            $turns = rand(1, $artifact->getSkill()->getTurnsBonus());
-            $player->setTurns($player->getTurns() + $turns);
-            $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span>.');
+            //DISPELL
+        } elseif ($artifact->getSkill()->getDispellBonus() > 0) {
+            if ($player->getEnchantmentsVictim()->count() > 0) {
+                $enchantments = $player->getEnchantmentsVictim();
+                shuffle($enchantments);
+                $enchantment = $enchantments[0]; //suponemos > 0
+                $player->removeEnchantmentsVictim($enchantment);
+                $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
+                $manager->persist($enchantment->getOwner());
+                $this->addFlash('success', 'Has roto el Encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> de <span class="label label-'.$enchantment->getOwner()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $enchantment->getOwner()->getId())).'" class="link">'.$enchantment->getOwner()->getNick().'</a></span>.');
+                $text = array();
+                $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ha roto tu Encantamiento <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($enchantment->getSpell()->getName()) . '" class="link">' . $enchantment->getSpell()->getName() . '</a></span>.');
+                $this->get('service.controller')->sendMessage($player, $enchantment->getOwner(), 'Reporte de Artefacto', $text, 'magic');
+                $manager->remove($enchantment);
+            } else {
+                $this->addFlash('danger', 'No tienes ningún Enantamiento en tu Reino que romper.');
+            }
         }
+
     }
 
     /**

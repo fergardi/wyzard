@@ -46,80 +46,80 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 'name' => 'Duggo, Dios de la Sangre',
                 'faction' => 'Caos',
                 'items' => array(
-                    'Botas de Velocidad' => 9999,
+                    'Botas de Velocidad' => 99,
                 ),
                 'heroes' => array(
-                    'Jinete de Dragones' => 25,
+                    'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => 999,
+                    'Dragones Rojos' => rand(20,100),
                 ),
             ),
             array(
                 'name' => 'Surm, Dios de la Muerte',
                 'faction' => 'Oscuridad',
                 'items' => array(
-                    'Botas de Velocidad' => 9999,
+                    'Botas de Velocidad' => 99,
                 ),
                 'heroes' => array(
-                    'Jinete de Dragones' => 25,
+                    'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Negros' => 999,
+                    'Dragones Negros' => rand(20,100),
                 ),
             ),
             array(
                 'name' => 'Lett, Diosa de la Luz',
                 'faction' => 'Sagrado',
                 'items' => array(
-                    'Botas de Velocidad' => 9999,
+                    'Botas de Velocidad' => 99,
                 ),
                 'heroes' => array(
-                    'Jinete de Dragones' => 25,
+                    'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Blancos' => 999,
+                    'Dragones Blancos' => rand(20,100),
                 ),
             ),
             array(
                 'name' => 'Sihir, Diosa de la Magia',
                 'faction' => 'Fantasmal',
                 'items' => array(
-                    'Botas de Velocidad' => 9999,
+                    'Botas de Velocidad' => 99,
                 ),
                 'heroes' => array(
-                    'Jinete de Dragones' => 25,
+                    'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Azules' => 999,
+                    'Dragones Azules' => rand(20,100),
                 ),
             ),
             array(
                 'name' => 'Elama, Diosa de la Vida',
                 'faction' => 'Naturaleza',
                 'items' => array(
-                    'Botas de Velocidad' => 9999,
+                    'Botas de Velocidad' => 99,
                 ),
                 'heroes' => array(
-                    'Jinete de Dragones' => 25,
+                    'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Verdes' => 999,
+                    'Dragones Verdes' => rand(20,100),
                 ),
             ),
         );
-        $constructions = array(
-            'Tierras' => 1999,
-            'Granjas' => 1000,
-            'Pueblos' => 1000,
-            'Nodos' => 1000,
-            'Gremios' => 1000,
-            'Talleres' => 1000,
-            'Barracones' => 1000,
-            'Barreras' => 1000,
-            'Fortalezas' => 1000,
-        );
         foreach ($gods as $god) {
+            $constructions = array(
+                'Tierras' => rand(3000,9000),
+                'Granjas' => 0,
+                'Pueblos' => 0,
+                'Nodos' => 0,
+                'Gremios' => 0,
+                'Talleres' => 0,
+                'Barracones' => 0,
+                'Barreras' => 500,
+                'Fortalezas' => 500,
+            );
             $player = new Player();
             $manager->persist($player);
             $player->setGod(true);
@@ -170,10 +170,10 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 $player->addContract($contract);
             }
             //resources
-            $player->setGold(999999999);
-            $player->setPeople(9999999);
-            $player->setMana(9999999);
-            $player->setTurns(300);
+            $player->setGold(99999999);
+            $player->setPeople(0);
+            $player->setMana(0);
+            $player->setTurns(0);
             $player->setMagic(10);
             //achievements
             $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();

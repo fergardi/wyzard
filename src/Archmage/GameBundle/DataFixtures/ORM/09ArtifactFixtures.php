@@ -31,7 +31,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Carta del Gremio de Asesinos');
         $artifact->setImage('bundles/archmagegame/images/artifact/assassinsguildletter.jpg');
         $artifact->setSkill($this->getReference('Carta del Gremio de Asesinos'));
-        $artifact->setLore('Escribe los nombres y nosotros haremos el resto');
+        $artifact->setLore('Escribe los nombres y nosotros haremos el resto.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -55,7 +55,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Carta del Gremio de Ladrones');
         $artifact->setImage('bundles/archmagegame/images/artifact/thievesguildletter.jpg');
         $artifact->setSkill($this->getReference('Carta del Gremio de Ladrones'));
-        $artifact->setLore('Marca las casas y nosotros haremos el resto');
+        $artifact->setLore('Marca las casas y nosotros haremos el resto.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -79,7 +79,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Carta del Gremio de Magos');
         $artifact->setImage('bundles/archmagegame/images/artifact/magesguildletter.jpg');
         $artifact->setSkill($this->getReference('Carta del Gremio de Magos'));
-        $artifact->setLore('Delata al hereje y nosotros haremos el resto');
+        $artifact->setLore('Delata al hereje y nosotros haremos el resto.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -91,7 +91,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Elixir de Amor');
         $artifact->setImage('bundles/archmagegame/images/artifact/loveelixir.jpg');
         $artifact->setSkill($this->getReference('Elixir de Amor'));
-        $artifact->setLore('El amor es una fuerza muy poderosa, pero un poco de ayuda nunca viene mal');
+        $artifact->setLore('El amor es una fuerza muy poderosa, pero un poco de ayuda nunca viene mal.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -103,7 +103,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Carta del Gremio de Espías');
         $artifact->setImage('bundles/archmagegame/images/artifact/spiesguildletter.jpg');
         $artifact->setSkill($this->getReference('Carta del Gremio de Espías'));
-        $artifact->setLore('Susurra un objetivo y nosotros haremos el resto');
+        $artifact->setLore('Susurra un objetivo y nosotros haremos el resto.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -115,7 +115,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Botas de Velocidad');
         $artifact->setImage('bundles/archmagegame/images/artifact/speedshoes.jpg');
         $artifact->setSkill($this->getReference('Botas de Velocidad'));
-        $artifact->setLore('Es absurdo ver un Dragón con las botas puestas, pero nadie es perfecto');
+        $artifact->setLore('Es absurdo ver un Dragón con las botas puestas, pero nadie es perfecto.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -127,7 +127,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Tela de Araña');
         $artifact->setImage('bundles/archmagegame/images/artifact/spiderweb.jpg');
         $artifact->setSkill($this->getReference('Tela de Araña'));
-        $artifact->setLore('Es sucia, es pegajosa y es asquerosa. Pero su tela es muy útil');
+        $artifact->setLore('Es sucia, es pegajosa y es asquerosa. Pero su tela es muy útil.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -151,7 +151,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Cabeza de Medusa');
         $artifact->setImage('bundles/archmagegame/images/artifact/medusahead.jpg');
         $artifact->setSkill($this->getReference('Cabeza de Medusa'));
-        $artifact->setLore('Mirarla directamente produce la misma sensación que leer faltas de hortojrafía');
+        $artifact->setLore('Mirarla directamente produce la misma sensación que leer faltas de hortojrafía!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -163,7 +163,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Enciclopedia Elemental');
         $artifact->setImage('bundles/archmagegame/images/artifact/elementalenciclopedia.jpg');
         $artifact->setSkill($this->getReference('Convocar Elementales'));
-        $artifact->setLore('Puede salir cualquier cosa, incluso un tronco de árbol!');
+        $artifact->setLore('Puede salir cualquier cosa, incluso un árbol!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -230,12 +230,12 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //RELOJ DE ARENA
+        //AGUA BENDITA
         $artifact = new Artifact();
-        $artifact->setName('Reloj de Arena');
-        $artifact->setImage('bundles/archmagegame/images/artifact/hourglass.jpg');
-        $artifact->setSkill($this->getReference('Reloj de Arena'));
-        $artifact->setLore('Para los que no tienen tiempo que perder');
+        $artifact->setName('Agua Bendita');
+        $artifact->setImage('bundles/archmagegame/images/artifact/holywater.jpg');
+        $artifact->setSkill($this->getReference('Agua Bendita'));
+        $artifact->setLore('Para cuando una ramita de romero no es suficiente.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
@@ -247,7 +247,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Barril de Pólvora');
         $artifact->setImage('bundles/archmagegame/images/artifact/powderbarrel.jpg');
         $artifact->setSkill($this->getReference('Barril de Pólvora'));
-        $artifact->setLore('Creo que la mecha es demasiado co..');
+        $artifact->setLore('Creo que la mecha es demasiado co...');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));

@@ -3657,9 +3657,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //RELOJ DE ARENA
+        //AGUA BENDITA
         $skill = new Skill();
-        $skill->setName('Reloj de Arena');
+        $skill->setName('Agua Bendita');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -3674,17 +3674,17 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setArmyDefenseBonus(0);
         $skill->setArtifactBonus(0);
         $skill->setHeroBonus(0);
-        $skill->setTurnsBonus(25);
-        $skill->setRandom(false);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(true);
         $skill->setSummon(false);
-        $skill->setDispellBonus(0);
+        $skill->setDispellBonus(100);
         $skill->setSpyBonus(0);
         $skill->setBattle(false);
         $skill->setSelf(true);
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('Hasta +'.$skill->getTurnsBonus().' <span class="label label-extra">Turnos</span> a tu Reino');
+        $skill->setDescription('Elimina un <span class="label label-extra">Encantamiento</span> aleatorio de tu Reino');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -3800,7 +3800,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
-        $skill->setManaBonus(2);
+        $skill->setManaBonus(1);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
@@ -3895,7 +3895,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(2);
+        $skill->setGoldBonus(1);
         $skill->setManaBonus(0);
         $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
@@ -3993,7 +3993,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
-        $skill->setPeopleBonus(2);
+        $skill->setPeopleBonus(1);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setWin(false);
@@ -4021,7 +4021,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Comandar Dragones');
         $skill->setAttackBonus(2);
-        $skill->setDefenseBonus(2);
+        $skill->setDefenseBonus(1);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4053,7 +4053,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Comandar Demonios');
         $skill->setAttackBonus(2);
-        $skill->setDefenseBonus(2);
+        $skill->setDefenseBonus(-2);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4084,8 +4084,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR ELEMENTALES
         $skill = new Skill();
         $skill->setName('Comandar Elementales');
-        $skill->setAttackBonus(2);
-        $skill->setDefenseBonus(2);
+        $skill->setAttackBonus(-1);
+        $skill->setDefenseBonus(3);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4116,8 +4116,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR HUMANOS
         $skill = new Skill();
         $skill->setName('Comandar Humanos');
-        $skill->setAttackBonus(2);
-        $skill->setDefenseBonus(2);
+        $skill->setAttackBonus(1);
+        $skill->setDefenseBonus(3);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4149,7 +4149,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Comandar Celestiales');
         $skill->setAttackBonus(2);
-        $skill->setDefenseBonus(2);
+        $skill->setDefenseBonus(1);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4180,8 +4180,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMANDAR BESTIAS
         $skill = new Skill();
         $skill->setName('Comandar Bestias');
-        $skill->setAttackBonus(2);
-        $skill->setDefenseBonus(2);
+        $skill->setAttackBonus(3);
+        $skill->setDefenseBonus(-3);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4213,7 +4213,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Comandar NoMuertos');
         $skill->setAttackBonus(2);
-        $skill->setDefenseBonus(2);
+        $skill->setDefenseBonus(-2);
         $skill->setSpeedBonus(0);
         $skill->setGoldBonus(0);
         $skill->setManaBonus(0);
@@ -4251,9 +4251,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
-        $skill->setGoldBonus(-5);
-        $skill->setManaBonus(-5);
-        $skill->setPeopleBonus(-5);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
         $skill->setTerrainBonus(0);
         $skill->setDamageBonus(0);
         $skill->setWin(true);

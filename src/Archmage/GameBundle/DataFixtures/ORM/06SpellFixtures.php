@@ -267,7 +267,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Maldición'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('No la podrás disipar ni comprando ramitas de romero a una zíngara');
+        $spell->setLore('No la podrás disipar ni comprando ramitas de romero a una zíngara.');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/curse.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(1);
@@ -336,7 +336,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Miedo'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Estarán tan aterrorizados que no podrán vernos venir');
+        $spell->setLore('Estarán tan aterrorizados que no podrán vernos venir.');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/fear.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(2);
@@ -359,7 +359,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Plaga'));
         $spell->setName('Plaga');
-        $spell->setLore('La guerra bacteriológica lleva siglos existiendo');
+        $spell->setLore('La guerra bacteriológica lleva siglos existiendo.');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/plague.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(3);
@@ -382,7 +382,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Voodoo'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Cuando odias a alguien pero no quieres decírselo directamente');
+        $spell->setLore('Cuando odias a alguien pero no quieres decírselo directamente.');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/voodoo.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(3);
@@ -405,7 +405,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Corrupción'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Quemar los campos y echar sal es cosa de niños');
+        $spell->setLore('Quemar los campos y echar sal es cosa de niños.');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/corruption.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(4);
@@ -428,7 +428,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Brujería'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('El poder del mal puede dar fuerza, pero también fortaleza');
+        $spell->setLore('El poder del mal puede dar fuerza, pero también fortaleza.');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/witchcraft.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(4);
@@ -451,7 +451,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Eclipse'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que la ausencia de luz encoja el corazón de tus enemigos');
+        $spell->setLore('Que la ausencia de luz encoja el corazón de tus enemigos.');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/eclipse.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(5);
@@ -474,7 +474,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Convocar NoMuertos'));
         $spell->setName('Noche de los Muertos Vivientes');
-        $spell->setLore('Las sombras se ciernen sobre nosotros');
+        $spell->setLore('Las sombras se ciernen sobre nosotros.');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/nightlivingdead.jpg');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(5);
@@ -735,7 +735,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Oxidar Armadura'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Es lo que pasa cuando compras productos de mala calidad');
+        $spell->setLore('Es lo que pasa cuando compras productos de mala calidad.');
         $spell->setImage('bundles/archmagegame/images/spell/nature/rustarmor.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(1);
@@ -827,7 +827,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Ira del Bosque'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Has hecho enfadar a los árboles equivocados');
+        $spell->setLore('Has hecho enfadar a los árboles equivocados.');
         $spell->setImage('bundles/archmagegame/images/spell/nature/forestwrath.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(3);
@@ -850,7 +850,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Prisa'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('No hay tiempo que perder');
+        $spell->setLore('No hay tiempo que perder.');
         $spell->setImage('bundles/archmagegame/images/spell/nature/haste.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(3);
@@ -873,7 +873,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Favor de la Naturaleza'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Nada traspasará esta vegetación');
+        $spell->setLore('Nada traspasará esta vegetación.');
         $spell->setImage('bundles/archmagegame/images/spell/nature/naturefavor.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(4);
@@ -896,7 +896,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Control del Clima'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('La madre naturaleza puede ser muy generosa');
+        $spell->setLore('La madre naturaleza puede ser muy generosa.');
         $spell->setImage('bundles/archmagegame/images/spell/nature/climatecontrol.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(4);
@@ -919,7 +919,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Convocar Bestias'));
         $spell->setName('Concilio de las Bestias');
-        $spell->setLore('Los animales atenderán a la llamada');
+        $spell->setLore('Los animales atenderán a la llamada.');
         $spell->setImage('bundles/archmagegame/images/spell/nature/council.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(5);
@@ -942,7 +942,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Rayo de Sol'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que la pureza de la luz ciegue a tus enemigos');
+        $spell->setLore('Que la pureza de la luz ciegue a tus enemigos.');
         $spell->setImage('bundles/archmagegame/images/spell/nature/sunray.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(5);
@@ -1203,7 +1203,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Oro Falso'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('No hay nada más divertido que hacer desaparecer el Oro ajeno');
+        $spell->setLore('No hay nada más divertido que hacer desaparecer el Oro ajeno.');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/fakegold.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(1);
@@ -1249,7 +1249,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Chamanismo'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Cabezas reducidas, conversiones en rana, cualquier cosa que necesites');
+        $spell->setLore('Cabezas reducidas, conversiones en rana, cualquier cosa que necesites.');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/shamanism.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(2);
@@ -1318,7 +1318,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Desencantar'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Para cuando un ataque directo no es suficiente');
+        $spell->setLore('Para cuando un ataque directo no es suficiente.');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/dispell.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(3);
@@ -1341,7 +1341,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Concentración'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Nuevos métodos para la extracción del Maná');
+        $spell->setLore('Nuevos métodos para la extracción del Maná.');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/focus.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(4);
@@ -1364,7 +1364,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Barrera Mental'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Podemos controlarlo todo con el poder de la mente');
+        $spell->setLore('Podemos controlarlo todo con el poder de la mente.');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/mentalbarrier.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(4);
@@ -1387,7 +1387,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Convocar Elementales'));
         $spell->setName('Reunión Elemental');
-        $spell->setLore('Invocarlos es fácil, controlarlos es otra historia');
+        $spell->setLore('Invocarlos es fácil, controlarlos es otra historia.');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/elementalgathering.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(5);
@@ -1410,7 +1410,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Tsunami'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que las aguas ahoguen el fuego de tus enemigos');
+        $spell->setLore('Que las aguas ahoguen el fuego de tus enemigos.');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/tsunami.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(5);
@@ -1717,7 +1717,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Destruir Artefacto'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Es una pena que algo tan bonito deba ser destruido');
+        $spell->setLore('Es una pena que algo tan bonito deba ser destruido.');
         $spell->setImage('bundles/archmagegame/images/spell/holy/destroyartifact.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(2);
@@ -1786,7 +1786,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Paz'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('La paz es el estado intermedio entre dos guerras');
+        $spell->setLore('La paz es el estado intermedio entre dos guerras.');
         $spell->setImage('bundles/archmagegame/images/spell/holy/peace.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(3);
@@ -1809,7 +1809,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Volar'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Espero que no tengas miedo a las alturas');
+        $spell->setLore('Espero que no tengas miedo a las alturas.');
         $spell->setImage('bundles/archmagegame/images/spell/holy/fly.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(4);
@@ -1832,7 +1832,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Protección Divina'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Nada malo traspasará nuestro escudo');
+        $spell->setLore('Nada malo traspasará nuestro escudo.');
         $spell->setImage('bundles/archmagegame/images/spell/holy/divineprotection.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(4);
@@ -1855,7 +1855,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Convocar Celestiales'));
         $spell->setName('Puerta de los Cielos');
-        $spell->setLore('Hemos venido a luchar contra el mal');
+        $spell->setLore('Hemos venido a luchar contra el mal.');
         $spell->setImage('bundles/archmagegame/images/spell/holy/heavensdoor.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(5);
@@ -1878,7 +1878,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Palabra Santa'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que nuestras oraciones derroten el mal de nuestros enemigos');
+        $spell->setLore('Que nuestras oraciones derroten el mal de nuestros enemigos.');
         $spell->setImage('bundles/archmagegame/images/spell/holy/holyword.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(5);
@@ -2139,7 +2139,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Bola de Fuego'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('No hay nada que no se pueda solucionar con una enorme bola de fuego');
+        $spell->setLore('No hay nada que no se pueda solucionar con una enorme bola de fuego.');
         $spell->setImage('bundles/archmagegame/images/spell/doom/fireball.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(1);
@@ -2162,7 +2162,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Tambores de Guerra'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Infunden valor en los aliados y temor en los enemigos');
+        $spell->setLore('Infunden valor en los aliados y temor en los enemigos.');
         $spell->setImage('bundles/archmagegame/images/spell/doom/wardrums.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(1);
@@ -2185,7 +2185,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Flechas Ardientes'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Para darle un poco más de chispa al asunto');
+        $spell->setLore('Para darle un poco más de chispa al asunto.');
         $spell->setImage('bundles/archmagegame/images/spell/doom/burningarrow.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(2);
@@ -2208,7 +2208,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Furia Demoníaca'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Los demonios no necesitan una excusa para estar furiosos');
+        $spell->setLore('Los demonios no necesitan una excusa para estar furiosos.');
         $spell->setImage('bundles/archmagegame/images/spell/doom/demonwrath.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(2);
@@ -2231,7 +2231,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Volcano'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que no quede piedra sobre piedra');
+        $spell->setLore('Que no quede piedra sobre piedra.');
         $spell->setImage('bundles/archmagegame/images/spell/doom/volcano.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(3);
@@ -2277,7 +2277,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Muro Ígneo'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Solo un loco intentaría atravesar estos muros');
+        $spell->setLore('Solo un loco intentaría atravesar estos muros.');
         $spell->setImage('bundles/archmagegame/images/spell/doom/igneouswall.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(4);
@@ -2323,7 +2323,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Convocar Demonios'));
         $spell->setName('Pacto de Sangre');
-        $spell->setLore('Una vez que haces un pacto con el diablo, no hay vuelta atrás');
+        $spell->setLore('Una vez que haces un pacto con el diablo, no hay vuelta atrás.');
         $spell->setImage('bundles/archmagegame/images/spell/doom/bloodpact.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(5);
@@ -2346,7 +2346,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Inferno'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que el fuego consuma el alma del enemigo');
+        $spell->setLore('Que el fuego consuma el alma del enemigo.');
         $spell->setImage('bundles/archmagegame/images/spell/doom/inferno.jpg');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(5);
@@ -2373,19 +2373,19 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setName('Apocalipsis');
         $spell->setSkill($this->getReference($spell->getName()));
-        $spell->setLore('El fin está próximo');
+        $spell->setLore('El fin está próximo...');
         $spell->setImage('bundles/archmagegame/images/spell/neutral/apocalipse.jpg');
         $spell->setFaction($this->getReference('Neutral'));
         $spell->setMagic(6);
         $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic() * 2);
+        $spell->setManaCost(900000);
         $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(6000);
-        $spell->setPeopleMaintenance(4000);
-        $spell->setManaMaintenance(2000);
-        $spell->setTurnsCost(self::TURNS_ENCHANTMENT * 5);
+        $spell->setGoldMaintenance(9000);
+        $spell->setPeopleMaintenance(6000);
+        $spell->setManaMaintenance(3000);
+        $spell->setTurnsCost(50);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
-        $spell->setTurnsExpiration(self::TURNS_EXPIRATION * 2);
+        $spell->setTurnsExpiration(150);
         $spell->setGoldAuction(0);
         $spell->setRarity(0);
         $spell->setEnchantment(true);

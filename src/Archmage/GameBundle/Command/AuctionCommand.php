@@ -171,8 +171,9 @@ class AuctionCommand extends ContainerAwareCommand
         for ($i = 0; $i < self::AUCTION_RESEARCHS; $i++) {
             shuffle($spells);
             $spell = $spells[0]; // suponemos > 0
-            if (!$spell->getSkill()->getWin()) { //no puede salir apocalipsis en subasta
+            if ($spell->getMagic() < 5) { //no puede salir apocalipsis en subasta ni hechizos de nivel 5
                 $auction = new Auction();
+                $manager->persist($auction);
                 $research = new Research();
                 $manager->persist($research);
                 $research->setSpell($spell);
@@ -183,7 +184,6 @@ class AuctionCommand extends ContainerAwareCommand
                 $auction->setResearch($research);
                 $auction->setBid(self::AUCTION_PRICE);
                 $auction->setTop(self::AUCTION_PRICE);
-                $manager->persist($auction);
             }
         }
         $manager->flush();

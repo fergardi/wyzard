@@ -38,4 +38,13 @@ class HomeController extends Controller
             'artifacts' => $artifacts,
         );
     }
+
+    /**
+     * @Route("/patch")
+     * @Template("ArchmageGameBundle:Home:patch.html.twig")
+     */
+    public function patchAction()
+    {
+        return array();
+    }
 }

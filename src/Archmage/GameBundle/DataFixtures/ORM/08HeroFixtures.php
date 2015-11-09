@@ -125,7 +125,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Chamán');
         $hero->setImage('bundles/archmagegame/images/hero/ghost/shaman.jpg');
-        $hero->setLore('Mi tirbu me tiene en alta estima por la calidad de mi maná.');
+        $hero->setLore('Mi tribu me tiene en alta estima por la calidad de mi maná.');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);

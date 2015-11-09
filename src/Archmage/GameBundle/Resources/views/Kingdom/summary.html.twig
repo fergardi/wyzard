@@ -171,9 +171,9 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-shield"></i>{{ player.armyDefense|nf }}% <span class="label label-extra">Defensa Física</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-shield"></i>{{ player.armyDefense|nf }}/75 % <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Probabilidad de que el enemigo falle al atacarte, aumenta con las Fortalezas y algunos Encantamientos">Defensa Física</span></div>
                             {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magicDefense|nf }}% <span class="label label-extra">Defensa Mágica</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magicDefense|nf }}/75 % <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Probabilidad de que el enemigo falle al hechizarte o activar artefactos, aumenta con las Barreras y algunos Encantamientos">Defensa Mágica</span></div>
                             {# row #}
                             <div class="col-xs-12">{% if player.research %}<i class="fa fa-fw fa-magic"></i><span class="label label-{{ player.research.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ player.research.spell.name|slug }}" class="link">{{ player.research.spell.name }}</a></span>{% else %}Ningún hechizo en defensa{% endif %}</div>
                             {# row #}

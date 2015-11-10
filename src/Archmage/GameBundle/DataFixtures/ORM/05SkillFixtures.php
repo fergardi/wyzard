@@ -3625,9 +3625,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //AGUA BENDITA
+        //POCION DE PUREZA
         $skill = new Skill();
-        $skill->setName('Agua Bendita');
+        $skill->setName('Poción de Pureza');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -3817,9 +3817,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //ANILLO AMABLE
+        //ANILLO ENCANTADOR
         $skill = new Skill();
-        $skill->setName('Anillo Amable');
+        $skill->setName('Anillo Encantador');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -3844,14 +3844,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setUnit(null);
         $skill->setFamily(null);
         $skill->setType(null);
-        $skill->setDescription('+'.$skill->getPeopleBonus().'% <span class="label label-extra">Maná</span> a tu Reino al <i class="fa fa-fw fa-hourglass-half"></i>');
+        $skill->setDescription('+'.$skill->getPeopleBonus().'% <span class="label label-extra">Personas</span> a tu Reino al <i class="fa fa-fw fa-hourglass-half"></i>');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //ANILLO HECHICERO
+        //ANILLO PODEROSO
         $skill = new Skill();
-        $skill->setName('Anillo Hechicero');
+        $skill->setName('Anillo Poderoso');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -3881,9 +3881,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //ANILLO GOLEM
+        //ANILLO ESTOICO
         $skill = new Skill();
-        $skill->setName('Anillo Gólem');
+        $skill->setName('Anillo Estoico');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -4273,9 +4273,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //EXORCISTA
+        //CAMPEON
         $skill = new Skill();
-        $skill->setName('Exorcista');
+        $skill->setName('Campeón');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -4337,9 +4337,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //MUSA
+        //ESPIRITUALISTA
         $skill = new Skill();
-        $skill->setName('Musa');
+        $skill->setName('Espiritualista');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);

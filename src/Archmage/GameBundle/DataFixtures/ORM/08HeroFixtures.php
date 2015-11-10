@@ -40,7 +40,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Parca');
         $hero->setImage('bundles/archmagegame/images/hero/darkness/death.jpg');
-        $hero->setLore('Nada puede escapar de la muerte');
+        $hero->setLore('Nada puede escapar de la muerte.');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -270,6 +270,91 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setRarity(0);
         $hero->setPower(10000);
         $hero->setSkill($this->getReference('Comandar Humanos'));
+        $hero->setFaction($this->getReference('Sagrado'));
+        $this->setReference($hero->getName(), $hero);
+        $manager->persist($hero);
+
+        //DRIADA
+        $hero = new Hero();
+        $hero->setName('Dríada');
+        $hero->setImage('bundles/archmagegame/images/hero/nature/dryad.jpg');
+        $hero->setLore('Sé como hacer que vengan más Bestias...');
+        $hero->setExperience(self::EXPERIENCE_LEVEL);
+        $hero->setGoldMaintenance(300);
+        $hero->setPeopleMaintenance(200);
+        $hero->setManaMaintenance(100);
+        $hero->setGoldAuction(5000000);
+        $hero->setRarity(0);
+        $hero->setPower(10000);
+        $hero->setSkill($this->getReference('Dríada'));
+        $hero->setFaction($this->getReference('Naturaleza'));
+        $this->setReference($hero->getName(), $hero);
+        $manager->persist($hero);
+
+        //JINETE SIN CABEZA
+        $hero = new Hero();
+        $hero->setName('Jinete sin Cabeza');
+        $hero->setImage('bundles/archmagegame/images/hero/darkness/headlesshorseman.jpg');
+        $hero->setLore('Sé como hacer que vengan más NoMuertos...');
+        $hero->setExperience(self::EXPERIENCE_LEVEL);
+        $hero->setGoldMaintenance(300);
+        $hero->setPeopleMaintenance(200);
+        $hero->setManaMaintenance(100);
+        $hero->setGoldAuction(5000000);
+        $hero->setRarity(0);
+        $hero->setPower(10000);
+        $hero->setSkill($this->getReference('Jinete sin Cabeza'));
+        $hero->setFaction($this->getReference('Oscuridad'));
+        $this->setReference($hero->getName(), $hero);
+        $manager->persist($hero);
+
+        //ESPIRITUALISTA
+        $hero = new Hero();
+        $hero->setName('Espiritualista');
+        $hero->setImage('bundles/archmagegame/images/hero/ghost/spiritualist.jpg');
+        $hero->setLore('Sé como hacer que vengan más Elementales...');
+        $hero->setExperience(self::EXPERIENCE_LEVEL);
+        $hero->setGoldMaintenance(300);
+        $hero->setPeopleMaintenance(200);
+        $hero->setManaMaintenance(100);
+        $hero->setGoldAuction(5000000);
+        $hero->setRarity(0);
+        $hero->setPower(10000);
+        $hero->setSkill($this->getReference('Espiritualista'));
+        $hero->setFaction($this->getReference('Fantasmal'));
+        $this->setReference($hero->getName(), $hero);
+        $manager->persist($hero);
+
+        //SUCUBO
+        $hero = new Hero();
+        $hero->setName('Súcubo');
+        $hero->setImage('bundles/archmagegame/images/hero/doom/succubus.jpg');
+        $hero->setLore('Sé como hacer que vengan más Demonios...');
+        $hero->setExperience(self::EXPERIENCE_LEVEL);
+        $hero->setGoldMaintenance(300);
+        $hero->setPeopleMaintenance(200);
+        $hero->setManaMaintenance(100);
+        $hero->setGoldAuction(5000000);
+        $hero->setRarity(0);
+        $hero->setPower(10000);
+        $hero->setSkill($this->getReference('Súcubo'));
+        $hero->setFaction($this->getReference('Caos'));
+        $this->setReference($hero->getName(), $hero);
+        $manager->persist($hero);
+
+        //CHAMPION
+        $hero = new Hero();
+        $hero->setName('Campeón');
+        $hero->setImage('bundles/archmagegame/images/hero/holy/champion.jpg');
+        $hero->setLore('Sé como hacer que vengan más Celestiales...');
+        $hero->setExperience(self::EXPERIENCE_LEVEL);
+        $hero->setGoldMaintenance(300);
+        $hero->setPeopleMaintenance(200);
+        $hero->setManaMaintenance(100);
+        $hero->setGoldAuction(5000000);
+        $hero->setRarity(0);
+        $hero->setPower(10000);
+        $hero->setSkill($this->getReference('Campeón'));
         $hero->setFaction($this->getReference('Sagrado'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);

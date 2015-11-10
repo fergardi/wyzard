@@ -46,7 +46,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 'name' => 'Duggo, Dios de la Sangre',
                 'faction' => 'Caos',
                 'items' => array(
-                    'Botas de Velocidad' => 99,
+                    'Poción de Agilidad' => 99,
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(5,30),
@@ -59,7 +59,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 'name' => 'Surm, Dios de la Muerte',
                 'faction' => 'Oscuridad',
                 'items' => array(
-                    'Botas de Velocidad' => 99,
+                    'Poción de Agilidad' => 99,
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(5,30),
@@ -72,7 +72,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 'name' => 'Lett, Diosa de la Luz',
                 'faction' => 'Sagrado',
                 'items' => array(
-                    'Botas de Velocidad' => 99,
+                    'Poción de Agilidad' => 99,
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(5,30),
@@ -85,7 +85,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 'name' => 'Sihir, Diosa de la Magia',
                 'faction' => 'Fantasmal',
                 'items' => array(
-                    'Botas de Velocidad' => 99,
+                    'Poción de Agilidad' => 99,
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(5,30),
@@ -98,7 +98,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 'name' => 'Elama, Diosa de la Vida',
                 'faction' => 'Naturaleza',
                 'items' => array(
-                    'Botas de Velocidad' => 99,
+                    'Poción de Agilidad' => 99,
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(5,30),

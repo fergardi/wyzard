@@ -61,22 +61,6 @@ class RegistrationController extends BaseController
                     $manager->persist($construction);
                     $player->addConstruction($construction);
                 }
-                //troops
-                $troops = array(
-                    'Arqueros' => 100,
-                    'Caballeros' => 100,
-                    'Catapultas' => 100,
-                    'Milicias' => 100,
-                    'Piqueros' => 100,
-                );
-                foreach ($troops as $name => $quantity) {
-                    $troop = new Troop();
-                    $troop->setUnit($manager->getRepository('ArchmageGameBundle:Unit')->findOneByName($name));
-                    $troop->setQuantity($quantity);
-                    $troop->setPlayer($player);
-                    $manager->persist($troop);
-                    $player->addTroop($troop);
-                }
                 //resources
                 $player->setNick($user->getUsername());
                 $player->setGold(3000000);

@@ -127,67 +127,16 @@ class ArmyController extends Controller
     }
 
     /**
-     * @Route("/game/army/recruit")
-     * @Template("ArchmageGameBundle:Army:recruit.html.twig")
+     * @Route("/game/army/quest")
+     * @Template("ArchmageGameBundle:Army:quest.html.twig")
      */
-    public function recruitAction(Request $request)
+    public function questAction(Request $request)
     {
         $this->get('service.controller')->addNews();
-        if ($this->get('service.controller')->checkWinner()) return $this->redirect($this->generateUrl('archmage_game_account_legend'));
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
-        $neutral = $manager->getRepository('ArchmageGameBundle:Faction')->findOneByName('Neutral');
-        $units = $manager->getRepository('ArchmageGameBundle:Unit')->findByFaction($neutral);
-        if ($request->isMethod('POST')) {
-            $quantity = isset($_POST['quantity'])?$_POST['quantity']:null;
-            $unit = isset($_POST['unit'])?$_POST['unit']:null;
-            $unit = $manager->getRepository('ArchmageGameBundle:Unit')->findOneById($unit);
-            if ($unit && $quantity && is_numeric($quantity) && $quantity > 0) {
-                $turns = ceil($quantity / max($player->getConstruction('Barracones')->getQuantity(), 1));
-                $gold = $unit->getGoldRecruit() * $quantity;
-                if ($turns <= $player->getTurns() && $gold <= $player->getGold()) {
-                    /*
-                     * MANTENIMIENTOS
-                     */
-                    $player->setTurns($player->getTurns() - $turns);
-                    $player->setGold($player->getGold() - $gold);
-                    $this->get('service.controller')->checkMaintenances($turns);
-                    /*
-                     * ACCION
-                     */
-                    $troop = $player->hasUnit($unit);
-                    if ($troop) {
-                        $troop->setQuantity($troop->getQuantity() + $quantity);
-                    } else {
-                        if ($player->getTroops()->count() < $player::TROOPS_CAP) {
-                            $troop = new Troop();
-                            $manager->persist($troop);
-                            $troop->setUnit($unit);
-                            $troop->setQuantity($quantity);
-                            $troop->setPlayer($player);
-                            $player->addTroop($troop);
-                        } else {
-                            $this->addFlash('danger', 'No puedes tener más de '.$player::TROOPS_CAP.' tropas distintas al mismo tiempo, debes <i class="fa fa-fw fa-user-times"></i><a href='.$this->generateUrl('archmage_game_army_disband').'>Desbandar</a> alguna.');
-                            return $this->redirect($this->generateUrl('archmage_game_army_recruit'));
-                        }
-                    }
-                    /*
-                     * PERSISTENCIA
-                     */
-                    $manager->persist($player);
-                    $manager->flush();
-                    $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> y '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span> en reclutar '.$this->get('service.controller')->nff($quantity).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
-                } else {
-                    $this->addFlash('danger', 'No tienes los <span class="label label-extra">Recursos</span> suficientes para eso.');
-                }
-            } else {
-                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
-            }
-            return $this->redirect($this->generateUrl('archmage_game_army_recruit'));
-        }
         return array(
             'player' => $player,
-            'units' => $units,
         );
     }
 

@@ -1,0 +1,34 @@
+{% extends "ArchmageGameBundle::layout.html.twig" %}
+
+{% block title %}Aventura{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <h1><i class="fa fa-fw fa-tree"></i>Aventura</h1>
+                {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">Misiones</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/army.jpg') }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12">Aquí puedes gastar 10 <span class="label label-extra">Turnos</span>.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    <a class="btn btn-default" href="{{ path( 'archmage_game_army_disband' ) }}"><i class="fa fa-fw fa-user-times"></i>Desbandar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

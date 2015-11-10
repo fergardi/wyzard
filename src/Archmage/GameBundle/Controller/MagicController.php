@@ -20,10 +20,10 @@ use Archmage\GameBundle\Entity\Contract;
 class MagicController extends Controller
 {
     /**
-     * @Route("/game/magic/charge")
-     * @Template("ArchmageGameBundle:Magic:charge.html.twig")
+     * @Route("/game/magic/meditate")
+     * @Template("ArchmageGameBundle:Magic:meditate.html.twig")
      */
-    public function chargeAction(Request $request)
+    public function meditateAction(Request $request)
     {
         $this->get('service.controller')->addNews();
         if ($this->get('service.controller')->checkWinner()) return $this->redirect($this->generateUrl('archmage_game_account_legend'));
@@ -51,7 +51,7 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'No tienes suficientes <span class="label label-extra">Turnos</span> para eso.');
             }
-            return $this->redirect($this->generateUrl('archmage_game_magic_charge'));
+            return $this->redirect($this->generateUrl('archmage_game_magic_meditate'));
         }
         return array(
             'player' => $player,

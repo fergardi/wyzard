@@ -704,7 +704,7 @@ class MagicController extends Controller
                 $contracts = $target->getContracts()->toArray();
                 shuffle($contracts);
                 $contract = $contracts[0]; //suponemos > 0
-                $levels = rand(1, abs($artifact->getSkill()->getHeroBonus()));
+                $levels = rand(-1, $artifact->getSkill()->getHeroBonus());
                 $contract->setLevel($contract->getLevel() + $levels);
                 if ($contract->getLevel() <= 0) {
                     $target->removeContract($contract);

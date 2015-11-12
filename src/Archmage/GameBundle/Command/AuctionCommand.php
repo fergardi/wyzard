@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Doctrine\Common\Collections\Criteria;
 use Archmage\GameBundle\Entity\Item;
 use Archmage\GameBundle\Entity\Contract;
 use Archmage\GameBundle\Entity\Troop;
@@ -18,7 +19,6 @@ class AuctionCommand extends ContainerAwareCommand
     /**
      * Constants
      */
-    const AUCTION_PRICE = 5000000;
     const AUCTION_TROOPS = 1;
     const AUCTION_ITEMS = 1;
     const AUCTION_CONTRACTS = 1;
@@ -115,7 +115,9 @@ class AuctionCommand extends ContainerAwareCommand
         }
         //NEW AUCTIONS
         //ITEM
-        $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
+        $criteria = new Criteria();
+        $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+        $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
         for ($i = 0; $i < self::AUCTION_ITEMS; $i++) {
             shuffle($artifacts);
             $artifact = $artifacts[0]; // suponemos > 0
@@ -123,16 +125,18 @@ class AuctionCommand extends ContainerAwareCommand
             $item = new Item();
             $manager->persist($item);
             $item->setArtifact($artifact);
-            $item->setQuantity(rand(1,3));
+            $item->setQuantity(1);
             $item->setPlayer(null);
             $auction->setPlayer(null);
             $auction->setItem($item);
-            $auction->setBid(self::AUCTION_PRICE);
-            $auction->setTop(self::AUCTION_PRICE);
+            $auction->setBid($artifact->getGoldAuction());
+            $auction->setTop($artifact->getGoldAuction());
             $manager->persist($auction);
         }
         //TROOP
-        $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
+        $criteria = new Criteria();
+        $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+        $units = $manager->getRepository('ArchmageGameBundle:Unit')->matching($criteria)->toArray();
         for ($i = 0; $i < self::AUCTION_TROOPS; $i++) {
             shuffle($units);
             $unit = $units[0]; // suponemos > 0
@@ -144,12 +148,14 @@ class AuctionCommand extends ContainerAwareCommand
             $troop->setPlayer(null);
             $auction->setPlayer(null);
             $auction->setTroop($troop);
-            $auction->setBid(self::AUCTION_PRICE);
-            $auction->setTop(self::AUCTION_PRICE);
+            $auction->setBid($unit->getGoldAuction());
+            $auction->setTop($unit->getGoldAuction());
             $manager->persist($auction);
         }
         //CONTRACT
-        $heroes = $manager->getRepository('ArchmageGameBundle:Hero')->findAll();
+        $criteria = new Criteria();
+        $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+        $heroes = $manager->getRepository('ArchmageGameBundle:Hero')->matching($criteria)->toArray();
         for ($i = 0; $i < self::AUCTION_CONTRACTS; $i++) {
             shuffle($heroes);
             $hero = $heroes[0]; // suponemos > 0
@@ -162,31 +168,30 @@ class AuctionCommand extends ContainerAwareCommand
             $contract->setPlayer(null);
             $auction->setPlayer(null);
             $auction->setContract($contract);
-            $auction->setBid(self::AUCTION_PRICE);
-            $auction->setTop(self::AUCTION_PRICE);
+            $auction->setBid($hero->getGoldAuction());
+            $auction->setTop($hero->getGoldAuction());
             $manager->persist($auction);
         }
         //RESEARCH
-        $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAll();
+        $criteria = new Criteria();
+        $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+        $spells = $manager->getRepository('ArchmageGameBundle:Spell')->matching($criteria)->toArray();
         for ($i = 0; $i < self::AUCTION_RESEARCHS; $i++) {
             shuffle($spells);
             $spell = $spells[0]; // suponemos > 0
-            if ($spell->getMagic() < 5) { //no puede salir apocalipsis en subasta ni hechizos de nivel 5
-                $auction = new Auction();
-                $manager->persist($auction);
-                $research = new Research();
-                $manager->persist($research);
-                $research->setSpell($spell);
-                $research->setTurns(0);
-                $research->setPlayer(null);
-                $research->setActive(true);
-                $auction->setPlayer(null);
-                $auction->setResearch($research);
-                $auction->setBid(self::AUCTION_PRICE);
-                $auction->setTop(self::AUCTION_PRICE);
-            }
+            $auction = new Auction();
+            $manager->persist($auction);
+            $research = new Research();
+            $manager->persist($research);
+            $research->setSpell($spell);
+            $research->setTurns(0);
+            $research->setPlayer(null);
+            $research->setActive(true);
+            $auction->setPlayer(null);
+            $auction->setResearch($research);
+            $auction->setBid($spell->getGoldAuction());
+            $auction->setTop($spell->getGoldAuction());
         }
         $manager->flush();
-        return true;
     }
 }

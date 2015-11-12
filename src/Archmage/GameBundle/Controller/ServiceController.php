@@ -138,7 +138,6 @@ class ServiceController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
-        $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
         $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
         /*
          *
@@ -162,6 +161,9 @@ class ServiceController extends Controller
             //ARTIFACTS
             $chance = rand(0,99);
             if ($chance < $player->getArtifactRatio()) {
+                $criteria = new Criteria();
+                $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+                $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
                 shuffle($artifacts);
                 $artifact = $artifacts[0]; //suponemos length > 0
                 $item = $player->hasArtifact($artifact);

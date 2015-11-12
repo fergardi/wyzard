@@ -57,13 +57,13 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Mago Negro');
         $hero->setImage('bundles/archmagegame/images/hero/darkness/blackmage.jpg');
-        $hero->setLore('Frankenstein no me llega ni a la suela.');
+        $hero->setLore('Frankenstein no me llega ni a la suela del hueso.');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
         $hero->setManaMaintenance(100);
         $hero->setGoldAuction(5000000);
-        $hero->setRarity(0);
+        $hero->setRarity(50);
         $hero->setPower(10000);
         $hero->setSkill($this->getReference('Mago Negro'));
         $hero->setFaction($this->getReference('Oscuridad'));
@@ -97,7 +97,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setManaMaintenance(200);
         $hero->setPeopleMaintenance(100);
         $hero->setGoldAuction(5000000);
-        $hero->setRarity(0);
+        $hero->setRarity(90);
         $hero->setPower(10000);
         $hero->setSkill($this->getReference('Comandar Dragones'));
         $hero->setFaction($this->getReference('Caos'));
@@ -131,7 +131,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setPeopleMaintenance(200);
         $hero->setManaMaintenance(100);
         $hero->setGoldAuction(5000000);
-        $hero->setRarity(0);
+        $hero->setRarity(50);
         $hero->setPower(10000);
         $hero->setSkill($this->getReference('Chamán'));
         $hero->setFaction($this->getReference('Fantasmal'));
@@ -233,14 +233,14 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setPeopleMaintenance(200);
         $hero->setManaMaintenance(100);
         $hero->setGoldAuction(5000000);
-        $hero->setRarity(0);
+        $hero->setRarity(50);
         $hero->setPower(10000);
         $hero->setSkill($this->getReference('Mercader'));
         $hero->setFaction($this->getReference('Sagrado'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
-        //COMANDANTE
+        //SERAFIN
         $hero = new Hero();
         $hero->setName('Serafín');
         $hero->setImage('bundles/archmagegame/images/hero/holy/seraph.jpg');
@@ -342,7 +342,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
-        //CHAMPION
+        //CAMPEON
         $hero = new Hero();
         $hero->setName('Campeón');
         $hero->setImage('bundles/archmagegame/images/hero/holy/champion.jpg');

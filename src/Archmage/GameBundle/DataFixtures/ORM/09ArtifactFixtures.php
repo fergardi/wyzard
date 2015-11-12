@@ -14,14 +14,14 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function load(ObjectManager $manager)
     {
-        //BRUJULA MAGICA
+        //COFRE DEL TESORO
         $artifact = new Artifact();
-        $artifact->setName('Brújula Mágica');
-        $artifact->setImage('bundles/archmagegame/images/artifact/magiccompass.jpg');
-        $artifact->setSkill($this->getReference('Brújula Mágica'));
-        $artifact->setLore('Cómo que nos hemos perdido?! Cómo que no señala al norte?!');
+        $artifact->setName('Cofre del Tesoro');
+        $artifact->setImage('bundles/archmagegame/images/artifact/treasurechest.jpg');
+        $artifact->setSkill($this->getReference('Cofre del Tesoro'));
+        $artifact->setLore('Qué contendrá? Oro? Piedras preciosas? Caramelos?');
         $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
+        $artifact->setRarity(50);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -32,19 +32,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/assassinsguildletter.jpg');
         $artifact->setSkill($this->getReference('Carta del Gremio de Asesinos'));
         $artifact->setLore('Escribe los nombres y nosotros haremos el resto.');
-        $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //COFRE DEL TESORO
-        $artifact = new Artifact();
-        $artifact->setName('Cofre del Tesoro');
-        $artifact->setImage('bundles/archmagegame/images/artifact/treasurechest.jpg');
-        $artifact->setSkill($this->getReference('Cofre del Tesoro'));
-        $artifact->setLore('Qué contendrá? Oro? Piedras preciosas? Caramelos?');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -56,19 +44,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/thievesguildletter.jpg');
         $artifact->setSkill($this->getReference('Carta del Gremio de Ladrones'));
         $artifact->setLore('Marca las casas y nosotros haremos el resto.');
-        $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //POCION DE MANA
-        $artifact = new Artifact();
-        $artifact->setName('Poción de Maná');
-        $artifact->setImage('bundles/archmagegame/images/artifact/manapotion.jpg');
-        $artifact->setSkill($this->getReference('Poción de Maná'));
-        $artifact->setLore('Deliciosa y refrescante. Perfecta para resistir asedios enemigos!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -80,19 +56,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/magesguildletter.jpg');
         $artifact->setSkill($this->getReference('Carta del Gremio de Magos'));
         $artifact->setLore('Delata al hereje y nosotros haremos el resto.');
-        $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //POCION DE AMOR
-        $artifact = new Artifact();
-        $artifact->setName('Poción de Amor');
-        $artifact->setImage('bundles/archmagegame/images/artifact/lovepotion.jpg');
-        $artifact->setSkill($this->getReference('Poción de Amor'));
-        $artifact->setLore('El amor es una fuerza muy poderosa, pero un poco de ayuda nunca viene mal.');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -105,7 +69,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Carta del Gremio de Espías'));
         $artifact->setLore('Susurra un objetivo y nosotros haremos el resto.');
         $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
+        $artifact->setRarity(50);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -152,7 +116,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/elementalenciclopedia.jpg');
         $artifact->setSkill($this->getReference('Convocar Elementales'));
         $artifact->setLore('Puede salir cualquier cosa, incluso un árbol!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -164,7 +128,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/necronomicron.jpg');
         $artifact->setSkill($this->getReference('Convocar NoMuertos'));
         $artifact->setLore('Puede salir cualquier cosa, incluso una calavera!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -176,7 +140,31 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/livebait.jpg');
         $artifact->setSkill($this->getReference('Convocar Bestias'));
         $artifact->setLore('Puede salir cualquier cosa, incluso un gato!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(1000000);
+        $artifact->setRarity(0);
+        $artifact->setFaction($this->getReference('Neutral'));
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //CODICE SAGRADO
+        $artifact = new Artifact();
+        $artifact->setName('Códice Sagrado');
+        $artifact->setImage('bundles/archmagegame/images/artifact/holycodex.jpg');
+        $artifact->setSkill($this->getReference('Convocar Celestiales'));
+        $artifact->setLore('Puede salir cualquier cosa, incluso un monaguillo!');
+        $artifact->setGoldAuction(1000000);
+        $artifact->setRarity(0);
+        $artifact->setFaction($this->getReference('Neutral'));
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //CALAVERA MALDITA
+        $artifact = new Artifact();
+        $artifact->setName('Calavera Maldita');
+        $artifact->setImage('bundles/archmagegame/images/artifact/cursedskull.jpg');
+        $artifact->setSkill($this->getReference('Convocar Demonios'));
+        $artifact->setLore('Puede salir cualquier cosa, incluso un súcubo!');
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -194,25 +182,13 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //CODICE SAGRADO
+        //BARRIL DE POLVORA
         $artifact = new Artifact();
-        $artifact->setName('Códice Sagrado');
-        $artifact->setImage('bundles/archmagegame/images/artifact/holycodex.jpg');
-        $artifact->setSkill($this->getReference('Convocar Celestiales'));
-        $artifact->setLore('Puede salir cualquier cosa, incluso un monaguillo!');
-        $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //CALAVERA MALDITA
-        $artifact = new Artifact();
-        $artifact->setName('Calavera Maldita');
-        $artifact->setImage('bundles/archmagegame/images/artifact/cursedskull.jpg');
-        $artifact->setSkill($this->getReference('Convocar Demonios'));
-        $artifact->setLore('Puede salir cualquier cosa, incluso un súcubo!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setName('Barril de Pólvora');
+        $artifact->setImage('bundles/archmagegame/images/artifact/powderbarrel.jpg');
+        $artifact->setSkill($this->getReference('Barril de Pólvora'));
+        $artifact->setLore('Creo que la mecha es demasiado co...');
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -224,67 +200,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/holypotion.jpg');
         $artifact->setSkill($this->getReference('Poción de Pureza'));
         $artifact->setLore('Para cuando una ramita de romero no es suficiente.');
-        $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //BARRIL DE POLVORA
-        $artifact = new Artifact();
-        $artifact->setName('Barril de Pólvora');
-        $artifact->setImage('bundles/archmagegame/images/artifact/powderbarrel.jpg');
-        $artifact->setSkill($this->getReference('Barril de Pólvora'));
-        $artifact->setLore('Creo que la mecha es demasiado co...');
-        $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //ANILLO AVARICIOSO
-        $artifact = new Artifact();
-        $artifact->setName('Anillo Avaricioso');
-        $artifact->setImage('bundles/archmagegame/images/artifact/greedyring.jpg');
-        $artifact->setSkill($this->getReference('Anillo Avaricioso'));
-        $artifact->setLore('Uno de los cuatro Anillos Legendarios, consigue Oro a raudales');
-        $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //ANILLO PODEROSO
-        $artifact = new Artifact();
-        $artifact->setName('Anillo Poderoso');
-        $artifact->setImage('bundles/archmagegame/images/artifact/powerring.jpg');
-        $artifact->setSkill($this->getReference('Anillo Poderoso'));
-        $artifact->setLore('Uno de los cuatro Anillos Legendarios, consigue Maná a raudales');
-        $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //ANILLO ENCANTADOR
-        $artifact = new Artifact();
-        $artifact->setName('Anillo Encantador');
-        $artifact->setImage('bundles/archmagegame/images/artifact/charmingring.jpg');
-        $artifact->setSkill($this->getReference('Anillo Encantador'));
-        $artifact->setLore('Uno de los cuatro Anillos Legendarios, consigue Personas a raudales');
-        $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //ANILLO ESTOICO
-        $artifact = new Artifact();
-        $artifact->setName('Anillo Estoico');
-        $artifact->setImage('bundles/archmagegame/images/artifact/stoicring.jpg');
-        $artifact->setSkill($this->getReference('Anillo Estoico'));
-        $artifact->setLore('Uno de los cuatro Anillos Legendarios, consigue Defensa a raudales');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -296,7 +212,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/agilitypotion.jpg');
         $artifact->setSkill($this->getReference('Poción de Agilidad'));
         $artifact->setLore('Para darle un empujoncito a tus tropas. Si es mágico, no es dopaje!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -308,7 +224,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/strengthpotion.jpg');
         $artifact->setSkill($this->getReference('Poción de Fuerza'));
         $artifact->setLore('Para darle un empujoncito a tus tropas. Si es mágico, no es dopaje!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
@@ -320,8 +236,92 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/vitalitypotion.jpg');
         $artifact->setSkill($this->getReference('Poción de Vitalidad'));
         $artifact->setLore('Para darle un empujoncito a tus tropas. Si es mágico, no es dopaje!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
+        $artifact->setFaction($this->getReference('Neutral'));
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //POCION DE MANA
+        $artifact = new Artifact();
+        $artifact->setName('Poción de Maná');
+        $artifact->setImage('bundles/archmagegame/images/artifact/manapotion.jpg');
+        $artifact->setSkill($this->getReference('Poción de Maná'));
+        $artifact->setLore('Deliciosa y refrescante. Perfecta para resistir asedios enemigos!');
+        $artifact->setGoldAuction(1000000);
+        $artifact->setRarity(0);
+        $artifact->setFaction($this->getReference('Neutral'));
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //POCION DE AMOR
+        $artifact = new Artifact();
+        $artifact->setName('Poción de Amor');
+        $artifact->setImage('bundles/archmagegame/images/artifact/lovepotion.jpg');
+        $artifact->setSkill($this->getReference('Poción de Amor'));
+        $artifact->setLore('El amor es una fuerza muy poderosa, pero un poco de ayuda nunca viene mal.');
+        $artifact->setGoldAuction(1000000);
+        $artifact->setRarity(0);
+        $artifact->setFaction($this->getReference('Neutral'));
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //BRUJULA MAGICA
+        $artifact = new Artifact();
+        $artifact->setName('Brújula Mágica');
+        $artifact->setImage('bundles/archmagegame/images/artifact/magiccompass.jpg');
+        $artifact->setSkill($this->getReference('Brújula Mágica'));
+        $artifact->setLore('Cómo que nos hemos perdido?! Cómo que no señala al norte?!');
+        $artifact->setGoldAuction(5000000);
+        $artifact->setRarity(90);
+        $artifact->setFaction($this->getReference('Neutral'));
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //ANILLO AVARICIOSO
+        $artifact = new Artifact();
+        $artifact->setName('Anillo Avaricioso');
+        $artifact->setImage('bundles/archmagegame/images/artifact/greedyring.jpg');
+        $artifact->setSkill($this->getReference('Anillo Avaricioso'));
+        $artifact->setLore('Uno de los cuatro Anillos Legendarios, consigue Oro a raudales');
+        $artifact->setGoldAuction(20000000);
+        $artifact->setRarity(90);
+        $artifact->setFaction($this->getReference('Neutral'));
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //ANILLO PODEROSO
+        $artifact = new Artifact();
+        $artifact->setName('Anillo Poderoso');
+        $artifact->setImage('bundles/archmagegame/images/artifact/powerring.jpg');
+        $artifact->setSkill($this->getReference('Anillo Poderoso'));
+        $artifact->setLore('Uno de los cuatro Anillos Legendarios, consigue Maná a raudales');
+        $artifact->setGoldAuction(20000000);
+        $artifact->setRarity(90);
+        $artifact->setFaction($this->getReference('Neutral'));
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //ANILLO ENCANTADOR
+        $artifact = new Artifact();
+        $artifact->setName('Anillo Encantador');
+        $artifact->setImage('bundles/archmagegame/images/artifact/charmingring.jpg');
+        $artifact->setSkill($this->getReference('Anillo Encantador'));
+        $artifact->setLore('Uno de los cuatro Anillos Legendarios, consigue Personas a raudales');
+        $artifact->setGoldAuction(20000000);
+        $artifact->setRarity(90);
+        $artifact->setFaction($this->getReference('Neutral'));
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //ANILLO ESTOICO
+        $artifact = new Artifact();
+        $artifact->setName('Anillo Estoico');
+        $artifact->setImage('bundles/archmagegame/images/artifact/stoicring.jpg');
+        $artifact->setSkill($this->getReference('Anillo Estoico'));
+        $artifact->setLore('Uno de los cuatro Anillos Legendarios, consigue Defensa a raudales');
+        $artifact->setGoldAuction(20000000);
+        $artifact->setRarity(90);
         $artifact->setFaction($this->getReference('Neutral'));
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);

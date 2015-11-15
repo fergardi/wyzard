@@ -1,0 +1,75 @@
+{% extends "ArchmageGameBundle::layout.html.twig" %}
+
+{% block title %}Alquimia{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <h1><i class="fa fa-fw fa-flask"></i>Alquimia</h1>
+                {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
+            </div>
+            <div class="col-xs-12 col-md-offset-3 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">Recetario</div>
+                    <div class="panel-body text-responsive">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/alchemy.jpg') }}">
+                            </div>
+                            <div class="col-xs-8 text-padded">
+                                <div class="col-xs-12">Aquí puedes gastar 5 <span class="label label-extra">Turnos</span> y 1.000.000 <span class="label label-extra">Oro</span> para convertir unos Artefactos en otros, usando diversas <span class="label label-extra">Recetas</span> que puedes adquirir en la subasta.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-middle text-center">Fórmula</div>
+                    <div class="panel-body text-responsive text-only text-center">
+                        <p>ARTEFACTO<sub>A</sub> + ARTEFACTO<sub>B</sub> + ORO = ARTEFACTO<sub>C</sub></p>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <a class="btn btn-default" href="{{ path( 'archmage_game_kingdom_auction' ) }}"><i class="fa fa-fw fa-legal"></i>Subasta</a>
+                    </div>
+                </div>
+            </div>
+            {% for recipe in player.recipes %}
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-recipe">
+                    <div class="panel-heading text-center"><i class="fa fa-fw fa-flask"></i><a href="{{ path('archmage_game_home_help') }}#recipes" class="link">{{ recipe.result.name }}</a></div>
+                    <div class="panel-body text-responsive">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img class="custom-thumbnail" src="{{ asset( recipe.result.image ) }}">
+                            </div>
+                            <div class="col-xs-8 text-padded">
+                                <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.first.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.first.name|slug }}" class="link">{{ recipe.first.name }}</a></span></div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.second.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.second.name|slug }}" class="link">{{ recipe.second.name }}</a></span></div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ recipe.gold|nf }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <form id="recipe{{ recipe.id }}" name="recipe{{ recipe.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_magic_alchemy') }}" method="post" role="form">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="btn-group" role="group" aria-label="...">
+                                        <button type="submit" id="activate" name="action" value="activate" class="btn btn-default"><i class="fa fa-fw fa-cogs"></i>Fabricar</button>
+                                    </div>
+                                    <input type="hidden" id="recipe" name="recipe" value="{{ recipe.id }}" required />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="container">
+                <div class="col-xs-12 alert alert-danger text-responsive text-center" role="alert">
+                    <i class="fa fa-fw fa-exclamation-triangle"></i>Actualmente no tienes Recetas en tu poder. Tal vez deberías comprar alguna en la <i class="fa fa-fw fa-legal"></i><a href="{{ path('archmage_game_kingdom_auction') }}">Subasta</a>.
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

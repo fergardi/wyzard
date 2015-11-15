@@ -34,7 +34,7 @@
             </div>
         </div>
         {% for auction in auctions %}
-            {% if auction.contract is not null and not player.hasContract(auction.contract) %}
+        {% if auction.contract is not null and not player.hasContract(auction.contract) %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ auction.contract.hero.faction.class }}">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.contract.hero.name|slug }}" class="link">{{ auction.contract.hero.name }}</a> <span data-toggle="tooltip" data-placement="top" title="Nivel del Héroe"><i class="fa fa-fw fa-star"></i>{{ auction.contract.level|nf }}</span></div>
@@ -76,7 +76,7 @@
                 </div>
             </div>
         </div>
-            {% elseif auction.research is not null and not player.hasResearch(auction.research) and auction.research.spell.faction != player.faction %}
+        {% elseif auction.research is not null and not player.hasResearch(auction.research) and auction.research.spell.faction != player.faction %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ auction.research.spell.faction.class }}">
                 <div class="panel-heading text-center">{% if auction.research.spell.enchantment %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.research.spell.name|slug }}" class="link">{{ auction.research.spell.name }}</a></div>
@@ -124,7 +124,7 @@
                 </div>
             </div>
         </div>
-            {% elseif auction.troop is not null %}
+        {% elseif auction.troop is not null %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ auction.troop.unit.faction.class }}">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-users"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.troop.unit.name|slug }}" class="link">{{ auction.troop.unit.name }}</a> <span data-toggle="tooltip" data-placement="top" title="Cantidad de tropas">[{{ auction.troop.quantity|nf }}]</span></div>
@@ -173,7 +173,7 @@
                 </div>
             </div>
         </div>
-            {% elseif auction.item is not null %}
+        {% elseif auction.item is not null %}
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ auction.item.artifact.class }}">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-diamond"></i><a href="{{ path('archmage_game_home_help') }}#{{ auction.item.artifact.name|slug }}" class="link">{{ auction.item.artifact.name }}</a> <span data-toggle="tooltip" data-placement="top" title="Cantidad de Artefactos">[{{ auction.item.quantity|nf }}]</span></div>
@@ -210,7 +210,84 @@
                 </div>
             </div>
         </div>
-            {% endif %}
+        {% elseif auction.recipe is not null %}
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-recipe">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-flask"></i><a href="{{ path('archmage_game_home_help') }}#{{ auction.recipe.result.name|slug }}" class="link">{{ auction.recipe.result.name }}</a></div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( auction.recipe.result.image ) }}" />
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ auction.recipe.first.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ auction.recipe.first.name|slug }}" class="link">{{ auction.recipe.first.name }}</a></span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ auction.recipe.second.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ auction.recipe.second.name|slug }}" class="link">{{ auction.recipe.second.name }}</a></span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ auction.recipe.gold|nf }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    {% if auction.player != player %}
+                    <form id="auction{{ auction.id }}" name="auction{{ auction.id }}" class="form-inline" data-toggle="validator" action="{{ path( 'archmage_game_kingdom_auction' ) }}" method="post">
+                        <div class="form-group has-feedback">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i>Pujar</button>
+                                </div>
+                                <input type="number" class="form-control" id="bid" name="bid" min="{{ auction.bid + 1 }}" max="{{ player.gold }}" value="{{ auction.bid + 1 }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
+                    </form>
+                    {% else %}
+                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujante</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% elseif auction.map is not null %}
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-map">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-map"></i><a href="{{ path('archmage_game_home_help') }}#maps" class="link">Mapa del Tesoro</a></div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail-left" src="{{ asset( 'bundles/archmagegame/images/kingdom/quest.jpg' ) }}" />
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            {% for troop in auction.map.troops %}
+                            {# row #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}" class="link">{{ troop.unit.name }}</a></span> {{ troop.quantity|nf }}</div>
+                            {% endfor %}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ auction.map.artifact.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ auction.map.artifact.name|slug }}" class="link">{{ auction.map.artifact.name }}</a></span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ auction.map.gold|nf }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    {% if auction.player != player %}
+                    <form id="auction{{ auction.id }}" name="auction{{ auction.id }}" class="form-inline" data-toggle="validator" action="{{ path( 'archmage_game_kingdom_auction' ) }}" method="post">
+                        <div class="form-group has-feedback">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %}><i class="fa fa-fw fa-money"></i>Pujar</button>
+                                </div>
+                                <input type="number" class="form-control" id="bid" name="bid" min="{{ auction.bid + 1 }}" max="{{ player.gold }}" value="{{ auction.bid + 1 }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
+                                <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
+                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
+                    </form>
+                    {% else %}
+                    <button type="button" class="btn btn-default" disabled><i class="fa fa-fw fa-money"></i>Ya eres el máximo pujante</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
 </div>

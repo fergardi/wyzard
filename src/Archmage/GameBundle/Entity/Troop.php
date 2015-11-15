@@ -40,6 +40,12 @@ class Troop
      **/
     private $player = null;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Map", inversedBy="troops")
+     * @ORM\JoinColumn(name="map", referencedColumnName="id", nullable=true)
+     **/
+    private $map = null;
+
 
     /**
      * Get id
@@ -118,5 +124,28 @@ class Troop
     public function getPlayer()
     {
         return $this->player;
+    }
+
+    /**
+     * Set map
+     *
+     * @param \Archmage\GameBundle\Entity\Map $map
+     * @return Troop
+     */
+    public function setMap(\Archmage\GameBundle\Entity\Map $map = null)
+    {
+        $this->map = $map;
+
+        return $this;
+    }
+
+    /**
+     * Get map
+     *
+     * @return \Archmage\GameBundle\Entity\Map 
+     */
+    public function getMap()
+    {
+        return $this->map;
     }
 }

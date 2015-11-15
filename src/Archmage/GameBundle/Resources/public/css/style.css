@@ -50,7 +50,7 @@ img.background {
 .text-lore {
     text-align: left;
     margin-top: 4px;
-    color: #cc7c26;
+    color: #FF8400;
 }
 .panel > .btn-group > .btn {
     border-top-right-radius: 0 !important;
@@ -69,6 +69,19 @@ img.background {
 img.custom-thumbnail {
     max-width: 100%;
     border-right: 1px solid rgba(0, 0, 0, 0.6);
+}
+img.custom-thumbnail-left {
+    max-width: 100%;
+    border-right: 1px solid rgba(0, 0, 0, 0.6);
+}
+img.custom-thumbnail-mid {
+    max-width: 100.5%;
+    border-right: 1px solid rgba(0, 0, 0, 0.6);
+    border-left: 1px solid rgba(0, 0, 0, 0.6);
+}
+img.custom-thumbnail-right {
+    max-width: 100%;
+    border-left: 1px solid rgba(0, 0, 0, 0.6);
 }
 img.custom-rspls {
     max-width: 75%;
@@ -223,7 +236,6 @@ body {
     height: 100px;
     margin: 0 auto;
     width: 100px;
-    margin-top: 0;
 }
 /* TR PRIMARY WHITE */
 .table > thead > tr > td.primary, .table > tbody > tr > td.primary, .table > tfoot > tr > td.primary, .table > thead > tr > th.primary, .table > tbody > tr > th.primary, .table > tfoot > tr > th.primary, .table > thead > tr.primary > td, .table > tbody > tr.primary > td, .table > tfoot > tr.primary > td, .table > thead > tr.primary > th, .table > tbody > tr.primary > th, .table > tfoot > tr.primary > .progress-bar-primary, .alert-primary {
@@ -262,7 +274,16 @@ body {
     background-color: #3E444C;
 }
 .panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
-    background-color: #cc7c26;
+    background-color: #FF8400;
+    border-color: #000;
+}
+.panel-recipe > .panel-heading, .panel-recipe > .panel-footer, .label-recipe {
+    background-color: #712b00;
+    border-color: #000;
+}
+.panel-map > .panel-heading, .panel-map > .panel-footer, .label-map {
+    background-color: #c69f6c;
+    border-color: #000;
 }
 /* DATATABLES */
 div.dataTables_paginate, div.dataTables_filter {

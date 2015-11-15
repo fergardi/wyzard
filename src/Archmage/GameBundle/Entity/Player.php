@@ -180,6 +180,24 @@ class Player
     private $enchantmentsVictim;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Map")
+     * @ORM\JoinTable(name="PlayerMap",
+     *      joinColumns={@ORM\JoinColumn(name="player_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="map_id", referencedColumnName="id")}
+     *      )
+     **/
+    private $maps;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Recipe")
+     * @ORM\JoinTable(name="PlayerRecipe",
+     *      joinColumns={@ORM\JoinColumn(name="player_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="recipe_id", referencedColumnName="id")}
+     *      )
+     **/
+    private $recipes;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Achievement")
      * @ORM\JoinTable(name="PlayerAchievement",
      *      joinColumns={@ORM\JoinColumn(name="player_id", referencedColumnName="id")},
@@ -187,15 +205,6 @@ class Player
      *      )
      **/
     private $achievements;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Recipe")
-     * @ORM\JoinTable(name="PlayerRecipes",
-     *      joinColumns={@ORM\JoinColumn(name="player_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="recipe_id", referencedColumnName="id")}
-     *      )
-     **/
-    private $recipes;
 
 
     /**
@@ -781,7 +790,7 @@ class Player
     }
 
     /**
-     * Add recipes
+     * Add recipe
      *
      * @param \Archmage\GameBundle\Entity\Recipe $recipe
      * @return Player
@@ -794,9 +803,9 @@ class Player
     }
 
     /**
-     * Remove recipes
+     * Remove recipe
      *
-     * @param \Archmage\GameBundle\Entity\Recipe $recipes
+     * @param \Archmage\GameBundle\Entity\Recipe $recipe
      */
     public function removeRecipe(\Archmage\GameBundle\Entity\Recipe $recipe)
     {
@@ -811,6 +820,39 @@ class Player
     public function getRecipes()
     {
         return $this->recipes;
+    }
+
+    /**
+     * Add map
+     *
+     * @param \Archmage\GameBundle\Entity\Recipe $map
+     * @return Player
+     */
+    public function addMap(\Archmage\GameBundle\Entity\Map $map)
+    {
+        $this->maps[] = $map;
+
+        return $this;
+    }
+
+    /**
+     * Remove map
+     *
+     * @param \Archmage\GameBundle\Entity\Map $map
+     */
+    public function removeMap(\Archmage\GameBundle\Entity\Map $map)
+    {
+        $this->maps->removeElement($map);
+    }
+
+    /**
+     * Get maps
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMaps()
+    {
+        return $this->maps;
     }
 
     /**

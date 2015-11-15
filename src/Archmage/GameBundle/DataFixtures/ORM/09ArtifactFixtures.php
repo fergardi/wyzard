@@ -209,6 +209,19 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
+        //MUÑECA VOODOO
+        $artifact = new Artifact();
+        $artifact->setName('Muñeca Voodoo');
+        $artifact->setImage('bundles/archmagegame/images/artifact/voodoodoll.jpg');
+        $artifact->setSkill($this->getReference('Muñeca Voodoo'));
+        $artifact->setLore('Alguien ha sido muy malo!');
+        $artifact->setGoldAuction(5000000);
+        $artifact->setRarity(0);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
         //POCION DE PUREZA
         $artifact = new Artifact();
         $artifact->setName('Poción de Pureza');
@@ -305,7 +318,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Avaricioso');
         $artifact->setImage('bundles/archmagegame/images/artifact/greedyring.jpg');
         $artifact->setSkill($this->getReference('Anillo Avaricioso'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Oro a raudales');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Oro a raudales!');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(90);
         $artifact->setClass('legendary');
@@ -318,7 +331,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Poderoso');
         $artifact->setImage('bundles/archmagegame/images/artifact/powerring.jpg');
         $artifact->setSkill($this->getReference('Anillo Poderoso'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Maná a raudales');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Maná a raudales!');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(90);
         $artifact->setClass('legendary');
@@ -331,7 +344,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Encantador');
         $artifact->setImage('bundles/archmagegame/images/artifact/charmingring.jpg');
         $artifact->setSkill($this->getReference('Anillo Encantador'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Personas a raudales');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Personas a raudales!');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(90);
         $artifact->setClass('legendary');
@@ -344,7 +357,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Duro');
         $artifact->setImage('bundles/archmagegame/images/artifact/hardring.jpg');
         $artifact->setSkill($this->getReference('Anillo Duro'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Defensa a raudales');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Defensa a raudales!');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(90);
         $artifact->setClass('legendary');
@@ -357,7 +370,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Invocador');
         $artifact->setImage('bundles/archmagegame/images/artifact/summonerring.jpg');
         $artifact->setSkill($this->getReference('Anillo Invocador'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Tropas a raudales');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Tropas a raudales!');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(90);
         $artifact->setClass('legendary');

@@ -34,11 +34,23 @@ class Recipe
     private $second;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Artifact")
+     * @ORM\JoinColumn(name="result", referencedColumnName="id", nullable=false)
+     **/
+    private $result;
+
+    /**
      * @var integer
      *
-     * @ORM\Column(name="goldCost", type="bigint", nullable = false)
+     * @ORM\Column(name="gold", type="bigint", nullable=false)
      */
-    private $goldCost;
+    private $gold;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Player", inversedBy="recipes")
+     * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=true)
+     **/
+    private $player = null;
 
 
     /**
@@ -52,25 +64,117 @@ class Recipe
     }
 
     /**
-     * Set goldCost
+     * Set gold
      *
-     * @param integer $goldCost
+     * @param integer $gold
      * @return Recipe
      */
-    public function setGoldCost($goldCost)
+    public function setGold($gold)
     {
-        $this->goldCost = $goldCost;
+        $this->gold = $gold;
 
         return $this;
     }
 
     /**
-     * Get goldCost
+     * Get gold
      *
      * @return integer 
      */
-    public function getGoldCost()
+    public function getGold()
     {
-        return $this->goldCost;
+        return $this->gold;
+    }
+
+    /**
+     * Set first
+     *
+     * @param \Archmage\GameBundle\Entity\Artifact $first
+     * @return Recipe
+     */
+    public function setFirst(\Archmage\GameBundle\Entity\Artifact $first)
+    {
+        $this->first = $first;
+
+        return $this;
+    }
+
+    /**
+     * Get first
+     *
+     * @return \Archmage\GameBundle\Entity\Artifact 
+     */
+    public function getFirst()
+    {
+        return $this->first;
+    }
+
+    /**
+     * Set second
+     *
+     * @param \Archmage\GameBundle\Entity\Artifact $second
+     * @return Recipe
+     */
+    public function setSecond(\Archmage\GameBundle\Entity\Artifact $second)
+    {
+        $this->second = $second;
+
+        return $this;
+    }
+
+    /**
+     * Get second
+     *
+     * @return \Archmage\GameBundle\Entity\Artifact 
+     */
+    public function getSecond()
+    {
+        return $this->second;
+    }
+
+    /**
+     * Set result
+     *
+     * @param \Archmage\GameBundle\Entity\Artifact $result
+     * @return Recipe
+     */
+    public function setResult(\Archmage\GameBundle\Entity\Artifact $result)
+    {
+        $this->result = $result;
+
+        return $this;
+    }
+
+    /**
+     * Get result
+     *
+     * @return \Archmage\GameBundle\Entity\Artifact 
+     */
+    public function getResult()
+    {
+        return $this->result;
+    }
+
+    /**
+     * Set player
+     *
+     * @param \Archmage\GameBundle\Entity\Player $player
+     * @return Recipe
+     */
+    public function setPlayer(\Archmage\GameBundle\Entity\Player $player = null)
+    {
+        $this->player = $player;
+
+        return $this;
+    }
+
+    /**
+     * Get player
+     *
+     * @return \Archmage\GameBundle\Entity\Player 
+     */
+    public function getPlayer()
+    {
+        return $this->player;
     }
 }

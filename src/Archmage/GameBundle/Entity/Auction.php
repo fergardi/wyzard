@@ -60,6 +60,18 @@ class Auction
     private $research = null;
 
     /**
+     * @ORM\OneToOne(targetEntity="Recipe")
+     * @ORM\JoinColumn(name="recipe", referencedColumnName="id", nullable=true)
+     **/
+    private $recipe = null;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Map")
+     * @ORM\JoinColumn(name="map", referencedColumnName="id", nullable=true)
+     **/
+    private $map = null;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Player")
      * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=true)
      **/
@@ -215,6 +227,52 @@ class Auction
     }
 
     /**
+     * Set recipe
+     *
+     * @param \Archmage\GameBundle\Entity\Recipe $recipe
+     * @return Auction
+     */
+    public function setRecipe(\Archmage\GameBundle\Entity\Recipe $recipe = null)
+    {
+        $this->recipe = $recipe;
+
+        return $this;
+    }
+
+    /**
+     * Get recipe
+     *
+     * @return \Archmage\GameBundle\Entity\Recipe
+     */
+    public function getRecipe()
+    {
+        return $this->recipe;
+    }
+
+    /**
+     * Set map
+     *
+     * @param \Archmage\GameBundle\Entity\Map $map
+     * @return Auction
+     */
+    public function setMap(\Archmage\GameBundle\Entity\Map $map = null)
+    {
+        $this->map = $map;
+
+        return $this;
+    }
+
+    /**
+     * Get map
+     *
+     * @return \Archmage\GameBundle\Entity\Map
+     */
+    public function getMap()
+    {
+        return $this->map;
+    }
+
+    /**
      * Set player
      *
      * @param \Archmage\GameBundle\Entity\Player $player
@@ -248,6 +306,8 @@ class Auction
         if ($this->getItem()) return $this->getItem()->getArtifact()->getName();
         if ($this->getContract()) return $this->getContract()->getHero()->getName();
         if ($this->getResearch()) return $this->getResearch()->getSpell()->getName();
+        if ($this->getRecipe()) return $this->getRecipe()->getResult()->getName();
+        if ($this->getMap()) return $this->getMap()->getName();
         return '';
     }
 
@@ -262,6 +322,8 @@ class Auction
         if ($this->getItem()) return $this->getItem()->getArtifact()->getClass();
         if ($this->getContract()) return $this->getContract()->getHero()->getFaction()->getClass();
         if ($this->getResearch()) return $this->getResearch()->getSpell()->getFaction()->getClass();
+        if ($this->getRecipe()) return $this->getRecipe()->getResult()->getClass();
+        if ($this->getMap()) return $this->getMap()->getClass();
         return '';
     }
 }

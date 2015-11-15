@@ -26,14 +26,14 @@ class Skill
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
-    private $name;
+    private $name = '';
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
-    private $description;
+    private $description = '';
 
     /**
      * @var integer

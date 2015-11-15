@@ -36,6 +36,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
+        $building->setSummonRatio(10);
         $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -62,6 +63,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
+        $building->setSummonRatio(10);
         $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -88,6 +90,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
+        $building->setSummonRatio(10);
         $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -114,6 +117,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
+        $building->setSummonRatio(10);
         $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -140,6 +144,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(5);
         $building->setArmyDefenseRatio(0);
+        $building->setSummonRatio(10);
         $building->setPower(5000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -166,6 +171,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(5);
+        $building->setSummonRatio(10);
         $building->setPower(5000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -192,6 +198,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
+        $building->setSummonRatio(10);
         $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -218,6 +225,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(30);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
+        $building->setSummonRatio(10);
         $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -225,7 +233,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //BARRACONES
         $building = new Building();
         $building->setName('Barracones');
-        $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> para reclutar.');
+        $building->setDescription('Aumentan la cantidad de <span class="label label-extra">Tropas</span> invocadas.');
         $building->setLore('Borrachos y maleantes. Y tuyos, si les pagas bien.');
         $building->setImage('bundles/archmagegame/images/building/barrack.jpg');
         $building->setGoldCost(0);
@@ -244,6 +252,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
+        $building->setSummonRatio(10);
         $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);

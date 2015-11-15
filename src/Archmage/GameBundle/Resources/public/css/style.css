@@ -261,6 +261,9 @@ body {
 .panel-default > .panel-footer {
     background-color: #3E444C;
 }
+.panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
+    background-color: #cc7c26;
+}
 /* DATATABLES */
 div.dataTables_paginate, div.dataTables_filter {
     text-align: center !important;

@@ -259,7 +259,7 @@ class Auction
     public function getClass()
     {
         if ($this->getTroop()) return $this->getTroop()->getUnit()->getFaction()->getClass();
-        if ($this->getItem()) return $this->getItem()->getArtifact()->getFaction()->getClass();
+        if ($this->getItem()) return $this->getItem()->getArtifact()->getClass();
         if ($this->getContract()) return $this->getContract()->getHero()->getFaction()->getClass();
         if ($this->getResearch()) return $this->getResearch()->getSpell()->getFaction()->getClass();
         return '';

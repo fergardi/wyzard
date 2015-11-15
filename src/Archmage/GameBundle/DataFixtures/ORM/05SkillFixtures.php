@@ -3881,9 +3881,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //ANILLO ESTOICO
+        //ANILLO DURO
         $skill = new Skill();
-        $skill->setName('Anillo Estoico');
+        $skill->setName('Anillo Duro');
         $skill->setAttackBonus(0);
         $skill->setDefenseBonus(0);
         $skill->setSpeedBonus(0);
@@ -3909,6 +3909,38 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setFamily(null);
         $skill->setType(null);
         $skill->setDescription('+'.$skill->getArmyDefenseBonus().'% <span class="label label-extra">Defensa Física</span> y +'.$skill->getMagicDefenseBonus().'% <span class="label label-extra">Defensa Mágica</span> a tu Reino');
+        $skill->setFaction(null);
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //ANILLO INVOCADOR
+        $skill = new Skill();
+        $skill->setName('Anillo Invocador');
+        $skill->setAttackBonus(0);
+        $skill->setDefenseBonus(0);
+        $skill->setSpeedBonus(0);
+        $skill->setGoldBonus(0);
+        $skill->setManaBonus(0);
+        $skill->setPeopleBonus(0);
+        $skill->setTerrainBonus(0);
+        $skill->setDamageBonus(0);
+        $skill->setWin(false);
+        $skill->setQuantityBonus(10);
+        $skill->setMagicDefenseBonus(0);
+        $skill->setArmyDefenseBonus(0);
+        $skill->setArtifactBonus(0);
+        $skill->setHeroBonus(0);
+        $skill->setTurnsBonus(0);
+        $skill->setRandom(false);
+        $skill->setSummon(false);
+        $skill->setDispellBonus(0);
+        $skill->setSpyBonus(0);
+        $skill->setBattle(false);
+        $skill->setSelf(true);
+        $skill->setUnit(null);
+        $skill->setFamily(null);
+        $skill->setType(null);
+        $skill->setDescription('+'.$skill->getQuantityBonus().'% <span class="label label-extra">Cantidad</span> de tropas invocadas');
         $skill->setFaction(null);
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

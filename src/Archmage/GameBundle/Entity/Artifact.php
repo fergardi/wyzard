@@ -57,12 +57,18 @@ class Artifact
     private $rarity = 0;
 
     /**
-     * @var Faction
+     * @var boolean
      *
-     * @ORM\ManyToOne(targetEntity="Faction")
-     * @ORM\JoinColumn(name="faction", referencedColumnName="id", nullable=false)
+     * @ORM\Column(name="legendary", type="boolean", nullable=false)
      */
-    private $faction;
+    private $legendary = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="class", type="string", length=255, nullable=false)
+     */
+    private $class = 'default';
 
     /**
      * @var Skill
@@ -199,26 +205,49 @@ class Artifact
     }
 
     /**
-     * Set faction
+     * Set legendary
      *
-     * @param \Archmage\GameBundle\Entity\Faction $faction
+     * @param boolean $legendary
      * @return Artifact
      */
-    public function setFaction(\Archmage\GameBundle\Entity\Faction $faction)
+    public function setLegendary($legendary)
     {
-        $this->faction = $faction;
+        $this->legendary = $legendary;
 
         return $this;
     }
 
     /**
-     * Get faction
+     * Get legendary
      *
-     * @return \Archmage\GameBundle\Entity\Faction 
+     * @return boolean
      */
-    public function getFaction()
+    public function getLegendary()
     {
-        return $this->faction;
+        return $this->legendary;
+    }
+
+    /**
+     * Set class
+     *
+     * @param string $class
+     * @return Artifact
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return string
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 
     /**

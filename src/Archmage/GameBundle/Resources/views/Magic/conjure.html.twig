@@ -49,9 +49,9 @@
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Coste de Maná para conjurar">-{% if research.spell.faction == player.faction %}{{ research.spell.manaCost|nf }}{% else %}{{ (research.spell.manaCost * 2)|nf }}{% endif %}</span></div>
                             {% if research.spell.enchantment %}
                             {# row #}
-                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro del Encantamiento al turno">{{ (research.spell.goldMaintenance * player.magic)|nf }}</span></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Personas del Encantamiento al turno">{{ (research.spell.peopleMaintenance * player.magic)|nf }}</span></div>
-                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Maná del Encantamiento al turno">{{ (research.spell.manaMaintenance * player.magic)|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro del Encantamiento al turno">-{{ (research.spell.goldMaintenance * player.magic)|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Personas del Encantamiento al turno">-{{ (research.spell.peopleMaintenance * player.magic)|nf }}</span></div>
+                            <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Maná del Encantamiento al turno">-{{ (research.spell.manaMaintenance * player.magic)|nf }}</span></div>
                             {% endif %}
                             {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ research.spell.skill.description|raw }}</div>

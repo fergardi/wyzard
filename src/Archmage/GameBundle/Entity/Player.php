@@ -188,6 +188,15 @@ class Player
      **/
     private $achievements;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Recipe")
+     * @ORM\JoinTable(name="PlayerRecipes",
+     *      joinColumns={@ORM\JoinColumn(name="player_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="recipe_id", referencedColumnName="id")}
+     *      )
+     **/
+    private $recipes;
+
 
     /**
      * Constructor
@@ -203,6 +212,7 @@ class Player
         $this->enchantmentsOwner = new ArrayCollection();
         $this->enchantmentsVictim = new ArrayCollection();
         $this->achievements = new ArrayCollection();
+        $this->recipes = new ArrayCollection();
 
         $this->telegram = substr(md5(microtime()),0,13); //semi unique hash for telegram
     }
@@ -771,6 +781,39 @@ class Player
     }
 
     /**
+     * Add recipes
+     *
+     * @param \Archmage\GameBundle\Entity\Recipe $recipe
+     * @return Player
+     */
+    public function addRecipe(\Archmage\GameBundle\Entity\Recipe $recipe)
+    {
+        $this->recipes[] = $recipe;
+
+        return $this;
+    }
+
+    /**
+     * Remove recipes
+     *
+     * @param \Archmage\GameBundle\Entity\Recipe $recipes
+     */
+    public function removeRecipe(\Archmage\GameBundle\Entity\Recipe $recipe)
+    {
+        $this->recipes->removeElement($recipe);
+    }
+
+    /**
+     * Get recipes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRecipes()
+    {
+        return $this->recipes;
+    }
+
+    /**
      * Add enchantmentsOwner
      *
      * @param \Archmage\GameBundle\Entity\Enchantment $enchantmentOwner
@@ -941,6 +984,9 @@ class Player
         foreach ($this->enchantmentsVictim as $enchantment) {
             $magicDefense += $enchantment->getSpell()->getSkill()->getMagicDefenseBonus() * $enchantment->getOwner()->getMagic();
         }
+        foreach ($this->items as $item) {
+            if ($item->getArtifact()->getLegendary()) $magicDefense += $item->getArtifact()->getSkill()->getMagicDefenseBonus();
+        }
         return min(self::MAGICDEFENSE_CAP, $magicDefense);
     }
 
@@ -957,7 +1003,29 @@ class Player
         foreach ($this->enchantmentsVictim as $enchantment) {
             $armyDefense += $enchantment->getSpell()->getSkill()->getArmyDefenseBonus() * $enchantment->getOwner()->getMagic();
         }
+        foreach ($this->items as $item) {
+            if ($item->getArtifact()->getLegendary()) $armyDefense += $item->getArtifact()->getSkill()->getArmyDefenseBonus();
+        }
         return min(self::ARMYDEFENSE_CAP, $armyDefense);
+    }
+
+    /**
+     * Get summonBonus
+     *
+     * @return integer
+     */
+    public function getSummonBonus()
+    {
+        $summon = 0;
+        $barracks = $this->getConstruction('Barracones');
+        $summon += floor($barracks->getQuantity() / (float)$barracks->getBuilding()->getSummonRatio());
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            $summon += $enchantment->getSpell()->getSkill()->getSummonBonus() * $enchantment->getOwner()->getMagic();
+        }
+        foreach ($this->items as $item) {
+            if ($item->getArtifact()->getLegendary()) $summon += $item->getArtifact()->getSkill()->getSummonBonus();
+        }
+        return $summon;
     }
 
     /**
@@ -1073,6 +1141,9 @@ class Player
         foreach ($this->enchantmentsVictim as $enchantment) {
             $gold += floor($gold * $enchantment->getSpell()->getSkill()->getGoldBonus() * $enchantment->getOwner()->getMagic() / (float)100);
         }
+        foreach ($this->items as $item) {
+            if ($item->getArtifact()->getLegendary()) $gold += floor($gold * $item->getArtifact()->getSkill()->getGoldBonus() / (float)100);
+        }
         return $gold;
     }
 
@@ -1093,6 +1164,9 @@ class Player
         foreach ($this->enchantmentsVictim as $enchantment) {
             $people += floor($people * $enchantment->getSpell()->getSkill()->getPeopleBonus() * $enchantment->getOwner()->getMagic() / (float)100);
         }
+        foreach ($this->items as $item) {
+            if ($item->getArtifact()->getLegendary()) $people += floor($people * $item->getArtifact()->getSkill()->getPeopleBonus() / (float)100);
+        }
         return $people;
     }
 
@@ -1112,6 +1186,9 @@ class Player
         }
         foreach ($this->enchantmentsVictim as $enchantment) {
             $mana += floor($mana * $enchantment->getSpell()->getSkill()->getManaBonus() * $enchantment->getOwner()->getMagic() / (float)100);
+        }
+        foreach ($this->items as $item) {
+            if ($item->getArtifact()->getLegendary()) $mana += floor($mana * $item->getArtifact()->getSkill()->getManaBonus() / (float)100);
         }
         return $mana;
     }

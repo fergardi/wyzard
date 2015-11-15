@@ -88,7 +88,7 @@
                     </div>
                     <br>
                     <p>Para poder atacar a otro mago, deberás traspasar su <span class="label label-extra">Defensa Física</span>, y para lanzarle <span class="label label-extra">Hechizos</span> y <span class="label label-extra">Artefactos</span> en combate, también su <span class="label label-extra">Defensa Mágica</span>.</p>
-                    <p>Los valores indicados en las descripciones de las unidades indican <span class="label label-extra">Ataque</span>, <span class="label label-extra">Defensa</span> y <span class="label label-extra">Velocidad</span>. El combate es bastante simple: Durante un máximo de 5 rondas, cada tropa de cada ejército se empareja 1 a 1, ordenadas siempre por su <span class="label label-extra">Velocidad</span> de mayor a menor, es decir, las unidades más rápidas entran antes en combate. Una vez emparejadas, se calculan todos los bonuses pertinentes, como <span class="label label-extra">Hechizos</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span>, y se calcula su <span class="label label-extra">Ataque</span> y su <span class="label label-extra">Defensa</span> totales. Si una unidad es más veloz que otra, por cada punto de <span class="label label-extra">Velocidad</span> de diferencia gana un 5% más de ataque. Al final de la batalla, el jugador que haya perdido menos <span class="label label-extra">Poder</span>, gana.</p>
+                    <p>Los valores indicados en las descripciones de las unidades indican <span class="label label-extra">Ataque</span>, <span class="label label-extra">Defensa</span> y <span class="label label-extra">Velocidad</span>. El combate es bastante simple: Durante un máximo de 5 rondas, cada tropa de cada ejército se empareja 1 a 1, ordenadas siempre por su <span class="label label-extra">Velocidad</span> de mayor a menor, es decir, las unidades más rápidas entran antes en combate. Una vez emparejadas, se calculan todos los bonuses pertinentes, como <span class="label label-extra">Hechizos</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span>, y se calcula su <span class="label label-extra">Ataque</span> y su <span class="label label-extra">Defensa</span> totales. A igual <span class="label label-extra">Velocidad</span>, las <span class="label label-extra">Unidades</span> atacan y defienden al mismo tiempo. A mayor velocidad del atacante, éste ataca primero e inflinge bajas al defensor, que luego contraatacará con sus <span class="label label-extra">Unidades</span> restantes, si queda alguna. A menor velocidad del atacante, es el defensor quien ataca primero e infingle las bajas al atacante, que luego contraatacará con sus <span class="label label-extra">Unidades</span> restantes, de quedar alguna. Al final de la batalla, el jugador que haya perdido menos <span class="label label-extra">Poder</span>, gana.</p>
                     <p>Si ganas la batalla, normalmente debilitarás a tu contrincante lo suficiente como para reducir su ranking bastantes puestos. Si ganas de forma apastante, podrás robarle un 5% de sus <span class="label label-extra">Edificios</span> y <span class="label label-extra">Oro</span>, y tus <span class="label label-extra">Héroes</span> ganarán 20 de <span class="label label-extra">Experiencia</span> en combate. No obstante, si pierdes el ataque, no ganarás absolutamente nada, y probablemente quedarás expuesto a futuras represalias. No puedes atacar al mismo mago 2 veces en 12h, ni puedes atacar a un mago un 20% más débil que tú o un 80% más fuerte que tú. No obstante, si alguien te ataca, tendrás derecho a un contraataque, independientemente de las anteriores condiciones.</p>
                     <p>Los Dioses son jugadores NPC no controlados, con una defensa altísima y un ejército impresionante, que normalmente nadie podría derrotar. Pero tal vez a base de muchos ataques especiales y coordinados, podáis igualar e incluso superar a estos gigantes de la magia, y ganar con ello una enorme recompensa.</p>
                 </div>
@@ -109,7 +109,7 @@
         <div class="col-xs-12"><a name="facciones"></a>
             <div class="page-header text-center">
                 <a name="facciones"></a>
-                <h1><i class="fa fa-fw fa-info-circle"></i>Facciones</h1>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Facciones ({{ factions|length }})</h1>
             </div>
         </div>
         {% for faction in factions %}
@@ -305,7 +305,7 @@
         </div>
         {% for artifact in artifacts %}
         <div class="col-xs-12 col-md-6"><a name="{{ artifact.name|slug }}"></a>
-            <div class="panel panel-{{ artifact.faction.class }}">
+            <div class="panel panel-{{ artifact.class }}">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-diamond"></i>{{ artifact.name }}</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
@@ -322,7 +322,7 @@
                     <i class="fa fa-fw fa-joomla"></i>{{ artifact.skill.description|raw }}
                 </div>
                 {# TAGS FOR SEARCH #}
-                <span class="hidden">Artefactos, {{ artifact.faction.name }}</span>
+                <span class="hidden">Artefactos, Neutral</span>
             </div>
         </div>
         {% endfor %}

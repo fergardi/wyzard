@@ -21,8 +21,9 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Cofre del Tesoro'));
         $artifact->setLore('Qué contendrá? Oro? Piedras preciosas? Caramelos?');
         $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(50);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setRarity(0);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -34,7 +35,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Escribe los nombres y nosotros haremos el resto.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -46,7 +48,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Marca las casas y nosotros haremos el resto.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -58,7 +61,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Delata al hereje y nosotros haremos el resto.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -69,8 +73,9 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Carta del Gremio de Espías'));
         $artifact->setLore('Susurra un objetivo y nosotros haremos el resto.');
         $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(50);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setRarity(0);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -82,7 +87,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Es sucia, es pegajosa y es asquerosa. Pero su tela es muy útil.');
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -94,7 +100,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Regla #1: No olvides tu espada. Regla #2: No hay regla #2');
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -106,7 +113,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Mirarla directamente produce la misma sensación que leer faltas de hortojrafía!');
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -118,7 +126,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Puede salir cualquier cosa, incluso un árbol!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -130,7 +139,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Puede salir cualquier cosa, incluso una calavera!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -142,7 +152,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Puede salir cualquier cosa, incluso un gato!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -154,7 +165,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Puede salir cualquier cosa, incluso un monaguillo!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -166,7 +178,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Puede salir cualquier cosa, incluso un súcubo!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -178,7 +191,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Puede salir cualquier cosa, incluso una lagartija!');
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -190,7 +204,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Creo que la mecha es demasiado co...');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -202,7 +217,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Para cuando una ramita de romero no es suficiente.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -214,7 +230,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Para darle un empujoncito a tus tropas. Si es mágico, no es dopaje!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -226,7 +243,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Para darle un empujoncito a tus tropas. Si es mágico, no es dopaje!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -238,7 +256,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Para darle un empujoncito a tus tropas. Si es mágico, no es dopaje!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -250,7 +269,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Deliciosa y refrescante. Perfecta para resistir asedios enemigos!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -262,7 +282,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('El amor es una fuerza muy poderosa, pero un poco de ayuda nunca viene mal.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -273,8 +294,9 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Brújula Mágica'));
         $artifact->setLore('Cómo que nos hemos perdido?! Cómo que no señala al norte?!');
         $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(90);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setRarity(0);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -283,10 +305,11 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Avaricioso');
         $artifact->setImage('bundles/archmagegame/images/artifact/greedyring.jpg');
         $artifact->setSkill($this->getReference('Anillo Avaricioso'));
-        $artifact->setLore('Uno de los cuatro Anillos Legendarios, consigue Oro a raudales');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Oro a raudales');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(90);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -295,10 +318,11 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Poderoso');
         $artifact->setImage('bundles/archmagegame/images/artifact/powerring.jpg');
         $artifact->setSkill($this->getReference('Anillo Poderoso'));
-        $artifact->setLore('Uno de los cuatro Anillos Legendarios, consigue Maná a raudales');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Maná a raudales');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(90);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -307,22 +331,37 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Encantador');
         $artifact->setImage('bundles/archmagegame/images/artifact/charmingring.jpg');
         $artifact->setSkill($this->getReference('Anillo Encantador'));
-        $artifact->setLore('Uno de los cuatro Anillos Legendarios, consigue Personas a raudales');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Personas a raudales');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(90);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //ANILLO ESTOICO
+        //ANILLO DURO
         $artifact = new Artifact();
-        $artifact->setName('Anillo Estoico');
-        $artifact->setImage('bundles/archmagegame/images/artifact/stoicring.jpg');
-        $artifact->setSkill($this->getReference('Anillo Estoico'));
-        $artifact->setLore('Uno de los cuatro Anillos Legendarios, consigue Defensa a raudales');
+        $artifact->setName('Anillo Duro');
+        $artifact->setImage('bundles/archmagegame/images/artifact/hardring.jpg');
+        $artifact->setSkill($this->getReference('Anillo Duro'));
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Defensa a raudales');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(90);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //ANILLO INVOCADOR
+        $artifact = new Artifact();
+        $artifact->setName('Anillo Invocador');
+        $artifact->setImage('bundles/archmagegame/images/artifact/summonerring.jpg');
+        $artifact->setSkill($this->getReference('Anillo Invocador'));
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, consigue Tropas a raudales');
+        $artifact->setGoldAuction(20000000);
+        $artifact->setRarity(90);
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 

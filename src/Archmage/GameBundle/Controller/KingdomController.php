@@ -202,7 +202,7 @@ class KingdomController extends Controller
                     shuffle($items);
                     $item = $items[0]; //suponemos > 0 por entrar en el array
                     $item->setQuantity($item->getQuantity() - 1);
-                    $this->addFlash('danger', 'Los Dioses han exigido un <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
+                    $this->addFlash('danger', 'Los Dioses han exigido un <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
                     if ($item->getQuantity() <= 0) {
                         if ($player->getItem() && $player->getItem()->getArtifact() == $item->getArtifact()) $player->setItem(null);
                         $player->removeItem($item);

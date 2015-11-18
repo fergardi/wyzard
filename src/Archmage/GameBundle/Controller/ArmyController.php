@@ -525,19 +525,17 @@ class ArmyController extends Controller
             }
             //UPDATE ARMIES
             foreach ($attackerArmy as $row) {
-                $troop = $player->hasTroop($row[0]);
-                $troop->setQuantity($troop->getQuantity() - $row[5] + $row[1]);
-                if ($troop->getQuantity() <= 0) {
-                    $player->removeTroop($troop);
-                    $manager->remove($troop);
+                $row[0]->setQuantity($row[0]->getQuantity() - $row[5] + $row[1]);
+                if ($row[0]->getQuantity() <= 0) {
+                    $player->removeTroop($row[0]);
+                    $manager->remove($row[0]);
                 }
             }
             foreach ($defenderArmy as $row) {
-                $troop = $target->hasTroop($row[0]);
-                $troop->setQuantity($row[1]);
-                if ($troop->getQuantity() <= 0) {
-                    $target->removeTroop($troop);
-                    $manager->remove($troop);
+                $row[0]->setQuantity($row[1]);
+                if ($row[0]->getQuantity() <= 0) {
+                    $target->removeTroop($row[0]);
+                    $manager->remove($row[0]);
                 }
             }
         }

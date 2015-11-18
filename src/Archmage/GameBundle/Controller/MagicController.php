@@ -293,8 +293,7 @@ class MagicController extends Controller
             $item = isset($_POST['item'])?$_POST['item']:null;
             $action = isset($_POST['action'])?$_POST['action']:null;
             if ($turns <= $player->getTurns()) {
-                $item = $manager->getRepository('ArchmageGameBundle:Item')->findOneById($item);
-                $item = $player->hasArtifact($item->getArtifact());
+                $item = $player->hasArtifact($manager->getRepository('ArchmageGameBundle:Item')->findOneById($item));
                 if ($item && $action) {
                     /*
                      * MANTENIMIENTO

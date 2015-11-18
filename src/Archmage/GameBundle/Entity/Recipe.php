@@ -47,6 +47,13 @@ class Recipe
     private $gold;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="class", type="string", nullable=false)
+     */
+    private $class = 'recipe';
+
+    /**
      * @ORM\ManyToOne(targetEntity="Player", inversedBy="recipes")
      * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=true)
      **/
@@ -84,6 +91,29 @@ class Recipe
     public function getGold()
     {
         return $this->gold;
+    }
+
+    /**
+     * Set class
+     *
+     * @param string $class
+     * @return Recipe
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return string 
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 
     /**

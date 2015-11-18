@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <title>ArchMage - {% block title %}{% endblock %}</title>
+        <title>Archmage - {% block title %}{% endblock %}</title>
         {# block css #}
         {% block stylesheets %}
             {# con los css no funciona el @Bundle shortcut #}
@@ -59,7 +59,7 @@
             <i class="fa fa-fw fa-exclamation-triangle"></i>{{ error.message }}
         </div>
         {% endif %}
-        {# los mensajes tipo INFO deberian salir siempre arriba del todo #}
+        {# los mensajes tipo INFO deberian salir siempre arriba #}
         {% for flashMessage in app.session.flashbag.get('info') %}
         <div class="col-xs-12 alert alert-info alert-dismissible text-center text-responsive" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-fw fa-times-circle"></i></button>

@@ -43,13 +43,13 @@ class RegistrationController extends BaseController
                 $player->setWinner(false);
                 //constructions
                 $constructions = array(
-                    'Tierras' => 600,
-                    'Granjas' => 11,
-                    'Pueblos' => 11,
-                    'Nodos' => 11,
-                    'Gremios' => 11,
-                    'Talleres' => 11,
-                    'Barracones' => 11,
+                    'Tierras' => 500,
+                    'Granjas' => 10,
+                    'Pueblos' => 10,
+                    'Nodos' => 10,
+                    'Gremios' => 0,
+                    'Talleres' => 10,
+                    'Barracones' => 0,
                     'Barreras' => 0,
                     'Fortalezas' => 0,
                 );

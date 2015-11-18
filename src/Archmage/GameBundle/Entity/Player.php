@@ -986,17 +986,31 @@ class Player
     }
 
     /**
+     * Get research bonus
+     *
+     * @return integer
+     */
+    public function getResearchBonus()
+    {
+        $researchRatio = $this->getConstruction('Gremios')->getQuantity() * $this->getConstruction('Gremios')->getBuilding()->getResearchRatio() / (float)1000;
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            $researchRatio += $enchantment->getSpell()->getSkill()->getResearchBonus() * $enchantment->getOwner()->getMagic();
+        }
+        foreach ($this->contracts as $contract) {
+            $researchRatio += $contract->getHero()->getSkill()->getResearchBonus();
+        }
+        $percent = min(self::RESEARCH_CAP, $researchRatio);
+        return $percent;
+    }
+
+    /**
      * Get research turns by ratio
      *
      * @return integer
      */
     public function getResearchRatio($turns)
     {
-        $guilds = $this->getConstruction('Gremios')->getQuantity();
-        $ratio = $this->getConstruction('Gremios')->getBuilding()->getResearchRatio();
-        $percent = min(self::RESEARCH_CAP, $guilds * $ratio / (float)1000);
-        $turns = $turns - floor($turns * $percent / (float)100);
-        return $turns;
+        return $turns - floor($turns * $this->getResearchBonus() / (float)100);
     }
 
     /**
@@ -1029,6 +1043,9 @@ class Player
         foreach ($this->items as $item) {
             if ($item->getArtifact()->getLegendary()) $magicDefense += $item->getArtifact()->getSkill()->getMagicDefenseBonus();
         }
+        foreach ($this->contracts as $contract) {
+            $magicDefense += $contract->getHero()->getSkill()->getMagicDefenseBonus();
+        }
         return min(self::MAGICDEFENSE_CAP, $magicDefense);
     }
 
@@ -1047,6 +1064,9 @@ class Player
         }
         foreach ($this->items as $item) {
             if ($item->getArtifact()->getLegendary()) $armyDefense += $item->getArtifact()->getSkill()->getArmyDefenseBonus();
+        }
+        foreach ($this->contracts as $contract) {
+            $armyDefense += $contract->getHero()->getSkill()->getArmyDefenseBonus();
         }
         return min(self::ARMYDEFENSE_CAP, $armyDefense);
     }
@@ -1067,6 +1087,9 @@ class Player
         foreach ($this->items as $item) {
             if ($item->getArtifact()->getLegendary()) $summon += $item->getArtifact()->getSkill()->getSummonBonus();
         }
+        foreach ($this->contracts as $contract) {
+            $summon += $contract->getHero()->getSkill()->getSummonBonus();
+        }
         return $summon;
     }
 
@@ -1086,6 +1109,9 @@ class Player
         }
         foreach ($this->contracts as $contract) {
             $power += $contract->getLevel() * $contract->getHero()->getPower();
+        }
+        foreach ($this->items as $item) {
+            $power += $item->getQuantity() * $item->getArtifact()->getPower();
         }
         return $power;
     }

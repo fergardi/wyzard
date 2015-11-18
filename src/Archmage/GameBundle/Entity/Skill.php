@@ -155,6 +155,41 @@ class Skill
     private $spyBonus = 0;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="recipeBonus", type="smallint", nullable=false)
+     */
+    private $recipeBonus = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="mapBonus", type="smallint", nullable=false)
+     */
+    private $mapBonus = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="summonBonus", type="smallint", nullable=false)
+     */
+    private $summonBonus = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="researchBonus", type="smallint", nullable=false)
+     */
+    private $researchBonus = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="resurrectionBonus", type="smallint", nullable=false)
+     */
+    private $resurrectionBonus = 0;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="battle", type="boolean", nullable=false)
@@ -371,29 +406,6 @@ class Skill
     }
 
     /**
-     * Set manaBonus
-     *
-     * @param integer $manaBonus
-     * @return Skill
-     */
-    public function setManaBonus($manaBonus)
-    {
-        $this->manaBonus = $manaBonus;
-
-        return $this;
-    }
-
-    /**
-     * Get manaBonus
-     *
-     * @return integer 
-     */
-    public function getManaBonus()
-    {
-        return $this->manaBonus;
-    }
-
-    /**
      * Set peopleBonus
      *
      * @param integer $peopleBonus
@@ -414,6 +426,29 @@ class Skill
     public function getPeopleBonus()
     {
         return $this->peopleBonus;
+    }
+
+    /**
+     * Set manaBonus
+     *
+     * @param integer $manaBonus
+     * @return Skill
+     */
+    public function setManaBonus($manaBonus)
+    {
+        $this->manaBonus = $manaBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get manaBonus
+     *
+     * @return integer 
+     */
+    public function getManaBonus()
+    {
+        return $this->manaBonus;
     }
 
     /**
@@ -639,7 +674,7 @@ class Skill
     /**
      * Get dispellBonus
      *
-     * @return integer
+     * @return integer 
      */
     public function getDispellBonus()
     {
@@ -662,11 +697,126 @@ class Skill
     /**
      * Get spyBonus
      *
-     * @return integer
+     * @return integer 
      */
     public function getSpyBonus()
     {
         return $this->spyBonus;
+    }
+
+    /**
+     * Set recipeBonus
+     *
+     * @param integer $recipeBonus
+     * @return Skill
+     */
+    public function setRecipeBonus($recipeBonus)
+    {
+        $this->recipeBonus = $recipeBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get recipeBonus
+     *
+     * @return integer 
+     */
+    public function getRecipeBonus()
+    {
+        return $this->recipeBonus;
+    }
+
+    /**
+     * Set mapBonus
+     *
+     * @param integer $mapBonus
+     * @return Skill
+     */
+    public function setMapBonus($mapBonus)
+    {
+        $this->mapBonus = $mapBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get mapBonus
+     *
+     * @return integer 
+     */
+    public function getMapBonus()
+    {
+        return $this->mapBonus;
+    }
+
+    /**
+     * Set summonBonus
+     *
+     * @param integer $summonBonus
+     * @return Skill
+     */
+    public function setSummonBonus($summonBonus)
+    {
+        $this->summonBonus = $summonBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get summonBonus
+     *
+     * @return integer 
+     */
+    public function getSummonBonus()
+    {
+        return $this->summonBonus;
+    }
+
+    /**
+     * Set researchBonus
+     *
+     * @param integer $researchBonus
+     * @return Skill
+     */
+    public function setResearchBonus($researchBonus)
+    {
+        $this->researchBonus = $researchBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get researchBonus
+     *
+     * @return integer 
+     */
+    public function getResearchBonus()
+    {
+        return $this->researchBonus;
+    }
+
+    /**
+     * Set resurrectionBonus
+     *
+     * @param integer $resurrectionBonus
+     * @return Skill
+     */
+    public function setResurrectionBonus($resurrectionBonus)
+    {
+        $this->resurrectionBonus = $resurrectionBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get resurrectionBonus
+     *
+     * @return integer 
+     */
+    public function getResurrectionBonus()
+    {
+        return $this->resurrectionBonus;
     }
 
     /**
@@ -777,7 +927,7 @@ class Skill
     /**
      * Get win
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getWin()
     {

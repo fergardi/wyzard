@@ -31,7 +31,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setGoldAuction(5000000);
         $hero->setRarity(0);
         $hero->setPower(10000);
-        $hero->setSkill($this->getReference('Comandar NoMuertos'));
+        $hero->setSkill($this->getReference('Nigromante'));
         $hero->setFaction($this->getReference('Oscuridad'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -70,7 +70,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
-        //REY DE LOS DEMONIOS
+        //REY DEMONIO
         $hero = new Hero();
         $hero->setName('Rey Demonio');
         $hero->setImage('bundles/archmagegame/images/hero/doom/demonking.jpg');
@@ -82,7 +82,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setGoldAuction(5000000);
         $hero->setRarity(0);
         $hero->setPower(10000);
-        $hero->setSkill($this->getReference('Comandar Demonios'));
+        $hero->setSkill($this->getReference('Rey Demonio'));
         $hero->setFaction($this->getReference('Caos'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -99,7 +99,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setGoldAuction(5000000);
         $hero->setRarity(90);
         $hero->setPower(10000);
-        $hero->setSkill($this->getReference('Comandar Dragones'));
+        $hero->setSkill($this->getReference('Jinete de Dragones'));
         $hero->setFaction($this->getReference('Caos'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -155,7 +155,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
-        //MAESTRO DE ELEMENTALES
+        //ELEMENTALISTA
         $hero = new Hero();
         $hero->setName('Elementalista');
         $hero->setImage('bundles/archmagegame/images/hero/ghost/elementalist.jpg');
@@ -167,12 +167,12 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setGoldAuction(5000000);
         $hero->setRarity(0);
         $hero->setPower(10000);
-        $hero->setSkill($this->getReference('Comandar Elementales'));
+        $hero->setSkill($this->getReference('Elementalista'));
         $hero->setFaction($this->getReference('Fantasmal'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
-        //SEÑOR DE LAS BESTIAS
+        //CAZADOR
         $hero = new Hero();
         $hero->setName('Cazador');
         $hero->setImage('bundles/archmagegame/images/hero/nature/hunter.jpg');
@@ -184,7 +184,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setGoldAuction(5000000);
         $hero->setRarity(0);
         $hero->setPower(10000);
-        $hero->setSkill($this->getReference('Comandar Bestias'));
+        $hero->setSkill($this->getReference('Cazador'));
         $hero->setFaction($this->getReference('Naturaleza'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -252,7 +252,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setGoldAuction(5000000);
         $hero->setRarity(0);
         $hero->setPower(10000);
-        $hero->setSkill($this->getReference('Comandar Celestiales'));
+        $hero->setSkill($this->getReference('Serafín'));
         $hero->setFaction($this->getReference('Sagrado'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -269,7 +269,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setGoldAuction(5000000);
         $hero->setRarity(0);
         $hero->setPower(10000);
-        $hero->setSkill($this->getReference('Comandar Humanos'));
+        $hero->setSkill($this->getReference('Cruzado'));
         $hero->setFaction($this->getReference('Sagrado'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -278,7 +278,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Dríada');
         $hero->setImage('bundles/archmagegame/images/hero/nature/dryad.jpg');
-        $hero->setLore('Sé como hacer que vengan más Bestias...');
+        $hero->setLore('Mis raíces se nutren de la magia y el Maná ajenos...');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -295,7 +295,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Jinete sin Cabeza');
         $hero->setImage('bundles/archmagegame/images/hero/darkness/headlesshorseman.jpg');
-        $hero->setLore('Sé como hacer que vengan más NoMuertos...');
+        $hero->setLore('Carecer de miedo tiene sus ventajas en la batala...');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -308,11 +308,11 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
 
-        //ESPIRITUALISTA
+        //ESPIRITISTA
         $hero = new Hero();
-        $hero->setName('Espiritualista');
-        $hero->setImage('bundles/archmagegame/images/hero/ghost/spiritualist.jpg');
-        $hero->setLore('Sé como hacer que vengan más Elementales...');
+        $hero->setName('Espiritista');
+        $hero->setImage('bundles/archmagegame/images/hero/ghost/spiritist.jpg');
+        $hero->setLore('Eureka! Comprendo los entresijos de la hechicería moderna! O era la antigüa?');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -320,7 +320,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero->setGoldAuction(5000000);
         $hero->setRarity(0);
         $hero->setPower(10000);
-        $hero->setSkill($this->getReference('Espiritualista'));
+        $hero->setSkill($this->getReference('Espiritista'));
         $hero->setFaction($this->getReference('Fantasmal'));
         $this->setReference($hero->getName(), $hero);
         $manager->persist($hero);
@@ -329,7 +329,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Súcubo');
         $hero->setImage('bundles/archmagegame/images/hero/doom/succubus.jpg');
-        $hero->setLore('Sé como hacer que vengan más Demonios...');
+        $hero->setLore('Sé cómo hacer que vengan más tropas a tu llamada, observa...');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -346,7 +346,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Campeón');
         $hero->setImage('bundles/archmagegame/images/hero/holy/champion.jpg');
-        $hero->setLore('Sé como hacer que vengan más Celestiales...');
+        $hero->setLore('Entiendo mucho de asedios, y sé cómo resistirlos. Más tablones!');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);

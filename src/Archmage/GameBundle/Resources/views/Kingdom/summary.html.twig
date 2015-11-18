@@ -20,13 +20,9 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }} <span class="label label-extra">Oro</span></div>
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.goldresourceperturn|nf }}-{{ player.goldmaintenanceperturn|nf }} = <span class="label label-{% if player.goldresourceperturn -  player.goldmaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.goldresourceperturn -  player.goldmaintenanceperturn)|nf }}</span> <span class="label label-extra">Oro/Turno</span></div>
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.people|nf }}/{{ player.peoplecap|nf }} <span class="label label-extra">Personas</span></div>
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-users"></i>{{ player.peopleresourceperturn|nf }}-{{ player.peoplemaintenanceperturn|nf }} = <span class="label label-{% if player.peopleresourceperturn -  player.peoplemaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.peopleresourceperturn -  player.peoplemaintenanceperturn)|nf }}</span> <span class="label label-extra">Personas/Turno</span></div>
                         </div>
                     </div>
@@ -46,14 +42,10 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/magic.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }}/{{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }}-{{ player.manamaintenanceperturn|nf }} = <span class="label label-{% if player.manaresourceperturn - player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }}</span> <span class="label label-extra">Maná/Turno</span></div>
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-user-plus"></i>{{ player.summonBonus|nf }}% <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Aumenta la cantidad de tropas invocadas mediante hechizos">Bonus de Invocación</span></div>
-                            {# row #}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-flask"></i>{{ player.recipes|length|nf }} <span class="label label-extra">Recetas</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-hourglass-half"></i>{{ player.summonBonus|nf }}% <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Reduce la cantidad de turnos necesarios para investigar">Bonus de Investigación</span></div>
                         </div>
                     </div>
                 </div>
@@ -75,7 +67,6 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for construction in player.constructions %}
-                            {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-home"></i><span class="label label-extra"><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a></span> {{ construction.quantity|nf }}</div>
                             {% endfor %}
                         </div>
@@ -98,10 +89,8 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for enchantment in player.enchantmentsVictim %}
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}" class="link">{{ enchantment.spell.name }}</a></span> [{{ enchantment.owner.magic }}] ({{ enchantment.expiration|nf }}/{{ (enchantment.spell.turnsExpiration * enchantment.owner.magic)|nf }})</div>
                             {% else %}
-                            {# row #}
                             <div class="col-xs-12">Ningún encantamiento en tu reino</div>
                             {% endfor %}
                         </div>
@@ -123,10 +112,8 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for troop in player.troops %}
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}" class="link">{{ troop.unit.name }}</a></span> {{ troop.quantity|nf }}</div>
                             {% else %}
-                            {# row #}
                             <div class="col-xs-12">Ninguna tropa en tu ejército</div>
                             {% endfor %}
                             <div class="col-xs-12"><i class="fa fa-fw fa-map"></i>{{ player.maps|length|nf }} <span class="label label-extra">Mapas</span></div>
@@ -150,7 +137,6 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for contract in player.contracts %}
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}" class="link">{{ contract.hero.name }}</a></span> [<i class="fa fa-fw fa-star"></i>{{ contract.level|nf }}] ({{ contract.experience }}/{{ contract.hero.experience * contract.level }})</div>
                             {% else %}
                             <div class="col-xs-12">Ningún héroe en tu reino</div>
@@ -172,13 +158,9 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/defense.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-shield"></i>{{ player.armyDefense|nf }}/75 % <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Probabilidad de que el enemigo falle al atacarte, aumenta con las Fortalezas y algunos Encantamientos">Defensa Física</span></div>
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-magic"></i>{{ player.magicDefense|nf }}/75 % <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Probabilidad de que el enemigo falle al hechizarte o activar artefactos, aumenta con las Barreras y algunos Encantamientos">Defensa Mágica</span></div>
-                            {# row #}
                             <div class="col-xs-12">{% if player.research %}<i class="fa fa-fw fa-magic"></i><span class="label label-{{ player.research.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ player.research.spell.name|slug }}" class="link">{{ player.research.spell.name }}</a></span>{% else %}Ningún hechizo en defensa{% endif %}</div>
-                            {# row #}
                             <div class="col-xs-12">{% if player.item %}<i class="fa fa-fw fa-diamond"></i><span class="label label-{{ player.item.artifact.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ player.item.artifact.name|slug }}" class="link">{{ player.item.artifact.name }}</a></span>{% else %}Ningún artefacto en defensa{% endif %}</div>
                         </div>
                     </div>
@@ -198,9 +180,7 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/social.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_account_message') }}" class="link">Mensajes</a></span></div>
-                            {# row #}
                             <div class="col-xs-12"><i class="fa fa-fw fa-rocket"></i>{{ player.power|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_account_ranking') }}" class="link">Poder</a></span></div>
                         </div>
                     </div>

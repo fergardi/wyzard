@@ -57,6 +57,13 @@ class Artifact
     private $rarity = 0;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="power", type="bigint", nullable=false)
+     */
+    private $power = 0;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="legendary", type="boolean", nullable=false)
@@ -205,6 +212,29 @@ class Artifact
     }
 
     /**
+     * Set power
+     *
+     * @param integer $power
+     * @return Artifact
+     */
+    public function setPower($power)
+    {
+        $this->power = $power;
+
+        return $this;
+    }
+
+    /**
+     * Get power
+     *
+     * @return integer 
+     */
+    public function getPower()
+    {
+        return $this->power;
+    }
+
+    /**
      * Set legendary
      *
      * @param boolean $legendary
@@ -220,7 +250,7 @@ class Artifact
     /**
      * Get legendary
      *
-     * @return boolean
+     * @return boolean 
      */
     public function getLegendary()
     {
@@ -243,7 +273,7 @@ class Artifact
     /**
      * Get class
      *
-     * @return string
+     * @return string 
      */
     public function getClass()
     {

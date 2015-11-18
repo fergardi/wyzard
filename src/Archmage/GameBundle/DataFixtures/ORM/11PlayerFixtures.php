@@ -43,7 +43,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
          */
         $gods = array(
             array(
-                'name' => 'Duggo, Dios de la Sangre',
+                'name' => 'Dwaleen, Dios de la Sangre',
                 'faction' => 'Caos',
                 'items' => array(
                     'Poción de Agilidad' => 99,
@@ -52,7 +52,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => rand(20,100),
+                    'Dragones Rojos' => rand(30,60),
                 ),
             ),
             array(
@@ -65,11 +65,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Negros' => rand(20,100),
+                    'Dragones Negros' => rand(30,60),
                 ),
             ),
             array(
-                'name' => 'Lett, Diosa de la Luz',
+                'name' => 'Jalazu, Diosa de la Luz',
                 'faction' => 'Sagrado',
                 'items' => array(
                     'Poción de Agilidad' => 99,
@@ -78,11 +78,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Blancos' => rand(20,100),
+                    'Dragones Blancos' => rand(30,60),
                 ),
             ),
             array(
-                'name' => 'Sihir, Diosa de la Magia',
+                'name' => 'Swott, Dios de la Magia',
                 'faction' => 'Fantasmal',
                 'items' => array(
                     'Poción de Agilidad' => 99,
@@ -91,7 +91,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Azules' => rand(20,100),
+                    'Dragones Azules' => rand(30,60),
                 ),
             ),
             array(
@@ -104,7 +104,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Verdes' => rand(20,100),
+                    'Dragones Verdes' => rand(30,60),
                 ),
             ),
         );

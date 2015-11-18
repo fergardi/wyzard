@@ -307,7 +307,7 @@ class Auction
         if ($this->getContract()) return $this->getContract()->getHero()->getName();
         if ($this->getResearch()) return $this->getResearch()->getSpell()->getName();
         if ($this->getRecipe()) return $this->getRecipe()->getResult()->getName();
-        if ($this->getMap()) return $this->getMap()->getName();
+        if ($this->getMap()) return $this->getMap()->getArtifact()->getName();
         return '';
     }
 
@@ -322,7 +322,7 @@ class Auction
         if ($this->getItem()) return $this->getItem()->getArtifact()->getClass();
         if ($this->getContract()) return $this->getContract()->getHero()->getFaction()->getClass();
         if ($this->getResearch()) return $this->getResearch()->getSpell()->getFaction()->getClass();
-        if ($this->getRecipe()) return $this->getRecipe()->getResult()->getClass();
+        if ($this->getRecipe()) return $this->getRecipe()->getClass();
         if ($this->getMap()) return $this->getMap()->getClass();
         return '';
     }

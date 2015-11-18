@@ -137,6 +137,26 @@ class AuctionCommand extends ContainerAwareCommand
         $auction->setTop($artifact->getGoldAuction());
         $manager->persist($auction);
 
+        //RECIPE
+        $criteria = new Criteria();
+        $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+        $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
+        $auction = new Auction();
+        $manager->persist($auction);
+        $recipe = new Recipe();
+        $manager->persist($recipe);
+        shuffle($artifacts);
+        $recipe->setFirst($artifacts[0]);
+        shuffle($artifacts);
+        $recipe->setSecond($artifacts[0]);
+        shuffle($artifacts);
+        $recipe->setResult($artifacts[0]);
+        $recipe->setGold($recipe->getResult()->getGoldAuction() / 2);
+        $auction->setPlayer(null);
+        $auction->setRecipe($recipe);
+        $auction->setBid($recipe->getResult()->getGoldAuction() / 2);
+        $auction->setTop($recipe->getResult()->getGoldAuction() / 2);
+
         //TROOP
         $criteria = new Criteria();
         $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
@@ -154,6 +174,56 @@ class AuctionCommand extends ContainerAwareCommand
         $auction->setBid($unit->getGoldAuction());
         $auction->setTop($unit->getGoldAuction());
         $manager->persist($auction);
+
+        //MAP
+        $level = rand(1,3);
+        switch ($level) {
+            case 1:
+                $rarity = 0;
+                $max = 1;
+                $price = 1000000;
+                $image = 'easy';
+                break;
+            case 2:
+                $rarity = 50;
+                $max = 3;
+                $price = 3000000;
+                $image = 'medium';
+                break;
+            case 3:
+                $rarity = 99;
+                $max = 5;
+                $price = 5000000;
+                $image = 'hard';
+                break;
+        }
+        $criteria = new Criteria();
+        $criteria->where($criteria->expr()->lte('rarity', $rarity));
+        $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
+        shuffle($artifacts);
+        $artifact = $artifacts[0];
+        $auction = new Auction();
+        $manager->persist($auction);
+        $map = new Map();
+        $manager->persist($map);
+        $map->setGold(rand(1000000,20000000));
+        $map->setArtifact($artifact);
+        $map->setImage($image);
+        $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
+        shuffle($units);
+        for ($i = 0; $i < $max; $i++) {
+            $unit = $units[$i];
+            $troop = new Troop();
+            $manager->persist($troop);
+            $troop->setUnit($unit);
+            $troop->setQuantity(500000 / $unit->getPower());
+            $troop->setMap($map);
+            $map->addTroop($troop);
+        }
+        $auction->setPlayer(null);
+        $auction->setMap($map);
+        $auction->setBid($price);
+        $auction->setTop($price);
 
         //CONTRACT
         $criteria = new Criteria();
@@ -192,54 +262,6 @@ class AuctionCommand extends ContainerAwareCommand
         $auction->setResearch($research);
         $auction->setBid($spell->getGoldAuction());
         $auction->setTop($spell->getGoldAuction());
-
-        //MAP
-        $criteria = new Criteria();
-        $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
-        $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
-        shuffle($artifacts);
-        $artifact = $artifacts[0];
-        $auction = new Auction();
-        $manager->persist($auction);
-        $map = new Map();
-        $manager->persist($map);
-        $map->setGold(rand(1000000,10000000));
-        $map->setArtifact($artifact);
-        $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
-        shuffle($units);
-        for ($i = 0; $i < 4; $i++) {
-            $unit = $units[$i];
-            $troop = new Troop();
-            $manager->persist($troop);
-            $troop->setUnit($unit);
-            $troop->setQuantity(500000 / $unit->getPower());
-            $troop->setMap($map);
-            $map->addTroop($troop);
-        }
-        $auction->setPlayer(null);
-        $auction->setMap($map);
-        $auction->setBid(1000000);
-        $auction->setTop(1000000);
-
-        //RECIPE
-        $criteria = new Criteria();
-        $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
-        $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
-        $auction = new Auction();
-        $manager->persist($auction);
-        $recipe = new Recipe();
-        $manager->persist($recipe);
-        shuffle($artifacts);
-        $recipe->setFirst($artifacts[0]);
-        shuffle($artifacts);
-        $recipe->setSecond($artifacts[0]);
-        shuffle($artifacts);
-        $recipe->setResult($artifacts[0]);
-        $recipe->setGold($recipe->getResult()->getGoldAuction());
-        $auction->setPlayer(null);
-        $auction->setRecipe($recipe);
-        $auction->setBid($recipe->getResult()->getGoldAuction());
-        $auction->setTop($recipe->getResult()->getGoldAuction());
 
         //FLUSH
         $manager->flush();

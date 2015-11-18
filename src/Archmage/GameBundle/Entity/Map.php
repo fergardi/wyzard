@@ -23,13 +23,6 @@ class Map
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", nullable=false)
-     */
-    private $name = 'Mapa del Tesoro';
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="gold", type="bigint", nullable=false)
@@ -42,6 +35,13 @@ class Map
      * @ORM\Column(name="class", type="string", nullable=false)
      */
     private $class = 'map';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", nullable=false)
+     */
+    private $image = '';
 
     /**
      * @ORM\ManyToOne(targetEntity="Artifact")
@@ -66,7 +66,7 @@ class Map
      */
     public function __construct()
     {
-        $this->troops = new ArrayCollection();
+        $this->troops = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -100,6 +100,29 @@ class Map
     public function getGold()
     {
         return $this->gold;
+    }
+
+    /**
+     * Set class
+     *
+     * @param string $class
+     * @return Map
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return string 
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 
     /**
@@ -159,52 +182,6 @@ class Map
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     * @return Map
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set class
-     *
-     * @param string $class
-     * @return Map
-     */
-    public function setClass($class)
-    {
-        $this->class = $class;
-
-        return $this;
-    }
-
-    /**
-     * Get class
-     *
-     * @return string 
-     */
-    public function getClass()
-    {
-        return $this->class;
-    }
-
-    /**
      * Set player
      *
      * @param \Archmage\GameBundle\Entity\Player $player
@@ -225,5 +202,28 @@ class Map
     public function getPlayer()
     {
         return $this->player;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Map
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

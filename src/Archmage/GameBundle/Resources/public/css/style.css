@@ -278,13 +278,14 @@ body {
     border-color: #000;
 }
 .panel-recipe > .panel-heading, .panel-recipe > .panel-footer, .label-recipe {
-    background-color: #712b00;
+    background-color: #692a00;
     border-color: #000;
 }
 .panel-map > .panel-heading, .panel-map > .panel-footer, .label-map {
-    background-color: #c69f6c;
+    background-color: #B4732C;
     border-color: #000;
 }
+.panel {}
 /* DATATABLES */
 div.dataTables_paginate, div.dataTables_filter {
     text-align: center !important;

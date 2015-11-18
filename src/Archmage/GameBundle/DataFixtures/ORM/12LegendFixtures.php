@@ -22,6 +22,9 @@ class LegendFixtures extends AbstractFixture implements OrderedFixtureInterface
         $legend->setPower(3368000);
         $manager->persist($legend);
 
+        //SEASON2
+
+        //FLUSH
         $manager->flush();
     }
 

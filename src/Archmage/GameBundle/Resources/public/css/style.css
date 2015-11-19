@@ -274,18 +274,20 @@ body {
     background-color: #3E444C;
 }
 .panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
-    background-color: #FF8400;
+    background-color: #f05c00;
     border-color: #000;
 }
 .panel-recipe > .panel-heading, .panel-recipe > .panel-footer, .label-recipe {
-    background-color: #692a00;
+    background-color: #5e230d;
     border-color: #000;
 }
 .panel-map > .panel-heading, .panel-map > .panel-footer, .label-map {
-    background-color: #B4732C;
+    background-color: #d1984f;
     border-color: #000;
 }
-.panel {}
+.panel {
+    border-color: #000;
+}
 /* DATATABLES */
 div.dataTables_paginate, div.dataTables_filter {
     text-align: center !important;

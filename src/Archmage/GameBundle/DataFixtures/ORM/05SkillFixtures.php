@@ -1351,7 +1351,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Zapador Goblin');
         $skill->setTerrainBonus(-1);
         $skill->setBattle(true);
-        $skill->setDescription($skill->getTerrainBonus().'% <span class="label label-extra">Tierras</span> al Reino enemigo por <i class="fa fa-fw fa-star"></i>');
+        $skill->setDescription($skill->getTerrainBonus().'% <span class="label label-extra">Edificios</span> al Reino enemigo por <i class="fa fa-fw fa-star"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1378,7 +1378,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Ladrona Elfa');
         $skill->setTurnsBonus(-1);
         $skill->setBattle(true);
-        $skill->setDescription($skill->getTurnsBonus().'% <span class="label label-extra">Turnos</span> al Reino enemigo por <i class="fa fa-fw fa-star"></i>');
+        $skill->setDescription($skill->getTurnsBonus().' <span class="label label-extra">Turnos</span> al Reino enemigo por <i class="fa fa-fw fa-star"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

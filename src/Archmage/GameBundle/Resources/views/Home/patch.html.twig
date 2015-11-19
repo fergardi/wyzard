@@ -14,27 +14,83 @@
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Versión 1.2b</div>
                 <div class="panel-body text-responsive">
-                    <ul class="fa-ul">
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Comienza la Temporada 3.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Ahora los Artefactos, Hechizos y Unidades tienen niveles de rareza: normal, raro y muy raro. Estos niveles afectan a la frecuencia de apararición en el juego de cualquiera de las maneras habituales. Los porcentajes permanecerán en secreto.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han eliminado los Hechizos <span class="label label-info">Lentitud</span>, <span class="label label-danger">Quemar Alas</span>, <span class="label label-warning">Miedo</span>, <span class="label label-primary">Volar</span> y <span class="label label-success">Prisa</span>.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>El combate ha vuelto a su versión original. Ahora la velocidad vuelve a ser un factor importante, y las unidades más rapidas dañarán primero a las más lentas.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han añadido los Hechizos <span class="label label-info">Sabiduría</span>, <span class="label label-danger">Saquear</span>, <span class="label label-warning">Terror</span>, <span class="label label-primary">Iluminación</span> y <span class="label label-success">Oasis</span>.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han eliminado los Artefactos <span class="label label-extra">Botas de Velocidad</span> y <span class="label label-extra">Elixir de Amor</span>, sustituidos por pociones.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han añadido los Artefactos <span class="label label-extra">Poción de Fuerza</span>, <span class="label label-extra">Poción de Vitalidad</span>, <span class="label label-extra">Poción de Pureza</span>, <span class="label label-extra">Poción de Amor</span>, <span class="label label-extra">Poción de Agilidad</span>, <span class="label label-extra">Cuerno de Guerra</span> y <span class="label label-extra">Muñeca Voodoo</span>.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han reducido los bonus de los Artefactos <span class="label label-extra">Tela de Araña</span> y <span class="label label-extra">Poción de Agilidad</span> a -1 y +1, respectivamente.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han añadido los Artefactos Legendarios <span class="label label-legendary">Anillo Avaricioso</span>, <span class="label label-legendary">Anillo Poderoso</span>, <span class="label label-legendary">Anillo Duro</span>, <span class="label label-legendary">Anillo Encantador</span> y <span class="label label-legendary">Anillo Invocador</span>. Sus pasivas funcionan simplemente con poseerlos.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha añadido el sistema de Alquimia al juego. Un jugador puede usar <span class="label label-recipe">Recetas</span> para convertir unos Artefactos en otros. Pueden conseguirse en la Subasta, y sólo se gastan si otorgan Artefactos legendarios. De lo contrario, son reutilizables.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha añadido el sistema de Aventuras al juego. Un jugador puede tratar de usar <span class="label label-map">Mapas</span> para derrotar ejércitos que merodean por el Reino y obtener interesantes recompensas. Pueden conseguirse en la Subasta, y son de un sólo uso. Pueden encontrarse fáciles (verdes), medios (amarillos) o difíciles (rojos).</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han añadido los Héroes <span class="label label-info">Espiritista</span>, <span class="label label-danger">Súcubo</span>, <span class="label label-warning">Jinete sin Cabeza</span>, <span class="label label-primary">Campeón</span> y <span class="label label-success">Dríada</span>.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han ajustado muchos precios de salida de la subasta dependiendo de la rareza.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Ahora <span class="label label-success">Control del Clima</span> ya no tiene reducción de recursos.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han ajustado muchos valores de poder de <span class="label label-extra">Edificios</span> para que sea más complicado saber si un mago tiene o no ejército en su Reino.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han ajustado muchos valores de bonus de <span class="label label-extra">Héroes</span>.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han ajustado muchos valores de bonus de <span class="label label-extra">Encantamientos</span>.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Ahora solo se subastará una unidad de <span class="label label-extra">Artefacto</span> cada vez.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Ahora los <span class="label label-extra">Artefacto</span> otorgan poder, y los <span class="label label-legendary">Artefactos</span> legendarios muchísimo más poder de lo normal.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha reducido el cap de poder superior al atacar del 80% al 60%.</li>
+                    <ul>
+                        <li>Comienza la Temporada 3.</li>
+                        <li>Ahora los Artefactos, Hechizos y Unidades tienen niveles de rareza. Estos afectan a la frecuencia de apararición en el juego de cualquiera de las maneras habituales:
+                            <ul>
+                                <li><span class="label label-extra">Común</span>, como las diferentes <span class="label label-extra">Pociones</span>.</li>
+                                <li><span class="label label-extra">Raro</span>, como las <span class="label label-extra">Brújulas Mágicas</span> o los <span class="label label-extra">Huevos de Dragón</span>.</li>
+                                <li><span class="label label-legendary">Legendario</span>, como los <span class="label label-legendary">Anillos</span>.</li>
+                            </ul>
+                        </li>
+                        <li>A raíz de lo anterior, se han añadido los siguientes Artefactos Legendarios, que otorgan una pasiva única con solo poseerlos:
+                            <ul>
+                                <li><span class="label label-legendary">Anillo Avaricioso</span>, +10% producción de Oro en tu Reino.</li>
+                                <li><span class="label label-legendary">Anillo Poderoso</span>, +10% producción de Maná en tu Reino.</li>
+                                <li><span class="label label-legendary">Anillo Duro</span>, +10% de Defensa Física y Mágica en tu Reino.</li>
+                                <li><span class="label label-legendary">Anillo Encantador</span>, +10% producción de Personas en tu Reino.</li>
+                                <li><span class="label label-legendary">Anillo Invocador</span>, +10% producción de Tropas en tu Reino.</li>
+                            </ul>
+                        </li>
+                        <li>Se ha añadido el sistema de Alquimia al juego. Un jugador puede usar <span class="label label-recipe">Recetas</span> para convertir unos Artefactos en otros. Pueden conseguirse en la Subasta, y sólo se gastan si otorgan Artefactos legendarios. De lo contrario, son reutilizables.</li>
+                        <li>Se ha añadido el sistema de Aventuras al juego. Un jugador puede tratar de usar <span class="label label-map">Mapas</span> para derrotar ejércitos que merodean por el Reino y obtener interesantes recompensas. Pueden conseguirse en la Subasta, y son de un sólo uso:
+                            <ul>
+                                <li>Fáciles, de color verde. Normalmente pocas tropas y hasta un Artefacto <span class="label label-extra">Común</span>.</li>
+                                <li>Medios, de color amarillo. Normalmente moderadas tropas y hasta un Artefacto <span class="label label-extra">Raro</span>.</li>
+                                <li>Difíciles, de color rojo. Normalmente muchas tropas y hasta un Artefacto <span class="label label-legendary">Legendario</span>.</li>
+                            </ul>
+                        </li>
+                        <li>El combate ha vuelto a su versión original. Ahora la <span class="label label-extra">Velocidad</span> vuelve a ser un factor importante, y las unidades más rapidas dañarán primero a las más lentas.</li>
+                        <li>A raíz de lo anterior, se han eliminado los Hechizos de <span class="label label-extra">Velocidad</span> y se han sustituido por otros nuevos:
+                            <ul>
+                                <li><span class="label label-info">Lentitud</span> por <span class="label label-info">Sabiduría</span>, reduce el número de Turnos para investigar.
+                                <li><span class="label label-danger">Quemar Alas</span> por <span class="label label-danger">Saquear</span>, encuentra <span class="label label-map">Mapas</span>.</li>
+                                <li><span class="label label-warning">Miedo</span> por <span class="label label-warning">Terror</span>, reduce <span class="label label-extra">Defensa Física</span> y <span class="label label-extra">Defensa Mágica</span> a un Reino enemigo.</li>
+                                <li><span class="label label-primary">Volar</span> por <span class="label label-primary">Iluminación</span>, encuentra <span class="label label-recipe">Recetas</span>.</li>
+                                <li><span class="label label-success">Prisa</span> por <span class="label label-success">Oasis</span>, aumenta la producción de Tropas en tu Reino.</li>
+                            </ul>
+                        </li>
+                        <li>También a raíz de lo anterior, se han reducido los bonus de <span class="label label-extra">Velocidad</span> de los siguientes Artefactos:
+                            <ul>
+                                <li><span class="label label-extra">Tela de Araña</span>, de -3 a -1 velocidad.</li>
+                                <li><span class="label label-extra">Botas de Velocidad</span>, de +3 a +1 velocidad.</li>
+                            </ul>
+                        </li>
+                        <li>Se han eliminado los siguientes Artefactos:
+                            <ul>
+                                <li><span class="label label-extra">Botas de Velocidad</span>, ha sido sustituido por <span class="label label-extra">Poción de Agilidad</span>.</li>
+                                <li><span class="label label-extra">Elixir de Amor</span>, ha sido sustituido por <span class="label label-extra">Poción de Amor</span>.</li>
+                                <li><span class="label label-extra">Agua Bendita</span>, ha sido sustituido por <span class="label label-extra">Poción de Pureza</span>.</li>
+                            </ul>
+                        </li>
+                        <li>Se han añadido los siguientes Artefactos:
+                            <ul>
+                                <li><span class="label label-extra">Poción de Fuerza</span>, +30% <span class="label label-extra">Ataque</span> a tus tropas.</li>
+                                <li><span class="label label-extra">Poción de Vitalidad</span>, +30% <span class="label label-extra">Defensa</span> a tus tropas.</li>
+                                <li><span class="label label-extra">Poción de Agilidad</span>, +1 <span class="label label-extra">Velocidad</span> a tus tropas.</li>
+                                <li><span class="label label-extra">Poción de Amor</span>, +30% <span class="label label-extra">Personas</span> a tu Reino.</li>
+                                <li><span class="label label-extra">Poción de Pureza</span>, elimina un <span class="label label-extra">Encantamiento</span> de tu Reino.</li>
+                                <li><span class="label label-extra">Muñeca Voodoo</span>, hasta -25 <span class="label label-extra">Turnos</span> al Reino enemigo.</li>
+                                <li><span class="label label-extra">Cuerno de Guerra</span>, invoca <span class="label label-extra">Humanos</span>.</li>
+                            </ul>
+                        </li>
+                        <li>Se han añadido los siguientes Héroes:
+                            <ul>
+                                <li><span class="label label-info">Espiritista</span>, reduce el número de <span class="label label-extra">Turnos</span> para investigar.</li>
+                                <li><span class="label label-success">Dríada</span>, aumenta la <span class="label label-extra">Defensa Mágica</span> de tu Reino.</li>
+                                <li><span class="label label-danger">Súcubo</span>, aumenta el número de <span class="label label-extra">Tropas</span> invocadas.</li>
+                                <li><span class="label label-primary">Campeón</span>, aumenta la <span class="label label-extra">Defensa Física</span> de tu Reino.</li>
+                                <li><span class="label label-warning">Jinete sin Cabeza</span>, intercambiado con <span class="label label-warning">Nigromante</span>, resucita <span class="label label-warning">Esqueletos</span> tras una batalla.</li>
+                            </ul>
+                        </li>
+                        <li>Se han ajustado muchos precios de salida de la subasta dependiendo de la rareza.</li>
+                        <li>Ahora <span class="label label-success">Control del Clima</span> ya no tiene reducción de recursos.</li>
+                        <li>Se han ajustado muchos valores de poder de <span class="label label-extra">Edificios</span> para que sea más complicado saber si un mago tiene o no ejército en su Reino.</li>
+                        <li>Se han ajustado muchos valores de bonus de <span class="label label-extra">Héroes</span>.</li>
+                        <li>Se han ajustado muchos valores de bonus de <span class="label label-extra">Encantamientos</span>.</li>
+                        <li>Ahora solo se subastará una unidad de <span class="label label-extra">Artefacto</span> cada vez.</li>
+                        <li>Ahora los <span class="label label-extra">Artefacto</span> otorgan poder, y los <span class="label label-legendary">Artefactos</span> legendarios mucho más poder que los demás.</li>
+                        <li>Se ha reducido el cap de poder superior al atacar del 80% al 60%.</li>
                     </ul>
                 </div>
                 <div class="panel-footer text-center">Beta cerrada</div>
@@ -44,18 +100,18 @@
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Versión 1.1b</div>
                 <div class="panel-body text-responsive">
-                    <ul class="fa-ul">
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Comienza la Temporada 2.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha añadido un cap de poder superior del 80% para no atacar a magos mucho más fuertes, evitando el exploit de crearse una cuenta para atacar a un mago top y contraatacar para robar tierras a la nueva cuenta.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha eliminado el Artefacto <span class="label label-extra">Reloj de Arena</span>.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha agregado el Artefacto <span class="label label-extra">Agua Bendita</span>.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha eliminado la reducción de recursos del Hechizo <span class="label label-extra">Apocalipsis</span>, pero se ha incrementado su coste de mantenimiento y su coste de Maná al conjurarlo.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha aumentado el número de turnos necesarios para ganar con "Apocalipsis" de 600 a 900.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han ajustado valores de % bonus de muchos Héroes, Hechizos y Encantamientos.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha modificado el sistema de combate. Ahora la superioridad en velocidad otorga un bonus de ataque del 5% por punto, en lugar de atacar primero, por lo que no es tan obligatoria como en versiones anteriores.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha cambiado el sistema de subasta de puja en el úñtimo segundo a puja máxima con sobrepuja automática tipo eBay.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se han eliminado los Hechizos de nivel 5 de la subasta.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha duplicado el bonus de defensa de las <span class="label label-extra">Fortalezas</span> y <span class="label label-extra">Barreras</span>.</li>
+                    <ul>
+                        <li>Comienza la Temporada 2.</li>
+                        <li>Se ha añadido un cap de poder superior del 80% para no atacar a magos mucho más fuertes, evitando el exploit de crearse una cuenta para atacar a un mago top y contraatacar para robar tierras a la nueva cuenta.</li>
+                        <li>Se ha eliminado el Artefacto <span class="label label-extra">Reloj de Arena</span>.</li>
+                        <li>Se ha agregado el Artefacto <span class="label label-extra">Agua Bendita</span>.</li>
+                        <li>Se ha eliminado la reducción de recursos del Hechizo <span class="label label-extra">Apocalipsis</span>, pero se ha incrementado su coste de mantenimiento y su coste de Maná al conjurarlo.</li>
+                        <li>Se ha aumentado el número de turnos necesarios para ganar con "Apocalipsis" de 600 a 900.</li>
+                        <li>Se han ajustado valores de % bonus de muchos Héroes, Hechizos y Encantamientos.</li>
+                        <li>Se ha modificado el sistema de combate. Ahora la superioridad en velocidad otorga un bonus de ataque del 5% por punto, en lugar de atacar primero, por lo que no es tan obligatoria como en versiones anteriores.</li>
+                        <li>Se ha cambiado el sistema de subasta de puja en el úñtimo segundo a puja máxima con sobrepuja automática tipo eBay.</li>
+                        <li>Se han eliminado los Hechizos de nivel 5 de la subasta.</li>
+                        <li>Se ha duplicado el bonus de defensa de las <span class="label label-extra">Fortalezas</span> y <span class="label label-extra">Barreras</span>.</li>
                     </ul>
                 </div>
                 <div class="panel-footer text-center">Beta cerrada</div>
@@ -65,11 +121,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Versión 1.0b</div>
                 <div class="panel-body text-responsive">
-                    <ul class="fa-ul">
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Comienza la Temporada 1.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha cambiado el funcionamiento de los artefactos <span class="label label-extra">Cofre del Tesoro</span> y <span class="label label-extra">Brújula Mágica</span> para que otorgen bonificaciones fijas en lugar de porcentuales.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha añadido protección para que no se pueda atacar al mismo mago 2 veces en menos de 12h.</li>
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Se ha añadido un cap de poder inferior del 20% para no atacar a magos más débiles.</li>
+                    <ul>
+                        <li>Comienza la Temporada 1.</li>
+                        <li>Se ha cambiado el funcionamiento de los artefactos <span class="label label-extra">Cofre del Tesoro</span> y <span class="label label-extra">Brújula Mágica</span> para que otorgen bonificaciones fijas en lugar de porcentuales.</li>
+                        <li>Se ha añadido protección para que no se pueda atacar al mismo mago 2 veces en menos de 12h.</li>
+                        <li>Se ha añadido un cap de poder inferior del 20% para no atacar a magos más débiles.</li>
                     </ul>
                 </div>
                 <div class="panel-footer text-center">Beta cerrada</div>
@@ -79,8 +135,8 @@
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Versión 0.1a</div>
                 <div class="panel-body text-responsive">
-                    <ul class="fa-ul">
-                        <li><i class="fa-li fa fa-fw fa-lg fa-check-square"></i>Testeo de la funcionalidad básica del juego en un entorno multijugador.</li>
+                    <ul>
+                        <li>Testeo de la funcionalidad básica del juego en un entorno multijugador.</li>
                     </ul>
                 </div>
                 <div class="panel-footer text-center">Alfa cerrada</div>

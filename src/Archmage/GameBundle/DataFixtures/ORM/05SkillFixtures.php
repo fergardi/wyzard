@@ -412,7 +412,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Control del Clima');
         $skill->setTerrainBonus(1);
         $skill->setSelf(true);
-        $skill->setDescription('+'.$skill->getTerrainBonus().' <span class="label label-extra">Tierra</span> al <i class="fa fa-fw fa-hourglass-half"></i> independientemente del <i class="fa fa-fw fa-magic"></i>');
+        $skill->setDescription('+'.$skill->getTerrainBonus().' <span class="label label-extra">Tierra</span> al <i class="fa fa-fw fa-hourglass-half"></i>, independientemente del <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -875,9 +875,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //ILUMINACION
+        //DRUIDISMO
         $skill = new Skill();
-        $skill->setName('Iluminación');
+        $skill->setName('Druidismo');
         $skill->setRecipeBonus(15);
         $skill->setSelf(true);
         $skill->setDescription('+'.$skill->getRecipeBonus().'% por <i class="fa fa-fw fa-magic"></i> de descubrir una nueva <span class="label label-recipe">Receta</span>');
@@ -1225,6 +1225,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Muñeca Voodoo');
         $skill->setTurnsBonus(-25);
         $skill->setDescription('Hasta '.$this->container->get('service.controller')->nff($skill->getTurnsBonus()).' <span class="label label-extra">Turnos</span> al Reino enemigo');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //RELOJ DE ARENA
+        $skill = new Skill();
+        $skill->setName('Reloj de Arena');
+        $skill->setTurnsBonus(-100);
+        $skill->setDescription('Hasta '.$this->container->get('service.controller')->nff($skill->getTurnsBonus()).' <span class="label label-extra">Turnos</span> a los Encantamientos de tu Reino.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

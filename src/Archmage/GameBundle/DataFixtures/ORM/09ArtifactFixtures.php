@@ -245,7 +245,21 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Muñeca Voodoo'));
         $artifact->setLore('Alguien ha sido muy malo!');
         $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
+        $artifact->setRarity(50);
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //RELOJ DE ARENA
+        $artifact = new Artifact();
+        $artifact->setName('Reloj de Arena');
+        $artifact->setImage('bundles/archmagegame/images/artifact/hourglass.jpg');
+        $artifact->setSkill($this->getReference('Reloj de Arena'));
+        $artifact->setLore('Tiempo embotellado. Tempus Fugit!');
+        $artifact->setGoldAuction(5000000);
+        $artifact->setRarity(50);
         $artifact->setPower(25000);
         $artifact->setClass('default');
         $artifact->setLegendary(false);
@@ -343,7 +357,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Brújula Mágica'));
         $artifact->setLore('Cómo que nos hemos perdido?! Cómo que no señala al norte?!');
         $artifact->setGoldAuction(5000000);
-        $artifact->setRarity(0);
+        $artifact->setRarity(50);
         $artifact->setPower(25000);
         $artifact->setClass('default');
         $artifact->setLegendary(false);
@@ -383,7 +397,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Encantador');
         $artifact->setImage('bundles/archmagegame/images/artifact/charmingring.jpg');
         $artifact->setSkill($this->getReference('Anillo Encantador'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Negra.');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Morada.');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(90);
         $artifact->setPower(500000);
@@ -397,7 +411,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Duro');
         $artifact->setImage('bundles/archmagegame/images/artifact/hardring.jpg');
         $artifact->setSkill($this->getReference('Anillo Duro'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Verde.');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Roja.');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(90);
         $artifact->setPower(500000);
@@ -411,7 +425,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Invocador');
         $artifact->setImage('bundles/archmagegame/images/artifact/summonerring.jpg');
         $artifact->setSkill($this->getReference('Anillo Invocador'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Roja.');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Verde.');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(90);
         $artifact->setPower(500000);

@@ -846,12 +846,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //OASIS
+        //DRUIDISMO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Oasis'));
+        $spell->setSkill($this->getReference('Druidismo'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que la llamada llegue a todos los rincones!');
-        $spell->setImage('bundles/archmagegame/images/spell/nature/oasis.jpg');
+        $spell->setLore('Viejos secretos del los ancianos del bosque...');
+        $spell->setImage('bundles/archmagegame/images/spell/nature/druidism.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
@@ -860,11 +860,11 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldMaintenance(0);
         $spell->setPeopleMaintenance(0);
         $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
+        $spell->setTurnsCost(self::TURNS_UTILITY);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
-        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
+        $spell->setTurnsExpiration(0);
         $spell->setGoldAuction(10000000);
-        $spell->setRarity(90);
+        $spell->setRarity(0);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName().' defense', $spell); //gods
         $manager->persist($spell);
@@ -1805,28 +1805,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //ILUMINACION
-        $spell = new Spell();
-        $spell->setSkill($this->getReference('Iluminación'));
-        $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Me ha venido la idea feliz!');
-        $spell->setImage('bundles/archmagegame/images/spell/holy/illumination.jpg');
-        $spell->setFaction($this->getReference('Sagrado'));
-        $spell->setMagic(4);
-        $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
-        $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(0);
-        $spell->setPeopleMaintenance(0);
-        $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_UTILITY);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
-        $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(10000000);
-        $spell->setRarity(0);
-        $spell->setEnchantment(false);
-        //$this->setReference($spell->getName().' defense', $spell); //gods
-        $manager->persist($spell);
+
 
         //PROTECCION DIVINA
         $spell = new Spell();

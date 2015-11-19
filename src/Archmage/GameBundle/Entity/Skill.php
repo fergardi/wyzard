@@ -260,7 +260,7 @@ class Skill
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -283,7 +283,7 @@ class Skill
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -306,7 +306,7 @@ class Skill
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -329,7 +329,7 @@ class Skill
     /**
      * Get attackBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getAttackBonus()
     {
@@ -352,7 +352,7 @@ class Skill
     /**
      * Get defenseBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getDefenseBonus()
     {
@@ -375,7 +375,7 @@ class Skill
     /**
      * Get speedBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getSpeedBonus()
     {
@@ -398,7 +398,7 @@ class Skill
     /**
      * Get goldBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getGoldBonus()
     {
@@ -421,7 +421,7 @@ class Skill
     /**
      * Get peopleBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getPeopleBonus()
     {
@@ -444,7 +444,7 @@ class Skill
     /**
      * Get manaBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getManaBonus()
     {
@@ -467,7 +467,7 @@ class Skill
     /**
      * Get turnsBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getTurnsBonus()
     {
@@ -490,7 +490,7 @@ class Skill
     /**
      * Get terrainBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getTerrainBonus()
     {
@@ -513,7 +513,7 @@ class Skill
     /**
      * Get damageBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getDamageBonus()
     {
@@ -536,7 +536,7 @@ class Skill
     /**
      * Get magicBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getMagicBonus()
     {
@@ -559,7 +559,7 @@ class Skill
     /**
      * Get magicDefenseBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getMagicDefenseBonus()
     {
@@ -582,7 +582,7 @@ class Skill
     /**
      * Get armyDefenseBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getArmyDefenseBonus()
     {
@@ -605,7 +605,7 @@ class Skill
     /**
      * Get artifactBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getArtifactBonus()
     {
@@ -628,7 +628,7 @@ class Skill
     /**
      * Get quantityBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getQuantityBonus()
     {
@@ -651,7 +651,7 @@ class Skill
     /**
      * Get heroBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getHeroBonus()
     {
@@ -674,7 +674,7 @@ class Skill
     /**
      * Get dispellBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getDispellBonus()
     {
@@ -697,7 +697,7 @@ class Skill
     /**
      * Get spyBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getSpyBonus()
     {
@@ -720,7 +720,7 @@ class Skill
     /**
      * Get recipeBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getRecipeBonus()
     {
@@ -743,7 +743,7 @@ class Skill
     /**
      * Get mapBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getMapBonus()
     {
@@ -766,7 +766,7 @@ class Skill
     /**
      * Get summonBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getSummonBonus()
     {
@@ -789,7 +789,7 @@ class Skill
     /**
      * Get researchBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getResearchBonus()
     {
@@ -812,7 +812,7 @@ class Skill
     /**
      * Get resurrectionBonus
      *
-     * @return integer 
+     * @return integer
      */
     public function getResurrectionBonus()
     {
@@ -835,7 +835,7 @@ class Skill
     /**
      * Get battle
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getBattle()
     {
@@ -858,7 +858,7 @@ class Skill
     /**
      * Get self
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getSelf()
     {
@@ -881,7 +881,7 @@ class Skill
     /**
      * Get summon
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getSummon()
     {
@@ -904,7 +904,7 @@ class Skill
     /**
      * Get random
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getRandom()
     {
@@ -927,7 +927,7 @@ class Skill
     /**
      * Get win
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getWin()
     {
@@ -950,7 +950,7 @@ class Skill
     /**
      * Get family
      *
-     * @return \Archmage\GameBundle\Entity\Family 
+     * @return \Archmage\GameBundle\Entity\Family
      */
     public function getFamily()
     {
@@ -973,7 +973,7 @@ class Skill
     /**
      * Get unit
      *
-     * @return \Archmage\GameBundle\Entity\Unit 
+     * @return \Archmage\GameBundle\Entity\Unit
      */
     public function getUnit()
     {
@@ -996,7 +996,7 @@ class Skill
     /**
      * Get type
      *
-     * @return \Archmage\GameBundle\Entity\Type 
+     * @return \Archmage\GameBundle\Entity\Type
      */
     public function getType()
     {
@@ -1019,7 +1019,7 @@ class Skill
     /**
      * Get faction
      *
-     * @return \Archmage\GameBundle\Entity\Faction 
+     * @return \Archmage\GameBundle\Entity\Faction
      */
     public function getFaction()
     {

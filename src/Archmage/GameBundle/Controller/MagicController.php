@@ -834,8 +834,14 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'No tienes ningún Enantamiento en tu Reino que romper.');
             }
+        } elseif ($artifact->getSkill()->getTurnsBonus() < 0) {
+            //TURNOS
+            $turns = rand($artifact->getSkill()->getTurnsBonus() / 2, $artifact->getSkill()->getTurnsBonus());
+            foreach ($player->getEnchantmentsVictim() as $enchantment) {
+                $enchantment->setExpiration(max(0, $enchantment->getExpiration() + $turns));
+            }
+            $this->addFlash('success', 'Has restado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> a todos los Encantamientos de tu Reino.');
         }
-
     }
 
     /**

@@ -665,7 +665,7 @@ class MagicController extends Controller
             //DISPELL
         } elseif ($artifact->getSkill()->getDispellBonus() > 0) {
             if ($player->getEnchantmentsVictim()->count() > 0) {
-                $enchantments = $player->getEnchantmentsVictim();
+                $enchantments = $player->getEnchantmentsVictim()->toArray();
                 shuffle($enchantments);
                 $enchantment = $enchantments[0]; //suponemos > 0
                 $player->removeEnchantmentsVictim($enchantment);

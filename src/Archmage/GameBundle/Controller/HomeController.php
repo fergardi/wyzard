@@ -29,6 +29,7 @@ class HomeController extends Controller
         $buildings = $manager->getRepository('ArchmageGameBundle:Building')->findBy(array(), array('name' => 'asc'));
         $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findBy(array(), array('name' => 'asc'));
         $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findBy(array(), array('name' => 'asc'));
+        $runes = $manager->getRepository('ArchmageGameBundle:Rune')->findBy(array(), array('name' => 'asc'));
         return array(
             'buildings' => $buildings,
             'factions' => $factions,
@@ -36,6 +37,7 @@ class HomeController extends Controller
             'heroes' => $heroes,
             'spells' => $spells,
             'artifacts' => $artifacts,
+            'runes' => $runes,
         );
     }
 

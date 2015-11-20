@@ -239,4 +239,21 @@ class KingdomController extends Controller
             'gods' => $gods,
         );
     }
+
+    /**
+     * @Route("/game/kingdom/market")
+     * @Template("ArchmageGameBundle:Kingdom:market.html.twig")
+     */
+    public function marketAction()
+    {
+        $this->get('service.controller')->addNews();
+        if ($this->get('service.controller')->checkWinner()) return $this->redirect($this->generateUrl('archmage_game_account_legend'));
+        $manager = $this->getDoctrine()->getManager();
+        $player = $this->getUser()->getPlayer();
+        $runes = $manager->getRepository('ArchmageGameBundle:Rune')->findAll();
+        return array(
+            'player' => $player,
+            'runes' => $runes,
+        );
+    }
 }

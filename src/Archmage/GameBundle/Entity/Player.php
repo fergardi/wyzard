@@ -48,6 +48,13 @@ class Player
     /**
      * @var integer
      *
+     * @ORM\Column(name="runes", type="integer", nullable=false)
+     */
+    private $runes = 10;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="gold", type="bigint", nullable=false)
      */
     private $gold = 3000000;
@@ -257,6 +264,29 @@ class Player
     public function getNick()
     {
         return $this->nick;
+    }
+
+    /**
+     * Set runes
+     *
+     * @param integer $runes
+     * @return Player
+     */
+    public function setRunes($runes)
+    {
+        $this->runes = $runes;
+
+        return $this;
+    }
+
+    /**
+     * Get runes
+     *
+     * @return integer
+     */
+    public function getRunes()
+    {
+        return $this->runes;
     }
 
     /**

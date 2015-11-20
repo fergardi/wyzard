@@ -1570,6 +1570,66 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
+        /*
+         * RUNAS
+         */
+
+        //ORO
+        $skill = new Skill();
+        $skill->setName('Runa de Oro');
+        $skill->setGoldBonus(1000000);
+        $skill->setDescription('Gana '.$this->container->get('service.controller')->nff($skill->getGoldBonus()).' <span class="label label-extra">Oro</span>');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //POBLACION
+        $skill = new Skill();
+        $skill->setName('Runa de Población');
+        $skill->setPeopleBonus(250000);
+        $skill->setDescription('Gana '.$this->container->get('service.controller')->nff($skill->getPeopleBonus()).' <span class="label label-extra">Población</span>');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //MANA
+        $skill = new Skill();
+        $skill->setName('Runa de Maná');
+        $skill->setManaBonus(250000);
+        $skill->setDescription('Gana '.$this->container->get('service.controller')->nff($skill->getManaBonus()).' <span class="label label-extra">Maná</span>');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //TIERRAS
+        $skill = new Skill();
+        $skill->setName('Runa de Tierra');
+        $skill->setTerrainBonus(200);
+        $skill->setDescription('Gana '.$this->container->get('service.controller')->nff($skill->getTerrainBonus()).' <span class="label label-extra">Tierras</span>');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //ARTEFACTOS
+        $skill = new Skill();
+        $skill->setName('Runa de Artefacto');
+        $skill->setArtifactBonus(1);
+        $skill->setDescription('Gana 1 <span class="label label-extra">Artefacto</span>');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //MAPAS
+        $skill = new Skill();
+        $skill->setName('Runa de Mapa');
+        $skill->setMapBonus(1);
+        $skill->setDescription('Gana 1 <span class="label label-extra">Mapa</span>');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //RECETAS
+        $skill = new Skill();
+        $skill->setName('Runa de Receta');
+        $skill->setRecipeBonus(1);
+        $skill->setDescription('Gana 1 <span class="label label-extra">Receta</span>');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
         //FLUSH
         $manager->flush();
     }

@@ -70,8 +70,8 @@ class RegistrationController extends BaseController
                 $player->setMagic(1);
                 //messages
                 $text = array();
-                $text[] = array('default', 12, 0, 'center', 'Te damos la bienvenida, Novicio! El Concilio recomienda que leas la <i class="fa fa-fw fa-book"></i><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'" class="link">Sagrada Ayuda del Juego</a>.');
-                $subject = 'Bienvenido!';
+                $text[] = array('default', 12, 0, 'center', 'Te damos la bienvenida, Novici@! El Concilio recomienda que leas la <i class="fa fa-fw fa-book"></i><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'" class="link">Ayuda del Juego</a>.');
+                $subject = 'Bienvenido a Archmage';
                 $this->get('service.controller')->sendMessage($player, $player, $subject, $text);
                 //persist && flush
                 $manager->persist($player);

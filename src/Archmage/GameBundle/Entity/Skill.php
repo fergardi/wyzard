@@ -59,21 +59,21 @@ class Skill
     /**
      * @var integer
      *
-     * @ORM\Column(name="goldBonus", type="integer", nullable=false)
+     * @ORM\Column(name="goldBonus", type="bigint", nullable=false)
      */
     private $goldBonus = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="peopleBonus", type="smallint", nullable=false)
+     * @ORM\Column(name="peopleBonus", type="bigint", nullable=false)
      */
     private $peopleBonus = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="manaBonus", type="smallint", nullable=false)
+     * @ORM\Column(name="manaBonus", type="bigint", nullable=false)
      */
     private $manaBonus = 0;
 

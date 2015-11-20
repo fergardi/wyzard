@@ -865,7 +865,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsExpiration(0);
         $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
-        $spell->setEnchantment(true);
+        $spell->setEnchantment(false);
         //$this->setReference($spell->getName().' defense', $spell); //gods
         $manager->persist($spell);
 
@@ -880,9 +880,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldCost(0);
         $spell->setManaCost(self::MANA_COST * $spell->getMagic());
         $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(300);
-        $spell->setPeopleMaintenance(200);
-        $spell->setManaMaintenance(100);
+        $spell->setGoldMaintenance(1500);
+        $spell->setPeopleMaintenance(1000);
+        $spell->setManaMaintenance(500);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
@@ -903,9 +903,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldCost(0);
         $spell->setManaCost(self::MANA_COST * $spell->getMagic());
         $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(300);
-        $spell->setPeopleMaintenance(200);
-        $spell->setManaMaintenance(100);
+        $spell->setGoldMaintenance(1500);
+        $spell->setPeopleMaintenance(1000);
+        $spell->setManaMaintenance(500);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
@@ -1805,7 +1805,28 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-
+        //OASIS
+        $spell = new Spell();
+        $spell->setSkill($this->getReference('Oasis'));
+        $spell->setName($spell->getSkill()->getName());
+        $spell->setLore('Agua fresca y descanso para nuestras exhaustas tropas. Ah, una araña!');
+        $spell->setImage('bundles/archmagegame/images/spell/holy/oasis.jpg');
+        $spell->setFaction($this->getReference('Sagrado'));
+        $spell->setMagic(4);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(300);
+        $spell->setPeopleMaintenance(200);
+        $spell->setManaMaintenance(100);
+        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
+        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
+        $spell->setEnchantment(true);
+        //$this->setReference($spell->getName(), $spell);
+        $manager->persist($spell);
 
         //PROTECCION DIVINA
         $spell = new Spell();

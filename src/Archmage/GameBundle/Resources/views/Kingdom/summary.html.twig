@@ -30,6 +30,7 @@
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a href="{{ path('archmage_game_kingdom_tax') }}" class="btn btn-default"><i class="fa fa-fw fa-money"></i><span class="hidden-xs">Recaudar</span></a>
                     <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-default"><i class="fa fa-fw fa-legal"></i><span class="hidden-xs">Subasta</span></a>
+                    <a href="{{ path('archmage_game_kingdom_market') }}" class="btn btn-default"><i class="fa fa-fw fa-ils"></i><span class="hidden-xs">Mercado</span></a>
                 </div>
             </div>
         </div>
@@ -44,8 +45,9 @@
                         <div class="col-xs-8 text-padded">
                             <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }}/{{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
                             <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }}-{{ player.manamaintenanceperturn|nf }} = <span class="label label-{% if player.manaresourceperturn - player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }}</span> <span class="label label-extra">Maná/Turno</span></div>
-                            <div class="col-xs-12"><i class="fa fa-fw fa-user-plus"></i>{{ player.summonBonus|nf }}% <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Aumenta la cantidad de tropas invocadas mediante hechizos">Bonus de Invocación</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-user-plus"></i>{{ player.summonBonus|nf }}% <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Aumenta la cantidad de tropas invocadas">Bonus de Invocación</span></div>
                             <div class="col-xs-12"><i class="fa fa-fw fa-hourglass-half"></i>{{ player.summonBonus|nf }}% <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Reduce la cantidad de turnos necesarios para investigar">Bonus de Investigación</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-flask"></i>{{ player.recipes|length|nf }} <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Recetas en tu poder">Recetas</span></div>
                         </div>
                     </div>
                 </div>
@@ -53,7 +55,6 @@
                     <a href="{{ path('archmage_game_magic_meditate') }}" class="btn btn-default"><i class="fa fa-fw fa-tint"></i><span class="hidden-xs">Meditar</span></a>
                     <a href="{{ path('archmage_game_magic_conjure') }}" class="btn btn-default"><i class="fa fa-fw fa-magic"></i><span class="hidden-xs">Conjurar</span></a>
                     <a href="{{ path('archmage_game_magic_research') }}" class="btn btn-default"><i class="fa fa-fw fa-graduation-cap"></i><span class="hidden-xs">Investigar</span></a>
-                    <a href="{{ path('archmage_game_magic_alchemy') }}" class="btn btn-default"><i class="fa fa-fw fa-flask"></i><span class="hidden-xs">Alquimia</span></a>
                 </div>
             </div>
         </div>
@@ -91,7 +92,7 @@
                             {% for enchantment in player.enchantmentsVictim %}
                             <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}" class="link">{{ enchantment.spell.name }}</a></span> [{{ enchantment.owner.magic }}] ({{ enchantment.expiration|nf }}/{{ (enchantment.spell.turnsExpiration * enchantment.owner.magic)|nf }})</div>
                             {% else %}
-                            <div class="col-xs-12">Ningún encantamiento en tu reino</div>
+                            <div class="col-xs-12">Ningún encantamiento en tu Reino</div>
                             {% endfor %}
                         </div>
                     </div>
@@ -114,16 +115,15 @@
                             {% for troop in player.troops %}
                             <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}" class="link">{{ troop.unit.name }}</a></span> {{ troop.quantity|nf }}</div>
                             {% else %}
-                            <div class="col-xs-12">Ninguna tropa en tu ejército</div>
+                            <div class="col-xs-12">Ninguna tropa en tu Reino</div>
                             {% endfor %}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-map"></i>{{ player.maps|length|nf }} <span class="label label-extra">Mapas</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-map"></i>{{ player.maps|length|nf }} <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mapas en tu poder">Mapas</span></div>
                         </div>
                     </div>
                 </div>
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a href="{{ path('archmage_game_army_attack') }}" class="btn btn-default"><i class="fa fa-fw fa-crosshairs"></i><span class="hidden-xs">Atacar</span></a>
                     <a href="{{ path('archmage_game_army_disband') }}" class="btn btn-default"><i class="fa fa-fw fa-user-times"></i><span class="hidden-xs">Desbandar</span></a>
-                    <a href="{{ path('archmage_game_army_quest') }}" class="btn btn-default"><i class="fa fa-fw fa-map"></i><span class="hidden-xs">Aventura</span></a>
                 </div>
             </div>
         </div>
@@ -139,13 +139,15 @@
                             {% for contract in player.contracts %}
                             <div class="col-xs-12"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}" class="link">{{ contract.hero.name }}</a></span> [<i class="fa fa-fw fa-star"></i>{{ contract.level|nf }}] ({{ contract.experience }}/{{ contract.hero.experience * contract.level }})</div>
                             {% else %}
-                            <div class="col-xs-12">Ningún héroe en tu reino</div>
+                            <div class="col-xs-12">Ningún héroe en tu Reino</div>
                             {% endfor %}
                         </div>
                     </div>
                 </div>
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-default"><i class="fa fa-fw fa-legal"></i><span class="hidden-xs">Contratar</span></a>
+                    <a href="{{ path('archmage_game_magic_alchemy') }}" class="btn btn-default"><i class="fa fa-fw fa-flask"></i><span class="hidden-xs">Alquimia</span></a>
+                    <a href="{{ path('archmage_game_army_quest') }}" class="btn btn-default"><i class="fa fa-fw fa-map"></i><span class="hidden-xs">Aventura</span></a>
                 </div>
             </div>
         </div>

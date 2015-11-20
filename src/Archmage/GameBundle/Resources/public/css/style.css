@@ -276,13 +276,18 @@ body {
 .panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
     background-color: #f05c00;
     border-color: #000;
+    color: #000;
 }
 .panel-recipe > .panel-heading, .panel-recipe > .panel-footer, .label-recipe {
     background-color: #5e230d;
     border-color: #000;
 }
 .panel-map > .panel-heading, .panel-map > .panel-footer, .label-map {
-    background-color: #d1984f;
+    background-color: darkgoldenrod;
+    border-color: #000;
+}
+.panel-rune > .panel-heading, .panel-rune > .panel-footer, .label-rune {
+    background-color: #26c0cf;
     border-color: #000;
 }
 .panel {

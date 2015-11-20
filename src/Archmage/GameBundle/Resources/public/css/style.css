@@ -274,9 +274,8 @@ body {
     background-color: #3E444C;
 }
 .panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
-    background-color: #f05c00;
+    background-color: darkorange;
     border-color: #000;
-    color: #000;
 }
 .panel-recipe > .panel-heading, .panel-recipe > .panel-footer, .label-recipe {
     background-color: #5e230d;
@@ -287,7 +286,7 @@ body {
     border-color: #000;
 }
 .panel-rune > .panel-heading, .panel-rune > .panel-footer, .label-rune {
-    background-color: #26c0cf;
+    background-color: #008B8B;
     border-color: #000;
 }
 .panel {

@@ -424,7 +424,7 @@ class ArmyController extends Controller
         }
         $text[] = array('default', 12, 0, 'center', 'Fin del ataque.');
         if (!$wipe) {
-            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has vencido al ejército enemigo y has obtenido una recompensa!');
+            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has vencido al ejército enemigo y has obtenido la recompensa!');
             $player->setGold($player->getGold() + $map->getGold());
             $player->setRunes($player->getRunes() + 1);
             $item = $player->hasArtifact($map->getArtifact());
@@ -441,6 +441,11 @@ class ArmyController extends Controller
             $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has ganado '.$this->get('service.controller')->nff($map->getGold()).' <span class="label label-extra">Oro</span>.');
             $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has ganado 1 <span class="label label-rune">Runa</span>.');
             $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has encontrado el Artefacto <span class="label label-' . $item->getArtifact()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
+            //ganamos experiencia con todos nuestros heroes
+            foreach ($player->getContracts() as $contract) {
+                $contract->setExperience($contract->getExperience() + self::HERO_EXPERIENCE);
+            }
+            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Los héroes de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ganan '.self::HERO_EXPERIENCE.' experiencia.');
         } else {
             $text[] = array('default', 11, 1, 'center', 'No has sido capaz de derrotar al ejército enemigo.');
         }

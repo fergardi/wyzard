@@ -23,7 +23,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Nigromante');
         $hero->setImage('bundles/archmagegame/images/hero/darkness/necromancer.jpg');
-        $hero->setLore('Cómo que es ilegal profanar tumbas?');
+        $hero->setLore('Cómo que es ilegal profanar tumbas?!');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -40,7 +40,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Parca');
         $hero->setImage('bundles/archmagegame/images/hero/darkness/death.jpg');
-        $hero->setLore('Nada puede escapar de la muerte.');
+        $hero->setLore('Nada puede escapar de la muerte. Me gustan los gatitos.');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -57,7 +57,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Mago Negro');
         $hero->setImage('bundles/archmagegame/images/hero/darkness/blackmage.jpg');
-        $hero->setLore('Frankenstein no me llega ni a la suela del hueso.');
+        $hero->setLore('Un pulmón por aquí, una pierna por allá...');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -91,7 +91,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Jinete de Dragones');
         $hero->setImage('bundles/archmagegame/images/hero/doom/dragonrider.jpg');
-        $hero->setLore('No tengo muy claro cómo he llegado hasta aquí.');
+        $hero->setLore('Hoy estás más gordo... A quién te has comido?!');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setManaMaintenance(200);
@@ -193,7 +193,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Ladrona Elfa');
         $hero->setImage('bundles/archmagegame/images/hero/nature/elfrogue.jpg');
-        $hero->setLore('Odio perder el tiempo, pero adoro hacérselo perder a los demás.');
+        $hero->setLore('Odio perder el tiempo, pero me encanta hacérselo perder a los demás.');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -210,7 +210,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Leprechaunt');
         $hero->setImage('bundles/archmagegame/images/hero/nature/leprechaunt.jpg');
-        $hero->setLore('Ves todo tu oro? Ha desaparecido! Tachaaan!');
+        $hero->setLore('Ves todo este oro? Pues ha desaparecido! Tachaaan!');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -227,7 +227,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Mercader');
         $hero->setImage('bundles/archmagegame/images/hero/holy/merchant.jpg');
-        $hero->setLore('Me gustan las matemáticas.');
+        $hero->setLore('Me gustan las matemáticas. Dos y dos son cuatro, cuatro y dos son seis...');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -261,7 +261,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Cruzado');
         $hero->setImage('bundles/archmagegame/images/hero/holy/crusader.jpg');
-        $hero->setLore('Mi escudo será lo último que veas!');
+        $hero->setLore('Mi escudo será lo último que veas! Has visto que limpito está?');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -295,7 +295,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Jinete sin Cabeza');
         $hero->setImage('bundles/archmagegame/images/hero/darkness/headlesshorseman.jpg');
-        $hero->setLore('Carecer de miedo tiene sus ventajas en la batala...');
+        $hero->setLore('Carecer de miedo tiene sus ventajas en la batala... Ah! Un bicho! Quítamelo!');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -312,7 +312,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Espiritista');
         $hero->setImage('bundles/archmagegame/images/hero/ghost/spiritist.jpg');
-        $hero->setLore('Eureka! Comprendo los entresijos de la hechicería moderna! O era la antigüa?');
+        $hero->setLore('Eureka! Tengo la soluc... Espera. No.');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -346,7 +346,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Campeón');
         $hero->setImage('bundles/archmagegame/images/hero/holy/champion.jpg');
-        $hero->setLore('Entiendo mucho de asedios, y sé cómo resistirlos. Más tablones!');
+        $hero->setLore('Entiendo mucho de asedios, y sé cómo resistirlos... Moar tablones! MOAR!');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);

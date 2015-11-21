@@ -29,11 +29,25 @@ class Rune
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=false)
+     */
+    private $image;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="cost", type="smallint")
      */
     private $cost;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lore", type="string", length=255, nullable=false)
+     */
+    private $lore = 'Lore';
 
     /**
      * @var Skill
@@ -42,6 +56,7 @@ class Rune
      * @ORM\JoinColumn(name="skill", referencedColumnName="id", nullable=false)
      */
     private $skill;
+
 
 
     /**
@@ -78,6 +93,29 @@ class Rune
     }
 
     /**
+     * Set image
+     *
+     * @param string $image
+     * @return Rune
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
      * Set cost
      *
      * @param integer $cost
@@ -101,10 +139,33 @@ class Rune
     }
 
     /**
+     * Set lore
+     *
+     * @param string $lore
+     * @return Rune
+     */
+    public function setLore($lore)
+    {
+        $this->lore = $lore;
+
+        return $this;
+    }
+
+    /**
+     * Get lore
+     *
+     * @return string 
+     */
+    public function getLore()
+    {
+        return $this->lore;
+    }
+
+    /**
      * Set skill
      *
      * @param \Archmage\GameBundle\Entity\Skill $skill
-     * @return Artifact
+     * @return Rune
      */
     public function setSkill(\Archmage\GameBundle\Entity\Skill $skill)
     {
@@ -116,7 +177,7 @@ class Rune
     /**
      * Get skill
      *
-     * @return \Archmage\GameBundle\Entity\Skill
+     * @return \Archmage\GameBundle\Entity\Skill 
      */
     public function getSkill()
     {

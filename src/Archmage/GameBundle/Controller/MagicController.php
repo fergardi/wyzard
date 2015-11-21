@@ -552,19 +552,16 @@ class MagicController extends Controller
                     case 1:
                         $rarity = 0;
                         $max = 1;
-                        $price = 1000000;
                         $image = 'easy';
                         break;
                     case 2:
                         $rarity = 50;
                         $max = 3;
-                        $price = 3000000;
                         $image = 'medium';
                         break;
                     case 3:
                         $rarity = 99;
                         $max = 5;
-                        $price = 5000000;
                         $image = 'hard';
                         break;
                 }
@@ -578,6 +575,7 @@ class MagicController extends Controller
                 $map->setGold(rand(1000000,20000000));
                 $map->setArtifact($artifact);
                 $map->setImage($image);
+                $map->setPlayer($player);
                 $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
                 shuffle($units);
                 for ($i = 0; $i < $max; $i++) {
@@ -611,6 +609,7 @@ class MagicController extends Controller
                 shuffle($artifacts);
                 $recipe->setResult($artifacts[0]);
                 $recipe->setGold($recipe->getResult()->getGoldAuction() / 2);
+                $recipe->setPlayer($player);
                 $player->addRecipe($recipe);
                 $this->addFlash('success', 'Has encontrado una nueva <span class="label label-recipe"><a href="'.$this->generateUrl('archmage_game_magic_alchemy').'" class="link">Recipe</a></span>.');
             } else {

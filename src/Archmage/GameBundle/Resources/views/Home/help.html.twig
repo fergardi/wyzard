@@ -26,6 +26,7 @@
                 <h1><i class="fa fa-fw fa-info-circle"></i>Ayuda</h1>
             </div>
         </div>
+        {# separamos el manual en otra division para ser ocultado en caso de busqueda #}
         <div class="col-xs-12 manual">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-question-circle"></i>Introducción</div>
@@ -113,6 +114,12 @@
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i>Fin del Juego</div>
                 <div class="panel-body text-responsive text-only">
                     <p>El juego termina cuando un mago ha conseguido encantarse a sí mismo con <span class="label label-extra"><a href="#apocalipsis" class="link">Apocalipsis</a></span> y mantenerlo durante 900 turnos. El servidor anunciará que alguien (pero no quién) ha lanzado dicho encantamiento, por lo que será tarea del resto de jugadores encontrar y hacer la vida imposible al mago en cuestión, lanzandole <span class="label label-extra">Hechizos</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Encantamientos</span> y <span class="label label-extra">Ataques</span> para intentar mermar sus posibilidades. Cuando alguien descubra al dueño del Encantamiento mediante un Espionaje, en el Ranking saldrá su nombre junto al símbolo <i class="fa fa-fw fa-eye"></i>, para que el resto de jugadores tenga claro que se ha encontrado al culpable y deje de buscarle. Si el encantamiento se rompe de manera forzada (es decir, por no poder pagar los mantenientos, cosa habitual si se le despoja de tierras suficientes) el juego continará de forma normal. Se convertirá en un tira y afloja por ver qué mago es capaz de aguantar las embestidas de todo el servidor hasta que alguien salga vencedor. Si el encantamiento expira de forma natural, el mago gana la partida, se añadirá al tablón de Leyendas con información como la fecha de la victoria, el poder y las tierras que tenía el mago, para futuras referencias. El juego se detendrá y nadie podrá efectuar ninguna acción, y en apenas 24h, el servidor se reiniciará, borrando toda la base de datos y volviendo a empezar una nueva temporada desde cero. Los jugadores tendrán que volver a registrarse para jugar, pero de esta forma podrán probar otras facciones, e incluso cambiarse de nick para evitar represalias o venganzas.</p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i>Runas</div>
+                <div class="panel-body text-responsive text-only">
+                    <p>Las <span class="label label-rune">Runas</span> proporcionan recursos instantáneos a los jugadores, otorgando una importante ventaja si se gastan en el momento preciso. Son extremadamente difíciles de conseguir, pero se comenta que completar <span class="label label-map">Mapas</span> es una buena manera. Todos los jugadores empiezan con unas pocas y, aunque no son necesarias para ganar, algunos jugadores pueden optar por adquirir más a través de nuestra <span class="label label-extra">Tienda</span> interna del juego. En ocasiones especales incluso se regalarán algunas a todos los jugadores.</p>
                 </div>
             </div>
         </div>
@@ -369,6 +376,35 @@
                 </div>
                 {# TAGS FOR SEARCH #}
                 <span class="hidden">Artefactos, Neutral</span>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <a name="runas"></a>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Runas ({{ runes|length|nf }})</h1>
+            </div>
+        </div>
+        {% for rune in runes %}
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-rune">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-ils"></i> {{ rune.name }} [{{ rune.cost|nf }}]</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( rune.image ) }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12 text-lore"><small><i>{{ rune.lore }}</i></small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center text-responsive">
+                    <i class="fa fa-fw fa-joomla"></i>{{ rune.skill.description|raw }}
+                </div>
+                {# TAGS FOR SEARCH #}
+                <span class="hidden">Runas</span>
             </div>
         </div>
         {% endfor %}

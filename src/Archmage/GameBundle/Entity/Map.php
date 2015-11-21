@@ -72,7 +72,7 @@ class Map
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -95,7 +95,7 @@ class Map
     /**
      * Get gold
      *
-     * @return integer 
+     * @return integer
      */
     public function getGold()
     {
@@ -118,7 +118,7 @@ class Map
     /**
      * Get class
      *
-     * @return string 
+     * @return string
      */
     public function getClass()
     {
@@ -141,7 +141,7 @@ class Map
     /**
      * Get artifact
      *
-     * @return \Archmage\GameBundle\Entity\Artifact 
+     * @return \Archmage\GameBundle\Entity\Artifact
      */
     public function getArtifact()
     {
@@ -174,7 +174,7 @@ class Map
     /**
      * Get troops
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getTroops()
     {
@@ -197,7 +197,7 @@ class Map
     /**
      * Get player
      *
-     * @return \Archmage\GameBundle\Entity\Player 
+     * @return \Archmage\GameBundle\Entity\Player
      */
     public function getPlayer()
     {
@@ -220,7 +220,7 @@ class Map
     /**
      * Get image
      *
-     * @return string 
+     * @return string
      */
     public function getImage()
     {

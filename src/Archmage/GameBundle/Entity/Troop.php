@@ -148,4 +148,18 @@ class Troop
     {
         return $this->map;
     }
+
+    /*
+     * AUXILIARY FUNCTIONS
+     */
+
+    /**
+     * Get map
+     *
+     * @return integer
+     */
+    public function getPower()
+    {
+        return $this->getUnit()->getPower() * $this->getQuantity();
+    }
 }

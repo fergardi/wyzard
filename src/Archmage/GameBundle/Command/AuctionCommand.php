@@ -191,7 +191,7 @@ class AuctionCommand extends ContainerAwareCommand
                 $image = 'medium';
                 break;
             case 3:
-                $rarity = 99;
+                $rarity = 100;
                 $max = 5;
                 $price = 5000000;
                 $image = 'hard';

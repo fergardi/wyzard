@@ -23,11 +23,19 @@ class ArmyController extends Controller
     const HERO_EXPERIENCE = 20;
 
     /**
-     * usort sorting function
+     * usort sorting function by speed
      */
-    function sortBy($row1, $row2)
+    function sortBySpeed($row1, $row2)
     {
         return ($row1[4] >= $row2[4]) ? -1 : 1;
+    }
+
+    /**
+     * usort sorting function by power
+     */
+    function sortByPower($row1, $row2)
+    {
+        return ($row1[0]->getPower() >= $row2[0]->getPower()) ? -1 : 1;
     }
 
     /**
@@ -288,9 +296,9 @@ class ArmyController extends Controller
             );
         }
         //BATTLE
-        //ORDERING BY SPEED
-        usort($attackerArmy, array($this, "sortBy"));
-        usort($defenderArmy, array($this, "sortBy"));
+        //ORDERING BY POWER
+        usort($attackerArmy, array($this, "sortByPower"));
+        usort($defenderArmy, array($this, "sortByPower"));
         //BATTLE
         $attackerTurn = 0;
         $defenderTurn = 0;
@@ -631,9 +639,9 @@ class ArmyController extends Controller
         }
         //BATTLE
         if (!empty($defenderArmy)) {
-            //ORDERING BY SPEED
-            usort($attackerArmy, array($this, "sortBySpeed"));
-            usort($defenderArmy, array($this, "sortBySpeed"));
+            //ORDERING BY POWER
+            usort($attackerArmy, array($this, "sortByPower"));
+            usort($defenderArmy, array($this, "sortByPower"));
             //BATTLE
             $attackerTurn = 0;
             $defenderTurn = 0;

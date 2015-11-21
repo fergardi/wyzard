@@ -63,7 +63,7 @@ class Recipe
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -86,7 +86,7 @@ class Recipe
     /**
      * Get gold
      *
-     * @return integer 
+     * @return integer
      */
     public function getGold()
     {
@@ -109,7 +109,7 @@ class Recipe
     /**
      * Get class
      *
-     * @return string 
+     * @return string
      */
     public function getClass()
     {
@@ -132,7 +132,7 @@ class Recipe
     /**
      * Get first
      *
-     * @return \Archmage\GameBundle\Entity\Artifact 
+     * @return \Archmage\GameBundle\Entity\Artifact
      */
     public function getFirst()
     {
@@ -155,7 +155,7 @@ class Recipe
     /**
      * Get second
      *
-     * @return \Archmage\GameBundle\Entity\Artifact 
+     * @return \Archmage\GameBundle\Entity\Artifact
      */
     public function getSecond()
     {
@@ -178,7 +178,7 @@ class Recipe
     /**
      * Get result
      *
-     * @return \Archmage\GameBundle\Entity\Artifact 
+     * @return \Archmage\GameBundle\Entity\Artifact
      */
     public function getResult()
     {
@@ -201,7 +201,7 @@ class Recipe
     /**
      * Get player
      *
-     * @return \Archmage\GameBundle\Entity\Player 
+     * @return \Archmage\GameBundle\Entity\Player
      */
     public function getPlayer()
     {

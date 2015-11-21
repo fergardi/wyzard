@@ -273,6 +273,9 @@ body {
 .panel-default > .panel-footer {
     background-color: #3E444C;
 }
+.alert-map {
+    background-color: darkorange;
+}
 .panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
     background-color: darkorange;
     border-color: #000;

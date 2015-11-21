@@ -1231,6 +1231,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //RELOJ DE ARENA
         $skill = new Skill();
         $skill->setName('Reloj de Arena');
+        $skill->setSelf(true);
         $skill->setTurnsBonus(-100);
         $skill->setDescription('Hasta '.$this->container->get('service.controller')->nff($skill->getTurnsBonus()).' <span class="label label-extra">Turnos</span> a los Encantamientos de tu Reino.');
         $this->setReference($skill->getName(), $skill);

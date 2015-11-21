@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Collections\ArrayCollection;
 use Archmage\GameBundle\Entity\Troop;
+use Archmage\GameBundle\Entity\Item;
 use Archmage\GameBundle\Entity\Message;
 use Archmage\GameBundle\Entity\Attack;
 
@@ -217,7 +218,7 @@ class ArmyController extends Controller
             $map = isset($_POST['map'])?$_POST['map']:null;
             if ($turns <= $player->getTurns()) {
                 if ($player->getUnits() > 0) {
-                    $map = $manager->getRepository('ArchmageGameBundle:Recipe')->findOneById($map);
+                    $map = $manager->getRepository('ArchmageGameBundle:Map')->findOneById($map);
                     if ($map) {
                         /*
                         * MANTENIMIENTO
@@ -227,12 +228,18 @@ class ArmyController extends Controller
                         /*
                          * ACCION
                          */
-
+                        $report = null;
+                        $report = $this->attackMap($map);
+                        $player->removeMap($map);
+                        $manager->remove($map);
+                        $this->addFlash('success', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar usando un <span class="label label-map">Mapa</span>.');
                         /*
                          * PERSISTENCIA
                          */
                         $manager->persist($player);
                         $manager->flush();
+                        //redirect to battle report
+                        if ($report != null) return $this->redirect($this->generateUrl('archmage_game_account_message', array('hash' => $report->getHash())));
                     } else {
                         $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
                     }
@@ -399,17 +406,15 @@ class ArmyController extends Controller
         }
         //UPDATE ARMIES
         foreach ($attackerArmy as $row) {
-            $troop = $player->hasTroop($row[0]);
-            $troop->setQuantity($troop->getQuantity() - $row[5] + $row[1]);
-            if ($troop->getQuantity() <= 0) {
-                $player->removeTroop($troop);
-                $manager->remove($troop);
+            $row[0]->setQuantity($row[0]->getQuantity() - $row[5] + $row[1]);
+            if ($row[0]->getQuantity() <= 0) {
+                $player->removeTroop($row[0]);
+                $manager->remove($row[0]);
             }
         }
         $wipe = false;
         foreach ($defenderArmy as $row) {
-            $troop = $row[0];
-            $troop->setQuantity($row[1]);
+            $row[0]->setQuantity($row[1]);
             if ($troop->getQuantity() <= 0) {
                 $map->removeTroop($troop);
                 $manager->remove($troop);
@@ -419,8 +424,9 @@ class ArmyController extends Controller
         }
         $text[] = array('default', 12, 0, 'center', 'Fin del ataque.');
         if (!$wipe) {
-            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has vencido al ejército enemigo!');
+            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has vencido al ejército enemigo y has obtenido una recompensa!');
             $player->setGold($player->getGold() + $map->getGold());
+            $player->setRunes($player->getRunes() + 1);
             $item = $player->hasArtifact($map->getArtifact());
             if ($item) {
                 $item->setQuantity($item->getQuantity() + 1);
@@ -432,10 +438,19 @@ class ArmyController extends Controller
                 $item->setPlayer($player);
                 $player->addItem($item);
             }
-            $this->addFlash('success', 'Has encontrado el Artefacto <span class="label label-' . $item->getArtifact()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
+            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has ganado '.$this->get('service.controller')->nff($map->getGold()).' <span class="label label-extra">Oro</span>.');
+            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has ganado 1 <span class="label label-rune">Runa</span>.');
+            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has encontrado el Artefacto <span class="label label-' . $item->getArtifact()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
         } else {
             $text[] = array('default', 11, 1, 'center', 'No has sido capaz de derrotar al ejército enemigo.');
         }
+        /*
+         * FIN
+         */
+        //mensaje al jugador
+        $redirect = $this->get('service.controller')->sendMessage($player, $player, 'Reporte de Mapa', $text, 'battle');
+        //redirect to see message
+        return $redirect;
     }
 
     /**
@@ -742,19 +757,17 @@ class ArmyController extends Controller
             }
             //UPDATE ARMIES
             foreach ($attackerArmy as $row) {
-                $troop = $player->hasTroop($row[0]);
-                $troop->setQuantity($troop->getQuantity() - $row[5] + $row[1]);
-                if ($troop->getQuantity() <= 0) {
-                    $player->removeTroop($troop);
-                    $manager->remove($troop);
+                $row[0]->setQuantity($row[0]->getQuantity() - $row[5] + $row[1]);
+                if ($row[0]->getQuantity() <= 0) {
+                    $player->removeTroop($row[0]);
+                    $manager->remove($row[0]);
                 }
             }
             foreach ($defenderArmy as $row) {
-                $troop = $target->hasTroop($row[0]);
-                $troop->setQuantity($row[1]);
-                if ($troop->getQuantity() <= 0) {
-                    $target->removeTroop($troop);
-                    $manager->remove($troop);
+                $row[0]->setQuantity($row[1]);
+                if ($row[0]->getQuantity() <= 0) {
+                    $target->removeTroop($row[0]);
+                    $manager->remove($row[0]);
                 }
             }
         }

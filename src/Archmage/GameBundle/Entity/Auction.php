@@ -306,8 +306,8 @@ class Auction
         if ($this->getItem()) return $this->getItem()->getArtifact()->getName();
         if ($this->getContract()) return $this->getContract()->getHero()->getName();
         if ($this->getResearch()) return $this->getResearch()->getSpell()->getName();
-        if ($this->getRecipe()) return $this->getRecipe()->getResult()->getName();
-        if ($this->getMap()) return $this->getMap()->getArtifact()->getName();
+        if ($this->getRecipe()) return 'Receta';
+        if ($this->getMap()) return 'Mapa';
         return '';
     }
 

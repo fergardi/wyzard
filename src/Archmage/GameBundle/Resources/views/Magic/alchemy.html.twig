@@ -42,8 +42,8 @@
                                 <img class="custom-thumbnail" src="{{ asset( recipe.result.image ) }}">
                             </div>
                             <div class="col-xs-8 text-padded">
-                                <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.first.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.first.name|slug }}" class="link" data-toggle="tooltip" data-placement="top" title="Primer Artefacto necesario para la Alquimia">{{ recipe.first.name }}</a></span></div>
-                                <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.second.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.second.name|slug }}" class="link" data-toggle="tooltip" data-placement="top" title="Segundo Artefacto necesario para la Alquimia">{{ recipe.second.name }}</a></span></div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.first.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.first.name|slug }}" class="link" data-toggle="tooltip" data-placement="top" title="Primer Artefacto necesario para la Alquimia">{{ recipe.first.name }}</a></span> {{ player.hasArtifact(recipe.first).quantity|default(0) }}</div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.second.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.second.name|slug }}" class="link" data-toggle="tooltip" data-placement="top" title="Segundo Artefacto necesario para la Alquimia">{{ recipe.second.name }}</a></span> {{ player.hasArtifact(recipe.second).quantity|default(0) }}</div>
                                 <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ recipe.gold|nff }} <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Oro necesario para la Alquimia">Oro</span></div>
                                 <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.result.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.result.name|slug }}" class="link" data-toggle="tooltip" data-placement="top" title="Artefacto resultante de la Alquimia">{{ recipe.result.name }}</a></span></div>
                                 <div class="col-xs-12 text-lore"><small><i>Un poco de esto, un poco de aquello y... TACHÁN!</i></small></div>
@@ -56,6 +56,7 @@
                                 <div class="input-group">
                                     <div class="btn-group" role="group" aria-label="...">
                                         <button type="submit" id="craft" name="action" value="craft" class="btn btn-default" {% if not player.hasArtifact(recipe.first) or not player.hasArtifact(recipe.second) %}disabled{% endif %}><i class="fa fa-fw fa-cogs"></i>Fabricar</button>
+                                        <button type="submit" id="forget" name="action" value="forget" class="btn btn-default"><i class="fa fa-fw fa-ban"></i>Olvidar</button>
                                     </div>
                                     <input type="hidden" id="recipe" name="recipe" value="{{ recipe.id }}" required />
                                 </div>

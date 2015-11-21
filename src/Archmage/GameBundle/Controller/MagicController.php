@@ -364,59 +364,74 @@ class MagicController extends Controller
         if ($request->isMethod('POST')) {
             $turns = 5;
             $recipe = isset($_POST['recipe'])?$_POST['recipe']:null;
-            if ($turns <= $player->getTurns()) {
-                $recipe = $manager->getRepository('ArchmageGameBundle:Recipe')->findOneById($recipe);
-                if ($recipe) {
-                    $item1 = $player->hasArtifact($recipe->getFirst());
-                    $item2 = $player->hasArtifact($recipe->getSecond());
-                    $gold = $recipe->getGold();
-                    if ($item1 && $item2 && $gold <= $player->getGold()) {
-                        /*
-                        * MANTENIMIENTO
-                        */
-                        $player->setTurns($player->getTurns() - $turns);
-                        $player->setGold($player->getGold() - $gold);
-                        $this->get('service.controller')->checkMaintenances($turns);
-                        /*
-                         * ACCION
-                         */
-                        $item1->setQuantity($item1->getQuantity() - 1);
-                        if ($item1->getQuantity() <= 0) {
-                            if ($player->getItem() && $player->getItem()->getArtifact() == $item1->getArtifact()) $player->setItem(null);
-                            $player->removeItem($item1);
-                            $manager->remove($item1);
-                        }
-                        $item2->setQuantity($item2->getQuantity() - 1);
-                        if ($item2->getQuantity() <= 0) {
-                            if ($player->getItem() && $player->getItem()->getArtifact() == $item2->getArtifact()) $player->setItem(null);
-                            $player->removeItem($item2);
-                            $manager->remove($item2);
-                        }
-                        $item = $player->hasArtifact($recipe->getResult());
-                        if ($item) {
-                            $item->setQuantity($item->getQuantity() + 1);
+            $action = isset($_POST['action'])?$_POST['action']:null;
+            $recipe = $manager->getRepository('ArchmageGameBundle:Recipe')->findOneById($recipe);
+            if ($recipe && $action) {
+                if ($action == 'craft') {
+                    $turns = 5;
+                    if ($turns <= $player->getTurns()) {
+                        $item1 = $player->hasArtifact($recipe->getFirst());
+                        $item2 = $player->hasArtifact($recipe->getSecond());
+                        $gold = $recipe->getGold();
+                        if ($item1 && $item2 && $gold <= $player->getGold()) {
+                            /*
+                            * MANTENIMIENTO
+                            */
+                            $player->setTurns($player->getTurns() - $turns);
+                            $player->setGold($player->getGold() - $gold);
+                            $this->get('service.controller')->checkMaintenances($turns);
+                            /*
+                             * ACCION
+                             */
+                            $item1->setQuantity($item1->getQuantity() - 1);
+                            if ($item1->getQuantity() <= 0) {
+                                if ($player->getItem() && $player->getItem()->getArtifact() == $item1->getArtifact()) $player->setItem(null);
+                                $player->removeItem($item1);
+                                $manager->remove($item1);
+                            }
+                            $item2->setQuantity($item2->getQuantity() - 1);
+                            if ($item2->getQuantity() <= 0) {
+                                if ($player->getItem() && $player->getItem()->getArtifact() == $item2->getArtifact()) $player->setItem(null);
+                                $player->removeItem($item2);
+                                $manager->remove($item2);
+                            }
+                            $item = $player->hasArtifact($recipe->getResult());
+                            if ($item) {
+                                $item->setQuantity($item->getQuantity() + 1);
+                            } else {
+                                $item = new Item();
+                                $manager->persist($item);
+                                $item->setArtifact($recipe->getResult());
+                                $item->setQuantity(1);
+                                $item->setPlayer($player);
+                                $player->addItem($item);
+                            }
+                            $this->addFlash('success', 'Has gastado los ingredientes, '.$turns.' <span class="label label-extra">Turnos</span>, '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span> y fabricado el Artefacto <span class="label label-' . $item->getArtifact()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
+                            if ($recipe->getResult()->getLegendary()) {
+                                $player->removeRecipe($recipe);
+                                $manager->remove($recipe);
+                                $this->addFlash('danger', 'La <span class="label label-recipe">Receta</span> era demasiado poderosa y se ha quemado.');
+                            }
                         } else {
-                            $item = new Item();
-                            $manager->persist($item);
-                            $item->setArtifact($recipe->getResult());
-                            $item->setQuantity(1);
-                            $item->setPlayer($player);
-                            $player->addItem($item);
+                            $this->addFlash('danger', 'No tienes los <span class="label label-extra">Artefactos</span> o el <span class="label label-extra">Oro</span> necesario para eso.');
                         }
-                        /*
-                         * PERSISTENCIA
-                         */
-                        $manager->persist($player);
-                        $manager->flush();
                     } else {
-                        $this->addFlash('danger', 'No tienes los <span class="label label-extra">Artefactos</span> o el <span class="label label-extra">Oro</span> necesario para eso.');
+                        $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios para eso.');
                     }
-                } else {
-                    $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+                } elseif ($action == 'forget') {
+                    $player->removeRecipe($recipe);
+                    $manager->remove($recipe);
+                    $this->addFlash('success', 'Has olvidado correctamente esa <span class="label label-recipe">Receta</span>.');
                 }
+                /*
+                 * PERSISTENCIA
+                 */
+                $manager->persist($player);
+                $manager->flush();
             } else {
-                $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios para eso.');
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
+            return $this->redirect($this->generateUrl('archmage_game_magic_alchemy'));
         }
         return array(
             'player' => $player,

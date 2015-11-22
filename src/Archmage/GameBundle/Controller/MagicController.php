@@ -542,23 +542,28 @@ class MagicController extends Controller
             }
         //ARTIFACT
         } elseif ($spell->getSkill()->getArtifactBonus() < 0) {
-            $maxchance = abs($spell->getSkill()->getArtifactBonus()) * $player->getMagic();
-            $chance = rand(0,99);
-            if ($chance < $maxchance) {
-                $items = $target->getItems()->toArray();
-                shuffle($items);
-                $item = $items[0];
-                $item->setQuantity($item->getQuantity() - 1);
-                if ($item->getQuantity() <= 0) {
-                    if ($target->getItem() && $target->getItem()->getArtifact() == $item->getArtifact()) $target->setItem(null);
-                    $target->removeItem($item);
-                    $manager->remove($item);
+            if ($target->getItems()->count() > 0) {
+                $maxchance = abs($spell->getSkill()->getArtifactBonus()) * $player->getMagic();
+                $chance = rand(0,99);
+                if ($chance < $maxchance) {
+                    $items = $target->getItems()->toArray();
+                    shuffle($items);
+                    $item = $items[0];
+                    $item->setQuantity($item->getQuantity() - 1);
+                    if ($item->getQuantity() <= 0) {
+                        if ($target->getItem() && $target->getItem()->getArtifact() == $item->getArtifact()) $target->setItem(null);
+                        $target->removeItem($item);
+                        $manager->remove($item);
+                    }
+                    $this->addFlash('success', 'Has destruido el Artefacto <span class="label label-' . $item->getArtifact()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span> de <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span>.');
+                    $text[] = array('default', 12, 0, 'center', 'Te han destruido el Artefacto <span class="label label-' . $item->getArtifact()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
+                } else {
+                    $this->addFlash('danger', 'No has logrado destruir nada a <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span>.');
+                    $text[] = array('default', 12, 0, 'center', 'Te han intentado destruir un Artefacto, pero no lo han logrado.');
                 }
-                $this->addFlash('success', 'Has destruido el Artefacto <span class="label label-' . $item->getArtifact()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span> de <a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link"><span class="label label-' . $target->getFaction()->getClass() . '">' . $target->getNick() . '</span></a>.');
-                $text[] = array('default', 12, 0, 'center', 'Te han destruido el Artefacto <span class="label label-' . $item->getArtifact()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
             } else {
-                $this->addFlash('success', 'No has logrado destruir nada <a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link"><span class="label label-' . $target->getFaction()->getClass() . '">' . $target->getNick() . '</span></a>.');
-                $text[] = array('default', 12, 0, 'center', 'Te han intentado destruir un Artefacto, pero no lo han logrado.');
+                $this->addFlash('danger', 'El mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span> no tiene Artefactos para destruir.');
+                $text[] = array('default', 12, 0, 'center', 'Te han intentado destruir un Artefacto, pero no tenías ninguno.');
             }
         //DAMAGE
         } elseif ($spell->getSkill()->getDamageBonus() < 0) {

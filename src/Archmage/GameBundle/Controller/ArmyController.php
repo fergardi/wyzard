@@ -62,16 +62,6 @@ class ArmyController extends Controller
                     $attackerResearch->getSpell()->getFaction() == $player->getFaction() ? $bonus = 1 : $bonus = 2;
                     $mana = $attackerResearch->getSpell()->getManaCost() * $bonus;
                 }
-                $attackerItem = isset($_POST['item']) ? $_POST['item'] : null;
-                $attackerItem = $manager->getRepository('ArchmageGameBundle:Item')->findOneById($attackerItem);
-                if ($attackerItem) {
-                    $attackerItem->setQuantity($attackerItem->getQuantity() - 1);
-                    if ($attackerItem->getQuantity() <= 0) {
-                        if ($player->getItem() && $player->getItem()->getArtifact() == $attackerItem->getArtifact()) $player->setItem(null);
-                        $player->removeItem($attackerItem);
-                        $manager->remove($attackerItem);
-                    }
-                }
                 if ($turns <= $player->getTurns() && $mana <= $player->getMana()) {
                     /*
                      * MANTENIMIENTOS
@@ -112,7 +102,16 @@ class ArmyController extends Controller
                     if ($player->getUnits() > 0 && !empty($attackerArmy) && $target) {
                         $chance = rand(0, 99);
                         $report = null;
-                        if ($chance > $target->getArmyDefense()) {
+                        if ($chance > $target->getArmyDefense()) {$attackerItem = isset($_POST['item']) ? $_POST['item'] : null;
+                            $attackerItem = $manager->getRepository('ArchmageGameBundle:Item')->findOneById($attackerItem);
+                            if ($attackerItem) {
+                                $attackerItem->setQuantity($attackerItem->getQuantity() - 1);
+                                if ($attackerItem->getQuantity() <= 0) {
+                                    if ($player->getItem() && $player->getItem()->getArtifact() == $attackerItem->getArtifact()) $player->setItem(null);
+                                    $player->removeItem($attackerItem);
+                                    $manager->remove($attackerItem);
+                                }
+                            }
                             $report = $this->attackTarget($attackerArmy, $attackerResearch, $attackerItem, $target);
                             $manager->persist($target);
                             $this->addFlash('success', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar al mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span>.');
@@ -130,7 +129,7 @@ class ArmyController extends Controller
                         $this->addFlash('danger', 'Debes atacar con al menos 1 unidad.');
                     }
                 } else {
-                    $this->addFlash('danger', 'No tienes los <span class="label label-extra">Recursos</span> necesarios para eso.');
+                    $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> o el <span class="label label-extra">Maná</span> necesarios para eso.');
                 }
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');

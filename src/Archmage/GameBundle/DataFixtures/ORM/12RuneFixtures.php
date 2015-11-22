@@ -14,13 +14,22 @@ class RuneFixtures extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
+        //RUNA DE TELEGRAM
+        $rune = new Rune();
+        $rune->setName('Runa de Telegram');
+        $rune->setImage('bundles/archmagegame/images/rune/telegram.jpg');
+        $rune->setSkill($this->getReference($rune->getName()));
+        $rune->setLore('Muy antigüas y podersosas, otorgan cierta ventaja sobre el resto de jugadores.');
+        $rune->setCost(20);
+        $manager->persist($rune);
+
         //RUNA DE ORO
         $rune = new Rune();
         $rune->setName('Runa de Oro');
         $rune->setImage('bundles/archmagegame/images/rune/gold.jpg');
         $rune->setSkill($this->getReference($rune->getName()));
         $rune->setLore('Muy antigüas y podersosas, otorgan cierta ventaja sobre el resto de jugadores.');
-        $rune->setCost(6);
+        $rune->setCost(5);
         $manager->persist($rune);
 
         //RUNA DE POBLACION
@@ -29,7 +38,7 @@ class RuneFixtures extends AbstractFixture implements OrderedFixtureInterface
         $rune->setImage('bundles/archmagegame/images/rune/people.jpg');
         $rune->setSkill($this->getReference($rune->getName()));
         $rune->setLore('Muy antigüas y podersosas, otorgan cierta ventaja sobre el resto de jugadores.');
-        $rune->setCost(6);
+        $rune->setCost(5);
         $manager->persist($rune);
 
         //RUNA DE MANA
@@ -38,7 +47,7 @@ class RuneFixtures extends AbstractFixture implements OrderedFixtureInterface
         $rune->setImage('bundles/archmagegame/images/rune/mana.jpg');
         $rune->setSkill($this->getReference($rune->getName()));
         $rune->setLore('Muy antigüas y podersosas, otorgan cierta ventaja sobre el resto de jugadores.');
-        $rune->setCost(6);
+        $rune->setCost(5);
         $manager->persist($rune);
 
         //RUNA DE TIERRAS
@@ -47,7 +56,7 @@ class RuneFixtures extends AbstractFixture implements OrderedFixtureInterface
         $rune->setImage('bundles/archmagegame/images/rune/terrain.jpg');
         $rune->setSkill($this->getReference($rune->getName()));
         $rune->setLore('Muy antigüas y podersosas, otorgan cierta ventaja sobre el resto de jugadores.');
-        $rune->setCost(18);
+        $rune->setCost(15);
         $manager->persist($rune);
 
         //RUNA DE ARTEFACTOS
@@ -56,7 +65,7 @@ class RuneFixtures extends AbstractFixture implements OrderedFixtureInterface
         $rune->setImage('bundles/archmagegame/images/rune/artifact.jpg');
         $rune->setSkill($this->getReference($rune->getName()));
         $rune->setLore('Muy antigüas y podersosas, otorgan cierta ventaja sobre el resto de jugadores.');
-        $rune->setCost(6);
+        $rune->setCost(5);
         $manager->persist($rune);
 
         //RUNA DE MAPAS
@@ -65,7 +74,7 @@ class RuneFixtures extends AbstractFixture implements OrderedFixtureInterface
         $rune->setImage('bundles/archmagegame/images/rune/map.jpg');
         $rune->setSkill($this->getReference($rune->getName()));
         $rune->setLore('Muy antigüas y podersosas, otorgan cierta ventaja sobre el resto de jugadores.');
-        $rune->setCost(3);
+        $rune->setCost(5);
         $manager->persist($rune);
 
         //RUNA DE RECETAS
@@ -74,16 +83,7 @@ class RuneFixtures extends AbstractFixture implements OrderedFixtureInterface
         $rune->setImage('bundles/archmagegame/images/rune/recipe.jpg');
         $rune->setSkill($this->getReference($rune->getName()));
         $rune->setLore('Muy antigüas y podersosas, otorgan cierta ventaja sobre el resto de jugadores.');
-        $rune->setCost(6);
-        $manager->persist($rune);
-
-        //RUNA DE TURNOS
-        $rune = new Rune();
-        $rune->setName('Runa de Turnos');
-        $rune->setImage('bundles/archmagegame/images/rune/turn.jpg');
-        $rune->setSkill($this->getReference($rune->getName()));
-        $rune->setLore('Muy antigüas y podersosas, otorgan cierta ventaja sobre el resto de jugadores.');
-        $rune->setCost(24);
+        $rune->setCost(5);
         $manager->persist($rune);
 
         //FLUSH

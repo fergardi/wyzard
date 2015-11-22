@@ -267,25 +267,32 @@ class KingdomController extends Controller
                  */
                 $player->setRunes($player->getRunes() - $rune->getCost());
                 $skill = $rune->getSkill();
+                if ($skill->getSpyBonus() > 0) {
+                    $telegram = $player->getTelegram();
+                    $this->addFlash('success', 'Has gastado '.$rune->getCost().' <span class="label label-rune">Runas</span> y generado un código para Telegram.');
+                    $text = array();
+                    $text[] = array('default', 12, 0, 'center', 'Conecta con Telegram agregando como amigo a <a href="http://telegram.me/archmagebot" class="link">@ArchmageBot</a>, mándale el código '.$telegram.' y después actualiza tu <a href="'.$this->generateUrl('archmage_game_account_profile').'">Perfil</a>.');
+                    $this->get('service.controller')->sendMessage($player, $player, 'Conecta con Telegram', $text);
+                }
                 if ($skill->getGoldBonus() > 0) {
                     $gold = $skill->getGoldBonus();
                     $player->setGold($player->getGold() + $skill->getGoldBonus());
-                    $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span>.');
+                    $this->addFlash('success', 'Has gastado '.$rune->getCost().' <span class="label label-rune">Runas</span> y generado '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span>.');
                 }
                 if ($skill->getPeopleBonus() > 0) {
                     $people = $skill->getPeopleBonus();
                     $player->setPeople($player->getPeople() + $skill->getPeopleBonus());
-                    $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nff($people).' <span class="label label-extra">Personas</span>.');
+                    $this->addFlash('success', 'Has gastado '.$rune->getCost().' <span class="label label-rune">Runas</span> y generado '.$this->get('service.controller')->nff($people).' <span class="label label-extra">Personas</span>.');
                 }
                 if ($skill->getManaBonus() > 0) {
                     $mana = $skill->getManaBonus();
                     $player->setMana($player->getMana() + $skill->getManaBonus());
-                    $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span>.');
+                    $this->addFlash('success', 'Has gastado '.$rune->getCost().' <span class="label label-rune">Runas</span> y generado '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span>.');
                 }
                 if ($skill->getTerrainBonus() > 0) {
                     $free = $skill->getTerrainBonus();
                     $player->setConstruction('Tierras', $player->getFree() + $skill->getTerrainBonus());
-                    $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nff($free).' <span class="label label-extra">Tierras</span>.');
+                    $this->addFlash('success', 'Has gastado '.$rune->getCost().' <span class="label label-rune">Runas</span> y generado '.$this->get('service.controller')->nff($free).' <span class="label label-extra">Tierras</span>.');
                 }
                 if ($skill->getMapBonus() > 0) {
                     $level = rand(1,3);
@@ -347,11 +354,6 @@ class KingdomController extends Controller
                     $player->addRecipe($recipe);
                     $recipe->setPlayer($player);
                     $this->addFlash('success', 'Has encontrado una nueva <span class="label label-recipe"><a href="'.$this->generateUrl('archmage_game_magic_alchemy').'" class="link">Receta</a></span>.');
-                }
-                if ($skill->getTurnsBonus() > 0) {
-                    $turns = $skill->getTurnsBonus();
-                    $player->setTurns($player->getTurns() + $skill->getTurnsBonus());
-                    $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span>.');
                 }
                 if ($skill->getArtifactBonus() > 0) {
                     $criteria = new Criteria();

@@ -1575,6 +1575,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
          * RUNAS
          */
 
+        //TELEGRAM
+        $skill = new Skill();
+        $skill->setName('Runa de Telegram');
+        $skill->setSpyBonus(100);
+        $skill->setDescription('Genera un código para recibir avisos por Telegram.');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
         //ORO
         $skill = new Skill();
         $skill->setName('Runa de Oro');
@@ -1628,14 +1636,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Runa de Mapas');
         $skill->setMapBonus(1);
         $skill->setDescription('Genera '.$this->container->get('service.controller')->nff($skill->getMapBonus()).' <span class="label label-extra">Mapa</span> al azar');
-        $this->setReference($skill->getName(), $skill);
-        $manager->persist($skill);
-
-        //TURNOS
-        $skill = new Skill();
-        $skill->setName('Runa de Turnos');
-        $skill->setTurnsBonus(50);
-        $skill->setDescription('Genera '.$this->container->get('service.controller')->nff($skill->getTurnsBonus()).' <span class="label label-extra">Turnos</span>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

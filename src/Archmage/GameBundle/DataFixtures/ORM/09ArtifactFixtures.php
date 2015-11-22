@@ -196,10 +196,10 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //CALAVERA MALDITA
+        //DEMONIO EMBOTELLADO
         $artifact = new Artifact();
-        $artifact->setName('Calavera Maldita');
-        $artifact->setImage('bundles/archmagegame/images/artifact/cursedskull.jpg');
+        $artifact->setName('Demonio Embotellado');
+        $artifact->setImage('bundles/archmagegame/images/artifact/bottleddemon.jpg');
         $artifact->setSkill($this->getReference('Convocar Demonios'));
         $artifact->setLore('Puede salir cualquier cosa, incluso un súcubo!');
         $artifact->setGoldAuction(1000000);
@@ -257,7 +257,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Reloj de Arena');
         $artifact->setImage('bundles/archmagegame/images/artifact/hourglass.jpg');
         $artifact->setSkill($this->getReference('Reloj de Arena'));
-        $artifact->setLore('Tiempo embotellado. Tempus Fugit!');
+        $artifact->setLore('Tiempo embotellado. Tempus fugit!');
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(50);
         $artifact->setPower(25000);

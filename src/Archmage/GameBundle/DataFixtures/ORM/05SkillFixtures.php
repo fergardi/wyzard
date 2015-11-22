@@ -198,7 +198,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //VOODOO
         $skill = new Skill();
         $skill->setName('Voodoo');
-        $skill->setPeopleBonus(-3);
+        $skill->setPeopleBonus(-2);
         $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Población</span> al Reino enemigo por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -586,7 +586,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //ORO FALSO
         $skill = new Skill();
         $skill->setName('Oro Falso');
-        $skill->setGoldBonus(-1);
+        $skill->setGoldBonus(-2);
         $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span> enemigo por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -611,8 +611,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //CHAMANISMO
         $skill = new Skill();
         $skill->setName('Chamanismo');
-        $skill->setDamageBonus(-1);
-        $skill->setDescription('<span class="label label-extra">Destruye</span> '.$skill->getDamageBonus().'% de una tropa enemiga al azar por <i class="fa fa-fw fa-magic"></i>');
+        $skill->setPeopleBonus(-1);
+        $skill->setManaBonus(-1);
+        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Población</span> y '.$skill->getManaBonus().'% <span class="label label-extra">Maná</span> al Reino enemigo por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1055,7 +1056,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMBUSTION
         $skill = new Skill();
         $skill->setName('Combustión');
-        $skill->setManaBonus(-5);
+        $skill->setManaBonus(-2);
         $skill->setDescription($skill->getManaBonus().'% <span class="label label-extra">Maná</span> enemigo actual por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

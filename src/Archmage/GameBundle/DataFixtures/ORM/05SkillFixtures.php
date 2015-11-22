@@ -206,8 +206,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //CORRUPCION
         $skill = new Skill();
         $skill->setName('Corrupción');
+        $skill->setTerrainBonus(-2);
         $skill->setManaBonus(-5);
-        $skill->setTerrainBonus(-1);
         $skill->setDescription($skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> y '.$skill->getManaBonus().'% <span class="label label-extra">Maná</span> enemigo al <i class="fa fa-fw fa-hourglass-half"></i> por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1063,7 +1063,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //VOLCANO
         $skill = new Skill();
         $skill->setName('Volcano');
-        $skill->setTerrainBonus(-1);
+        $skill->setTerrainBonus(-2);
         $skill->setPeopleBonus(-5);
         $skill->setDescription($skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> y '.$skill->getPeopleBonus().'% <span class="label label-extra">Población</span> producida al <i class="fa fa-fw fa-hourglass-half"></i> por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
@@ -1073,7 +1073,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Saquear');
         $skill->setMapBonus(15);
-        $skill->setDescription('+'.$skill->getMapBonus().'% por <i class="fa fa-fw fa-magic"></i> de encontrar un nuevo <span class="label label-map">Mapa</span>');
+        $skill->setSelf(true);
+        $skill->setDescription('+'.$skill->getMapBonus().'% por <i class="fa fa-fw fa-magic"></i> de descubrir un nuevo <span class="label label-map">Mapa</span>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1457,10 +1458,10 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //SUCUBO
         $skill = new Skill();
         $skill->setName('Súcubo');
-        $skill->setQuantityBonus(2);
+        $skill->setSummonBonus(1);
         $skill->setSummon(true);
         $skill->setSelf(true);
-        $skill->setDescription('+'.$skill->getQuantityBonus().'% <span class="label label-extra">Tropas</span> invocadas por <i class="fa fa-fw fa-star"></i>');
+        $skill->setDescription('+'.$skill->getSummonBonus().'% <span class="label label-extra">Tropas</span> invocadas por <i class="fa fa-fw fa-star"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

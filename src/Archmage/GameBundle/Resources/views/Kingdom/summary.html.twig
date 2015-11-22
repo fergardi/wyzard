@@ -46,7 +46,7 @@
                             <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }}/{{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
                             <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }}-{{ player.manamaintenanceperturn|nf }} = <span class="label label-{% if player.manaresourceperturn - player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }}</span> <span class="label label-extra">Maná/Turno</span></div>
                             <div class="col-xs-12"><i class="fa fa-fw fa-user-plus"></i>{{ player.summonBonus|nf }}% <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Aumenta la cantidad de tropas invocadas">Bonus de Invocación</span></div>
-                            <div class="col-xs-12"><i class="fa fa-fw fa-hourglass-half"></i>{{ player.summonBonus|nf }}% <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Reduce la cantidad de turnos necesarios para investigar">Bonus de Investigación</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-hourglass-half"></i>{{ player.researchBonus|nf }}% <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Reduce la cantidad de turnos necesarios para investigar">Bonus de Investigación</span></div>
                             <div class="col-xs-12"><i class="fa fa-fw fa-flask"></i>{{ player.recipes|length|nf }} <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Recetas en tu poder">Recetas</span></div>
                         </div>
                     </div>
@@ -265,7 +265,7 @@
                             {% endfor %}
                             {% for item in player.items if item.artifact.legendary %}
                             <tr>
-                                <td class="text-left"><i class="fa fa-fw fa-diamond"></i><span class="label label-extra"><a href="{{ path('archmage_game_home_help') }}#{{ item.artifact.name|slug }}" class="link">{{ item.artifact.name }}</a></span></td>
+                                <td class="text-left"><i class="fa fa-fw fa-diamond"></i><span class="label label-legendary"><a href="{{ path('archmage_game_home_help') }}#{{ item.artifact.name|slug }}" class="link">{{ item.artifact.name }}</a></span></td>
                                 <td class="text-right">{{ item.quantity|nf }}</td>
                                 <td class="text-right">0</td>
                                 <td class="text-right">0</td>

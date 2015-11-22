@@ -252,7 +252,9 @@ body {
 }
 .alert-default {
     background-color: #3E444C;
-    border-color: #2E3338;
+}
+.alert {
+    border-color: #000 !important;
 }
 /* panel footer same color than panel heading */
 .panel-primary > .panel-footer {
@@ -274,10 +276,10 @@ body {
     background-color: #3E444C;
 }
 .alert-map {
-    background-color: darkorange;
+    background-color: #FF5A00;
 }
 .panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
-    background-color: darkorange;
+    background-color: #FF5A00;
     border-color: #000;
 }
 .panel-recipe > .panel-heading, .panel-recipe > .panel-footer, .label-recipe {

@@ -5,6 +5,7 @@ namespace Archmage\GameBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Doctrine\Common\Collections\Criteria;
 use Symfony\Component\HttpFoundation\Request;
 use Archmage\GameBundle\Entity\Research;
 use Archmage\GameBundle\Entity\Troop;
@@ -488,8 +489,8 @@ class MagicController extends Controller
                 shuffle($units);
                 $unit = $units[0];
                 $quantity = $spell->getSkill()->getQuantityBonus() / $unit->getPower();
-                $quantity += round($quantity * $player->getSummonBonus() / (float)100);
             }
+            $quantity += round($quantity * $player->getSummonBonus() / (float)100);
             $troop = $player->hasUnit($unit);
             if ($troop) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
@@ -603,9 +604,9 @@ class MagicController extends Controller
                     $map->addTroop($troop);
                 }
                 $player->addMap($map);
-                $this->addFlash('success', 'Has encontrado un nuevo <span class="label label-map"><a href="'.$this->generateUrl('archmage_game_attack_quest').'" class="link">Mapa</a></span>.');
+                $this->addFlash('success', 'Has descubierto un nuevo <span class="label label-map"><a href="'.$this->generateUrl('archmage_game_army_quest').'" class="link">Mapa</a></span>.');
             } else {
-                $this->addFlash('danger', 'No has encontrado nada.');
+                $this->addFlash('danger', 'No has descubierto nada.');
             }
         } elseif ($spell->getSkill()->getRecipeBonus() > 0) {
             //RECIPE
@@ -626,9 +627,9 @@ class MagicController extends Controller
                 $recipe->setGold($recipe->getResult()->getGoldAuction() / 2);
                 $recipe->setPlayer($player);
                 $player->addRecipe($recipe);
-                $this->addFlash('success', 'Has encontrado una nueva <span class="label label-recipe"><a href="'.$this->generateUrl('archmage_game_magic_alchemy').'" class="link">Recipe</a></span>.');
+                $this->addFlash('success', 'Has descubierto una nueva <span class="label label-recipe"><a href="'.$this->generateUrl('archmage_game_magic_alchemy').'" class="link">Recipe</a></span>.');
             } else {
-                $this->addFlash('danger', 'No has encontrado nada.');
+                $this->addFlash('danger', 'No has descubierto nada.');
             }
         }
     }

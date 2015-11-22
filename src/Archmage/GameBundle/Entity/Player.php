@@ -18,7 +18,7 @@ class Player
      * CAPS
      */
     const RESEARCH_CAP = 75;
-    const TURNS_CAP = 300;
+    const TURNS_CAP = 300000;
     const MAGICDEFENSE_BASE = 5;
     const MAGICDEFENSE_CAP = 75;
     const ARMYDEFENSE_BASE = 5;
@@ -1027,7 +1027,7 @@ class Player
             $researchRatio += $enchantment->getSpell()->getSkill()->getResearchBonus() * $enchantment->getOwner()->getMagic();
         }
         foreach ($this->contracts as $contract) {
-            $researchRatio += $contract->getHero()->getSkill()->getResearchBonus();
+            $researchRatio += $contract->getHero()->getSkill()->getResearchBonus() * $contract->getLevel();
         }
         $percent = min(self::RESEARCH_CAP, $researchRatio);
         return $percent;
@@ -1074,7 +1074,7 @@ class Player
             if ($item->getArtifact()->getLegendary()) $magicDefense += $item->getArtifact()->getSkill()->getMagicDefenseBonus();
         }
         foreach ($this->contracts as $contract) {
-            $magicDefense += $contract->getHero()->getSkill()->getMagicDefenseBonus();
+            $magicDefense += $contract->getHero()->getSkill()->getMagicDefenseBonus() * $contract->getLevel();
         }
         return min(self::MAGICDEFENSE_CAP, $magicDefense);
     }
@@ -1096,7 +1096,7 @@ class Player
             if ($item->getArtifact()->getLegendary()) $armyDefense += $item->getArtifact()->getSkill()->getArmyDefenseBonus();
         }
         foreach ($this->contracts as $contract) {
-            $armyDefense += $contract->getHero()->getSkill()->getArmyDefenseBonus();
+            $armyDefense += $contract->getHero()->getSkill()->getArmyDefenseBonus() * $contract->getLevel();
         }
         return min(self::ARMYDEFENSE_CAP, $armyDefense);
     }
@@ -1118,7 +1118,7 @@ class Player
             if ($item->getArtifact()->getLegendary()) $summon += $item->getArtifact()->getSkill()->getSummonBonus();
         }
         foreach ($this->contracts as $contract) {
-            $summon += $contract->getHero()->getSkill()->getSummonBonus();
+            $summon += $contract->getHero()->getSkill()->getSummonBonus() * $contract->getLevel();
         }
         return $summon;
     }

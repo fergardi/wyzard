@@ -66,10 +66,10 @@ class Auction
     private $recipe = null;
 
     /**
-     * @ORM\OneToOne(targetEntity="Map")
-     * @ORM\JoinColumn(name="map", referencedColumnName="id", nullable=true)
+     * @ORM\OneToOne(targetEntity="Quest")
+     * @ORM\JoinColumn(name="quest", referencedColumnName="id", nullable=true)
      **/
-    private $map = null;
+    private $quest = null;
 
     /**
      * @ORM\ManyToOne(targetEntity="Player")
@@ -250,26 +250,26 @@ class Auction
     }
 
     /**
-     * Set map
+     * Set quest
      *
-     * @param \Archmage\GameBundle\Entity\Map $map
+     * @param \Archmage\GameBundle\Entity\Quest $quest
      * @return Auction
      */
-    public function setMap(\Archmage\GameBundle\Entity\Map $map = null)
+    public function setQuest(\Archmage\GameBundle\Entity\Quest $quest = null)
     {
-        $this->map = $map;
+        $this->quest = $quest;
 
         return $this;
     }
 
     /**
-     * Get map
+     * Get quest
      *
-     * @return \Archmage\GameBundle\Entity\Map
+     * @return \Archmage\GameBundle\Entity\Quest
      */
-    public function getMap()
+    public function getQuest()
     {
-        return $this->map;
+        return $this->quest;
     }
 
     /**
@@ -306,8 +306,8 @@ class Auction
         if ($this->getItem()) return $this->getItem()->getArtifact()->getName();
         if ($this->getContract()) return $this->getContract()->getHero()->getName();
         if ($this->getResearch()) return $this->getResearch()->getSpell()->getName();
-        if ($this->getRecipe()) return 'Receta';
-        if ($this->getMap()) return 'Mapa';
+        if ($this->getRecipe()) return $this->getRecipe()->getName();
+        if ($this->getQuest()) return $this->getQuest()->getName();
         return '';
     }
 
@@ -323,7 +323,7 @@ class Auction
         if ($this->getContract()) return $this->getContract()->getHero()->getFaction()->getClass();
         if ($this->getResearch()) return $this->getResearch()->getSpell()->getFaction()->getClass();
         if ($this->getRecipe()) return $this->getRecipe()->getClass();
-        if ($this->getMap()) return $this->getMap()->getClass();
+        if ($this->getQuest()) return $this->getQuest()->getClass();
         return '';
     }
 }

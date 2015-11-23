@@ -41,10 +41,10 @@ class Troop
     private $player = null;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Map", inversedBy="troops")
-     * @ORM\JoinColumn(name="map", referencedColumnName="id", nullable=true)
+     * @ORM\ManyToOne(targetEntity="Quest", inversedBy="troops")
+     * @ORM\JoinColumn(name="quest", referencedColumnName="id", nullable=true)
      **/
-    private $map = null;
+    private $quest = null;
 
 
     /**
@@ -127,26 +127,26 @@ class Troop
     }
 
     /**
-     * Set map
+     * Set quest
      *
-     * @param \Archmage\GameBundle\Entity\Map $map
+     * @param \Archmage\GameBundle\Entity\Quest $quest
      * @return Troop
      */
-    public function setMap(\Archmage\GameBundle\Entity\Map $map = null)
+    public function setQuest(\Archmage\GameBundle\Entity\Quest $quest = null)
     {
-        $this->map = $map;
+        $this->quest = $quest;
 
         return $this;
     }
 
     /**
-     * Get map
+     * Get quest
      *
-     * @return \Archmage\GameBundle\Entity\Map 
+     * @return \Archmage\GameBundle\Entity\Quest
      */
-    public function getMap()
+    public function getQuest()
     {
-        return $this->map;
+        return $this->quest;
     }
 
     /*
@@ -154,7 +154,7 @@ class Troop
      */
 
     /**
-     * Get map
+     * Get power
      *
      * @return integer
      */

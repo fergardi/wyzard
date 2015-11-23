@@ -16,7 +16,7 @@ use Archmage\GameBundle\Entity\Item;
 use Archmage\GameBundle\Entity\Unit;
 use Archmage\GameBundle\Entity\Artifact;
 use Archmage\GameBundle\Entity\Message;
-use Archmage\GameBundle\Entity\Map;
+use Archmage\GameBundle\Entity\Quest;
 use Archmage\GameBundle\Entity\Recipe;
 use Archmage\GameBundle\Entity\Contract;
 
@@ -569,53 +569,33 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'No has encontrado nada.');
             }
-        } elseif ($spell->getSkill()->getMapBonus() > 0) {
+        } elseif ($spell->getSkill()->getQuestBonus() > 0) {
             //MAP
             $maxchance = $spell->getSkill()->getMapBonus() * $player->getMagic();
             $chance = rand(0,99);
             if ($chance < $maxchance) {
                 $level = rand(1,3);
-                switch ($level) {
-                    case 1:
-                        $rarity = 0;
-                        $max = 1;
-                        $image = 'easy';
-                        break;
-                    case 2:
-                        $rarity = 50;
-                        $max = 3;
-                        $image = 'medium';
-                        break;
-                    case 3:
-                        $rarity = 99;
-                        $max = 5;
-                        $image = 'hard';
-                        break;
-                }
                 $criteria = new Criteria();
-                $criteria->where($criteria->expr()->lte('rarity', $rarity));
+                $criteria->where($criteria->expr()->lte('rarity', $level * 33));
                 $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
                 shuffle($artifacts);
                 $artifact = $artifacts[0];
-                $map = new Map();
-                $manager->persist($map);
-                $map->setGold(rand(1000000,20000000));
-                $map->setArtifact($artifact);
-                $map->setImage($image);
-                $map->setPlayer($player);
+                $quest = new Quest();
+                $manager->persist($quest);
+                $quest->setArtifact($artifact);
                 $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
                 shuffle($units);
-                for ($i = 0; $i < $max; $i++) {
+                for ($i = 0; $i < $level; $i++) {
                     $unit = $units[$i];
                     $troop = new Troop();
                     $manager->persist($troop);
                     $troop->setUnit($unit);
                     $troop->setQuantity(500000 / $unit->getPower());
-                    $troop->setMap($map);
-                    $map->addTroop($troop);
+                    $troop->setQuest($quest);
+                    $quest->addTroop($troop);
                 }
-                $player->addMap($map);
-                $this->addFlash('success', 'Has descubierto un nuevo <span class="label label-map"><a href="'.$this->generateUrl('archmage_game_army_quest').'" class="link">Mapa</a></span>.');
+                $player->addQuest($quest);
+                $this->addFlash('success', 'Has descubierto una nueva <span class="label label-quest"><a href="'.$this->generateUrl('archmage_game_army_quest').'" class="link">Aventura</a></span>.');
             } else {
                 $this->addFlash('danger', 'No has descubierto nada.');
             }

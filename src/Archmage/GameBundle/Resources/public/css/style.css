@@ -276,7 +276,7 @@ body {
 .panel-default > .panel-footer {
     background-color: #3E444C;
 }
-.alert-map {
+.alert-quest {
     background-color: #FF5A00;
 }
 .panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
@@ -287,7 +287,7 @@ body {
     background-color: #5e230d;
     border-color: #000;
 }
-.panel-map > .panel-heading, .panel-map > .panel-footer, .label-map {
+.panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest {
     background-color: darkgoldenrod;
     border-color: #000;
 }

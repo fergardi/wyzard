@@ -219,11 +219,11 @@ class ArmyController extends Controller
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
             $turns = 5;
-            $map = isset($_POST['map'])?$_POST['map']:null;
+            $quest = isset($_POST['quest'])?$_POST['quest']:null;
             if ($turns <= $player->getTurns()) {
                 if ($player->getUnits() > 0) {
-                    $map = $manager->getRepository('ArchmageGameBundle:Map')->findOneById($map);
-                    if ($map) {
+                    $quest = $manager->getRepository('ArchmageGameBundle:Quest')->findOneById($quest);
+                    if ($quest) {
                         /*
                         * MANTENIMIENTO
                         */
@@ -233,10 +233,10 @@ class ArmyController extends Controller
                          * ACCION
                          */
                         $report = null;
-                        $report = $this->attackMap($map);
-                        $player->removeMap($map);
-                        $manager->remove($map);
-                        $this->addFlash('success', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar usando un <span class="label label-map">Mapa</span>.');
+                        $report = $this->attackMap($quest);
+                        $player->removeMap($quest);
+                        $manager->remove($quest);
+                        $this->addFlash('success', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar usando una <span class="label label-quest">Aventura</span>.');
                         /*
                          * PERSISTENCIA
                          */
@@ -262,7 +262,7 @@ class ArmyController extends Controller
     /**
      * attackMap, battle only
      */
-    public function attackMap($map) {
+    public function attackMap($quest) {
         $player = $this->getUser()->getPlayer();
         $manager = $this->getDoctrine()->getManager();
         //ATTACKER
@@ -293,7 +293,7 @@ class ArmyController extends Controller
         }
         //DEFENDER
         $defenderArmy = array();
-        foreach ($map->getTroops() as $troop) {
+        foreach ($quest->getTroops() as $troop) {
             //base bonuses
             $attackBonus = 1;
             $defenseBonus = 1;
@@ -359,7 +359,7 @@ class ArmyController extends Controller
                 $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', $this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> atacan con '.$this->get('service.controller')->nf($attackerAttack).' Ataque a '.$this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> con '.$this->get('service.controller')->nf($defenderDefense).' Defensa, matando a '.$this->get('service.controller')->nf($defenderCasualties).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span>.');
                 //defensor => atacante
                 $attackerCasualties = min($attackerQuantity, (int)round($defenderAttack / $attackerTroop->getUnit()->getDefense() * $attackerDefenseBonus));
-                $text[] = array('map', 11, 1, 'center', $this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> atacan con '.$this->get('service.controller')->nf($defenderAttack).' Ataque a '.$this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> con '.$this->get('service.controller')->nf($attackerDefense).' Defensa, matando a '.$this->get('service.controller')->nf($attackerCasualties).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span>.');
+                $text[] = array('quest', 11, 1, 'center', $this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> atacan con '.$this->get('service.controller')->nf($defenderAttack).' Ataque a '.$this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> con '.$this->get('service.controller')->nf($attackerDefense).' Defensa, matando a '.$this->get('service.controller')->nf($attackerCasualties).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span>.');
                 //modifico por referencia
                 $attackerQuantity -= $attackerCasualties;
                 $defenderQuantity -= $defenderCasualties;
@@ -373,13 +373,13 @@ class ArmyController extends Controller
                 $defenderQuantity -= $defenderCasualties;
                 if ($defenderQuantity <= 0) {
                     //no puede contraatacar porque no quedan tropas vivas
-                    $text[] = array('map', 11, 1, 'center', 'Han muerto todos las tropas de <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span>, por lo que no pueden contraatacar.');
+                    $text[] = array('quest', 11, 1, 'center', 'Han muerto todos las tropas de <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span>, por lo que no pueden contraatacar.');
                 } else {
                     //recalculamos ataque del defensor por si ha sufrido bajas
                     $defenderAttack = $defenderTroop->getUnit()->getAttack() * $defenderQuantity * $defenderAttackBonus;
                     //defensor => atacante
                     $attackerCasualties = min($attackerQuantity, (int)round($defenderAttack / $attackerTroop->getUnit()->getDefense() * $attackerDefenseBonus));
-                    $text[] = array('map', 11, 1, 'center', $this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> atacan con '.$this->get('service.controller')->nf($defenderAttack).' Ataque a '.$this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> con '.$this->get('service.controller')->nf($attackerDefense).' Defensa, matando a '.$this->get('service.controller')->nf($attackerCasualties).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span>.');
+                    $text[] = array('quest', 11, 1, 'center', $this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> atacan con '.$this->get('service.controller')->nf($defenderAttack).' Ataque a '.$this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> con '.$this->get('service.controller')->nf($attackerDefense).' Defensa, matando a '.$this->get('service.controller')->nf($attackerCasualties).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span>.');
                     //modifico por referencia
                     $attackerQuantity -= $attackerCasualties;
                 }
@@ -388,7 +388,7 @@ class ArmyController extends Controller
                 //atacante menor velocidad que defensor, defensor ataca primero
                 //defensor => atacante
                 $attackerCasualties = min($attackerQuantity, (int)round($defenderAttack / $attackerTroop->getUnit()->getDefense() * $attackerDefenseBonus));
-                $text[] = array('map', 11, 1, 'center', $this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> atacan con '.$this->get('service.controller')->nf($defenderAttack).' Ataque a '.$this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> con '.$this->get('service.controller')->nf($attackerDefense).' Defensa, matando a '.$this->get('service.controller')->nf($attackerCasualties).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span>.');
+                $text[] = array('quest', 11, 1, 'center', $this->get('service.controller')->nf($defenderQuantity).' <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> atacan con '.$this->get('service.controller')->nf($defenderAttack).' Ataque a '.$this->get('service.controller')->nf($attackerQuantity).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> con '.$this->get('service.controller')->nf($attackerDefense).' Defensa, matando a '.$this->get('service.controller')->nf($attackerCasualties).' <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span>.');
                 //modifico por referencia
                 $attackerQuantity -= $attackerCasualties;
                 if ($attackerQuantity <= 0) {
@@ -420,7 +420,7 @@ class ArmyController extends Controller
         foreach ($defenderArmy as $row) {
             $row[0]->setQuantity($row[1]);
             if ($troop->getQuantity() <= 0) {
-                $map->removeTroop($troop);
+                $quest->removeTroop($troop);
                 $manager->remove($troop);
             } else {
                 $wipe = true;
@@ -429,20 +429,20 @@ class ArmyController extends Controller
         $text[] = array('default', 12, 0, 'center', 'Fin del ataque.');
         if (!$wipe) {
             $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has vencido al ejército enemigo y has obtenido la recompensa!');
-            $player->setGold($player->getGold() + $map->getGold());
+            $player->setGold($player->getGold() + $quest->getGold());
             $player->setRunes($player->getRunes() + 1);
-            $item = $player->hasArtifact($map->getArtifact());
+            $item = $player->hasArtifact($quest->getArtifact());
             if ($item) {
                 $item->setQuantity($item->getQuantity() + 1);
             } else {
                 $item = new Item();
                 $manager->persist($item);
-                $item->setArtifact($map->getArtifact());
+                $item->setArtifact($quest->getArtifact());
                 $item->setQuantity(1);
                 $item->setPlayer($player);
                 $player->addItem($item);
             }
-            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has ganado '.$this->get('service.controller')->nff($map->getGold()).' <span class="label label-extra">Oro</span>.');
+            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has ganado '.$this->get('service.controller')->nff($quest->getGold()).' <span class="label label-extra">Oro</span>.');
             $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has ganado 1 <span class="label label-rune">Runa</span>.');
             $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has encontrado el Artefacto <span class="label label-' . $item->getArtifact()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
             //ganamos experiencia con todos nuestros heroes

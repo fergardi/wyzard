@@ -164,9 +164,9 @@ class Skill
     /**
      * @var integer
      *
-     * @ORM\Column(name="mapBonus", type="smallint", nullable=false)
+     * @ORM\Column(name="questBonus", type="smallint", nullable=false)
      */
-    private $mapBonus = 0;
+    private $questBonus = 0;
 
     /**
      * @var integer
@@ -728,26 +728,26 @@ class Skill
     }
 
     /**
-     * Set mapBonus
+     * Set questBonus
      *
-     * @param integer $mapBonus
+     * @param integer $questBonus
      * @return Skill
      */
-    public function setMapBonus($mapBonus)
+    public function setQuestBonus($questBonus)
     {
-        $this->mapBonus = $mapBonus;
+        $this->questBonus = $questBonus;
 
         return $this;
     }
 
     /**
-     * Get mapBonus
+     * Get questBonus
      *
      * @return integer
      */
-    public function getMapBonus()
+    public function getQuestBonus()
     {
-        return $this->mapBonus;
+        return $this->questBonus;
     }
 
     /**

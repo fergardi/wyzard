@@ -4,7 +4,6 @@ namespace Archmage\GameBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Archmage\GameBundle\Entity\Spell;
 
 /**
  * Player
@@ -187,13 +186,13 @@ class Player
     private $enchantmentsVictim;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Map")
-     * @ORM\JoinTable(name="PlayerMap",
+     * @ORM\ManyToMany(targetEntity="Quest")
+     * @ORM\JoinTable(name="PlayerQuest",
      *      joinColumns={@ORM\JoinColumn(name="player_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="map_id", referencedColumnName="id")}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="quest_id", referencedColumnName="id")}
      *      )
      **/
-    private $maps;
+    private $quests;
 
     /**
      * @ORM\ManyToMany(targetEntity="Recipe")
@@ -853,36 +852,36 @@ class Player
     }
 
     /**
-     * Add map
+     * Add quest
      *
-     * @param \Archmage\GameBundle\Entity\Recipe $map
+     * @param \Archmage\GameBundle\Entity\Recipe $quest
      * @return Player
      */
-    public function addMap(\Archmage\GameBundle\Entity\Map $map)
+    public function addQuest(\Archmage\GameBundle\Entity\Quest $quest)
     {
-        $this->maps[] = $map;
+        $this->quests[] = $quest;
 
         return $this;
     }
 
     /**
-     * Remove map
+     * Remove quest
      *
-     * @param \Archmage\GameBundle\Entity\Map $map
+     * @param \Archmage\GameBundle\Entity\Quest $quest
      */
-    public function removeMap(\Archmage\GameBundle\Entity\Map $map)
+    public function removeQuest(\Archmage\GameBundle\Entity\Quest $quest)
     {
-        $this->maps->removeElement($map);
+        $this->quests->removeElement($quest);
     }
 
     /**
-     * Get maps
+     * Get quests
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getMaps()
+    public function getQuests()
     {
-        return $this->maps;
+        return $this->quests;
     }
 
     /**

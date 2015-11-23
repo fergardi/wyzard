@@ -2,16 +2,16 @@
 
 namespace Archmage\GameBundle\Controller;
 
-use Proxies\__CG__\Archmage\GameBundle\Entity\Enchantment;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Collections\Criteria;
 use Archmage\GameBundle\Entity\Item;
-use Archmage\GameBundle\Entity\Map;
+use Archmage\GameBundle\Entity\Enchantment;
+use Archmage\GameBundle\Entity\Quest;
 use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Recipe;
-use Doctrine\Common\Collections\Criteria;
 
 class KingdomController extends Controller
 {
@@ -294,49 +294,30 @@ class KingdomController extends Controller
                     $player->setConstruction('Tierras', $player->getFree() + $skill->getTerrainBonus());
                     $this->addFlash('success', 'Has gastado '.$rune->getCost().' <span class="label label-rune">Runas</span> y generado '.$this->get('service.controller')->nff($free).' <span class="label label-extra">Tierras</span>.');
                 }
-                if ($skill->getMapBonus() > 0) {
+                if ($skill->getQuestBonus() > 0) {
+                    //QUEST
                     $level = rand(1,3);
-                    switch ($level) {
-                        case 1:
-                            $rarity = 0;
-                            $max = 1;
-                            $image = 'easy';
-                            break;
-                        case 2:
-                            $rarity = 50;
-                            $max = 3;
-                            $image = 'medium';
-                            break;
-                        case 3:
-                            $rarity = 99;
-                            $max = 5;
-                            $image = 'hard';
-                            break;
-                    }
                     $criteria = new Criteria();
-                    $criteria->where($criteria->expr()->lte('rarity', $rarity));
+                    $criteria->where($criteria->expr()->lte('rarity', $level * 33));
                     $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
                     shuffle($artifacts);
                     $artifact = $artifacts[0];
-                    $map = new Map();
-                    $manager->persist($map);
-                    $map->setGold(rand(1000000,20000000));
-                    $map->setArtifact($artifact);
-                    $map->setImage($image);
+                    $quest = new Quest();
+                    $manager->persist($quest);
+                    $quest->setArtifact($artifact);
                     $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
                     shuffle($units);
-                    for ($i = 0; $i < $max; $i++) {
+                    for ($i = 0; $i < $level; $i++) {
                         $unit = $units[$i];
                         $troop = new Troop();
                         $manager->persist($troop);
                         $troop->setUnit($unit);
                         $troop->setQuantity(500000 / $unit->getPower());
-                        $troop->setMap($map);
-                        $map->addTroop($troop);
+                        $troop->setQuest($quest);
+                        $quest->addTroop($troop);
                     }
-                    $map->setPlayer($player);
-                    $player->addMap($map);
-                    $this->addFlash('success', 'Has encontrado un nuevo <span class="label label-map"><a href="'.$this->generateUrl('archmage_game_army_quest').'" class="link">Mapa</a></span>.');
+                    $player->addQuest($quest);
+                    $this->addFlash('success', 'Has descubierto una nueva <span class="label label-quest"><a href="'.$this->generateUrl('archmage_game_army_quest').'" class="link">Aventura</a></span>.');
                 }
                 if ($skill->getRecipeBonus() > 0) {
                     $criteria = new Criteria();

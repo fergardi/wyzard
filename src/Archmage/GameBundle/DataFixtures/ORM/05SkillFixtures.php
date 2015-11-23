@@ -1073,9 +1073,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //SAQUEAR
         $skill = new Skill();
         $skill->setName('Saquear');
-        $skill->setMapBonus(15);
+        $skill->setQuestBonus(15);
         $skill->setSelf(true);
-        $skill->setDescription('+'.$skill->getMapBonus().'% por <i class="fa fa-fw fa-magic"></i> de descubrir un nuevo <span class="label label-map">Mapa</span>');
+        $skill->setDescription('+'.$skill->getQuestBonus().'% por <i class="fa fa-fw fa-magic"></i> de descubrir un nuevo <span class="label label-map">Mapa</span>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1634,8 +1634,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //MAPAS
         $skill = new Skill();
         $skill->setName('Runa de Mapas');
-        $skill->setMapBonus(1);
-        $skill->setDescription('Genera '.$this->container->get('service.controller')->nff($skill->getMapBonus()).' <span class="label label-extra">Mapa</span> al azar');
+        $skill->setQuestBonus(1);
+        $skill->setDescription('Genera '.$this->container->get('service.controller')->nff($skill->getQuestBonus()).' <span class="label label-extra">Mapa</span> al azar');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

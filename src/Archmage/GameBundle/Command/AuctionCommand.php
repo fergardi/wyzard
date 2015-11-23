@@ -13,7 +13,7 @@ use Archmage\GameBundle\Entity\Contract;
 use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Research;
 use Archmage\GameBundle\Entity\Auction;
-use Archmage\GameBundle\Entity\Map;
+use Archmage\GameBundle\Entity\Quest;
 use Archmage\GameBundle\Entity\Recipe;
 
 class AuctionCommand extends ContainerAwareCommand
@@ -51,7 +51,7 @@ class AuctionCommand extends ContainerAwareCommand
             $troop = $auction->getTroop();
             $contract = $auction->getContract();
             $research = $auction->getResearch();
-            $map = $auction->getMap();
+            $quest = $auction->getQuest();
             $recipe = $auction->getRecipe();
             $text = array();
             if ($winner) {
@@ -92,9 +92,9 @@ class AuctionCommand extends ContainerAwareCommand
                         $text[] = array('default', 12, 0, 'center', 'Ya tienes ese hechizo, pero no puedes tener duplicados, por lo que se ha perdido automáticamente.');
                         $manager->remove($research);
                     }
-                } elseif ($map) {
-                    $map->setPlayer($winner);
-                    $winner->addMap($map);
+                } elseif ($quest) {
+                    $quest->setPlayer($winner);
+                    $winner->addQuest($quest);
                 } elseif ($recipe) {
                     $recipe->setPlayer($winner);
                     $winner->addRecipe($recipe);
@@ -112,7 +112,7 @@ class AuctionCommand extends ContainerAwareCommand
                 if ($auction->getResearch()) $manager->remove($auction->getResearch());
                 if ($auction->getTroop()) $manager->remove($auction->getTroop());
                 if ($auction->getContract()) $manager->remove($auction->getContract());
-                if ($auction->getMap()) $manager->remove($auction->getMap());
+                if ($auction->getQuest()) $manager->remove($auction->getQuest());
                 if ($auction->getRecipe()) $manager->remove($auction->getRecipe());
             }
             $manager->remove($auction);
@@ -175,55 +175,33 @@ class AuctionCommand extends ContainerAwareCommand
         $auction->setTop($unit->getGoldAuction());
         $manager->persist($auction);
 
-        //MAP
+        //QUEST
         $level = rand(1,3);
-        switch ($level) {
-            case 1:
-                $rarity = 0;
-                $max = 1;
-                $price = 1000000;
-                $image = 'easy';
-                break;
-            case 2:
-                $rarity = 50;
-                $max = 3;
-                $price = 3000000;
-                $image = 'medium';
-                break;
-            case 3:
-                $rarity = 100;
-                $max = 5;
-                $price = 5000000;
-                $image = 'hard';
-                break;
-        }
         $criteria = new Criteria();
-        $criteria->where($criteria->expr()->lte('rarity', $rarity));
+        $criteria->where($criteria->expr()->lte('rarity', $level * 33));
         $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
         shuffle($artifacts);
         $artifact = $artifacts[0];
         $auction = new Auction();
         $manager->persist($auction);
-        $map = new Map();
-        $manager->persist($map);
-        $map->setGold(rand(1000000,20000000));
-        $map->setArtifact($artifact);
-        $map->setImage($image);
+        $quest = new Quest();
+        $manager->persist($quest);
+        $quest->setArtifact($artifact);
         $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
         shuffle($units);
-        for ($i = 0; $i < $max; $i++) {
+        for ($i = 0; $i < $level; $i++) {
             $unit = $units[$i];
             $troop = new Troop();
             $manager->persist($troop);
             $troop->setUnit($unit);
             $troop->setQuantity(500000 / $unit->getPower());
-            $troop->setMap($map);
-            $map->addTroop($troop);
+            $troop->setQuest($quest);
+            $quest->addTroop($troop);
         }
         $auction->setPlayer(null);
-        $auction->setMap($map);
-        $auction->setBid($price);
-        $auction->setTop($price);
+        $auction->setQuest($quest);
+        $auction->setBid(2000000 * $level);
+        $auction->setTop(2000000 * $level);
 
         //CONTRACT
         $criteria = new Criteria();

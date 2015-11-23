@@ -6,12 +6,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Map
+ * Quest
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Archmage\GameBundle\Repository\MapRepository")
+ * @ORM\Entity(repositoryClass="Archmage\GameBundle\Repository\QuestRepository")
  */
-class Map
+class Quest
 {
     /**
      * @var integer
@@ -21,6 +21,13 @@ class Map
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", nullable=false)
+     */
+    private $name = 'Mapa de Aventura';
 
     /**
      * @var integer
@@ -34,7 +41,7 @@ class Map
      *
      * @ORM\Column(name="class", type="string", nullable=false)
      */
-    private $class = 'map';
+    private $class = 'quest';
 
     /**
      * @var string
@@ -50,7 +57,7 @@ class Map
     private $artifact;
 
     /**
-     * @ORM\OneToMany(targetEntity="Troop", mappedBy="map", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="Troop", mappedBy="quest", cascade={"remove"})
      **/
     private $troops;
 
@@ -66,13 +73,17 @@ class Map
      */
     public function __construct()
     {
-        $this->troops = new \Doctrine\Common\Collections\ArrayCollection();
+        $images = array('tower', 'castle', 'sea', 'desert', 'cemetery');
+        $this->image = 'bundles/archmagegame/images/quest/'.$images[array_rand($images)].'.jpg';
+        $this->troops = new ArrayCollection();
+        $this->gold = rand(1000000, 10000000);
+        $this->name = 'Mapa de Aventura';
     }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
@@ -80,10 +91,33 @@ class Map
     }
 
     /**
+     * Set name
+     *
+     * @param string $name
+     * @return Quest
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * Set gold
      *
      * @param integer $gold
-     * @return Map
+     * @return Quest
      */
     public function setGold($gold)
     {
@@ -95,7 +129,7 @@ class Map
     /**
      * Get gold
      *
-     * @return integer
+     * @return integer 
      */
     public function getGold()
     {
@@ -106,7 +140,7 @@ class Map
      * Set class
      *
      * @param string $class
-     * @return Map
+     * @return Quest
      */
     public function setClass($class)
     {
@@ -118,7 +152,7 @@ class Map
     /**
      * Get class
      *
-     * @return string
+     * @return string 
      */
     public function getClass()
     {
@@ -126,10 +160,33 @@ class Map
     }
 
     /**
+     * Set image
+     *
+     * @param string $image
+     * @return Quest
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
      * Set artifact
      *
      * @param \Archmage\GameBundle\Entity\Artifact $artifact
-     * @return Map
+     * @return Quest
      */
     public function setArtifact(\Archmage\GameBundle\Entity\Artifact $artifact)
     {
@@ -141,7 +198,7 @@ class Map
     /**
      * Get artifact
      *
-     * @return \Archmage\GameBundle\Entity\Artifact
+     * @return \Archmage\GameBundle\Entity\Artifact 
      */
     public function getArtifact()
     {
@@ -152,7 +209,7 @@ class Map
      * Add troops
      *
      * @param \Archmage\GameBundle\Entity\Troop $troops
-     * @return Map
+     * @return Quest
      */
     public function addTroop(\Archmage\GameBundle\Entity\Troop $troops)
     {
@@ -174,7 +231,7 @@ class Map
     /**
      * Get troops
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getTroops()
     {
@@ -185,7 +242,7 @@ class Map
      * Set player
      *
      * @param \Archmage\GameBundle\Entity\Player $player
-     * @return Map
+     * @return Quest
      */
     public function setPlayer(\Archmage\GameBundle\Entity\Player $player = null)
     {
@@ -197,33 +254,10 @@ class Map
     /**
      * Get player
      *
-     * @return \Archmage\GameBundle\Entity\Player
+     * @return \Archmage\GameBundle\Entity\Player 
      */
     public function getPlayer()
     {
         return $this->player;
-    }
-
-    /**
-     * Set image
-     *
-     * @param string $image
-     * @return Map
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string
-     */
-    public function getImage()
-    {
-        return $this->image;
     }
 }

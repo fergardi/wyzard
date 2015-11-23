@@ -22,6 +22,13 @@ class Recipe
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", nullable=false)
+     */
+    private $name = 'Receta de Alquimia';
+
+    /**
      * @ORM\ManyToOne(targetEntity="Artifact")
      * @ORM\JoinColumn(name="first", referencedColumnName="id", nullable=false)
      **/
@@ -63,11 +70,34 @@ class Recipe
     /**
      * Get id
      *
-     * @return integer
+     * @return integer 
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Recipe
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -86,7 +116,7 @@ class Recipe
     /**
      * Get gold
      *
-     * @return integer
+     * @return integer 
      */
     public function getGold()
     {
@@ -109,7 +139,7 @@ class Recipe
     /**
      * Get class
      *
-     * @return string
+     * @return string 
      */
     public function getClass()
     {
@@ -132,7 +162,7 @@ class Recipe
     /**
      * Get first
      *
-     * @return \Archmage\GameBundle\Entity\Artifact
+     * @return \Archmage\GameBundle\Entity\Artifact 
      */
     public function getFirst()
     {
@@ -155,7 +185,7 @@ class Recipe
     /**
      * Get second
      *
-     * @return \Archmage\GameBundle\Entity\Artifact
+     * @return \Archmage\GameBundle\Entity\Artifact 
      */
     public function getSecond()
     {
@@ -178,7 +208,7 @@ class Recipe
     /**
      * Get result
      *
-     * @return \Archmage\GameBundle\Entity\Artifact
+     * @return \Archmage\GameBundle\Entity\Artifact 
      */
     public function getResult()
     {
@@ -201,7 +231,7 @@ class Recipe
     /**
      * Get player
      *
-     * @return \Archmage\GameBundle\Entity\Player
+     * @return \Archmage\GameBundle\Entity\Player 
      */
     public function getPlayer()
     {

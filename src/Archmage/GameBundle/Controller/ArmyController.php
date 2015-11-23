@@ -121,7 +121,7 @@ class ArmyController extends Controller
                             $broken = floor($target->getConstruction('Fortalezas')->getQuantity() * self::BROKEN / (float)100);
                             $target->setConstruction('Tierras', $target->getFree() + $broken);
                             $target->setConstruction('Fortalezas', max(0, $target->getConstruction('Fortalezas')->getQuantity() - $broken));
-                            $this->addFlash('danger', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar, pero no has conseguido traspasar la <span class="label label-extra">Defensa Física</span> de <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span>, aunque le has destruido <span class="label label-extra">Fortalezas</span>.');
+                            $this->addFlash('danger', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar, pero no has conseguido traspasar la <span class="label label-extra">Defensa Física</span> de <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span>, aunque le has destruido algunas <span class="label label-extra">Fortalezas</span>.');
                         }
                         /*
                          * PERSISTENCIA

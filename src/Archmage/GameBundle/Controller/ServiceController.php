@@ -78,7 +78,7 @@ class ServiceController extends Controller
         //ENCHANTMENTS
         foreach ($player->getEnchantmentsVictim() as $enchantment) {
             $skill = $enchantment->getSpell()->getSkill();
-            if ($skill->getTerrainBonus() < 0 || $skill->getPeopleBonus() < 0 || $skill->getManaBonus() < 0) {
+            if ($skill->getTerrainBonus() < 0 || $skill->getPeopleBonus() < 0 || $skill->getManaBonus() < 0 || $skill->getArmyDefenseBonus() < 0 || $skill->getMagicDefenseBonus() < 0) {
                 $this->addFlash('info', 'Recuerda que sobre tu Reino pesa el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>.');
             }
         }

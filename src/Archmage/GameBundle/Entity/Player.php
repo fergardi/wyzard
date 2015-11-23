@@ -1302,7 +1302,7 @@ class Player
         foreach ($this->enchantmentsVictim as $enchantment) {
             if ($enchantment->getSpell()->getSkill()->getTerrainBonus () < 0) $terrain += $enchantment->getSpell()->getSkill()->getTerrainBonus() * $enchantment->getOwner()->getMagic();
         }
-        return $terrain;
+        return abs($terrain);
     }
 
     /**

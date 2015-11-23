@@ -128,7 +128,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setDescription('Aumentan la <span class="label label-extra">Defensa Mágica</span> de tu reino.');
         $building->setLore('Caras pero efectivas, al menos contra la magia.');
         $building->setImage('bundles/archmagegame/images/building/barrier.jpg');
-        $building->setGoldCost(1000);
+        $building->setGoldCost(5000);
         $building->setPeopleCost(100);
         $building->setManaCost(2500);
         $building->setGoldMaintenance(60);
@@ -155,9 +155,9 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setDescription('Aumentan la <span class="label label-extra">Defensa Física</span> de tu reino.');
         $building->setLore('Caras pero efectivas, al menos contra los ataques.');
         $building->setImage('bundles/archmagegame/images/building/fortress.jpg');
-        $building->setGoldCost(2500);
-        $building->setPeopleCost(100);
-        $building->setManaCost(1000);
+        $building->setGoldCost(5000);
+        $building->setPeopleCost(2500);
+        $building->setManaCost(100);
         $building->setGoldMaintenance(60);
         $building->setPeopleMaintenance(40);
         $building->setManaMaintenance(20);

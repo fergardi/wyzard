@@ -573,6 +573,10 @@ class MagicController extends Controller
                 $troop = $troops[0]; //suponemos > 0
                 $casualties = floor($spell->getSkill()->getDamageBonus() * $player->getMagic() * $troop->getQuantity() / (float)100);
                 $troop->setQuantity($troop->getQuantity() + $casualties);
+                if ($troop->getQuantity() <= 0) {
+                    $target->removeTroop($troop);
+                    $manager->remove($troop);
+                }
                 $this->addFlash('success', 'Has matado '.$this->get('service.controller')->nff($casualties).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                 $text[] = array('default', 12, 0, 'center', 'Te han matado '.$this->get('service.controller')->nff($casualties).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
             } else {

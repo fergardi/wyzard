@@ -49,4 +49,13 @@ class HomeController extends Controller
     {
         return array();
     }
+
+    /**
+     * @Route("/about")
+     * @Template("ArchmageGameBundle:Home:about.html.twig")
+     */
+    public function aboutAction()
+    {
+        return array();
+    }
 }

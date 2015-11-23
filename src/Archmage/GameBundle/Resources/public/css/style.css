@@ -119,25 +119,26 @@ img.factions {
     width: 80%;
     margin-top: 5px;
 }
-/* Sticky footer styles
---------------------------------------------------
+/* sticky footer */
 html {
     position: relative;
     min-height: 100%;
 }
 body {
-    /* Margin bottom by footer height
     margin-bottom: 60px;
 }
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    /* Set the fixed height of the footer here
-    box-shadow: -10px -10px 20px #000;
+    box-shadow: -3px -3px 15px black;
     margin-bottom: 0;
 }
-*/
+.footer .navbar-text {
+    margin-left: 0;
+    width: 100%;
+}
+/* navbar */
 .navbar-right {
     margin-right: 0;
 }

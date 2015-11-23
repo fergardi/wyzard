@@ -23,6 +23,11 @@ use Archmage\GameBundle\Entity\Contract;
 class MagicController extends Controller
 {
     /**
+     * Constants
+     */
+    const BROKEN = 3;
+
+    /**
      * @Route("/game/magic/meditate")
      * @Template("ArchmageGameBundle:Magic:meditate.html.twig")
      */
@@ -189,7 +194,9 @@ class MagicController extends Controller
                                     $manager->persist($target);
                                     $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> y '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span> en conjurar <span class="label label-'.$research->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($research->getSpell()->getName()).'" class="link">'.$research->getSpell()->getName().'</a></span> sobre <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                                 } else {
-                                    $target->setConstruction('Barreras', floor($target->getConstruction('Barreras')->getQuantity() * 0.95));
+                                    $broken = floor($target->getConstruction('Barreras')->getQuantity() * self::BROKEN / (float)100);
+                                    $target->setConstruction('Tierras', $target->getFree() + $broken);
+                                    $target->setConstruction('Barreras', max(0, $target->getConstruction('Barreras')->getQuantity() - $broken));
                                     $this->addFlash('danger', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> y '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span> en conjurar <span class="label label-'.$research->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($research->getSpell()->getName()).'" class="link">'.$research->getSpell()->getName().'</a></span> sobre <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>, pero no has superado su <span class="label label-extra">Defesa Mágica</span>, aunque le has destruido <span class="label label-extra">Barreras</span>.');
                                 }
                             } else {
@@ -321,7 +328,9 @@ class MagicController extends Controller
                                 $manager->persist($target);
                                 $this->addFlash('success', 'Has gastado ' . $this->get('service.controller')->nff($turns) . ' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span> sobre <span class="label label-' . $target->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">' . $target->getNick() . '</a></span>.');
                             } else {
-                                $target->setConstruction('Barreras', floor($target->getConstruction('Barreras')->getQuantity() * 0.95));
+                                $broken = floor($target->getConstruction('Barreras')->getQuantity() * self::BROKEN / (float)100);
+                                $target->setConstruction('Tierras', $target->getFree() + $broken);
+                                $target->setConstruction('Barreras', max(0, $target->getConstruction('Barreras')->getQuantity() - $broken));
                                 $this->addFlash('danger', 'Has gastado ' . $this->get('service.controller')->nff($turns) . ' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span> sobre <span class="label label-' . $target->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">' . $target->getNick() . '</a></span>, pero no has superado su <span class="label label-extra">Defesa Mágica</span>, aunque le has destruido <span class="label label-extra">Barreras</span>.');
                             }
                         }
@@ -898,13 +907,14 @@ class MagicController extends Controller
             }
         } elseif ($artifact->getSkill()->getTerrainBonus() < 0) {
             //TERRAIN
-            $constructions = $target->getConstructions()->toArray();
-            shuffle($constructions);
-            $construction = $constructions[0]; //suponemos > 0
-            $destroyed = $artifact->getSkill()->getTerrainBonus() * $construction->getQuantity() / 100;
-            $construction->setQuantity($construction->getQuantity() + $destroyed);
-            $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nff($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
-            $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nff($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span>.');
+            $total = 0;
+            foreach ($target->getConstructions() as $construction) {
+                $destroyed = floor($artifact->getSkill()->getTerrainBonus() * $construction->getQuantity() / (float)100);
+                $construction->setQuantity($construction->getQuantity() + $destroyed);
+                $total += $destroyed;
+            }
+            $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nff($total).' <span class="label label-extra">Edificios</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
+            $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nff($total).' <span class="label label-extra">Edificios</span>.');
         } elseif ($artifact->getSkill()->getGoldBonus() < 0) {
             //GOLD
             $gold = $target->getGold() * $artifact->getSkill()->getGoldBonus() / (float)100;

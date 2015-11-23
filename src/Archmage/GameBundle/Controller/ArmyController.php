@@ -17,6 +17,7 @@ class ArmyController extends Controller
     /**
      * Const
      */
+    const BROKEN = 5;
     const STEAL_PERCENT = 5;
     const FACTION_BONUS = 20;
     const TYPE_BONUS = 20;
@@ -117,7 +118,9 @@ class ArmyController extends Controller
                             $manager->persist($target);
                             $this->addFlash('success', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar al mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span>.');
                         } else {
-                            $target->setConstruction('Fortalezas', floor($target->getConstruction('Fortalezas')->getQuantity() * 0.95));
+                            $broken = floor($target->getConstruction('Fortalezas')->getQuantity() * self::BROKEN / (float)100);
+                            $target->setConstruction('Tierras', $target->getFree() + $broken);
+                            $target->setConstruction('Fortalezas', max(0, $target->getConstruction('Fortalezas')->getQuantity() - $broken));
                             $this->addFlash('danger', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar, pero no has conseguido traspasar la <span class="label label-extra">Defensa Física</span> de <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span>, aunque le has destruido <span class="label label-extra">Fortalezas</span>.');
                         }
                         /*

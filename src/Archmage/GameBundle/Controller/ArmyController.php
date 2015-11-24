@@ -233,10 +233,10 @@ class ArmyController extends Controller
                          * ACCION
                          */
                         $report = null;
-                        $report = $this->attackMap($quest);
-                        $player->removeMap($quest);
+                        $report = $this->attackQuest($quest);
+                        $player->removeQuest($quest);
                         $manager->remove($quest);
-                        $this->addFlash('success', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en atacar usando una <span class="label label-quest">Aventura</span>.');
+                        $this->addFlash('success', 'Has gastado ' . $turns . ' <span class="label label-extra">Turnos</span> en comenzar una <span class="label label-quest">Aventura</span>.');
                         /*
                          * PERSISTENCIA
                          */
@@ -260,9 +260,9 @@ class ArmyController extends Controller
     }
 
     /**
-     * attackMap, battle only
+     * attackQuest, battle only
      */
-    public function attackMap($quest) {
+    public function attackQuest($quest) {
         $player = $this->getUser()->getPlayer();
         $manager = $this->getDoctrine()->getManager();
         //ATTACKER
@@ -443,7 +443,7 @@ class ArmyController extends Controller
                 $player->addItem($item);
             }
             $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has ganado '.$this->get('service.controller')->nff($quest->getGold()).' <span class="label label-extra">Oro</span>.');
-            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has ganado 1 <span class="label label-rune">Runa</span>.');
+            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has ganado 1 <span class="label label-rune"><a href="'.$this->generateUrl('archmage_game_kingdom_market').'" class="link">Runa</a></span>.');
             $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has encontrado el Artefacto <span class="label label-' . $item->getArtifact()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
             //ganamos experiencia con todos nuestros heroes
             foreach ($player->getContracts() as $contract) {
@@ -457,7 +457,7 @@ class ArmyController extends Controller
          * FIN
          */
         //mensaje al jugador
-        $redirect = $this->get('service.controller')->sendMessage($player, $player, 'Reporte de Mapa', $text, 'battle');
+        $redirect = $this->get('service.controller')->sendMessage($player, $player, 'Reporte de Aventura', $text, 'battle');
         //redirect to see message
         return $redirect;
     }

@@ -1579,7 +1579,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Runa de Telegram');
         $skill->setSpyBonus(100);
-        $skill->setDescription('Genera un código para recibir avisos por Telegram.');
+        $skill->setDescription('Genera un código para recibir avisos por <span class="label label-extra">Telegram</span>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1619,7 +1619,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Runa de Recetas');
         $skill->setRecipeBonus(1);
-        $skill->setDescription('Genera '.$this->container->get('service.controller')->nff($skill->getRecipeBonus()).' <span class="label label-extra">Receta</span> al azar');
+        $skill->setDescription('Genera '.$this->container->get('service.controller')->nff($skill->getRecipeBonus()).' <span class="label label-recipe">Receta</span> al azar');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1635,7 +1635,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Runa de Mapas');
         $skill->setQuestBonus(1);
-        $skill->setDescription('Genera '.$this->container->get('service.controller')->nff($skill->getQuestBonus()).' <span class="label label-extra">Mapa</span> al azar');
+        $skill->setDescription('Genera '.$this->container->get('service.controller')->nff($skill->getQuestBonus()).' <span class="label label-quest">Mapa</span> al azar');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

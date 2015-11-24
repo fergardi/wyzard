@@ -467,7 +467,7 @@ class MagicController extends Controller
             array('default', 12, 0, 'center', 'Tierras libres: '.$this->get('service.controller')->nff($target->getFree())),
             array('default', 12, 0, 'center', 'Héroes: '.$this->get('service.controller')->nff($target->getContracts()->count())),
             array('default', 12, 0, 'center', 'Artefactos: '.$this->get('service.controller')->nff($target->getArtifacts())),
-            array('default', 12, 0, 'center', 'Mapas: '.$this->get('service.controller')->nff($target->getMaps()->count())),
+            array('default', 12, 0, 'center', 'Mapas: '.$this->get('service.controller')->nff($target->getQuests()->count())),
             array('default', 12, 0, 'center', 'Recetas: '.$this->get('service.controller')->nff($target->getRecipes()->count())),
             array('default', 12, 0, 'center', 'Magia: '.$this->get('service.controller')->nff($target->getMagic())),
             array('default', 12, 0, 'center', 'Defensa Mágica: '.$this->get('service.controller')->nff($target->getMagicDefense()).'%'),
@@ -571,7 +571,7 @@ class MagicController extends Controller
             }
         } elseif ($spell->getSkill()->getQuestBonus() > 0) {
             //MAP
-            $maxchance = $spell->getSkill()->getMapBonus() * $player->getMagic();
+            $maxchance = $spell->getSkill()->getQuestBonus() * $player->getMagic();
             $chance = rand(0,99);
             if ($chance < $maxchance) {
                 $level = rand(1,3);

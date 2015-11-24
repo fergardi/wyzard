@@ -20,7 +20,7 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/quest.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar 5 <span class="label label-extra">Turnos</span> y un <span class="label label-quest">Mapa</span> para mandar a tus tropas a la batalla en busca de fortuna y gloria. En algunos casos incluso existe la probabilidad de encontrar un <span class="label label-legendary">Artefacto</span> legendario.</div>
+                            <div class="col-xs-12">Aquí puedes gastar 5 <span class="label label-extra">Turnos</span> y un <span class="label label-quest">Mapa</span> para mandar a tus tropas a la batalla en busca de <span class="label label-extra">Oro</span> y <span class="label label-rune">Runas</span>. En algunos casos incluso existe la probabilidad de encontrar un <span class="label label-legendary">Artefacto</span> legendario.</div>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
         {% else %}
         <div class="container">
             <div class="col-xs-12 alert alert-danger text-responsive text-center" role="alert">
-                <i class="fa fa-fw fa-exclamation-triangle"></i>Actualmente no tienes Aventuras en tu poder. Tal vez deberías comprar alguna en la <i class="fa fa-fw fa-legal"></i><a href="{{ path('archmage_game_kingdom_auction') }}">Subasta</a>.
+                <i class="fa fa-fw fa-exclamation-triangle"></i>Actualmente no tienes <span class="label label-quest">Mapas</span> en tu poder. Tal vez deberías comprar alguna en la <i class="fa fa-fw fa-legal"></i><a href="{{ path('archmage_game_kingdom_auction') }}">Subasta</a>.
             </div>
         </div>
         {% endfor %}

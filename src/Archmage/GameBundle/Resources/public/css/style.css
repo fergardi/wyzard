@@ -120,6 +120,7 @@ img.factions {
     margin-top: 5px;
 }
 /* sticky footer */
+/*
 html {
     position: relative;
     min-height: 100%;
@@ -138,6 +139,7 @@ body {
     margin-left: 0;
     width: 100%;
 }
+*/
 /* navbar */
 .navbar-right {
     margin-right: 0;
@@ -276,9 +278,6 @@ body {
 .panel-default > .panel-footer {
     background-color: #3E444C;
 }
-.alert-quest {
-    background-color: #FF5A00;
-}
 .panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
     background-color: #FF5A00;
     border-color: #000;
@@ -287,7 +286,7 @@ body {
     background-color: #5e230d;
     border-color: #000;
 }
-.panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest {
+.panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest, .alert-quest {
     background-color: darkgoldenrod;
     border-color: #000;
 }

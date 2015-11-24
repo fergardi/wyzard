@@ -846,7 +846,7 @@ class ArmyController extends Controller
                         $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> elimina '.$this->get('service.controller')->nff($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                     }
                     if ($skill->getResurrectionBonus() > 0) {
-                        $resurrection = floor(($attackerPower + $defenderPower) * $contract->getHero()->getLevel() * $contract->getHero()->getSkill()->getResurrectionBonus() / 100 / $skill->getUnit()->getPower());
+                        $resurrection = floor(($attackerPower + $defenderPower) * $contract->getLevel() * $contract->getHero()->getSkill()->getResurrectionBonus() / 100 / $skill->getUnit()->getPower());
                         $troop = $player->hasUnit($skill->getUnit());
                         if ($troop) {
                             $troop->setQuantity($troop->getQuantity() + $resurrection);
@@ -876,7 +876,7 @@ class ArmyController extends Controller
             $skill = $contract->getHero()->getSkill();
             if ($skill->getBattle()) {
                 if ($skill->getResurrectionBonus() > 0) {
-                    $resurrection = floor(($attackerPower + $defenderPower) * $contract->getHero()->getLevel() * $contract->getHero()->getSkill()->getResurrectionBonus() / 100 / $skill->getUnit()->getPower());
+                    $resurrection = floor(($attackerPower + $defenderPower) * $contract->getLevel() * $contract->getHero()->getSkill()->getResurrectionBonus() / 100 / $skill->getUnit()->getPower());
                     $troop = $player->hasUnit($skill->getUnit());
                     if ($troop) {
                         $troop->setQuantity($troop->getQuantity() + $resurrection);

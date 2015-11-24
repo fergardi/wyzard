@@ -209,7 +209,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> para investigar.');
         $building->setLore('Donde nace la magia. O al menos, donde se investiga.');
         $building->setImage('bundles/archmagegame/images/building/guild.jpg');
-        $building->setGoldCost(0);
+        $building->setGoldCost(1000);
         $building->setPeopleCost(100);
         $building->setManaCost(500);
         $building->setGoldMaintenance(3);
@@ -236,7 +236,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setDescription('Aumentan la cantidad de <span class="label label-extra">Tropas</span> invocadas.');
         $building->setLore('Borrachos y maleantes. Y tuyos, si les pagas bien.');
         $building->setImage('bundles/archmagegame/images/building/barrack.jpg');
-        $building->setGoldCost(0);
+        $building->setGoldCost(1000);
         $building->setPeopleCost(500);
         $building->setManaCost(0);
         $building->setGoldMaintenance(3);

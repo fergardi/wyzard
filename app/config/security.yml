@@ -26,7 +26,7 @@ security:
                 csrf_parameter: _csrf_token
                 post_only: true
                 always_use_default_target_path: true
-                default_target_path: /game/kingdom/summary
+                default_target_path: /patch
             remember_me:
                 key: "%secret%"
                 lifetime: 31536000

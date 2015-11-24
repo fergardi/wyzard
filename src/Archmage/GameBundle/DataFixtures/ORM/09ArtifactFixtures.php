@@ -14,15 +14,17 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function load(ObjectManager $manager)
     {
-        //BRUJULA MAGICA
+        //COFRE DEL TESORO
         $artifact = new Artifact();
-        $artifact->setName('Brújula Mágica');
-        $artifact->setImage('bundles/archmagegame/images/artifact/magiccompass.jpg');
-        $artifact->setSkill($this->getReference('Brújula Mágica'));
-        $artifact->setLore('Cómo que nos hemos perdido?! Cómo que no señala al norte?!');
-        $artifact->setGoldAuction(1000000);
+        $artifact->setName('Cofre del Tesoro');
+        $artifact->setImage('bundles/archmagegame/images/artifact/treasurechest.jpg');
+        $artifact->setSkill($this->getReference('Cofre del Tesoro'));
+        $artifact->setLore('Qué contendrá? Oro? Piedras preciosas? Caramelos?');
+        $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -34,19 +36,9 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Escribe los nombres y nosotros haremos el resto.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //COFRE DEL TESORO
-        $artifact = new Artifact();
-        $artifact->setName('Cofre del Tesoro');
-        $artifact->setImage('bundles/archmagegame/images/artifact/treasurechest.jpg');
-        $artifact->setSkill($this->getReference('Cofre del Tesoro'));
-        $artifact->setLore('Qué contendrá? Oro? Piedras preciosas? Caramelos?');
-        $artifact->setGoldAuction(1000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -58,19 +50,9 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Marca las casas y nosotros haremos el resto.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //POCION DE MANA
-        $artifact = new Artifact();
-        $artifact->setName('Poción de Maná');
-        $artifact->setImage('bundles/archmagegame/images/artifact/manapotion.jpg');
-        $artifact->setSkill($this->getReference('Poción de Maná'));
-        $artifact->setLore('Deliciosa y refrescante. Perfecta para resistir asedios enemigos!');
-        $artifact->setGoldAuction(1000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -82,19 +64,9 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Delata al hereje y nosotros haremos el resto.');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //ELIXIR DE AMOR
-        $artifact = new Artifact();
-        $artifact->setName('Elixir de Amor');
-        $artifact->setImage('bundles/archmagegame/images/artifact/loveelixir.jpg');
-        $artifact->setSkill($this->getReference('Elixir de Amor'));
-        $artifact->setLore('El amor es una fuerza muy poderosa, pero un poco de ayuda nunca viene mal.');
-        $artifact->setGoldAuction(1000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -104,21 +76,11 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/spiesguildletter.jpg');
         $artifact->setSkill($this->getReference('Carta del Gremio de Espías'));
         $artifact->setLore('Susurra un objetivo y nosotros haremos el resto.');
-        $artifact->setGoldAuction(1000000);
+        $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
-        $this->setReference($artifact->getName(), $artifact);
-        $manager->persist($artifact);
-
-        //BOTAS DE VELOCIDAD
-        $artifact = new Artifact();
-        $artifact->setName('Botas de Velocidad');
-        $artifact->setImage('bundles/archmagegame/images/artifact/speedshoes.jpg');
-        $artifact->setSkill($this->getReference('Botas de Velocidad'));
-        $artifact->setLore('Es absurdo ver un Dragón con las botas puestas, pero nadie es perfecto.');
-        $artifact->setGoldAuction(1000000);
-        $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -128,9 +90,11 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/spiderweb.jpg');
         $artifact->setSkill($this->getReference('Tela de Araña'));
         $artifact->setLore('Es sucia, es pegajosa y es asquerosa. Pero su tela es muy útil.');
-        $artifact->setGoldAuction(1000000);
+        $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -139,10 +103,12 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Manual del Héroe');
         $artifact->setImage('bundles/archmagegame/images/artifact/herosmanual.jpg');
         $artifact->setSkill($this->getReference('Manual del Héroe'));
-        $artifact->setLore('Regla #1: No olvides tu espada. Regla #2: No hay regla #2');
-        $artifact->setGoldAuction(1000000);
+        $artifact->setLore('Regla #1: No olvides tu espada. Regla #2: No hay regla #2!');
+        $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -152,9 +118,11 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/medusahead.jpg');
         $artifact->setSkill($this->getReference('Cabeza de Medusa'));
         $artifact->setLore('Mirarla directamente produce la misma sensación que leer faltas de hortojrafía!');
-        $artifact->setGoldAuction(1000000);
+        $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -166,7 +134,9 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Puede salir cualquier cosa, incluso un árbol!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -178,7 +148,9 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Puede salir cualquier cosa, incluso una calavera!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -190,19 +162,23 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Puede salir cualquier cosa, incluso un gato!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //HUEVO DE DRAGON
+        //CUERNO DE GUERRA
         $artifact = new Artifact();
-        $artifact->setName('Huevo de Dragón');
-        $artifact->setImage('bundles/archmagegame/images/artifact/dragonegg.jpg');
-        $artifact->setSkill($this->getReference('Convocar Dragones'));
-        $artifact->setLore('Puede salir cualquier cosa, incluso una lagartija!');
+        $artifact->setName('Cuerno de Guerra');
+        $artifact->setImage('bundles/archmagegame/images/artifact/battlehorn.jpg');
+        $artifact->setSkill($this->getReference('Convocar Humanos'));
+        $artifact->setLore('Puede salir cualquier cosa, incluso un señor!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -214,31 +190,37 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Puede salir cualquier cosa, incluso un monaguillo!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //CALAVERA MALDITA
+        //DEMONIO EMBOTELLADO
         $artifact = new Artifact();
-        $artifact->setName('Calavera Maldita');
-        $artifact->setImage('bundles/archmagegame/images/artifact/cursedskull.jpg');
+        $artifact->setName('Demonio Embotellado');
+        $artifact->setImage('bundles/archmagegame/images/artifact/bottleddemon.jpg');
         $artifact->setSkill($this->getReference('Convocar Demonios'));
         $artifact->setLore('Puede salir cualquier cosa, incluso un súcubo!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //AGUA BENDITA
+        //HUEVO DE DRAGON
         $artifact = new Artifact();
-        $artifact->setName('Agua Bendita');
-        $artifact->setImage('bundles/archmagegame/images/artifact/holywater.jpg');
-        $artifact->setSkill($this->getReference('Agua Bendita'));
-        $artifact->setLore('Para cuando una ramita de romero no es suficiente.');
-        $artifact->setGoldAuction(1000000);
+        $artifact->setName('Huevo de Dragón');
+        $artifact->setImage('bundles/archmagegame/images/artifact/dragonegg.jpg');
+        $artifact->setSkill($this->getReference('Convocar Dragones'));
+        $artifact->setLore('Puede salir cualquier cosa, incluso una lagartija!');
+        $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
@@ -250,7 +232,205 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setLore('Creo que la mecha es demasiado co...');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
-        $artifact->setFaction($this->getReference('Neutral'));
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //MUÑECA VOODOO
+        $artifact = new Artifact();
+        $artifact->setName('Muñeca Voodoo');
+        $artifact->setImage('bundles/archmagegame/images/artifact/voodoodoll.jpg');
+        $artifact->setSkill($this->getReference('Muñeca Voodoo'));
+        $artifact->setLore('Alguien ha sido muy malo!');
+        $artifact->setGoldAuction(5000000);
+        $artifact->setRarity(50);
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //RELOJ DE ARENA
+        $artifact = new Artifact();
+        $artifact->setName('Reloj de Arena');
+        $artifact->setImage('bundles/archmagegame/images/artifact/hourglass.jpg');
+        $artifact->setSkill($this->getReference('Reloj de Arena'));
+        $artifact->setLore('Tiempo embotellado. Tempus fugit!');
+        $artifact->setGoldAuction(5000000);
+        $artifact->setRarity(50);
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //POCION DE PUREZA
+        $artifact = new Artifact();
+        $artifact->setName('Poción de Pureza');
+        $artifact->setImage('bundles/archmagegame/images/artifact/holypotion.jpg');
+        $artifact->setSkill($this->getReference('Poción de Pureza'));
+        $artifact->setLore('Para cuando una ramita de romero no es suficiente.');
+        $artifact->setGoldAuction(1000000);
+        $artifact->setRarity(0);
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //POCION DE AGILIDAD
+        $artifact = new Artifact();
+        $artifact->setName('Poción de Agilidad');
+        $artifact->setImage('bundles/archmagegame/images/artifact/agilitypotion.jpg');
+        $artifact->setSkill($this->getReference('Poción de Agilidad'));
+        $artifact->setLore('Para darle un empujoncito a tus tropas. Si es mágico, no es dopaje!');
+        $artifact->setGoldAuction(1000000);
+        $artifact->setRarity(0);
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //POCION DE FUERZA
+        $artifact = new Artifact();
+        $artifact->setName('Poción de Fuerza');
+        $artifact->setImage('bundles/archmagegame/images/artifact/strengthpotion.jpg');
+        $artifact->setSkill($this->getReference('Poción de Fuerza'));
+        $artifact->setLore('Para darle un empujoncito a tus tropas. Si es mágico, no es dopaje!');
+        $artifact->setGoldAuction(1000000);
+        $artifact->setRarity(0);
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //POCION DE VITALIDAD
+        $artifact = new Artifact();
+        $artifact->setName('Poción de Vitalidad');
+        $artifact->setImage('bundles/archmagegame/images/artifact/vitalitypotion.jpg');
+        $artifact->setSkill($this->getReference('Poción de Vitalidad'));
+        $artifact->setLore('Para darle un empujoncito a tus tropas. Si es mágico, no es dopaje!');
+        $artifact->setGoldAuction(1000000);
+        $artifact->setRarity(0);
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //POCION DE MANA
+        $artifact = new Artifact();
+        $artifact->setName('Poción de Maná');
+        $artifact->setImage('bundles/archmagegame/images/artifact/manapotion.jpg');
+        $artifact->setSkill($this->getReference('Poción de Maná'));
+        $artifact->setLore('Deliciosa y refrescante. Perfecta para resistir asedios enemigos!');
+        $artifact->setGoldAuction(1000000);
+        $artifact->setRarity(0);
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //POCION DE AMOR
+        $artifact = new Artifact();
+        $artifact->setName('Poción de Amor');
+        $artifact->setImage('bundles/archmagegame/images/artifact/lovepotion.jpg');
+        $artifact->setSkill($this->getReference('Poción de Amor'));
+        $artifact->setLore('El amor es una fuerza muy poderosa, pero un poco de ayuda nunca viene mal.');
+        $artifact->setGoldAuction(1000000);
+        $artifact->setRarity(0);
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //BRUJULA MAGICA
+        $artifact = new Artifact();
+        $artifact->setName('Brújula Mágica');
+        $artifact->setImage('bundles/archmagegame/images/artifact/magiccompass.jpg');
+        $artifact->setSkill($this->getReference('Brújula Mágica'));
+        $artifact->setLore('Cómo que nos hemos perdido?! Cómo que no señala al norte?!');
+        $artifact->setGoldAuction(5000000);
+        $artifact->setRarity(50);
+        $artifact->setPower(25000);
+        $artifact->setClass('default');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //ANILLO AVARICIOSO
+        $artifact = new Artifact();
+        $artifact->setName('Anillo Avaricioso');
+        $artifact->setImage('bundles/archmagegame/images/artifact/greedyring.jpg');
+        $artifact->setSkill($this->getReference('Anillo Avaricioso'));
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Blanca.');
+        $artifact->setGoldAuction(20000000);
+        $artifact->setRarity(90);
+        $artifact->setPower(500000);
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //ANILLO PODEROSO
+        $artifact = new Artifact();
+        $artifact->setName('Anillo Poderoso');
+        $artifact->setImage('bundles/archmagegame/images/artifact/powerring.jpg');
+        $artifact->setSkill($this->getReference('Anillo Poderoso'));
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Azul.');
+        $artifact->setGoldAuction(20000000);
+        $artifact->setRarity(90);
+        $artifact->setPower(500000);
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //ANILLO ENCANTADOR
+        $artifact = new Artifact();
+        $artifact->setName('Anillo Encantador');
+        $artifact->setImage('bundles/archmagegame/images/artifact/charmingring.jpg');
+        $artifact->setSkill($this->getReference('Anillo Encantador'));
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Morada.');
+        $artifact->setGoldAuction(20000000);
+        $artifact->setRarity(90);
+        $artifact->setPower(500000);
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //ANILLO DURO
+        $artifact = new Artifact();
+        $artifact->setName('Anillo Duro');
+        $artifact->setImage('bundles/archmagegame/images/artifact/hardring.jpg');
+        $artifact->setSkill($this->getReference('Anillo Duro'));
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Roja.');
+        $artifact->setGoldAuction(20000000);
+        $artifact->setRarity(90);
+        $artifact->setPower(500000);
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //ANILLO INVOCADOR
+        $artifact = new Artifact();
+        $artifact->setName('Anillo Invocador');
+        $artifact->setImage('bundles/archmagegame/images/artifact/summonerring.jpg');
+        $artifact->setSkill($this->getReference('Anillo Invocador'));
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Verde.');
+        $artifact->setGoldAuction(20000000);
+        $artifact->setRarity(90);
+        $artifact->setPower(500000);
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 

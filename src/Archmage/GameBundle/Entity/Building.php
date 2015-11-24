@@ -168,6 +168,13 @@ class Building
      */
     private $power = 0;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="summonRatio", type="integer", nullable=false)
+     */
+    private $summonRatio = 0;
+
 
     /**
      * Get id
@@ -637,6 +644,29 @@ class Building
     public function getArmyDefenseRatio()
     {
         return $this->armyDefenseRatio;
+    }
+
+    /**
+     * Set summonRatio
+     *
+     * @param integer $summonRatio
+     * @return Building
+     */
+    public function setSummonRatio($summonRatio)
+    {
+        $this->summonRatio = $summonRatio;
+
+        return $this;
+    }
+
+    /**
+     * Get summonRatio
+     *
+     * @return integer
+     */
+    public function getSummonRatio()
+    {
+        return $this->summonRatio;
     }
 
     /**

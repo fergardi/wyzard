@@ -39,7 +39,7 @@ class PlayerRepository extends EntityRepository
             if ($player->getPower() * 0.80 > $target->getPower()) {
                 $weaks[] = $target->getId();
             }
-            if ($player->getPower() * 1.80 < $target->getPower()) {
+            if ($player->getPower() * 1.60 < $target->getPower()) {
                 $strongs[] = $target->getId();
             }
         }

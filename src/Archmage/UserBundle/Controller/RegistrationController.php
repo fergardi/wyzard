@@ -43,13 +43,13 @@ class RegistrationController extends BaseController
                 $player->setWinner(false);
                 //constructions
                 $constructions = array(
-                    'Tierras' => 600,
-                    'Granjas' => 11,
-                    'Pueblos' => 11,
-                    'Nodos' => 11,
-                    'Gremios' => 11,
-                    'Talleres' => 11,
-                    'Barracones' => 11,
+                    'Tierras' => 500,
+                    'Granjas' => 10,
+                    'Pueblos' => 10,
+                    'Nodos' => 10,
+                    'Gremios' => 0,
+                    'Talleres' => 10,
+                    'Barracones' => 0,
                     'Barreras' => 0,
                     'Fortalezas' => 0,
                 );
@@ -61,22 +61,6 @@ class RegistrationController extends BaseController
                     $manager->persist($construction);
                     $player->addConstruction($construction);
                 }
-                //troops
-                $troops = array(
-                    'Arqueros' => 100,
-                    'Caballeros' => 100,
-                    'Catapultas' => 100,
-                    'Milicias' => 100,
-                    'Piqueros' => 100,
-                );
-                foreach ($troops as $name => $quantity) {
-                    $troop = new Troop();
-                    $troop->setUnit($manager->getRepository('ArchmageGameBundle:Unit')->findOneByName($name));
-                    $troop->setQuantity($quantity);
-                    $troop->setPlayer($player);
-                    $manager->persist($troop);
-                    $player->addTroop($troop);
-                }
                 //resources
                 $player->setNick($user->getUsername());
                 $player->setGold(3000000);
@@ -86,8 +70,8 @@ class RegistrationController extends BaseController
                 $player->setMagic(1);
                 //messages
                 $text = array();
-                $text[] = array('default', 12, 0, 'center', 'Te damos la bienvenida, Novicio! El Concilio recomienda que leas la <i class="fa fa-fw fa-book"></i><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'" class="link">Sagrada Ayuda del Juego</a>.');
-                $subject = 'Bienvenido!';
+                $text[] = array('default', 12, 0, 'center', 'Te damos la bienvenida, Novici@! El Concilio recomienda que leas la <i class="fa fa-fw fa-book"></i><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'" class="link">Ayuda del Juego</a>.');
+                $subject = 'Bienvenido a Archmage';
                 $this->get('service.controller')->sendMessage($player, $player, $subject, $text);
                 //persist && flush
                 $manager->persist($player);

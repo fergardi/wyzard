@@ -3,6 +3,7 @@
 namespace Archmage\GameBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\Common\Collections\Criteria;
 use Archmage\GameBundle\Entity\Item;
 use Archmage\GameBundle\Entity\Spell;
 use Archmage\GameBundle\Entity\Player;
@@ -77,7 +78,7 @@ class ServiceController extends Controller
         //ENCHANTMENTS
         foreach ($player->getEnchantmentsVictim() as $enchantment) {
             $skill = $enchantment->getSpell()->getSkill();
-            if ($skill->getTerrainBonus() < 0 || $skill->getPeopleBonus() < 0 || $skill->getManaBonus() < 0) {
+            if ($skill->getTerrainBonus() < 0 || $skill->getPeopleBonus() < 0 || $skill->getManaBonus() < 0 || $skill->getArmyDefenseBonus() < 0 || $skill->getMagicDefenseBonus() < 0) {
                 $this->addFlash('info', 'Recuerda que sobre tu Reino pesa el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>.');
             }
         }
@@ -138,7 +139,6 @@ class ServiceController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
-        $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
         $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
         /*
          *
@@ -162,6 +162,9 @@ class ServiceController extends Controller
             //ARTIFACTS
             $chance = rand(0,99);
             if ($chance < $player->getArtifactRatio()) {
+                $criteria = new Criteria();
+                $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+                $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
                 shuffle($artifacts);
                 $artifact = $artifacts[0]; //suponemos length > 0
                 $item = $player->hasArtifact($artifact);
@@ -175,7 +178,7 @@ class ServiceController extends Controller
                     $item->setPlayer($player);
                     $player->addItem($item);
                 }
-                $this->addFlash('success', 'Has encontrado por casualidad el artefacto <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
+                $this->addFlash('success', 'Has encontrado por casualidad el artefacto <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
             }
             //GOLD
             $gold = $player->getGold() + $player->getGoldResourcePerTurn() - $player->getGoldMaintenancePerTurn();
@@ -310,6 +313,12 @@ class ServiceController extends Controller
                         $legend->setPower($player->getPower());
                         $manager->persist($legend);
                         $player->setWinner(true);
+                        $receivers = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
+                        $text = array();
+                        $text[] = array('default', 12, 1, 'center', 'Alguien ha ganado el juego!');
+                        foreach ($receivers as $receiver) {
+                            $this->sendMessage($player, $receiver, 'Victoria', $text, 'apocalypse');
+                        }
                     }
                     $manager->persist($enchantment->getOwner());
                     $manager->remove($enchantment);

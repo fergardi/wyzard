@@ -43,68 +43,68 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
          */
         $gods = array(
             array(
-                'name' => 'Duggo, Dios de la Sangre',
+                'name' => 'Dwaleen, Dios de la Sangre',
                 'faction' => 'Caos',
                 'items' => array(
-                    'Botas de Velocidad' => 99,
+                    'Poción de Agilidad' => 99,
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => rand(20,100),
+                    'Dragones Rojos' => rand(30,60),
                 ),
             ),
             array(
                 'name' => 'Surm, Dios de la Muerte',
                 'faction' => 'Oscuridad',
                 'items' => array(
-                    'Botas de Velocidad' => 99,
+                    'Poción de Agilidad' => 99,
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Negros' => rand(20,100),
+                    'Dragones Negros' => rand(30,60),
                 ),
             ),
             array(
-                'name' => 'Lett, Diosa de la Luz',
+                'name' => 'Jalazu, Diosa de la Luz',
                 'faction' => 'Sagrado',
                 'items' => array(
-                    'Botas de Velocidad' => 99,
+                    'Poción de Agilidad' => 99,
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Blancos' => rand(20,100),
+                    'Dragones Blancos' => rand(30,60),
                 ),
             ),
             array(
-                'name' => 'Sihir, Diosa de la Magia',
+                'name' => 'Swott, Dios de la Magia',
                 'faction' => 'Fantasmal',
                 'items' => array(
-                    'Botas de Velocidad' => 99,
+                    'Poción de Agilidad' => 99,
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Azules' => rand(20,100),
+                    'Dragones Azules' => rand(30,60),
                 ),
             ),
             array(
                 'name' => 'Elama, Diosa de la Vida',
                 'faction' => 'Naturaleza',
                 'items' => array(
-                    'Botas de Velocidad' => 99,
+                    'Poción de Agilidad' => 99,
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(5,30),
                 ),
                 'troops' => array(
-                    'Dragones Verdes' => rand(20,100),
+                    'Dragones Verdes' => rand(30,60),
                 ),
             ),
         );

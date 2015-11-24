@@ -60,6 +60,18 @@ class Auction
     private $research = null;
 
     /**
+     * @ORM\OneToOne(targetEntity="Recipe")
+     * @ORM\JoinColumn(name="recipe", referencedColumnName="id", nullable=true)
+     **/
+    private $recipe = null;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Quest")
+     * @ORM\JoinColumn(name="quest", referencedColumnName="id", nullable=true)
+     **/
+    private $quest = null;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Player")
      * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=true)
      **/
@@ -215,6 +227,52 @@ class Auction
     }
 
     /**
+     * Set recipe
+     *
+     * @param \Archmage\GameBundle\Entity\Recipe $recipe
+     * @return Auction
+     */
+    public function setRecipe(\Archmage\GameBundle\Entity\Recipe $recipe = null)
+    {
+        $this->recipe = $recipe;
+
+        return $this;
+    }
+
+    /**
+     * Get recipe
+     *
+     * @return \Archmage\GameBundle\Entity\Recipe
+     */
+    public function getRecipe()
+    {
+        return $this->recipe;
+    }
+
+    /**
+     * Set quest
+     *
+     * @param \Archmage\GameBundle\Entity\Quest $quest
+     * @return Auction
+     */
+    public function setQuest(\Archmage\GameBundle\Entity\Quest $quest = null)
+    {
+        $this->quest = $quest;
+
+        return $this;
+    }
+
+    /**
+     * Get quest
+     *
+     * @return \Archmage\GameBundle\Entity\Quest
+     */
+    public function getQuest()
+    {
+        return $this->quest;
+    }
+
+    /**
      * Set player
      *
      * @param \Archmage\GameBundle\Entity\Player $player
@@ -248,6 +306,8 @@ class Auction
         if ($this->getItem()) return $this->getItem()->getArtifact()->getName();
         if ($this->getContract()) return $this->getContract()->getHero()->getName();
         if ($this->getResearch()) return $this->getResearch()->getSpell()->getName();
+        if ($this->getRecipe()) return $this->getRecipe()->getName();
+        if ($this->getQuest()) return $this->getQuest()->getName();
         return '';
     }
 
@@ -259,9 +319,11 @@ class Auction
     public function getClass()
     {
         if ($this->getTroop()) return $this->getTroop()->getUnit()->getFaction()->getClass();
-        if ($this->getItem()) return $this->getItem()->getArtifact()->getFaction()->getClass();
+        if ($this->getItem()) return $this->getItem()->getArtifact()->getClass();
         if ($this->getContract()) return $this->getContract()->getHero()->getFaction()->getClass();
         if ($this->getResearch()) return $this->getResearch()->getSpell()->getFaction()->getClass();
+        if ($this->getRecipe()) return $this->getRecipe()->getClass();
+        if ($this->getQuest()) return $this->getQuest()->getClass();
         return '';
     }
 }

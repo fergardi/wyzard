@@ -1,0 +1,73 @@
+{% extends "ArchmageGameBundle::layout.html.twig" %}
+
+{% block title %}Aventura{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <h1><i class="fa fa-fw fa-map"></i>Aventura</h1>
+                {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">Mapas</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/quest.jpg') }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12">Aquí puedes gastar 5 <span class="label label-extra">Turnos</span> y un <span class="label label-quest">Mapa</span> para mandar a tus tropas a la batalla en busca de <span class="label label-extra">Oro</span> y <span class="label label-rune">Runas</span>. En algunos casos incluso existe la probabilidad de encontrar un <span class="label label-legendary">Artefacto</span> legendario.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    <a class="btn btn-default" href="{{ path( 'archmage_game_kingdom_auction' ) }}"><i class="fa fa-fw fa-legal"></i>Subasta</a>
+                </div>
+            </div>
+        </div>
+        {% for quest in player.quests %}
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-quest">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-map"></i><a href="{{ path('archmage_game_home_help') }}#aventuras" class="link">{{ quest.name }}</a></div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( quest.image ) }}" />
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            {% for troop in quest.troops %}
+                                {# row #}
+                                <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-{{ troop.unit.faction.class }}" data-toggle="tooltip" data-placement="top" title="Tropas enemigas a derrotar"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}" class="link">{{ troop.unit.name }}</a></span> {{ troop.quantity|nff }}</div>
+                            {% endfor %}
+                            <div class="col-xs-12 text-lore"><small><i>La X siempre marca el lugar!</i></small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    <form id="quest{{ quest.id }}" name="quest{{ quest.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_army_quest') }}" method="post" role="form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button type="submit" id="activate" name="action" value="activate" class="btn btn-default"><i class="fa fa-fw fa-flag"></i>Comenzar</button>
+                                </div>
+                                <input type="hidden" id="quest" name="quest" value="{{ quest.id }}" required />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="container">
+            <div class="col-xs-12 alert alert-danger text-responsive text-center" role="alert">
+                <i class="fa fa-fw fa-exclamation-triangle"></i>Actualmente no tienes <span class="label label-quest">Mapas</span> en tu poder. Tal vez deberías comprar alguna en la <i class="fa fa-fw fa-legal"></i><a href="{{ path('archmage_game_kingdom_auction') }}">Subasta</a>.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

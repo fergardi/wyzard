@@ -57,12 +57,25 @@ class Artifact
     private $rarity = 0;
 
     /**
-     * @var Faction
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Faction")
-     * @ORM\JoinColumn(name="faction", referencedColumnName="id", nullable=false)
+     * @ORM\Column(name="power", type="bigint", nullable=false)
      */
-    private $faction;
+    private $power = 0;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="legendary", type="boolean", nullable=false)
+     */
+    private $legendary = false;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="class", type="string", length=255, nullable=false)
+     */
+    private $class = 'default';
 
     /**
      * @var Skill
@@ -199,26 +212,72 @@ class Artifact
     }
 
     /**
-     * Set faction
+     * Set power
      *
-     * @param \Archmage\GameBundle\Entity\Faction $faction
+     * @param integer $power
      * @return Artifact
      */
-    public function setFaction(\Archmage\GameBundle\Entity\Faction $faction)
+    public function setPower($power)
     {
-        $this->faction = $faction;
+        $this->power = $power;
 
         return $this;
     }
 
     /**
-     * Get faction
+     * Get power
      *
-     * @return \Archmage\GameBundle\Entity\Faction 
+     * @return integer 
      */
-    public function getFaction()
+    public function getPower()
     {
-        return $this->faction;
+        return $this->power;
+    }
+
+    /**
+     * Set legendary
+     *
+     * @param boolean $legendary
+     * @return Artifact
+     */
+    public function setLegendary($legendary)
+    {
+        $this->legendary = $legendary;
+
+        return $this;
+    }
+
+    /**
+     * Get legendary
+     *
+     * @return boolean 
+     */
+    public function getLegendary()
+    {
+        return $this->legendary;
+    }
+
+    /**
+     * Set class
+     *
+     * @param string $class
+     * @return Artifact
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+
+        return $this;
+    }
+
+    /**
+     * Get class
+     *
+     * @return string 
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 
     /**

@@ -1,0 +1,78 @@
+{% extends "ArchmageGameBundle::layout.html.twig" %}
+
+{% block title %}Alquimia{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <h1><i class="fa fa-fw fa-flask"></i>Alquimia</h1>
+                {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
+            </div>
+            <div class="col-xs-12 col-md-offset-3 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">Recetario</div>
+                    <div class="panel-body text-responsive">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/alchemy.jpg') }}">
+                            </div>
+                            <div class="col-xs-8 text-padded">
+                                <div class="col-xs-12">Aquí puedes gastar 5 <span class="label label-extra">Turnos</span> y <span class="label label-extra">Oro</span> para convertir unos <span class="label label-extra">Artefactos</span> en otros, usando <span class="label label-recipe">Recetas</span> que puedes adquirir en la subasta. Aquellas con <span class="label label-legendary">Artefactos</span> legendarios se destruyen tras su uso.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-middle text-center">Fórmula</div>
+                    <div class="panel-body text-responsive text-only text-center">
+                        <p>ARTEFACTO<sub>A</sub> + ARTEFACTO<sub>B</sub> + ORO = ARTEFACTO<sub>C</sub></p>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <a class="btn btn-default" href="{{ path( 'archmage_game_kingdom_auction' ) }}"><i class="fa fa-fw fa-legal"></i>Subasta</a>
+                    </div>
+                </div>
+            </div>
+            {% for recipe in player.recipes %}
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-recipe">
+                    <div class="panel-heading text-center"><i class="fa fa-fw fa-flask"></i><a href="{{ path('archmage_game_home_help') }}#recipe" class="link">Receta de Alquimia</a></div>
+                    <div class="panel-body text-responsive">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img class="custom-thumbnail" src="{{ asset( recipe.result.image ) }}">
+                            </div>
+                            <div class="col-xs-8 text-padded">
+                                <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.first.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.first.name|slug }}" class="link" data-toggle="tooltip" data-placement="top" title="Primer Artefacto necesario para la Alquimia">{{ recipe.first.name }}</a></span> {{ player.hasArtifact(recipe.first).quantity|default(0) }}</div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.second.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.second.name|slug }}" class="link" data-toggle="tooltip" data-placement="top" title="Segundo Artefacto necesario para la Alquimia">{{ recipe.second.name }}</a></span> {{ player.hasArtifact(recipe.second).quantity|default(0) }}</div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ recipe.gold|nff }} <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Oro necesario para la Alquimia">Oro</span></div>
+                                <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.result.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.result.name|slug }}" class="link" data-toggle="tooltip" data-placement="top" title="Artefacto resultante de la Alquimia">{{ recipe.result.name }}</a></span></div>
+                                <div class="col-xs-12 text-lore"><small><i>Un poco de esto, un poco de aquello y... TACHÁN!</i></small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <form id="recipe{{ recipe.id }}" name="recipe{{ recipe.id }}" class="form-inline" data-toggle="validator" action="{{ path('archmage_game_magic_alchemy') }}" method="post" role="form">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="btn-group" role="group" aria-label="...">
+                                        <button type="submit" id="craft" name="action" value="craft" class="btn btn-default" {% if not player.hasArtifact(recipe.first) or not player.hasArtifact(recipe.second) %}disabled{% endif %}><i class="fa fa-fw fa-cogs"></i>Fabricar</button>
+                                        <button type="submit" id="forget" name="action" value="forget" class="btn btn-default"><i class="fa fa-fw fa-ban"></i>Olvidar</button>
+                                    </div>
+                                    <input type="hidden" id="recipe" name="recipe" value="{{ recipe.id }}" required />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="container">
+                <div class="col-xs-12 alert alert-danger text-responsive text-center" role="alert">
+                    <i class="fa fa-fw fa-exclamation-triangle"></i>Actualmente no tienes <span class="label label-recipe">Recetas</span> en tu poder. Tal vez deberías comprar alguna en la <i class="fa fa-fw fa-legal"></i><a href="{{ path('archmage_game_kingdom_auction') }}">Subasta</a>.
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

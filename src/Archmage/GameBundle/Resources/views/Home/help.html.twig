@@ -26,11 +26,18 @@
                 <h1><i class="fa fa-fw fa-info-circle"></i>Ayuda</h1>
             </div>
         </div>
+        {# separamos el manual en otra division para ser ocultado en caso de busqueda #}
         <div class="col-xs-12 manual">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-question-circle"></i>Introducción</div>
                 <div class="panel-body text-responsive text-only">
                     <p>En ArchMage, asumirás el rol de un mago o maga novici@ intentando hacerse un hueco en un mundo plagado de enemigos. Competirás contra otros jugadores y NPCs (personajes no jugadores) por la supremacía en una carrera económica y militar, investigando diversos y poderosos <span class="label label-extra">Hechizos</span>, reclutando gran variedad de <span class="label label-extra">Unidades</span>, contratando <span class="label label-extra">Héroes</span> que ayudarán en tu campaña y encontrando misteriosos <span class="label label-extra">Artefactos</span> que usar en tu beneficio, o incluso en perjuicio de otros.</p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-group"></i>Multicuentas</div>
+                <div class="panel-body text-responsive text-only">
+                    <p style="color:red;">El uso de varias cuentas por la misma persona otorga una tremenda ventaja y va en contra de las normas del juego. Los infractores serán perseguidos, <span class="label label-extra">baneados</span> a perpetuidad y <span class="label label-extra">sodomizados con un paraguas</span>.</p>
                 </div>
             </div>
             <div class="panel panel-default">
@@ -58,9 +65,15 @@
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i>Magia</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-flask"></i>Magia</div>
                 <div class="panel-body text-responsive text-only">
                     <p>En el juego existen multitud de <span class="label label-extra">Hechizos</span> que el jugador podrá conjurar sobre sí mismo o sobre otros para obtener ventaja directa en combate, invocar <span class="label label-extra">Unidades</span> o <span class="label label-extra">Encantamientos</span>, entre otros. El nivel de <span class="label label-extra">Magia</span> de un mago determina la potencia y duración de los mismos, así como su nivel de investigación, y viene dado por la cantidad de <span class="label label-extra">Hechizos</span> de su color que tiene investigados, dividido entre 4. Así, un mago novició con nivel 1 podrá investigar sus cuatro <span class="label label-extra">Hechizos</span> de nivel 1 para acceder al nivel 2, y así sucesivamente hasta el nivel 5. También pueden ser adquiridos <span class="label label-extra">Hechizos</span> de otros colores en la subasta para beneficiarse de sus propiedades, aunque éstos no incrementarán el nivel de <span class="label label-extra">Magia</span> como los propios. Para obtener un nuevo <span class="label label-extra">Hechizo</span>, un mago debe emplear <span class="label label-extra">Turnos</span> en completar la investigación, que serán más reducidos cuantos más <span class="label label-extra">Gremios</span> tenga construidos. Una vez investigado, podrá conjurarlo cuando quiera, siempre que tenga el nivel de <span class="label label-extra">Magia</span>, el <span class="label label-extra">Maná</span> y los <span class="label label-extra">Turnos</span> necesarios para hacerlo. Algunos <span class="label label-extra">Hechizos</span> y <span class="label label-extra">Artefactos</span> pueden colocarse en <span class="label label-extra">Defensa</span> gastando 1 <span class="label label-extra">Turno</span> y se activarán cuando te ataquen, pudiendo cambiar las tornas en una batalla importante. También podrás activar <span class="label label-extra">Artefactos</span> y romper <span class="label label-extra">Encantamientos</span>, aliados o enemigos, con cierta probabilidad de éxito, dependiendo de la <span class="label label-extra">Defensa Mágica</span> del adversario.</p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i>Alquimia</div>
+                <div class="panel-body text-responsive text-only">
+                    <p>En ocasiones encontrar el <span class="label label-extra">Artefacto</span> que necesitas en ese momento es muy complicado, normalmente debes esperar a que salga en la subasta y ganar la puja. Pero mediante la Alquimia y la colección de <span class="label label-recipe">Recetas</span>, un jugador convierte 2 <span class="label label-extra">Artefactos</span> y <span class="label label-extra">Oro</span> para obtener otro <span class="label label-extra">Artefacto</span>. Se pueden comprar en la subasta o con el hechizo <span class="label label-success">Druidismo</span>, y son reutilizables, a no ser que otorgue un <span class="label label-legendary">Artefacto</span> legendario, en cuyo caso se queman tras su uso.</p>
                 </div>
             </div>
             <div class="panel panel-default"><a name="batalla"></a>
@@ -69,7 +82,6 @@
                     <p>El principal atractivo del juego es el ataque entre jugadores. Esto permite rápidos y emocionantes cambios en el ranking de magos, creando oportunidades contra jugadores muy poderosos que normalmente lideran el ranking. Al atacar a otro mago, puedes seleccionar qué cantidad de <span class="label label-extra">Unidades</span> vas a llevar a la batalla, así como si quieres lanzar algún <span class="label label-extra">Hechizo</span> o <span class="label label-extra">Artefacto</span> especial para la batalla. Los <span class="label label-extra">Héroes</span> que tengas siempre irán contigo a la guerra. Además, dado que pueden atacarte mientras no estás conectado al juego, tienes la posibilidad de escoger uno de tus <span class="label label-extra">Hechizos</span> y/o <span class="label label-extra">Artefactos</span> para que se activen automáticamente en defensa, junto con la totalidad de tus <span class="label label-extra">Unidades</span> y Héroes.</p>
                     <br>
                     <div class="row text-center">
-                        {# row #}
                         <div class="col-xs-12 col-md-offset-1 col-md-5">
                             <img class="factions" src="{{ asset('bundles/archmagegame/images/factions.png') }}">
                             <div class="caption">
@@ -77,7 +89,6 @@
                                 <p>Cada facción tiene una opuesta y aumentará su daño en combate un +20% contra ella: <span class="label label-danger">Caos</span> > <span class="label label-success">Naturaleza</span> > <span class="label label-primary">Sagrado</span> > <span class="label label-warning">Oscuridad</span> > <span class="label label-info">Fantasmal</span> > <span class="label label-danger">Caos</span></p>
                             </div>
                         </div>
-                        {# row #}
                         <div class="col-xs-12 col-md-5">
                             <img class="factions" src="{{ asset('bundles/archmagegame/images/units.png') }}">
                             <div class="caption">
@@ -88,28 +99,40 @@
                     </div>
                     <br>
                     <p>Para poder atacar a otro mago, deberás traspasar su <span class="label label-extra">Defensa Física</span>, y para lanzarle <span class="label label-extra">Hechizos</span> y <span class="label label-extra">Artefactos</span> en combate, también su <span class="label label-extra">Defensa Mágica</span>.</p>
-                    <p>Los valores indicados en las descripciones de las unidades indican <span class="label label-extra">Ataque</span>, <span class="label label-extra">Defensa</span> y <span class="label label-extra">Velocidad</span>. El combate es bastante simple: Durante un máximo de 5 rondas, cada tropa de cada ejército se empareja 1 a 1, ordenadas siempre por su <span class="label label-extra">Velocidad</span> de mayor a menor, es decir, las unidades más rápidas entran antes en combate. Una vez emparejadas, se calculan todos los bonuses pertinentes, como <span class="label label-extra">Hechizos</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span>, y se calcula su <span class="label label-extra">Ataque</span> y su <span class="label label-extra">Defensa</span> totales. Si una unidad es más veloz que otra, por cada punto de <span class="label label-extra">Velocidad</span> de diferencia gana un 5% más de ataque. Al final de la batalla, el jugador que haya perdido menos <span class="label label-extra">Poder</span>, gana.</p>
+                    <p>Los valores indicados en las descripciones de las unidades indican <span class="label label-extra">Ataque</span>, <span class="label label-extra">Defensa</span> y <span class="label label-extra">Velocidad</span>. El combate es bastante simple: Durante un máximo de 5 rondas, cada tropa de cada ejército se empareja 1 a 1, ordenadas siempre por su <span class="label label-extra">Velocidad</span> de mayor a menor, es decir, las unidades más rápidas entran antes en combate. Una vez emparejadas, se calculan todos los bonuses pertinentes, como <span class="label label-extra">Hechizos</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span>, y se calcula su <span class="label label-extra">Ataque</span> y su <span class="label label-extra">Defensa</span> totales. A igual <span class="label label-extra">Velocidad</span>, las <span class="label label-extra">Unidades</span> atacan y defienden al mismo tiempo. A mayor velocidad del atacante, éste ataca primero e inflinge bajas al defensor, que luego contraatacará con sus <span class="label label-extra">Unidades</span> restantes, si queda alguna. A menor velocidad del atacante, es el defensor quien ataca primero e infingle las bajas al atacante, que luego contraatacará con sus <span class="label label-extra">Unidades</span> restantes, de quedar alguna. Al final de la batalla, el jugador que haya perdido menos <span class="label label-extra">Poder</span>, gana.</p>
                     <p>Si ganas la batalla, normalmente debilitarás a tu contrincante lo suficiente como para reducir su ranking bastantes puestos. Si ganas de forma apastante, podrás robarle un 5% de sus <span class="label label-extra">Edificios</span> y <span class="label label-extra">Oro</span>, y tus <span class="label label-extra">Héroes</span> ganarán 20 de <span class="label label-extra">Experiencia</span> en combate. No obstante, si pierdes el ataque, no ganarás absolutamente nada, y probablemente quedarás expuesto a futuras represalias. No puedes atacar al mismo mago 2 veces en 12h, ni puedes atacar a un mago un 20% más débil que tú o un 80% más fuerte que tú. No obstante, si alguien te ataca, tendrás derecho a un contraataque, independientemente de las anteriores condiciones.</p>
                     <p>Los Dioses son jugadores NPC no controlados, con una defensa altísima y un ejército impresionante, que normalmente nadie podría derrotar. Pero tal vez a base de muchos ataques especiales y coordinados, podáis igualar e incluso superar a estos gigantes de la magia, y ganar con ello una enorme recompensa.</p>
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i>Fin del Juego</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-shield"></i>Defensa</div>
                 <div class="panel-body text-responsive text-only">
-                    <p>El juego termina cuando un mago ha conseguido encantarse a sí mismo con <span class="label label-extra"><a href="#apocalipsis" class="link">Apocalipsis</a></span> y mantenerlo durante 1000 turnos. El servidor anunciará que alguien (pero no quién) ha lanzado dicho encantamiento, por lo que será tarea del resto de jugadores encontrar y hacer la vida imposible al mago en cuestión, lanzandole <span class="label label-extra">Hechizos</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Encantamientos</span> y <span class="label label-extra">Ataques</span> para intentar mermar sus posibilidades. Cuando alguien descubra al dueño del Encantamiento mediante un Espionaje, en el Ranking saldrá su nombre junto al símbolo <i class="fa fa-fw fa-eye"></i>, para que el resto de jugadores tenga claro que se ha encontrado al culpable y deje de buscarle. Si el encantamiento se rompe de manera forzada (es decir, por no poder pagar los mantenientos, cosa habitual si se le despoja de tierras suficientes) el juego continará de forma normal. Se convertirá en un tira y afloja por ver qué mago es capaz de aguantar las embestidas de todo el servidor hasta que alguien salga vencedor. Si el encantamiento expira de forma natural, el mago gana la partida, se añadirá al tablón de Leyendas con información como la fecha de la victoria, el poder y las tierras que tenía el mago, para futuras referencias. El juego se detendrá y nadie podrá efectuar ninguna acción, y en apenas 24h, el servidor se reiniciará, borrando toda la base de datos y volviendo a empezar una nueva temporada desde cero. Los jugadores tendrán que volver a registrarse para jugar, pero de esta forma podrán probar otras facciones, e incluso cambiarse de nick para evitar represalias o venganzas.</p>
+                    <p>En este juego el recurso más importante que se puede tener son las <span class="label label-extra">Tierras</span>, y dado que te las pueden robar al atacarte, es una buena idea tener siempre <span class="label label-extra">Tropas</span> en tu Reino para defenderte de los enemigos. Además, deberías construir <span class="label label-extra">Barreras</span> y <span class="label label-extra">Fortalezas</span> o lanzar <span class="label label-extra">Encantamientos</span> de defensa, así como guardar un <span class="label label-extra">Hechizo</span> y/o un <span class="label label-extra">Artefacto</span> para que se active en caso de un ataque enemigo. Ten en cuenta, sin embargo, que si logras bloquear un ataque o un conjuro, se te destruirán los respectivos <span class="label label-extra">Edificios</span> en un símbolo de desgaste, que se convertirán en <span class="label label-extra">Tierras</span> para que puedas reconstruirlos.</p>
                 </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-hourglass-half"></i>Multicuentas</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-map"></i>Aventura</div>
                 <div class="panel-body text-responsive text-only">
-                    <p>El uso de varias cuentas por la misma persona otorga una tremenda ventaja y va en contra de las normas del juego. Los infractores serán perseguidos, baneados a perpetuidad y sodomizados con un paraguas.</p>
+                    <p>Para aquellos jugadores que no pueden estar mucho tiempo sin hacer nada, siempre tienen la posibilidad de usar <span class="label label-quest">Mapas</span>, pequeños trozos de papel que señalan la localización de un <span class="label label-extra">Artefacto</span> y muchos tesoros. Pero cuidado, estará protegido por muchas tropas, ejércitos de monstruos vagabundos que no buscan más que la destrucción. Pueden obtenerse en la subasta, o mediante el hechizo <span class="label label-danger">Saquear</span>. Existen varios niveles, y sus recompensas, tanto <span class="label label-extra">Artefactos</span> como <span class="label label-extra">Oro</span>, aumentan con la dificultad, llegando incluso a tener la posibilidad de obtener un <span class="label label-legendary">Artefacto</span> legendario.</p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i>Fin del Juego</div>
+                <div class="panel-body text-responsive text-only">
+                    <p>El juego termina cuando un mago ha conseguido encantarse a sí mismo con <span class="label label-extra"><a href="#apocalipsis" class="link">Apocalipsis</a></span> y mantenerlo durante 900 turnos. El servidor anunciará que alguien (pero no quién) ha lanzado dicho encantamiento, por lo que será tarea del resto de jugadores encontrar y hacer la vida imposible al mago en cuestión, lanzandole <span class="label label-extra">Hechizos</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Encantamientos</span> y <span class="label label-extra">Ataques</span> para intentar mermar sus posibilidades. Cuando alguien descubra al dueño del Encantamiento mediante un Espionaje, en el Ranking saldrá su nombre junto al símbolo <i class="fa fa-fw fa-eye"></i>, para que el resto de jugadores tenga claro que se ha encontrado al culpable y deje de buscarle. Si el encantamiento se rompe de manera forzada (es decir, por no poder pagar los mantenientos, cosa habitual si se le despoja de tierras suficientes) el juego continará de forma normal. Se convertirá en un tira y afloja por ver qué mago es capaz de aguantar las embestidas de todo el servidor hasta que alguien salga vencedor. Si el encantamiento expira de forma natural, el mago gana la partida, se añadirá al tablón de Leyendas con información como la fecha de la victoria, el poder y las tierras que tenía el mago, para futuras referencias. El juego se detendrá y nadie podrá efectuar ninguna acción, y en apenas 24h, el servidor se reiniciará, borrando toda la base de datos y volviendo a empezar una nueva temporada desde cero. Los jugadores tendrán que volver a registrarse para jugar, pero de esta forma podrán probar otras facciones, e incluso cambiarse de nick para evitar represalias o venganzas.</p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i>Runas</div>
+                <div class="panel-body text-responsive text-only">
+                    <p>Las <span class="label label-rune">Runas</span> proporcionan recursos instantáneos a los jugadores, otorgando una importante ventaja si se gastan en el momento preciso. Son extremadamente difíciles de conseguir, pero se comenta que completar <span class="label label-quest">Aventuras</span> es una buena manera. Todos los jugadores empiezan con unas pocas y, aunque no son necesarias para ganar, algunos jugadores pueden optar por adquirir más a través de nuestra <span class="label label-extra">Tienda</span> interna del juego. En ocasiones especales incluso se regalarán algunas a todos los jugadores.</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-12"><a name="facciones"></a>
             <div class="page-header text-center">
                 <a name="facciones"></a>
-                <h1><i class="fa fa-fw fa-info-circle"></i>Facciones</h1>
+                <h1><i class="fa fa-fw fa-rebel"></i>Facciones ({{ factions|length }})</h1>
             </div>
         </div>
         {% for faction in factions %}
@@ -118,14 +141,11 @@
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-rebel"></i>{{ faction.name }}</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
-                        {# row #}
                         <div class="col-xs-4">
                             <img class="custom-thumbnail" src="{{ asset(faction.image) }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            {# row #}
                             <div class="col-xs-12">{{ faction.description }}</div>
-                            {# row #}
                             <div class="col-xs-12 text-lore"><small><i>{{ faction.lore }}</i></small></div>
                         </div>
                     </div>
@@ -141,7 +161,7 @@
         <div class="col-xs-12">
             <div class="page-header text-center">
                 <a name="edificios"></a>
-                <h1><i class="fa fa-fw fa-info-circle"></i>Edificios</h1>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Edificios ({{ buildings|length|nf }})</h1>
             </div>
         </div>
         {% for building in buildings %}
@@ -154,23 +174,18 @@
                             <img class="custom-thumbnail" src="{{ asset( building.image ) }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span data-toggle="tooltip" data-placement="top" title="Coste de Oro por edificio">-{{ building.goldCost|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span data-toggle="tooltip" data-placement="top" title="Coste de Personas por edificio">-{{ building.peopleCost|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Coste de Maná por edificio">-{{ building.manaCost|nf }}</span></div>
-                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span data-toggle="tooltip" data-placement="top" title="Cantidad de Oro generado al turno">+{{ building.goldResource|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span data-toggle="tooltip" data-placement="top" title="Cantidad de Personas generadas al turno">+{{ building.peopleResource|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Cantidad de Maná generado al turno">+{{ building.manaResource|nf }}</span></div>
-                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro al turno">-{{ building.goldMaintenance|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Personas al turno">-{{ building.peopleMaintenance|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Maná al turno">-{{ building.manaMaintenance|nf }}</span></div>
-                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span data-toggle="tooltip" data-placement="top" title="Aumento de capacidad de Oro">+{{ building.goldCap|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span data-toggle="tooltip" data-placement="top" title="Aumento de capacidad de Personas">+{{ building.peopleCap|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Aumento de capacidad de Maná">+{{ building.manaCap|nf }}</span></div>
-                            {# row #}
                             <div class="col-xs-12 text-lore"><small><i>{{ building.lore }}</i></small></div>
                         </div>
                     </div>
@@ -186,7 +201,7 @@
         <div class="col-xs-12">
             <div class="page-header text-center">
                 <a name="unidades"></a>
-                <h1><i class="fa fa-fw fa-info-circle"></i>Unidades</h1>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Unidades ({{ units|length|nf }})</h1>
             </div>
         </div>
         {% for unit in units %}
@@ -199,18 +214,14 @@
                             <img class="custom-thumbnail" src="{{ asset( unit.image ) }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-crosshairs"></i><span data-toggle="tooltip" data-placement="top" title="Ataque de la tropa">{{ unit.attack|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-shield"></i><span data-toggle="tooltip" data-placement="top" title="Defensa de la tropa">{{ unit.defense|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-flash"></i><span data-toggle="tooltip" data-placement="top" title="Velocidad de la tropa">{{ unit.speed }}</span></div>
-                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro al turno">-{{ unit.goldMaintenance|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Personas al turno">-{{ unit.peopleMaintenance|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Maná al turno">-{{ unit.manaMaintenance|nf }}</span></div>
-                            {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-user"></i><span data-toggle="tooltip" data-placement="top" title="Familia de la tropa">{{ unit.family.name }}</span></div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i><span data-toggle="tooltip" data-placement="top" title="Tipo de la tropa">{{ unit.type.name }}</span></div>
-                            {# row #}
                             <div class="col-xs-12 text-lore"><small><i>{{ unit.lore }}</i></small></div>
                         </div>
                     </div>
@@ -226,7 +237,7 @@
         <div class="col-xs-12">
             <div class="page-header text-center">
                 <a name="heroes"></a>
-                <h1><i class="fa fa-fw fa-info-circle"></i>Héroes</h1>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Héroes ({{ heroes|length|nf }})</h1>
             </div>
         </div>
         {% for hero in heroes %}
@@ -239,11 +250,9 @@
                             <img class="custom-thumbnail" src="{{ asset( hero.image ) }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            {# row #}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro al turno por nivel">-{{ hero.goldMaintenance|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Personas al turno por nivel">-{{ hero.peopleMaintenance|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Maná al turno por nivel">-{{ hero.manaMaintenance|nf }}</span></div>
-                            {# row #}
                             <div class="col-xs-12 text-lore"><small><i>{{ hero.lore }}</i></small></div>
                         </div>
                     </div>
@@ -259,7 +268,7 @@
         <div class="col-xs-12">
             <div class="page-header text-center">
                 <a name="hechizos"></a>
-                <h1><i class="fa fa-fw fa-info-circle"></i>Hechizos</h1>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Hechizos y Encantamientos ({{ spells|length|nf }})</h1>
             </div>
         </div>
         {% for spell in spells %}
@@ -272,19 +281,15 @@
                             <img class="custom-thumbnail" src="{{ asset( spell.image ) }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i><span data-toggle="tooltip" data-placement="top" title="Nivel de Magia mínimo para investigar y conjurar">{{ spell.magic|nf }}</span></div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Coste de Maná para conjurar">-{{ spell.manaCost|nf }}</span></div>
-                            {# row #}
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass-half"></i><span data-toggle="tooltip" data-placement="top" title="Coste de Turnos para conjurar">-{{ spell.turnsCost|nf }}</span></div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-hourglass"></i><span data-toggle="tooltip" data-placement="top" title="Coste de Turnos para investigar">{{ spell.turnsResearch }}</span></div>
-                            {# row #}
                             {% if spell.enchantment %}
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro al turno por nivel">-{{ spell.goldMaintenance|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Personas al turno por nivel">-{{ spell.peopleMaintenance|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Maná al turno por nivel">-{{ spell.manaMaintenance|nf }}</span></div>
                             {% endif %}
-                            {# row #}
                             <div class="col-xs-12 text-lore"><small><i>{{ spell.lore }}</i></small></div>
                         </div>
                     </div>
@@ -299,13 +304,68 @@
         {% endfor %}
         <div class="col-xs-12">
             <div class="page-header text-center">
+                <a name="recetas"></a>
+                <h1><i class="fa fa-fw fa-flask"></i>Recetas y <i class="fa fa-fw fa-map"></i>Mapas</h1>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-recipe">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-flask"></i>Receta de Alquimia</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( 'bundles/archmagegame/images/kingdom/alchemy.jpg' ) }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-extra">Primer Artefacto</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-extra">Segundo Artefacto</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-money"></i><span class="label label-extra">Oro necesario</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-extra">Artefacto resultante</span></div>
+                            <div class="col-xs-12 text-lore"><small><i>Un poco de esto, un poco de aquello y... TACHÁN!</i></small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center text-responsive">
+                    <i class="fa fa-fw fa-joomla"></i>Convierte unos <span class="label label-extra">Artefactos</span> en otros
+                </div>
+                {# TAGS FOR SEARCH #}
+                <span class="hidden">Recetas, Alquimia</span>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-quest">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-map"></i>Mapa de Aventura</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( 'bundles/archmagegame/images/kingdom/quest.jpg' ) }}" />
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-extra">Tropa enemiga</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-extra">Tropa enemiga</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-extra">Tropa enemiga</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-extra">Tropa enemiga</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-extra">Tropa enemiga</span></div>
+                            <div class="col-xs-12 text-lore"><small><i>La X siempre marca el lugar!</i></small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center text-responsive">
+                    <i class="fa fa-fw fa-joomla"></i>Otorga <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Oro</span> y <span class="label label-rune">Runas</span>
+                </div>
+                {# TAGS FOR SEARCH #}
+                <span class="hidden">Aventura</span>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="page-header text-center">
                 <a name="artefactos"></a>
-                <h1><i class="fa fa-fw fa-info-circle"></i>Artefactos</h1>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Artefactos ({{ artifacts|length|nf }})</h1>
             </div>
         </div>
         {% for artifact in artifacts %}
         <div class="col-xs-12 col-md-6"><a name="{{ artifact.name|slug }}"></a>
-            <div class="panel panel-{{ artifact.faction.class }}">
+            <div class="panel panel-{{ artifact.class }}">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-diamond"></i>{{ artifact.name }}</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
@@ -313,7 +373,6 @@
                             <img class="custom-thumbnail" src="{{ asset( artifact.image ) }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            {# row #}
                             <div class="col-xs-12 text-lore"><small><i>{{ artifact.lore }}</i></small></div>
                         </div>
                     </div>
@@ -322,7 +381,36 @@
                     <i class="fa fa-fw fa-joomla"></i>{{ artifact.skill.description|raw }}
                 </div>
                 {# TAGS FOR SEARCH #}
-                <span class="hidden">Artefactos, {{ artifact.faction.name }}</span>
+                <span class="hidden">Artefactos, Neutral</span>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+        <div class="col-xs-12">
+            <div class="page-header text-center">
+                <a name="runas"></a>
+                <h1><i class="fa fa-fw fa-info-circle"></i>Runas ({{ runes|length|nf }})</h1>
+            </div>
+        </div>
+        {% for rune in runes %}
+        <div class="col-xs-12 col-md-6">
+            <div class="panel panel-rune">
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-ils"></i> {{ rune.name }} [{{ rune.cost|nf }}]</div>
+                <div class="panel-body text-responsive">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img class="custom-thumbnail" src="{{ asset( rune.image ) }}">
+                        </div>
+                        <div class="col-xs-8 text-padded">
+                            <div class="col-xs-12 text-lore"><small><i>{{ rune.lore }}</i></small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-center text-responsive">
+                    <i class="fa fa-fw fa-joomla"></i>{{ rune.skill.description|raw }}
+                </div>
+                {# TAGS FOR SEARCH #}
+                <span class="hidden">Runas</span>
             </div>
         </div>
         {% endfor %}

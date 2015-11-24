@@ -5,6 +5,7 @@ namespace Archmage\GameBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Doctrine\Common\Collections\Criteria;
 use Symfony\Component\HttpFoundation\Request;
 use Archmage\GameBundle\Entity\Research;
 use Archmage\GameBundle\Entity\Troop;
@@ -15,15 +16,22 @@ use Archmage\GameBundle\Entity\Item;
 use Archmage\GameBundle\Entity\Unit;
 use Archmage\GameBundle\Entity\Artifact;
 use Archmage\GameBundle\Entity\Message;
+use Archmage\GameBundle\Entity\Quest;
+use Archmage\GameBundle\Entity\Recipe;
 use Archmage\GameBundle\Entity\Contract;
 
 class MagicController extends Controller
 {
     /**
-     * @Route("/game/magic/charge")
-     * @Template("ArchmageGameBundle:Magic:charge.html.twig")
+     * Constants
      */
-    public function chargeAction(Request $request)
+    const BROKEN = 3;
+
+    /**
+     * @Route("/game/magic/meditate")
+     * @Template("ArchmageGameBundle:Magic:meditate.html.twig")
+     */
+    public function meditateAction(Request $request)
     {
         $this->get('service.controller')->addNews();
         if ($this->get('service.controller')->checkWinner()) return $this->redirect($this->generateUrl('archmage_game_account_legend'));
@@ -49,9 +57,9 @@ class MagicController extends Controller
                 $manager->flush();
                 $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> y recargado '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span>.');
             } else {
-                $this->addFlash('danger', 'No tienes suficientes <span class="label label-extra">Turnos</span> para eso.');
+                $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios para eso.');
             }
-            return $this->redirect($this->generateUrl('archmage_game_magic_charge'));
+            return $this->redirect($this->generateUrl('archmage_game_magic_meditate'));
         }
         return array(
             'player' => $player,
@@ -157,7 +165,7 @@ class MagicController extends Controller
                         $player->setResearch($research);
                         $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> en defender con <span class="label label-'.$research->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($research->getSpell()->getName()).'" class="link">'.$research->getSpell()->getName().'</a></span>.');
                     } else {
-                        $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios.');
+                        $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios para eso.');
                     }
                 } else {
                     $research->getSpell()->getFaction() == $player->getFaction() ? $bonus = 1 : $bonus = 2;
@@ -186,14 +194,17 @@ class MagicController extends Controller
                                     $manager->persist($target);
                                     $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> y '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span> en conjurar <span class="label label-'.$research->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($research->getSpell()->getName()).'" class="link">'.$research->getSpell()->getName().'</a></span> sobre <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                                 } else {
-                                    $this->addFlash('danger', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> y '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span> en conjurar <span class="label label-'.$research->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($research->getSpell()->getName()).'" class="link">'.$research->getSpell()->getName().'</a></span> sobre <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>, pero no has superado su <span class="label label-extra">Defesa Mágica</span>.');
+                                    $broken = floor($target->getConstruction('Barreras')->getQuantity() * self::BROKEN / (float)100);
+                                    $target->setConstruction('Tierras', $target->getFree() + $broken);
+                                    $target->setConstruction('Barreras', max(0, $target->getConstruction('Barreras')->getQuantity() - $broken));
+                                    $this->addFlash('danger', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> y '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span> en conjurar <span class="label label-'.$research->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($research->getSpell()->getName()).'" class="link">'.$research->getSpell()->getName().'</a></span> sobre <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>, pero no has superado su <span class="label label-extra">Defesa Mágica</span>, aunque le has destruido algunas <span class="label label-extra">Barreras</span>.');
                                 }
                             } else {
                                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
                             }
                         }
                     } else {
-                        $this->addFlash('danger', 'No tienes los <span class="label label-extra">Recursos</span> necesarios para conjurar ese hechizo.');
+                        $this->addFlash('danger', 'No tienes los <span class="label label-extra">Recursos</span> necesarios eso.');
                     }
                 }
                 /*
@@ -268,7 +279,7 @@ class MagicController extends Controller
                     $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
                 }
             } else {
-                $this->addFlash('danger', 'No tienes <span class="label label-extra">Turnos</span> suficientes para eso.');
+                $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios para eso.');
             }
             return $this->redirect($this->generateUrl('archmage_game_magic_dispell'));
         }
@@ -308,15 +319,18 @@ class MagicController extends Controller
                         $target = $manager->getRepository('ArchmageGameBundle:Player')->findOneById($target);
                         if (!$target) {
                             $this->activateSelf($item->getArtifact());
-                            $this->addFlash('success', 'Has gastado '. $this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
+                            $this->addFlash('success', 'Has gastado '. $this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
                         } else {
                             $chance = rand(0,99);
                             if ($chance > $target->getMagicDefense()) {
                                 $this->activateTarget($item->getArtifact(), $target);
                                 $manager->persist($target);
-                                $this->addFlash('success', 'Has gastado ' . $this->get('service.controller')->nff($turns) . ' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span> sobre <span class="label label-' . $target->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">' . $target->getNick() . '</a></span>.');
+                                $this->addFlash('success', 'Has gastado ' . $this->get('service.controller')->nff($turns) . ' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span> sobre <span class="label label-' . $target->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">' . $target->getNick() . '</a></span>.');
                             } else {
-                                $this->addFlash('danger', 'Has gastado ' . $this->get('service.controller')->nff($turns) . ' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span> sobre <span class="label label-' . $target->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">' . $target->getNick() . '</a></span>, pero no has superado su <span class="label label-extra">Defesa Mágica</span>.');
+                                $broken = floor($target->getConstruction('Barreras')->getQuantity() * self::BROKEN / (float)100);
+                                $target->setConstruction('Tierras', $target->getFree() + $broken);
+                                $target->setConstruction('Barreras', max(0, $target->getConstruction('Barreras')->getQuantity() - $broken));
+                                $this->addFlash('danger', 'Has gastado ' . $this->get('service.controller')->nff($turns) . ' <span class="label label-extra">Turnos</span> en activar <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span> sobre <span class="label label-' . $target->getFaction()->getClass() . '"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">' . $target->getNick() . '</a></span>, pero no has superado su <span class="label label-extra">Defesa Mágica</span>, aunque le has destruido algunas <span class="label label-extra">Barreras</span>.');
                             }
                         }
                         $item->setQuantity($item->getQuantity() - 1);
@@ -327,7 +341,7 @@ class MagicController extends Controller
                         }
                     } elseif ($action == 'defense') {
                         $player->setItem($item);
-                        $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> en defender con <span class="label label-'.$item->getArtifact()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
+                        $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> en defender con <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
                     }
                     /*
                      * PERSISTENCIA
@@ -338,13 +352,100 @@ class MagicController extends Controller
                     $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
                 }
             } else {
-                $this->addFlash('danger', 'No tienes <span class="label label-extra">Turnos</span> suficientes para eso.');
+                $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios para eso.');
             }
             return $this->redirect($this->generateUrl('archmage_game_magic_artifact'));
         }
         return array(
             'player' => $player,
             'targets' => $targets,
+        );
+    }
+
+    /**
+     * @Route("/game/magic/alchemy")
+     * @Template("ArchmageGameBundle:Magic:alchemy.html.twig")
+     */
+    public function alchemyAction(Request $request)
+    {
+        $this->get('service.controller')->addNews();
+        if ($this->get('service.controller')->checkWinner()) return $this->redirect($this->generateUrl('archmage_game_account_legend'));
+        $manager = $this->getDoctrine()->getManager();
+        $player = $this->getUser()->getPlayer();
+        if ($request->isMethod('POST')) {
+            $turns = 5;
+            $recipe = isset($_POST['recipe'])?$_POST['recipe']:null;
+            $action = isset($_POST['action'])?$_POST['action']:null;
+            $recipe = $manager->getRepository('ArchmageGameBundle:Recipe')->findOneById($recipe);
+            if ($recipe && $action) {
+                if ($action == 'craft') {
+                    $turns = 5;
+                    if ($turns <= $player->getTurns()) {
+                        $item1 = $player->hasArtifact($recipe->getFirst());
+                        $item2 = $player->hasArtifact($recipe->getSecond());
+                        $gold = $recipe->getGold();
+                        if ($item1 && $item2 && $gold <= $player->getGold()) {
+                            /*
+                            * MANTENIMIENTO
+                            */
+                            $player->setTurns($player->getTurns() - $turns);
+                            $player->setGold($player->getGold() - $gold);
+                            $this->get('service.controller')->checkMaintenances($turns);
+                            /*
+                             * ACCION
+                             */
+                            $item1->setQuantity($item1->getQuantity() - 1);
+                            if ($item1->getQuantity() <= 0) {
+                                if ($player->getItem() && $player->getItem()->getArtifact() == $item1->getArtifact()) $player->setItem(null);
+                                $player->removeItem($item1);
+                                $manager->remove($item1);
+                            }
+                            $item2->setQuantity($item2->getQuantity() - 1);
+                            if ($item2->getQuantity() <= 0) {
+                                if ($player->getItem() && $player->getItem()->getArtifact() == $item2->getArtifact()) $player->setItem(null);
+                                $player->removeItem($item2);
+                                $manager->remove($item2);
+                            }
+                            $item = $player->hasArtifact($recipe->getResult());
+                            if ($item) {
+                                $item->setQuantity($item->getQuantity() + 1);
+                            } else {
+                                $item = new Item();
+                                $manager->persist($item);
+                                $item->setArtifact($recipe->getResult());
+                                $item->setQuantity(1);
+                                $item->setPlayer($player);
+                                $player->addItem($item);
+                            }
+                            $this->addFlash('success', 'Has gastado los ingredientes, '.$turns.' <span class="label label-extra">Turnos</span>, '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span> y fabricado el Artefacto <span class="label label-' . $item->getArtifact()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
+                            if ($recipe->getResult()->getLegendary()) {
+                                $player->removeRecipe($recipe);
+                                $manager->remove($recipe);
+                                $this->addFlash('danger', 'La <span class="label label-recipe">Receta</span> era demasiado poderosa y se ha quemado.');
+                            }
+                        } else {
+                            $this->addFlash('danger', 'No tienes los <span class="label label-extra">Artefactos</span> o el <span class="label label-extra">Oro</span> necesario para eso.');
+                        }
+                    } else {
+                        $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios para eso.');
+                    }
+                } elseif ($action == 'forget') {
+                    $player->removeRecipe($recipe);
+                    $manager->remove($recipe);
+                    $this->addFlash('success', 'Has olvidado correctamente esa <span class="label label-recipe">Receta</span>.');
+                }
+                /*
+                 * PERSISTENCIA
+                 */
+                $manager->persist($player);
+                $manager->flush();
+            } else {
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
+            }
+            return $this->redirect($this->generateUrl('archmage_game_magic_alchemy'));
+        }
+        return array(
+            'player' => $player,
         );
     }
 
@@ -365,6 +466,8 @@ class MagicController extends Controller
             array('default', 12, 0, 'center', 'Tierras libres: '.$this->get('service.controller')->nff($target->getFree())),
             array('default', 12, 0, 'center', 'Héroes: '.$this->get('service.controller')->nff($target->getContracts()->count())),
             array('default', 12, 0, 'center', 'Artefactos: '.$this->get('service.controller')->nff($target->getArtifacts())),
+            array('default', 12, 0, 'center', 'Mapas: '.$this->get('service.controller')->nff($target->getQuests()->count())),
+            array('default', 12, 0, 'center', 'Recetas: '.$this->get('service.controller')->nff($target->getRecipes()->count())),
             array('default', 12, 0, 'center', 'Magia: '.$this->get('service.controller')->nff($target->getMagic())),
             array('default', 12, 0, 'center', 'Defensa Mágica: '.$this->get('service.controller')->nff($target->getMagicDefense()).'%'),
             array('default', 12, 0, 'center', 'Defensa Física: '.$this->get('service.controller')->nff($target->getArmyDefense()).'%'),
@@ -386,8 +489,8 @@ class MagicController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
-        //SUMMON
         if ($spell->getSkill()->getSummon()) {
+            //SUMMON
             if ($spell->getSkill()->getUnit()) {
                 $unit = $spell->getSkill()->getUnit();
                 $quantity = $spell->getSkill()->getQuantityBonus();
@@ -397,6 +500,7 @@ class MagicController extends Controller
                 $unit = $units[0];
                 $quantity = $spell->getSkill()->getQuantityBonus() / $unit->getPower();
             }
+            $quantity += round($quantity * $player->getSummonBonus() / (float)100);
             $troop = $player->hasUnit($unit);
             if ($troop) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
@@ -414,8 +518,8 @@ class MagicController extends Controller
                     $this->addFlash('danger', 'No puedes tener más de '.$player::TROOPS_CAP.' tropas distintas al mismo tiempo, debes <i class="fa fa-fw fa-user-times"></i><a href='.$this->generateUrl('archmage_game_army_disband').'>Desbandar</a> alguna.');
                 }
             }
-            //ENCHANTMENT
         } elseif ($spell->getEnchantment()) {
+            //ENCHANTMENT
             $enchantment = $player->hasEnchantmentVictim($spell);
             if ($enchantment) {
                 $player->removeEnchantmentsVictim($enchantment);
@@ -444,9 +548,11 @@ class MagicController extends Controller
             $maxchance = $spell->getSkill()->getArtifactBonus() * $player->getMagic();
             $chance = rand(0,99);
             if ($chance < $maxchance) {
-                $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
+                $criteria = new Criteria();
+                $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+                $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
                 shuffle($artifacts);
-                $artifact = $artifacts[0]; //suponemos length > 0
+                $artifact = $artifacts[0];
                 $item = $player->hasArtifact($artifact);
                 if ($item) {
                     $item->setQuantity($item->getQuantity() + 1);
@@ -458,9 +564,62 @@ class MagicController extends Controller
                     $item->setPlayer($player);
                     $player->addItem($item);
                 }
-                $this->addFlash('success', 'Has encontrado el Artefacto <span class="label label-' . $item->getArtifact()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
+                $this->addFlash('success', 'Has encontrado el Artefacto <span class="label label-' . $item->getArtifact()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
             } else {
                 $this->addFlash('danger', 'No has encontrado nada.');
+            }
+        } elseif ($spell->getSkill()->getQuestBonus() > 0) {
+            //MAP
+            $maxchance = $spell->getSkill()->getQuestBonus() * $player->getMagic();
+            $chance = rand(0,99);
+            if ($chance < $maxchance) {
+                $level = rand(1,3);
+                $criteria = new Criteria();
+                $criteria->where($criteria->expr()->lte('rarity', $level * 33));
+                $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
+                shuffle($artifacts);
+                $artifact = $artifacts[0];
+                $quest = new Quest();
+                $manager->persist($quest);
+                $quest->setArtifact($artifact);
+                $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
+                shuffle($units);
+                for ($i = 0; $i < $level; $i++) {
+                    $unit = $units[$i];
+                    $troop = new Troop();
+                    $manager->persist($troop);
+                    $troop->setUnit($unit);
+                    $troop->setQuantity(500000 / $unit->getPower());
+                    $troop->setQuest($quest);
+                    $quest->addTroop($troop);
+                }
+                $player->addQuest($quest);
+                $this->addFlash('success', 'Has descubierto una nueva <span class="label label-quest"><a href="'.$this->generateUrl('archmage_game_army_quest').'" class="link">Aventura</a></span>.');
+            } else {
+                $this->addFlash('danger', 'No has descubierto nada.');
+            }
+        } elseif ($spell->getSkill()->getRecipeBonus() > 0) {
+            //RECIPE
+            $maxchance = $spell->getSkill()->getRecipeBonus() * $player->getMagic();
+            $chance = rand(0,99);
+            if ($chance < $maxchance) {
+                $criteria = new Criteria();
+                $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+                $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
+                $recipe = new Recipe();
+                $manager->persist($recipe);
+                shuffle($artifacts);
+                $recipe->setFirst($artifacts[0]);
+                shuffle($artifacts);
+                $recipe->setSecond($artifacts[0]);
+                shuffle($artifacts);
+                $recipe->setResult($artifacts[0]);
+                $recipe->setGold($recipe->getResult()->getGoldAuction() / 2);
+                $recipe->setPlayer($player);
+                $player->addRecipe($recipe);
+                $this->addFlash('success', 'Has descubierto una nueva <span class="label label-recipe"><a href="'.$this->generateUrl('archmage_game_magic_alchemy').'" class="link">Recipe</a></span>.');
+            } else {
+                $this->addFlash('danger', 'No has descubierto nada.');
             }
         }
     }
@@ -475,8 +634,8 @@ class MagicController extends Controller
         //MESSAGE
         $text = array();
         $text[] = array('default', 12, 0, 'center', 'El mago <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ha lanzado el Hechizo <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span> sobre tu Reino.');
-        //ESPIONAGE
         if ($spell->getSkill()->getSpyBonus() > 0) {
+            //ESPIONAGE
             $maxchance = $spell->getSkill()->getSpyBonus() * $player->getMagic();
             $chance = rand(0, 99);
             if ($chance < $maxchance) {
@@ -485,7 +644,6 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'No has logrado obtener ninguna información relevante del Reino objetivo.');
             }
-        //DISPELL
         } elseif ($spell->getSkill()->getDispellBonus() > 0) {
             $maxchance = $spell->getSkill()->getDispellBonus() * $player->getMagic();
             $chance = rand(0, 99);
@@ -511,8 +669,8 @@ class MagicController extends Controller
                 $this->addFlash('danger', 'No has logrado romper ningún Encantamiento de <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span>.');
                 $text[] = array('default', 12, 0, 'center', 'Han intentado desencantarte, pero no lo han logrado.');
             }
-        //ENCHANTMENT
         } elseif ($spell->getEnchantment()) {
+            //ENCHANTMENT
             $previous = $target->hasEnchantmentVictim($spell);
             if (!$previous || ($previous && $previous->getOwner()->getMagic() <= $player->getMagic() && $previous->getOwner()->getMagicDefense() <= $player->getMagicDefense())) {
                 if ($previous) {
@@ -538,7 +696,6 @@ class MagicController extends Controller
                 $this->addFlash('danger', 'El mago <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> ya tenía ese Encantamiento y tu <span class="label label-extra">Magia</span> y <span class="label label-extra">Defensa Mágica</span> no los superan para sustituirlo.');
                 $text[] = array('default', 12, 0, 'center', 'No te han podido encantar con <span class="label label-'.$spell->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($spell->getName()).'" class="link">'.$spell->getName().'</a></span>.');
             }
-        //ARTIFACT
         } elseif ($spell->getSkill()->getArtifactBonus() < 0) {
             if ($target->getItems()->count() > 0) {
                 $maxchance = abs($spell->getSkill()->getArtifactBonus()) * $player->getMagic();
@@ -563,8 +720,8 @@ class MagicController extends Controller
                 $this->addFlash('danger', 'El mago <span class="label label-' . $target->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())) . '" class="link">' . $target->getNick() . '</a></span> no tiene Artefactos para destruir.');
                 $text[] = array('default', 12, 0, 'center', 'Te han intentado destruir un Artefacto, pero no tenías ninguno.');
             }
-        //DAMAGE
         } elseif ($spell->getSkill()->getDamageBonus() < 0) {
+            //DAMAGE
             if ($target->getUnits() > 0) {
                 $troops = $target->getTroops()->toArray();
                 shuffle($troops);
@@ -581,20 +738,20 @@ class MagicController extends Controller
                 $this->addFlash('danger', 'No hay más tropas que matar.');
                 $text[] = array('default', 12, 0, 'center', 'No te han matado tropas.');
             }
-        //GOLD
         } elseif ($spell->getSkill()->getGoldBonus() < 0) {
+            //GOLD
             $gold = $target->getGold() * $spell->getSkill()->getGoldBonus() * $player->getMagic() / (float)100;
             $target->setGold($target->getGold() + $gold);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
             $text[] = array('default', 12, 0, 'center', 'Has perdido '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span>.');
-        //PEOPLE
         } elseif ($spell->getSkill()->getPeopleBonus() < 0) {
+            //PEOPLE
             $people = $target->getPeople() * $spell->getSkill()->getPeopleBonus() * $player->getMagic() / (float)100;
             $target->setPeople($target->getPeople() + $people);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nff($people).' <span class="label label-extra">Personas</span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
             $text[] = array('default', 12, 0, 'center', 'Has perdido '.$this->get('service.controller')->nff($people).' <span class="label label-extra">Personas</span>.');
-        //MANA
         } elseif ($spell->getSkill()->getManaBonus() < 0) {
+            //MANA
             $mana = $target->getMana() * $spell->getSkill()->getManaBonus() * $player->getMagic() / (float)100;
             $target->setMana($target->getMana() + $mana);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
@@ -621,6 +778,7 @@ class MagicController extends Controller
             }
             $troop = $player->hasUnit($unit);
             $quantity = ($artifact->getSkill()->getQuantityBonus() * 2) / $unit->getPower();
+            $quantity += round($quantity * $player->getSummonBonus() / (float)100);
             if ($troop) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
                 $this->addFlash('success', 'Has invocado '.$this->get('service.controller')->nff($quantity).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
@@ -637,13 +795,13 @@ class MagicController extends Controller
                     $this->addFlash('danger', 'No puedes tener más de '.$player::TROOPS_CAP.' tropas distintas al mismo tiempo, debes <i class="fa fa-fw fa-user-times"></i><a href='.$this->generateUrl('archmage_game_army_disband').'>Desbandar</a> alguna.');
                 }
             }
-            //TERRAIN
         } elseif ($artifact->getSkill()->getTerrainBonus() > 0) {
+            //TERRAIN
             $free = rand($artifact->getSkill()->getTerrainBonus() / 2, $artifact->getSkill()->getTerrainBonus());
             $player->setConstruction('Tierras', $player->getFree() + $free);
             $this->addFlash('success', 'Has encontrado '.$this->get('service.controller')->nff($free).' <span class="label label-extra">Tierras</span>.');
-            //HERO LEVEL
         } elseif ($artifact->getSkill()->getHeroBonus() > 0) {
+            //HERO LEVEL
             if ($player->getHeroes() > 0) {
                 $contracts = $player->getContracts()->toArray();
                 shuffle($contracts);
@@ -654,23 +812,23 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'No tienes héroes en tu Reino.');
             }
-            //GOLD
         } elseif ($artifact->getSkill()->getGoldBonus() > 0) {
+            //GOLD
             $gold = rand($artifact->getSkill()->getGoldBonus() / 2, $artifact->getSkill()->getGoldBonus());
             $player->setGold($player->getGold() + $gold);
             $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span>.');
-            //PEOPLE
         } elseif ($artifact->getSkill()->getPeopleBonus() > 0) {
+            //PEOPLE
             $people = $player->getPeopleCap() * $artifact->getSkill()->getPeopleBonus() / (float)100;
             $player->setPeople($player->getPeople() + $people);
             $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nff($people).' <span class="label label-extra">Personas</span>.');
-            //MANA
         } elseif ($artifact->getSkill()->getManaBonus() > 0) {
+            //MANA
             $mana = $player->getManaCap() * $artifact->getSkill()->getManaBonus() / (float)100;
             $player->setMana($player->getMana() + $mana);
             $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span>.');
-            //DISPELL
         } elseif ($artifact->getSkill()->getDispellBonus() > 0) {
+            //DISPELL
             if ($player->getEnchantmentsVictim()->count() > 0) {
                 $enchantments = $player->getEnchantmentsVictim()->toArray();
                 shuffle($enchantments);
@@ -686,8 +844,14 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'No tienes ningún Encantamiento en tu Reino que romper.');
             }
+        } elseif ($artifact->getSkill()->getTurnsBonus() < 0) {
+            //TURNOS
+            $turns = rand($artifact->getSkill()->getTurnsBonus() / 2, $artifact->getSkill()->getTurnsBonus());
+            foreach ($player->getEnchantmentsVictim() as $enchantment) {
+                $enchantment->setExpiration(max(0, $enchantment->getExpiration() + $turns));
+            }
+            $this->addFlash('success', 'Has restado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> a todos los Encantamientos de tu Reino.');
         }
-
     }
 
     /**
@@ -700,12 +864,12 @@ class MagicController extends Controller
         //MESSAGE
         $text = array();
         $text[] = array('default', 12, 0, 'center', 'El mago <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link"><span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span></a> ha activado el Artefacto <span class="label label-'.$artifact->getFaction()->getClass().'">'.$artifact->getName().'</span> sobre tu Reino.');
-        //SPIONAGE
         if ($artifact->getSkill()->getSpyBonus() > 0) {
+            //SPIONAGE
             $this->createEspionage($target);
             $this->addFlash('success', 'Has logrado obtener información importante del Reino objetivo.');
-            //HERO LEVEL
         } elseif ($artifact->getSkill()->getHeroBonus() < 0) {
+            //HERO LEVEL
             if ($target->getHeroes() > 0) {
                 $contracts = $target->getContracts()->toArray();
                 shuffle($contracts);
@@ -725,33 +889,40 @@ class MagicController extends Controller
                 $this->addFlash('danger', '<span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span> no tiene héroes en su Reino.');
                 $text[] = array('default', 12, 0, 'center', 'No tienes héroes en tu reino.');
             }
-            //TERRAIN
         } elseif ($artifact->getSkill()->getTerrainBonus() < 0) {
-            $constructions = $target->getConstructions()->toArray();
-            shuffle($constructions);
-            $construction = $constructions[0]; //suponemos > 0
-            $destroyed = $artifact->getSkill()->getTerrainBonus() * $construction->getQuantity() / 100;
-            $construction->setQuantity($construction->getQuantity() + $destroyed);
-            $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nff($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
-            $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nff($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span>.');
-            //GOLD
+            //TERRAIN
+            $total = 0;
+            foreach ($target->getConstructions() as $construction) {
+                $destroyed = floor($artifact->getSkill()->getTerrainBonus() * $construction->getQuantity() / (float)100);
+                $construction->setQuantity($construction->getQuantity() + $destroyed);
+                $total += $destroyed;
+            }
+            $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nff($total).' <span class="label label-extra">Edificios</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
+            $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nff($total).' <span class="label label-extra">Edificios</span>.');
         } elseif ($artifact->getSkill()->getGoldBonus() < 0) {
+            //GOLD
             $gold = $target->getGold() * $artifact->getSkill()->getGoldBonus() / (float)100;
             $target->setGold($target->getGold() + $gold);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
             $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span>.');
-            //PEOPLE
         } elseif ($artifact->getSkill()->getPeopleBonus() < 0) {
+            //PEOPLE
             $people = $target->getPeople() * $artifact->getSkill()->getPeopleBonus() / (float)100;
             $target->setPeople($target->getPeople() + $people);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nff($people).' <span class="label label-extra">Personas</span> de <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link"><span class="label label-'.$target->getFaction()->getClass().'">'.$target->getNick().'</span></a>.');
             $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nff($people).' <span class="label label-extra">Personas</span>.');
-            //MANA
         } elseif ($artifact->getSkill()->getManaBonus() < 0) {
+            //MANA
             $mana = $target->getMana() * $artifact->getSkill()->getManaBonus() / (float)100;
             $target->setMana($target->getMana() + $mana);
             $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span> de <span class="label label-' . $target->getFaction()->getClass() . '">' . $target->getNick() . '</span>.');
             $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span>.');
+        } elseif ($artifact->getSkill()->getTurnsBonus() < 0) {
+            //TURNOS
+            $turns = rand(-1, $artifact->getSkill()->getTurnsBonus());
+            $target->setTurns(max(0, $target->getTurns() + $turns));
+            $this->addFlash('success', 'Has eliminado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> de <span class="label label-' . $target->getFaction()->getClass() . '">' . $target->getNick() . '</span>.');
+            $text[] = array('default', 12, 0, 'center', 'Pierdes '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span>.');
         }
         $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Artefacto', $text, 'magic');
     }

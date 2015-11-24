@@ -61,7 +61,7 @@ class Legend
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -84,7 +84,7 @@ class Legend
     /**
      * Get nick
      *
-     * @return string 
+     * @return string
      */
     public function getNick()
     {
@@ -107,7 +107,7 @@ class Legend
     /**
      * Get lands
      *
-     * @return integer 
+     * @return integer
      */
     public function getLands()
     {
@@ -130,7 +130,7 @@ class Legend
     /**
      * Get power
      *
-     * @return integer 
+     * @return integer
      */
     public function getPower()
     {
@@ -153,7 +153,7 @@ class Legend
     /**
      * Get datetime
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDatetime()
     {

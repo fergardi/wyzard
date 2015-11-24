@@ -22,6 +22,15 @@ class LegendFixtures extends AbstractFixture implements OrderedFixtureInterface
         $legend->setPower(3368000);
         $manager->persist($legend);
 
+        //SEASON2
+        $legend = new Legend();
+        $legend->setNick('<span class="label label-warning">Fergardi</span>');
+        $legend->setDatetime(new \DateTime("11/24/2015 16:52:27")); //mm/dd/yyyy hh:ii:ss
+        $legend->setLands(4218);
+        $legend->setPower(7197000);
+        $manager->persist($legend);
+
+        //FLUSH
         $manager->flush();
     }
 
@@ -30,6 +39,6 @@ class LegendFixtures extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 12; // the order in which fixtures will be loaded
+        return 13; // the order in which fixtures will be loaded
     }
 }

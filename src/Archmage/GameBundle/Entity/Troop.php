@@ -40,6 +40,12 @@ class Troop
      **/
     private $player = null;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Quest", inversedBy="troops")
+     * @ORM\JoinColumn(name="quest", referencedColumnName="id", nullable=true)
+     **/
+    private $quest = null;
+
 
     /**
      * Get id
@@ -118,5 +124,42 @@ class Troop
     public function getPlayer()
     {
         return $this->player;
+    }
+
+    /**
+     * Set quest
+     *
+     * @param \Archmage\GameBundle\Entity\Quest $quest
+     * @return Troop
+     */
+    public function setQuest(\Archmage\GameBundle\Entity\Quest $quest = null)
+    {
+        $this->quest = $quest;
+
+        return $this;
+    }
+
+    /**
+     * Get quest
+     *
+     * @return \Archmage\GameBundle\Entity\Quest
+     */
+    public function getQuest()
+    {
+        return $this->quest;
+    }
+
+    /*
+     * AUXILIARY FUNCTIONS
+     */
+
+    /**
+     * Get power
+     *
+     * @return integer
+     */
+    public function getPower()
+    {
+        return $this->getUnit()->getPower() * $this->getQuantity();
     }
 }

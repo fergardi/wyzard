@@ -38,7 +38,7 @@ class Item
      * @ORM\ManyToOne(targetEntity="Player", inversedBy="items")
      * @ORM\JoinColumn(name="player", referencedColumnName="id", nullable=true)
      **/
-    private $player = null; //puede estar en la auction sin owner todavia
+    private $player = null; //puede estar en la auction o en un mapa sin owner todavia
 
 
     /**

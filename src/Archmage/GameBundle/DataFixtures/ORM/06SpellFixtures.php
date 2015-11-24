@@ -16,7 +16,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
     const TURNS_RESEARCH = 50;
     const TURNS_EXPIRATION = 50;
     const TURNS_BATTLE = 0;
-    const TURNS_SUMMON = 2; //por nivel
+    const TURNS_SUMMON = 2;
     const TURNS_UTILITY = 5;
     const TURNS_ENCHANTMENT = 10;
 
@@ -46,7 +46,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -69,7 +69,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -92,7 +92,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -115,7 +115,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -138,7 +138,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -161,7 +161,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -184,7 +184,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -207,7 +207,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -230,8 +230,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -253,8 +253,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -262,29 +262,6 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         /*
          * HECHIZOS OSCURIDAD
          */
-
-        //MALDICION
-        $spell = new Spell();
-        $spell->setSkill($this->getReference('Maldición'));
-        $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('No la podrás disipar ni comprando ramitas de romero a una zíngara.');
-        $spell->setImage('bundles/archmagegame/images/spell/darkness/curse.jpg');
-        $spell->setFaction($this->getReference('Oscuridad'));
-        $spell->setMagic(1);
-        $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
-        $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(0);
-        $spell->setPeopleMaintenance(0);
-        $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_BATTLE);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
-        $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
-        $spell->setEnchantment(false);
-        //$this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
 
         //AQUELARRE
         $spell = new Spell();
@@ -303,7 +280,30 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(0);
+        $spell->setEnchantment(false);
+        //$this->setReference($spell->getName(), $spell);
+        $manager->persist($spell);
+
+        //MALDICION
+        $spell = new Spell();
+        $spell->setSkill($this->getReference('Maldición'));
+        $spell->setName($spell->getSkill()->getName());
+        $spell->setLore('No la podrás disipar ni comprando ramitas de romero a una zíngara.');
+        $spell->setImage('bundles/archmagegame/images/spell/darkness/curse.jpg');
+        $spell->setFaction($this->getReference('Oscuridad'));
+        $spell->setMagic(1);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setPeopleMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setTurnsCost(self::TURNS_BATTLE);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
+        $spell->setTurnsExpiration(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -326,15 +326,15 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //MIEDO
+        //TERROR
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Miedo'));
+        $spell->setSkill($this->getReference('Terror'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Estarán tan aterrorizados que no podrán vernos venir.');
         $spell->setImage('bundles/archmagegame/images/spell/darkness/fear.jpg');
@@ -346,12 +346,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldMaintenance(0);
         $spell->setPeopleMaintenance(0);
         $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_BATTLE);
+        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
-        $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
-        $spell->setEnchantment(false);
+        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
+        $spell->setEnchantment(true);
         //$this->setReference($spell->getName().' defense', $spell); //gods
         $manager->persist($spell);
 
@@ -370,10 +370,10 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setPeopleMaintenance(200);
         $spell->setManaMaintenance(100);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -395,7 +395,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_UTILITY);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -416,10 +416,10 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setPeopleMaintenance(200);
         $spell->setManaMaintenance(100);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -439,11 +439,34 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setPeopleMaintenance(1000);
         $spell->setManaMaintenance(500);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(true);
+        //$this->setReference($spell->getName(), $spell);
+        $manager->persist($spell);
+
+        //NOCHE DE LOS MUERTOS VIVIENTES
+        $spell = new Spell();
+        $spell->setSkill($this->getReference('Convocar NoMuertos'));
+        $spell->setName('Noche de los Muertos Vivientes');
+        $spell->setLore('Las sombras se ciernen sobre nosotros.');
+        $spell->setImage('bundles/archmagegame/images/spell/darkness/nightlivingdead.jpg');
+        $spell->setFaction($this->getReference('Oscuridad'));
+        $spell->setMagic(5);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic() / 2);
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setPeopleMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic() / 2);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
+        $spell->setTurnsExpiration(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(0);
+        $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -464,31 +487,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
-        $spell->setEnchantment(false);
-        //$this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
-        //NOCHE DE LOS MUERTOS VIVIENTES
-        $spell = new Spell();
-        $spell->setSkill($this->getReference('Convocar NoMuertos'));
-        $spell->setName('Noche de los Muertos Vivientes');
-        $spell->setLore('Las sombras se ciernen sobre nosotros.');
-        $spell->setImage('bundles/archmagegame/images/spell/darkness/nightlivingdead.jpg');
-        $spell->setFaction($this->getReference('Oscuridad'));
-        $spell->setMagic(5);
-        $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic() / 2);
-        $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(0);
-        $spell->setPeopleMaintenance(0);
-        $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
-        $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -514,7 +514,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -537,7 +537,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -560,7 +560,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -583,7 +583,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -606,7 +606,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -629,7 +629,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -652,7 +652,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -675,7 +675,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -698,8 +698,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -721,8 +721,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -748,7 +748,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -771,7 +771,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -794,7 +794,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -817,7 +817,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -840,18 +840,18 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //PRISA
+        //DRUIDISMO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Prisa'));
+        $spell->setSkill($this->getReference('Druidismo'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('No hay tiempo que perder.');
-        $spell->setImage('bundles/archmagegame/images/spell/nature/haste.jpg');
+        $spell->setLore('Viejos secretos del los ancianos del bosque...');
+        $spell->setImage('bundles/archmagegame/images/spell/nature/druidism.jpg');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(3);
         $spell->setGoldCost(0);
@@ -860,36 +860,13 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldMaintenance(0);
         $spell->setPeopleMaintenance(0);
         $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_BATTLE);
+        $spell->setTurnsCost(self::TURNS_UTILITY);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName().' defense', $spell); //gods
-        $manager->persist($spell);
-
-        //FAVOR DE LA NATURALEZA
-        $spell = new Spell();
-        $spell->setSkill($this->getReference('Favor de la Naturaleza'));
-        $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Nada traspasará esta vegetación.');
-        $spell->setImage('bundles/archmagegame/images/spell/nature/naturefavor.jpg');
-        $spell->setFaction($this->getReference('Naturaleza'));
-        $spell->setMagic(4);
-        $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
-        $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(300);
-        $spell->setPeopleMaintenance(200);
-        $spell->setManaMaintenance(100);
-        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
-        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
-        $spell->setEnchantment(true);
-        //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
         //CONTROL DEL CLIMA
@@ -903,14 +880,37 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldCost(0);
         $spell->setManaCost(self::MANA_COST * $spell->getMagic());
         $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(300);
-        $spell->setPeopleMaintenance(200);
-        $spell->setManaMaintenance(100);
+        $spell->setGoldMaintenance(1500);
+        $spell->setPeopleMaintenance(1000);
+        $spell->setManaMaintenance(500);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
+        $spell->setEnchantment(true);
+        //$this->setReference($spell->getName(), $spell);
+        $manager->persist($spell);
+
+        //FAVOR DE LA NATURALEZA
+        $spell = new Spell();
+        $spell->setSkill($this->getReference('Favor de la Naturaleza'));
+        $spell->setName($spell->getSkill()->getName());
+        $spell->setLore('Nada traspasará esta vegetación.');
+        $spell->setImage('bundles/archmagegame/images/spell/nature/naturefavor.jpg');
+        $spell->setFaction($this->getReference('Naturaleza'));
+        $spell->setMagic(4);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(1500);
+        $spell->setPeopleMaintenance(1000);
+        $spell->setManaMaintenance(500);
+        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
+        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -929,10 +929,10 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldMaintenance(0);
         $spell->setPeopleMaintenance(0);
         $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
+        $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic() / 2);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -955,8 +955,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -982,7 +982,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1005,7 +1005,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1028,7 +1028,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1051,7 +1051,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1074,7 +1074,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1097,7 +1097,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1120,7 +1120,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1143,7 +1143,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1166,8 +1166,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -1189,8 +1189,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -1216,7 +1216,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_UTILITY);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1239,17 +1239,40 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_UTILITY);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $manager->persist($spell);
+
+        //SABIDURIA
+        $spell = new Spell();
+        $spell->setSkill($this->getReference('Sabiduría'));
+        $spell->setName($spell->getSkill()->getName());
+        $spell->setLore('La paciencia es una virtud de la que yo carezco.');
+        $spell->setImage('bundles/archmagegame/images/spell/ghost/wisdom.jpg');
+        $spell->setFaction($this->getReference('Fantasmal'));
+        $spell->setMagic(2);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setPeopleMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
+        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
+        $spell->setEnchantment(false);
+        //$this->setReference($spell->getName().' defense', $spell);
         $manager->persist($spell);
 
         //CHAMANISMO
         $spell = new Spell();
         $spell->setSkill($this->getReference('Chamanismo'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Cabezas reducidas, conversiones en rana, cualquier cosa que necesites.');
+        $spell->setLore('Cabezas reducidas, conversiones en rana, cualquier cosa que necesites!');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/shamanism.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(2);
@@ -1262,40 +1285,17 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_UTILITY);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
-        //LENTITUD
-        $spell = new Spell();
-        $spell->setSkill($this->getReference('Lentitud'));
-        $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('A donde váis con tanta prisa?');
-        $spell->setImage('bundles/archmagegame/images/spell/ghost/slowness.jpg');
-        $spell->setFaction($this->getReference('Fantasmal'));
-        $spell->setMagic(2);
-        $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
-        $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(0);
-        $spell->setPeopleMaintenance(0);
-        $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_BATTLE);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
-        $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
-        $spell->setEnchantment(false);
-        //$this->setReference($spell->getName().' defense', $spell);
         $manager->persist($spell);
 
         //ENCONTRAR ARTEFACTO
         $spell = new Spell();
         $spell->setSkill($this->getReference('Encontrar Artefacto'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Conozco un paleontólogo que lleva sombrero y usa látigo...');
+        $spell->setLore('Conozco un arqueólogo que lleva sombrero y látigo...');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/findartifact.jpg');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(3);
@@ -1308,7 +1308,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_UTILITY);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1331,7 +1331,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_UTILITY);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1352,10 +1352,10 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setPeopleMaintenance(200);
         $spell->setManaMaintenance(100);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -1375,10 +1375,10 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setPeopleMaintenance(1000);
         $spell->setManaMaintenance(500);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -1397,10 +1397,10 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldMaintenance(0);
         $spell->setPeopleMaintenance(0);
         $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
+        $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic() / 2);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1423,8 +1423,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -1450,7 +1450,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1473,7 +1473,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1496,7 +1496,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1519,7 +1519,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1542,7 +1542,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1565,7 +1565,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1588,7 +1588,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1611,7 +1611,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1634,8 +1634,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -1657,8 +1657,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -1684,7 +1684,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1707,7 +1707,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1730,7 +1730,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_UTILITY);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1753,32 +1753,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
-        //$this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
-        //PROSPERIDAD
-        $spell = new Spell();
-        $spell->setSkill($this->getReference('Prosperidad'));
-        $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Han bajado los impuestos!');
-        $spell->setImage('bundles/archmagegame/images/spell/holy/prosperity.jpg');
-        $spell->setFaction($this->getReference('Sagrado'));
-        $spell->setMagic(3);
-        $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
-        $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(300);
-        $spell->setPeopleMaintenance(200);
-        $spell->setManaMaintenance(100);
-        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
-        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
-        $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -1797,35 +1774,58 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setPeopleMaintenance(200);
         $spell->setManaMaintenance(100);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //VOLAR
+        //PROSPERIDAD
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Volar'));
+        $spell->setSkill($this->getReference('Prosperidad'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Espero que no tengas miedo a las alturas.');
-        $spell->setImage('bundles/archmagegame/images/spell/holy/fly.jpg');
+        $spell->setLore('Han bajado los impuestos!');
+        $spell->setImage('bundles/archmagegame/images/spell/holy/prosperity.jpg');
+        $spell->setFaction($this->getReference('Sagrado'));
+        $spell->setMagic(3);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(300);
+        $spell->setPeopleMaintenance(200);
+        $spell->setManaMaintenance(100);
+        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
+        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
+        $spell->setEnchantment(true);
+        //$this->setReference($spell->getName(), $spell);
+        $manager->persist($spell);
+
+        //OASIS
+        $spell = new Spell();
+        $spell->setSkill($this->getReference('Oasis'));
+        $spell->setName($spell->getSkill()->getName());
+        $spell->setLore('Agua fresca y descanso para nuestras exhaustas tropas. Ah, una araña!');
+        $spell->setImage('bundles/archmagegame/images/spell/holy/oasis.jpg');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(4);
         $spell->setGoldCost(0);
         $spell->setManaCost(self::MANA_COST * $spell->getMagic());
         $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(0);
-        $spell->setPeopleMaintenance(0);
-        $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_BATTLE);
+        $spell->setGoldMaintenance(1500);
+        $spell->setPeopleMaintenance(1000);
+        $spell->setManaMaintenance(500);
+        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
-        $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
-        $spell->setEnchantment(false);
-        //$this->setReference($spell->getName().' defense', $spell); //gods
+        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
+        $spell->setEnchantment(true);
+        //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
         //PROTECCION DIVINA
@@ -1843,10 +1843,10 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setPeopleMaintenance(1000);
         $spell->setManaMaintenance(500);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -1865,10 +1865,10 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldMaintenance(0);
         $spell->setPeopleMaintenance(0);
         $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
+        $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic() / 2);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1891,8 +1891,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -1918,7 +1918,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1941,7 +1941,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1964,7 +1964,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -1987,7 +1987,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -2010,7 +2010,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -2033,7 +2033,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -2056,7 +2056,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -2079,7 +2079,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -2102,8 +2102,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -2125,8 +2125,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -2152,7 +2152,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_UTILITY);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -2175,7 +2175,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -2198,7 +2198,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -2221,32 +2221,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
-        //$this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
-        //VOLCANO
-        $spell = new Spell();
-        $spell->setSkill($this->getReference('Volcano'));
-        $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que no quede piedra sobre piedra.');
-        $spell->setImage('bundles/archmagegame/images/spell/doom/volcano.jpg');
-        $spell->setFaction($this->getReference('Caos'));
-        $spell->setMagic(3);
-        $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
-        $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(300);
-        $spell->setPeopleMaintenance(200);
-        $spell->setManaMaintenance(100);
-        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
-        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
-        $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
@@ -2267,10 +2244,56 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_UTILITY);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $manager->persist($spell);
+
+        //VOLCANO
+        $spell = new Spell();
+        $spell->setSkill($this->getReference('Volcano'));
+        $spell->setName($spell->getSkill()->getName());
+        $spell->setLore('Que no quede piedra sobre piedra.');
+        $spell->setImage('bundles/archmagegame/images/spell/doom/volcano.jpg');
+        $spell->setFaction($this->getReference('Caos'));
+        $spell->setMagic(3);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(300);
+        $spell->setPeopleMaintenance(200);
+        $spell->setManaMaintenance(100);
+        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
+        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
+        $spell->setEnchantment(true);
+        //$this->setReference($spell->getName(), $spell);
+        $manager->persist($spell);
+
+        //SAQUEAR
+        $spell = new Spell();
+        $spell->setSkill($this->getReference('Saquear'));
+        $spell->setName($spell->getSkill()->getName());
+        $spell->setLore('La sed de sangre nunca se sacia.');
+        $spell->setImage('bundles/archmagegame/images/spell/doom/loot.jpg');
+        $spell->setFaction($this->getReference('Caos'));
+        $spell->setMagic(4);
+        $spell->setGoldCost(0);
+        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
+        $spell->setPeopleCost(0);
+        $spell->setGoldMaintenance(0);
+        $spell->setPeopleMaintenance(0);
+        $spell->setManaMaintenance(0);
+        $spell->setTurnsCost(self::TURNS_UTILITY);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
+        $spell->setTurnsExpiration(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(0);
+        $spell->setEnchantment(false);
+        //$this->setReference($spell->getName().' defense', $spell); //gods
         $manager->persist($spell);
 
         //MURO IGNEO
@@ -2288,35 +2311,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setPeopleMaintenance(1000);
         $spell->setManaMaintenance(500);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-
-        //QUEMAR ALAS
-        $spell = new Spell();
-        $spell->setSkill($this->getReference('Quemar Alas'));
-        $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Ahora ya no sois tan rápidos, verdad?');
-        $spell->setImage('bundles/archmagegame/images/spell/doom/burnedwings.jpg');
-        $spell->setFaction($this->getReference('Caos'));
-        $spell->setMagic(4);
-        $spell->setGoldCost(0);
-        $spell->setManaCost(self::MANA_COST * $spell->getMagic());
-        $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(0);
-        $spell->setPeopleMaintenance(0);
-        $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_BATTLE);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
-        $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
-        $spell->setEnchantment(false);
-        //$this->setReference($spell->getName().' defense', $spell); //gods
         $manager->persist($spell);
 
         //PACTO DE SANGRE
@@ -2333,10 +2333,10 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldMaintenance(0);
         $spell->setPeopleMaintenance(0);
         $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic());
+        $spell->setTurnsCost(self::TURNS_SUMMON * $spell->getMagic() / 2);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
+        $spell->setGoldAuction(10000000);
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
@@ -2359,8 +2359,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setTurnsCost(self::TURNS_BATTLE);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(0);
-        $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setGoldAuction(10000000);
+        $spell->setRarity(90);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
@@ -2378,16 +2378,16 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setFaction($this->getReference('Neutral'));
         $spell->setMagic(6);
         $spell->setGoldCost(0);
-        $spell->setManaCost(900000);
+        $spell->setManaCost(750000);
         $spell->setPeopleCost(0);
         $spell->setGoldMaintenance(9000);
         $spell->setPeopleMaintenance(6000);
         $spell->setManaMaintenance(3000);
         $spell->setTurnsCost(50);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
-        $spell->setTurnsExpiration(150);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
+        $spell->setTurnsExpiration(100);
         $spell->setGoldAuction(0);
-        $spell->setRarity(0);
+        $spell->setRarity(200);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);

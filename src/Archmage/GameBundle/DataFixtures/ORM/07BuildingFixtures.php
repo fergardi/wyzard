@@ -36,6 +36,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
+        $building->setSummonRatio(10);
         $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -62,7 +63,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
-        $building->setPower(1000);
+        $building->setSummonRatio(10);
+        $building->setPower(1500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -88,7 +90,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
-        $building->setPower(1000);
+        $building->setSummonRatio(10);
+        $building->setPower(1500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -114,7 +117,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
-        $building->setPower(1000);
+        $building->setSummonRatio(10);
+        $building->setPower(1500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -124,12 +128,12 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setDescription('Aumentan la <span class="label label-extra">Defensa Mágica</span> de tu reino.');
         $building->setLore('Caras pero efectivas, al menos contra la magia.');
         $building->setImage('bundles/archmagegame/images/building/barrier.jpg');
-        $building->setGoldCost(1000);
+        $building->setGoldCost(5000);
         $building->setPeopleCost(100);
         $building->setManaCost(2500);
-        $building->setGoldMaintenance(10);
-        $building->setPeopleMaintenance(20);
-        $building->setManaMaintenance(30);
+        $building->setGoldMaintenance(60);
+        $building->setPeopleMaintenance(40);
+        $building->setManaMaintenance(20);
         $building->setGoldResource(0);
         $building->setPeopleResource(0);
         $building->setManaResource(0);
@@ -140,7 +144,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(5);
         $building->setArmyDefenseRatio(0);
-        $building->setPower(5000);
+        $building->setSummonRatio(10);
+        $building->setPower(2500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -150,12 +155,12 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setDescription('Aumentan la <span class="label label-extra">Defensa Física</span> de tu reino.');
         $building->setLore('Caras pero efectivas, al menos contra los ataques.');
         $building->setImage('bundles/archmagegame/images/building/fortress.jpg');
-        $building->setGoldCost(2500);
-        $building->setPeopleCost(100);
-        $building->setManaCost(1000);
-        $building->setGoldMaintenance(30);
-        $building->setPeopleMaintenance(20);
-        $building->setManaMaintenance(10);
+        $building->setGoldCost(5000);
+        $building->setPeopleCost(2500);
+        $building->setManaCost(100);
+        $building->setGoldMaintenance(60);
+        $building->setPeopleMaintenance(40);
+        $building->setManaMaintenance(20);
         $building->setGoldResource(0);
         $building->setPeopleResource(0);
         $building->setManaResource(0);
@@ -166,7 +171,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(5);
-        $building->setPower(5000);
+        $building->setSummonRatio(10);
+        $building->setPower(2500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -192,7 +198,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
-        $building->setPower(1000);
+        $building->setSummonRatio(10);
+        $building->setPower(500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
@@ -218,14 +225,15 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(30);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
-        $building->setPower(1000);
+        $building->setSummonRatio(10);
+        $building->setPower(500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
         //BARRACONES
         $building = new Building();
         $building->setName('Barracones');
-        $building->setDescription('Reducen la cantidad de <span class="label label-extra">Turnos</span> para reclutar.');
+        $building->setDescription('Aumentan la cantidad de <span class="label label-extra">Tropas</span> invocadas.');
         $building->setLore('Borrachos y maleantes. Y tuyos, si les pagas bien.');
         $building->setImage('bundles/archmagegame/images/building/barrack.jpg');
         $building->setGoldCost(0);
@@ -244,7 +252,8 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
-        $building->setPower(1000);
+        $building->setSummonRatio(10);
+        $building->setPower(500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 

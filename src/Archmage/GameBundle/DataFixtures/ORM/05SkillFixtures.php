@@ -1554,7 +1554,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit($this->getReference('Esqueletos'));
-        $skill->setDescription('+'.$skill->getResurrectionBonus().'% de tropas por <i class="fa fa-fw fa-star"></i> resucitan como <span class="label label-warning">Esqueletos</span>');
+        $skill->setDescription('+'.$skill->getResurrectionBonus().'% de tropas por <i class="fa fa-fw fa-star"></i> resucitan como <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

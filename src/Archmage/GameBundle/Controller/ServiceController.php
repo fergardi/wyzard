@@ -313,6 +313,12 @@ class ServiceController extends Controller
                         $legend->setPower($player->getPower());
                         $manager->persist($legend);
                         $player->setWinner(true);
+                        $receivers = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
+                        $text = array();
+                        $text[] = array('default', 12, 1, 'center', 'Alguien ha ganado el juego!');
+                        foreach ($receivers as $receiver) {
+                            $this->sendMessage($player, $receiver, 'Victoria', $text, 'apocalypse');
+                        }
                     }
                     $manager->persist($enchantment->getOwner());
                     $manager->remove($enchantment);

@@ -67,7 +67,7 @@ class ServiceController extends Controller
         //APOCALIPSIS
         $apocalypse = $manager->getRepository('ArchmageGameBundle:Enchantment')->findOneBySpell($manager->getRepository('ArchmageGameBundle:Spell')->findByName('Apocalipsis'));
         if ($apocalypse) {
-            $this->addFlash('info', 'Alguien ha convocado el <span class="label label-'.$apocalypse->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($apocalypse->getSpell()->getName()).'" class="link">'.$apocalypse->getSpell()->getName().'</a></span>, impedidlo antes de que sea tarde!');
+            $this->addFlash('info', 'Alguien ha convocado el <span class="label label-'.$apocalypse->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($apocalypse->getSpell()->getName()).'" class="link">'.$apocalypse->getSpell()->getName().' ('.$apocalypse->getExpiration().'/'.($apocalypse->getSpell()->getTurnsExpiration() * $apocalypse->getOwner()->getMagic()).')</a></span>, impedidlo antes de que sea tarde!');
         }
         //WINNER CONDITION
         $winner = $this->checkWinner();

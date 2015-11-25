@@ -343,9 +343,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldCost(0);
         $spell->setManaCost(self::MANA_COST * $spell->getMagic());
         $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(0);
-        $spell->setPeopleMaintenance(0);
-        $spell->setManaMaintenance(0);
+        $spell->setGoldMaintenance(300);
+        $spell->setPeopleMaintenance(200);
+        $spell->setManaMaintenance(100);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
@@ -1256,15 +1256,15 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldCost(0);
         $spell->setManaCost(self::MANA_COST * $spell->getMagic());
         $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(0);
-        $spell->setPeopleMaintenance(0);
-        $spell->setManaMaintenance(0);
+        $spell->setGoldMaintenance(1500);
+        $spell->setPeopleMaintenance(1000);
+        $spell->setManaMaintenance(500);
         $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
         $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
         $spell->setGoldAuction(10000000);
         $spell->setRarity(90);
-        $spell->setEnchantment(false);
+        $spell->setEnchantment(true);
         //$this->setReference($spell->getName().' defense', $spell);
         $manager->persist($spell);
 
@@ -1279,15 +1279,15 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setGoldCost(0);
         $spell->setManaCost(self::MANA_COST * $spell->getMagic());
         $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(0);
-        $spell->setPeopleMaintenance(0);
-        $spell->setManaMaintenance(0);
-        $spell->setTurnsCost(self::TURNS_UTILITY);
+        $spell->setGoldMaintenance(300);
+        $spell->setPeopleMaintenance(200);
+        $spell->setManaMaintenance(100);
+        $spell->setTurnsCost(self::TURNS_ENCHANTMENT);
         $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic());
-        $spell->setTurnsExpiration(0);
+        $spell->setTurnsExpiration(self::TURNS_EXPIRATION);
         $spell->setGoldAuction(10000000);
-        $spell->setRarity(0);
-        $spell->setEnchantment(false);
+        $spell->setRarity(90);
+        $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 

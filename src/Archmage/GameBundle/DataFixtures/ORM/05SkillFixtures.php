@@ -181,8 +181,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //TERROR
         $skill = new Skill();
         $skill->setName('Terror');
-        $skill->setMagicDefenseBonus(-5);
-        $skill->setArmyDefenseBonus(-5);
+        $skill->setMagicDefenseBonus(-3);
+        $skill->setArmyDefenseBonus(-3);
         $skill->setDescription($skill->getMagicDefenseBonus().'% <span class="label label-extra">Defensa Mágica</span> y '.$skill->getArmyDefenseBonus().'% <span class="label label-extra">Defensa Física</span> enemiga por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -198,7 +198,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //VOODOO
         $skill = new Skill();
         $skill->setName('Voodoo');
-        $skill->setPeopleBonus(-2);
+        $skill->setPeopleBonus(-1);
         $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Población</span> al Reino enemigo por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -586,7 +586,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //ORO FALSO
         $skill = new Skill();
         $skill->setName('Oro Falso');
-        $skill->setGoldBonus(-2);
+        $skill->setGoldBonus(-1);
         $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span> enemigo por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -603,7 +603,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Sabiduría');
         $skill->setResearchBonus(5);
-        $skill->setBattle(true);
+        $skill->setSelf(true);
         $skill->setDescription('Aumenta el bonus de <span class="label label-extra">Investigación</span> +'.$skill->getResearchBonus().'% por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1056,7 +1056,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //COMBUSTION
         $skill = new Skill();
         $skill->setName('Combustión');
-        $skill->setManaBonus(-2);
+        $skill->setManaBonus(-1);
         $skill->setDescription($skill->getManaBonus().'% <span class="label label-extra">Maná</span> enemigo actual por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

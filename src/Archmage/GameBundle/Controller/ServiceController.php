@@ -22,8 +22,7 @@ class ServiceController extends Controller
     public function toSlug($string) {
         $search = explode(",","Á,É,Í,Ó,Ú,á,é,í,ó,ú, ");
         $replace = explode(",","a,e,i,o,u,a,e,i,o,u,-");
-        $slug = strtolower(str_replace($search, $replace, $string));
-        return $slug;
+        return strtolower(str_replace($search, $replace, $string));
     }
 
     /**
@@ -31,7 +30,7 @@ class ServiceController extends Controller
      */
     public function nf($number, $decimals = 0, $decPoint = ',', $thousandsSep = '.') {
         return
-            ($number >= 1000 && $number % 100 == 0)?
+            (abs($number) >= 1000 && $number % 100 == 0)?
                 number_format((float)$number / 1000, 1, $decPoint, $thousandsSep).'K':
                 number_format($number, $decimals, $decPoint, $thousandsSep);
     }
@@ -40,8 +39,7 @@ class ServiceController extends Controller
      * Number Format for Fixtures and Ranking (without adding a K)
      */
     public function nff($number, $decimals = 0, $decPoint = ',', $thousandsSep = '.') {
-        $price = number_format((float)$number, $decimals, $decPoint, $thousandsSep);
-        return $price;
+        return number_format((float)$number, $decimals, $decPoint, $thousandsSep);
     }
 
     /**

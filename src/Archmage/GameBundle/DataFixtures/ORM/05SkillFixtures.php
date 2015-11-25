@@ -1317,7 +1317,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //ANILLO INVOCADOR
         $skill = new Skill();
         $skill->setName('Anillo Invocador');
-        $skill->setQuantityBonus(10);
+        $skill->setSummonBonus(10);
         $skill->setSelf(true);
         $skill->setDescription('+'.$skill->getQuantityBonus().'% <span class="label label-extra">Cantidad</span> de tropas invocadas');
         $this->setReference($skill->getName(), $skill);

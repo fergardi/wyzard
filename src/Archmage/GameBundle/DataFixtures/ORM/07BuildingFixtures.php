@@ -36,7 +36,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
-        $building->setSummonRatio(10);
+        $building->setSummonRatio(0);
         $building->setPower(1000);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -63,7 +63,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
-        $building->setSummonRatio(10);
+        $building->setSummonRatio(0);
         $building->setPower(1500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -90,7 +90,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
-        $building->setSummonRatio(10);
+        $building->setSummonRatio(0);
         $building->setPower(1500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -117,7 +117,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
-        $building->setSummonRatio(10);
+        $building->setSummonRatio(0);
         $building->setPower(1500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -144,7 +144,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(5);
         $building->setArmyDefenseRatio(0);
-        $building->setSummonRatio(10);
+        $building->setSummonRatio(0);
         $building->setPower(2500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -171,7 +171,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(5);
-        $building->setSummonRatio(10);
+        $building->setSummonRatio(0);
         $building->setPower(2500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -198,7 +198,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(0);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
-        $building->setSummonRatio(10);
+        $building->setSummonRatio(0);
         $building->setPower(500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
@@ -225,7 +225,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building->setResearchRatio(30);
         $building->setMagicDefenseRatio(0);
         $building->setArmyDefenseRatio(0);
-        $building->setSummonRatio(10);
+        $building->setSummonRatio(0);
         $building->setPower(500);
         $this->addReference($building->getName(), $building);
         $manager->persist($building);

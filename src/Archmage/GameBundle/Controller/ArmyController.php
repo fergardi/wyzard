@@ -877,7 +877,7 @@ class ArmyController extends Controller
             if ($skill->getBattle()) {
                 if ($skill->getResurrectionBonus() > 0) {
                     $resurrection = floor(($attackerPower + $defenderPower) * $contract->getLevel() * $contract->getHero()->getSkill()->getResurrectionBonus() / 100 / $skill->getUnit()->getPower());
-                    $troop = $player->hasUnit($skill->getUnit());
+                    $troop = $target->hasUnit($skill->getUnit());
                     if ($troop) {
                         $troop->setQuantity($troop->getQuantity() + $resurrection);
                     } else {

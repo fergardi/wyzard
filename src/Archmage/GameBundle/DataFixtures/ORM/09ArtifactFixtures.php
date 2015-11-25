@@ -371,7 +371,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Anillo Avaricioso'));
         $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Blanca.');
         $artifact->setGoldAuction(20000000);
-        $artifact->setRarity(90);
+        $artifact->setRarity(95);
         $artifact->setPower(500000);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
@@ -385,7 +385,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Anillo Poderoso'));
         $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Azul.');
         $artifact->setGoldAuction(20000000);
-        $artifact->setRarity(90);
+        $artifact->setRarity(95);
         $artifact->setPower(500000);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
@@ -399,7 +399,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Anillo Encantador'));
         $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Morada.');
         $artifact->setGoldAuction(20000000);
-        $artifact->setRarity(90);
+        $artifact->setRarity(95);
         $artifact->setPower(500000);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
@@ -413,7 +413,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Anillo Duro'));
         $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Roja.');
         $artifact->setGoldAuction(20000000);
-        $artifact->setRarity(90);
+        $artifact->setRarity(95);
         $artifact->setPower(500000);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
@@ -427,7 +427,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setSkill($this->getReference('Anillo Invocador'));
         $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Verde.');
         $artifact->setGoldAuction(20000000);
-        $artifact->setRarity(90);
+        $artifact->setRarity(95);
         $artifact->setPower(500000);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);

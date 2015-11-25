@@ -863,7 +863,7 @@ class MagicController extends Controller
         $player = $this->getUser()->getPlayer();
         //MESSAGE
         $text = array();
-        $text[] = array('default', 12, 0, 'center', 'El mago <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link"><span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span></a> ha activado el Artefacto <span class="label label-'.$artifact->getFaction()->getClass().'">'.$artifact->getName().'</span> sobre tu Reino.');
+        $text[] = array('default', 12, 0, 'center', 'El mago <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link"><span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span></a> ha activado el Artefacto <span class="label label-'.$artifact->getClass().'">'.$artifact->getName().'</span> sobre tu Reino.');
         if ($artifact->getSkill()->getSpyBonus() > 0) {
             //SPIONAGE
             $this->createEspionage($target);

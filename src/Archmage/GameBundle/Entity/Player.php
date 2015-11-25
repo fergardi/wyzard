@@ -1021,7 +1021,8 @@ class Player
      */
     public function getResearchBonus()
     {
-        $researchRatio = $this->getConstruction('Gremios')->getQuantity() * $this->getConstruction('Gremios')->getBuilding()->getResearchRatio() / (float)1000;
+        $guilds = $this->getConstruction('Gremios');
+        $researchRatio = floor($guilds->getQuantity() / (float)$guilds->getBuilding()->getResearchRatio());
         foreach ($this->enchantmentsVictim as $enchantment) {
             $researchRatio += $enchantment->getSpell()->getSkill()->getResearchBonus() * $enchantment->getOwner()->getMagic();
         }

@@ -33,7 +33,7 @@ class TerritoryController extends Controller
                 $lands = 0;
                 for ($i = 1; $i <= $turns; $i++) {
                     $lands += $player->getFreePerTurn();
-                    $player->setConstruction('Tierras', $player->getConstruction('Tierras')->getQuantity() + $player->getFreePerTurn());
+                    $player->setConstruction('Tierras', $player->getFree() + $player->getFreePerTurn());
                 }
                 /*
                  * PERSISTENCIA

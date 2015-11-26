@@ -20,13 +20,13 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/guild.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar <span class="label label-extra">Turnos</span> para investigar nuevos hechizos. Cuantos más hechizos tengas, mayor será tu nivel de <span class="label label-extra">Magia</span>, y cuantos más <span class="label label-extra">Gremios</span> tengas, más rápido investigarás.</div>
+                            <div class="col-xs-12">Aquí puedes gastar <span class="label label-extra">Turnos</span> para investigar nuevos hechizos. Cuantos más hechizos tengas, mayor será tu nivel de <span class="label label-extra">Magia</span>, necesario para conjurar. Y, cuantos más <span class="label label-extra">Gremios</span> tengas, más rápido investigarás.</div>
                         </div>
                     </div>
                 </div>
                 <div class="panel-middle text-center">Fórmula</div>
                 <div class="panel-body text-responsive text-center text-only">
-                    <p>% TURNOS<sub>reducidos</sub> = GREMIOS<sub>jugador</sub> * 3 / 100</p>
+                    <p>% TURNOS<sub>reducidos</sub> = GREMIOS<sub>jugador</sub> / 30</p>
                 </div>
                 <div class="panel-footer text-center">
                     <a class="btn btn-default" href="{{ path( 'archmage_game_territory_build' ) }}"><i class="fa fa-fw fa-wrench"></i>Construir</a>

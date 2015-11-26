@@ -25,7 +25,7 @@ class AuctionCommand extends ContainerAwareCommand
     {
         $this
             ->setName('auction:refresh')
-            ->setDescription('Acaba las subastas actuales y comienza otras nuevas')
+            ->setDescription('Acaba las subastas actuales y comienza otras nuevas. Crontab cada 60 minutos.')
         ;
     }
 

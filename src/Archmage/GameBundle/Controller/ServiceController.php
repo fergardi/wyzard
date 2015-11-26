@@ -63,6 +63,12 @@ class ServiceController extends Controller
         $this->container->get('session')->getFlashBag()->get('info');
         //NOTICIA PERMANENTE
         //$this->addFlash('info', 'Nueva temporada! Echa un vistazo a los últimos <a href="'.$this->generateUrl('archmage_game_home_help').'#batalla" class="link">cambios</a>.');
+        //WRATH OF GODS
+        $wrath = $manager->getRepository('ArchmageGameBundle:Wrath')->findAll();
+        if ($wrath) {
+            $wrath = $wrath[0];
+            $this->addFlash('info', 'Se ha desatado la <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#fin">Ira de los Dioses</a></span>, ganará el primero del <span class="label label-extra"><a href="\'.$this->generateUrl(\'archmage_game_account_ranking\').\'">Ranking</a></span> el '.$wrath->getDatetime()->format('d/m/Y H:i:s').'.');
+        }
         //APOCALIPSIS
         $apocalypse = $manager->getRepository('ArchmageGameBundle:Enchantment')->findOneBySpell($manager->getRepository('ArchmageGameBundle:Spell')->findByName('Apocalipsis'));
         if ($apocalypse) {
@@ -313,9 +319,9 @@ class ServiceController extends Controller
                         $player->setWinner(true);
                         $receivers = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
                         $text = array();
-                        $text[] = array('default', 12, 1, 'center', 'Alguien ha ganado el juego!');
+                        $text[] = array('default', 12, 0, 'center', 'Alguien ha ganado el juego!');
                         foreach ($receivers as $receiver) {
-                            $this->sendMessage($player, $receiver, 'Victoria', $text, 'apocalypse');
+                            $this->sendMessage($player, $receiver, 'Fin del Juego', $text, 'apocalypse');
                         }
                     }
                     $manager->persist($enchantment->getOwner());

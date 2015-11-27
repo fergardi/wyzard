@@ -506,8 +506,8 @@ class ArmyController extends Controller
                     $target->setMana($target->getMana() + $mana);
                 }
                 $defenderItem->setQuantity($defenderItem->getQuantity() - 1);
+                $target->setItem(null);
                 if ($defenderItem->getQuantity() <= 0) {
-                    $target->setItem(null);
                     $target->removeItem($defenderItem);
                     $manager->remove($defenderItem);
                 }

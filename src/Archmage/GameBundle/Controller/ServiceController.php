@@ -358,5 +358,7 @@ class ServiceController extends Controller
                 $this->addFlash('success', 'Has desbloqueado el logro <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile').'" class="link">'.$achievement->getName().'</a></span>.');
             }
         }
+        // SI GASTA TURNOS TERMINA EL MODO VACACIONES
+        $player->setVacation(false);
     }
 }

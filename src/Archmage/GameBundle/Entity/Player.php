@@ -122,6 +122,13 @@ class Player
     private $uncovered = false;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="vacation", type="boolean", nullable=false)
+     */
+    private $vacation = false;
+
+    /**
      * @var item
      *
      * @ORM\ManyToOne(targetEntity="Item")
@@ -516,6 +523,29 @@ class Player
     public function getUncovered()
     {
         return $this->uncovered;
+    }
+
+    /**
+     * Set vacation
+     *
+     * @param boolean $vacation
+     * @return Player
+     */
+    public function setVacation($vacation)
+    {
+        $this->vacation = $vacation;
+
+        return $this;
+    }
+
+    /**
+     * Get vacation
+     *
+     * @return boolean
+     */
+    public function getVacation()
+    {
+        return $this->vacation;
     }
 
     /**

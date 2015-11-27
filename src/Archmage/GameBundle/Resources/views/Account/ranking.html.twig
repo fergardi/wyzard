@@ -24,7 +24,13 @@
                     <tr>
                         <td class="text-right">{{ loop.index|nff }}</td>
                         <td class="text-right">{{ player.power|nff }}</td>
-                        <td class="text-center">{% if player.uncovered %}<i class="fa fa-fw fa-lg fa-eye" data-toggle="tooltip" data-placement="top" title="Ha lanzado Apocalipsis y ha sido descubierto por un Espionaje"></i>{% endif %}<span class="label label-{{ player.faction.class }}"><a href="{{ path('archmage_game_account_profile', { 'id': player.id } ) }}" class="link">{{ player.nick }}</a></span></td>
+                        <td class="text-center">
+                            {% if player.uncovered %}<i class="fa fa-fw fa-lg fa-eye" data-toggle="tooltip" data-placement="top" title="Ha lanzado Apocalipsis y ha sido descubierto por un Espionaje"></i>{% endif %}
+                            {% if player.vacation %}<i class="fa fa-fw fa-lg fa-plane" data-toggle="tooltip" data-placement="top" title="Jugador de vacaciones, puede ser objetivo de hechizos y artefactos pero no de ataques"></i>{% endif %}
+                            <span class="label label-{{ player.faction.class }}"><a href="{{ path('archmage_game_account_profile', { 'id': player.id } ) }}" class="link">{{ player.nick }}</a></span>
+                            {% if player.vacation %}<i class="fa fa-fw fa-lg fa-plane" data-toggle="tooltip" data-placement="top" title="Jugador de vacaciones, puede ser objetivo de hechizos y artefactos pero no de ataques"></i>{% endif %}
+                            {% if player.uncovered %}<i class="fa fa-fw fa-lg fa-eye" data-toggle="tooltip" data-placement="top" title="Ha lanzado Apocalipsis y ha sido descubierto por un Espionaje"></i>{% endif %}
+                        </td>
                         <td class="text-right">{{ player.lands|nff }}</td>
                     </tr>
                     {% endfor %}

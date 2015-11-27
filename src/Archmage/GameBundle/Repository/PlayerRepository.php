@@ -19,6 +19,7 @@ class PlayerRepository extends EntityRepository
      * No ser mas debil que el jugador en al menos 20% de poder O BIEN
      * Ser mas debil y estar en la lista de contraataques validos O BIEN
      * No estar en la blacklist por haberle atacado ya
+     * No estar en modo vacaciones
      *
      * @param Player $player
      * @return array
@@ -34,6 +35,7 @@ class PlayerRepository extends EntityRepository
         //DEBILES, CALCULADO USANDO POWER QUE NO ESTA EN LA DB, SE TIENE QUE CALCULAR AL VUELO
         $weaks = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
         $strongs = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
+        $vacations = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
         $targets = $this->_em->getRepository('ArchmageGameBundle:Player')->findAll();
         foreach ($targets as $target) {
             if ($player->getPower() * 0.80 > $target->getPower()) {
@@ -41,6 +43,9 @@ class PlayerRepository extends EntityRepository
             }
             if ($player->getPower() * 1.60 < $target->getPower()) {
                 $strongs[] = $target->getId();
+            }
+            if ($target->getVacation()) {
+                $vacations[] = $target->getId();
             }
         }
 
@@ -65,7 +70,7 @@ class PlayerRepository extends EntityRepository
             ->andWhere($qb->expr()->eq('blacklist.attacker', $player->getId()))
             ->andWhere($qb->expr()->gte('blacklist.datetime', $now));
 
-        //TARGETS, LISTA DE TODOS LOS PLAYERS QUE CUMPLAN LAS 3 CONDICIONES ANTERIORES
+        //TARGETS, LISTA DE TODOS LOS PLAYERS QUE CUMPLAN LAS 3 CONDICIONES ANTERIORES Y NO ESTEN DE VACACIONES
         $targets = $this->_em->createQueryBuilder()
             ->select('player')
             ->from('ArchmageGameBundle:Player', 'player')
@@ -74,7 +79,8 @@ class PlayerRepository extends EntityRepository
                 $qb->expr()->notIn('player.id', $counterB->getDQL()),
                 $qb->expr()->notIn('player.id', $blacklist->getDQL()),
                 $qb->expr()->notIn('player.id', $weaks),
-                $qb->expr()->notIn('player.id', $strongs)
+                $qb->expr()->notIn('player.id', $strongs),
+                $qb->expr()->notIn('player.id', $vacations)
             ))
             ->getQuery()
             ->getResult();

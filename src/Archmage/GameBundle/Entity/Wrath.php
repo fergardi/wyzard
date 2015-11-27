@@ -35,6 +35,7 @@ class Wrath
     public function __construct()
     {
         $this->datetime = new \DateTime('now');
+        $this->datetime->setTime($this->datetime->format('H'), 59, 59);
         $this->datetime->modify('+ '.rand(24,48).' hours');
     }
 

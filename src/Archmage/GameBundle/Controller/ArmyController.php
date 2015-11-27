@@ -419,9 +419,9 @@ class ArmyController extends Controller
         $wipe = false;
         foreach ($defenderArmy as $row) {
             $row[0]->setQuantity($row[1]);
-            if ($troop->getQuantity() <= 0) {
-                $quest->removeTroop($troop);
-                $manager->remove($troop);
+            if ($row[0]->getQuantity() <= 0) {
+                $quest->removeTroop($row[0]);
+                $manager->remove($row[0]);
             } else {
                 $wipe = true;
             }

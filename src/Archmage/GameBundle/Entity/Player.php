@@ -1652,4 +1652,19 @@ class Player
         }
         return false;
     }
+
+    /**
+     * Get Wrath
+     *
+     * @return boolean
+     */
+    public function getWrath() {
+        $wrath = 0;
+        foreach ($this->items as $item) {
+            if ($item->getArtifact()->getLegendary()) {
+                $wrath++;
+            }
+        }
+        return ($wrath >= 5);
+    }
 }

@@ -857,7 +857,7 @@ class ArmyController extends Controller
             $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> pierde el ataque por perder más poder que <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
         }
         //HEROES DEL ATACANTE, VICTORIA O DERROTA
-        foreach ($target->getContracts() as $contract) {
+        foreach ($player->getContracts() as $contract) {
             $skill = $contract->getHero()->getSkill();
             if ($skill->getBattle()) {
                 if ($skill->getResurrectionBonus() > 0) {

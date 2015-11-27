@@ -19,6 +19,7 @@ use Archmage\GameBundle\Entity\Message;
 use Archmage\GameBundle\Entity\Quest;
 use Archmage\GameBundle\Entity\Recipe;
 use Archmage\GameBundle\Entity\Contract;
+use Archmage\GameBundle\Entity\Wrath;
 
 class MagicController extends Controller
 {
@@ -342,6 +343,15 @@ class MagicController extends Controller
                     } elseif ($action == 'defense') {
                         $player->setItem($item);
                         $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> en defender con <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
+                    } elseif ($action == 'wrath') {
+                        $alreadyWrath = $manager->getRepository('ArchmageGameBundle:Wrath')->findAll();
+                        if ($player->getWrath() && !$alreadyWrath) {
+                            $wrath = new Wrath();
+                            $manager->persist($wrath);
+                            $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> en activar la <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#fin" class="link">Ira de los Dioses</a></span>.');
+                        } else {
+                            $this->addFlash('danger', 'Ya hay una <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#fin" class="link">Ira de los Dioses</a></span> activada!');
+                        }
                     }
                     /*
                      * PERSISTENCIA

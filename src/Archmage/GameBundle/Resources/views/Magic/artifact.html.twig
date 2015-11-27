@@ -61,11 +61,14 @@
                                 {% endif %}
                                 <input type="hidden" id="item" name="item" value="{{ item.id }}" required />
                                 <div class="btn-group" role="group" aria-label="...">
-                                    {% if not item.artifact.skill.battle %}
-                                    <button type="submit" id="activate" name="action" value="activate" class="btn btn-default" {% if item.artifact.legendary %}disabled{% endif %}><i class="fa fa-fw fa-joomla"></i>Activar</button>
+                                    {% if not item.artifact.skill.battle and not item.artifact.legendary %}
+                                    <button type="submit" name="action" id="activate" value="activate" class="btn btn-default"><i class="fa fa-fw fa-joomla"></i>Activar</button>
                                     {% endif %}
                                     {% if item.artifact.skill.battle %}
-                                    <button type="submit" id="defense" name="action" value="defense" class="btn btn-default" {% if item == player.item %}disabled{% endif %}><i class="fa fa-fw fa-shield"></i>Defensa</button>
+                                    <button type="submit" name="action" id="defense" value="defense" class="btn btn-default" {% if item == player.item %}disabled{% endif %}><i class="fa fa-fw fa-shield"></i>Defensa</button>
+                                    {% endif %}
+                                    {% if item.artifact.legendary %}
+                                    <button type="submit" name="action" id="wrath" value="wrath" class="btn btn-default" {% if not player.wrath %}disabled{% endif %}><i class="fa fa-fw fa-moon-o"></i>Ira de los Dioses</button>
                                     {% endif %}
                                 </div>
                             </div>

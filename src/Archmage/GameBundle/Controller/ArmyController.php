@@ -845,21 +845,6 @@ class ArmyController extends Controller
                         $construction->setQuantity($construction->getQuantity() + $destroyed);
                         $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> elimina '.$this->get('service.controller')->nff($destroyed).' <span class="label label-extra">'.$construction->getBuilding()->getName().'</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                     }
-                    if ($skill->getResurrectionBonus() > 0) {
-                        $resurrection = floor(($attackerPower + $defenderPower) * $contract->getLevel() * $contract->getHero()->getSkill()->getResurrectionBonus() / 100 / $skill->getUnit()->getPower());
-                        $troop = $player->hasUnit($skill->getUnit());
-                        if ($troop) {
-                            $troop->setQuantity($troop->getQuantity() + $resurrection);
-                        } else {
-                            $troop = new Troop();
-                            $manager->persist($troop);
-                            $troop->setUnit($skill->getUnit());
-                            $troop->setQuantity($resurrection);
-                            $troop->setPlayer($player);
-                            $player->addTroop($troop);
-                        }
-                        $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> resucita '.$this->get('service.controller')->nff($resurrection).' <span class="label label-'.$contract->getHero()->getSkill()->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getSkill()->getUnit()->getName()).'" class="link">'.$contract->getHero()->getSkill()->getUnit()->getName().'</a></span>.');
-                    }
                 }
             }
             //ganamos experiencia con todos nuestros heroes
@@ -870,6 +855,27 @@ class ArmyController extends Controller
         } else {
             //derrota
             $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> pierde el ataque por perder más poder que <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+        }
+        //HEROES DEL ATACANTE, VICTORIA O DERROTA
+        foreach ($target->getContracts() as $contract) {
+            $skill = $contract->getHero()->getSkill();
+            if ($skill->getBattle()) {
+                if ($skill->getResurrectionBonus() > 0) {
+                    $resurrection = floor(($attackerPower + $defenderPower) * $contract->getLevel() * $contract->getHero()->getSkill()->getResurrectionBonus() / 100 / $skill->getUnit()->getPower());
+                    $troop = $player->hasUnit($skill->getUnit());
+                    if ($troop) {
+                        $troop->setQuantity($troop->getQuantity() + $resurrection);
+                    } else {
+                        $troop = new Troop();
+                        $manager->persist($troop);
+                        $troop->setUnit($skill->getUnit());
+                        $troop->setQuantity($resurrection);
+                        $troop->setPlayer($player);
+                        $player->addTroop($troop);
+                    }
+                    $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-' . $contract->getHero()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($contract->getHero()->getName()) . '" class="link">' . $contract->getHero()->getName() . '</a></span> de <span class="label label-' . $player->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())) . '" class="link">' . $player->getNick() . '</a></span> resucita ' . $this->get('service.controller')->nff($resurrection) . ' <span class="label label-' . $contract->getHero()->getSkill()->getUnit()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($contract->getHero()->getSkill()->getUnit()->getName()) . '" class="link">' . $contract->getHero()->getSkill()->getUnit()->getName() . '</a></span>.');
+                }
+            }
         }
         //HEROES DEL DEFENSOR, VICTORIA O DERROTA
         foreach ($target->getContracts() as $contract) {

@@ -286,10 +286,9 @@ body {
     background-color: #5e230d;
     border-color: #000;
 }
-.panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest, .alert-quest, .panel-quest > .panel-heading > a {
+.panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest, .alert-quest {
     background-color: #e6af21;
     border-color: #000;
-    color: black !important;
 }
 .panel-rune > .panel-heading, .panel-rune > .panel-footer, .label-rune {
     background-color: #008B8B;

@@ -233,7 +233,7 @@ class AuctionCommand extends ContainerAwareCommand
         $research->setSpell($spell);
         $research->setTurns(0);
         $research->setPlayer(null);
-        $research->setActive(true);
+        $research->setActive(false);
         $auction->setPlayer(null);
         $auction->setResearch($research);
         $auction->setBid($spell->getGoldAuction());

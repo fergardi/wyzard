@@ -20,8 +20,8 @@ img.background {
         left: 50%;
         margin-left: -512px; }
 }
-.panel, .jumbotron, .alert, .navbar, .well, .table, ul.pagination, .searchbox {
-    opacity: 0.90;
+.panel, .jumbotron, .alert, .navbar, .well, .table, ul.pagination, .searchbox, .popover {
+    opacity: 0.95 !important;
     box-shadow: 3px 3px 15px black;
 }
 .page-header {
@@ -286,9 +286,10 @@ body {
     background-color: #5e230d;
     border-color: #000;
 }
-.panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest, .alert-quest {
+.panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest, .alert-quest, .panel-quest > .panel-heading > a {
     background-color: #e6af21;
     border-color: #000;
+    color: black !important;
 }
 .panel-rune > .panel-heading, .panel-rune > .panel-footer, .label-rune {
     background-color: #008B8B;
@@ -317,6 +318,9 @@ table a:hover {
 }
 .dataTables_empty {
     text-align: center !important;
+}
+div.dataTables_filter input {
+    margin-left: 0;
 }
 /* NAVBAR PADDING FOR COLLAPSABLE COL-SM DEVICES */
 .nav > li > a {
@@ -390,4 +394,22 @@ html {-webkit-text-size-adjust: none !important;}
     right: 0;
     margin: auto;
     z-index: 10;
+}
+/* POPOVER TOUR */
+.popover {
+    background-color: #2E3338;
+    border-color: black;
+}
+.popover-title, .popover-footer {
+    background-color: #3E444C;
+    margin: 0px;
+    padding: 8px 14px;
+}
+.popover-title {
+    border-bottom: 1px solid black;
+    border-radius: 5px 5px 0px 0px;
+}
+.popover-footer {
+    border-top: 1px solid black;
+    border-radius: 0px 0px 5px 5px;
 }

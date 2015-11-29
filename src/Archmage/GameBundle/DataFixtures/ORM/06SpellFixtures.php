@@ -2342,9 +2342,9 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
 
-        //INFERNO
+        //INFIERNO
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Inferno'));
+        $spell->setSkill($this->getReference('Infierno'));
         $spell->setName($spell->getSkill()->getName());
         $spell->setLore('Que el fuego consuma el alma del enemigo.');
         $spell->setImage('bundles/archmagegame/images/spell/doom/inferno.jpg');

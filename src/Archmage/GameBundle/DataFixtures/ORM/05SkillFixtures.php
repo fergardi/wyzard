@@ -1023,7 +1023,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //TAMBORES DE GUERRA
         $skill = new Skill();
         $skill->setName('Tambores de Guerra');
-        $skill->setAttackBonus(3);
+        $skill->setAttackBonus(5);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> de tus tropas por <i class="fa fa-fw fa-magic"></i>');
@@ -1037,7 +1037,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setType($this->getReference('Distancia'));
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y '.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de tus <span class="label label-extra">'.$skill->getType()->getName().'</span> por <i class="fa fa-fw fa-magic"></i>');
+        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> de tus <span class="label label-extra">'.$skill->getType()->getName().'</span> por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1103,7 +1103,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
 
         //INFIERNO
         $skill = new Skill();
-        $skill->setName('Inferno');
+        $skill->setName('Infierno');
         $skill->setDefenseBonus(-10);
         $skill->setBattle(true);
         $skill->setFaction($this->getReference('Naturaleza'));
@@ -1387,7 +1387,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Ladrona Elfa');
         $skill->setTurnsBonus(-1);
         $skill->setBattle(true);
-        $skill->setDescription($skill->getTurnsBonus().' <span class="label label-extra">Turnos</span> al Reino enemigo por <i class="fa fa-fw fa-star"></i>');
+        $skill->setDescription($skill->getTurnsBonus().' <span class="label label-extra">Turno</span> al Reino enemigo por <i class="fa fa-fw fa-star"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

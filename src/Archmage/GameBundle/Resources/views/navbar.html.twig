@@ -6,12 +6,15 @@
                 <span class="sr-only">Toggle navigation</span>
                 <i class="fa fa-fw fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="{{ path('archmage_game_kingdom_summary') }}"><i class="fa fa-fw fa-lg fa-bar-chart"></i>Resumen</a>
+            <a class="navbar-brand" href="{{ path('archmage_game_kingdom_summary') }}" id="navbar-summary"><i class="fa fa-fw fa-lg fa-bar-chart"></i>Resumen</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapsable">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#" class="navbar-link" style="outline:0;" onclick="tour.restart();" id="navbar-tour"><i class="fa fa-fw fa-lg fa-question-circle"></i>Tutorial</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
+                <li class="dropdown" id="navbar-kingdom">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-fort-awesome"></i>Reino<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ path('archmage_game_kingdom_tax') }}"><i class="fa fa-fw fa-lg fa-money"></i>Recaudar</a></li>
@@ -20,7 +23,7 @@
                         <li><a href="{{ path('archmage_game_kingdom_market') }}"><i class="fa fa-fw fa-lg fa-ils"></i>Mercado</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" id="navbar-territory">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-globe"></i>Territorio<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ path('archmage_game_territory_explore') }}"><i class="fa fa-fw fa-lg fa-map"></i>Explorar</a></li>
@@ -28,7 +31,7 @@
                         <li><a href="{{ path('archmage_game_territory_demolish') }}"><i class="fa fa-fw fa-lg fa-bomb"></i>Demoler</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" id="navbar-magic">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-magic"></i>Magia<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ path('archmage_game_magic_meditate') }}"><i class="fa fa-fw fa-lg fa-tint"></i>Meditar</a></li>
@@ -39,7 +42,7 @@
                         <li><a href="{{ path('archmage_game_magic_alchemy') }}"><i class="fa fa-fw fa-lg fa-flask"></i>Alquimia</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" id="navbar-army">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-flag-checkered"></i>Ejército<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ path('archmage_game_army_attack') }}"><i class="fa fa-fw fa-lg fa-crosshairs"></i>Atacar</a></li>
@@ -47,7 +50,7 @@
                         <li><a href="{{ path('archmage_game_army_quest') }}"><i class="fa fa-fw fa-lg fa-map"></i>Aventura</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown" id="navbar-account">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-user"></i>Cuenta<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ path('archmage_game_account_profile') }}"><i class="fa fa-fw fa-lg fa-trophy"></i>Perfil</a></li>
@@ -66,12 +69,3 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-
-{# block js #}
-{% block javascripts %}
-<script>
-    function help() {
-        $('[data-toggle="popover"]').popover('toggle');
-    };
-</script>
-{% endblock %}

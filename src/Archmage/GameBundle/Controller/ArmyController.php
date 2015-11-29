@@ -834,7 +834,7 @@ class ArmyController extends Controller
                     }
                     if ($skill->getTurnsBonus() < 0) {
                         $turns = $contract->getLevel() * $skill->getTurnsBonus();
-                        $target->setTurns(min(0, $target->getTurns() + $turns));
+                        $target->setTurns(max(0, $target->getTurns() + $turns));
                         $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'El Héroe <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> elimina '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                     }
                     if ($skill->getTerrainBonus() < 0) {

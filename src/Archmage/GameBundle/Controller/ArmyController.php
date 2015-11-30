@@ -872,6 +872,21 @@ class ArmyController extends Controller
                 }
             }
         }
+        //BOT REFILL
+        if ($target->getBot() && $target->getUnits() <= 0) {
+            $target->setConstruction('Tierras', $target->getFree() + 150);
+            $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
+            shuffle($units);
+            for ($i = 0; $i < rand(2, 4); $i++) {
+                $unit = $units[$i];
+                $troop = new Troop();
+                $manager->persist($troop);
+                $troop->setUnit($unit);
+                $troop->setQuantity(1000000 / $unit->getPower());
+                $troop->setPlayer($target);
+                $target->addTroop($troop);
+            }
+        }
         //HEROES DEL DEFENSOR, VICTORIA O DERROTA
         foreach ($target->getContracts() as $contract) {
             $skill = $contract->getHero()->getSkill();
@@ -910,23 +925,6 @@ class ArmyController extends Controller
         }
         $counter = $manager->getRepository('ArchmageGameBundle:Attack')->findOneBy(array('attacker' => $target, 'defender' => $player));
         if ($counter) $manager->remove($counter);
-        /*
-         * BOT REFILL
-         */
-        if ($target->getBot() && $target->getUnits() <= 0) {
-            $target->setConstruction('Tierras', $target->getFree() + 150);
-            $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
-            shuffle($units);
-            for ($i = 0; $i < rand(2, 4); $i++) {
-                $unit = $units[$i];
-                $troop = new Troop();
-                $manager->persist($troop);
-                $troop->setUnit($unit);
-                $troop->setQuantity(1000000 / $unit->getPower());
-                $troop->setPlayer($target);
-                $target->addTroop($troop);
-            }
-        }
         //mensajes al objetivo y al jugador
         $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Batalla', $text, 'battle');
         $redirect = $this->get('service.controller')->sendMessage($target, $player, 'Reporte de Batalla', $text, 'battle');

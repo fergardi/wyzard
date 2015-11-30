@@ -278,6 +278,10 @@ body {
 .panel-default > .panel-footer {
     background-color: #3E444C;
 }
+.panel-artifact > .panel-heading, .panel-artifact > .panel-footer, .label-artifact {
+    background-color: #808080;
+    border-color: #000;
+}
 .panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
     background-color: #FF5A00;
     border-color: #000;

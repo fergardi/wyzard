@@ -110,6 +110,13 @@ class Player
     /**
      * @var boolean
      *
+     * @ORM\Column(name="bot", type="boolean", nullable=false)
+     */
+    private $bot = false;
+
+    /**
+     * @var boolean
+     *
      * @ORM\Column(name="winner", type="boolean", nullable=false)
      */
     private $winner = false;
@@ -477,6 +484,29 @@ class Player
     public function getGod()
     {
         return $this->god;
+    }
+
+    /**
+     * Set bot
+     *
+     * @param boolean $bot
+     * @return Player
+     */
+    public function setBot($bot)
+    {
+        $this->bot = $bot;
+
+        return $this;
+    }
+
+    /**
+     * Get bot
+     *
+     * @return boolean
+     */
+    public function getBot()
+    {
+        return $this->bot;
     }
 
     /**

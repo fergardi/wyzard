@@ -24,7 +24,7 @@ class GodCommand extends ContainerAwareCommand
     /**
      * usort sorting function
      */
-    function sortByPower($row1, $row2)
+    private function sortByPower($row1, $row2)
     {
         return ($row1[1] >= $row2[1]) ? -1 : 1;
     }

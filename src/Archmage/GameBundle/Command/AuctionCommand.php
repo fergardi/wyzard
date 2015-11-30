@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Doctrine\Common\Collections\Criteria;
+
 use Archmage\GameBundle\Entity\Item;
 use Archmage\GameBundle\Entity\Contract;
 use Archmage\GameBundle\Entity\Troop;

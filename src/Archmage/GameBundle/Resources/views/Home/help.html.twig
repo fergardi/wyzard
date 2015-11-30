@@ -128,7 +128,7 @@
             <div class="panel panel-default"><a name="runas"></a>
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-ils"></i>Runas</div>
                 <div class="panel-body text-responsive text-only">
-                    <p>Las <span class="label label-rune">Runas</span> proporcionan recursos instantáneos a los jugadores, otorgando una importante ventaja si se gastan en el momento preciso. Son extremadamente difíciles de conseguir, pero se comenta que completar <span class="label label-quest">Aventuras</span> es una buena manera. Todos los jugadores empiezan con unas pocas y, aunque no son necesarias para ganar, algunos jugadores pueden optar por adquirir más a través de nuestra <span class="label label-extra">Tienda</span> interna del juego. En ocasiones especiales incluso se regalarán algunas a todos los jugadores.</p>
+                    <p>Las <span class="label label-artifact">Runas</span> proporcionan recursos instantáneos a los jugadores, otorgando una importante ventaja si se gastan en el momento preciso. Son extremadamente difíciles de conseguir, pero se comenta que completar <span class="label label-quest">Aventuras</span> es una buena manera. Todos los jugadores empiezan con unas pocas y, aunque no son necesarias para ganar, algunos jugadores pueden optar por adquirir más a través de nuestra <span class="label label-extra">Tienda</span> interna del juego. En ocasiones especiales incluso se regalarán algunas a todos los jugadores.</p>
                 </div>
             </div>
         </div>
@@ -349,7 +349,7 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center text-responsive">
-                    <i class="fa fa-fw fa-joomla"></i>Otorga <span class="label label-artifact">Artefactos</span>, <span class="label label-extra">Oro</span> y <span class="label label-rune">Runas</span>
+                    <i class="fa fa-fw fa-joomla"></i>Otorga <span class="label label-artifact">Artefactos</span>, <span class="label label-extra">Oro</span> y <span class="label label-artifact">Runas</span>
                 </div>
                 {# TAGS FOR SEARCH #}
                 <span class="hidden">Aventura</span>
@@ -379,33 +379,6 @@
                 </div>
                 {# TAGS FOR SEARCH #}
                 <span class="hidden">Artefactos, Neutral</span>
-            </div>
-        </div>
-        {% endfor %}
-        <div class="col-xs-12">
-            <div class="page-header text-center"><a name="runas"></a>
-                <h1><i class="fa fa-fw fa-ils"></i>Runas ({{ runes|length|nf }})</h1>
-            </div>
-        </div>
-        {% for rune in runes %}
-        <div class="col-xs-12 col-md-6">
-            <div class="panel panel-rune"><a name="{{ rune.name|slug }}"></a>
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-ils"></i> {{ rune.name }} [{{ rune.cost|nf }}]</div>
-                <div class="panel-body text-responsive">
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset( rune.image ) }}">
-                        </div>
-                        <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12 text-lore"><small><i>{{ rune.lore }}</i></small></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-footer text-center text-responsive">
-                    <i class="fa fa-fw fa-joomla"></i>{{ rune.skill.description|raw }}
-                </div>
-                {# TAGS FOR SEARCH #}
-                <span class="hidden">Runas</span>
             </div>
         </div>
         {% endfor %}

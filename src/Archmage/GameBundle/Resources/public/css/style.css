@@ -21,7 +21,7 @@ img.background {
         margin-left: -512px; }
 }
 .panel, .jumbotron, .alert, .navbar, .well, .table, ul.pagination, .searchbox, .popover {
-    opacity: 0.95 !important;
+    opacity: 0.90 !important;
     box-shadow: 3px 3px 15px black;
 }
 .page-header {
@@ -279,7 +279,7 @@ body {
     background-color: #3E444C;
 }
 .panel-artifact > .panel-heading, .panel-artifact > .panel-footer, .label-artifact {
-    background-color: #808080;
+    background-color: #008B8B;
     border-color: #000;
 }
 .panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
@@ -292,10 +292,6 @@ body {
 }
 .panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest, .alert-quest {
     background-color: #D29905;
-    border-color: #000;
-}
-.panel-rune > .panel-heading, .panel-rune > .panel-footer, .label-rune {
-    background-color: #008B8B;
     border-color: #000;
 }
 .panel {

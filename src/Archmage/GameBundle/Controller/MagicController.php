@@ -787,7 +787,7 @@ class MagicController extends Controller
                 $unit = $units[0];
             }
             $troop = $player->hasUnit($unit);
-            $quantity = ($artifact->getSkill()->getQuantityBonus() * 2) / $unit->getPower();
+            $quantity = rand($artifact->getSkill()->getQuantityBonus() / 2, $artifact->getSkill()->getQuantityBonus() * 2) / $unit->getPower();
             $quantity += round($quantity * $player->getSummonBonus() / (float)100);
             if ($troop) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
@@ -824,7 +824,7 @@ class MagicController extends Controller
             }
         } elseif ($artifact->getSkill()->getGoldBonus() > 0) {
             //GOLD
-            $gold = rand($artifact->getSkill()->getGoldBonus() / 2, $artifact->getSkill()->getGoldBonus());
+            $gold = rand(1, $artifact->getSkill()->getGoldBonus());
             $player->setGold($player->getGold() + $gold);
             $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span>.');
         } elseif ($artifact->getSkill()->getPeopleBonus() > 0) {

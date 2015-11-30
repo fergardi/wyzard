@@ -434,7 +434,7 @@ class MagicController extends Controller
                                 $this->addFlash('danger', 'La <span class="label label-recipe">Receta</span> era demasiado poderosa y se ha quemado.');
                             }
                         } else {
-                            $this->addFlash('danger', 'No tienes los <span class="label label-extra">Artefactos</span> o el <span class="label label-extra">Oro</span> necesario para eso.');
+                            $this->addFlash('danger', 'No tienes los <span class="label label-artifact">Artefactos</span> o el <span class="label label-extra">Oro</span> necesario para eso.');
                         }
                     } else {
                         $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios para eso.');

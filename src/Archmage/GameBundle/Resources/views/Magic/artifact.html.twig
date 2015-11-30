@@ -20,7 +20,7 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/building/guild.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar 1 <span class="label label-extra">Turno</span> en activar un <span class="label label-extra">Artefacto</span> sobre tu Reino o un Reino enemigo, o en colocarlo en defensa. Al igual que con los Hechizos, debes traspasar la <span class="label label-extra">Defensa Mágica</span> del objetivo.</div>
+                            <div class="col-xs-12">Aquí puedes gastar 1 <span class="label label-extra">Turno</span> en activar un <span class="label label-artifact">Artefacto</span> sobre tu Reino o un Reino enemigo, o en colocarlo en defensa. Al igual que con los Hechizos, debes traspasar la <span class="label label-extra">Defensa Mágica</span> del objetivo.</div>
                         </div>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
         {% else %}
         <div class="container">
             <div class="col-xs-12 alert alert-danger text-responsive text-center" role="alert">
-                <i class="fa fa-fw fa-exclamation-triangle"></i>Actualmente no tienes <span class="label label-extra">Artefactos</span> en tu poder. Tal vez deberías comprar alguno en la <i class="fa fa-fw fa-legal"></i><a href="{{ path('archmage_game_kingdom_auction') }}">Subasta</a>.
+                <i class="fa fa-fw fa-exclamation-triangle"></i>Actualmente no tienes <span class="label label-artifact">Artefactos</span> en tu poder. Tal vez deberías comprar alguno en la <i class="fa fa-fw fa-legal"></i><a href="{{ path('archmage_game_kingdom_auction') }}">Subasta</a>.
             </div>
         </div>
         {% endfor %}

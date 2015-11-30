@@ -622,7 +622,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Encontrar Artefacto');
         $skill->setArtifactBonus(15);
         $skill->setSelf(true);
-        $skill->setDescription('+'.$skill->getArtifactBonus().'% por <i class="fa fa-fw fa-magic"></i> de encontrar un <span class="label label-extra">Artefacto</span>');
+        $skill->setDescription('+'.$skill->getArtifactBonus().'% por <i class="fa fa-fw fa-magic"></i> de encontrar un <span class="label label-artifact">Artefacto</span>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -818,7 +818,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Destruir Artefacto');
         $skill->setArtifactBonus(-15);
         $skill->setRandom(true);
-        $skill->setDescription('+'.abs($skill->getArtifactBonus()).'% por <i class="fa fa-fw fa-magic"></i> de eliminar un <span class="label label-extra">Artefacto</span> enemigo');
+        $skill->setDescription('+'.abs($skill->getArtifactBonus()).'% por <i class="fa fa-fw fa-magic"></i> de eliminar un <span class="label label-artifact">Artefacto</span> enemigo');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1627,7 +1627,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Runa de Artefactos');
         $skill->setArtifactBonus(1);
-        $skill->setDescription('Genera '.$this->container->get('service.controller')->nff($skill->getArtifactBonus()).' <span class="label label-extra">Artefacto</span> al azar');
+        $skill->setDescription('Genera '.$this->container->get('service.controller')->nff($skill->getArtifactBonus()).' <span class="label label-artifact">Artefacto</span> al azar');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

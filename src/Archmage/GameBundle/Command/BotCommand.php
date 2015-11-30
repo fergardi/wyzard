@@ -74,7 +74,7 @@ class BotCommand extends ContainerAwareCommand
         }
         //troops
         shuffle($units);
-        for ($i = 0; $i < rand(1,4); $i++) {
+        for ($i = 0; $i < rand(2,4); $i++) {
             $troop = new Troop();
             $unit = $units[$i];
             $manager->persist($troop);
@@ -85,23 +85,23 @@ class BotCommand extends ContainerAwareCommand
         }
         //items
         shuffle($artifacts);
-        for ($i = 0; $i < rand(1,10); $i++) {
+        for ($i = 0; $i < rand(2,10); $i++) {
             $item = new Item();
             $artifact = $artifacts[$i];
             $manager->persist($item);
             $item->setArtifact($artifact);
-            $item->setQuantity(rand(1,10));
+            $item->setQuantity(rand(2,10));
             $item->setPlayer($bot);
             $bot->addItem($item);
         }
         //contracts
         shuffle($heroes);
-        for ($i = 0; $i < rand(1,4); $i++) {
+        for ($i = 0; $i < rand(2,4); $i++) {
             $contract = new Contract();
             $hero = $heroes[$i];
             $manager->persist($contract);
             $contract->setHero($hero);
-            $contract->setLevel(rand(1,15));
+            $contract->setLevel(rand(2,15));
             $contract->setPlayer($bot);
             $bot->addContract($contract);
         }

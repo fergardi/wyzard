@@ -23,7 +23,7 @@ while getopts "ubdisfcthrlp" opt; do
             ;;
         d)
             echo "Assetic dump..."
-            php app/console assets_version:increment --env=prod
+            php app/console assets-version:increment --env=prod
             php app/console assetic:dump --env=prod --no-debug --verbose
             echo "OK"
             ;;

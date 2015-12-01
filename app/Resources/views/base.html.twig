@@ -1,6 +1,4 @@
 <!DOCTYPE HTML>
-{# comprime la salida html #}
-{# % spaceless % #}
 <html lang="es">
     <head>
         <meta charset="utf-8" />
@@ -8,15 +6,14 @@
         <title>Archmage - {% block title %}{% endblock %}</title>
         {# block css #}
         {% block stylesheets %}
-            {# con los css no funciona el @Bundle shortcut #}
             {% stylesheets filter='uglifycss' filter='cssrewrite' output='css/base.min.css'
-            'bower/normalize-css/normalize.css'
-            '@ArchmageGameBundle/Resources/public/css/font.css'
-            'bower/fontawesome/css/font-awesome.css'
-            '@ArchmageGameBundle/Resources/public/css/theme.css'
-            'bower/bootstrap-select/dist/css/bootstrap-select.css'
-            'bower/datatables-bootstrap3-plugin/media/css/datatables-bootstrap3.css'
-            '@ArchmageGameBundle/Resources/public/css/style.css'
+                'bower/normalize-css/normalize.css'
+                '@ArchmageGameBundle/Resources/public/css/font.css'
+                'bower/fontawesome/css/font-awesome.css'
+                '@ArchmageGameBundle/Resources/public/css/theme.css'
+                'bower/bootstrap-select/dist/css/bootstrap-select.css'
+                'bower/datatables-bootstrap3-plugin/media/css/datatables-bootstrap3.css'
+                '@ArchmageGameBundle/Resources/public/css/style.css'
             %}
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
             {% endstylesheets %}
@@ -96,339 +93,191 @@
             'bower/bootstrap-tour/build/js/bootstrap-tour.js'
         %}
         <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
         <script>
             $(document).ready(function() {
                 /* RESPONSIVE SELECTBOX */
-                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
                     $('.selectpicker').selectpicker('mobile');
                 } else {
                     $('.selectpicker').selectpicker();
                 }
                 /* INITIALIZE ALL TOOLTIPS ON THE SITE */
-                $(function () {
-                    $('[data-toggle="tooltip"]').tooltip()
-                })
+                $('[data-toggle="tooltip"]').tooltip();
             });
         </script>
         <script>
+            /* TOUR */
             var tour = new Tour({
-                template: "<div class='popover tour'><div class='arrow'></div><h3 class='popover-title text-center'></h3><div class='popover-content'></div><div class='popover-footer text-center' style='width:100%;'><div class='popover-navigation btn-group' role='group'><button class='btn btn-sm btn-default' data-role='prev'><i class='fa fa-fw fa-arrow-left'></i></button><button class='btn btn-sm btn-default' data-role='next'><i class='fa fa-fw fa-arrow-right'></i></button><button class='btn btn-sm btn-default' data-role='end'><i class='fa fa-fw fa-times'></i></button></div></div>",
+                duration: 6000,
+                storage: window.localStorage,
+                template: "<div class='popover tour'><div class='arrow'></div><h3 class='popover-title text-center'></h3><div class='popover-content'></div><div class='popover-footer text-center' style='width:100%;'><div class='popover-navigation btn-group' role='group'><button class='btn btn-sm btn-default' data-role='prev'><i class='fa fa-fw fa-backward'></i></button><button class='btn btn-sm btn-default' data-role='next'><i class='fa fa-fw fa-forward'></i></button><button class='btn btn-sm btn-default' onclick='tour.pause();'><i class='fa fa-fw fa-pause'></i></button><button class='btn btn-sm btn-default' onclick='tour.resume();'><i class='fa fa-fw fa-play'></i></button><button class='btn btn-sm btn-default' data-role='end'><i class='fa fa-fw fa-stop'></i></button></div></div>",
                 steps: [
                     {
-                        element: "#summary-economy",
-                        title: "Oro y Personas",
-                        content: "Si tu producción es negativa, perderás recursos cada turno, y si llega a 0 perderás todo lo que necesite estos recursos.",
-                        placement: "top"
+                        path: "{{ path('archmage_game_kingdom_summary') }}",
+                        orphan: true,
+                        title: "Bienvenido",
+                        content: "Al principio este juego puede parecer un poco complicado, pero con mi tutorial aprenderás a jugar en menos de 5 minutos!"
                     }, {
-                        element: "#summary-magic",
-                        title: "Maná",
-                        content: "Si tu producción es negativa, perderás recursos cada turno, y si llega a 0 perderás todo lo que necesite este recurso.",
-                        placement: "top"
+                        path: "{{ path('archmage_game_kingdom_summary') }}",
+                        element: "#tour-resources",
+                        title: "Recursos",
+                        content: "Estos son los recursos que dispondrás en el juego: turnos, magia, artefatos, tierras, runas, oro, personas y maná.",
+                        placement: "bottom"
                     }, {
-                        element: "#summary-territory",
-                        title: "Edificios",
-                        content: "Contribuyen a tu producción de recursos, así como a tus bonus de investigación, invocación, construcción y defensa.",
-                        placement: "top"
+                        path: "{{ path('archmage_game_kingdom_summary') }}",
+                        element: "#tour-turns",
+                        title: "Turnos",
+                        content: "Tal vez el recurso más importante. Comienzas con 300 turnos y se gana uno cada 3 minutos. Veamos qué hacer con ellos.",
+                        placement: "bottom"
                     }, {
-                        element: "#summary-temple",
-                        title: "Dioses y Encantamientos",
-                        content: "Los dioses pueden lanzarte encantamientos, hechizos que permanecen en tu reino hasta que se gastan o se rompen.",
-                        placement: "top"
+                        path: "{{ path('archmage_game_territory_build') }}",
+                        element: "#tour-talleres",
+                        title: "Ahorrar turnos",
+                        content: "Podemos emplearlos en construir algunos edificios. Comenzaremos por los talleres, que nos ahorrarán valiosos futuros turnos.",
+                        placement: "bottom"
                     }, {
-                        element: "#summary-army",
-                        title: "Tropas y Mapas",
-                        content: "Cuantas más y mejores tropas tengas (máximo 5), mejor defendido estarás contra ataques enemigos, y más victorias obtendrás.",
-                        placement: "top"
+                        path: "{{ path('archmage_game_territory_build') }}",
+                        element: "#tour-granjas",
+                        title: "Ingresos",
+                        content: "Unas cuantas granjas más nos ayudarán a ganar más oro al turno, lo cual siempre viene bien para mantener más tropas.",
+                        placement: "bottom"
                     }, {
-                        element: "#summary-tavern",
-                        title: "Héroes",
-                        content: "Puedes contratar héroes en la subasta, cada uno otorga un bonus diferente, y suben de nivel conforme gastas turnos.",
-                        placement: "top"
+                        path: "{{ path('archmage_game_territory_build') }}",
+                        element: "#tour-pueblos",
+                        title: "Ingresos",
+                        content: "También podríamos invertir en construir más pueblos, para aumentar la capacidad de personas de nuestro reino.",
+                        placement: "bottom"
                     }, {
-                        element: "#summary-defense",
-                        title: "Defensa Física y Mágica",
-                        content: "Tu defensa ayudan a evitae ataques, conjuros, encantamientos y artefactos enemigos, y se pueden aumentar de diversas formas.",
-                        placement: "top"
+                        path: "{{ path('archmage_game_territory_build') }}",
+                        element: "#tour-nodos",
+                        title: "Ingresos",
+                        content: "No podemos olvidarnos de los nodos, que nos ayudarán a tener más maná disponible para conjurar hechizos.",
+                        placement: "bottom"
                     }, {
-                        element: "#summary-social",
-                        title: "Multijugador",
-                        content: "El mundo es muy grande, pero puedes ver a todos los jugadores en el ranking para decidir tu próximo objetivo.",
-                        placement: "top"
-                    }, {
-                        element: "#summary-balance",
-                        title: "Posición global",
-                        content: "Aquí puedes ver de un solo vistazo absolutamente todo lo que que contribuye al estado actual de tu reino.",
-                        placement: "top"
-                    }, {
-                        element: "#kingdom-tax",
-                        title: "Impuestos",
-                        content: "Si necesitas oro rápidamente, tal vez sea buena idea cobrar más impuestos a tus súbditos.",
-                        placement: "top"
-                    }, {
-                        element: "#tax-formula",
-                        title: "Cantidad",
-                        content: "Recaudarás el doble de tus ganancias brutas por turno, pero calcula bien antes de gastar muchos turnos.",
-                        placement: "top"
-                    }, {
-                        element: "#kingdom-auction",
-                        title: "Pujar en subasta",
-                        content: "Para ganar una subasta, primero debes acabar siendo el máximo pujante al acabar la misma.",
-                        placement: "top"
-                    }, {
-                        element: "#auction-formula",
-                        title: "Pujas",
-                        content: "Como en eBay, existen pujas máximas secretas. Si alguien puja pero no supera la tuya, se sobrepujará automáticamente. Si la superan, se te devolverá tu puja máxima menos una comisión. Si ganas, se te devolverá la diferencia entre tu puja máxima y la actual, menos una comisión",
-                        placement: "top"
-                    }, {
-                        element: "#auction-item",
-                        title: "Artefactos",
-                        content: "Si ganas, se te enviará el artefacto por correo y lo tendrás disponible para activar cuando quieras.",
-                        placement: "top"
-                    }, {
-                        element: "#auction-recipe",
-                        title: "Recetas",
-                        content: "Si ganas, se te enviará la receta por correo y la tendrás disponible para fabricar cuando quieras.",
-                        placement: "top"
-                    }, {
-                        element: "#auction-troop",
-                        title: "Tropas",
-                        content: "Si ganas, se te enviará la tropa por correo y la tendrás disponible para atacar cuando quieras. Recuerda que el máximo son 5 tropas.",
-                        placement: "top"
-                    }, {
-                        element: "#auction-quest",
-                        title: "Mapas",
-                        content: "Si ganas, se te enviará el mapa por correo y lo tendrás disponible para usar cuando quieras.",
-                        placement: "top"
-                    }, {
-                        element: "#auction-contract",
-                        title: "Contratos",
-                        content: "Si ganas, se te enviará el héroe por correo y lo tendrás disponible para usar cuando quieras.",
-                        placement: "top"
-                    }, {
-                        element: "#auction-research",
-                        title: "Hechizos",
-                        content: "Si ganas, se te enviará el hechizo por correo y lo tendrás disponible para investigar cuando quieras.",
-                        placement: "top"
-                    }, {
-                        element: "#kingdom-temple",
-                        title: "Favores",
-                        content: "Los encantamientos son hechizos que permanecen en tu reino hasta que se gastan, se rompen o se desencantan.",
-                        placement: "top"
-                    }, {
-                        element: "#temple-gods",
-                        title: "Deidades",
-                        content: "Puedes intentar ofrecer sacrificios a los dioses para que te otorguen su bendición (o maldición) de forma aleatoria.",
-                        placement: "top"
-                    }, {
-                        element: "#kingdom-market",
-                        title: "Gastar runas",
-                        content: "Las runas son la moneda interna del juego, se consiguen de formas poco convencionales y se gastan aquí en el mercado.",
-                        placement: "top"
-                    }, {
-                        element: "#territory-explore",
+                        path: "{{ path('archmage_game_territory_explore') }}",
+                        element: "#tour-explore",
                         title: "Tierras",
-                        content: "Las tierras permiten construir nuevos edificios, y cuantas más consigas, más rico y próspero será tu reino.",
+                        content: "Pero, ¿qué pasa cuando se acaban las tierras? Puedes encontrar más explorando, hasta 3500. Pero luego tendrás que robarlas atacando.",
                         placement: "top"
                     }, {
-                        element: "#explore-formula",
-                        title: "Cantidad",
-                        content: "Cada vez conseguirás menos tierras por turno, hasta las 3500. A partir de entonces, tendrás que atacar para obtener más.",
+                        path: "{{ path('archmage_game_magic_research') }}",
+                        element: "#tour-research",
+                        title: "Nuevos hechizos",
+                        content: "Antes de poder conjurar ningún hechizo, debes investigarlo primero invirtiendo muchos turnos.",
                         placement: "top"
                     }, {
-                        element: "#build-tierras",
-                        title: "Tierras libres",
-                        content: "Las tierras otorgan espacio de construcción adicional en tu reino, cada edificio nuevo cuesta 1 tierra libre, y sus costes vienen detallados en la parte inferior.",
+                        path: "{{ path('archmage_game_territory_build') }}",
+                        element: "#tour-gremios",
+                        title: "Ahorrar turnos",
+                        content: "Recuerda que los gremios reducen la cantidad de turnos necesarios para investigar, ahorrando mucho tiempo en niveles altos.",
                         placement: "top"
                     }, {
-                        element: "#build-granjas",
-                        title: "Oro",
-                        content: "Aumentan la producción de oro al turno.",
+                        path: "{{ path('archmage_game_magic_meditate') }}",
+                        element: "#tour-meditate",
+                        title: "Cargar maná",
+                        content: "Si alguna vez necesitas maná, siempre puedes invertir turnos en meditar para llenar tus reservas rápidamente.",
                         placement: "top"
                     }, {
-                        element: "#build-pueblos",
+                        path: "{{ path('archmage_game_army_attack') }}",
+                        element: "#tour-attack",
+                        title: "Atacar",
+                        content: "Atacar a otros jugadores es la mejor manera de obtener más oro y edificios. Puedes intentar usar hasta un hechizo y/o artefacto.",
+                        placement: "top"
+                    }, {
+                        path: "{{ path('archmage_game_account_ranking') }}",
+                        element: "#tour-ranking",
+                        title: "Objetivos",
+                        content: "Investiga la tabla de posiciones para escoger al objetivo de tus ataques. También deberías espiarle antes de atacar.",
+                        placement: "bottom"
+                    }, {
+                        path: "{{ path('archmage_game_kingdom_summary') }}",
+                        element: "#tour-people",
                         title: "Personas",
-                        content: "Aumentan la producción de personas al turno, así como la capacidad total.",
-                        placement: "top"
+                        content: "Tal vez te hayas dado percatado de que las personas no se pueden producir rápidamente, salvo con ciertos artefactos.",
+                        placement: "bottom"
                     }, {
-                        element: "#build-nodos",
-                        title: "Maná",
-                        content: "Aumentan la producción de maná al turno, así como la capacidad total.",
-                        placement: "top"
-                    }, {
-                        element: "#build-gremios",
-                        title: "Investigación",
-                        content: "Aumentan el bonus de investigación, es decir, reducen el número de turnos necesarios al investigar hechizos.",
-                        placement: "top"
-                    }, {
-                        element: "#build-talleres",
-                        title: "Construcción",
-                        content: "Aumentan el bonus de construcción, es decir, reducen el número de turnos necesarios al construir edificios.",
-                        placement: "top"
-                    }, {
-                        element: "#build-barracones",
-                        title: "Invocación",
-                        content: "Aumentan el bonus de invocación, es decir, aumentan la cantidad de unidades al invocar.",
-                        placement: "top"
-                    }, {
-                        element: "#build-barreras",
-                        title: "Defensa Mágica",
-                        content: "Aumentan el bonus de defensa mágica, es decir, reducen la probabilidad de recibir encantamientos, hechizos y artefactos enemigos.",
-                        placement: "top"
-                    }, {
-                        element: "#build-fortalezas",
-                        title: "Defensa Física",
-                        content: "Aumentan le bonus de defensa física, es decir, reducen la probabilidad de recibir ataques enemigos.",
-                        placement: "top"
-                    }, {
-                        element: "#territory-demolish",
-                        title: "Recolocar",
-                        content: "A veces necesitarás eliminar unos edificios para recuperar tierras libres y construir edificios nuevos. Derribar es gratuito.",
-                        placement: "top"
-                    }, {
-                        element: "#magic-meditate",
-                        title: "Cargar",
-                        content: "Si necesitas maná rápidamente, puede ser una buena idea gastar unos cuantos turnos en recargar maná.",
-                        placement: "top"
-                    }, {
-                        element: "#meditate-formula",
-                        title: "Cantidad",
-                        content: "Cargarás el doble de tus ganancias brutas por turno, pero calcula bien antes de gastar muchos turnos.",
-                        placement: "top"
-                    }, {
-                        element: "#magic-research",
-                        title: "Hechizos",
-                        content: "Investigar nuevos hechizos es muy importante, ya que tendrás más trucos bajo la manga que usar contra otros jugadores.",
-                        placement: "top"
-                    }, {
-                        element: "#research-formula",
-                        title: "Reducciones",
-                        content: "El bonus de investigación reducirá el número de turnos necesarios para investigar los nuevos hechizos.",
-                        placement: "top"
-                    }, {
-                        element: "#research-spell",
-                        title: "Hechizos",
-                        content: "Aqui se muestra el nivel de magia necesario para conjurarlo, la cantidad de turnos para investigarlo y el maná para conjurarlo.",
-                        placement: "top"
-                    }, {
-                        element: "#magic-conjure",
-                        title: "Magia",
-                        content: "Una vez investigados, puedes lanzar hechizos sobre tí mismo o sobre tus enemigos, si tienes el nivel y el maná necesarios.",
-                        placement: "top"
-                    }, {
-                        element: "#conjure-formula",
-                        title: "Defensa Mágica",
-                        content: "Cuanta mayor sea la defensa mágica de un enemigo, más difícil será que entre un hechizo tuyo.",
-                        placement: "top"
-                    }, {
-                        element: "#conjure-research",
-                        title: "Hechizos",
-                        content: "Aqui se muestra el nivel de magia necesario para conjurarlo, y la cantidad de turnos y el maná necesarios para conjurarlo.",
-                        placement: "top"
-                    }, {
-                        element: "#magic-dispell",
-                        title: "Encantamientos",
-                        content: "Puedes tratar de romper un encantamiento sobre tu reino, ya seas tú el dueño o un mago enemigo.",
-                        placement: "top"
-                    }, {
-                        element: "#dispell-formula",
-                        title: "Defensa Mágica",
-                        content: "Cuanto mayor sea la defensa mágica del enemigo, más difícil será romper el encantamiento.",
-                        placement: "top"
-                    }, {
-                        element: "#dispell-enchantment",
-                        title: "Encantamiento",
-                        content: "Aquí se muestra el nivel del encantamiento, los turnos para acabar, y el dueño del mismo.",
-                        placement: "top"
-                    }, {
-                        element: "#magic-artifact",
-                        title: "Artefactos",
-                        content: "Aqui puedes activar un artefacto sobre tu reino o un reino enemigo.",
-                        placement: "top"
-                    }, {
-                        element: "#artifact-formula",
-                        title: "Defensa Mágica",
-                        content: "Cuanto mayor sea la defensa mágica del enemigo, más difícil será activar el artefacto.",
-                        placement: "top"
-                    }, {
-                        element: "#artifact-artifact",
-                        title: "Título de la ayuda",
-                        content: "Aquí se muestra la cantidad de artefactos y su habilidad.",
-                        placement: "top"
-                    }, {
-                        element: "#magic-alchemy",
-                        title: "Fabricar",
-                        content: "Si necesitas un artefacto y no lo consigues ver en la subasta, tal vez sea buena idea conseguir una receta para fabricarlo.",
-                        placement: "top"
-                    }, {
-                        element: "#alchemy-formula",
-                        title: "Costes",
-                        content: "Una receta consume dos artefactos y oro para fabricar un tercer artefacto diferente. Si es legendario, la receta se destruye.",
-                        placement: "top"
-                    }, {
-                        element: "#alchemy-recipe",
-                        title: "Receta",
-                        content: "Aquí se muestra los ingredientes necesarios para fabricar el artefacto deseado.",
-                        placement: "top"
-                    }, {
-                        element: "#army-attack",
-                        title: "Pillaje",
-                        content: "Atacar a otro jugador es una buena manera de conseguir oro y tierras libres, pero también de conseguir enemigos.",
-                        placement: "top"
-                    }, {
-                        element: "#attack-options",
-                        title: "Opciones",
-                        content: "Aparte del jugador objetivo, que es obligatorio, puedes escoger un artefacto y un hechizo opcionales para la batalla. Si no consigues traspasar su defensa física, el artefacto no se gastará, pero el maná del hechizo si.",
-                        placement: "top"
-                    }, {
-                        element: "#attack-formula",
-                        title: "Defensa Física",
-                        content: "Cuanto mayor sea la defensa física del objetivo, más difícil será conseguir un ataque exitoso.",
-                        placement: "top"
-                    }, {
-                        element: "#attack-troop",
-                        title: "Tropas",
-                        content: "Aquí se muestra el ataque y defensa totales de la tropa, su velocidad, y sus costes totales de mantenimiento.",
-                        placement: "top"
-                    }, {
-                        element: "#attack-contract",
-                        title: "Título de la ayuda",
-                        content: "Aquí se muestra el bonus del héroe en batalla, de haberlo, y sus costes totales de mantenimiento.",
-                        placement: "top"
-                    }, {
-                        element: "#army-disband",
+                        path: "{{ path('archmage_game_army_disband') }}",
+                        element: "#tour-disband",
                         title: "Eliminar",
-                        content: "A veces te interesará eliminar tropas de tu ejército para hacer sitio a nuevas tropas o para pagar menos mantenimientos.",
+                        content: "Si no puedes mantener a todas tus tropas, tal vez te interese desbandar algunas para pagar menos mantenimientos por turno.",
                         placement: "top"
                     }, {
-                        element: "#disband-troop",
-                        title: "Tropas",
-                        content: "Aquí se muestra el ataque y defensa totales de la tropa, su velocidad, y sus costes totales de mantenimiento.",
+                        path: "{{ path('archmage_game_kingdom_summary') }}",
+                        element: "#tour-defense",
+                        title: "Defensa",
+                        content: "Pero tambien pueden atacarte! Protégete con muchas y poderosas tropas, y no olvides aumentar las defensas de tu reino!",
                         placement: "top"
                     }, {
-                        element: "#army-quest",
-                        title: "Recompensas",
-                        content: "Completar con éxito una aventura otorga enormes recompensas de oro, artefactos y runas. Pero si fallas, no obtendrás nada.",
+                        path: "{{ path('archmage_game_territory_build') }}",
+                        element: "#tour-barreras",
+                        title: "Defensa Mágica",
+                        content: "La defensa mágica reduce las posibilidades de sufrir un hechizo, artefacto o encantamiento enemigo. Auméntala con barreras y encantamientos!",
                         placement: "top"
                     }, {
-                        element: "#quest-quest",
-                        title: "Aventuras",
-                        content: "Aquí se muestran las tropas enemigas que deberás derrotar en batalla, sin usar hechizos ni artefactos.",
+                        path: "{{ path('archmage_game_territory_build') }}",
+                        element: "#tour-fortalezas",
+                        title: "Defensa Física",
+                        content: "La defensa física reduce las posibilidades de sufrir un ataque enemigo. Auméntala con fortalezas y encantamientos!",
                         placement: "top"
                     }, {
-                        element: "#navbar-account",
+                        path: "{{ path('archmage_game_kingdom_temple') }}",
+                        element: "#tour-temple",
+                        title: "Encantamientos",
+                        content: "Rezar a los dioses es una buena manera de recibir un encantamiento beneficioso sin pagar. Pero cuidado, puede ser perjudicial!",
+                        placement: "top"
+                    }, {
+                        path: "{{ path('archmage_game_magic_dispell') }}",
+                        element: "#tour-dispell",
+                        title: "Romper",
+                        content: "Si un encantamiento te molesta, puedes intentar romperlo. Aunque cuanta mayor defensa mágica tenga el dueño, más te costará.",
+                        placement: "top"
+                    }, {
+                        path: "{{ path('archmage_game_kingdom_auction') }}",
+                        element: "#tour-auction",
+                        title: "Pujar",
+                        content: "Puedes adquirir artefactos, heroes, tropas, mapas, recetas o hechizos en la subasta si nadie te sobrepuja. Aunque necesitarás oro.",
+                        placement: "top"
+                    }, {
+                        path: "{{ path('archmage_game_kingdom_tax') }}",
+                        element: "#tour-tax",
+                        title: "Impuestos",
+                        content: "Cobrar impuestos a tus súbditos es una manera rápida de obtener oro, aunque también puedes completar aventuras.",
+                        placement: "top"
+                    }, {
+                        path: "{{ path('archmage_game_army_quest') }}",
+                        element: "#tour-quest",
+                        title: "Misiones",
+                        content: "Derrotar poderosos ejércitos errantes es una buena forma de ganar oro y recompensas, como artefactos o runas.",
+                        placement: "top"
+                    }, {
+                        path: "{{ path('archmage_game_kingdom_market') }}",
+                        element: "#tour-market",
+                        title: "Runas",
+                        content: "Las runas sirven para intercambiarse por los artefactos más poderosos en el mercado, y puedes comprar más dentro del juego.",
+                        placement: "bottom"
+                    }, {
+                        path: "{{ path('archmage_game_kingdom_summary') }}",
+                        element: "#tour-balance",
+                        title: "Resumen",
+                        content: "Podrás ver en este gráfico todo lo que ocurre dentro de tus fronteras. Ya estás listo para jugar.",
+                        placement: "top"
+                    }, {
+                        path: "{{ path('archmage_game_home_help') }}",
+                        element: "#tour-help",
                         title: "Ayuda",
-                        content: "Si necesitas más información, tienes todos los temas perfectamente explicados en la ayuda del juego.",
+                        content: "Si tienes alguna duda, puedes consultar la ayuda del juego o volver a ver este tutorial. Que te diviertas!",
                         placement: "bottom"
                     }
-                ],
-                duration: 10000,
-                storage: false
+                ]
             });
             tour.init();
+            // start tour
+            $('#tour-start').click(function() {
+                tour.restart();
+            });
         </script>
-        {% endjavascripts %}
     {% endblock %}
-    {# signature #}
     <!--
     Developed by
     _______                         __ __
@@ -442,4 +291,3 @@
     -->
     </body>
 </html>
-{# % endspaceless % #}

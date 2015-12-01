@@ -11,7 +11,7 @@
                 {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
         </div>
-        <div class="col-xs-12 col-md-offset-3 col-md-6" id="magic-meditate">
+        <div class="col-xs-12 col-md-offset-3 col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">{{ (player.manaResourcePerTurn * 2)|nf }} Maná/Turno</div>
                 <div class="panel-body text-responsive">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-middle text-center" id="meditate-formula">Fórmula</div>
+                <div class="panel-middle text-center" id="tour-meditate">Fórmula</div>
                 <div class="panel-body text-responsive text-only text-center">
                     <p>MANÁ<sub>cargado</sub> = NODOS<sub>jugador</sub> * MANÁ<sub>nodo</sub> * 2</p>
                 </div>

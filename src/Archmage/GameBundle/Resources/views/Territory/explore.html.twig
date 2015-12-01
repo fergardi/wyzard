@@ -11,7 +11,7 @@
                 {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
         </div>
-        <div class="col-xs-12 col-md-offset-3 col-md-6" id="territory-explore">
+        <div class="col-xs-12 col-md-offset-3 col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">{{ player.freePerTurn|nf }} Tierras/Turno</div>
                 <div class="panel-body text-responsive">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-middle text-center" id="explore-formula">Fórmula</div>
+                <div class="panel-middle text-center" id="tour-explore">Fórmula</div>
                 <div class="panel-body text-responsive text-only text-center">
                     <p>TIERRAS<sub>exploradas</sub> = (3500 - TIERRAS<sub>jugador</sub>) / 100</p>
                 </div>

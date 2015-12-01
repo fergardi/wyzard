@@ -100,7 +100,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
 }
 .label {
     font-size: 95%;
-    padding: 0px 5px 0px 5px !important;
+    padding: 0 5px 0 5px !important;
     border: 1px solid black;
 }
 .label-extra {
@@ -392,7 +392,7 @@ html {-webkit-text-size-adjust: none !important;}
 }
 #top-link-block.affix {
     position: fixed; /* keeps it on the bottom once in view */
-    bottom: 0px;
+    bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
@@ -405,14 +405,14 @@ html {-webkit-text-size-adjust: none !important;}
 }
 .popover-title, .popover-footer {
     background-color: #3E444C;
-    margin: 0px;
+    margin: 0;
     padding: 8px 14px;
 }
 .popover-title {
     border-bottom: 1px solid black;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0 0;
 }
 .popover-footer {
     border-top: 1px solid black;
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 0 0 5px 5px;
 }

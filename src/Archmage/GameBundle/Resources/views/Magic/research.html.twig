@@ -11,7 +11,7 @@
                 {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
         </div>
-        <div class="col-xs-12 col-md-6 col-md-offset-3" id="magic-research">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Velocidad de investigación</div>
                 <div class="panel-body text-responsive">
@@ -24,7 +24,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-middle text-center" id="research-formula">Fórmula</div>
+                <div class="panel-middle text-center">Fórmula</div>
                 <div class="panel-body text-responsive text-center text-only">
                     <p>% TURNOS<sub>reducidos</sub> = GREMIOS<sub>jugador</sub> / 30</p>
                 </div>
@@ -34,7 +34,7 @@
             </div>
         </div>
         {% for research in player.researchs if not research.active and research.spell.magic <= player.magic %}
-        <div class="col-xs-12 col-md-6" id="research-spell">
+        <div class="col-xs-12 col-md-6" {% if loop.first %}id="tour-research"{% endif %}>
             <div class="panel panel-{{ research.spell.faction.class }}">
                 <div class="panel-heading text-center">{% if research.spell.enchantment %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
                 <div class="panel-body text-responsive">
@@ -78,7 +78,7 @@
         </div>
         {% endfor %}
         {% for spell in spells if spell.magic <= player.magic and not player.hasSpell(spell) %}
-        <div class="col-xs-12 col-md-6" id="research-spell">
+        <div class="col-xs-12 col-md-6" {% if loop.first %}id="tour-research"{% endif %}>
             <div class="panel panel-{{ spell.faction.class }}">
                 <div class="panel-heading text-center">{% if spell.enchantment %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ spell.name|slug }}" class="link">{{ spell.name }}</a></div>
                 <div class="panel-body text-responsive">

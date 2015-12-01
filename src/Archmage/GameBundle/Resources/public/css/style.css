@@ -21,7 +21,7 @@ img.background {
         margin-left: -512px; }
 }
 .panel, .jumbotron, .alert, .navbar, .well, .table, ul.pagination, .searchbox, .popover {
-    opacity: 0.90 !important;
+    opacity: 0.95 !important;
     box-shadow: 3px 3px 15px black;
 }
 .page-header {
@@ -416,3 +416,7 @@ html {-webkit-text-size-adjust: none !important;}
     border-top: 1px solid black;
     border-radius: 0 0 5px 5px;
 }
+.popover.top > .arrow:after { border-top-color: black; }
+.popover.right > .arrow:after { border-right-color: black; }
+.popover.bottom > .arrow:after { border-bottom-color: black; }
+.popover.left > .arrow:after { border-left-color: black; }

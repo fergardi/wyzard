@@ -279,7 +279,7 @@ body {
     background-color: #3E444C;
 }
 .panel-artifact > .panel-heading, .panel-artifact > .panel-footer, .label-artifact {
-    background-color: #008B8B;
+    background-color: #8e8e8e;
     border-color: #000;
 }
 .panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
@@ -292,6 +292,10 @@ body {
 }
 .panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest, .alert-quest {
     background-color: #D29905;
+    border-color: #000;
+}
+.panel-rune > .panel-heading, .panel-rune > .panel-footer, .label-rune {
+    background-color: #008B8B;
     border-color: #000;
 }
 .panel {

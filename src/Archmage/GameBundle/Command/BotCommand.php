@@ -32,9 +32,9 @@ class BotCommand extends ContainerAwareCommand
      */
     private function randonickze()
     {
-        $prefix = array('Ad','Th','Se','Du','Fer','Mi','Ja','Su','As','Te');
-        $mix = array('ara','ten','vez','ilo','unu','anne','oxi','ojjo','uxa','ekk');
-        $suffix = array('lerr','iss','er','as','om','ssu','gar','he','av','zu');
+        $prefix = array('Ad','Th','Se','Du','Fer','Mi','Ja','Su','As','Te','Ral','Ber','Cinn','Gum','Lau','Nes','Wyzz','Xyom','Ygg','Zzol');
+        $mix = array('ara','ten','vez','ilo','unu','anne','oxi','ojjo','uxa','ekk','oma','tta','iwi','oppa','ezi','ihe','axxe','ukka','iffu','obba');
+        $suffix = array('lerr','iss','er','as','om','ssu','gar','he','av','zu','sum','on','ul','in','ey','val','ehm','lima','lol','xass');
         return $prefix[array_rand($prefix)].$mix[array_rand($mix)].$suffix[array_rand($suffix)];
     }
 

@@ -882,7 +882,7 @@ class ArmyController extends Controller
                 $troop = new Troop();
                 $manager->persist($troop);
                 $troop->setUnit($unit);
-                $troop->setQuantity(1000000 / $unit->getPower());
+                $troop->setQuantity(500000 / $unit->getPower());
                 $troop->setPlayer($target);
                 $target->addTroop($troop);
             }

@@ -114,16 +114,10 @@ class TerritoryController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
-            $turns = 0;
             $lands = isset($_POST['lands'])?$_POST['lands']:null;
             $construction = isset($_POST['construction'])?$_POST['construction']:null;
             $construction = $manager->getRepository('ArchmageGameBundle:Construction')->findOneById($construction);
-            if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $construction->getQuantity() && $player->getTurns() > 0) {
-                /*
-                 * MANTENIMIENTOS
-                 */
-                $player->setTurns($player->getTurns() - $turns);
-                $this->get('service.controller')->checkMaintenances($turns);
+            if ($lands && is_numeric($lands) && $construction && $player->getConstructions()->contains($construction) && $lands > 0 && $lands <= $construction->getQuantity()) {
                 /*
                  * ACCION
                  */
@@ -134,7 +128,7 @@ class TerritoryController extends Controller
                  */
                 $manager->persist($player);
                 $manager->flush();
-                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> y derribado '.$this->get('service.controller')->nff($lands).' <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($construction->getBuilding()->getName()).'" class="link">'.$construction->getBuilding()->getName().'</a></span>.');
+                $this->addFlash('success', 'Has derribado '.$this->get('service.controller')->nff($lands).' <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($construction->getBuilding()->getName()).'" class="link">'.$construction->getBuilding()->getName().'</a></span>.');
             } else {
                 $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }

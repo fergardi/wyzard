@@ -158,47 +158,36 @@ class ArmyController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
-            $turns = 0;
             $quantity = isset($_POST['quantity'])?$_POST['quantity']:null;
             $troop = isset($_POST['troop'])?$_POST['troop']:null;
             $troop = $manager->getRepository('ArchmageGameBundle:Troop')->findOneById($troop);
             $contract = isset($_POST['contract'])?$_POST['contract']:null;
             $contract = $manager->getRepository('ArchmageGameBundle:Contract')->findOneById($contract);
-            if ($turns <= $player->getTurns()) {
-                if (($troop && $player->hasTroop($troop) && $quantity && is_numeric($quantity) && $quantity > 0 && $quantity <= $troop->getQuantity()) || ($contract && $player->hasContract($contract))) {
-                    /*
-                     * MANTENIMIENTOS
-                     */
-                    $player->setTurns($player->getTurns() - $turns);
-                    $this->get('service.controller')->checkMaintenances($turns);
-                    /*
-                     * ACCION
-                     */
-                    if ($troop) {
-                        $troop->setQuantity($troop->getQuantity() - $quantity);
-                        $this->addFlash('success', 'Has gastado ' . $this->get('service.controller')->nff($turns) . ' <span class="label label-extra">Turnos</span> y desbandado ' . $this->get('service.controller')->nff($quantity) . ' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
-                        if ($troop->getQuantity() <= 0) {
-                            $player->removeTroop($troop);
-                            $manager->remove($troop);
-                        }
+            if (($troop && $player->hasTroop($troop) && $quantity && is_numeric($quantity) && $quantity > 0 && $quantity <= $troop->getQuantity()) || ($contract && $player->hasContract($contract))) {
+                /*
+                 * ACCION
+                 */
+                if ($troop) {
+                    $troop->setQuantity($troop->getQuantity() - $quantity);
+                    $this->addFlash('success', 'Has desbandado ' . $this->get('service.controller')->nff($quantity) . ' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
+                    if ($troop->getQuantity() <= 0) {
+                        $player->removeTroop($troop);
+                        $manager->remove($troop);
                     }
-                    if ($contract) {
-                        $player->removeContract($contract);
-                        $this->addFlash('success', 'Has gastado ' . $this->get('service.controller')->nff($turns) . ' <span class="label label-extra">Turnos</span> y desbandado a <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span>.');
-                        $manager->remove($contract);
-                    }
-                    /*
-                     * PERSISTENCIA
-                     */
-                    $manager->persist($player);
-                    $manager->flush();
-
-                } else {
-                    $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
                 }
-            }
-            else{
-                $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> suficientes para eso.');
+                if ($contract) {
+                    $player->removeContract($contract);
+                    $this->addFlash('success', 'Has desbandado a <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span>.');
+                    $manager->remove($contract);
+                }
+                /*
+                 * PERSISTENCIA
+                 */
+                $manager->persist($player);
+                $manager->flush();
+
+            } else {
+                $this->addFlash('danger', 'Ha ocurrido un error, vuelve a intentarlo.');
             }
             return $this->redirect($this->generateUrl('archmage_game_army_disband'));
         }

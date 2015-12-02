@@ -273,6 +273,25 @@
                                 <td class="text-right">{{ (player.manaResourcePerTurn * item.artifact.skill.manaBonus / 100)|nf }}</td>
                             </tr>
                             {% endfor %}
+                            {% set power = 0 %}
+                            {% set quantity = 0 %}
+                            {% for item in player.items if not item.artifact.legendary %}
+                                {% set power = power + (item.artifact.power * item.quantity) %}
+                                {% set quantity = quantity + item.quantity %}
+                            {% endfor %}
+                            <tr>
+                                <td class="text-left"><i class="fa fa-fw fa-diamond"></i><span class="label label-artifact"><a href="{{ path('archmage_game_home_help') }}#artefactos" class="link">Artefactos</a></span></td>
+                                <td class="text-right">{{ quantity|nf }}</td>
+                                <td class="text-right">{{ power|nf }}</td>
+                                <td class="text-right">0%</td>
+                                <td class="text-right">0%</td>
+                                <td class="text-right">0%</td>
+                                <td class="text-right">0%</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                            </tr>
                             {% for troop in player.troops %}
                             <tr>
                                 <td class="text-left"><i class="fa fa-fw fa-group"></i><span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}" class="link">{{ troop.unit.name }}</a></span></td>

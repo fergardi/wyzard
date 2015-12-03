@@ -13,6 +13,9 @@ use Archmage\GameBundle\Entity\Legend;
 
 class GodCommand extends ContainerAwareCommand
 {
+    /**
+     * for n in {1..10}; do php app/console bot:add; done
+     */
     protected function configure()
     {
         $this
@@ -24,7 +27,7 @@ class GodCommand extends ContainerAwareCommand
     /**
      * usort sorting function
      */
-    function sortByPower($row1, $row2)
+    private function sortByPower($row1, $row2)
     {
         return ($row1[1] >= $row2[1]) ? -1 : 1;
     }

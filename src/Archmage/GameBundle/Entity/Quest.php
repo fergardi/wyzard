@@ -27,7 +27,7 @@ class Quest
      *
      * @ORM\Column(name="name", type="string", nullable=false)
      */
-    private $name = 'Mapa de Aventura';
+    private $name = 'Mapa de Aventuras';
 
     /**
      * @var integer

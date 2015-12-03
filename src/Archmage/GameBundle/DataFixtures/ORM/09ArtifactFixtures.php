@@ -23,7 +23,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(5);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -37,7 +38,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -51,7 +53,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -65,7 +68,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -79,7 +83,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -93,7 +98,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -107,7 +113,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -121,7 +128,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -135,7 +143,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -149,7 +158,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -163,7 +173,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -177,7 +188,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -191,7 +203,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -205,7 +218,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -219,7 +233,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(5);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -233,7 +248,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(5);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -247,7 +263,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(50);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(5);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -261,7 +278,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(50);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -275,7 +293,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -289,7 +308,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -303,7 +323,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -317,7 +338,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -331,7 +353,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(5);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -345,7 +368,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(5);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -359,7 +383,8 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(50);
         $artifact->setPower(25000);
-        $artifact->setClass('default');
+        $artifact->setCost(10);
+        $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
@@ -373,6 +398,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(95);
         $artifact->setPower(250000);
+        $artifact->setCost(0);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
@@ -387,6 +413,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(95);
         $artifact->setPower(250000);
+        $artifact->setCost(0);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
@@ -401,6 +428,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(95);
         $artifact->setPower(250000);
+        $artifact->setCost(0);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
@@ -415,6 +443,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(95);
         $artifact->setPower(250000);
+        $artifact->setCost(0);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
@@ -429,6 +458,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(95);
         $artifact->setPower(250000);
+        $artifact->setCost(0);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);

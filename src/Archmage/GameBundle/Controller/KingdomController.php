@@ -257,104 +257,27 @@ class KingdomController extends Controller
         if ($this->get('service.controller')->checkWinner()) return $this->redirect($this->generateUrl('archmage_game_account_legend'));
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
-        $runes = $manager->getRepository('ArchmageGameBundle:Rune')->findAll();
+        $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
         if ($request->isMethod('POST')) {
-            $rune = isset($_POST['rune']) ? $_POST['rune'] : null;
-            $rune = $manager->getRepository('ArchmageGameBundle:Rune')->findOneById($rune);
-            if ($rune && $rune->getCost() <= $player->getRunes()) {
+            $artifact = isset($_POST['artifact'])?$_POST['artifact']:null;
+            $artifact = $manager->getRepository('ArchmageGameBundle:Artifact')->findOneById($artifact);
+            if ($artifact && $artifact->getCost() > 0 && $artifact->getCost() <= $player->getRunes()) {
                 /*
                  * ACCION
                  */
-                $player->setRunes($player->getRunes() - $rune->getCost());
-                $skill = $rune->getSkill();
-                if ($skill->getSpyBonus() > 0) {
-                    $telegram = $player->getTelegram();
-                    $this->addFlash('success', 'Has gastado '.$rune->getCost().' <span class="label label-rune">Runas</span> y generado un código para Telegram.');
-                    $text = array();
-                    $text[] = array('default', 12, 0, 'center', 'Conecta con Telegram agregando como amigo a <a href="http://telegram.me/archmagebot" class="link">@ArchmageBot</a>, mándale el código '.$telegram.' y después actualiza tu <a href="'.$this->generateUrl('archmage_game_account_profile').'">Perfil</a>.');
-                    $this->get('service.controller')->sendMessage($player, $player, 'Conecta con Telegram', $text);
+                $player->setRunes($player->getRunes() - $artifact->getCost());
+                $item = $player->hasArtifact($artifact);
+                if ($item) {
+                    $item->setQuantity($item->getQuantity() + 1);
+                } else {
+                    $item = new Item();
+                    $manager->persist($item);
+                    $item->setQuantity(1);
+                    $item->setArtifact($artifact);
+                    $item->setPlayer($player);
+                    $player->addItem($item);
                 }
-                if ($skill->getGoldBonus() > 0) {
-                    $gold = $skill->getGoldBonus();
-                    $player->setGold($player->getGold() + $skill->getGoldBonus());
-                    $this->addFlash('success', 'Has gastado '.$rune->getCost().' <span class="label label-rune">Runas</span> y generado '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span>.');
-                }
-                if ($skill->getPeopleBonus() > 0) {
-                    $people = $skill->getPeopleBonus();
-                    $player->setPeople($player->getPeople() + $skill->getPeopleBonus());
-                    $this->addFlash('success', 'Has gastado '.$rune->getCost().' <span class="label label-rune">Runas</span> y generado '.$this->get('service.controller')->nff($people).' <span class="label label-extra">Personas</span>.');
-                }
-                if ($skill->getManaBonus() > 0) {
-                    $mana = $skill->getManaBonus();
-                    $player->setMana($player->getMana() + $skill->getManaBonus());
-                    $this->addFlash('success', 'Has gastado '.$rune->getCost().' <span class="label label-rune">Runas</span> y generado '.$this->get('service.controller')->nff($mana).' <span class="label label-extra">Maná</span>.');
-                }
-                if ($skill->getTerrainBonus() > 0) {
-                    $free = $skill->getTerrainBonus();
-                    $player->setConstruction('Tierras', $player->getFree() + $skill->getTerrainBonus());
-                    $this->addFlash('success', 'Has gastado '.$rune->getCost().' <span class="label label-rune">Runas</span> y generado '.$this->get('service.controller')->nff($free).' <span class="label label-extra">Tierras</span>.');
-                }
-                if ($skill->getQuestBonus() > 0) {
-                    //QUEST
-                    $level = rand(1,3);
-                    $criteria = new Criteria();
-                    $criteria->where($criteria->expr()->lte('rarity', $level * 33));
-                    $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
-                    shuffle($artifacts);
-                    $artifact = $artifacts[0];
-                    $quest = new Quest();
-                    $manager->persist($quest);
-                    $quest->setArtifact($artifact);
-                    $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
-                    shuffle($units);
-                    for ($i = 0; $i < $level; $i++) {
-                        $unit = $units[$i];
-                        $troop = new Troop();
-                        $manager->persist($troop);
-                        $troop->setUnit($unit);
-                        $troop->setQuantity(500000 / $unit->getPower());
-                        $troop->setQuest($quest);
-                        $quest->addTroop($troop);
-                    }
-                    $player->addQuest($quest);
-                    $this->addFlash('success', 'Has descubierto una nueva <span class="label label-quest"><a href="'.$this->generateUrl('archmage_game_army_quest').'" class="link">Aventura</a></span>.');
-                }
-                if ($skill->getRecipeBonus() > 0) {
-                    $criteria = new Criteria();
-                    $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
-                    $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
-                    $recipe = new Recipe();
-                    $manager->persist($recipe);
-                    shuffle($artifacts);
-                    $recipe->setFirst($artifacts[0]);
-                    shuffle($artifacts);
-                    $recipe->setSecond($artifacts[0]);
-                    shuffle($artifacts);
-                    $recipe->setResult($artifacts[0]);
-                    $recipe->setGold($recipe->getResult()->getGoldAuction() / 2);
-                    $player->addRecipe($recipe);
-                    $recipe->setPlayer($player);
-                    $this->addFlash('success', 'Has encontrado una nueva <span class="label label-recipe"><a href="'.$this->generateUrl('archmage_game_magic_alchemy').'" class="link">Receta</a></span>.');
-                }
-                if ($skill->getArtifactBonus() > 0) {
-                    $criteria = new Criteria();
-                    $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
-                    $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
-                    shuffle($artifacts);
-                    $artifact = $artifacts[0];
-                    $item = $player->hasArtifact($artifact);
-                    if ($item) {
-                        $item->setQuantity($item->getQuantity() + 1);
-                    } else {
-                        $item = new Item();
-                        $manager->persist($item);
-                        $item->setArtifact($artifact);
-                        $item->setQuantity(1);
-                        $item->setPlayer($player);
-                        $player->addItem($item);
-                    }
-                    $this->addFlash('success', 'Has encontrado por casualidad el artefacto <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
-                }
+                $this->addFlash('success', 'Has comprado el Artefacto <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
                 /*
                  * PERSISTENCIA
                  */
@@ -367,7 +290,7 @@ class KingdomController extends Controller
         }
         return array(
             'player' => $player,
-            'runes' => $runes,
+            'artifacts' => $artifacts,
         );
     }
 }

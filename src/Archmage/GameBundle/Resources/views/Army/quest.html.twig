@@ -11,7 +11,7 @@
                 {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
         </div>
-        <div class="col-xs-12 col-md-6 col-md-offset-3" id="army-quest">
+        <div class="col-xs-12 col-md-6 col-md-offset-3" id="tour-quest">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Mapas</div>
                 <div class="panel-body text-responsive">
@@ -20,7 +20,7 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/quest.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar 5 <span class="label label-extra">Turnos</span> y un <span class="label label-quest">Mapa</span> para mandar a tus tropas a la batalla en busca de <span class="label label-extra">Oro</span> y <span class="label label-rune">Runas</span>. En algunos casos incluso existe la probabilidad de encontrar un <span class="label label-legendary">Artefacto</span> legendario.</div>
+                            <div class="col-xs-12">Aquí puedes gastar 5 <span class="label label-extra">Turnos</span> y un <span class="label label-quest">Mapa</span> para mandar a tus tropas a la batalla en busca de <span class="label label-extra">Oro</span> y <span class="label label-artifact">Runas</span>. En algunos casos incluso existe la probabilidad de encontrar un <span class="label label-legendary">Artefacto</span> legendario.</div>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
             </div>
         </div>
         {% for quest in player.quests %}
-        <div class="col-xs-12 col-md-6" id="quest-quest">
+        <div class="col-xs-12 col-md-6">
             <div class="panel panel-quest">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-map"></i><a href="{{ path('archmage_game_home_help') }}#aventuras" class="link">{{ quest.name }}</a></div>
                 <div class="panel-body text-responsive">

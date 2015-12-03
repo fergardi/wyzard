@@ -11,7 +11,7 @@
                 {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
         </div>
-        <div class="col-xs-12 col-md-6" id="summary-economy">
+        <div class="col-xs-12 col-md-6" id="tour-economy">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-bank"></i>Economía</div>
                 <div class="panel-body text-responsive">
@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6" id="summary-magic">
+        <div class="col-xs-12 col-md-6" id="tour-magic">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-magic"></i>Magia</div>
                 <div class="panel-body text-responsive">
@@ -47,7 +47,7 @@
                             <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.manaresourceperturn|nf }}-{{ player.manamaintenanceperturn|nf }} = <span class="label label-{% if player.manaresourceperturn - player.manamaintenanceperturn >= 0 %}success{% else %}danger{% endif %}">{{ (player.manaresourceperturn -  player.manamaintenanceperturn)|nf }}</span> <span class="label label-extra">Maná/Turno</span></div>
                             <div class="col-xs-12"><i class="fa fa-fw fa-user-plus"></i>{{ player.summonBonus|nf }}% <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Aumenta la cantidad de tropas invocadas">Bonus de Invocación</span></div>
                             <div class="col-xs-12"><i class="fa fa-fw fa-hourglass-half"></i>{{ player.researchBonus|nf }}% <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Reduce la cantidad de turnos necesarios para investigar">Bonus de Investigación</span></div>
-                            <div class="col-xs-12"><i class="fa fa-fw fa-flask"></i>{{ player.recipes|length|nf }} <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Recetas en tu poder">Recetas de Alquimia</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-flask"></i>{{ player.recipes|length|nf }} <span class="label label-recipe" data-toggle="tooltip" data-placement="top" title="Recetas en tu poder">Recetas de Alquimia</span></div>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6" id="summary-territory">
+        <div class="col-xs-12 col-md-6" id="tour-territory">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-globe"></i>Territorio</div>
                 <div class="panel-body text-responsive">
@@ -80,7 +80,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6" id="summary-temple">
+        <div class="col-xs-12 col-md-6" id="tour-temple">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-balance-scale"></i>Templo</div>
                 <div class="panel-body text-responsive">
@@ -103,7 +103,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6" id="summary-army">
+        <div class="col-xs-12 col-md-6" id="tour-army">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-flag-checkered"></i>Ejército</div>
                 <div class="panel-body text-responsive">
@@ -117,7 +117,7 @@
                             {% else %}
                             <div class="col-xs-12">Ninguna tropa en tu Reino</div>
                             {% endfor %}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-map"></i>{{ player.quests|length|nf }} <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Mapas en tu poder">Mapas de Aventura</span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-map"></i>{{ player.quests|length|nf }} <span class="label label-quest" data-toggle="tooltip" data-placement="top" title="Mapas en tu poder">Mapas de Aventura</span></div>
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6" id="summary-tavern">
+        <div class="col-xs-12 col-md-6" id="tour-tavern">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-beer"></i>Taberna</div>
                 <div class="panel-body text-responsive">
@@ -151,7 +151,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6" id="summary-defense">
+        <div class="col-xs-12 col-md-6" id="tour-defense">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-shield"></i>Defensa</div>
                 <div class="panel-body text-responsive">
@@ -173,7 +173,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6" id="summary-social">
+        <div class="col-xs-12 col-md-6" id="tour-social">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i>Social</div>
                 <div class="panel-body text-responsive">
@@ -194,7 +194,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 hidden-xs hidden-sm" id="summary-balance">
+        <div class="col-xs-12 hidden-xs hidden-sm" id="tour-balance">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-pie-chart"></i>Balance</div>
                 <div class="panel-body">
@@ -273,6 +273,25 @@
                                 <td class="text-right">{{ (player.manaResourcePerTurn * item.artifact.skill.manaBonus / 100)|nf }}</td>
                             </tr>
                             {% endfor %}
+                            {% set power = 0 %}
+                            {% set quantity = 0 %}
+                            {% for item in player.items if not item.artifact.legendary %}
+                                {% set power = power + (item.artifact.power * item.quantity) %}
+                                {% set quantity = quantity + item.quantity %}
+                            {% endfor %}
+                            <tr>
+                                <td class="text-left"><i class="fa fa-fw fa-diamond"></i><span class="label label-artifact"><a href="{{ path('archmage_game_home_help') }}#artefactos" class="link">Artefactos</a></span></td>
+                                <td class="text-right">{{ quantity|nf }}</td>
+                                <td class="text-right">{{ power|nf }}</td>
+                                <td class="text-right">0%</td>
+                                <td class="text-right">0%</td>
+                                <td class="text-right">0%</td>
+                                <td class="text-right">0%</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                            </tr>
                             {% for troop in player.troops %}
                             <tr>
                                 <td class="text-left"><i class="fa fa-fw fa-group"></i><span class="label label-{{ troop.unit.faction.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}" class="link">{{ troop.unit.name }}</a></span></td>

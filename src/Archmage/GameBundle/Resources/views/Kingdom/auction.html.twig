@@ -11,7 +11,7 @@
                 {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
         </div>
-        <div class="col-xs-12 col-md-6 col-md-offset-3" id="kingdom-auction">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Pujar</div>
                 <div class="panel-body text-responsive">
@@ -20,11 +20,11 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar 1 <span class="label label-extra">Turno</span> y <span class="label label-extra">Oro</span> en pujar por <span class="label label-extra">Tropas</span>, <span class="label label-extra">Artefactos</span>, <span class="label label-extra">Héroes</span>, <span class="label label-quest">Mapas</span>, <span class="label label-recipe">Recetas</span> y <span class="label label-extra">Hechizos</span>. Puedes pujar cualquier cantidad, y solo pagarás la puja más alta menos la comisión.</div>
+                            <div class="col-xs-12">Aquí puedes gastar 1 <span class="label label-extra">Turno</span> y <span class="label label-extra">Oro</span> en pujar por <span class="label label-extra">Tropas</span>, <span class="label label-artifact">Artefactos</span>, <span class="label label-extra">Héroes</span>, <span class="label label-quest">Mapas</span>, <span class="label label-recipe">Recetas</span> y <span class="label label-extra">Hechizos</span>. Puedes pujar cualquier cantidad, y solo pagarás la puja más alta menos la comisión.</div>
                         </div>
                     </div>
                 </div>
-                <div class="panel-middle text-center" id="auction-formula">Fórmula</div>
+                <div class="panel-middle text-center">Fórmula</div>
                 <div class="panel-body text-responsive text-only text-center">
                     <p>PUJA<sub>máxima</sub> &ge; PUJA<sub>nueva</sub> &gt; PUJA<sub>actual</sub></p>
                 </div>
@@ -35,7 +35,7 @@
         </div>
         {% for auction in auctions %}
         {% if auction.item is not null %}
-        <div class="col-xs-12 col-md-6" id="auction-item">
+        <div class="col-xs-12 col-md-6" id="tour-auction">
             <div class="panel panel-{{ auction.item.artifact.class }}">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-diamond"></i><a href="{{ path('archmage_game_home_help') }}#{{ auction.item.artifact.name|slug }}" class="link">{{ auction.item.artifact.name }}</a></div>
                 <div class="panel-body text-responsive">
@@ -71,7 +71,7 @@
             </div>
         </div>
         {% elseif auction.recipe is not null %}
-        <div class="col-xs-12 col-md-6" id="auction-recipe">
+        <div class="col-xs-12 col-md-6">
             <div class="panel panel-recipe">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-flask"></i><a href="{{ path('archmage_game_home_help') }}#recetas" class="link">Receta de Alquimia</a></div>
                 <div class="panel-body text-responsive">
@@ -110,7 +110,7 @@
             </div>
         </div>
         {% elseif auction.troop is not null %}
-        <div class="col-xs-12 col-md-6" id="auction-troop">
+        <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ auction.troop.unit.faction.class }}">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-users"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.troop.unit.name|slug }}" class="link">{{ auction.troop.unit.name }}</a> <span data-toggle="tooltip" data-placement="top" title="Cantidad de tropas">[{{ auction.troop.quantity|nf }}]</span></div>
                 <div class="panel-body text-responsive">
@@ -154,7 +154,7 @@
             </div>
         </div>
         {% elseif auction.quest is not null %}
-        <div class="col-xs-12 col-md-6" id="auction-quest">
+        <div class="col-xs-12 col-md-6">
             <div class="panel panel-quest">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-map"></i><a href="{{ path('archmage_game_home_help') }}#aventuras" class="link">{{ auction.quest.name }}</a></div>
                 <div class="panel-body text-responsive">
@@ -192,7 +192,7 @@
             </div>
         </div>
         {% elseif auction.research is not null and not player.hasResearch(auction.research) and auction.research.spell.faction != player.faction %}
-        <div class="col-xs-12 col-md-6" id="auction-research">
+        <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ auction.research.spell.faction.class }}">
                 <div class="panel-heading text-center">{% if auction.research.spell.enchantment %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.research.spell.name|slug }}" class="link">{{ auction.research.spell.name }}</a></div>
                 <div class="panel-body text-responsive">
@@ -236,7 +236,7 @@
             </div>
         </div>
         {% elseif auction.contract is not null and not player.hasContract(auction.contract) %}
-        <div class="col-xs-12 col-md-6" id="auction-contract">
+        <div class="col-xs-12 col-md-6">
             <div class="panel panel-{{ auction.contract.hero.faction.class }}">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i><a href="{{ path( 'archmage_game_home_help' ) }}#{{ auction.contract.hero.name|slug }}" class="link">{{ auction.contract.hero.name }}</a> <span data-toggle="tooltip" data-placement="top" title="Nivel del Héroe"><i class="fa fa-fw fa-star"></i>{{ auction.contract.level|nf }}</span></div>
                 <div class="panel-body text-responsive">

@@ -8,6 +8,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Doctrine\Common\Collections\Criteria;
+
 use Archmage\GameBundle\Entity\Item;
 use Archmage\GameBundle\Entity\Contract;
 use Archmage\GameBundle\Entity\Troop;
@@ -183,6 +184,7 @@ class AuctionCommand extends ContainerAwareCommand
         $auction = new Auction();
         $manager->persist($auction);
         $quest = new Quest();
+        $quest->setGold(rand(1,5000000));
         $manager->persist($quest);
         $quest->setArtifact($artifact);
         $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
@@ -198,8 +200,8 @@ class AuctionCommand extends ContainerAwareCommand
         }
         $auction->setPlayer(null);
         $auction->setQuest($quest);
-        $auction->setBid(2000000 * $level);
-        $auction->setTop(2000000 * $level);
+        $auction->setBid(1000000 * $level);
+        $auction->setTop(1000000 * $level);
 
         //CONTRACT
         $criteria = new Criteria();

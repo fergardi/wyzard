@@ -64,6 +64,13 @@ class Artifact
     private $power = 0;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="cost", type="smallint", nullable=false)
+     */
+    private $cost = 0;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="legendary", type="boolean", nullable=false)
@@ -232,6 +239,29 @@ class Artifact
     public function getPower()
     {
         return $this->power;
+    }
+
+    /**
+     * Set cost
+     *
+     * @param integer $cost
+     * @return Artifact
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
+
+    /**
+     * Get cost
+     *
+     * @return integer
+     */
+    public function getCost()
+    {
+        return $this->cost;
     }
 
     /**

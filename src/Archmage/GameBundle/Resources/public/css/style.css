@@ -100,7 +100,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
 }
 .label {
     font-size: 95%;
-    padding: 0px 5px 0px 5px !important;
+    padding: 0 5px 0 5px !important;
     border: 1px solid black;
 }
 .label-extra {
@@ -278,6 +278,10 @@ body {
 .panel-default > .panel-footer {
     background-color: #3E444C;
 }
+.panel-artifact > .panel-heading, .panel-artifact > .panel-footer, .label-artifact {
+    background-color: #008B8B;
+    border-color: #000;
+}
 .panel-legendary > .panel-heading, .panel-legendary > .panel-footer, .label-legendary {
     background-color: #FF5A00;
     border-color: #000;
@@ -286,13 +290,8 @@ body {
     background-color: #5e230d;
     border-color: #000;
 }
-.panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest, .alert-quest, .panel-quest > .panel-heading > a {
-    background-color: #e6af21;
-    border-color: #000;
-    color: black !important;
-}
-.panel-rune > .panel-heading, .panel-rune > .panel-footer, .label-rune {
-    background-color: #008B8B;
+.panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest, .alert-quest {
+    background-color: #D29905;
     border-color: #000;
 }
 .panel {
@@ -389,7 +388,7 @@ html {-webkit-text-size-adjust: none !important;}
 }
 #top-link-block.affix {
     position: fixed; /* keeps it on the bottom once in view */
-    bottom: 0px;
+    bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
@@ -402,14 +401,18 @@ html {-webkit-text-size-adjust: none !important;}
 }
 .popover-title, .popover-footer {
     background-color: #3E444C;
-    margin: 0px;
+    margin: 0;
     padding: 8px 14px;
 }
 .popover-title {
     border-bottom: 1px solid black;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0 0;
 }
 .popover-footer {
     border-top: 1px solid black;
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 0 0 5px 5px;
 }
+.popover.top > .arrow:after { border-top-color: black; }
+.popover.right > .arrow:after { border-right-color: black; }
+.popover.bottom > .arrow:after { border-bottom-color: black; }
+.popover.left > .arrow:after { border-left-color: black; }

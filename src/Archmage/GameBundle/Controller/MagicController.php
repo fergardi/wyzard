@@ -434,7 +434,7 @@ class MagicController extends Controller
                                 $this->addFlash('danger', 'La <span class="label label-recipe">Receta</span> era demasiado poderosa y se ha quemado.');
                             }
                         } else {
-                            $this->addFlash('danger', 'No tienes los <span class="label label-extra">Artefactos</span> o el <span class="label label-extra">Oro</span> necesario para eso.');
+                            $this->addFlash('danger', 'No tienes los <span class="label label-artifact">Artefactos</span> o el <span class="label label-extra">Oro</span> necesario para eso.');
                         }
                     } else {
                         $this->addFlash('danger', 'No tienes los <span class="label label-extra">Turnos</span> necesarios para eso.');
@@ -787,7 +787,7 @@ class MagicController extends Controller
                 $unit = $units[0];
             }
             $troop = $player->hasUnit($unit);
-            $quantity = ($artifact->getSkill()->getQuantityBonus() * 2) / $unit->getPower();
+            $quantity = rand($artifact->getSkill()->getQuantityBonus() / 2, $artifact->getSkill()->getQuantityBonus() * 2) / $unit->getPower();
             $quantity += round($quantity * $player->getSummonBonus() / (float)100);
             if ($troop) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
@@ -824,7 +824,7 @@ class MagicController extends Controller
             }
         } elseif ($artifact->getSkill()->getGoldBonus() > 0) {
             //GOLD
-            $gold = rand($artifact->getSkill()->getGoldBonus() / 2, $artifact->getSkill()->getGoldBonus());
+            $gold = rand(1, $artifact->getSkill()->getGoldBonus());
             $player->setGold($player->getGold() + $gold);
             $this->addFlash('success', 'Has generado '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span>.');
         } elseif ($artifact->getSkill()->getPeopleBonus() > 0) {
@@ -873,7 +873,7 @@ class MagicController extends Controller
         $player = $this->getUser()->getPlayer();
         //MESSAGE
         $text = array();
-        $text[] = array('default', 12, 0, 'center', 'El mago <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link"><span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span></a> ha activado el Artefacto <span class="label label-'.$artifact->getClass().'">'.$artifact->getName().'</span> sobre tu Reino.');
+        $text[] = array('default', 12, 0, 'center', 'El mago <a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link"><span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span></a> ha activado el Artefacto <span class="label label-'.$artifact->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($artifact->getName()).'" class="link">'.$artifact->getName().'</a></span> sobre tu Reino.');
         if ($artifact->getSkill()->getSpyBonus() > 0) {
             //SPIONAGE
             $this->createEspionage($target);

@@ -238,8 +238,8 @@ class AuctionCommand extends ContainerAwareCommand
         $research->setActive(false);
         $auction->setPlayer(null);
         $auction->setResearch($research);
-        $auction->setBid($spell->getGoldAuction());
-        $auction->setTop($spell->getGoldAuction());
+        $auction->setBid($spell->getGoldAuction() / 2);
+        $auction->setTop($spell->getGoldAuction() / 2);
 
         //FLUSH
         $manager->flush();

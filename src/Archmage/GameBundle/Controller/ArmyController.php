@@ -23,6 +23,7 @@ class ArmyController extends Controller
     const TYPE_BONUS = 20;
     const SPEED_BONUS = 5;
     const HERO_EXPERIENCE = 20;
+    const BONUS_CAP = 0.10;
 
     /**
      * usort sorting function by speed
@@ -266,8 +267,8 @@ class ArmyController extends Controller
             foreach ($player->getContracts() as $contract) {
                 $skill = $contract->getHero()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $contract->getLevel() / 100;
-                    $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel() / 100;
+                    $attackBonus = max(self::BONUS_CAP, $attackBonus + $skill->getAttackBonus() * $contract->getLevel() / 100);
+                    $defenseBonus = max(self::BONUS_CAP, $defenseBonus + $skill->getDefenseBonus() * $contract->getLevel() / 100);
                     $speedBonus += $skill->getSpeedBonus() * $contract->getLevel();
                 }
             }
@@ -526,8 +527,8 @@ class ArmyController extends Controller
             if ($attackerResearch && $attackerResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $attackerResearch->getSpell()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $player->getMagic() / 100;
-                    $defenseBonus += $skill->getDefenseBonus() * $player->getMagic() / 100;
+                    $attackBonus = max(self::BONUS_CAP, $attackBonus + $skill->getAttackBonus() * $player->getMagic() / 100);
+                    $defenseBonus = max(self::BONUS_CAP, $defenseBonus + $skill->getDefenseBonus() * $player->getMagic() / 100);
                     $speedBonus += $skill->getSpeedBonus() * $player->getMagic();
                 }
             }
@@ -535,8 +536,8 @@ class ArmyController extends Controller
             if ($defenderResearch && !$defenderResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $defenderResearch->getSpell()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $target->getMagic() / 100;
-                    $defenseBonus += $skill->getDefenseBonus() * $target->getMagic() / 100;
+                    $attackBonus = max(self::BONUS_CAP, $attackBonus + $skill->getAttackBonus() * $target->getMagic() / 100);
+                    $defenseBonus = max(self::BONUS_CAP, $defenseBonus + $skill->getDefenseBonus() * $target->getMagic() / 100);
                     $speedBonus += $skill->getSpeedBonus() * $target->getMagic();
                 }
             }
@@ -544,8 +545,8 @@ class ArmyController extends Controller
             if ($attackerItem && $attackerItem->getArtifact()->getSkill()->getSelf()) {
                 $skill = $attackerItem->getArtifact()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() / 100;
-                    $defenseBonus += $skill->getDefenseBonus() / 100;
+                    $attackBonus = max(self::BONUS_CAP, $attackBonus + $skill->getAttackBonus() / 100);
+                    $defenseBonus = max(self::BONUS_CAP, $defenseBonus + $skill->getDefenseBonus() / 100);
                     $speedBonus += $skill->getSpeedBonus();
                 }
             }
@@ -553,8 +554,8 @@ class ArmyController extends Controller
             if ($defenderItem && !$defenderItem->getArtifact()->getSkill()->getSelf()) {
                 $skill = $defenderItem->getArtifact()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() / 100;
-                    $defenseBonus += $skill->getDefenseBonus() / 100;
+                    $attackBonus = max(self::BONUS_CAP, $attackBonus + $skill->getAttackBonus() / 100);
+                    $defenseBonus = max(self::BONUS_CAP, $defenseBonus + $skill->getDefenseBonus() / 100);
                     $speedBonus += $skill->getSpeedBonus();
                 }
             }
@@ -562,8 +563,8 @@ class ArmyController extends Controller
             foreach ($player->getContracts() as $contract) {
                 $skill = $contract->getHero()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $contract->getLevel() / 100;
-                    $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel() / 100;
+                    $attackBonus = max(self::BONUS_CAP, $attackBonus + $skill->getAttackBonus() * $contract->getLevel() / 100);
+                    $defenseBonus = max(self::BONUS_CAP, $defenseBonus + $skill->getDefenseBonus() * $contract->getLevel() / 100);
                     $speedBonus += $skill->getSpeedBonus() * $contract->getLevel();
                 }
             }
@@ -587,8 +588,8 @@ class ArmyController extends Controller
             if ($defenderResearch && $defenderResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $defenderResearch->getSpell()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $target->getMagic() / 100;
-                    $defenseBonus += $skill->getDefenseBonus() * $target->getMagic() / 100;
+                    $attackBonus = max(self::BONUS_CAP, $attackBonus + $skill->getAttackBonus() * $target->getMagic() / 100);
+                    $defenseBonus = max(self::BONUS_CAP, $defenseBonus + $skill->getDefenseBonus() * $target->getMagic() / 100);
                     $speedBonus += $skill->getSpeedBonus() * $target->getMagic();
                 }
             }
@@ -596,8 +597,8 @@ class ArmyController extends Controller
             if ($attackerResearch && !$attackerResearch->getSpell()->getSkill()->getSelf()) {
                 $skill = $attackerResearch->getSpell()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $player->getMagic() / 100;
-                    $defenseBonus += $skill->getDefenseBonus() * $player->getMagic() / 100;
+                    $attackBonus = max(self::BONUS_CAP, $attackBonus + $skill->getAttackBonus() * $player->getMagic() / 100);
+                    $defenseBonus = max(self::BONUS_CAP, $defenseBonus + $skill->getDefenseBonus() * $player->getMagic() / 100);
                     $speedBonus += $skill->getSpeedBonus() * $player->getMagic();
                 }
             }
@@ -605,8 +606,8 @@ class ArmyController extends Controller
             if ($defenderItem && $defenderItem->getArtifact()->getSkill()->getSelf()) {
                 $skill = $defenderItem->getArtifact()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() / 100;
-                    $defenseBonus += $skill->getDefenseBonus() / 100;
+                    $attackBonus = max(self::BONUS_CAP, $attackBonus + $skill->getAttackBonus() / 100);
+                    $defenseBonus = max(self::BONUS_CAP, $defenseBonus + $skill->getDefenseBonus() / 100);
                     $speedBonus += $skill->getSpeedBonus();
                 }
             }
@@ -614,8 +615,8 @@ class ArmyController extends Controller
             if ($attackerItem && !$attackerItem->getArtifact()->getSkill()->getSelf()) {
                 $skill = $attackerItem->getArtifact()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() / 100;
-                    $defenseBonus += $skill->getDefenseBonus() / 100;
+                    $attackBonus = max(self::BONUS_CAP, $attackBonus + $skill->getAttackBonus() / 100);
+                    $defenseBonus = max(self::BONUS_CAP, $defenseBonus + $skill->getDefenseBonus() / 100);
                     $speedBonus += $skill->getSpeedBonus();
                 }
             }
@@ -623,8 +624,8 @@ class ArmyController extends Controller
             foreach ($target->getContracts() as $contract) {
                 $skill = $contract->getHero()->getSkill();
                 if ((!$skill->getFamily() && !$skill->getType() && !$skill->getFaction()) || $skill->getFamily() == $troop->getUnit()->getFamily() || $skill->getType() == $troop->getUnit()->getType() || $skill->getFaction() == $troop->getUnit()->getFaction()) {
-                    $attackBonus += $skill->getAttackBonus() * $contract->getLevel() / 100;
-                    $defenseBonus += $skill->getDefenseBonus() * $contract->getLevel() / 100;
+                    $attackBonus = max(self::BONUS_CAP, $attackBonus + $skill->getAttackBonus() * $contract->getLevel() / 100);
+                    $defenseBonus = max(self::BONUS_CAP, $defenseBonus + $skill->getDefenseBonus() * $contract->getLevel() / 100);
                     $speedBonus += $skill->getSpeedBonus() * $contract->getLevel();
                 }
             }
@@ -838,7 +839,11 @@ class ArmyController extends Controller
             $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Los héroes de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ganan '.self::HERO_EXPERIENCE.' experiencia.');
         } else {
             //derrota
-            $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> pierde el ataque por perder más poder que <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+            if ($attackerPowerAfter <= 0) {
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> pierde el ataque por quedarse sin tropas para saquear a <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+            } else {
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> pierde el ataque por perder más poder que <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+            }
         }
         //HEROES DEL ATACANTE, VICTORIA O DERROTA
         foreach ($player->getContracts() as $contract) {

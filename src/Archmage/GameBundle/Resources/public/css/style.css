@@ -34,9 +34,9 @@ img.background {
     padding: 0;
 }
 .panel-body .text-padded {
-    padding-top: 3px;
+    padding-top: 0;
     padding-left: 0;
-    padding-right: 3px;
+    padding-right: 5px;
 }
 .panel-body p {
     padding-top: 8px;

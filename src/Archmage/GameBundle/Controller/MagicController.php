@@ -383,13 +383,12 @@ class MagicController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
-            $turns = 5;
             $recipe = isset($_POST['recipe'])?$_POST['recipe']:null;
             $action = isset($_POST['action'])?$_POST['action']:null;
             $recipe = $manager->getRepository('ArchmageGameBundle:Recipe')->findOneById($recipe);
             if ($recipe && $action) {
                 if ($action == 'craft') {
-                    $turns = 5;
+                    $turns = 2;
                     if ($turns <= $player->getTurns()) {
                         $item1 = $player->hasArtifact($recipe->getFirst());
                         $item2 = $player->hasArtifact($recipe->getSecond());

@@ -206,7 +206,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //CORRUPCION
         $skill = new Skill();
         $skill->setName('Corrupción');
-        $skill->setTerrainBonus(-1);
+        $skill->setTerrainBonus(-2);
         $skill->setManaBonus(-5);
         $skill->setDescription($skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> y '.$skill->getManaBonus().'% <span class="label label-extra">Maná</span> enemigo al <i class="fa fa-fw fa-hourglass-half"></i> por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
@@ -611,9 +611,10 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //CHAMANISMO
         $skill = new Skill();
         $skill->setName('Chamanismo');
+        $skill->setGoldBonus(-2);
         $skill->setPeopleBonus(-2);
-        $skill->setManaBonus(-3);
-        $skill->setDescription($skill->getPeopleBonus().'% <span class="label label-extra">Población</span> y '.$skill->getManaBonus().'% <span class="label label-extra">Maná</span> al Reino enemigo por <i class="fa fa-fw fa-magic"></i>');
+        $skill->setManaBonus(-2);
+        $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span>, <span class="label label-extra">Personas</span> y <span class="label label-extra">Maná</span> producido por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1064,7 +1065,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //VOLCANO
         $skill = new Skill();
         $skill->setName('Volcano');
-        $skill->setTerrainBonus(-1);
+        $skill->setTerrainBonus(-2);
         $skill->setPeopleBonus(-5);
         $skill->setDescription($skill->getTerrainBonus().' <span class="label label-extra">Tierras</span> y '.$skill->getPeopleBonus().'% <span class="label label-extra">Población</span> producida al <i class="fa fa-fw fa-hourglass-half"></i> por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);

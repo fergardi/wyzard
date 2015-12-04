@@ -151,7 +151,7 @@ class KingdomController extends Controller
         $player = $this->getUser()->getPlayer();
         $gods = $manager->getRepository('ArchmageGameBundle:Player')->findByGod(true);
         if ($request->isMethod('POST')) {
-            $turns = 10;
+            $turns = 5;
             if ($turns <= $player->getTurns()) {
                 /*
                  * MANTENIMIENTOS
@@ -277,7 +277,7 @@ class KingdomController extends Controller
                     $item->setPlayer($player);
                     $player->addItem($item);
                 }
-                $this->addFlash('success', 'Has comprado el Artefacto <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
+                $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($artifact->getCost()).' <span class="label label-artifact">Runas</span> comprando el Artefacto <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
                 /*
                  * PERSISTENCIA
                  */

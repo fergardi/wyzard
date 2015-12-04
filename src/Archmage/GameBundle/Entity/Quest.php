@@ -76,8 +76,7 @@ class Quest
         $images = array('tower', 'castle', 'sea', 'desert', 'cemetery');
         $this->image = 'bundles/archmagegame/images/quest/'.$images[array_rand($images)].'.jpg';
         $this->troops = new ArrayCollection();
-        $this->gold = rand(1000000, 10000000);
-        $this->name = 'Mapa de Aventura';
+        $this->gold = rand(1, 10000000);
     }
 
     /**

@@ -60,7 +60,7 @@ class GodCommand extends ContainerAwareCommand
                 $winner->setWinner(true);
                 $receivers = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
                 $text = array();
-                $text[] = array('default', 12, 0, 'center', 'Alguien ha ganado el juego!');
+                $text[] = array('default', 12, 0, 'center', 'Alguien ha ganado el juego siendo elegido por la <span class="label label-extra">Ira de los Dioses</span>!');
                 foreach ($receivers as $receiver) {
                     $this->getContainer()->get('service.controller')->sendMessage($winner, $receiver, 'Fin del Juego', $text, 'apocalypse');
                 }

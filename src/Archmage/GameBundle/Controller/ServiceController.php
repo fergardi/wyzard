@@ -326,6 +326,11 @@ class ServiceController extends Controller
                     $player->removeEnchantmentsVictim($enchantment);
                     $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
                     if ($enchantment->getSpell()->getSkill()->getWin()) {
+                        $wrath = $manager->getRepository('ArchmageGameBundle:Wrath')->findAll();
+                        if ($wrath) {
+                            $wrath = $wrath[0];
+                            $manager->remove($wrath);
+                        }
                         $legend = new Legend();
                         $legend->setNick('<span class="label label-'.$player->getFaction()->getClass().'">'.$player->getNick().'</span>');
                         $legend->setLands($player->getLands());
@@ -334,7 +339,7 @@ class ServiceController extends Controller
                         $player->setWinner(true);
                         $receivers = $manager->getRepository('ArchmageGameBundle:Player')->findAll();
                         $text = array();
-                        $text[] = array('default', 12, 0, 'center', 'Alguien ha ganado el juego!');
+                        $text[] = array('default', 12, 0, 'center', 'Alguien ha ganado el juego invocando completamente el <span class="label label-extra">Apocalipsis</span>!');
                         foreach ($receivers as $receiver) {
                             $this->sendMessage($player, $receiver, 'Fin del Juego', $text, 'apocalypse');
                         }

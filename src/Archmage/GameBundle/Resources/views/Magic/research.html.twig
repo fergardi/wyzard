@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        {% for research in player.researchs if not research.active and research.spell.magic <= player.magic %}
+        {% for research in player.researchs if not research.active %}
         <div class="col-xs-12 col-md-6" {% if loop.first %}id="tour-research"{% endif %}>
             <div class="panel panel-{{ research.spell.faction.class }}">
                 <div class="panel-heading text-center">{% if research.spell.enchantment %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
@@ -67,7 +67,7 @@
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-hourglass-half"></i>Investigar</button>
                                 </div>
-                                <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ player.researchRatio(research.spell.turnsResearch) }}" value="" placeholder="0" required/>
+                                <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ min(player.researchRatio(research.spell.turnsResearch), player.turns) }}" value="" placeholder="0" required/>
                                 <input type="hidden" id="research" name="research" value="{{ research.id }}" required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>
@@ -111,7 +111,7 @@
                                 <div class="input-group-btn">
                                     <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-hourglass-half"></i>Investigar</button>
                                 </div>
-                                <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ player.researchRatio(spell.turnsResearch) }}" value="" placeholder="0" required/>
+                                <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ min(player.researchRatio(spell.turnsResearch), player.turns) }}" value="" placeholder="0" required/>
                                 <input type="hidden" id="spell" name="spell" value="{{ spell.id }}" required />
                                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                             </div>

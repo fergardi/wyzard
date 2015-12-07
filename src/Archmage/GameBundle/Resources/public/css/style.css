@@ -344,7 +344,7 @@ html {-webkit-text-size-adjust: none !important;}
 .bootstrap-select.form-control {
     width: 60%;
 }
-.form-signin .bootstrap-select.form-control {
+.form-signin .bootstrap-select {
     width: 100% !important;
 }
 /* ARREGLAR BORDES BLANCOS EN BOOTSRAP SELECT */

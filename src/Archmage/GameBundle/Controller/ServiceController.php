@@ -121,6 +121,7 @@ class ServiceController extends Controller
         $manager->persist($message);
         $receiver->addMessage($message);
         //TELEGRAM BOT https://core.telegram.org/bots & https://unnikked.ga/getting-started-with-telegram-bots/
+        /*
         if ($receiver->getChat()) {
             $telegram = $subject.":\n".$this->generateUrl('archmage_game_account_message', array('hash' => $message->getHash()), true);
             $auction = "BQADBAADPAADyIsGAAHHj-tPF_0RGAI";
@@ -133,6 +134,7 @@ class ServiceController extends Controller
             $api->sendSticker($receiver->getChat(), $stickers[$type]);
             $api->sendMessage($receiver->getChat(), $telegram);
         }
+        */
         return $message;
     }
 

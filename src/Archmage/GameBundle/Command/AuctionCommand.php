@@ -40,10 +40,10 @@ class AuctionCommand extends ContainerAwareCommand
         //CONTEXT OVERRIDE FOR GENERATEURL IN COMMANDS BUG
         //see http://symfony.com/doc/current/cookbook/console/sending_emails.html#configuring-the-request-context-per-command
         //https://github.com/symfony/symfony-docs/issues/1112#issuecomment-4240333
-        $context = $this->getContainer()->get('router')->getContext();
-        $context->setHost('archmage.servegame.com');
-        $context->setScheme('http');
-        $this->getContainer()->get('router')->setContext($context);
+        //$context = $this->getContainer()->get('router')->getContext();
+        //$context->setHost('archmage.servegame.com');
+        //$context->setScheme('http');
+        //$this->getContainer()->get('router')->setContext($context);
         //OLD AUCTIONS
         $auctions = $manager->getRepository('ArchmageGameBundle:Auction')->findAll();
         foreach ($auctions as $auction) {

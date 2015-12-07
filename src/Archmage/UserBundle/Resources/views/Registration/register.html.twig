@@ -7,15 +7,27 @@
     <div class="jumbotron text-center">
         {% include "ArchmageUserBundle::logo.html.twig" %}
         <form id="register" name="register" class="form-signin" data-toggle="validator" action="{{ path("fos_user_registration_register") }}" {{ form_enctype(form) }} method="post">
-            <select class="form-control selectpicker show-tick" id="faction" name="faction" data-live-search="false" data-style="btn-default btn-lg">
-                {% for faction in factions if faction.name != 'Neutral' %}
+            <select class="selectpicker" id="faction" name="faction" data-live-search="false" data-style="btn-default btn-lg">
+            {% for faction in factions if faction.name != 'Neutral' %}
                 <option value="{{ faction.id }}" data-content="<span class='label label-{{ faction.class }}'>{{ faction.name }}</span>">{{ faction.name }}</option>
-                {% endfor %}
+            {% endfor %}
             </select>
-            {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Usuario (6-20)', 'data-minlength': '6', 'maxlength': '20', 'pattern': '^[a-zA-Z0-9]+$' } }) }}
-            {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'Contraseña (6-20)', 'data-minlength': '6', 'maxlength': '20' } }) }}
-            {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Repetir contraseña (6-20)', 'data-minlength': '6', 'maxlength': '20', 'data-match': '#fos_user_registration_form_plainPassword_first' } }) }}
-            {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'correo@gmail.com (6-30)', 'data-minlength': '6', 'maxlength': '30', 'pattern': '^[a-z0-9._\-]+\@gmail\.com$' } }) }}
+            <div class="form-group has-feedback">
+                {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Usuario (6-20)', 'data-minlength': '6', 'maxlength': '20', 'pattern': '^[a-zA-Z0-9]+$' } }) }}
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group has-feedback">
+                {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'Contraseña (6-20)', 'data-minlength': '6', 'maxlength': '20' } }) }}
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group has-feedback">
+                {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Repetir contraseña (6-20)', 'data-minlength': '6', 'maxlength': '20', 'data-match': '#fos_user_registration_form_plainPassword_first' } }) }}
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
+            <div class="form-group has-feedback">
+                {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'correo@gmail.com (6-30)', 'data-minlength': '6', 'maxlength': '30', 'pattern': '^[a-z0-9._\-]+\@gmail\.com$' } }) }}
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+            </div>
             {{ form_rest(form) }}
             <button type="submit" id="submit" name="_submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-sign-in"></i>Registrarse</button>
         </form>

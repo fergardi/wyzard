@@ -1551,7 +1551,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //NIGROMANTE
         $skill = new Skill();
         $skill->setName('Nigromante');
-        $skill->setResurrectionBonus(2);
+        $skill->setResurrectionBonus(1);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setUnit($this->getReference('Esqueletos'));

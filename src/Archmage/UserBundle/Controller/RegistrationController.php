@@ -71,7 +71,7 @@ class RegistrationController extends BaseController
                 //messages
                 $text = array();
                 $text[] = array('default', 12, 0, 'center', 'Te damos la bienvenida, Novici@! El Concilio recomienda que leas la <i class="fa fa-fw fa-book"></i><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'" class="link">Ayuda del Juego</a> o que actives el Tutorial.');
-                $subject = 'Bienvenido a Archmage';
+                $subject = 'Bienvenido a Wyzard';
                 $this->get('service.controller')->sendMessage($player, $player, $subject, $text);
                 //persist && flush
                 $manager->persist($player);

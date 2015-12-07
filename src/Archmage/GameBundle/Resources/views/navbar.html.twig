@@ -56,7 +56,7 @@
                         <li><a href="{{ path('archmage_game_account_legend') }}"><i class="fa fa-fw fa-lg fa-star"></i>Leyendas</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ path('archmage_game_home_help') }}"><i class="fa fa-fw fa-lg fa-book"></i>Ayuda</a></li>
-                        <li><a href="#" data-toggle="collapse" data-target="#navbar-collapsable" id="tour-start"><i class="fa fa-fw fa-lg fa-question-circle"></i>Tutorial</a></li>
+                        {% if app.user %}<li><a href="#" data-toggle="collapse" data-target="#navbar-collapsable" id="tour-start"><i class="fa fa-fw fa-lg fa-question-circle"></i>Tutorial</a></li>{% endif %}
                         <li><a href="{{ path('archmage_game_home_patch') }}"><i class="fa fa-fw fa-lg fa-medkit"></i>Parches</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ path('archmage_game_home_about') }}"><i class="fa fa-fw fa-lg fa-question-circle"></i>Acerca</a></li>

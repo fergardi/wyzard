@@ -291,7 +291,7 @@ body {
     border-color: #000;
 }
 .panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest, .alert-quest {
-    background-color: #D29905;
+    background-color: #f3b005;
     border-color: #000;
 }
 .panel {
@@ -344,7 +344,7 @@ html {-webkit-text-size-adjust: none !important;}
 .bootstrap-select.form-control {
     width: 60%;
 }
-.form-signin .bootstrap-select {
+.form-signin .bootstrap-select.form-control {
     width: 100% !important;
 }
 /* ARREGLAR BORDES BLANCOS EN BOOTSRAP SELECT */

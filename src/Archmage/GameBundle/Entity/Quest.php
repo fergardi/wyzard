@@ -37,6 +37,13 @@ class Quest
     private $gold = 0;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="runes", type="smallint", nullable=false)
+     */
+    private $runes = 0;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="class", type="string", nullable=false)
@@ -133,6 +140,29 @@ class Quest
     public function getGold()
     {
         return $this->gold;
+    }
+
+    /**
+     * Set runes
+     *
+     * @param integer $runes
+     * @return Quest
+     */
+    public function setRunes($runes)
+    {
+        $this->runes = $runes;
+
+        return $this;
+    }
+
+    /**
+     * Get runes
+     *
+     * @return integer
+     */
+    public function getRunes()
+    {
+        return $this->runes;
     }
 
     /**

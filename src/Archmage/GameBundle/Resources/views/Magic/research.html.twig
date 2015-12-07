@@ -69,7 +69,7 @@
                                 </div>
                                 <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ min(player.researchRatio(research.spell.turnsResearch), player.turns) }}" value="" placeholder="0" required/>
                                 <input type="hidden" id="research" name="research" value="{{ research.id }}" required />
-                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
                             </div>
                         </div>
                     </form>
@@ -113,7 +113,7 @@
                                 </div>
                                 <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ min(player.researchRatio(spell.turnsResearch), player.turns) }}" value="" placeholder="0" required/>
                                 <input type="hidden" id="spell" name="spell" value="{{ spell.id }}" required />
-                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
                             </div>
                         </div>
                     </form>

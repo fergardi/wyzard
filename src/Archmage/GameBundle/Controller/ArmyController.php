@@ -420,7 +420,7 @@ class ArmyController extends Controller
         if (!$wipe) {
             $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has vencido al ejército enemigo y has obtenido la recompensa!');
             $player->setGold($player->getGold() + $quest->getGold());
-            $player->setRunes($player->getRunes() + 1);
+            $player->setRunes($player->getRunes() + $quest->getRunes());
             $item = $player->hasArtifact($quest->getArtifact());
             if ($item) {
                 $item->setQuantity($item->getQuantity() + 1);
@@ -871,12 +871,12 @@ class ArmyController extends Controller
             $target->setConstruction('Tierras', $target->getFree() + 150);
             $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
             shuffle($units);
-            for ($i = 0; $i < rand(2, 4); $i++) {
+            for ($i = 0; $i < 3; $i++) {
                 $unit = $units[$i];
                 $troop = new Troop();
                 $manager->persist($troop);
                 $troop->setUnit($unit);
-                $troop->setQuantity(500000 / $unit->getPower());
+                $troop->setQuantity(750000 / $unit->getPower());
                 $troop->setPlayer($target);
                 $target->addTroop($troop);
             }

@@ -58,7 +58,7 @@
                                 </div>
                                 <input type="number" class="form-control" id="lands" name="lands" min="1" max="{{ construction.quantity }}" value="" placeholder="0" {% if construction.quantity <= 0 %}disabled{% endif %} required />
                                 <input type="hidden" id="construction" name="construction" value="{{ construction.id }}" {% if construction.quantity <= 0 %}disabled{% endif %} required />
-                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
                             </div>
                         </div>
                     </form>

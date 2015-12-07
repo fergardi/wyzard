@@ -41,8 +41,8 @@ class AuctionCommand extends ContainerAwareCommand
         //see http://symfony.com/doc/current/cookbook/console/sending_emails.html#configuring-the-request-context-per-command
         //https://github.com/symfony/symfony-docs/issues/1112#issuecomment-4240333
         //$context = $this->getContainer()->get('router')->getContext();
-        //$context->setHost('archmage.servegame.com');
-        //$context->setScheme('http');
+        //$context->setHost('www.wyzard.es');
+        //$context->setScheme('https');
         //$this->getContainer()->get('router')->setContext($context);
         //OLD AUCTIONS
         $auctions = $manager->getRepository('ArchmageGameBundle:Auction')->findAll();
@@ -184,17 +184,18 @@ class AuctionCommand extends ContainerAwareCommand
         $auction = new Auction();
         $manager->persist($auction);
         $quest = new Quest();
-        $quest->setGold(rand(1,5000000));
+        $quest->setGold(rand(1, 2000000 * $level));
+        $quest->setRunes($level);
         $manager->persist($quest);
         $quest->setArtifact($artifact);
         $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
         shuffle($units);
-        for ($i = 0; $i < $level + 2; $i++) {
+        for ($i = 0; $i < $level; $i++) {
             $unit = $units[$i];
             $troop = new Troop();
             $manager->persist($troop);
             $troop->setUnit($unit);
-            $troop->setQuantity(500000 / $unit->getPower());
+            $troop->setQuantity(750000 / $unit->getPower());
             $troop->setQuest($quest);
             $quest->addTroop($troop);
         }

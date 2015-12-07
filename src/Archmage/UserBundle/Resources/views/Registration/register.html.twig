@@ -14,19 +14,19 @@
             </select>
             <div class="form-group has-feedback">
                 {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Usuario (6-20)', 'data-minlength': '6', 'maxlength': '20', 'pattern': '^[a-zA-Z0-9]+$' } }) }}
-                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
             </div>
             <div class="form-group has-feedback">
                 {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'Contraseña (6-20)', 'data-minlength': '6', 'maxlength': '20' } }) }}
-                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
             </div>
             <div class="form-group has-feedback">
                 {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Repetir contraseña (6-20)', 'data-minlength': '6', 'maxlength': '20', 'data-match': '#fos_user_registration_form_plainPassword_first' } }) }}
-                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
             </div>
             <div class="form-group has-feedback">
                 {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'correo@gmail.com (6-30)', 'data-minlength': '6', 'maxlength': '30', 'pattern': '^[a-z0-9._\-]+\@gmail\.com$' } }) }}
-                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
             </div>
             {{ form_rest(form) }}
             <button type="submit" id="submit" name="_submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-sign-in"></i>Registrarse</button>

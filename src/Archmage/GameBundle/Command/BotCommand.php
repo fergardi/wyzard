@@ -32,9 +32,9 @@ class BotCommand extends ContainerAwareCommand
      */
     private function randonickze()
     {
-        $prefix = array('Ad','Th','Se','Du','Fer','Mi','Ja','Su','As','Te','Ral','Ber','Cinn','Gum','Lau','Nes','Wyzz','Xyom','Ygg','Zzol');
-        $mix = array('ara','ten','vez','ilo','unu','anne','oxi','ojjo','uxa','ekk','oma','tta','iwi','oppa','ezi','ihe','axxe','ukka','iffu','obba');
-        $suffix = array('lerr','iss','er','as','om','ssu','gar','he','av','zu','sum','on','ul','in','ey','val','ehm','lima','lol','xass');
+        $prefix = array('Ca','Ke','Se','Mi','Ea','Tho','Zia','No','Wu','Xy');
+        $mix = array('ba','la','ra','gas','ni','be','din','vy','to','fu');
+        $suffix = array('ne','des','oss','wyzz','xol','uff','on','iin','rekk','uxx');
         return $prefix[array_rand($prefix)].$mix[array_rand($mix)].$suffix[array_rand($suffix)];
     }
 
@@ -63,40 +63,41 @@ class BotCommand extends ContainerAwareCommand
         $bot->setBot(true);
         $bot->setNick($this->randonickze());
         $bot->setFaction($factions[rand(0, count($factions)-1)]);
+        $level = rand(1,3);
         //constructions
         foreach ($buildings as $building) {
             $construction = new Construction();
             $manager->persist($construction);
             $construction->setBuilding($building);
-            $construction->setQuantity(rand(1,750));
+            $construction->setQuantity(rand(50, 300 * $level));
             $construction->setPlayer($bot);
             $bot->addConstruction($construction);
         }
         //troops
         shuffle($units);
-        for ($i = 0; $i < rand(2,4); $i++) {
+        for ($i = 0; $i < $level; $i++) {
             $troop = new Troop();
             $unit = $units[$i];
             $manager->persist($troop);
             $troop->setUnit($unit);
-            $troop->setQuantity(500000 / $unit->getPower());
+            $troop->setQuantity(750000 / $unit->getPower());
             $troop->setPlayer($bot);
             $bot->addTroop($troop);
         }
         //items
         shuffle($artifacts);
-        for ($i = 0; $i < rand(2,10); $i++) {
+        for ($i = 0; $i < rand(2,5); $i++) {
             $item = new Item();
             $artifact = $artifacts[$i];
             $manager->persist($item);
             $item->setArtifact($artifact);
-            $item->setQuantity(rand(2,10));
+            $item->setQuantity(rand(2,5));
             $item->setPlayer($bot);
             $bot->addItem($item);
         }
         //contracts
         shuffle($heroes);
-        for ($i = 0; $i < rand(2,4); $i++) {
+        for ($i = 0; $i < $level + 1; $i++) {
             $contract = new Contract();
             $hero = $heroes[$i];
             $manager->persist($contract);

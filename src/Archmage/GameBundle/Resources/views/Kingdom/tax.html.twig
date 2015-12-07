@@ -36,7 +36,7 @@
                                     <button type="submit" class="btn btn-default"><i class="fa fa-fw fa-hourglass-half"></i>Recaudar</button>
                                 </div>
                                 <input type="number" class="form-control" id="turns" name="turns" min="1" max="{{ player.turns }}" value="" placeholder="0" required/>
-                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
                             </div>
                         </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('tax') }}">

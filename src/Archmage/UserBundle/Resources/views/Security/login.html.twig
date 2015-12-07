@@ -9,11 +9,11 @@
         <form id="login" name="login" class="form-signin" data-toggle="validator" action="{{ path("fos_user_security_check") }}" method="post">
             <div class="form-group has-feedback">
                 <input type="text" id="username" name="_username" class="form-control" placeholder="Usuario (6-20)" value="{{ last_username }}" data-minlength="6" maxlength="20" required />
-                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
             </div>
             <div class="form-group has-feedback">
                 <input type="password" id="password" name="_password" class="form-control" placeholder="Contraseña (6-20)" data-minlength="6" maxlength="20" required />
-                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
             </div>
             <button type="submit" id="submit" name="_submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-sign-in"></i>Entrar</button>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />

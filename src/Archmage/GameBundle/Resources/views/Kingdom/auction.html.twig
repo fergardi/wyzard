@@ -59,7 +59,7 @@
                                     </div>
                                     <input type="number" class="form-control" id="bid" name="bid" min="{{ auction.bid + 1 }}" max="{{ player.gold }}" value="{{ auction.bid + 1 }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                     <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
@@ -98,7 +98,7 @@
                                     </div>
                                     <input type="number" class="form-control" id="bid" name="bid" min="{{ auction.bid + 1 }}" max="{{ player.gold }}" value="{{ auction.bid + 1 }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                     <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
@@ -142,7 +142,7 @@
                                     </div>
                                     <input type="number" class="form-control" id="bid" name="bid" min="{{ auction.bid + 1 }}" max="{{ player.gold }}" value="{{ auction.bid + 1 }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                     <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
@@ -180,7 +180,7 @@
                                     </div>
                                     <input type="number" class="form-control" id="bid" name="bid" min="{{ auction.bid + 1 }}" max="{{ player.gold }}" value="{{ auction.bid + 1 }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                     <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
@@ -224,7 +224,7 @@
                                     </div>
                                     <input type="number" class="form-control" id="bid" name="bid" min="{{ auction.bid + 1 }}" max="{{ player.gold }}" value="{{ auction.bid + 1 }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                     <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
-                                    <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">
@@ -263,7 +263,7 @@
                                 </div>
                                 <input type="number" class="form-control" id="bid" name="bid" min="{{ auction.bid + 1 }}" max="{{ player.gold }}" value="{{ auction.bid + 1 }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
                                 <input type="hidden" id="auction" name="auction" value="{{ auction.id }}" {% if auction.player is defined and auction.bid > player.gold %}disabled{% endif %} required />
-                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
                             </div>
                         </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('auction' ~ auction.id) }}">

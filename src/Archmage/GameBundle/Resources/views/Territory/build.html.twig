@@ -58,7 +58,7 @@
                                 </div>
                                 <input type="number" class="form-control" id="lands" name="lands" min="1" max="{{ min(player.construction('Tierras').quantity, player.gold / max(construction.building.goldCost, 1), player.people / max(construction.building.peopleCost, 1), player.mana / max(construction.building.manaCost, 1)) }}" value="" placeholder="0" {% if player.construction('Tierras').quantity <= 0 %}disabled{% endif %} required />
                                 <input type="hidden" id="construction" name="construction" value="{{ construction.id }}" {% if player.construction('Tierras').quantity <= 0 %}disabled{% endif %} required />
-                                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
                             </div>
                         </div>
                     </form>

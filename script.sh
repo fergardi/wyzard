@@ -1,7 +1,7 @@
 #!/bin/bash
 #by @fergardi
 
-while getopts "ubdisfcthrlp" opt; do
+while getopts "ubdisfcthrlpe" opt; do
     case $opt in
         u)
             echo "Composer install/selfupdate..."
@@ -55,6 +55,11 @@ while getopts "ubdisfcthrlp" opt; do
             phpunit -c app
             echo "OK"
             ;;
+        e)
+            echo "LetsEncrypt certificate generation/renewal..."
+            echo "./letsencrypt-auto --agree-dev-preview --server https://acme-v01.api.letsencrypt.org/directory certonly -d wyzard.es -d www.wyzard.es -v"
+            echo "OK"
+            ;;
         p)
             echo "Fixing permissions and ownerwhip of current directory recursively..."
             chmod -R g+w $(pwd)
@@ -64,7 +69,7 @@ while getopts "ubdisfcthrlp" opt; do
             echo "OK"
             ;;
         h)
-            echo "Usage: ./script [-u][-b][-d][-i][-s][-f][-c][-t][-h][-r][-p]"
+            echo "Usage: ./script [-u][-b][-d][-i][-s][-f][-c][-t][-h][-r][-p][-e]"
             echo "Additional options:"
             echo -e "\t [-u] => composer install/self[u]pdate"
             echo -e "\t [-b] => [b]ower install & update"
@@ -75,6 +80,7 @@ while getopts "ubdisfcthrlp" opt; do
             echo -e "\t [-c] => cache:[c]lear"
             echo -e "\t [-t] => phpunit [t]ests"
             echo -e "\t [-l] => [p]ermissions fix"
+            echo -e "\t [-e] => lets[e]ncrypt pem and crt certificates"
             echo -e "\t [-h] => [h]elp"
             ;;
         *)

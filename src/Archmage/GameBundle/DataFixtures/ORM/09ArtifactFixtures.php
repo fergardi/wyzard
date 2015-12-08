@@ -113,7 +113,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setCost(0);
+        $artifact->setCost(5);
         $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);

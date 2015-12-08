@@ -80,8 +80,7 @@ class Quest
      */
     public function __construct()
     {
-        $images = array('tower', 'castle', 'sea', 'desert', 'cemetery');
-        $this->image = 'bundles/archmagegame/images/quest/'.$images[array_rand($images)].'.jpg';
+        $this->image = 'bundles/archmagegame/images/kingdom/quest.png';
         $this->troops = new ArrayCollection();
         $this->gold = rand(1, 10000000);
     }

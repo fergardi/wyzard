@@ -70,19 +70,6 @@ img.custom-thumbnail {
     max-width: 100%;
     border-right: 1px solid rgba(0, 0, 0, 0.6);
 }
-img.custom-thumbnail-left {
-    max-width: 100%;
-    border-right: 1px solid rgba(0, 0, 0, 0.6);
-}
-img.custom-thumbnail-mid {
-    max-width: 100.5%;
-    border-right: 1px solid rgba(0, 0, 0, 0.6);
-    border-left: 1px solid rgba(0, 0, 0, 0.6);
-}
-img.custom-thumbnail-right {
-    max-width: 100%;
-    border-left: 1px solid rgba(0, 0, 0, 0.6);
-}
 img.custom-rspls {
     max-width: 75%;
     border-radius: 50%;

@@ -25,7 +25,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(7);
         $unit->setDefense(3);
         $unit->setSpeed(1);
-        $unit->setImage('bundles/archmagegame/images/unit/darkness/skeleton.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/darkness/skeleton.png');
         $unit->setFaction($this->getReference('Oscuridad'));
         $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Melee'));
@@ -47,7 +47,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(8);
         $unit->setDefense(5);
         $unit->setSpeed(2);
-        $unit->setImage('bundles/archmagegame/images/unit/darkness/zombie.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/darkness/zombie.png');
         $unit->setFaction($this->getReference('Oscuridad'));
         $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Melee'));
@@ -69,7 +69,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(50);
         $unit->setDefense(30);
         $unit->setSpeed(3);
-        $unit->setImage('bundles/archmagegame/images/unit/darkness/spectre.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/darkness/spectre.png');
         $unit->setFaction($this->getReference('Oscuridad'));
         $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Magia'));
@@ -91,7 +91,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(75);
         $unit->setDefense(15);
         $unit->setSpeed(5);
-        $unit->setImage('bundles/archmagegame/images/unit/darkness/werewolf.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/darkness/werewolf.png');
         $unit->setFaction($this->getReference('Oscuridad'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Magia'));
@@ -113,7 +113,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(300);
         $unit->setDefense(700);
         $unit->setSpeed(4);
-        $unit->setImage('bundles/archmagegame/images/unit/darkness/lich.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/darkness/lich.png');
         $unit->setFaction($this->getReference('Oscuridad'));
         $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Distancia'));
@@ -135,7 +135,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(500);
         $unit->setDefense(900);
         $unit->setSpeed(2);
-        $unit->setImage('bundles/archmagegame/images/unit/darkness/vampire.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/darkness/vampire.png');
         $unit->setFaction($this->getReference('Oscuridad'));
         $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Volador'));
@@ -157,7 +157,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(5500);
         $unit->setDefense(4500);
         $unit->setSpeed(5);
-        $unit->setImage('bundles/archmagegame/images/unit/darkness/darkknight.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/darkness/darkknight.png');
         $unit->setFaction($this->getReference('Oscuridad'));
         $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Melee'));
@@ -179,7 +179,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(6000);
         $unit->setDefense(2500);
         $unit->setSpeed(4);
-        $unit->setImage('bundles/archmagegame/images/unit/darkness/shadowelemental.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/darkness/shadowelemental.png');
         $unit->setFaction($this->getReference('Oscuridad'));
         $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Volador'));
@@ -201,7 +201,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(21000);
         $unit->setDefense(62500);
         $unit->setSpeed(3);
-        $unit->setImage('bundles/archmagegame/images/unit/darkness/gargoile.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/darkness/gargoyle.png');
         $unit->setFaction($this->getReference('Oscuridad'));
         $unit->setFamily($this->getReference('NoMuertos'));
         $unit->setType($this->getReference('Asedio'));
@@ -223,7 +223,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(75000);
         $unit->setDefense(25000);
         $unit->setSpeed(1);
-        $unit->setImage('bundles/archmagegame/images/unit/darkness/blackdragon.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/darkness/blackdragon.png');
         $unit->setFaction($this->getReference('Oscuridad'));
         $unit->setFamily($this->getReference('Dragones'));
         $unit->setType($this->getReference('Volador'));
@@ -249,7 +249,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(5);
         $unit->setDefense(5);
         $unit->setSpeed(5);
-        $unit->setImage('bundles/archmagegame/images/unit/nature/gorilla.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/nature/gorilla.png');
         $unit->setFaction($this->getReference('Naturaleza'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Melee'));
@@ -271,7 +271,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(4);
         $unit->setDefense(7);
         $unit->setSpeed(5);
-        $unit->setImage('bundles/archmagegame/images/unit/nature/elf.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/nature/elf.png');
         $unit->setFaction($this->getReference('Naturaleza'));
         $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Distancia'));
@@ -293,7 +293,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(60);
         $unit->setDefense(55);
         $unit->setSpeed(4);
-        $unit->setImage('bundles/archmagegame/images/unit/nature/druid.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/nature/druid.png');
         $unit->setFaction($this->getReference('Naturaleza'));
         $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Magia'));
@@ -315,7 +315,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(85);
         $unit->setDefense(35);
         $unit->setSpeed(1);
-        $unit->setImage('bundles/archmagegame/images/unit/nature/treant.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/nature/treant.png');
         $unit->setFaction($this->getReference('Naturaleza'));
         $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Asedio'));
@@ -337,7 +337,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(700);
         $unit->setDefense(600);
         $unit->setSpeed(3);
-        $unit->setImage('bundles/archmagegame/images/unit/nature/troll.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/nature/troll.png');
         $unit->setFaction($this->getReference('Naturaleza'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Melee'));
@@ -359,7 +359,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(900);
         $unit->setDefense(400);
         $unit->setSpeed(4);
-        $unit->setImage('bundles/archmagegame/images/unit/nature/behemot.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/nature/behemoth.png');
         $unit->setFaction($this->getReference('Naturaleza'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Magia'));
@@ -381,7 +381,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(9500);
         $unit->setDefense(1500);
         $unit->setSpeed(3);
-        $unit->setImage('bundles/archmagegame/images/unit/nature/wurm.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/nature/wurm.png');
         $unit->setFaction($this->getReference('Naturaleza'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Asedio'));
@@ -403,7 +403,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(2000);
         $unit->setDefense(8000);
         $unit->setSpeed(2);
-        $unit->setImage('bundles/archmagegame/images/unit/nature/earthelemental.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/nature/earthelemental.png');
         $unit->setFaction($this->getReference('Naturaleza'));
         $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Magia'));
@@ -425,7 +425,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(53000);
         $unit->setDefense(72000);
         $unit->setSpeed(2);
-        $unit->setImage('bundles/archmagegame/images/unit/nature/hydra.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/nature/hydra.png');
         $unit->setFaction($this->getReference('Naturaleza'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Asedio'));
@@ -447,7 +447,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(59000);
         $unit->setDefense(41000);
         $unit->setSpeed(1);
-        $unit->setImage('bundles/archmagegame/images/unit/nature/greendragon.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/nature/greendragon.png');
         $unit->setFaction($this->getReference('Naturaleza'));
         $unit->setFamily($this->getReference('Dragones'));
         $unit->setType($this->getReference('Volador'));
@@ -473,7 +473,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(4);
         $unit->setDefense(5);
         $unit->setSpeed(3);
-        $unit->setImage('bundles/archmagegame/images/unit/ghost/triton.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/ghost/triton.png');
         $unit->setFaction($this->getReference('Fantasmal'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Melee'));
@@ -495,7 +495,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(4);
         $unit->setDefense(2);
         $unit->setSpeed(5);
-        $unit->setImage('bundles/archmagegame/images/unit/ghost/mermaid.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/ghost/mermaid.png');
         $unit->setFaction($this->getReference('Fantasmal'));
         $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Magia'));
@@ -517,7 +517,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(30);
         $unit->setDefense(20);
         $unit->setSpeed(2);
-        $unit->setImage('bundles/archmagegame/images/unit/ghost/naga.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/ghost/naga.png');
         $unit->setFaction($this->getReference('Fantasmal'));
         $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Magia'));
@@ -535,11 +535,11 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //MAGOS
         $unit = new Unit();
         $unit->setName('Magos');
-        $unit->setLore('Sedientos de reconocimiento y admiración, su ego no tiene fronteras.');
+        $unit->setLore('Sedientos de reconocimiento y admiración, su ego no conoce límites.');
         $unit->setAttack(45);
         $unit->setDefense(40);
         $unit->setSpeed(3);
-        $unit->setImage('bundles/archmagegame/images/unit/ghost/magician.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/ghost/magician.png');
         $unit->setFaction($this->getReference('Fantasmal'));
         $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Magia'));
@@ -561,7 +561,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(550);
         $unit->setDefense(450);
         $unit->setSpeed(4);
-        $unit->setImage('bundles/archmagegame/images/unit/ghost/fairy.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/ghost/fairy.png');
         $unit->setFaction($this->getReference('Fantasmal'));
         $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Volador'));
@@ -583,7 +583,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(300);
         $unit->setDefense(700);
         $unit->setSpeed(4);
-        $unit->setImage('bundles/archmagegame/images/unit/ghost/djinn.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/ghost/djinni.png');
         $unit->setFaction($this->getReference('Fantasmal'));
         $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Distancia'));
@@ -605,7 +605,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(6500);
         $unit->setDefense(3500);
         $unit->setSpeed(2);
-        $unit->setImage('bundles/archmagegame/images/unit/ghost/titan.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/ghost/titan.png');
         $unit->setFaction($this->getReference('Fantasmal'));
         $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Asedio'));
@@ -627,7 +627,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(2500);
         $unit->setDefense(4250);
         $unit->setSpeed(5);
-        $unit->setImage('bundles/archmagegame/images/unit/ghost/waterelemental.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/ghost/waterelemental.png');
         $unit->setFaction($this->getReference('Fantasmal'));
         $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Distancia'));
@@ -649,7 +649,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(76000);
         $unit->setDefense(92000);
         $unit->setSpeed(1);
-        $unit->setImage('bundles/archmagegame/images/unit/ghost/levyathan.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/ghost/levyathan.png');
         $unit->setFaction($this->getReference('Fantasmal'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Magia'));
@@ -671,7 +671,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(50000);
         $unit->setDefense(50000);
         $unit->setSpeed(1);
-        $unit->setImage('bundles/archmagegame/images/unit/ghost/bluedragon.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/ghost/bluedragon.png');
         $unit->setFaction($this->getReference('Fantasmal'));
         $unit->setFamily($this->getReference('Dragones'));
         $unit->setType($this->getReference('Volador'));
@@ -697,7 +697,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(5);
         $unit->setDefense(7);
         $unit->setSpeed(2);
-        $unit->setImage('bundles/archmagegame/images/unit/holy/priest.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/holy/priest.png');
         $unit->setFaction($this->getReference('Sagrado'));
         $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Magia'));
@@ -719,7 +719,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(6);
         $unit->setDefense(8);
         $unit->setSpeed(2);
-        $unit->setImage('bundles/archmagegame/images/unit/holy/paladin.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/holy/paladin.png');
         $unit->setFaction($this->getReference('Sagrado'));
         $unit->setFamily($this->getReference('Humanos'));
         $unit->setType($this->getReference('Melee'));
@@ -741,7 +741,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(60);
         $unit->setDefense(70);
         $unit->setSpeed(3);
-        $unit->setImage('bundles/archmagegame/images/unit/holy/unicorn.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/holy/unicorn.png');
         $unit->setFaction($this->getReference('Sagrado'));
         $unit->setFamily($this->getReference('Celestiales'));
         $unit->setType($this->getReference('Magia'));
@@ -763,7 +763,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(80);
         $unit->setDefense(50);
         $unit->setSpeed(3);
-        $unit->setImage('bundles/archmagegame/images/unit/holy/pegasus.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/holy/pegasus.png');
         $unit->setFaction($this->getReference('Sagrado'));
         $unit->setFamily($this->getReference('Celestiales'));
         $unit->setType($this->getReference('Volador'));
@@ -785,7 +785,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(500);
         $unit->setDefense(900);
         $unit->setSpeed(4);
-        $unit->setImage('bundles/archmagegame/images/unit/holy/angel.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/holy/angel.png');
         $unit->setFaction($this->getReference('Sagrado'));
         $unit->setFamily($this->getReference('Celestiales'));
         $unit->setType($this->getReference('Volador'));
@@ -807,7 +807,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(750);
         $unit->setDefense(500);
         $unit->setSpeed(4);
-        $unit->setImage('bundles/archmagegame/images/unit/holy/griffon.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/holy/griffon.png');
         $unit->setFaction($this->getReference('Sagrado'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Volador'));
@@ -829,7 +829,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(3500);
         $unit->setDefense(6500);
         $unit->setSpeed(5);
-        $unit->setImage('bundles/archmagegame/images/unit/holy/archangel.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/holy/archangel.png');
         $unit->setFaction($this->getReference('Sagrado'));
         $unit->setFamily($this->getReference('Celestiales'));
         $unit->setType($this->getReference('Volador'));
@@ -851,7 +851,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(5000);
         $unit->setDefense(1750);
         $unit->setSpeed(5);
-        $unit->setImage('bundles/archmagegame/images/unit/holy/airelemental.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/holy/airelemental.png');
         $unit->setFaction($this->getReference('Sagrado'));
         $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Distancia'));
@@ -873,7 +873,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(80000);
         $unit->setDefense(87000);
         $unit->setSpeed(1);
-        $unit->setImage('bundles/archmagegame/images/unit/holy/dominion.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/holy/dominion.png');
         $unit->setFaction($this->getReference('Sagrado'));
         $unit->setFamily($this->getReference('Celestiales'));
         $unit->setType($this->getReference('Asedio'));
@@ -895,7 +895,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(35000);
         $unit->setDefense(65000);
         $unit->setSpeed(1);
-        $unit->setImage('bundles/archmagegame/images/unit/holy/whitedragon.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/holy/whitedragon.png');
         $unit->setFaction($this->getReference('Sagrado'));
         $unit->setFamily($this->getReference('Dragones'));
         $unit->setType($this->getReference('Volador'));
@@ -921,7 +921,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(9);
         $unit->setDefense(4);
         $unit->setSpeed(5);
-        $unit->setImage('bundles/archmagegame/images/unit/doom/goblin.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/doom/goblin.png');
         $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Distancia'));
@@ -943,7 +943,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(9);
         $unit->setDefense(7);
         $unit->setSpeed(2);
-        $unit->setImage('bundles/archmagegame/images/unit/doom/cerverus.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/doom/cerberus.png');
         $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Melee'));
@@ -965,7 +965,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(60);
         $unit->setDefense(40);
         $unit->setSpeed(5);
-        $unit->setImage('bundles/archmagegame/images/unit/doom/minotaur.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/doom/minotaur.png');
         $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Asedio'));
@@ -987,7 +987,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(70);
         $unit->setDefense(15);
         $unit->setSpeed(3);
-        $unit->setImage('bundles/archmagegame/images/unit/doom/ogre.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/doom/ogre.png');
         $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Melee'));
@@ -1009,7 +1009,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(800);
         $unit->setDefense(450);
         $unit->setSpeed(2);
-        $unit->setImage('bundles/archmagegame/images/unit/doom/chimera.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/doom/chimera.png');
         $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Volador'));
@@ -1031,7 +1031,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(575);
         $unit->setDefense(275);
         $unit->setSpeed(3);
-        $unit->setImage('bundles/archmagegame/images/unit/doom/salamander.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/doom/salamander.png');
         $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Melee'));
@@ -1053,7 +1053,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(6500);
         $unit->setDefense(1750);
         $unit->setSpeed(4);
-        $unit->setImage('bundles/archmagegame/images/unit/doom/diablo.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/doom/diablo.png');
         $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Demonios'));
         $unit->setType($this->getReference('Distancia'));
@@ -1075,7 +1075,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(7000);
         $unit->setDefense(1250);
         $unit->setSpeed(1);
-        $unit->setImage('bundles/archmagegame/images/unit/doom/fireelemental.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/doom/fireelemental.png');
         $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Elementales'));
         $unit->setType($this->getReference('Magia'));
@@ -1097,7 +1097,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(50000);
         $unit->setDefense(75000);
         $unit->setSpeed(4);
-        $unit->setImage('bundles/archmagegame/images/unit/doom/phoenix.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/doom/phoenix.png');
         $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Bestias'));
         $unit->setType($this->getReference('Volador'));
@@ -1119,7 +1119,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         $unit->setAttack(70000);
         $unit->setDefense(30000);
         $unit->setSpeed(1);
-        $unit->setImage('bundles/archmagegame/images/unit/doom/reddragon.jpg');
+        $unit->setImage('bundles/archmagegame/images/unit/doom/reddragon.png');
         $unit->setFaction($this->getReference('Caos'));
         $unit->setFamily($this->getReference('Dragones'));
         $unit->setType($this->getReference('Volador'));

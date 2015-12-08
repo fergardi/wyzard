@@ -17,7 +17,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.jpg') }}">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/economy.png') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
                             <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ player.gold|nf }} <span class="label label-extra">Oro</span></div>
@@ -40,7 +40,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/magic.jpg') }}">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/magic.png') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
                             <div class="col-xs-12"><i class="fa fa-fw fa-tint"></i>{{ player.mana|nf }}/{{ player.manacap|nf }} <span class="label label-extra">Maná</span></div>
@@ -64,7 +64,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/territory.jpg') }}">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/territory.png') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for construction in player.constructions %}
@@ -86,7 +86,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/temple.jpg') }}">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/temple.png') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for enchantment in player.enchantmentsVictim %}
@@ -109,7 +109,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/army.jpg') }}">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/army.png') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for troop in player.troops %}
@@ -133,7 +133,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/tavern.jpg') }}">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/tavern.png') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for contract in player.contracts %}
@@ -157,7 +157,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/defense.jpg') }}">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/defense.png') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
                             <div class="col-xs-12"><i class="fa fa-fw fa-shield"></i>{{ player.armyDefense|nf }}/75 % <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Probabilidad de que el enemigo falle al atacarte, aumenta con las Fortalezas y algunos Encantamientos">Defensa Física</span></div>
@@ -179,7 +179,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/social.jpg') }}">
+                            <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/social.png') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
                             <div class="col-xs-12"><i class="fa fa-fw fa-envelope"></i>{{ player.messages|length|nf }} <span class="label label-extra"><a href="{{ path('archmage_game_account_message') }}" class="link">Mensajes</a></span></div>

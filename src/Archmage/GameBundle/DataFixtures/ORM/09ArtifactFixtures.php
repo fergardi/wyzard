@@ -137,7 +137,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         //ENCICLOPEDIA ELEMENTAL
         $artifact = new Artifact();
         $artifact->setName('Enciclopedia Elemental');
-        $artifact->setImage('bundles/archmagegame/images/artifact/elementalenciclopedia.jpg');
+        $artifact->setImage('bundles/archmagegame/images/artifact/elementalencyclopedia.jpg');
         $artifact->setSkill($this->getReference('Convocar Elementales'));
         $artifact->setLore('Puede salir cualquier cosa, incluso un árbol!');
         $artifact->setGoldAuction(1000000);

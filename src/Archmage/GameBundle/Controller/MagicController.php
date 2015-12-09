@@ -589,6 +589,8 @@ class MagicController extends Controller
                 shuffle($artifacts);
                 $artifact = $artifacts[0];
                 $quest = new Quest();
+                $quest->setGold(rand(1, 2000000 * $level));
+                $quest->setRunes($level);
                 $manager->persist($quest);
                 $quest->setArtifact($artifact);
                 $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
@@ -598,12 +600,12 @@ class MagicController extends Controller
                     $troop = new Troop();
                     $manager->persist($troop);
                     $troop->setUnit($unit);
-                    $troop->setQuantity(500000 / $unit->getPower());
+                    $troop->setQuantity(750000 / $unit->getPower());
                     $troop->setQuest($quest);
                     $quest->addTroop($troop);
                 }
                 $player->addQuest($quest);
-                $this->addFlash('success', 'Has descubierto una nueva <span class="label label-quest"><a href="'.$this->generateUrl('archmage_game_army_quest').'" class="link">Aventura</a></span>.');
+                $this->addFlash('success', 'Has encontrado una nuevo <span class="label label-quest"><a href="'.$this->generateUrl('archmage_game_army_quest').'" class="link">Mapa de Aventuras</a></span>.');
             } else {
                 $this->addFlash('danger', 'No has descubierto nada.');
             }

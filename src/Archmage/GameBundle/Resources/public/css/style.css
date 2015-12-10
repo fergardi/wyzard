@@ -71,8 +71,8 @@ img.custom-thumbnail {
     border-right: 1px solid rgba(0, 0, 0, 0.6);
 }
 img {
-    -webkit-filter: drop-shadow(10px 10px 5px rgba(0,0,0,0.9));
-    filter: drop-shadow(10px 10px 5px rgba(0,0,0,0.9));
+    -webkit-filter: drop-shadow(15px 15px 5px black);
+    filter: drop-shadow(15px 15px 5px black);
 }
 img.custom-rspls {
     max-width: 75%;

@@ -614,7 +614,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setGoldBonus(-2);
         $skill->setPeopleBonus(-2);
         $skill->setManaBonus(-2);
-        $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span>, <span class="label label-extra">Personas</span> y <span class="label label-extra">Maná</span> producido por <i class="fa fa-fw fa-magic"></i>');
+        $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span>, <span class="label label-extra">Personas</span> y <span class="label label-extra">Maná</span> producido al <i class="fa fa-fw fa-hourglass-half"></i> por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1076,7 +1076,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Saquear');
         $skill->setQuestBonus(15);
         $skill->setSelf(true);
-        $skill->setDescription('+'.$skill->getQuestBonus().'% por <i class="fa fa-fw fa-magic"></i> de descubrir un nuevo <span class="label label-map">Mapa</span>');
+        $skill->setDescription('+'.$skill->getQuestBonus().'% por <i class="fa fa-fw fa-magic"></i> de descubrir un nuevo <span class="label label-quest">Mapa</span>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 

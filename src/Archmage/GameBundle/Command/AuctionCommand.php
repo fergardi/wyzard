@@ -22,11 +22,11 @@ class AuctionCommand extends ContainerAwareCommand
     /**
      * const
      */
-    const MAX_TROOPS = 2;
+    const MAX_TROOPS = 1;
     const MAX_ITEMS = 2;
-    const MAX_QUESTS = 2;
-    const MAX_CONTRACTS = 2;
-    const MAX_RECIPES = 2;
+    const MAX_QUESTS = 1;
+    const MAX_CONTRACTS = 1;
+    const MAX_RECIPES = 1;
     const MAX_RESEARCH = 2;
 
     /**

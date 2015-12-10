@@ -70,6 +70,10 @@ img.custom-thumbnail {
     max-width: 100%;
     border-right: 1px solid rgba(0, 0, 0, 0.6);
 }
+img {
+    -webkit-filter: drop-shadow(10px 10px 5px rgba(0,0,0,0.9));
+    filter: drop-shadow(10px 10px 5px rgba(0,0,0,0.9));
+}
 img.custom-rspls {
     max-width: 75%;
     border-radius: 50%;
@@ -403,3 +407,4 @@ html {-webkit-text-size-adjust: none !important;}
 .popover.right > .arrow:after { border-right-color: black; }
 .popover.bottom > .arrow:after { border-bottom-color: black; }
 .popover.left > .arrow:after { border-left-color: black; }
+

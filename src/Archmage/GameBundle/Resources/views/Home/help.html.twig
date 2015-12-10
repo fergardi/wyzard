@@ -278,7 +278,7 @@
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
-                            <img class="custom-thumbnail" src="{{ asset( spell.image ) }}">
+                            <img class="custom-thumbnail glow-{{ spell.faction.class }}" src="{{ asset( spell.image ) }}">
                         </div>
                         <div class="col-xs-8 text-padded">
                             <div class="col-xs-6"><i class="fa fa-fw fa-magic"></i><span data-toggle="tooltip" data-placement="top" title="Nivel de Magia mínimo para investigar y conjurar">{{ spell.magic|nf }}</span></div>

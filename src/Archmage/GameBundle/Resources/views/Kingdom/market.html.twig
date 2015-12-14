@@ -20,12 +20,14 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/market.png') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar tus valiosas <span class="label label-artifact">Runas</span> en comprar los artículos que prefieras de la tienda. Si quieres, puedes comprar más runas.</div>
+                            <div class="col-xs-12">Aquí puedes gastar tus valiosas <span class="label label-artifact">Runas</span> en comprar los artículos que prefieras de la tienda. Puedes conseguirlas completando <span class="label label-quest">Aventuras</span> o comprando en nuestra tienda. Lo gastaré en cerveza!</div>
                         </div>
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <a class="btn btn-default" href="{{ path( 'archmage_game_kingdom_market' ) }}"><i class="fa fa-fw fa-euro"></i>Comprar</a>
+                    <a class="btn btn-default" href="#" role="button">10 Runas por<br><h2><i class="fa fa-fw fa-cc-paypal"></i> 0,99€</h2></a>
+                    <a class="btn btn-default btn-lg" href="#" role="button">50 Runas por<br><h1><i class="fa fa-fw fa-cc-paypal"></i> 2,99€</h1></a>
+                    <a class="btn btn-default" href="#" role="button">200 Runas por<br><h2><i class="fa fa-fw fa-cc-paypal"></i> 4,99€</h2></a>
                 </div>
             </div>
         </div>
@@ -40,7 +42,7 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{{ artifact.skill.description|raw }}</div>
-                            <div class="col-xs-12 text-lore"><small><i>{{ artifact.lore }}.</i></small></div>
+                            <div class="col-xs-12 text-lore"><small><i>{{ artifact.lore }}</i></small></div>
                         </div>
                     </div>
                 </div>

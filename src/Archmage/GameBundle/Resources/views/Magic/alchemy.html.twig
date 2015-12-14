@@ -20,16 +20,16 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/alchemy.png') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar 2 <span class="label label-extra">Turnos</span> y <span class="label label-extra">Oro</span> para convertir unos <span class="label label-artifact">Artefactos</span> en otros, usando <span class="label label-recipe">Recetas</span> que puedes adquirir en la subasta. Aquellas con <span class="label label-legendary">Artefactos</span> legendarios se destruyen tras su uso.</div>
+                            <div class="col-xs-12">Aquí puedes gastar 2 <span class="label label-extra">Turnos</span>, <span class="label label-artifact">Runas</span> y <span class="label label-extra">Oro</span> para convertir unos <span class="label label-artifact">Artefactos</span> en otros, usando <span class="label label-recipe">Recetas</span> que puedes adquirir en la subasta. Aquellas con <span class="label label-legendary">Artefactos</span> legendarios se destruyen tras su uso.</div>
                         </div>
                     </div>
                 </div>
                 <div class="panel-middle text-center" id="alchemy-formula">Fórmula</div>
                 <div class="panel-body text-responsive text-only text-center">
-                    <p>ARTEFACTO<sub>A</sub> + ARTEFACTO<sub>B</sub> + ORO = ARTEFACTO<sub>C</sub></p>
+                    <p>ARTEFACTO<sub>A</sub> + ARTEFACTO<sub>B</sub> + ORO + RUNAS = ARTEFACTO<sub>C</sub></p>
                 </div>
                 <div class="panel-footer text-center">
-                    <a class="btn btn-default" href="{{ path( 'archmage_game_kingdom_auction' ) }}"><i class="fa fa-fw fa-legal"></i>Subasta</a>
+                    <a class="btn btn-default" href="{{ path( 'archmage_game_magic_artifact' ) }}"><i class="fa fa-fw fa-diamond"></i>Artefactos</a>
                 </div>
             </div>
         </div>
@@ -45,6 +45,7 @@
                         <div class="col-xs-8 text-padded">
                             <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.first.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.first.name|slug }}" class="link" data-toggle="tooltip" data-placement="top" title="Primer Artefacto necesario para la Alquimia">{{ recipe.first.name }}</a></span></div>
                             <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.second.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.second.name|slug }}" class="link" data-toggle="tooltip" data-placement="top" title="Segundo Artefacto necesario para la Alquimia">{{ recipe.second.name }}</a></span></div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-ils"></i>{{ recipe.runes|nff }} <span class="label label-artifact" data-toggle="tooltip" data-placement="top" title="Runas necesarias para la Alquimia">Runas</span></div>
                             <div class="col-xs-12"><i class="fa fa-fw fa-money"></i>{{ recipe.gold|nff }} <span class="label label-extra" data-toggle="tooltip" data-placement="top" title="Oro necesario para la Alquimia">Oro</span></div>
                             <div class="col-xs-12"><i class="fa fa-fw fa-diamond"></i><span class="label label-{{ recipe.result.class }}"><a href="{{ path('archmage_game_home_help') }}#{{ recipe.result.name|slug }}" class="link" data-toggle="tooltip" data-placement="top" title="Artefacto resultante de la Alquimia">{{ recipe.result.name }}</a></span></div>
                             <div class="col-xs-12 text-lore"><small><i>Un poco de esto, un poco de aquello y... TACHÁN!</i></small></div>

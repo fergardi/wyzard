@@ -161,8 +161,10 @@ class AuctionCommand extends ContainerAwareCommand
             $recipe = new Recipe();
             $manager->persist($recipe);
             $recipe->setFirst($artifacts[$i]);
-            $recipe->setSecond($artifacts[$i+3]);
-            $recipe->setResult($artifacts[$i+6]);
+            $recipe->setSecond($artifacts[$i+5]);
+            $recipe->setResult($artifacts[$i+10]);
+            if ($recipe->getResult()->getLegendary()) $runes = 15; else $runes = 3;
+            $recipe->setRunes($runes);
             $recipe->setGold($recipe->getResult()->getGoldAuction() / 2);
             $auction->setPlayer(null);
             $auction->setRecipe($recipe);
@@ -201,13 +203,13 @@ class AuctionCommand extends ContainerAwareCommand
             $auction = new Auction();
             $manager->persist($auction);
             $quest = new Quest();
-            $quest->setGold(rand(1, 2000000 * $level));
+            $quest->setGold(rand(1, 2000000));
             $quest->setRunes($level);
             $manager->persist($quest);
             $quest->setArtifact($artifact);
             $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
             shuffle($units);
-            for ($j = 0; $j < $level; $j++) {
+            for ($j = 0; $j < $level + 1; $j++) {
                 $unit = $units[$j];
                 $troop = new Troop();
                 $manager->persist($troop);

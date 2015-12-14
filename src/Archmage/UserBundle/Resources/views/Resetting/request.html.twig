@@ -8,11 +8,12 @@
         {% include "ArchmageUserBundle::logo.html.twig" %}
         <form class="form-signin" data-toggle="validator" action="{{ path('fos_user_resetting_send_email') }}" method="post">
             <div class="form-group has-feedback">
-                <input type="text" id="username" name="_username" class="form-control" placeholder="Usuario (6-20)" value="" data-minlength="6" maxlength="20" required />
+                <input type="text" id="username" name="username" class="form-control" placeholder="Usuario (6-20)" value="" data-minlength="6" maxlength="20" required />
                 <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
             </div>
             <button type="submit" id="submit" name="submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-refresh"></i>Recuperar</button>
         </form>
+        {% include "ArchmageUserBundle::factions.html.twig" %}
     </div>
 </div>
 {% endblock fos_user_content %}

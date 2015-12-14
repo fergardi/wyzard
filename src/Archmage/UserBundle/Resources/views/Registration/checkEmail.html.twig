@@ -1,0 +1,15 @@
+{% extends "ArchmageUserBundle::layout.html.twig" %}
+
+{% block title %}Email{% endblock %}
+
+{% block fos_user_content %}
+    <div class="container">
+        <div class="jumbotron text-center">
+            {% include "ArchmageUserBundle::logo.html.twig" %}
+            <br/>
+            <p>Se te ha enviado un correo a esa dirección con un enlace para activar tu cuenta!</p>
+            <br/>
+            {% include "ArchmageUserBundle::factions.html.twig" %}
+        </div>
+    </div>
+{% endblock %}

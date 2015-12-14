@@ -24,43 +24,7 @@
             <a href="{{ path('archmage_game_home_patch') }}" class="link">Parches</a>
             <br/>
             <br/>
-            <div class="row">
-                <div class="col-xs-offset-1 col-xs-2">
-                    <a href="{{ path( 'archmage_game_home_help' ) }}#{{ 'Caos'|slug }}" class="thumbnail"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/faction/doom.png') }}"/></a>
-                    <div class="caption hidden-xs hidden-sm text-danger">
-                        <h3>Caos</h3>
-                        <small>Sangre y Fuego</small>
-                    </div>
-                </div>
-                <div class="col-xs-2">
-                    <a href="{{ path( 'archmage_game_home_help' ) }}#{{ 'Fantasmal'|slug }}" class="thumbnail"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/faction/ghost.png') }}"/></a>
-                    <div class="caption hidden-xs hidden-sm text-info">
-                        <h3>Fantasmal</h3>
-                        <small>Mente y Espíritu</small>
-                    </div>
-                </div>
-                <div class="col-xs-2">
-                    <a href="{{ path( 'archmage_game_home_help' ) }}#{{ 'Naturaleza'|slug }}" class="thumbnail"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/faction/nature.png') }}"/></a>
-                    <div class="caption hidden-xs hidden-sm text-success">
-                        <h3>Naturaleza</h3>
-                        <small>Roca y Tierra</small>
-                    </div>
-                </div>
-                <div class="col-xs-2">
-                    <a href="{{ path( 'archmage_game_home_help' ) }}#{{ 'Oscuridad'|slug }}" class="thumbnail"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/faction/darkness.png') }}"/></a>
-                    <div class="caption hidden-xs hidden-sm text-warning">
-                        <h3>Oscuridad</h3>
-                        <small>Polvo y Hueso</small>
-                    </div>
-                </div>
-                <div class="col-xs-2">
-                    <a href="{{ path( 'archmage_game_home_help' ) }}#{{ 'Sagrado'|slug }}" class="thumbnail"><img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/faction/holy.png') }}"/></a>
-                    <div class="caption hidden-xs hidden-sm text-primary">
-                        <h3>Sagrado</h3>
-                        <small>Luz y Gloria</small>
-                    </div>
-                </div>
-            </div>
+            {% include "ArchmageUserBundle::factions.html.twig" %}
         </div>
     </div>
 {% endblock %}

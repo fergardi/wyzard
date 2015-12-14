@@ -6,13 +6,21 @@
 <div class="container">
     <div class="jumbotron text-center">
         {% include "ArchmageUserBundle::logo.html.twig" %}
-        <form class="form-signin" data-toggle="validator" action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="post">
-            <div class="form-group has-feedback">
-                {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'correo@gmail.com (6-30)', 'data-minlength': '6', 'maxlength': '30', 'pattern': '^[a-z0-9._\-]+\@gmail\.com$' } }) }}
-                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
-            </div>
-            <button type="submit" id="submit" name="submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-refresh"></i>Recuperar</button>
-        </form>
+        {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset form-signin', 'data-toggle': 'validator' } }) }}
+        <div class="form-group has-feedback">
+            {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control', 'placeholder': 'Nueva contraseña (6-20)', 'data-minlength': '6', 'maxlength': '20' } }) }}
+            <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
+            {% if form_errors(form.plainPassword.first) %}<small class="text-danger">Contraseña incorrecta</small>{% endif %}
+        </div>
+        <div class="form-group has-feedback">
+            {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control', 'placeholder': 'Repetir contraseña (6-20)', 'data-minlength': '6', 'maxlength': '20', 'data-match': '#fos_user_resetting_form_plainPassword_first' } }) }}
+            <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
+            {% if form_errors(form.plainPassword.second) %}<small class="text-danger">Contraseña distinta</small>{% endif %}
+        </div>
+        <button type="submit" id="submit" name="submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-refresh"></i>Recuperar</button>
+        {{ form_end(form) }}
+        {{ form_rest(form) }}
+        {% include "ArchmageUserBundle::factions.html.twig" %}
     </div>
 </div>
 {% endblock fos_user_content %}

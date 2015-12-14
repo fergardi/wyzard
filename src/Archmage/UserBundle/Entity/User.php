@@ -38,29 +38,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set telegram
-     *
-     * @param integer $telegram
-     * @return User
-     */
-    public function setTelegram($telegram)
-    {
-        $this->telegram = $telegram;
-
-        return $this;
-    }
-
-    /**
-     * Get telegram
-     *
-     * @return integer
-     */
-    public function getTelegram()
-    {
-        return $this->telegram;
-    }
-
-    /**
      * Set player
      *
      * @param \Archmage\GameBundle\Entity\Player $player

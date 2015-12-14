@@ -1,0 +1,13 @@
+{% block subject %}Completar registro{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+Bienvenido a Wyzard, {{ user.username }}!
+
+Activa tu cuenta accediendo pulsando en el siguiente enlace: {{ confirmationUrl }}.
+
+Wyzard
+{% endautoescape %}
+{% endblock %}
+
+{% block body_html %}{% endblock %}

@@ -1,0 +1,11 @@
+{% block subject %}Recuperar contraseña{% endblock %}
+
+{% block body_text %}
+{% autoescape false %}
+Puedes establecer una nueva contraseña pulsando en el siguiente enlace: {{ confirmationUrl }}.
+
+Wyzard
+{% endautoescape %}
+{% endblock %}
+
+{% block body_html %}{% endblock %}

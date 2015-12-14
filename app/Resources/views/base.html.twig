@@ -44,250 +44,252 @@
     </head>
     {# body #}
     <body>
-    <img src="{{ asset('bundles/archmagegame/images/background/theme.jpg') }}" class="background" />
-    {# block topbar menu #}
-    {% block navbar %}{% endblock %}
-    {# block flashbag messages #}
-    {% block flashbag %}
-    <div class="container">
-        {% if error is defined and error %}
-        <div class="col-xs-12 alert alert-danger alert-dismissible text-center text-responsive" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-fw fa-times-circle"></i></button>
-            <i class="fa fa-fw fa-exclamation-triangle"></i>{{ error.message }}
-        </div>
-        {% endif %}
-        {# los mensajes tipo INFO deberian salir siempre arriba #}
-        {% for flashMessage in app.session.flashbag.get('info') %}
-        <div class="col-xs-12 alert alert-info alert-dismissible text-center text-responsive" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-fw fa-times-circle"></i></button>
-            {# |raw para que pase por el controlador codigos html como <a href>, sino los trunca #}
-            <i class="fa fa-fw fa-exclamation-triangle"></i>{{ flashMessage|raw }}
-        </div>
-        {% endfor %}
-        {# Tras esto van todos los demas mensajes (normalmente success y danger) #}
-        {% for type, flashMessages in app.session.flashbag.all() %}
-            {% for flashMessage in flashMessages %}
-        <div class="col-xs-12 alert alert-{{ type }} alert-dismissible text-center text-responsive" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-fw fa-times-circle"></i></button>
-            {# |raw para que pase por el controlador codigos html como <a href>, sino los trunca #}
-            <i class="fa fa-fw fa-exclamation-triangle"></i>{{ flashMessage|raw }}
-        </div>
+        <img src="{{ asset('bundles/archmagegame/images/background/theme.jpg') }}" class="background" />
+        {# block topbar menu #}
+        {% block navbar %}{% endblock %}
+        {# block flashbag messages #}
+        {% block flashbag %}
+        <div class="container">
+            {# mensajes de error, normalmente fosuserbundle #}
+            {% if error is defined and error %}
+            <div class="col-xs-12 alert alert-danger alert-dismissible text-center text-responsive" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-fw fa-times-circle"></i></button>
+                <i class="fa fa-fw fa-exclamation-triangle"></i>{{ error.message|trans }}
+            </div>
+            {% endif %}
+            {# los mensajes tipo INFO deberian salir siempre arriba #}
+            {% for flashMessage in app.session.flashbag.get('info') %}
+            <div class="col-xs-12 alert alert-info alert-dismissible text-center text-responsive" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-fw fa-times-circle"></i></button>
+                {# |raw para que pase por el controlador codigos html como <a href>, sino los trunca #}
+                <i class="fa fa-fw fa-exclamation-triangle"></i>{{ flashMessage|trans|raw }}
+            </div>
             {% endfor %}
-        {% endfor %}
-    </div>
-    {% endblock %}
-    {# block body #}
-    {% block body %}{% endblock %}
-    {# block footer #}
-    {% block footer %}{% endblock %}
-    {# block js #}
-    {% block javascripts %}
-        {% javascripts filter='uglifyjs2' output='js/base.min.js'
-            'bower/jquery/jquery.js'
-            'bower/datatables/media/js/jquery.dataTables.js'
-            'bower/datatables-bootstrap3-plugin/media/js/datatables-bootstrap3.js'
-            'bower/drmonty-datatables-plugins/sorting/date-euro.js'
-            'bower/bootstrap/dist/js/bootstrap.js'
-            'bower/bootstrap-select/dist/js/bootstrap-select.js'
-            'bower/bootstrap-validator/js/validator.js'
-            'bower/bootstrap-tour/build/js/bootstrap-tour.js'
-        %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-        <script>
-            $(document).ready(function() {
-                /* RESPONSIVE SELECTBOX */
-                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-                    $('.selectpicker').selectpicker('mobile');
-                } else {
-                    $('.selectpicker').selectpicker();
-                }
-                /* INITIALIZE ALL TOOLTIPS ON THE SITE */
-                $('[data-toggle="tooltip"]').tooltip();
-            });
-        </script>
-        <script>
-            /* TOUR */
-            var tour = new Tour({
-                duration: 7500,
-                storage: window.localStorage,
-                template: "<div class='popover tour'><div class='arrow'></div><h3 class='popover-title text-center'></h3><div class='popover-content'></div><div class='popover-footer text-center' style='width:100%;'><div class='popover-navigation btn-group' role='group'><button class='btn btn-sm btn-default' data-role='prev'><i class='fa fa-fw fa-backward'></i></button><button class='btn btn-sm btn-default' data-role='next'><i class='fa fa-fw fa-forward'></i></button><button class='btn btn-sm btn-default' onclick='tour.pause();'><i class='fa fa-fw fa-pause'></i></button><button class='btn btn-sm btn-default' onclick='tour.resume();'><i class='fa fa-fw fa-play'></i></button><button class='btn btn-sm btn-default' data-role='end'><i class='fa fa-fw fa-stop'></i></button></div></div>",
-                steps: [
-                    {
-                        path: "{{ path('archmage_game_kingdom_summary') }}",
-                        orphan: true,
-                        title: "(1/26) Bienvenido!",
-                        content: "Al principio este juego puede parecer un poco complicado, pero con mi tutorial aprenderás a jugar en menos de 5 minutos!"
-                    }, {
-                        path: "{{ path('archmage_game_kingdom_summary') }}",
-                        element: "#tour-resources",
-                        title: "(2/26) Recursos",
-                        content: "Estos son los recursos que dispondrás en el juego: turnos, magia, artefatos, tierras, runas, oro, personas y maná.",
-                        placement: "bottom"
-                    }, {
-                        path: "{{ path('archmage_game_kingdom_summary') }}",
-                        element: "#tour-turns",
-                        title: "(3/26) Turnos",
-                        content: "Tal vez el recurso más importante. Comienzas con 300 turnos y se gana uno cada 3 minutos. Veamos qué hacer con ellos.",
-                        placement: "bottom"
-                    }, {
-                        path: "{{ path('archmage_game_territory_build') }}",
-                        element: "#tour-talleres",
-                        title: "(4/26) Ahorrar turnos",
-                        content: "Podemos emplearlos en construir algunos edificios. Comenzaremos por los talleres, que nos ahorrarán valiosos futuros turnos.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_territory_build') }}",
-                        element: "#tour-granjas",
-                        title: "(5/26) Ingresos",
-                        content: "Unas cuantas granjas más nos ayudarán a ganar más oro al turno, lo cual siempre viene bien para mantener más tropas.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_territory_build') }}",
-                        element: "#tour-pueblos",
-                        title: "(6/26) Ingresos",
-                        content: "También podríamos invertir en construir más pueblos, para aumentar la capacidad de personas de nuestro reino.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_territory_build') }}",
-                        element: "#tour-nodos",
-                        title: "(7/26) Ingresos",
-                        content: "No podemos olvidarnos de los nodos, que nos ayudarán a tener más maná disponible para conjurar hechizos.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_territory_explore') }}",
-                        element: "#tour-explore",
-                        title: "(8/26) Tierras",
-                        content: "Pero, ¿qué pasa cuando se acaban las tierras? Puedes encontrar más explorando, hasta 3500. Pero luego tendrás que robarlas atacando.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_magic_research') }}",
-                        element: "#tour-research",
-                        title: "(9/26) Nuevos hechizos",
-                        content: "Antes de poder conjurar ningún hechizo, debes investigarlo primero invirtiendo muchos turnos.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_territory_build') }}",
-                        element: "#tour-gremios",
-                        title: "(10/26) Ahorrar turnos",
-                        content: "Recuerda que los gremios reducen la cantidad de turnos necesarios para investigar, ahorrando mucho tiempo en niveles altos.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_magic_meditate') }}",
-                        element: "#tour-meditate",
-                        title: "(11/26) Cargar maná",
-                        content: "Si alguna vez necesitas maná, siempre puedes invertir turnos en meditar para llenar tus reservas rápidamente.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_army_attack') }}",
-                        element: "#tour-attack",
-                        title: "(12/26) Atacar",
-                        content: "Atacar a otros jugadores es la mejor manera de obtener más oro y edificios. Puedes intentar usar hasta un hechizo y/o artefacto.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_account_ranking') }}",
-                        element: "#tour-ranking",
-                        title: "(13/26) Objetivos",
-                        content: "Investiga la tabla de posiciones para escoger al objetivo de tus ataques. También deberías espiarle antes de atacar.",
-                        placement: "bottom"
-                    }, {
-                        path: "{{ path('archmage_game_kingdom_summary') }}",
-                        element: "#tour-people",
-                        title: "(14/26) Personas",
-                        content: "Tal vez te hayas dado percatado de que las personas no se pueden producir rápidamente, salvo con ciertos artefactos.",
-                        placement: "bottom"
-                    }, {
-                        path: "{{ path('archmage_game_army_disband') }}",
-                        element: "#tour-disband",
-                        title: "(15/26) Eliminar",
-                        content: "Si no puedes mantener a todas tus tropas, tal vez te interese desbandar algunas para pagar menos mantenimientos por turno.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_kingdom_summary') }}",
-                        element: "#tour-defense",
-                        title: "(16/26) Defensa",
-                        content: "Pero tambien pueden atacarte! Protégete con muchas y poderosas tropas, y no olvides aumentar las defensas de tu reino!",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_territory_build') }}",
-                        element: "#tour-barreras",
-                        title: "(17/26) Defensa Mágica",
-                        content: "La defensa mágica reduce las posibilidades de sufrir un hechizo, artefacto o encantamiento enemigo. Auméntala con barreras y encantamientos!",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_territory_build') }}",
-                        element: "#tour-fortalezas",
-                        title: "(18/26) Defensa Física",
-                        content: "La defensa física reduce las posibilidades de sufrir un ataque enemigo. Auméntala con fortalezas y encantamientos!",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_kingdom_temple') }}",
-                        element: "#tour-temple",
-                        title: "(19/26) Encantamientos",
-                        content: "Rezar a los dioses es una buena manera de recibir un encantamiento beneficioso sin pagar. Pero cuidado, puede ser perjudicial!",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_magic_dispell') }}",
-                        element: "#tour-dispell",
-                        title: "(20/26) Romper",
-                        content: "Si un encantamiento te molesta, puedes intentar romperlo. Aunque cuanta mayor defensa mágica tenga el dueño, más te costará.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_kingdom_auction') }}",
-                        element: "#tour-auction",
-                        title: "(21/26) Pujar",
-                        content: "Puedes adquirir artefactos, heroes, tropas, mapas, recetas o hechizos en la subasta si nadie te sobrepuja. Aunque necesitarás oro.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_kingdom_tax') }}",
-                        element: "#tour-tax",
-                        title: "(22/26) Impuestos",
-                        content: "Cobrar impuestos a tus súbditos es una manera rápida de obtener oro, aunque también puedes completar aventuras.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_army_quest') }}",
-                        element: "#tour-quest",
-                        title: "(23/26) Misiones",
-                        content: "Derrotar poderosos ejércitos errantes es una buena forma de ganar oro y recompensas como artefactos o runas.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_kingdom_market') }}",
-                        element: "#tour-market",
-                        title: "(24/26) Runas",
-                        content: "Las runas sirven para intercambiarse por los artefactos más poderosos en el mercado, y puedes comprar más dentro del juego.",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_kingdom_summary') }}",
-                        element: "#tour-balance",
-                        title: "(25/26) Resumen",
-                        content: "Podrás ver en este gráfico todo lo que ocurre dentro de tus fronteras. Ya estás listo para jugar!",
-                        placement: "top"
-                    }, {
-                        path: "{{ path('archmage_game_home_help') }}",
-                        element: "#tour-help",
-                        title: "(26/26) Ayuda",
-                        content: "Si tienes alguna duda, puedes consultar la ayuda del juego o volver a ver este tutorial. Que te diviertas!",
-                        placement: "bottom"
+            {# Tras esto van todos los demas mensajes (normalmente success y danger) #}
+            {% for type, flashMessages in app.session.flashbag.all() %}
+                {% for flashMessage in flashMessages %}
+            <div class="col-xs-12 alert alert-{{ type }} alert-dismissible text-center text-responsive" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="close"><i class="fa fa-fw fa-times-circle"></i></button>
+                {# |raw para que pase por el controlador codigos html como <a href>, sino los trunca #}
+                <i class="fa fa-fw fa-exclamation-triangle"></i>{{ flashMessage|trans|raw }}
+            </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        {% endblock %}
+        {# block body #}
+        {% block body %}{% endblock %}
+        {# block footer #}
+        {% block footer %}{% endblock %}
+        {# block js #}
+        {% block javascripts %}
+            {% javascripts filter='uglifyjs2' output='js/base.min.js'
+                'bower/jquery/jquery.js'
+                'bower/datatables/media/js/jquery.dataTables.js'
+                'bower/datatables-bootstrap3-plugin/media/js/datatables-bootstrap3.js'
+                'bower/drmonty-datatables-plugins/sorting/date-euro.js'
+                'bower/bootstrap/dist/js/bootstrap.js'
+                'bower/bootstrap-select/dist/js/bootstrap-select.js'
+                'bower/bootstrap-validator/js/validator.js'
+                'bower/bootstrap-tour/build/js/bootstrap-tour.js'
+            %}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+            <script>
+                $(document).ready(function() {
+                    /* RESPONSIVE SELECTBOX */
+                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                        $('.selectpicker').selectpicker('mobile');
+                    } else {
+                        $('.selectpicker').selectpicker();
                     }
-                ]
-            });
-            tour.init();
-            // start tour
-            $('#tour-start').click(function() {
-                tour.restart();
-            });
-        </script>
-    {% endblock %}
-    <!--
-    Developed by
-    _______                         __ __
-    |  ___|                         | (_)
-    | |_ ___ _ __ __ _  __ _ _ __ __| |_
-    |  _/ _ \ '__/ _` |/ _` | '__/ _` | |
-    | ||  __/ | | (_| | (_| | | | (_| | |
-    \_| \___|_|  \__, |\__,_|_|  \__,_|_|
-                  __/ |
-                 |___/
-    -->
+                    /* INITIALIZE JS ON THE SITE */
+                    $('[data-toggle="tooltip"]').tooltip();
+                    //$('[data-toggle="popover"]').popover();
+                });
+            </script>
+            <script>
+                /* TOUR */
+                var tour = new Tour({
+                    duration: 7500,
+                    storage: window.localStorage,
+                    template: "<div class='popover tour'><div class='arrow'></div><h3 class='popover-title text-center'></h3><div class='popover-content'></div><div class='popover-footer text-center' style='width:100%;'><div class='popover-navigation btn-group' role='group'><button class='btn btn-sm btn-default' data-role='prev'><i class='fa fa-fw fa-backward'></i></button><button class='btn btn-sm btn-default' data-role='next'><i class='fa fa-fw fa-forward'></i></button><button class='btn btn-sm btn-default' onclick='tour.pause();'><i class='fa fa-fw fa-pause'></i></button><button class='btn btn-sm btn-default' onclick='tour.resume();'><i class='fa fa-fw fa-play'></i></button><button class='btn btn-sm btn-default' data-role='end'><i class='fa fa-fw fa-stop'></i></button></div></div>",
+                    steps: [
+                        {
+                            path: "{{ path('archmage_game_kingdom_summary') }}",
+                            orphan: true,
+                            title: "(1/26) Bienvenido!",
+                            content: "Al principio este juego puede parecer un poco complicado, pero con mi tutorial aprenderás a jugar en menos de 5 minutos!"
+                        }, {
+                            path: "{{ path('archmage_game_kingdom_summary') }}",
+                            element: "#tour-resources",
+                            title: "(2/26) Recursos",
+                            content: "Estos son los recursos que dispondrás en el juego: turnos, magia, artefatos, tierras, runas, oro, personas y maná.",
+                            placement: "bottom"
+                        }, {
+                            path: "{{ path('archmage_game_kingdom_summary') }}",
+                            element: "#tour-turns",
+                            title: "(3/26) Turnos",
+                            content: "Tal vez el recurso más importante. Comienzas con 300 turnos y se gana uno cada 3 minutos. Veamos qué hacer con ellos.",
+                            placement: "bottom"
+                        }, {
+                            path: "{{ path('archmage_game_territory_build') }}",
+                            element: "#tour-talleres",
+                            title: "(4/26) Ahorrar turnos",
+                            content: "Podemos emplearlos en construir algunos edificios. Comenzaremos por los talleres, que nos ahorrarán valiosos futuros turnos.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_territory_build') }}",
+                            element: "#tour-granjas",
+                            title: "(5/26) Ingresos",
+                            content: "Unas cuantas granjas más nos ayudarán a ganar más oro al turno, lo cual siempre viene bien para mantener más tropas.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_territory_build') }}",
+                            element: "#tour-pueblos",
+                            title: "(6/26) Ingresos",
+                            content: "También podríamos invertir en construir más pueblos, para aumentar la capacidad de personas de nuestro reino.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_territory_build') }}",
+                            element: "#tour-nodos",
+                            title: "(7/26) Ingresos",
+                            content: "No podemos olvidarnos de los nodos, que nos ayudarán a tener más maná disponible para conjurar hechizos.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_territory_explore') }}",
+                            element: "#tour-explore",
+                            title: "(8/26) Tierras",
+                            content: "Pero, ¿qué pasa cuando se acaban las tierras? Puedes encontrar más explorando, hasta 3500. Pero luego tendrás que robarlas atacando.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_magic_research') }}",
+                            element: "#tour-research",
+                            title: "(9/26) Nuevos hechizos",
+                            content: "Antes de poder conjurar ningún hechizo, debes investigarlo primero invirtiendo muchos turnos.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_territory_build') }}",
+                            element: "#tour-gremios",
+                            title: "(10/26) Ahorrar turnos",
+                            content: "Recuerda que los gremios reducen la cantidad de turnos necesarios para investigar, ahorrando mucho tiempo en niveles altos.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_magic_meditate') }}",
+                            element: "#tour-meditate",
+                            title: "(11/26) Cargar maná",
+                            content: "Si alguna vez necesitas maná, siempre puedes invertir turnos en meditar para llenar tus reservas rápidamente.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_army_attack') }}",
+                            element: "#tour-attack",
+                            title: "(12/26) Atacar",
+                            content: "Atacar a otros jugadores es la mejor manera de obtener más oro y edificios. Puedes intentar usar hasta un hechizo y/o artefacto.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_account_ranking') }}",
+                            element: "#tour-ranking",
+                            title: "(13/26) Objetivos",
+                            content: "Investiga la tabla de posiciones para escoger al objetivo de tus ataques. También deberías espiarle antes de atacar.",
+                            placement: "bottom"
+                        }, {
+                            path: "{{ path('archmage_game_kingdom_summary') }}",
+                            element: "#tour-people",
+                            title: "(14/26) Personas",
+                            content: "Tal vez te hayas dado percatado de que las personas no se pueden producir rápidamente, salvo con ciertos artefactos.",
+                            placement: "bottom"
+                        }, {
+                            path: "{{ path('archmage_game_army_disband') }}",
+                            element: "#tour-disband",
+                            title: "(15/26) Eliminar",
+                            content: "Si no puedes mantener a todas tus tropas, tal vez te interese desbandar algunas para pagar menos mantenimientos por turno.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_kingdom_summary') }}",
+                            element: "#tour-defense",
+                            title: "(16/26) Defensa",
+                            content: "Pero tambien pueden atacarte! Protégete con muchas y poderosas tropas, y no olvides aumentar las defensas de tu reino!",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_territory_build') }}",
+                            element: "#tour-barreras",
+                            title: "(17/26) Defensa Mágica",
+                            content: "La defensa mágica reduce las posibilidades de sufrir un hechizo, artefacto o encantamiento enemigo. Auméntala con barreras y encantamientos!",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_territory_build') }}",
+                            element: "#tour-fortalezas",
+                            title: "(18/26) Defensa Física",
+                            content: "La defensa física reduce las posibilidades de sufrir un ataque enemigo. Auméntala con fortalezas y encantamientos!",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_kingdom_temple') }}",
+                            element: "#tour-temple",
+                            title: "(19/26) Encantamientos",
+                            content: "Rezar a los dioses es una buena manera de recibir un encantamiento beneficioso sin pagar. Pero cuidado, puede ser perjudicial!",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_magic_dispell') }}",
+                            element: "#tour-dispell",
+                            title: "(20/26) Romper",
+                            content: "Si un encantamiento te molesta, puedes intentar romperlo. Aunque cuanta mayor defensa mágica tenga el dueño, más te costará.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_kingdom_auction') }}",
+                            element: "#tour-auction",
+                            title: "(21/26) Pujar",
+                            content: "Puedes adquirir artefactos, heroes, tropas, mapas, recetas o hechizos en la subasta si nadie te sobrepuja. Aunque necesitarás oro.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_kingdom_tax') }}",
+                            element: "#tour-tax",
+                            title: "(22/26) Impuestos",
+                            content: "Cobrar impuestos a tus súbditos es una manera rápida de obtener oro, aunque también puedes completar aventuras.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_army_quest') }}",
+                            element: "#tour-quest",
+                            title: "(23/26) Misiones",
+                            content: "Derrotar poderosos ejércitos errantes es una buena forma de ganar oro y recompensas como artefactos o runas.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_kingdom_market') }}",
+                            element: "#tour-market",
+                            title: "(24/26) Runas",
+                            content: "Las runas sirven para intercambiarse por los artefactos más poderosos en el mercado, y puedes comprar más dentro del juego.",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_kingdom_summary') }}",
+                            element: "#tour-balance",
+                            title: "(25/26) Resumen",
+                            content: "Podrás ver en este gráfico todo lo que ocurre dentro de tus fronteras. Ya estás listo para jugar!",
+                            placement: "top"
+                        }, {
+                            path: "{{ path('archmage_game_home_help') }}",
+                            element: "#tour-help",
+                            title: "(26/26) Ayuda",
+                            content: "Si tienes alguna duda, puedes consultar la ayuda del juego o volver a ver este tutorial. Que te diviertas!",
+                            placement: "bottom"
+                        }
+                    ]
+                });
+                tour.init();
+                // start tour
+                $('#tour-start').click(function() {
+                    tour.restart();
+                });
+            </script>
+        {% endblock %}
+        <!--
+        Developed by
+        _______                         __ __
+        |  ___|                         | (_)
+        | |_ ___ _ __ __ _  __ _ _ __ __| |_
+        |  _/ _ \ '__/ _` |/ _` | '__/ _` | |
+        | ||  __/ | | (_| | (_| | | | (_| | |
+        \_| \___|_|  \__, |\__,_|_|  \__,_|_|
+                      __/ |
+                     |___/
+        -->
     </body>
 </html>

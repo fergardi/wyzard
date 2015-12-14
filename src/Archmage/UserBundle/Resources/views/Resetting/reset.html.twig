@@ -1,12 +1,17 @@
 {% extends "ArchmageUserBundle::layout.html.twig" %}
 
+{% block title %}Resetear{% endblock %}
+
 {% block fos_user_content %}
 <div class="container">
     <div class="jumbotron text-center">
         {% include "ArchmageUserBundle::logo.html.twig" %}
-        <form class="form-signin" data-toggle="validator" action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST">
-            {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'E@mail.com' } }) }}
-            <button type="submit" id="submit" name="submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-refresh"></i>Resetear</button>
+        <form class="form-signin" data-toggle="validator" action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="post">
+            <div class="form-group has-feedback">
+                {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'correo@gmail.com (6-30)', 'data-minlength': '6', 'maxlength': '30', 'pattern': '^[a-z0-9._\-]+\@gmail\.com$' } }) }}
+                <i class="form-control-feedback fa fa-fw" aria-hidden="true"></i>
+            </div>
+            <button type="submit" id="submit" name="submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-refresh"></i>Recuperar</button>
         </form>
     </div>
 </div>

@@ -11,8 +11,6 @@ use FOS\UserBundle\Event\FilterUserResponseEvent;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Archmage\GameBundle\Entity\Player;
 use Archmage\GameBundle\Entity\Construction;
-use Archmage\GameBundle\Entity\Troop;
-use Archmage\GameBundle\Entity\Message;
 
 class RegistrationController extends BaseController
 {
@@ -30,6 +28,7 @@ class RegistrationController extends BaseController
         $form->setData($user);
         if ('POST' === $request->getMethod()) {
             $form->bind($request);
+            //ladybug_dump_die($form->getErrorsAsString());
             if ($form->isValid()) {
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);

@@ -1,3 +1,4 @@
+#game
 archmage_user:
     resource: "@ArchmageUserBundle/Controller"
     type: annotation
@@ -8,18 +9,12 @@ archmage_game:
     type: annotation
     prefix: /
 
-# app/config/routing.yml
-archmage_user:
-    resource: "@ArchmageUserBundle/Controller"
+archmage_payment:
+    resource: "@ArchmagePaymentBundle/Controller"
     type: annotation
     prefix: /
 
-archmage_game:
-    resource: "@ArchmageGameBundle/Controller"
-    type: annotation
-    prefix: /
-
-# app/config/routing.yml
+#fos
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
@@ -41,3 +36,13 @@ fos_user_profile:
 
 fos_user_profile_show:
     path: /game/account/profile
+
+#payum
+payum_capture:
+    resource: "@PayumBundle/Resources/config/routing/capture.xml"
+
+payum_authorize:
+    resource: "@PayumBundle/Resources/config/routing/authorize.xml"
+
+payum_notify:
+    resource: "@PayumBundle/Resources/config/routing/notify.xml"

@@ -21,8 +21,10 @@ class AppKernel extends Kernel
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             new Shaygan\TelegramBotApiBundle\ShayganTelegramBotApiBundle(),
             new Kachkaev\AssetsVersionBundle\KachkaevAssetsVersionBundle(),
+            new Payum\Bundle\PayumBundle\PayumBundle(),
             new Archmage\GameBundle\ArchmageGameBundle(),
             new Archmage\UserBundle\ArchmageUserBundle(),
+            new Archmage\PaymentBundle\ArchmagePaymentBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

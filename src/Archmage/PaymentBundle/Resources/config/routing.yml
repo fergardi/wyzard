@@ -1,0 +1,3 @@
+#archmage_payment_homepage:
+#    path:     /hello/{name}
+#    defaults: { _controller: ArchmagePaymentBundle:Default:index }

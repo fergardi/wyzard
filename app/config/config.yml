@@ -101,3 +101,16 @@ fos_user:
 shaygan_telegram_bot_api:
     token: "%telegram_token%"
 
+payum:
+    security:
+        token_storage:
+            Archmage\PaymentBundle\Entity\PaymentToken: { doctrine: orm }
+    storages:
+        Archmage\PaymentBundle\Entity\PaymentDetails: { doctrine: orm }
+    gateways:
+        paypal:
+            paypal_express_checkout_nvp:
+                username:  'required'
+                password:  'required'
+                signature: 'required'
+                sandbox: true

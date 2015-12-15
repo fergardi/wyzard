@@ -56,4 +56,13 @@ class HomeController extends Controller
     {
         return array();
     }
+
+    /**
+     * @Route("/email")
+     * @Template("ArchmageGameBundle::email.html.twig")
+     */
+    public function emailAction()
+    {
+        return array();
+    }
 }

@@ -14,27 +14,32 @@ class PurchaseController extends Controller
     /**
      * @Route("/game/purchase/prepare/{id}", requirements={"id" = "\d+"})
      */
-    public function prepareAction($id)
+    public function prepareAction($id = null)
     {
         $manager = $this->getDoctrine()->getManager();
         $pack = $manager->getRepository('ArchmagePaymentBundle:Pack')->find($id);
 
-        $gatewayName = 'paypal';
-        $storage = $this->get('payum')->getStorage('Archmage\PaymentBundle\Entity\PaymentDetails');
+        if ($pack) {
+            $gatewayName = 'paypal';
+            $storage = $this->get('payum')->getStorage('Archmage\PaymentBundle\Entity\PaymentDetails');
 
-        /** @var \Archmage\PaymentBundle\Entity\PaymentDetails $details */
-        $details = $storage->create();
-        $details['PAYMENTREQUEST_0_CURRENCYCODE'] = 'EUR';
-        $details['PAYMENTREQUEST_0_AMT'] = $pack->getPrice();
-        $details->setRunes($pack->getRunes());
-        $storage->update($details);
+            /** @var \Archmage\PaymentBundle\Entity\PaymentDetails $details */
+            $details = $storage->create();
+            $details['PAYMENTREQUEST_0_CURRENCYCODE'] = 'EUR';
+            $details['PAYMENTREQUEST_0_AMT'] = $pack->getPrice();
+            $details->setRunes($pack->getRunes());
+            $storage->update($details);
 
-        $captureToken = $this->get('payum.security.token_factory')->createCaptureToken(
-            $gatewayName,
-            $details,
-            'archmage_payment_purchase_done'
-        );
-        return $this->redirect($captureToken->getTargetUrl());
+            $captureToken = $this->get('payum.security.token_factory')->createCaptureToken(
+                $gatewayName,
+                $details,
+                'archmage_payment_purchase_done'
+            );
+            return $this->redirect($captureToken->getTargetUrl());
+        } else {
+            $this->addFlash('danger', 'Ese Pack no existe!');
+            return $this->redirect($this->generateUrl('archmage_game_kingdom_market'));
+        }
     }
 
     /**

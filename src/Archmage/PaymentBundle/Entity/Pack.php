@@ -43,13 +43,6 @@ class Pack
     private $lore;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="icon", type="string")
-     */
-    private $icon;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="runes", type="smallint")
@@ -72,52 +65,6 @@ class Pack
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set runes
-     *
-     * @param integer $runes
-     * @return Pack
-     */
-    public function setRunes($runes)
-    {
-        $this->runes = $runes;
-
-        return $this;
-    }
-
-    /**
-     * Get runes
-     *
-     * @return integer 
-     */
-    public function getRunes()
-    {
-        return $this->runes;
-    }
-
-    /**
-     * Set price
-     *
-     * @param float $price
-     * @return Pack
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return float 
-     */
-    public function getPrice()
-    {
-        return $this->price;
     }
 
     /**
@@ -190,25 +137,48 @@ class Pack
     }
 
     /**
-     * Set icon
+     * Set runes
      *
-     * @param string $icon
+     * @param integer $runes
      * @return Pack
      */
-    public function setIcon($icon)
+    public function setRunes($runes)
     {
-        $this->icon = $icon;
+        $this->runes = $runes;
 
         return $this;
     }
 
     /**
-     * Get icon
+     * Get runes
      *
-     * @return string 
+     * @return integer 
      */
-    public function getIcon()
+    public function getRunes()
     {
-        return $this->icon;
+        return $this->runes;
+    }
+
+    /**
+     * Set price
+     *
+     * @param float $price
+     * @return Pack
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return float 
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

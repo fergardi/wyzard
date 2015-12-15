@@ -2384,7 +2384,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setPeopleMaintenance(10000);
         $spell->setManaMaintenance(5000);
         $spell->setTurnsCost(100);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
+        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 5);
         $spell->setTurnsExpiration(111); //666 ftw
         $spell->setGoldAuction(0);
         $spell->setRarity(200);

@@ -53,7 +53,8 @@ img.background {
     color: #FF8400;
 }
 .text-pack {
-    font-size: 3em;
+    font-size: 40px;
+    padding: 10px !important;
 }
 .panel > .btn-group > .btn {
     border-top-right-radius: 0 !important;
@@ -249,7 +250,10 @@ body {
 .alert {
     border-color: #000 !important;
 }
-/* panel footer same color than panel heading */
+/* panel footer and border same color than panel heading */
+.panel {
+    border-color: #000;
+}
 .panel-primary > .panel-footer {
     background-color: #E9E9E9;
 }
@@ -282,9 +286,6 @@ body {
 }
 .panel-quest > .panel-heading, .panel-quest > .panel-footer, .label-quest, .alert-quest {
     background-color: #f3b005;
-    border-color: #000;
-}
-.panel {
     border-color: #000;
 }
 /* DATATABLES */

@@ -110,7 +110,7 @@ payum:
     gateways:
         paypal:
             paypal_express_checkout_nvp:
-                username:  'required'
-                password:  'required'
-                signature: 'required'
-                sandbox: true
+                username:  "%paypal_username%"
+                password:  "%paypal_password%"
+                signature: "%paypal_signature%"
+                sandbox: false

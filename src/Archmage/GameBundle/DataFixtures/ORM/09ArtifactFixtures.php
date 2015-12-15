@@ -34,7 +34,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Carta del Gremio de Asesinos');
         $artifact->setImage('bundles/archmagegame/images/artifact/assassinsguildletter.png');
         $artifact->setSkill($this->getReference('Carta del Gremio de Asesinos'));
-        $artifact->setLore('Escribe los nombres y nosotros haremos el resto.');
+        $artifact->setLore('Escribe los nombres y nosotros haremos el resto...');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
@@ -49,7 +49,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Carta del Gremio de Ladrones');
         $artifact->setImage('bundles/archmagegame/images/artifact/thievesguildletter.png');
         $artifact->setSkill($this->getReference('Carta del Gremio de Ladrones'));
-        $artifact->setLore('Marca las casas y nosotros haremos el resto.');
+        $artifact->setLore('Marca las casas y nosotros haremos el resto...');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
@@ -64,7 +64,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Carta del Gremio de Magos');
         $artifact->setImage('bundles/archmagegame/images/artifact/magesguildletter.png');
         $artifact->setSkill($this->getReference('Carta del Gremio de Magos'));
-        $artifact->setLore('Delata al hereje y nosotros haremos el resto.');
+        $artifact->setLore('Señala los herejes y nosotros haremos el resto...');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
@@ -79,7 +79,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Carta del Gremio de Espías');
         $artifact->setImage('bundles/archmagegame/images/artifact/spiesguildletter.png');
         $artifact->setSkill($this->getReference('Carta del Gremio de Espías'));
-        $artifact->setLore('Susurra un objetivo y nosotros haremos el resto.');
+        $artifact->setLore('Susurra un Reino y nosotros haremos el resto...');
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
@@ -94,7 +94,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Tela de Araña');
         $artifact->setImage('bundles/archmagegame/images/artifact/spiderweb.png');
         $artifact->setSkill($this->getReference('Tela de Araña'));
-        $artifact->setLore('Es sucia, es pegajosa y es asquerosa. Pero su tela es muy útil.');
+        $artifact->setLore('Es sucia, es pegajosa y es asquerosa. Pero su tela es muy útil...');
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
@@ -214,7 +214,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Demonio Embotellado');
         $artifact->setImage('bundles/archmagegame/images/artifact/bottleddemon.png');
         $artifact->setSkill($this->getReference('Convocar Demonios'));
-        $artifact->setLore('Puede salir cualquier cosa, incluso un súcubo!');
+        $artifact->setLore('Puede salir cualquier cosa, incluso un diablillo!');
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);

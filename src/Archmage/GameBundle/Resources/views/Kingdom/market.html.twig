@@ -20,7 +20,7 @@
                             <img class="custom-thumbnail" src="{{ asset('bundles/archmagegame/images/kingdom/market.png') }}">
                         </div>
                         <div class="col-xs-8 text-padded">
-                            <div class="col-xs-12">Aquí puedes gastar tus valiosas <span class="label label-artifact">Runas</span> en comprar los artículos que prefieras de la tienda. Puedes conseguirlas completando <span class="label label-quest">Aventuras</span> o comprando en nuestra tienda. Lo gastaré en cerveza!</div>
+                            <div class="col-xs-12">Aquí puedes gastar tus valiosas <span class="label label-artifact">Runas</span> en comprar los artículos que prefieras de la tienda. Puedes conseguirlas completando <span class="label label-quest">Aventuras</span> o comprando alguno de nuestros packs.</div>
                         </div>
                     </div>
                 </div>
@@ -32,14 +32,14 @@
         {% for pack in packs %}
         <div class="col-xs-12 col-md-4">
             <div class="panel panel-{{ pack.class }} text-center">
-                <div class="panel-heading"><h3 class="text-center">{{ pack.name }}</h3></div>
-                <div class="panel-body text-center">
-                    <p class="lead" style="font-size:40px"><strong>{{ pack.runes }}<i class="fa fa-fw fa-ils"></i>/ {{ pack.price }}€</strong></p>
+                <div class="panel-heading"><h2>{{ pack.name }}</h2></div>
+                <div class="panel-body">
+                    <p class="text-pack"><strong>+{{ pack.runes }}<i class="fa fa-fw fa-ils"></i>/ {{ pack.price }}€</strong></p>
                 </div>
-                <ul class="list-group list-group-flush text-center">
-                    <li class="list-group-item"><i class="fa fa-fw fa-times"></i>Derrota a tus enemigos</li>
-                    <li class="list-group-item"><i class="fa fa-fw fa-times"></i>Salva a los gnomos</li>
-                    <li class="list-group-item"><i class="fa fa-fw fa-check"></i>{{ pack.lore }}</li>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="fa fa-fw fa-check"></i>{{ pack.lore|raw }}</li>
+                    <li class="list-group-item"><i class="fa fa-fw fa-check"></i>Progresa en el juego</li>
+                    <li class="list-group-item"><i class="fa fa-fw fa-check"></i>Destruye a tus enemigos</li>
                 </ul>
                 <div class="panel-footer">
                     <a class="btn btn-lg btn-block btn-default" href="{{ path('archmage_payment_purchase_prepare', {'id': pack.id} ) }}" role="button"><i class="fa fa-fw fa-paypal"></i> Comprar</a>

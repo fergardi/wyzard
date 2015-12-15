@@ -18,4 +18,34 @@ class PaymentDetails extends ArrayObject
      * @var integer $id
      */
     protected $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="runes", type="smallint", nullable=false)
+     */
+    private $runes = 0;
+
+    /**
+     * Set runes
+     *
+     * @param integer $runes
+     * @return PaymentDetails
+     */
+    public function setRunes($runes)
+    {
+        $this->runes = $runes;
+
+        return $this;
+    }
+
+    /**
+     * Get runes
+     *
+     * @return integer 
+     */
+    public function getRunes()
+    {
+        return $this->runes;
+    }
 }

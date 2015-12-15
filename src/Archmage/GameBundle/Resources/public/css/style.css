@@ -52,6 +52,9 @@ img.background {
     margin-top: 4px;
     color: #FF8400;
 }
+.text-pack {
+    font-size: 3em;
+}
 .panel > .btn-group > .btn {
     border-top-right-radius: 0 !important;
     border-top-left-radius: 0 !important;
@@ -69,10 +72,6 @@ img.background {
 img.custom-thumbnail {
     max-width: 100%;
     border-right: 1px solid rgba(0, 0, 0, 0.6);
-}
-img {
-    -webkit-filter: drop-shadow(7px 7px 5px black);
-    filter: drop-shadow(7px 7px 5px black);
 }
 img.custom-rspls {
     max-width: 75%;

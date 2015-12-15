@@ -47,7 +47,7 @@ class Player
     /**
      * @var integer
      *
-     * @ORM\Column(name="runes", type="integer", nullable=false)
+     * @ORM\Column(name="runes", type="smallint", nullable=false)
      */
     private $runes = 10;
 

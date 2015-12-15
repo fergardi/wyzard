@@ -258,6 +258,7 @@ class KingdomController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
+        $packs = $manager->getRepository('ArchmagePaymentBundle:Pack')->findAll();
         if ($request->isMethod('POST')) {
             $artifact = isset($_POST['artifact'])?$_POST['artifact']:null;
             $artifact = $manager->getRepository('ArchmageGameBundle:Artifact')->findOneById($artifact);
@@ -291,6 +292,7 @@ class KingdomController extends Controller
         return array(
             'player' => $player,
             'artifacts' => $artifacts,
+            'packs' => $packs,
         );
     }
 }

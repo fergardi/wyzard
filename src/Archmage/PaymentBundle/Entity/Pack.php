@@ -22,27 +22,6 @@ class Pack
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string")
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="class", type="string")
-     */
-    private $class;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lore", type="string")
-     */
-    private $lore;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="runes", type="smallint")
@@ -65,75 +44,6 @@ class Pack
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Pack
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set class
-     *
-     * @param string $class
-     * @return Pack
-     */
-    public function setClass($class)
-    {
-        $this->class = $class;
-
-        return $this;
-    }
-
-    /**
-     * Get class
-     *
-     * @return string 
-     */
-    public function getClass()
-    {
-        return $this->class;
-    }
-
-    /**
-     * Set lore
-     *
-     * @param string $lore
-     * @return Pack
-     */
-    public function setLore($lore)
-    {
-        $this->lore = $lore;
-
-        return $this;
-    }
-
-    /**
-     * Get lore
-     *
-     * @return string 
-     */
-    public function getLore()
-    {
-        return $this->lore;
     }
 
     /**

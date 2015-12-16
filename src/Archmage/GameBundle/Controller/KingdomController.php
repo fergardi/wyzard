@@ -292,7 +292,9 @@ class KingdomController extends Controller
         return array(
             'player' => $player,
             'artifacts' => $artifacts,
-            'packs' => $packs,
+            'pack1' => $packs[0],
+            'pack2' => $packs[1],
+            'pack3' => $packs[2],
         );
     }
 }

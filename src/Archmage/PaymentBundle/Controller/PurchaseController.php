@@ -25,9 +25,28 @@ class PurchaseController extends Controller
 
             /** @var \Archmage\PaymentBundle\Entity\PaymentDetails $details */
             $details = $storage->create();
+            $details['METHOD'] = 'SetExpressCheckout';
+            $details['ALLOWNOTE'] = '0';
+            $details['CARTBORDERCOLOR'] = '3E444C';
+            $details['LOCALECODE'] = 'ES';
+
+            $details['PAYMENTREQUEST_0_PAYMENTACTION'] = 'Sale';
+            $details['L_PAYMENTREQUEST_0_NAME0'] = 'Pack de Runas';
+            $details['L_PAYMENTREQUEST_0_NUMBER0'] = $pack->getId();
+            $details['L_PAYMENTREQUEST_0_DESC0'] = $pack->getRunes().' Runas';
+            $details->setRunes($pack->getRunes());
+            $details['L_PAYMENTREQUEST_0_AMT0'] = $pack->getPrice();
+            $details['L_PAYMENTREQUEST_0_QTY0'] = 1;
+            $details['PAYMENTREQUEST_0_ITEMAMT'] = $pack->getPrice();
+            $details['PAYMENTREQUEST_0_TAXAMT'] = 0;
+            /*
+            $details['PAYMENTREQUEST_0_HANDLINGAMT'] = '0.00';
+            $details['PAYMENTREQUEST_0_SHIPPINGAMT'] = '0.00';
+            $details['PAYMENTREQUEST_0_SHIPDISCAMT'] = '-0.00';
+            $details['PAYMENTREQUEST_0_INSURANCEAMT'] = '0.00';
+            */
             $details['PAYMENTREQUEST_0_CURRENCYCODE'] = 'EUR';
             $details['PAYMENTREQUEST_0_AMT'] = $pack->getPrice();
-            $details['L_PAYMENTREQUEST_n_QTYm'] = $pack->getRunes();
             $storage->update($details);
 
             $captureToken = $this->get('payum.security.token_factory')->createCaptureToken(
@@ -47,6 +66,8 @@ class PurchaseController extends Controller
      */
     public function doneAction(Request $request)
     {
+        $manager = $this->getDoctrine()->getManager();
+
         $token = $this->get('payum.security.http_request_verifier')->verify($request);
         $gateway = $this->get('payum')->getGateway($token->getGatewayName());
 
@@ -55,18 +76,27 @@ class PurchaseController extends Controller
 
         // or Payum can fetch the model for you while executing a request (Preferred).
         $gateway->execute($status = new GetHumanStatus($token));
-        $details = $status->getFirstModel();
+        $details = $status->getModel();
 
-        ladybug_dump_die($details);
+        //ladybug_dump_die($details);
 
-        if ($status->getValue() == 'captured') {
-            $this->addFlash('success', 'Gracias! Has recibido X <span class="label label-artifact">Runas</span>.');
+        if ($status->isCaptured()) {
+            $runes = $details->getRunes();
+            $player = $this->getUser()->getPlayer();
+            $player->setRunes($player->getRunes() + $runes);
+            $manager->persist($player);
+            $manager->flush();
+            $this->addFlash('success', 'Gracias por tu compra! Has recibido '.$runes.' <span class="label label-artifact">Runas</span>.');
         } else {
-            $this->addFlash('success', 'Ha ocurrido un error, vuelve a intentarlo.');
+            $this->addFlash('danger', 'Ha ocurrido un error con la pasarela de pago, vuelve a intentarlo.');
         }
+
+        /*
         return new JsonResponse(array(
             'status' => $status->getValue(),
             'details' => iterator_to_array($details),
         ));
+        */
+        return $this->redirect($this->generateUrl('archmage_game_kingdom_market'));
     }
 }

@@ -27,7 +27,7 @@ class PurchaseController extends Controller
             $details = $storage->create();
             $details['PAYMENTREQUEST_0_CURRENCYCODE'] = 'EUR';
             $details['PAYMENTREQUEST_0_AMT'] = $pack->getPrice();
-            $details->setRunes($pack->getRunes());
+            $details['L_PAYMENTREQUEST_n_QTYm'] = $pack->getRunes();
             $storage->update($details);
 
             $captureToken = $this->get('payum.security.token_factory')->createCaptureToken(
@@ -57,8 +57,13 @@ class PurchaseController extends Controller
         $gateway->execute($status = new GetHumanStatus($token));
         $details = $status->getFirstModel();
 
-        //ladybug_dump_die($details);
+        ladybug_dump_die($details);
 
+        if ($status->getValue() == 'captured') {
+            $this->addFlash('success', 'Gracias! Has recibido X <span class="label label-artifact">Runas</span>.');
+        } else {
+            $this->addFlash('success', 'Ha ocurrido un error, vuelve a intentarlo.');
+        }
         return new JsonResponse(array(
             'status' => $status->getValue(),
             'details' => iterator_to_array($details),

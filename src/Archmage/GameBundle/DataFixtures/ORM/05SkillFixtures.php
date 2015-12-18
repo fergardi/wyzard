@@ -1561,7 +1561,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
 
         /*
          * APOCALIPSIS
-         */
+
 
         //APOCALIPSIS
         $skill = new Skill();
@@ -1571,6 +1571,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDescription('Si lo mantienes hasta que se gaste, <span class="label label-extra">Ganas el Juego</span>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
+        */
 
         //FLUSH
         $manager->flush();

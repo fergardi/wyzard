@@ -2367,7 +2367,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
 
         /*
          * HECHIZOS NEUTRAL
-         */
+
 
         //APOCALIPSIS
         $spell = new Spell();
@@ -2391,6 +2391,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
         $manager->persist($spell);
+        */
 
         $manager->flush();
 

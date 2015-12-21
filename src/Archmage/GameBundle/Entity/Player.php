@@ -26,7 +26,7 @@ class Player
     const TROOPS_CAP = 5;
     const ARTIFACT_RATIO = 1;
     const MAGICLEVEL_RATIO = 4;
-    const MAGICLEVEL_CAP = 10;
+    const MAGICLEVEL_CAP = 5;
 
     /**
      * @var integer
@@ -120,13 +120,6 @@ class Player
      * @ORM\Column(name="winner", type="boolean", nullable=false)
      */
     private $winner = false;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="uncovered", type="boolean", nullable=false)
-     */
-    private $uncovered = false;
 
     /**
      * @var boolean
@@ -530,29 +523,6 @@ class Player
     public function getWinner()
     {
         return $this->winner;
-    }
-
-    /**
-     * Set uncovered
-     *
-     * @param boolean $uncovered
-     * @return Player
-     */
-    public function setUncovered($uncovered)
-    {
-        $this->uncovered = $uncovered;
-
-        return $this;
-    }
-
-    /**
-     * Get uncovered
-     *
-     * @return boolean
-     */
-    public function getUncovered()
-    {
-        return $this->uncovered;
     }
 
     /**
@@ -1677,24 +1647,12 @@ class Player
      * @return boolean
      */
     public function getApocalypse() {
-        foreach ($this->enchantmentsVictim as $enchantment) {
-            if ($enchantment->getSpell()->getSkill()->getWin()) return true;
-        }
-        return false;
-    }
-
-    /**
-     * Get Wrath
-     *
-     * @return boolean
-     */
-    public function getWrath() {
-        $wrath = 0;
+        $apocalypse = 0;
         foreach ($this->items as $item) {
             if ($item->getArtifact()->getLegendary()) {
-                $wrath++;
+                $apocalypse++;
             }
         }
-        return ($wrath >= 5);
+        return ($apocalypse >= 5);
     }
 }

@@ -17,6 +17,9 @@ use Archmage\GameBundle\Entity\Contract;
 
 class BotCommand extends ContainerAwareCommand
 {
+    /**
+     * for n in {1..10}; do php app/console bot:add; done
+     */
     protected function configure()
     {
         $this

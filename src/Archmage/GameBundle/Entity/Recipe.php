@@ -30,15 +30,9 @@ class Recipe
 
     /**
      * @ORM\ManyToOne(targetEntity="Artifact")
-     * @ORM\JoinColumn(name="first", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="artifact", referencedColumnName="id", nullable=false)
      **/
-    private $first;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Artifact")
-     * @ORM\JoinColumn(name="second", referencedColumnName="id", nullable=false)
-     **/
-    private $second;
+    private $artifact;
 
     /**
      * @ORM\ManyToOne(targetEntity="Artifact")
@@ -146,7 +140,7 @@ class Recipe
     /**
      * Get runes
      *
-     * @return integer
+     * @return integer 
      */
     public function getRunes()
     {
@@ -177,49 +171,26 @@ class Recipe
     }
 
     /**
-     * Set first
+     * Set artifact
      *
-     * @param \Archmage\GameBundle\Entity\Artifact $first
+     * @param \Archmage\GameBundle\Entity\Artifact $artifact
      * @return Recipe
      */
-    public function setFirst(\Archmage\GameBundle\Entity\Artifact $first)
+    public function setArtifact(\Archmage\GameBundle\Entity\Artifact $artifact)
     {
-        $this->first = $first;
+        $this->artifact = $artifact;
 
         return $this;
     }
 
     /**
-     * Get first
+     * Get artifact
      *
      * @return \Archmage\GameBundle\Entity\Artifact 
      */
-    public function getFirst()
+    public function getArtifact()
     {
-        return $this->first;
-    }
-
-    /**
-     * Set second
-     *
-     * @param \Archmage\GameBundle\Entity\Artifact $second
-     * @return Recipe
-     */
-    public function setSecond(\Archmage\GameBundle\Entity\Artifact $second)
-    {
-        $this->second = $second;
-
-        return $this;
-    }
-
-    /**
-     * Get second
-     *
-     * @return \Archmage\GameBundle\Entity\Artifact 
-     */
-    public function getSecond()
-    {
-        return $this->second;
+        return $this->artifact;
     }
 
     /**

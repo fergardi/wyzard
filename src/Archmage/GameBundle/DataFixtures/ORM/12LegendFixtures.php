@@ -38,6 +38,14 @@ class LegendFixtures extends AbstractFixture implements OrderedFixtureInterface
         $legend->setPower(8437580);
         $manager->persist($legend);
 
+        //SEASON4
+        $legend = new Legend();
+        $legend->setNick('<span class="label label-warning">Sombra</span>');
+        $legend->setDatetime(new \DateTime("12/18/2015 14:00:04")); //mm/dd/yyyy hh:ii:ss
+        $legend->setLands(6319);
+        $legend->setPower(22406400);
+        $manager->persist($legend);
+
         //FLUSH
         $manager->flush();
     }

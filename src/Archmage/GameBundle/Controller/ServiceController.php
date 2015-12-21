@@ -58,26 +58,19 @@ class ServiceController extends Controller
     {
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
-        $notices = $player->getMessages();
         //limpiar mensaje tipo info para evitar duplicados ya que hacemos redirects en los controladores
         $this->container->get('session')->getFlashBag()->get('info');
         //NOTICIA PERMANENTE
-        //$this->addFlash('info', 'Nueva temporada! Echa un vistazo a los últimos <a href="'.$this->generateUrl('archmage_game_home_help').'#batalla" class="link">cambios</a>.');
-        //WRATH OF GODS
-        $wrath = $manager->getRepository('ArchmageGameBundle:Wrath')->findAll();
-        if ($wrath) {
-            $wrath = $wrath[0];
-            $this->addFlash('info', 'Se ha desatado la <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#fin">Ira de los Dioses</a></span>, ganará el primero del <span class="label label-extra"><a href="\'.$this->generateUrl(\'archmage_game_account_ranking\').\'">Ranking</a></span> el '.$wrath->getDatetime()->format('d/m/Y H:i:s').'.');
-        }
-        //APOCALIPSIS
-        $apocalypse = $manager->getRepository('ArchmageGameBundle:Enchantment')->findOneBySpell($manager->getRepository('ArchmageGameBundle:Spell')->findByName('Apocalipsis'));
+        //$this->addFlash('info', 'Nueva temporada! Echa un vistazo a los últimos <a href="'.$this->generateUrl('archmage_game_home_patch').'" class="link">cambios</a>.');
+        //APOCALYPSE
+        $apocalypse = $manager->getRepository('ArchmageGameBundle:Apocalypse')->findAll();
         if ($apocalypse) {
-            $this->addFlash('info', 'Alguien ha convocado el <span class="label label-'.$apocalypse->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($apocalypse->getSpell()->getName()).'" class="link">'.$apocalypse->getSpell()->getName().'</a></span> ('.$apocalypse->getExpiration().'/'.($apocalypse->getSpell()->getTurnsExpiration() * $apocalypse->getOwner()->getMagic()).'), impedidlo antes de que sea tarde!');
+            $apocalypse = $apocalypse[0];
+            $this->addFlash('info', 'Se ha desatado el <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#fin">Apocalipsis</a></span>! Ganará el primero del <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_account_ranking').'">Ranking</a></span> el '.$apocalypse->getDatetime()->format('d/m/Y \a \l\a\s H:i:s').'.');
         }
-        //WINNER CONDITION
-        $winner = $this->checkWinner();
-        if ($winner) {
-            $this->addFlash('info', 'El mago <span class="label label-'.$winner->getFaction()->getClass().'">'.$winner->getNick().'</span> ha ganado el juego.');
+        //WINNER
+        if ($this->checkWinner()) {
+            $this->addFlash('info', 'El mago <span class="label label-'.$this->checkWinner()->getFaction()->getClass().'">'.$this->checkWinner()->getNick().'</span> ha ganado el juego.');
         }
         //ENCHANTMENTS
         foreach ($player->getEnchantmentsVictim() as $enchantment) {
@@ -86,6 +79,8 @@ class ServiceController extends Controller
                 $this->addFlash('info', 'Recuerda que sobre tu Reino pesa el encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span>.');
             }
         }
+        //NOTICES
+        $notices = $player->getMessages();
         foreach ($notices as $notice) {
             if (!$notice->getReaded()) {
                 $notice->setReaded(true);

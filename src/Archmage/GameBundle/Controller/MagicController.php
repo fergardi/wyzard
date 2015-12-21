@@ -343,15 +343,6 @@ class MagicController extends Controller
                     } elseif ($action == 'defense') {
                         $player->setItem($item);
                         $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> en defender con <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
-                    } elseif ($action == 'wrath') {
-                        $alreadyWrath = $manager->getRepository('ArchmageGameBundle:Wrath')->findAll();
-                        if ($player->getWrath() && !$alreadyWrath) {
-                            $wrath = new Wrath();
-                            $manager->persist($wrath);
-                            $this->addFlash('success', 'Has gastado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> en activar la <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#fin" class="link">Ira de los Dioses</a></span>.');
-                        } else {
-                            $this->addFlash('danger', 'Ya hay una <span class="label label-extra"><a href="'.$this->generateUrl('archmage_game_home_help').'#fin" class="link">Ira de los Dioses</a></span> activada!');
-                        }
                     }
                     /*
                      * PERSISTENCIA
@@ -390,11 +381,10 @@ class MagicController extends Controller
                 if ($action == 'craft') {
                     $turns = 2;
                     if ($turns <= $player->getTurns()) {
-                        $item1 = $player->hasArtifact($recipe->getFirst());
-                        $item2 = $player->hasArtifact($recipe->getSecond());
+                        $artifact = $player->hasArtifact($recipe->getArtifact());
                         $gold = $recipe->getGold();
                         $runes = $recipe->getRunes();
-                        if ($item1 && $item2 && $gold <= $player->getGold() && $runes <= $player->getRunes()) {
+                        if ($artifact && $gold <= $player->getGold() && $runes <= $player->getRunes()) {
                             /*
                             * MANTENIMIENTO
                             */
@@ -405,30 +395,24 @@ class MagicController extends Controller
                             /*
                              * ACCION
                              */
-                            $item1->setQuantity($item1->getQuantity() - 1);
-                            if ($item1->getQuantity() <= 0) {
-                                if ($player->getItem() && $player->getItem()->getArtifact() == $item1->getArtifact()) $player->setItem(null);
-                                $player->removeItem($item1);
-                                $manager->remove($item1);
+                            $artifact->setQuantity($artifact->getQuantity() - 1);
+                            if ($artifact->getQuantity() <= 0) {
+                                if ($player->getItem() && $player->getItem()->getArtifact() == $artifact->getArtifact()) $player->setItem(null);
+                                $player->removeItem($artifact);
+                                $manager->remove($artifact);
                             }
-                            $item2->setQuantity($item2->getQuantity() - 1);
-                            if ($item2->getQuantity() <= 0) {
-                                if ($player->getItem() && $player->getItem()->getArtifact() == $item2->getArtifact()) $player->setItem(null);
-                                $player->removeItem($item2);
-                                $manager->remove($item2);
-                            }
-                            $item = $player->hasArtifact($recipe->getResult());
-                            if ($item) {
-                                $item->setQuantity($item->getQuantity() + 1);
+                            $result = $player->hasArtifact($recipe->getResult());
+                            if ($result) {
+                                $result->setQuantity($result->getQuantity() + 1);
                             } else {
-                                $item = new Item();
-                                $manager->persist($item);
-                                $item->setArtifact($recipe->getResult());
-                                $item->setQuantity(1);
-                                $item->setPlayer($player);
-                                $player->addItem($item);
+                                $result = new Item();
+                                $manager->persist($result);
+                                $result->setArtifact($recipe->getResult());
+                                $result->setQuantity(1);
+                                $result->setPlayer($player);
+                                $player->addItem($result);
                             }
-                            $this->addFlash('success', 'Has gastado los ingredientes, '.$turns.' <span class="label label-extra">Turnos</span>, '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span>, '.$runes.' <span class="label label-artifact">Runas</span> y fabricado el Artefacto <span class="label label-' . $item->getArtifact()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
+                            $this->addFlash('success', 'Has gastado '.$turns.' <span class="label label-extra">Turnos</span>, '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span> y '.$runes.' <span class="label label-artifact">Runas</span> en convertir <span class="label label-' . $artifact->getArtifact()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($artifact->getArtifact()->getName()) . '" class="link">' . $artifact->getArtifact()->getName() . '</a></span> en <span class="label label-' . $result->getArtifact()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($result->getArtifact()->getName()) . '" class="link">' . $result->getArtifact()->getName() . '</a></span>.');
                             if ($recipe->getResult()->getLegendary()) {
                                 $player->removeRecipe($recipe);
                                 $manager->remove($recipe);
@@ -487,7 +471,6 @@ class MagicController extends Controller
             array('default', 12, 0, 'center', 'Ejército: '.$target->getArmyToString()),
             array('default', 12, 0, 'center', 'Encantamientos: '.$target->getEnchantmentsVictimToString()),
         );
-        $target->setUncovered($target->getApocalypse());
         $manager->persist($target);
         $manager->flush();
         $this->get('service.controller')->sendMessage($target, $player, $subject, $text, 'espionage');
@@ -622,12 +605,11 @@ class MagicController extends Controller
                 shuffle($artifacts);
                 $recipe = new Recipe();
                 $manager->persist($recipe);
-                $recipe->setFirst($artifacts[1]);
-                $recipe->setSecond($artifacts[2]);
-                $recipe->setResult($artifacts[3]);
-                $recipe->setGold($recipe->getResult()->getGoldAuction() / 2);
-                if ($recipe->getResult()->getLegendary()) $runes = 15; else $runes = 3;
+                $recipe->setArtifact($artifacts[0]);
+                $recipe->setResult($artifacts[1]);
+                if ($recipe->getResult()->getLegendary()) $runes = 15; else $runes = 2;
                 $recipe->setRunes($runes);
+                $recipe->setGold($recipe->getResult()->getGoldAuction() / 2);
                 $recipe->setPlayer($player);
                 $player->addRecipe($recipe);
                 $this->addFlash('success', 'Has descubierto una nueva <span class="label label-recipe"><a href="'.$this->generateUrl('archmage_game_magic_alchemy').'" class="link">Receta de Alquimia</a></span>.');

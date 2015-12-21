@@ -2,20 +2,16 @@
 
 namespace Archmage\GameBundle\DataFixtures\ORM;
 
-use Archmage\GameBundle\Entity\Achievement;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+
 use Archmage\GameBundle\Entity\Player;
 use Archmage\GameBundle\Entity\Construction;
-use Archmage\GameBundle\Entity\Research;
-use Archmage\GameBundle\Entity\Item;
 use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Contract;
-use Archmage\GameBundle\Entity\Message;
-use Archmage\GameBundle\Entity\Enchantment;
 use Archmage\UserBundle\Entity\User;
 
 class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
@@ -45,189 +41,150 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             array(
                 'name' => 'Dwaleen, Dios de la Sangre',
                 'faction' => 'Caos',
+                'god' => true,
                 'constructions' => array(
-                    'Tierras' => rand(500,1000),
-                    'Granjas' => rand(500,1000),
-                    'Pueblos' => rand(500,1000),
-                    'Nodos' => rand(500,1000),
-                    'Gremios' => rand(500,1000),
-                    'Talleres' => rand(500,1000),
-                    'Barracones' => rand(500,1000),
+                    'Tierras' => rand(500,750),
+                    'Granjas' => rand(500,750),
+                    'Pueblos' => rand(500,750),
+                    'Nodos' => rand(500,750),
+                    'Gremios' => rand(500,750),
+                    'Talleres' => rand(500,750),
+                    'Barracones' => rand(500,750),
                     'Barreras' => rand(100,300),
                     'Fortalezas' => rand(100,300),
                 ),
-                'items' => array(
-                    'Poción de Agilidad' => 99,
-                ),
-                'enchantments' => array (
-                    'Brujería',
-                    'Barrera Mental',
-                    'Muro Ígneo',
-                    'Favor de la Naturaleza',
-                    'Protección Divina',
-                ),
                 'heroes' => array(
-                    'Jinete de Dragones' => rand(5,20),
-                    'Nigromante' => rand(5,20),
+                    'Jinete de Dragones' => rand(10,30),
+                    'Dríada' => rand(10,30),
+                    'Campeón' => rand(10,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => rand(10,20),
-                    'Dragones Negros' => rand(10,20),
-                    'Dragones Blancos' => rand(10,20),
-                    'Dragones Azules' => rand(10,20),
-                    'Dragones Verdes' => rand(10,20),
+                    'Dragones Rojos' => 10,
+                    'Dragones Verdes' => 10,
+                    'Dragones Negros' => 10,
+                    'Dragones Azules' => 10,
+                    'Dragones Blancos' => 10,
                 ),
             ),
             array(
                 'name' => 'Surm, Dios de la Muerte',
                 'faction' => 'Oscuridad',
+                'god' => true,
                 'constructions' => array(
-                    'Tierras' => rand(500,1000),
-                    'Granjas' => rand(500,1000),
-                    'Pueblos' => rand(500,1000),
-                    'Nodos' => rand(500,1000),
-                    'Gremios' => rand(500,1000),
-                    'Talleres' => rand(500,1000),
-                    'Barracones' => rand(500,1000),
+                    'Tierras' => rand(500,750),
+                    'Granjas' => rand(500,750),
+                    'Pueblos' => rand(500,750),
+                    'Nodos' => rand(500,750),
+                    'Gremios' => rand(500,750),
+                    'Talleres' => rand(500,750),
+                    'Barracones' => rand(500,750),
                     'Barreras' => rand(100,300),
                     'Fortalezas' => rand(100,300),
                 ),
-                'items' => array(
-                    'Poción de Agilidad' => 99,
-                ),
-                'enchantments' => array (
-                    'Brujería',
-                    'Barrera Mental',
-                    'Muro Ígneo',
-                    'Favor de la Naturaleza',
-                    'Protección Divina',
-                ),
                 'heroes' => array(
-                    'Jinete de Dragones' => rand(5,20),
-                    'Nigromante' => rand(5,20),
+                    'Jinete de Dragones' => rand(10,30),
+                    'Dríada' => rand(10,30),
+                    'Campeón' => rand(10,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => rand(10,20),
-                    'Dragones Negros' => rand(10,20),
-                    'Dragones Blancos' => rand(10,20),
-                    'Dragones Azules' => rand(10,20),
-                    'Dragones Verdes' => rand(10,20),
+                    'Dragones Rojos' => 10,
+                    'Dragones Verdes' => 10,
+                    'Dragones Negros' => 10,
+                    'Dragones Azules' => 10,
+                    'Dragones Blancos' => 10,
                 ),
             ),
             array(
                 'name' => 'Jalazu, Diosa de la Luz',
                 'faction' => 'Sagrado',
+                'god' => true,
                 'constructions' => array(
-                    'Tierras' => rand(500,1000),
-                    'Granjas' => rand(500,1000),
-                    'Pueblos' => rand(500,1000),
-                    'Nodos' => rand(500,1000),
-                    'Gremios' => rand(500,1000),
-                    'Talleres' => rand(500,1000),
-                    'Barracones' => rand(500,1000),
+                    'Tierras' => rand(500,750),
+                    'Granjas' => rand(500,750),
+                    'Pueblos' => rand(500,750),
+                    'Nodos' => rand(500,750),
+                    'Gremios' => rand(500,750),
+                    'Talleres' => rand(500,750),
+                    'Barracones' => rand(500,750),
                     'Barreras' => rand(100,300),
                     'Fortalezas' => rand(100,300),
                 ),
-                'items' => array(
-                    'Poción de Agilidad' => 99,
-                ),
-                'enchantments' => array (
-                    'Brujería',
-                    'Barrera Mental',
-                    'Muro Ígneo',
-                    'Favor de la Naturaleza',
-                    'Protección Divina',
-                ),
                 'heroes' => array(
-                    'Jinete de Dragones' => rand(5,20),
-                    'Nigromante' => rand(5,20),
+                    'Jinete de Dragones' => rand(10,30),
+                    'Dríada' => rand(10,30),
+                    'Campeón' => rand(10,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => rand(10,20),
-                    'Dragones Negros' => rand(10,20),
-                    'Dragones Blancos' => rand(10,20),
-                    'Dragones Azules' => rand(10,20),
-                    'Dragones Verdes' => rand(10,20),
+                    'Dragones Rojos' => 10,
+                    'Dragones Verdes' => 10,
+                    'Dragones Negros' => 10,
+                    'Dragones Azules' => 10,
+                    'Dragones Blancos' => 10,
                 ),
             ),
             array(
                 'name' => 'Swott, Dios de la Magia',
                 'faction' => 'Fantasmal',
+                'god' => true,
                 'constructions' => array(
-                    'Tierras' => rand(500,1000),
-                    'Granjas' => rand(500,1000),
-                    'Pueblos' => rand(500,1000),
-                    'Nodos' => rand(500,1000),
-                    'Gremios' => rand(500,1000),
-                    'Talleres' => rand(500,1000),
-                    'Barracones' => rand(500,1000),
+                    'Tierras' => rand(500,750),
+                    'Granjas' => rand(500,750),
+                    'Pueblos' => rand(500,750),
+                    'Nodos' => rand(500,750),
+                    'Gremios' => rand(500,750),
+                    'Talleres' => rand(500,750),
+                    'Barracones' => rand(500,750),
                     'Barreras' => rand(100,300),
                     'Fortalezas' => rand(100,300),
                 ),
-                'items' => array(
-                    'Poción de Agilidad' => 99,
-                ),
-                'enchantments' => array (
-                    'Brujería',
-                    'Barrera Mental',
-                    'Muro Ígneo',
-                    'Favor de la Naturaleza',
-                    'Protección Divina',
-                ),
                 'heroes' => array(
-                    'Jinete de Dragones' => rand(5,20),
-                    'Nigromante' => rand(5,20),
+                    'Jinete de Dragones' => rand(10,30),
+                    'Dríada' => rand(10,30),
+                    'Campeón' => rand(10,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => rand(10,20),
-                    'Dragones Negros' => rand(10,20),
-                    'Dragones Blancos' => rand(10,20),
-                    'Dragones Azules' => rand(10,20),
-                    'Dragones Verdes' => rand(10,20),
+                    'Dragones Rojos' => 10,
+                    'Dragones Verdes' => 10,
+                    'Dragones Negros' => 10,
+                    'Dragones Azules' => 10,
+                    'Dragones Blancos' => 10,
                 ),
             ),
             array(
                 'name' => 'Elama, Diosa de la Vida',
                 'faction' => 'Naturaleza',
+                'god' => true,
                 'constructions' => array(
-                    'Tierras' => rand(500,1000),
-                    'Granjas' => rand(500,1000),
-                    'Pueblos' => rand(500,1000),
-                    'Nodos' => rand(500,1000),
-                    'Gremios' => rand(500,1000),
-                    'Talleres' => rand(500,1000),
-                    'Barracones' => rand(500,1000),
+                    'Tierras' => rand(500,750),
+                    'Granjas' => rand(500,750),
+                    'Pueblos' => rand(500,750),
+                    'Nodos' => rand(500,750),
+                    'Gremios' => rand(500,750),
+                    'Talleres' => rand(500,750),
+                    'Barracones' => rand(500,750),
                     'Barreras' => rand(100,300),
                     'Fortalezas' => rand(100,300),
                 ),
-                'items' => array(
-                    'Poción de Agilidad' => 99,
-                ),
-                'enchantments' => array (
-                    'Brujería',
-                    'Barrera Mental',
-                    'Muro Ígneo',
-                    'Favor de la Naturaleza',
-                    'Protección Divina',
-                ),
                 'heroes' => array(
-                    'Jinete de Dragones' => rand(5,20),
-                    'Nigromante' => rand(5,20),
+                    'Jinete de Dragones' => rand(10,30),
+                    'Dríada' => rand(10,30),
+                    'Campeón' => rand(10,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => rand(10,20),
-                    'Dragones Negros' => rand(10,20),
-                    'Dragones Blancos' => rand(10,20),
-                    'Dragones Azules' => rand(10,20),
-                    'Dragones Verdes' => rand(10,20),
+                    'Dragones Rojos' => 10,
+                    'Dragones Verdes' => 10,
+                    'Dragones Negros' => 10,
+                    'Dragones Azules' => 10,
+                    'Dragones Blancos' => 10,
                 ),
             ),
         );
         foreach ($gods as $god) {
             $player = new Player();
             $manager->persist($player);
-            $player->setGod(true);
+            $player->setGod($god['god']);
             $player->setWinner(false);
+            $player->setBot(false);
             $player->setNick($god['name']);
             $player->setFaction($this->getReference($god['faction']));
             $player->setItem(null);
@@ -241,18 +198,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 $construction->setPlayer($player);
                 $manager->persist($construction);
                 $player->addConstruction($construction);
-            }
-            //items
-            $items = $god['items'];
-            foreach ($items as $name => $quantity) {
-                $item = new Item();
-                $item->setArtifact($this->getReference($name));
-                $item->setQuantity($quantity);
-                $item->setPlayer($player);
-                $manager->persist($item);
-                $player->addItem($item);
-                //defense
-                $player->setItem($item);
             }
             //troops
             $troops = $god['troops'];
@@ -279,7 +224,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $player->setPeople($player->getPeopleCap());
             $player->setMana($player->getManaCap());
             $player->setTurns(300);
-            $player->setMagic(10);
+            $player->setMagic(5);
             //achievements
             $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
             foreach ($achievements as $achievement) {
@@ -299,15 +244,15 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         $player->setWinner(false);
         //constructions
         $constructions = array(
-            'Tierras' => 500,
+            'Tierras' => 600,
             'Granjas' => 10,
             'Pueblos' => 10,
             'Nodos' => 10,
-            'Gremios' => 0,
+            'Gremios' => 10,
             'Talleres' => 10,
-            'Barracones' => 0,
-            'Barreras' => 0,
-            'Fortalezas' => 0,
+            'Barracones' => 10,
+            'Barreras' => 3,
+            'Fortalezas' => 3,
         );
         foreach ($constructions as $name => $quantity) {
             $construction = new Construction();

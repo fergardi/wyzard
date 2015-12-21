@@ -42,15 +42,15 @@ class RegistrationController extends BaseController
                 $player->setWinner(false);
                 //constructions
                 $constructions = array(
-                    'Tierras' => 500,
+                    'Tierras' => 600,
                     'Granjas' => 10,
                     'Pueblos' => 10,
                     'Nodos' => 10,
-                    'Gremios' => 0,
+                    'Gremios' => 10,
                     'Talleres' => 10,
-                    'Barracones' => 0,
-                    'Barreras' => 0,
-                    'Fortalezas' => 0,
+                    'Barracones' => 10,
+                    'Barreras' => 3,
+                    'Fortalezas' => 3,
                 );
                 foreach ($constructions as $name => $quantity) {
                     $construction = new Construction();

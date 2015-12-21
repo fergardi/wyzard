@@ -5,12 +5,12 @@ namespace Archmage\GameBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Wrath
+ * Apocalypse
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Archmage\GameBundle\Repository\WrathRepository")
+ * @ORM\Entity(repositoryClass="Archmage\GameBundle\Repository\ApocalypseRepository")
  */
-class Wrath
+class Apocalypse
 {
     /**
      * @var integer
@@ -35,8 +35,8 @@ class Wrath
     public function __construct()
     {
         $this->datetime = new \DateTime('now');
-        $this->datetime->setTime($this->datetime->format('H'), 59, 59);
-        $this->datetime->modify('+ '.rand(24,48).' hours');
+        $this->datetime->setTime($this->datetime->format('H'), 0, 0);
+        $this->datetime->modify('+ '.rand(160,170).' hours');
     }
 
     /**
@@ -53,7 +53,7 @@ class Wrath
      * Set datetime
      *
      * @param \DateTime $datetime
-     * @return Wrath
+     * @return Apocalypse
      */
     public function setDatetime($datetime)
     {

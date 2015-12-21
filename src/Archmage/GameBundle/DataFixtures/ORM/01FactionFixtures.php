@@ -29,7 +29,7 @@ class FactionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $faction->setImage('bundles/archmagegame/images/faction/ghost.png');
         $faction->setDescription('Siempre buscando adquirir mayor conocimiento de la magia, esta facción dependerá de sus trucos y habilidades innatas para tornar la situación en su favor.');
         $faction->setClass('info');
-        $faction->setSlogan('Mente y Espíritu');
+        $faction->setSlogan('Mente y Ciencia');
         $faction->setLore('Nunca te fíes de un Mago Azul.');
         $this->addReference($faction->getName(), $faction);
         $manager->persist($faction);
@@ -64,15 +64,17 @@ class FactionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->addReference($faction->getName(), $faction);
         $manager->persist($faction);
 
+        /*
         $faction = new Faction();
         $faction->setName('Neutral');
         $faction->setImage('bundles/archmagegame/images/faction/neutral.png');
-        $faction->setDescription('Alejada del resto, los neutrales no participan en esta contienda milenaria por el dominio de estas tierras, aunque ellos crearon los Artefactos y el Apocalipsis.');
+        $faction->setDescription('Alejada del resto, los neutrales no participan en esta contienda milenaria por el dominio de estas tierras, aunque ellos crearon los Artefactos.');
         $faction->setClass('default');
         $faction->setSlogan('Paz y Armonía');
         $faction->setLore('El fin tiene que llegar, tarde o temprano.');
         $this->addReference($faction->getName(), $faction);
         $manager->persist($faction);
+        */
 
         //SELFREFERENCING
         $this->getReference('Caos')->setOpposite($this->getReference('Naturaleza'));
@@ -80,7 +82,7 @@ class FactionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->getReference('Sagrado')->setOpposite($this->getReference('Oscuridad'));
         $this->getReference('Oscuridad')->setOpposite($this->getReference('Fantasmal'));
         $this->getReference('Fantasmal')->setOpposite($this->getReference('Caos'));
-        $this->getReference('Neutral')->setOpposite($this->getReference('Neutral'));
+        //$this->getReference('Neutral')->setOpposite($this->getReference('Neutral'));
 
         $manager->flush();
     }

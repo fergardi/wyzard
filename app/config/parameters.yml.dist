@@ -17,6 +17,5 @@ parameters:
     locale:                         es
     secret:                         ThisTokenIsNotSoSecretChangeIt
     assets_version:                 v1
-    knp_disqus.api_key:             YOUR_PUBLIC_API_KEY
-    knp_disqus.secret_key:          YOUR_SECRET_API_KEY
+    knp_disqus.api_key:             key
     knp_disqus.name.shortname:      name

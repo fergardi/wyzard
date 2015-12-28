@@ -60,7 +60,7 @@ class ServiceController extends Controller
         $player = $this->getUser()->getPlayer();
         //limpiar mensaje tipo info para evitar duplicados ya que hacemos redirects en los controladores
         $this->container->get('session')->getFlashBag()->get('info');
-        //NOTICIA PERMANENTE
+        //NOTICIAS PERMANENTES
         //$this->addFlash('info', 'Nueva temporada! Echa un vistazo a los últimos <a href="'.$this->generateUrl('archmage_game_home_patch').'" class="link">cambios</a>.');
         //APOCALYPSE
         $apocalypse = $manager->getRepository('ArchmageGameBundle:Apocalypse')->findAll();
@@ -92,12 +92,6 @@ class ServiceController extends Controller
          */
         $manager->persist($player);
         $manager->flush();
-
-        //codigo para averiguar los hashes de los stickers de telegram
-        /*
-        $api = $this->container->get('shaygan.telegram_bot_api');
-        ladybug_dump_die($api->getUpdates()[count($api->getUpdates())-1]->getMessage());
-        */
     }
 
     /**
@@ -115,21 +109,6 @@ class ServiceController extends Controller
         $message->setClass('default');
         $manager->persist($message);
         $receiver->addMessage($message);
-        //TELEGRAM BOT https://core.telegram.org/bots & https://unnikked.ga/getting-started-with-telegram-bots/
-        /*
-        if ($receiver->getChat()) {
-            $telegram = $subject.":\n".$this->generateUrl('archmage_game_account_message', array('hash' => $message->getHash()), true);
-            $auction = "BQADBAADPAADyIsGAAHHj-tPF_0RGAI";
-            $battle = "BQADBAADOgADyIsGAAFRwAYXeDzUugI";
-            $magic = "BQADBAADLQADyIsGAAE_-arlvGeRjgI";
-            $espionage = "BQADBAADFAADyIsGAAGkx4rtY09EtwI";
-            $apocalypse = "BQADBAADMAADyIsGAAHU8vIAAev_v-UC";
-            $stickers = array('auction' => $auction, 'battle' => $battle, 'magic' => $magic, 'espionage' => $espionage, 'apocalypse' => $apocalypse);
-            $api = $this->container->get('shaygan.telegram_bot_api');
-            $api->sendSticker($receiver->getChat(), $stickers[$type]);
-            $api->sendMessage($receiver->getChat(), $telegram);
-        }
-        */
         return $message;
     }
 
@@ -372,7 +351,8 @@ class ServiceController extends Controller
                 )
             ) {
                 $player->addAchievement($achievement);
-                $this->addFlash('success', 'Has desbloqueado el logro <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile').'" class="link">'.$achievement->getName().'</a></span>.');
+                $player->setRunes($player->getRunes() + 5);
+                $this->addFlash('success', 'Has desbloqueado el logro <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile').'" class="link">'.$achievement->getName().'</a></span> y 5 <span class="label label-artifact">Runas</span>.');
             }
         }
         // SI GASTA TURNOS TERMINA EL MODO VACACIONES

@@ -1,5 +1,6 @@
 body {
     text-rendering: auto;
+    scroll-behavior: smooth;
 }
 /* default background */
 img.background {
@@ -366,7 +367,7 @@ html {-webkit-text-size-adjust: none !important;}
     border-bottom: 1px solid rgba(0, 0, 0, 0.6);
 }
 /* SEARCH */
-.searchbox {
+.search, .searchbox {
     margin-bottom: 20px;
 }
 #top-link-block.affix-top {
@@ -410,4 +411,8 @@ html {-webkit-text-size-adjust: none !important;}
 /* PANEL PRICING */
 .panel-pricing .panel-heading {
     padding: 20px 10px;
+}
+/* DRAG AND DROP */
+#sortable .panel-heading {
+    cursor: move;
 }

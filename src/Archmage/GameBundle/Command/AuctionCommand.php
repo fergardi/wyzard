@@ -47,13 +47,6 @@ class AuctionCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $manager = $this->getContainer()->get('doctrine')->getManager();
-        //CONTEXT OVERRIDE FOR GENERATEURL IN COMMANDS BUG
-        //see http://symfony.com/doc/current/cookbook/console/sending_emails.html#configuring-the-request-context-per-command
-        //https://github.com/symfony/symfony-docs/issues/1112#issuecomment-4240333
-        //$context = $this->getContainer()->get('router')->getContext();
-        //$context->setHost('www.wyzard.es');
-        //$context->setScheme('https');
-        //$this->getContainer()->get('router')->setContext($context);
         //OLD AUCTIONS
         $auctions = $manager->getRepository('ArchmageGameBundle:Auction')->findAll();
         foreach ($auctions as $auction) {

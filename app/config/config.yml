@@ -97,10 +97,7 @@ fos_user:
         address:     admin@wyzard.es
         sender_name: Wyzard
 
-# TELEGRAM BOT https://core.telegram.org/bots
-shaygan_telegram_bot_api:
-    token: "%telegram_token%"
-
+#paypal
 payum:
     security:
         token_storage:
@@ -113,4 +110,11 @@ payum:
                 username:  "%paypal_username%"
                 password:  "%paypal_password%"
                 signature: "%paypal_signature%"
-                sandbox: true
+                sandbox: false
+
+#disqus
+knp_disqus:
+    api_key: %knp_disqus.api_key%
+    forums:
+        name:
+            shortname: %knp_disqus.name.shortname%

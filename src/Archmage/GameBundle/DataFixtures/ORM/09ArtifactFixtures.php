@@ -394,7 +394,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Avaricioso');
         $artifact->setImage('bundles/archmagegame/images/artifact/greedyring.png');
         $artifact->setSkill($this->getReference('Anillo Avaricioso'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Blanca. Puede debilitar al Jinete Morado.');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Blanca.');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(80);
         $artifact->setPower(250000);
@@ -409,7 +409,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Poderoso');
         $artifact->setImage('bundles/archmagegame/images/artifact/powerring.png');
         $artifact->setSkill($this->getReference('Anillo Poderoso'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Azul. Puede debilitar al Jinete Rojo.');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Azul.');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(80);
         $artifact->setPower(250000);
@@ -424,7 +424,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Encantador');
         $artifact->setImage('bundles/archmagegame/images/artifact/charmingring.png');
         $artifact->setSkill($this->getReference('Anillo Encantador'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Morada. Puede debilitar al Jinete Azul.');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Morada.');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(80);
         $artifact->setPower(250000);
@@ -439,7 +439,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Duro');
         $artifact->setImage('bundles/archmagegame/images/artifact/hardring.png');
         $artifact->setSkill($this->getReference('Anillo Duro'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Roja. Puede debilitar al Jinete Verde.');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Roja.');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(80);
         $artifact->setPower(250000);
@@ -454,7 +454,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Anillo Invocador');
         $artifact->setImage('bundles/archmagegame/images/artifact/summonerring.png');
         $artifact->setSkill($this->getReference('Anillo Invocador'));
-        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Verde. Puede debilitar al Jinete Blanco.');
+        $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Verde.');
         $artifact->setGoldAuction(20000000);
         $artifact->setRarity(80);
         $artifact->setPower(250000);

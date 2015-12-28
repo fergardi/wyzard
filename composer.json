@@ -23,7 +23,7 @@
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "raulfraile/ladybug-bundle": "dev-master",
-        "shaygan/telegram-bot-api-bundle": "dev-master",
+        "knplabs/knp-disqus-bundle": "dev-master",
         "kachkaev/assets-version-bundle": "dev-master",
         "payum/payum-bundle": "^1.0",
         "payum/paypal-express-checkout-nvp": "^1.0"

@@ -25,7 +25,8 @@
             <div class="btn-group btn-group-justified searchbox" role="group" aria-label="...">
                 <a href="#intro" class="btn btn-default"><i class="fa fa-fw fa-question-circle"></i><span class="hidden-xs">General</span></a>
                 <a href="#facciones" class="btn btn-default"><i class="fa fa-fw fa-rebel"></i><span class="hidden-xs">Facciones</span></a>
-                <a href="#unidades" class="btn btn-default"><i class="fa fa-fw fa-home"></i><span class="hidden-xs">Unidades</span></a>
+                <a href="#edificios" class="btn btn-default"><i class="fa fa-fw fa-industry"></i><span class="hidden-xs">Edificios</span></a>
+                <a href="#unidades" class="btn btn-default"><i class="fa fa-fw fa-group"></i><span class="hidden-xs">Unidades</span></a>
                 <a href="#heroes" class="btn btn-default"><i class="fa fa-fw fa-group"></i><span class="hidden-xs">Héroes</span></a>
                 <a href="#hechizos" class="btn btn-default"><i class="fa fa-fw fa-magic"></i><span class="hidden-xs">Hechizos</span></a>
                 <a href="#artefactos" class="btn btn-default"><i class="fa fa-fw fa-joomla"></i><span class="hidden-xs">Artefactos</span></a>
@@ -115,8 +116,8 @@
                     <p>En este juego el recurso más importante que se puede tener son las <span class="label label-extra">Tierras</span>, y dado que te las pueden robar al atacarte, es una buena idea tener siempre <span class="label label-extra">Tropas</span> en tu Reino para defenderte de los enemigos. Además, deberías construir <span class="label label-extra">Barreras</span> y <span class="label label-extra">Fortalezas</span> o lanzar <span class="label label-extra">Encantamientos</span> de defensa, así como guardar un <span class="label label-extra">Hechizo</span> y/o un <span class="label label-artifact">Artefacto</span> para que se active en caso de un ataque enemigo. Ten en cuenta, sin embargo, que si logras bloquear un ataque o un conjuro, se te destruirán los respectivos <span class="label label-extra">Edificios</span> en un símbolo de desgaste, que se convertirán en <span class="label label-extra">Tierras</span> para que puedas reconstruirlos. Mientras que un <span class="label label-extra">Hechizo</span> permanecerá para siempre en defensa a no ser que se cambie por otro distinto, un <span class="label label-artifact">Artefacto</span> solo se usa en defensa una vez, tras lo cual el jugador deberá volver a colocarlo en defensa si así lo quiere.</p>
                 </div>
             </div>
-            <div class="panel panel-default"><a name="aventura"></a>
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-map"></i>Aventura</div>
+            <div class="panel panel-default"><a name="aventuras"></a>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-map"></i>Aventuras</div>
                 <div class="panel-body text-responsive text-only">
                     <p>Para aquellos jugadores que no pueden estar mucho tiempo sin hacer nada, siempre tienen la posibilidad de usar <span class="label label-quest">Mapas</span>, pequeños trozos de papel que señalan la localización de un <span class="label label-artifact">Artefacto</span> y muchos tesoros. Pero cuidado, estará protegido por muchas tropas, ejércitos de monstruos vagabundos que no buscan más que la destrucción. Pueden obtenerse en la subasta, o mediante el hechizo <span class="label label-danger">Saquear</span>. Existen varios niveles, y sus recompensas, tanto <span class="label label-artifact">Artefactos</span> como <span class="label label-extra">Oro</span>, aumentan con la dificultad, llegando incluso a tener la posibilidad de obtener un <span class="label label-legendary">Artefacto</span> legendario.</p>
                 </div>
@@ -172,13 +173,13 @@
         {% endfor %}
         <div class="col-xs-12">
             <div class="page-header text-center"><a name="edificios"></a>
-                <h1><i class="fa fa-fw fa-home"></i>Edificios ({{ buildings|length|nf }})</h1>
+                <h1><i class="fa fa-fw fa-industry"></i>Edificios ({{ buildings|length|nf }})</h1>
             </div>
         </div>
         {% for building in buildings %}
         <div class="col-xs-12 col-md-6"><a name="{{ building.name|slug }}"></a>
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-home"></i>{{ building.name }}</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-industry"></i>{{ building.name }}</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -341,7 +342,7 @@
         </div>
         <div class="col-xs-12 col-md-6">
             <div class="panel panel-quest"><a name="mapas"></a>
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-map"></i>Mapa de Aventuras</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-map"></i>Mapas de Aventuras</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">

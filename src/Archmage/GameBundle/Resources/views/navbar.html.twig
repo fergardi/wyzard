@@ -23,8 +23,8 @@
                 <li class="dropdown" id="navbar-territory">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-globe"></i>Territorio<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('archmage_game_territory_explore') }}"><i class="fa fa-fw fa-lg fa-map"></i>Explorar</a></li>
-                        <li><a href="{{ path('archmage_game_territory_build') }}"><i class="fa fa-fw fa-lg fa-wrench"></i>Construir</a></li>
+                        <li><a href="{{ path('archmage_game_territory_explore') }}"><i class="fa fa-fw fa-lg fa-search"></i>Explorar</a></li>
+                        <li><a href="{{ path('archmage_game_territory_build') }}"><i class="fa fa-fw fa-lg fa-industry"></i>Construir</a></li>
                         <li><a href="{{ path('archmage_game_territory_demolish') }}"><i class="fa fa-fw fa-lg fa-bomb"></i>Demoler</a></li>
                     </ul>
                 </li>
@@ -48,17 +48,21 @@
                     </ul>
                 </li>
                 <li class="dropdown" id="navbar-account">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-user"></i>Cuenta<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-group"></i>Social<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ path('archmage_game_account_profile') }}"><i class="fa fa-fw fa-lg fa-trophy"></i>Perfil</a></li>
                         <li><a href="{{ path('archmage_game_account_ranking') }}"><i class="fa fa-fw fa-lg fa-line-chart"></i>Ranking</a></li>
                         <li><a href="{{ path('archmage_game_account_message') }}"><i class="fa fa-fw fa-lg fa-envelope"></i>Mensajes</a></li>
                         <li><a href="{{ path('archmage_game_account_legend') }}"><i class="fa fa-fw fa-lg fa-star"></i>Leyendas</a></li>
-                        <li class="divider"></li>
-                        <li><a href="{{ path('archmage_game_home_help') }}"><i class="fa fa-fw fa-lg fa-book"></i>Ayuda</a></li>
-                        {% if app.user %}<li><a href="#" data-toggle="collapse" data-target="#navbar-collapsable" id="tour-start"><i class="fa fa-fw fa-lg fa-question-circle"></i>Tutorial</a></li>{% endif %}
+                    </ul>
+                </li>
+                <li class="dropdown" id="navbar-help">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-question-circle"></i>Ayuda<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ path('archmage_game_home_help') }}"><i class="fa fa-fw fa-lg fa-book"></i>Wiki</a></li>
+                        {% if app.user %}<li><a href="#" data-toggle="collapse" data-target="#navbar-collapsable" id="tour-start"><i class="fa fa-fw fa-lg fa-map-signs"></i>Tutorial</a></li>{% endif %}
                         <li><a href="{{ path('archmage_game_home_patch') }}"><i class="fa fa-fw fa-lg fa-medkit"></i>Parches</a></li>
-                        <li><a href="{{ path('archmage_game_home_about') }}"><i class="fa fa-fw fa-lg fa-question-circle"></i>Acerca</a></li>
+                        <li><a href="{{ path('archmage_game_home_about') }}"><i class="fa fa-fw fa-lg fa-info"></i>Acerca</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-fw fa-lg fa-sign-out"></i>Salir</a></li>
                     </ul>

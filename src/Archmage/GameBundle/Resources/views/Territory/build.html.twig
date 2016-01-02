@@ -7,14 +7,14 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="page-header text-center">
-                <h1><i class="fa fa-fw fa-wrench"></i>Construir</h1>
+                <h1><i class="fa fa-fw fa-industry"></i>Construir</h1>
                 {% include "ArchmageGameBundle::resources.html.twig" with {'player': player} %}
             </div>
         </div>
         {% for construction in player.constructions %}
         <div class="col-xs-12 col-md-6 {% if loop.first %}col-md-offset-3{% endif %}" id="tour-{{ construction.building.name|slug }}">
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-home"></i><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a> <span data-toggle="tooltip" data-placement="top" title="Edificios que posees actualmente">[{{ construction.quantity|nf }}]</span> {% if not loop.first %}<span data-toggle="tooltip" data-placement="top" title="Edificios construidos por turno">({{ ((player.construction('Talleres').quantity + 1) / construction.building.buildingratio)|round(0, 'ceil') }}/<i class="fa fa-fw fa-hourglass-half"></i>)</span>{% endif %}</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-industry"></i><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a> <span data-toggle="tooltip" data-placement="top" title="Edificios que posees actualmente">[{{ construction.quantity|nf }}]</span> {% if not loop.first %}<span data-toggle="tooltip" data-placement="top" title="Edificios construidos por turno">({{ ((player.construction('Talleres').quantity + 1) / construction.building.buildingratio)|round(0, 'ceil') }}/<i class="fa fa-fw fa-hourglass-half"></i>)</span>{% endif %}</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -54,7 +54,7 @@
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-default" {% if player.construction('Tierras').quantity <= 0 %}disabled{% endif %}><i class="fa fa-fw fa-wrench"></i>Construir</button>
+                                    <button type="submit" class="btn btn-default" {% if player.construction('Tierras').quantity <= 0 %}disabled{% endif %}><i class="fa fa-fw fa-industry"></i>Construir</button>
                                 </div>
                                 <input type="number" class="form-control" id="lands" name="lands" min="1" max="{{ min(player.construction('Tierras').quantity, player.gold / max(construction.building.goldCost, 1), player.people / max(construction.building.peopleCost, 1), player.mana / max(construction.building.manaCost, 1)) }}" value="" placeholder="0" {% if player.construction('Tierras').quantity <= 0 %}disabled{% endif %} required />
                                 <input type="hidden" id="construction" name="construction" value="{{ construction.id }}" {% if player.construction('Tierras').quantity <= 0 %}disabled{% endif %} required />

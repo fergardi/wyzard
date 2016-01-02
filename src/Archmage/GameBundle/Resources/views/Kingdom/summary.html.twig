@@ -68,14 +68,14 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for construction in player.constructions %}
-                            <div class="col-xs-6"><i class="fa fa-fw fa-home"></i><span class="label label-extra"><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a></span> {{ construction.quantity|nf }}</div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-industry"></i><span class="label label-extra"><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a></span> {{ construction.quantity|nf }}</div>
                             {% endfor %}
                         </div>
                     </div>
                 </div>
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a href="{{ path('archmage_game_territory_explore') }}" class="btn btn-default"><i class="fa fa-fw fa-search"></i><span class="hidden-xs">Explorar</span></a>
-                    <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-default"><i class="fa fa-fw fa-wrench"></i><span class="hidden-xs">Construir</span></a>
+                    <a href="{{ path('archmage_game_territory_build') }}" class="btn btn-default"><i class="fa fa-fw fa-industry"></i><span class="hidden-xs">Construir</span></a>
                     <a href="{{ path('archmage_game_territory_demolish') }}" class="btn btn-default"><i class="fa fa-fw fa-bomb"></i><span class="hidden-xs">Derribar</span></a>
                 </div>
             </div>
@@ -147,7 +147,7 @@
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
                     <a href="{{ path('archmage_game_kingdom_auction') }}" class="btn btn-default"><i class="fa fa-fw fa-legal"></i><span class="hidden-xs">Contratar</span></a>
                     <a href="{{ path('archmage_game_magic_alchemy') }}" class="btn btn-default"><i class="fa fa-fw fa-flask"></i><span class="hidden-xs">Alquimia</span></a>
-                    <a href="{{ path('archmage_game_army_quest') }}" class="btn btn-default"><i class="fa fa-fw fa-map"></i><span class="hidden-xs">Aventura</span></a>
+                    <a href="{{ path('archmage_game_army_quest') }}" class="btn btn-default"><i class="fa fa-fw fa-map"></i><span class="hidden-xs">Aventuras</span></a>
                 </div>
             </div>
         </div>
@@ -168,14 +168,14 @@
                     </div>
                 </div>
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                    <a href="{{ path('archmage_game_magic_conjure') }}" class="btn btn-default"><i class="fa fa-fw fa-magic"></i><span class="hidden-xs">Hechizos</span></a>
+                    <a href="{{ path('archmage_game_magic_conjure') }}" class="btn btn-default"><i class="fa fa-fw fa-magic"></i><span class="hidden-xs">Conjurar</span></a>
                     <a href="{{ path('archmage_game_magic_artifact') }}" class="btn btn-default"><i class="fa fa-fw fa-diamond"></i><span class="hidden-xs">Artefactos</span></a>
                 </div>
             </div>
         </div>
         <div class="col-xs-12 col-md-6" id="tour-social">
             <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-user"></i>Social</div>
+                <div class="panel-heading text-center"><i class="fa fa-fw fa-group"></i>Social</div>
                 <div class="panel-body text-responsive">
                     <div class="row">
                         <div class="col-xs-4">
@@ -188,9 +188,9 @@
                     </div>
                 </div>
                 <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                    <a href="{{ path('archmage_game_account_message') }}" class="btn btn-default"><i class="fa fa-fw fa-envelope"></i><span class="hidden-xs">Mensajes</span></a>
-                    <a href="{{ path('archmage_game_account_ranking') }}" class="btn btn-default"><i class="fa fa-fw fa-line-chart"></i><span class="hidden-xs">Ranking</span></a>
                     <a href="{{ path('archmage_game_account_profile') }}" class="btn btn-default"><i class="fa fa-fw fa-trophy"></i><span class="hidden-xs">Perfil</span></a>
+                    <a href="{{ path('archmage_game_account_ranking') }}" class="btn btn-default"><i class="fa fa-fw fa-line-chart"></i><span class="hidden-xs">Ranking</span></a>
+                    <a href="{{ path('archmage_game_account_message') }}" class="btn btn-default"><i class="fa fa-fw fa-envelope"></i><span class="hidden-xs">Mensajes</span></a>
                 </div>
             </div>
         </div>
@@ -230,7 +230,7 @@
                             </tr>
                             {% for construction in player.constructions %}
                             <tr>
-                                <td class="text-left"><i class="fa fa-fw fa-home"></i><span class="label label-extra"><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a></span></td>
+                                <td class="text-left"><i class="fa fa-fw fa-industry"></i><span class="label label-extra"><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a></span></td>
                                 <td class="text-right">{{ construction.quantity|nf }}</td>
                                 <td class="text-right">{{ (construction.quantity * construction.building.power)|nf }}</td>
                                 <td class="text-right">{% if construction.building.armyDefenseRatio > 0 %}{{ (construction.quantity / construction.building.armyDefenseRatio)|nf }}{% else %}0{% endif %}%</td>

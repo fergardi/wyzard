@@ -52,6 +52,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Barracones' => rand(500,750),
                     'Barreras' => rand(100,300),
                     'Fortalezas' => rand(100,300),
+                    'Minas' => rand(100,300),
+                    'Establos' => rand(100,300),
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(10,30),
@@ -80,6 +82,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Barracones' => rand(500,750),
                     'Barreras' => rand(100,300),
                     'Fortalezas' => rand(100,300),
+                    'Minas' => rand(100,300),
+                    'Establos' => rand(100,300),
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(10,30),
@@ -108,6 +112,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Barracones' => rand(500,750),
                     'Barreras' => rand(100,300),
                     'Fortalezas' => rand(100,300),
+                    'Minas' => rand(100,300),
+                    'Establos' => rand(100,300),
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(10,30),
@@ -136,6 +142,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Barracones' => rand(500,750),
                     'Barreras' => rand(100,300),
                     'Fortalezas' => rand(100,300),
+                    'Minas' => rand(100,300),
+                    'Establos' => rand(100,300),
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(10,30),
@@ -164,6 +172,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Barracones' => rand(500,750),
                     'Barreras' => rand(100,300),
                     'Fortalezas' => rand(100,300),
+                    'Minas' => rand(100,300),
+                    'Establos' => rand(100,300),
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(10,30),
@@ -234,7 +244,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
 
         /*
          * TEST PLAYER
-
+*/
 
         //player
         $player = new Player();
@@ -251,8 +261,10 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             'Gremios' => 10,
             'Talleres' => 10,
             'Barracones' => 10,
-            'Barreras' => 3,
-            'Fortalezas' => 3,
+            'Barreras' => 0,
+            'Fortalezas' => 0,
+            'Minas' => 3,
+            'Establos' => 3,
         );
         foreach ($constructions as $name => $quantity) {
             $construction = new Construction();
@@ -280,7 +292,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         $user->setPlainPassword('fergardi');
         $userManager->updateUser($user);
 
-        */
+
 
         //FLUSH
         $manager->flush();

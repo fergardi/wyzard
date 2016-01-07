@@ -164,16 +164,30 @@ class Building
     /**
      * @var integer
      *
-     * @ORM\Column(name="power", type="integer", nullable=false)
+     * @ORM\Column(name="summonRatio", type="integer", nullable=false)
      */
-    private $power = 0;
+    private $summonRatio = 0;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="summonRatio", type="integer", nullable=false)
+     * @ORM\Column(name="maintenanceRatio", type="integer", nullable=false)
      */
-    private $summonRatio = 0;
+    private $maintenanceRatio = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="productionRatio", type="integer", nullable=false)
+     */
+    private $productionRatio = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="power", type="integer", nullable=false)
+     */
+    private $power = 0;
 
 
     /**
@@ -302,29 +316,6 @@ class Building
     }
 
     /**
-     * Set manaCost
-     *
-     * @param integer $manaCost
-     * @return Building
-     */
-    public function setManaCost($manaCost)
-    {
-        $this->manaCost = $manaCost;
-
-        return $this;
-    }
-
-    /**
-     * Get manaCost
-     *
-     * @return integer 
-     */
-    public function getManaCost()
-    {
-        return $this->manaCost;
-    }
-
-    /**
      * Set peopleCost
      *
      * @param integer $peopleCost
@@ -345,6 +336,29 @@ class Building
     public function getPeopleCost()
     {
         return $this->peopleCost;
+    }
+
+    /**
+     * Set manaCost
+     *
+     * @param integer $manaCost
+     * @return Building
+     */
+    public function setManaCost($manaCost)
+    {
+        $this->manaCost = $manaCost;
+
+        return $this;
+    }
+
+    /**
+     * Get manaCost
+     *
+     * @return integer 
+     */
+    public function getManaCost()
+    {
+        return $this->manaCost;
     }
 
     /**
@@ -371,29 +385,6 @@ class Building
     }
 
     /**
-     * Set manaMaintenance
-     *
-     * @param integer $manaMaintenance
-     * @return Building
-     */
-    public function setManaMaintenance($manaMaintenance)
-    {
-        $this->manaMaintenance = $manaMaintenance;
-
-        return $this;
-    }
-
-    /**
-     * Get manaMaintenance
-     *
-     * @return integer 
-     */
-    public function getManaMaintenance()
-    {
-        return $this->manaMaintenance;
-    }
-
-    /**
      * Set peopleMaintenance
      *
      * @param integer $peopleMaintenance
@@ -414,6 +405,29 @@ class Building
     public function getPeopleMaintenance()
     {
         return $this->peopleMaintenance;
+    }
+
+    /**
+     * Set manaMaintenance
+     *
+     * @param integer $manaMaintenance
+     * @return Building
+     */
+    public function setManaMaintenance($manaMaintenance)
+    {
+        $this->manaMaintenance = $manaMaintenance;
+
+        return $this;
+    }
+
+    /**
+     * Get manaMaintenance
+     *
+     * @return integer 
+     */
+    public function getManaMaintenance()
+    {
+        return $this->manaMaintenance;
     }
 
     /**
@@ -440,29 +454,6 @@ class Building
     }
 
     /**
-     * Set manaResource
-     *
-     * @param integer $manaResource
-     * @return Building
-     */
-    public function setManaResource($manaResource)
-    {
-        $this->manaResource = $manaResource;
-
-        return $this;
-    }
-
-    /**
-     * Get manaResource
-     *
-     * @return integer 
-     */
-    public function getManaResource()
-    {
-        return $this->manaResource;
-    }
-
-    /**
      * Set peopleResource
      *
      * @param integer $peopleResource
@@ -483,6 +474,29 @@ class Building
     public function getPeopleResource()
     {
         return $this->peopleResource;
+    }
+
+    /**
+     * Set manaResource
+     *
+     * @param integer $manaResource
+     * @return Building
+     */
+    public function setManaResource($manaResource)
+    {
+        $this->manaResource = $manaResource;
+
+        return $this;
+    }
+
+    /**
+     * Get manaResource
+     *
+     * @return integer 
+     */
+    public function getManaResource()
+    {
+        return $this->manaResource;
     }
 
     /**
@@ -509,29 +523,6 @@ class Building
     }
 
     /**
-     * Set manaCap
-     *
-     * @param integer $manaCap
-     * @return Building
-     */
-    public function setManaCap($manaCap)
-    {
-        $this->manaCap = $manaCap;
-
-        return $this;
-    }
-
-    /**
-     * Get manaCap
-     *
-     * @return integer 
-     */
-    public function getManaCap()
-    {
-        return $this->manaCap;
-    }
-
-    /**
      * Set peopleCap
      *
      * @param integer $peopleCap
@@ -552,6 +543,29 @@ class Building
     public function getPeopleCap()
     {
         return $this->peopleCap;
+    }
+
+    /**
+     * Set manaCap
+     *
+     * @param integer $manaCap
+     * @return Building
+     */
+    public function setManaCap($manaCap)
+    {
+        $this->manaCap = $manaCap;
+
+        return $this;
+    }
+
+    /**
+     * Get manaCap
+     *
+     * @return integer 
+     */
+    public function getManaCap()
+    {
+        return $this->manaCap;
     }
 
     /**
@@ -662,11 +676,57 @@ class Building
     /**
      * Get summonRatio
      *
-     * @return integer
+     * @return integer 
      */
     public function getSummonRatio()
     {
         return $this->summonRatio;
+    }
+
+    /**
+     * Set maintenanceRatio
+     *
+     * @param integer $maintenanceRatio
+     * @return Building
+     */
+    public function setMaintenanceRatio($maintenanceRatio)
+    {
+        $this->maintenanceRatio = $maintenanceRatio;
+
+        return $this;
+    }
+
+    /**
+     * Get maintenanceRatio
+     *
+     * @return integer 
+     */
+    public function getMaintenanceRatio()
+    {
+        return $this->maintenanceRatio;
+    }
+
+    /**
+     * Set productionRatio
+     *
+     * @param integer $productionRatio
+     * @return Building
+     */
+    public function setProductionRatio($productionRatio)
+    {
+        $this->productionRatio = $productionRatio;
+
+        return $this;
+    }
+
+    /**
+     * Get productionRatio
+     *
+     * @return integer 
+     */
+    public function getProductionRatio()
+    {
+        return $this->productionRatio;
     }
 
     /**

@@ -356,7 +356,8 @@ class Player
      */
     public function setMagic($magic)
     {
-        $this->magic = min(self::MAGICLEVEL_CAP, $magic);
+        if ($this->getGod()) $this->magic = $magic;
+        else $this->magic = min(self::MAGICLEVEL_CAP, $magic);
 
         return $this;
     }

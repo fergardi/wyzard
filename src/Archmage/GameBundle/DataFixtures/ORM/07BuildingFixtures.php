@@ -234,7 +234,7 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $building = new Building();
         $building->setName('Barracones');
         $building->setDescription('Aumentan la cantidad de <span class="label label-extra">Tropas</span> invocadas.');
-        $building->setLore('Borrachos y maleantes. Y tuyos, si les pagas bien.');
+        $building->setLore('Unas instalaciones cómodas favorecen el reclutamiento de tropas...');
         $building->setImage('bundles/archmagegame/images/building/barrack.png');
         $building->setGoldCost(1000);
         $building->setPeopleCost(500);

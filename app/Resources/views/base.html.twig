@@ -111,7 +111,7 @@
             <script>
                 /* TOUR */
                 var tour = new Tour({
-                    duration: 7500,
+                    duration: 10000,
                     storage: window.localStorage,
                     template: "<div class='popover tour'><div class='arrow'></div><h3 class='popover-title text-center'></h3><div class='popover-content'></div><div class='popover-footer text-center' style='width:100%;'><div class='popover-navigation btn-group' role='group'><button class='btn btn-sm btn-default' data-role='prev'><i class='fa fa-fw fa-backward'></i></button><button class='btn btn-sm btn-default' data-role='next'><i class='fa fa-fw fa-forward'></i></button><button class='btn btn-sm btn-default' onclick='tour.pause();'><i class='fa fa-fw fa-pause'></i></button><button class='btn btn-sm btn-default' onclick='tour.resume();'><i class='fa fa-fw fa-play'></i></button><button class='btn btn-sm btn-default' data-role='end'><i class='fa fa-fw fa-stop'></i></button></div></div>",
                     steps: [
@@ -119,7 +119,7 @@
                             path: "{{ path('archmage_game_kingdom_summary') }}",
                             orphan: true,
                             title: "(1/26) Bienvenido!",
-                            content: "Al principio este juego puede parecer un poco complicado, pero con mi tutorial aprenderás a jugar en menos de 5 minutos!"
+                            content: "Al principio este juego puede parecer un poco complicado, pero con mi tutorial aprenderás a jugar en menos de 5 minutos! Es automático."
                         }, {
                             path: "{{ path('archmage_game_kingdom_summary') }}",
                             element: "#tour-resources",

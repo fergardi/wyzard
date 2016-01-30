@@ -4,7 +4,7 @@
 
 {% block fos_user_content %}
 <div class="container">
-    <div class="jumbotron text-center">
+    <div class="jumbotron col-md-4 col-md-offset-4 text-center">
         {% include "ArchmageUserBundle::logo.html.twig" %}
         <form id="login" name="login" class="form-signin" data-toggle="validator" action="{{ path("fos_user_security_check") }}" method="post">
             <div class="form-group has-feedback">
@@ -18,13 +18,21 @@
             <button type="submit" id="submit" name="_submit" class="btn btn-lg btn-default btn-block"><i class="fa fa-fw fa-lg fa-sign-in"></i>Entrar</button>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
         </form>
-        <a href="{{ path('fos_user_registration_register') }}" class="link">Registro</a> -
-        <a href="{{ path('fos_user_resetting_request') }}" class=link>Contraseña</a> -
-        <a href="{{ path('archmage_game_home_help') }}" class="link">Ayuda</a> -
-        <a href="{{ path('archmage_game_home_patch') }}" class="link">Parches</a>
-        <br/>
-        <br/>
-        {% include "ArchmageUserBundle::factions.html.twig" %}
+        <div class="row">
+            <div class="col-xs-6 text-right">
+                <a href="{{ path('fos_user_registration_register') }}" class="link">Registrarse</a>
+            </div>
+            <div class="col-xs-6 text-left">
+                <a href="{{ path('fos_user_resetting_request') }}" class=link>Contraseña</a>
+            </div>
+            <div class="col-xs-6 text-right">
+                <a href="{{ path('archmage_game_home_help') }}" class="link">Ayuda</a>
+            </div>
+            <div class="col-xs-6 text-left">
+                <a href="{{ path('archmage_game_home_patch') }}" class="link">Parches</a>
+            </div>
+        </div>
+        {# include "ArchmageUserBundle::factions.html.twig" #}
     </div>
 </div>
 {% endblock %}

@@ -7,7 +7,7 @@
     <div class="jumbotron text-center">
         {% include "ArchmageUserBundle::logo.html.twig" %}
         <form id="register" name="register" class="form-signin" data-toggle="validator" action="{{ path("fos_user_registration_register") }}" {{ form_enctype(form) }} method="post">
-            <select class="selectpicker" id="faction" name="faction" data-live-search="false" data-style="btn-default btn-lg">
+            <select class="selectpicker" id="faction" name="faction" data-live-search="false" data-style="btn-default btn-lg" title="Escoge una facción" required>
             {% for faction in factions %}
                 <option value="{{ faction.id }}" data-content="<span class='label label-{{ faction.class }}'>{{ faction.name }}</span>">{{ faction.name }}</option>
             {% endfor %}

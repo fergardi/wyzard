@@ -13,8 +13,8 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
      * Const
      */
     const MANA_COST = 50000;
-    const TURNS_RESEARCH = 50;
-    const TURNS_EXPIRATION = 50;
+    const TURNS_RESEARCH = 100;
+    const TURNS_EXPIRATION = 100;
     const TURNS_BATTLE = 0;
     const TURNS_SUMMON = 2;
     const TURNS_UTILITY = 5;

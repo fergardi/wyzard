@@ -1188,7 +1188,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //TELA DE ARAÑA
         $skill = new Skill();
         $skill->setName('Tela de Araña');
-        $skill->setSpeedBonus(-1);
+        $skill->setSpeedBonus(-2);
         $skill->setBattle(true);
         $skill->setDescription($skill->getSpeedBonus().' <span class="label label-extra">Velocidad</span> a las tropas enemigas');
         $this->setReference($skill->getName(), $skill);
@@ -1281,7 +1281,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //ANILLO AVARICIOSO
         $skill = new Skill();
         $skill->setName('Anillo Avaricioso');
-        $skill->setGoldBonus(10);
+        $skill->setGoldBonus(20);
         $skill->setSelf(true);
         $skill->setDescription('+'.$skill->getGoldBonus().'% <span class="label label-extra">Oro</span> a tu Reino al <i class="fa fa-fw fa-hourglass-half"></i>');
         $this->setReference($skill->getName(), $skill);
@@ -1290,7 +1290,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //ANILLO ENCANTADOR
         $skill = new Skill();
         $skill->setName('Anillo Encantador');
-        $skill->setPeopleBonus(10);
+        $skill->setPeopleBonus(20);
         $skill->setSelf(true);
         $skill->setDescription('+'.$skill->getPeopleBonus().'% <span class="label label-extra">Población</span> a tu Reino al <i class="fa fa-fw fa-hourglass-half"></i>');
         $this->setReference($skill->getName(), $skill);
@@ -1299,7 +1299,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //ANILLO PODEROSO
         $skill = new Skill();
         $skill->setName('Anillo Poderoso');
-        $skill->setManaBonus(10);
+        $skill->setManaBonus(20);
         $skill->setSelf(true);
         $skill->setDescription('+'.$skill->getManaBonus().'% <span class="label label-extra">Maná</span> a tu Reino al <i class="fa fa-fw fa-hourglass-half"></i>');
         $this->setReference($skill->getName(), $skill);
@@ -1318,7 +1318,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //ANILLO INVOCADOR
         $skill = new Skill();
         $skill->setName('Anillo Invocador');
-        $skill->setSummonBonus(10);
+        $skill->setSummonBonus(20);
         $skill->setSelf(true);
         $skill->setDescription('+'.$skill->getSummonBonus().'% cantidad de <span class="label label-extra">Tropas</span> invocadas');
         $this->setReference($skill->getName(), $skill);
@@ -1558,20 +1558,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDescription('+'.$skill->getResurrectionBonus().'% de tropas por <i class="fa fa-fw fa-star"></i> resucitan como <span class="label label-'.$skill->getUnit()->getFaction()->getClass().'"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'#'.$this->container->get('service.controller')->toSlug($skill->getUnit()->getName()).'" class="link">'.$skill->getUnit()->getName().'</a></span>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
-
-        /*
-         * APOCALIPSIS
-
-
-        //APOCALIPSIS
-        $skill = new Skill();
-        $skill->setName('Apocalipsis');
-        $skill->setWin(true);
-        $skill->setSelf(true);
-        $skill->setDescription('Si lo mantienes hasta que se gaste, <span class="label label-extra">Ganas el Juego</span>');
-        $this->setReference($skill->getName(), $skill);
-        $manager->persist($skill);
-        */
 
         //FLUSH
         $manager->flush();

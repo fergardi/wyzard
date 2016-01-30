@@ -19,10 +19,10 @@ class ArmyController extends Controller
      */
     const BROKEN = 3;
     const STEAL_PERCENT = 5;
-    const FACTION_BONUS = 20;
-    const TYPE_BONUS = 20;
+    const FACTION_BONUS = 100;
+    const TYPE_BONUS = 100;
     const SPEED_BONUS = 5;
-    const HERO_EXPERIENCE = 20;
+    const HERO_EXPERIENCE = 50;
     const BONUS_CAP = 0.10;
 
     /**

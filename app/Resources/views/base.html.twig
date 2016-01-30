@@ -44,7 +44,11 @@
     </head>
     {# body #}
     <body>
-        <img src="{{ asset('bundles/archmagegame/images/background/theme.jpg') }}" class="background" />
+        {% if app.user %}
+            <img src="{{ asset( app.user.player.faction.background ) }}" class="background" />
+        {% else %}
+            <img src="{{ asset('bundles/archmagegame/images/background/theme.jpg') }}" class="background" />
+        {% endif %}
         {# block topbar menu #}
         {% block navbar %}{% endblock %}
         {# block flashbag messages #}

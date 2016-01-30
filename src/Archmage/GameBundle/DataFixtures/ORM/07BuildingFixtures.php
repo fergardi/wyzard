@@ -275,64 +275,6 @@ class BuildingFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->addReference($building->getName(), $building);
         $manager->persist($building);
 
-        //MINAS
-        $building = new Building();
-        $building->setName('Minas');
-        $building->setDescription('Aumentan la cantidad de <span class="label label-extra">Recursos</span> producidos.');
-        $building->setLore('Los Enanos son muy sabios obteniendo recursos naturales.');
-        $building->setImage('bundles/archmagegame/images/building/mine.png');
-        $building->setGoldCost(1500);
-        $building->setPeopleCost(1500);
-        $building->setManaCost(1500);
-        $building->setGoldMaintenance(30);
-        $building->setPeopleMaintenance(20);
-        $building->setManaMaintenance(10);
-        $building->setGoldResource(0);
-        $building->setPeopleResource(0);
-        $building->setManaResource(0);
-        $building->setGoldCap(0);
-        $building->setPeopleCap(10);
-        $building->setManaCap(0);
-        $building->setBuildingRatio(50);
-        $building->setResearchRatio(0);
-        $building->setMagicDefenseRatio(0);
-        $building->setArmyDefenseRatio(0);
-        $building->setSummonRatio(0);
-        $building->setProductionRatio(10);
-        $building->setMaintenanceRatio(0);
-        $building->setPower(1500);
-        $this->addReference($building->getName(), $building);
-        $manager->persist($building);
-
-        //ESTABLOS
-        $building = new Building();
-        $building->setName('Establos');
-        $building->setDescription('Reducen el coste de <span class="label label-extra">Mantenimientos</span> al turno.');
-        $building->setLore('Carretas y caballos para expandir nuestros mercados!');
-        $building->setImage('bundles/archmagegame/images/building/barn.png');
-        $building->setGoldCost(1000);
-        $building->setPeopleCost(1000);
-        $building->setManaCost(1000);
-        $building->setGoldMaintenance(30);
-        $building->setPeopleMaintenance(20);
-        $building->setManaMaintenance(10);
-        $building->setGoldResource(0);
-        $building->setPeopleResource(0);
-        $building->setManaResource(0);
-        $building->setGoldCap(0);
-        $building->setPeopleCap(10);
-        $building->setManaCap(0);
-        $building->setBuildingRatio(50);
-        $building->setResearchRatio(0);
-        $building->setMagicDefenseRatio(0);
-        $building->setArmyDefenseRatio(0);
-        $building->setSummonRatio(0);
-        $building->setProductionRatio(0);
-        $building->setMaintenanceRatio(30);
-        $building->setPower(1500);
-        $this->addReference($building->getName(), $building);
-        $manager->persist($building);
-
         $manager->flush();
     }
 

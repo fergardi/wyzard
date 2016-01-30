@@ -31,9 +31,16 @@ class Faction
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @ORM\Column(name="image", type="string", length=255, nullable=false)
      */
     private $image;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="background", type="string", length=255, nullable=false)
+     */
+    private $background;
 
     /**
      * @var string
@@ -126,6 +133,29 @@ class Faction
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set background
+     *
+     * @param string $background
+     * @return Faction
+     */
+    public function setBackground($background)
+    {
+        $this->background = $background;
+
+        return $this;
+    }
+
+    /**
+     * Get background
+     *
+     * @return string
+     */
+    public function getBackground()
+    {
+        return $this->background;
     }
 
     /**

@@ -17,7 +17,8 @@ class FactionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $faction = new Faction();
         $faction->setName('Caos');
         $faction->setImage('bundles/archmagegame/images/faction/doom.png');
-        $faction->setDescription('Sedienta de gloria y sangre, esta facción masacra al adversario con destructivos hechizos y fuertes unidades, a veces sacrificando defensa en pos de más fuerza.');
+        $faction->setBackground('bundles/archmagegame/images/background/doom.jpg');
+        $faction->setDescription('Sedienta de gloria y sangre, esta facción masacra al adversario con destructivos hechizos y fuertes unidades, a veces sacrificando defensa en pos de más ataque.');
         $faction->setClass('danger');
         $faction->setSlogan('Sangre y Fuego');
         $faction->setLore('Bárbaros, locos, y extremadamente peligrosos.');
@@ -27,6 +28,7 @@ class FactionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $faction = new Faction();
         $faction->setName('Fantasmal');
         $faction->setImage('bundles/archmagegame/images/faction/ghost.png');
+        $faction->setBackground('bundles/archmagegame/images/background/ghost.jpg');
         $faction->setDescription('Siempre buscando adquirir mayor conocimiento de la magia, esta facción dependerá de sus trucos y habilidades innatas para tornar la situación en su favor.');
         $faction->setClass('info');
         $faction->setSlogan('Mente y Ciencia');
@@ -37,6 +39,7 @@ class FactionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $faction = new Faction();
         $faction->setName('Naturaleza');
         $faction->setImage('bundles/archmagegame/images/faction/nature.png');
+        $faction->setBackground('bundles/archmagegame/images/background/nature.jpg');
         $faction->setDescription('En comunión con bosques y criaturas que lo pueblan, esta facción tendrá el favor de la madre naturaleza y de sus creaciones, aunque puede ser traicionera.');
         $faction->setClass('success');
         $faction->setSlogan('Roca y Tierra');
@@ -47,6 +50,7 @@ class FactionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $faction = new Faction();
         $faction->setName('Oscuridad');
         $faction->setImage('bundles/archmagegame/images/faction/darkness.png');
+        $faction->setBackground('bundles/archmagegame/images/background/darkness.jpg');
         $faction->setDescription('Muy cercana a la noche y las criaturas que abraza, esta facción entiende e incluso saca partido a la muerte, convirtiéndola en una gran aliada.');
         $faction->setClass('warning');
         $faction->setSlogan('Polvo y Hueso');
@@ -57,6 +61,7 @@ class FactionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $faction = new Faction();
         $faction->setName('Sagrado');
         $faction->setImage('bundles/archmagegame/images/faction/holy.png');
+        $faction->setBackground('bundles/archmagegame/images/background/holy.jpg');
         $faction->setDescription('Recta y justa, esta facción obtiene el favor de los cielos y sus seres, otorgándole escudo y defensa sin igual, siendo capaz de aguantar oleadas de enemigos sin vacilar.');
         $faction->setClass('primary');
         $faction->setSlogan('Luz y Gloria');
@@ -68,6 +73,7 @@ class FactionFixtures extends AbstractFixture implements OrderedFixtureInterface
         $faction = new Faction();
         $faction->setName('Neutral');
         $faction->setImage('bundles/archmagegame/images/faction/neutral.png');
+        $faction->setBackground('bundles/archmagegame/images/factionbackgroundneutral.png');
         $faction->setDescription('Alejada del resto, los neutrales no participan en esta contienda milenaria por el dominio de estas tierras, aunque ellos crearon los Artefactos.');
         $faction->setClass('default');
         $faction->setSlogan('Paz y Armonía');

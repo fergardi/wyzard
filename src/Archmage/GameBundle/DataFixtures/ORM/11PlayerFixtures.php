@@ -224,7 +224,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $player->setPeople($player->getPeopleCap());
             $player->setMana($player->getManaCap());
             $player->setTurns(300);
-            $player->setMagic(5);
+            $player->setMagic(10);
             //achievements
             $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
             foreach ($achievements as $achievement) {
@@ -233,8 +233,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         }
 
         //TEST PLAYER
-
         /*
+
         //player
         $player = new Player();
         $manager->persist($player);

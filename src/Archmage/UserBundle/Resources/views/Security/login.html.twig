@@ -20,16 +20,16 @@
         </form>
         <div class="row">
             <div class="col-xs-6 text-right">
-                <a href="{{ path('fos_user_registration_register') }}" class="link">Registrarse</a>
+                <a href="{{ path('fos_user_registration_register') }}" class="link">Registrarse <span class="fa fa-edit"></span></a>
             </div>
             <div class="col-xs-6 text-left">
-                <a href="{{ path('fos_user_resetting_request') }}" class=link>Contraseña</a>
+                <a href="{{ path('fos_user_resetting_request') }}" class=link><span class="fa fa-refresh"></span> Contraseña</a>
             </div>
             <div class="col-xs-6 text-right">
-                <a href="{{ path('archmage_game_home_help') }}" class="link">Ayuda</a>
+                <a href="{{ path('archmage_game_home_help') }}" class="link">Ayuda <span class="fa fa-book"></span></a>
             </div>
             <div class="col-xs-6 text-left">
-                <a href="{{ path('archmage_game_home_patch') }}" class="link">Parches</a>
+                <a href="{{ path('archmage_game_home_patch') }}" class="link"><span class="fa fa-medkit"></span> Parches</a>
             </div>
         </div>
         {# include "ArchmageUserBundle::factions.html.twig" #}

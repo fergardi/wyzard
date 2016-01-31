@@ -232,10 +232,9 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             }
         }
 
+        //TEST PLAYER
+
         /*
-         * TEST PLAYER
-
-
         //player
         $player = new Player();
         $manager->persist($player);

@@ -30,7 +30,6 @@
                 <a href="#heroes" class="btn btn-default"><i class="fa fa-fw fa-user"></i><span class="hidden-xs">Héroes</span></a>
                 <a href="#hechizos" class="btn btn-default"><i class="fa fa-fw fa-magic"></i><span class="hidden-xs">Hechizos</span></a>
                 <a href="#artefactos" class="btn btn-default"><i class="fa fa-fw fa-joomla"></i><span class="hidden-xs">Artefactos</span></a>
-                <a href="#comentarios" class="btn btn-default"><i class="fa fa-fw fa-commenting"></i><span class="hidden-xs">Comentarios</span></a>
             </div>
         </div>
         <div class="col-xs-12">
@@ -391,20 +390,6 @@
             </div>
         </div>
         {% endfor %}
-        <div class="col-xs-12">
-            <div class="page-header text-center"><a name="comentarios"></a>
-                <h1><i class="fa fa-fw fa-commenting"></i>Comentarios</h1>
-            </div>
-        </div>
-        <div class="col-xs-12">
-            <div class="panel panel-default">
-                <div class="panel-heading text-center"><i class="fa fa-fw fa-pencil-square-o"></i>Comenta errores, nuevas ideas, sugerencias, quejas...</div>
-                <div class="panel-body text-only">
-                    {{ knp_disqus_render('Wyzard', {'identifier': '/help#comentarios', 'limit': 100}) }}
-                </div>
-                <div class="panel-footer text-center">Modero severamente los comentarios, así que nada de chorradas!</div>
-            </div>
-        </div>
     </div>
 </div>
 {% endblock %}

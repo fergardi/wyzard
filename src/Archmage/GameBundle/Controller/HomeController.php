@@ -17,6 +17,15 @@ class HomeController extends Controller
     }
 
     /**
+     * @Route("/contact")
+     * @Template("ArchmageGameBundle:Home:contact.html.twig")
+     */
+    public function contactAction()
+    {
+        return array();
+    }
+
+    /**
      * @Route("/help")
      * @Template("ArchmageGameBundle:Home:help.html.twig")
      */

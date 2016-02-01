@@ -6,11 +6,14 @@
                 <span class="sr-only">Toggle navigation</span>
                 <i class="fa fa-fw fa-bars"></i>
             </button>
+            {% if app.user %}
             <a class="navbar-brand" href="{{ path('archmage_game_kingdom_summary') }}" id="navbar-summary"><i class="fa fa-fw fa-lg fa-bar-chart"></i>Resumen</a>
+            {% endif %}
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapsable">
             <ul class="nav navbar-nav navbar-right">
+                {% if app.user %}
                 <li class="dropdown" id="navbar-kingdom">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-fort-awesome"></i>Reino<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -56,6 +59,7 @@
                         <li><a href="{{ path('archmage_game_account_legend') }}"><i class="fa fa-fw fa-lg fa-star"></i>Leyendas</a></li>
                     </ul>
                 </li>
+                {% endif %}
                 <li class="dropdown" id="navbar-help">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-lg fa-question-circle"></i>Ayuda<span class="fa fa-fw fa-lg fa-caret-down"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -64,8 +68,10 @@
                         {% if app.user %}<li><a href="#" data-toggle="collapse" data-target="#navbar-collapsable" id="tour-start"><i class="fa fa-fw fa-lg fa-map-signs"></i>Tutorial</a></li>{% endif %}
                         <li><a href="{{ path('archmage_game_home_patch') }}"><i class="fa fa-fw fa-lg fa-medkit"></i>Parches</a></li>
                         <li><a href="{{ path('archmage_game_home_about') }}"><i class="fa fa-fw fa-lg fa-info-circle"></i>Acerca de</a></li>
+                        {% if app.user %}
                         <li class="divider"></li>
                         <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-fw fa-lg fa-sign-out"></i>Salir</a></li>
+                        {% endif %}
                     </ul>
                 </li>
             </ul>

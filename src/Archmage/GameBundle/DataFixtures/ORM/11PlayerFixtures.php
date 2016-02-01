@@ -232,7 +232,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             }
         }
 
-        /*
         //TEST PLAYER
         $player = new Player();
         $manager->persist($player);
@@ -276,8 +275,6 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         $user->setUsername($player->getNick());
         $user->setPlainPassword('fergardi');
         $userManager->updateUser($user);
-        */
-
 
         //FLUSH
         $manager->flush();

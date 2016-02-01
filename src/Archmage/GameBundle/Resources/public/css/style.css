@@ -416,3 +416,8 @@ html {-webkit-text-size-adjust: none !important;}
 #sortable .panel-heading {
     cursor: move;
 }
+/* CAROUSEL */
+#carousel-screenshots, #carousel-screenshots > img {
+    border-radius: 10px;
+    overflow: hidden;
+}

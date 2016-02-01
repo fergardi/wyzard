@@ -418,6 +418,6 @@ html {-webkit-text-size-adjust: none !important;}
 }
 /* CAROUSEL */
 #carousel-screenshots, #carousel-screenshots > img {
-    border-radius: 10px;
+    border-radius: 3px;
     overflow: hidden;
 }

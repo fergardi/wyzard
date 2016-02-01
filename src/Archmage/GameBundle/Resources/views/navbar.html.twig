@@ -8,6 +8,8 @@
             </button>
             {% if app.user %}
             <a class="navbar-brand" href="{{ path('archmage_game_kingdom_summary') }}" id="navbar-summary"><i class="fa fa-fw fa-lg fa-bar-chart"></i>Resumen</a>
+            {% else %}
+            <a class="navbar-brand" href="{{ path('fos_user_security_login') }}" id="navbar-summary"><i class="fa fa-fw fa-lg fa-sign-in"></i>Entrar</a>
             {% endif %}
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->

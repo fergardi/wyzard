@@ -236,14 +236,14 @@
                             <div class="col-xs-4"><i class="fa fa-fw fa-money"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Oro al turno">-{{ unit.goldMaintenance|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-users"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Personas al turno">-{{ unit.peopleMaintenance|nf }}</span></div>
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento de Maná al turno">-{{ unit.manaMaintenance|nf }}</span></div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-user"></i><span data-toggle="tooltip" data-placement="top" title="Familia de la tropa">{{ unit.family.name }}</span></div>
-                            <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i><span data-toggle="tooltip" data-placement="top" title="Tipo de la tropa">{{ unit.type.name }}</span></div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-user"></i><span data-toggle="tooltip" data-placement="top" title="Familia de la tropa, importante para ciertos Hechizos o Héroes">{{ unit.family.name }}</span></div>
+                            <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i><span data-toggle="tooltip" data-placement="top" title="Tipo de la tropa, importante para el bonus de unidad y ciertos Hechizos">{{ unit.type.name }}</span></div>
                             <div class="col-xs-12 text-lore"><small><i>{{ unit.lore }}</i></small></div>
                         </div>
                     </div>
                 </div>
                 <div class="panel-footer text-center text-responsive">
-                    <i class="fa fa-fw fa-joomla"></i>{% if unit.skill %}{{ unit.skill.description|raw }}{% else %}Ninguna{% endif %}
+                    <i class="fa fa-fw fa-joomla"></i>{% if unit.skill %}<span data-toggle="tooltip" data-placement="top" title="{{ unit.skill.description }}">{{ unit.skill.name }}</span>{% else %}<span data-toggle="tooltip" data-placement="top" title="Esta tropa no tiene habilidad especial">Ninguna</span>{% endif %}
                 </div>
                 {# TAGS FOR SEARCH #}
                 <span class="hidden">Unidades, Tropas, {{ unit.faction.name }}</span>

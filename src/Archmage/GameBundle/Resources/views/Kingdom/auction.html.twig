@@ -127,7 +127,7 @@
                             <div class="col-xs-4"><i class="fa fa-fw fa-tint"></i><span data-toggle="tooltip" data-placement="top" title="Mantenimiento total de Maná al turno">-{{ (auction.troop.unit.manaMaintenance * auction.troop.quantity)|nf }}</span></div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-user"></i><span data-toggle="tooltip" data-placement="top" title="Familia de la tropa">{{ auction.troop.unit.family.name }}</span></div>
                             <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i><span data-toggle="tooltip" data-placement="top" title="Tipo de la tropa">{{ auction.troop.unit.type.name }}</span></div>
-                            {# <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{% if auction.troop.unit.skill is not null %}{{ auction.troop.unit.skill.description|raw }}{% else %}Ninguna{% endif %}</div> #}
+                            <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{% if auction.troop.unit.skill %}<span data-toggle="tooltip" data-placement="top" title="{{ auction.troop.unit.skill.description }}">{{ auction.troop.unit.skill.name }}</span>{% else %}<span data-toggle="tooltip" data-placement="top" title="Esta tropa no tiene habilidad especial">Ninguna</span>{% endif %}</div>
                             <div class="col-xs-12 text-lore"><small><i>{{ auction.troop.unit.lore }}</i></small></div>
                         </div>
                     </div>

@@ -27,6 +27,7 @@ img.background {
 }
 .page-header {
     margin-top: 0;
+    border: none;
 }
 .page-header, .jumbotron > hr {
     border-color: white;

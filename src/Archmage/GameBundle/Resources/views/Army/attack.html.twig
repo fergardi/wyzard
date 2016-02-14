@@ -31,7 +31,7 @@
                             <div class="col-xs-12">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <select class="form-control selectpicker show-tick dropup" id="type" name="type" data-live-search="false" data-size="3" title="Tipo">
+                                        <select class="form-control selectpicker show-tick dropup" id="type" name="type" data-live-search="false" data-size="3" title="Tipo" required="required">
                                             <option value="conquest" data-content="<span class='label label-extra'>Conquista</span>">Conquista</option>
                                             <option value="pillage" data-content="<span class='label label-extra'>Pillaje</span>">Pillaje</option>
                                             <option value="siege" data-content="<span class='label label-extra'>Asedio</span>">Asedio</option>
@@ -42,7 +42,7 @@
                             <div class="col-xs-12">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <select class="form-control selectpicker show-tick dropup" id="target" name="target" data-live-search="true" data-size="5" title="Objetivo">
+                                        <select class="form-control selectpicker show-tick dropup" id="target" name="target" data-live-search="true" data-size="5" title="Objetivo" required="required">
                                             {% for target in targets if target != player %}
                                             <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}'>{{ target.nick }}</span>">{{ target.nick }}</option>
                                             {% endfor %}
@@ -107,7 +107,7 @@
                                 <div class="col-xs-6"><i class="fa fa-fw fa-user"></i><span data-toggle="tooltip" data-placement="top" title="Familia de la tropa">{{ troop.unit.family.name }}</span></div>
                                 <div class="col-xs-6"><i class="fa fa-fw fa-cogs"></i><span data-toggle="tooltip" data-placement="top" title="Tipo de la tropa">{{ troop.unit.type.name }}</span></div>
                                 {# row #}
-                                {# <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i><a href="#">Habilidad</a></div> #}
+                                <div class="col-xs-12"><i class="fa fa-fw fa-joomla"></i>{% if troop.unit.skill %}<span data-toggle="tooltip" data-placement="top" title="{{ troop.unit.skill.description }}">{{ troop.unit.skill.name }}</span>{% else %}<span data-toggle="tooltip" data-placement="top" title="Esta tropa no tiene habilidad especial">Ninguna</span>{% endif %}</div>
                                 {# row #}
                                 <div class="col-xs-12 text-lore"><small><i>{{ troop.unit.lore }}</i></small></div>
                             </div>

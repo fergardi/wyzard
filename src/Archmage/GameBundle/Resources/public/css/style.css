@@ -353,6 +353,9 @@ html {-webkit-text-size-adjust: none !important;}
 .form-signin .dropdown-toggle {
     border-radius: 6px !important;
 }
+.dropdown-menu {
+    border-color: rgba(0, 0, 0, 0.6);
+}
 /* FONTAWESOME */
 .fa {
     margin-right: 2px !important;

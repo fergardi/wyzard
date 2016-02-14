@@ -1124,7 +1124,8 @@ class Player
     {
         $level = 0;
         foreach ($this->researchs as $research) {
-            if ($research->getActive() && $research->getSpell()->getFaction() == $this->getFaction()) {
+            if ($research->getActive()) {
+                // && $research->getSpell()->getFaction() == $this->getFaction()
                 $level++;
             }
         }

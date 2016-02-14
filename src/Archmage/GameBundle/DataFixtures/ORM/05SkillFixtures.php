@@ -1559,6 +1559,91 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
+        /*
+         * BATALLA
+         * Las fixtures de batalla deben referenciar a las unidades creadas en las fixtures anteriores
+         */
+
+        //REGENERACION
+        $skill = new Skill();
+        $skill->setName('Regeneración');
+        $skill->setResurrectionBonus(25);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setDescription('+'.$skill->getResurrectionBonus().'% resucitan tras la batalla.');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+        //UNITS
+        $units = array('Fénix');
+        foreach ($units as $unit) {
+            $this->getReference($unit)->setSkill($skill);
+            $manager->persist($this->getReference($unit));
+        }
+
+        //PRISA
+        $skill = new Skill();
+        $skill->setName('Prisa');
+        $skill->setHaste(true);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setDescription('Ataca primero en cada enfrentamiento.');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+        //UNITS
+        $units = array('Elfos');
+        foreach ($units as $unit) {
+            $this->getReference($unit)->setSkill($skill);
+            $manager->persist($this->getReference($unit));
+        }
+
+        //CONTRAATAQUE
+        $skill = new Skill();
+        $skill->setName('Contraataque');
+        $skill->setCounter(true);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setDescription('Contraataca al recibir daño.');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+        //UNITS
+        $units = array('Cerberos');
+        foreach ($units as $unit) {
+            $this->getReference($unit)->setSkill($skill);
+            $manager->persist($this->getReference($unit));
+        }
+
+        //EVADIR
+        $skill = new Skill();
+        $skill->setName('Evadir');
+        $skill->setEvasionBonus(25);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setDescription('+'.$skill->getEvasionBonus().'% de esquiva en batalla.');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+        //UNITS
+        $units = array('Espectros');
+        foreach ($units as $unit) {
+            $this->getReference($unit)->setSkill($skill);
+            $manager->persist($this->getReference($unit));
+        }
+
+        //LOCURA
+        $skill = new Skill();
+        $skill->setName('Locura');
+        $skill->setAttackBonus(100);
+        $skill->setBattle(true);
+        $skill->setSelf(true);
+        $skill->setDescription('Duplica el Ataque en batalla.');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+        //UNITS
+        $units = array('Ángeles', 'Arcángeles', 'Dominions', 'Zombis', 'Vampiros', 'Fénix', 'Ents');
+        foreach ($units as $unit) {
+            $this->getReference($unit)->setSkill($skill);
+            $manager->persist($this->getReference($unit));
+        }
+
         //FLUSH
         $manager->flush();
     }

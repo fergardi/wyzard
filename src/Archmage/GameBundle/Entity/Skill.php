@@ -190,6 +190,13 @@ class Skill
     private $resurrectionBonus = 0;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="evasionBonus", type="smallint", nullable=false)
+     */
+    private $evasionBonus = 0;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="battle", type="boolean", nullable=false)
@@ -817,6 +824,29 @@ class Skill
     public function getResurrectionBonus()
     {
         return $this->resurrectionBonus;
+    }
+
+    /**
+     * Set evasionBonus
+     *
+     * @param integer $evasionBonus
+     * @return Skill
+     */
+    public function setEvasionBonus($evasionBonus)
+    {
+        $this->evasionBonus = $evasionBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get evasionBonus
+     *
+     * @return integer
+     */
+    public function getEvasionBonus()
+    {
+        return $this->evasionBonus;
     }
 
     /**

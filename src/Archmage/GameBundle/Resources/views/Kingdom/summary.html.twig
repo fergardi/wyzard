@@ -248,14 +248,14 @@
                                 <td class="text-left"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ contract.hero.skill.description }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}" class="link">{{ contract.hero.name }}</a></span></td>
                                 <td class="text-right">{{ contract.level|nf }}</td>
                                 <td class="text-right">{{ (contract.level * contract.hero.power)|nf }}</td>
-                                <td class="text-right">{{ contract.level * contract.hero.skill.armyDefenseBonus }}%</td>
-                                <td class="text-right">{{ contract.level * contract.hero.skill.magicDefenseBonus }}%</td>
-                                <td class="text-right">{{ contract.level * contract.hero.skill.summonBonus }}%</td>
-                                <td class="text-right">{{ contract.level * contract.hero.skill.researchBonus }}%</td>
+                                <td class="text-right">{{ contract.level * (contract.hero.faction == player.faction ? contract.hero.skill.armyDefenseBonus * 2 : contract.hero.skill.armyDefenseBonus) }}%</td>
+                                <td class="text-right">{{ contract.level * (contract.hero.faction == player.faction ? contract.hero.skill.magicDefenseBonus * 2 : contract.hero.skill.magicDefenseBonus) }}%</td>
+                                <td class="text-right">{{ contract.level * (contract.hero.faction == player.faction ? contract.hero.skill.summonBonus * 2 : contract.hero.skill.summonBonus) }}%</td>
+                                <td class="text-right">{{ contract.level * (contract.hero.faction == player.faction ? contract.hero.skill.researchBonus * 2 : contract.hero.skill.researchBonus) }}%</td>
                                 <td class="text-right">0</td>
-                                <td class="text-right">{{ (contract.level * ((contract.hero.skill.goldBonus * player.goldResourcePerTurn / 100) - contract.hero.goldMaintenance))|nf }}</td>
-                                <td class="text-right">{{ (contract.level * ((contract.hero.skill.peopleBonus * player.peopleResourcePerTurn / 100) - contract.hero.peopleMaintenance))|nf }}</td>
-                                <td class="text-right">{{ (contract.level * ((contract.hero.skill.manaBonus * player.manaResourcePerTurn / 100) - contract.hero.manaMaintenance))|nf }}</td>
+                                <td class="text-right">{{ (contract.level * (((contract.hero.faction == player.faction ? contract.hero.skill.goldBonus * 2 : contract.hero.skill.goldBonus) * player.goldResourcePerTurn / 100) - contract.hero.goldMaintenance))|nf }}</td>
+                                <td class="text-right">{{ (contract.level * (((contract.hero.faction == player.faction ? contract.hero.skill.peopleBonus * 2 : contract.hero.skill.peopleBonus) * player.peopleResourcePerTurn / 100) - contract.hero.peopleMaintenance))|nf }}</td>
+                                <td class="text-right">{{ (contract.level * (((contract.hero.faction == player.faction ? contract.hero.skill.manaBonus * 2 : contract.hero.skill.manaBonus) * player.manaResourcePerTurn / 100) - contract.hero.manaMaintenance))|nf }}</td>
                             </tr>
                             {% endfor %}
                             {% for item in player.items if item.artifact.legendary %}
@@ -273,14 +273,33 @@
                                 <td class="text-right">{{ (player.manaResourcePerTurn * item.artifact.skill.manaBonus / 100)|nf }}</td>
                             </tr>
                             {% endfor %}
-                            {% set power = 0 %}
                             {% set quantity = 0 %}
+                            {% set power = 0 %}
                             {% for item in player.items if not item.artifact.legendary %}
                                 {% set power = power + (item.artifact.power * item.quantity) %}
                                 {% set quantity = quantity + item.quantity %}
                             {% endfor %}
                             <tr>
                                 <td class="text-left"><i class="fa fa-fw fa-diamond"></i><span class="label label-artifact"><a href="{{ path('archmage_game_home_help') }}#artefactos" class="link">Artefactos</a></span></td>
+                                <td class="text-right">{{ quantity|nf }}</td>
+                                <td class="text-right">{{ power|nf }}</td>
+                                <td class="text-right">0%</td>
+                                <td class="text-right">0%</td>
+                                <td class="text-right">0%</td>
+                                <td class="text-right">0%</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">0</td>
+                            </tr>
+                            {% set quantity = 0 %}
+                            {% set power = 0 %}
+                            {% for research in player.researchs if research.active %}
+                                {% set power = power + research.spell.power %}
+                                {% set quantity = quantity + 1 %}
+                            {% endfor %}
+                            <tr>
+                                <td class="text-left"><i class="fa fa-fw fa-magic"></i><span class="label label-extra"><a href="{{ path('archmage_game_home_help') }}#hechizos" class="link">Hechizos</a></span></td>
                                 <td class="text-right">{{ quantity|nf }}</td>
                                 <td class="text-right">{{ power|nf }}</td>
                                 <td class="text-right">0%</td>

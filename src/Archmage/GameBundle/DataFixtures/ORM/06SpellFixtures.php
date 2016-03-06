@@ -50,6 +50,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR ZOMBIS
@@ -73,6 +74,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR HOMBRES LOBO
@@ -96,6 +98,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR ESPECTROS
@@ -119,6 +122,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR LICHES
@@ -142,6 +146,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR VAMPIROS
@@ -165,6 +170,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR CABALLEROS NEGROS
@@ -188,6 +194,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR ELEMENTALES DE SOMBRA
@@ -211,6 +218,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR GARGOLAS
@@ -234,6 +242,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR DRAGONES NEGROS
@@ -257,6 +266,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         /*
@@ -284,6 +294,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //MALDICION
@@ -307,6 +318,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //FUERZA IMPIA
@@ -330,6 +342,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //TERROR
@@ -353,6 +366,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName().' defense', $spell); //gods
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //PLAGA
@@ -376,6 +390,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //VOODOO
@@ -399,6 +414,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //CORRUPCION
@@ -422,6 +438,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //BRUJERIA
@@ -445,6 +462,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //NOCHE DE LOS MUERTOS VIVIENTES
@@ -468,6 +486,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //ECLIPSE
@@ -491,6 +510,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         /*
@@ -518,6 +538,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR ELFOS
@@ -541,6 +562,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR DRUIDAS
@@ -564,6 +586,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR TROLLS
@@ -587,6 +610,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR ENTS
@@ -610,6 +634,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR BEHEMOTHS
@@ -633,6 +658,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR SIERPES COLOSALES
@@ -656,6 +682,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR ELEMENTALES DE TIERRA
@@ -679,6 +706,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR HIDRAS
@@ -702,6 +730,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR DRAGONES VERDES
@@ -725,6 +754,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         /*
@@ -752,6 +782,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //HURACAN
@@ -775,6 +806,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //AGRANDAR ANIMAL
@@ -798,6 +830,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //CURACION
@@ -821,6 +854,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //IRA DEL BOSQUE
@@ -844,6 +878,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //DRUIDISMO
@@ -867,6 +902,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName().' defense', $spell); //gods
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //CONTROL DEL CLIMA
@@ -890,6 +926,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //FAVOR DE LA NATURALEZA
@@ -913,6 +950,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //CONCILIO DE LAS BESTIAS
@@ -936,6 +974,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //RAYO DE SOL
@@ -959,6 +998,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         /*
@@ -986,6 +1026,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR SIRENAS
@@ -1009,6 +1050,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR HADAS
@@ -1032,6 +1074,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR MAGOS
@@ -1055,6 +1098,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR NAGAS
@@ -1078,6 +1122,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR DJINNIS
@@ -1101,6 +1146,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR ELEMENTALES DE AGUA
@@ -1124,6 +1170,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR TITANES
@@ -1147,6 +1194,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR LEVIATANES
@@ -1170,6 +1218,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR DRAGONES AZULES
@@ -1193,6 +1242,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         /*
@@ -1220,6 +1270,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //ORACULO
@@ -1243,6 +1294,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //SABIDURIA
@@ -1266,6 +1318,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName().' defense', $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //CHAMANISMO
@@ -1289,6 +1342,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //ENCONTRAR ARTEFACTO
@@ -1312,6 +1366,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //DESENCANTAR
@@ -1335,6 +1390,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //CONCENTRACION
@@ -1358,6 +1414,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //BARRERA MENTAL
@@ -1381,6 +1438,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //REUNION ELEMENTAL
@@ -1404,6 +1462,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //TSUNAMI
@@ -1427,6 +1486,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         /*
@@ -1454,6 +1514,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR PALADINES
@@ -1477,6 +1538,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR UNICORNIOS
@@ -1500,6 +1562,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR PEGASOS
@@ -1523,6 +1586,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR ANGELES
@@ -1546,6 +1610,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR GRIFOS
@@ -1569,6 +1634,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR ELEMENTALES DE AIRE
@@ -1592,6 +1658,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR ARCANGELES
@@ -1615,6 +1682,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR DOMINIONS
@@ -1638,6 +1706,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR DRAGONES BLANCOS
@@ -1661,6 +1730,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         /*
@@ -1688,6 +1758,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //CALMA
@@ -1711,6 +1782,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //DESTRUIR ARTEFACTO
@@ -1734,6 +1806,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //FERVOR
@@ -1757,6 +1830,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //PAZ
@@ -1780,6 +1854,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //PROSPERIDAD
@@ -1803,6 +1878,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //OASIS
@@ -1826,6 +1902,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //PROTECCION DIVINA
@@ -1849,6 +1926,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //PUERTA DE LOS CIELOS
@@ -1872,6 +1950,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //PALABA SANTA
@@ -1895,6 +1974,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         /*
@@ -1922,6 +2002,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR CERBEROS
@@ -1945,6 +2026,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR MINOTAUROS
@@ -1968,6 +2050,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR OGROS
@@ -1991,6 +2074,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR QUIMERAS
@@ -2014,6 +2098,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR SALAMANDRAS
@@ -2037,6 +2122,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR ELEMENTALES DE LAVA
@@ -2060,6 +2146,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR DIABLOS
@@ -2083,6 +2170,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR FENIX
@@ -2106,6 +2194,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INVOCAR DRAGONES ROJOS
@@ -2129,6 +2218,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(200);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         /*
@@ -2156,6 +2246,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //TAMBORES DE GUERRA
@@ -2179,6 +2270,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //FLECHAS ARDIENTES
@@ -2202,6 +2294,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //FURIA DEMONIACA
@@ -2225,6 +2318,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //COMBUSTION
@@ -2248,6 +2342,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //VOLCANO
@@ -2271,6 +2366,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //SAQUEAR
@@ -2294,6 +2390,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName().' defense', $spell); //gods
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //MURO IGNEO
@@ -2317,6 +2414,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(true);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //PACTO DE SANGRE
@@ -2340,6 +2438,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(0);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
         //INFIERNO
@@ -2363,36 +2462,10 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setRarity(90);
         $spell->setEnchantment(false);
         //$this->setReference($spell->getName(), $spell);
+        $spell->setPower(100000);
         $manager->persist($spell);
 
-        /*
-         * HECHIZOS NEUTRAL
-
-
-        //APOCALIPSIS
-        $spell = new Spell();
-        $spell->setName('Apocalipsis');
-        $spell->setSkill($this->getReference($spell->getName()));
-        $spell->setLore('El fin está próximo...');
-        $spell->setImage('bundles/archmagegame/images/spell/neutral/apocalypse.png');
-        $spell->setFaction($this->getReference('Neutral'));
-        $spell->setMagic(6);
-        $spell->setGoldCost(0);
-        $spell->setManaCost(1000000);
-        $spell->setPeopleCost(0);
-        $spell->setGoldMaintenance(15000);
-        $spell->setPeopleMaintenance(10000);
-        $spell->setManaMaintenance(5000);
-        $spell->setTurnsCost(100);
-        $spell->setTurnsResearch(self::TURNS_RESEARCH * $spell->getMagic() * 2);
-        $spell->setTurnsExpiration(111); //666 ftw
-        $spell->setGoldAuction(0);
-        $spell->setRarity(200);
-        $spell->setEnchantment(true);
-        //$this->setReference($spell->getName(), $spell);
-        $manager->persist($spell);
-        */
-
+        //FLUSH
         $manager->flush();
 
     }

@@ -197,6 +197,13 @@ class Skill
     private $evasionBonus = 0;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="counterBonus", type="smallint", nullable=false)
+     */
+    private $counterBonus = 0;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="battle", type="boolean", nullable=false)
@@ -847,6 +854,29 @@ class Skill
     public function getEvasionBonus()
     {
         return $this->evasionBonus;
+    }
+
+    /**
+     * Set counterBonus
+     *
+     * @param integer $counterBonus
+     * @return Skill
+     */
+    public function setCounterBonus($counterBonus)
+    {
+        $this->counterBonus = $counterBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get counterBonus
+     *
+     * @return integer
+     */
+    public function getCounterBonus()
+    {
+        return $this->counterBonus;
     }
 
     /**

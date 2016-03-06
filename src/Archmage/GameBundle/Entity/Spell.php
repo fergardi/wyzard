@@ -127,6 +127,13 @@ class Spell
     private $rarity = 0;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="power", type="bigint", nullable=false)
+     */
+    private $power = 0;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="enchantment", type="boolean", nullable=false)
@@ -503,6 +510,29 @@ class Spell
     public function getRarity()
     {
         return $this->rarity;
+    }
+
+    /**
+     * Set power
+     *
+     * @param integer $power
+     * @return Spell
+     */
+    public function setPower($power)
+    {
+        $this->power = $power;
+
+        return $this;
+    }
+
+    /**
+     * Get power
+     *
+     * @return integer
+     */
+    public function getPower()
+    {
+        return $this->power;
     }
 
     /**

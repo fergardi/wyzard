@@ -58,6 +58,7 @@ while getopts "ubdisfcthrlpe" opt; do
         e)
             echo "LetsEncrypt certificate generation/renewal..."
             echo "./letsencrypt-auto --agree-dev-preview --server https://acme-v01.api.letsencrypt.org/directory certonly -d wyzard.es -d www.wyzard.es -v"
+            echo "letsencryt renew"
             echo "OK"
             ;;
         p)

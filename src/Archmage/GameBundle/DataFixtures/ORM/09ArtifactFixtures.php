@@ -80,7 +80,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/spiesguildletter.png');
         $artifact->setSkill($this->getReference('Carta del Gremio de Espías'));
         $artifact->setLore('Susurra un Reino y nosotros haremos el resto...');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
         $artifact->setCost(5);
@@ -95,7 +95,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/spiderweb.png');
         $artifact->setSkill($this->getReference('Tela de Araña'));
         $artifact->setLore('Es sucia, es pegajosa y es asquerosa. Pero su tela es muy útil...');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(2000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
         $artifact->setCost(0);
@@ -110,7 +110,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/herosmanual.png');
         $artifact->setSkill($this->getReference('Manual del Héroe'));
         $artifact->setLore('Regla #1: No olvides tu espada. Regla #2: No hay regla #2!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(3000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
         $artifact->setCost(0);
@@ -125,7 +125,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/medusahead.png');
         $artifact->setSkill($this->getReference('Cabeza de Medusa'));
         $artifact->setLore('Mirarla directamente produce la misma sensación que leer faltas de hortojrafía!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(3000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
         $artifact->setCost(0);
@@ -230,7 +230,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/dragonegg.png');
         $artifact->setSkill($this->getReference('Convocar Dragones'));
         $artifact->setLore('Puede salir cualquier cosa, incluso una lagartija!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(3000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
         $artifact->setCost(5);
@@ -245,7 +245,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/powderbarrel.png');
         $artifact->setSkill($this->getReference('Barril de Pólvora'));
         $artifact->setLore('Creo que la mecha es demasiado co...');
-        $artifact->setGoldAuction(1000000);
+        $artifact->setGoldAuction(2000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
         $artifact->setCost(5);
@@ -260,7 +260,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/voodoodoll.png');
         $artifact->setSkill($this->getReference('Muñeca Voodoo'));
         $artifact->setLore('Alguien ha sido muy malo!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(3000000);
         $artifact->setRarity(50);
         $artifact->setPower(25000);
         $artifact->setCost(5);
@@ -275,7 +275,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/hourglass.png');
         $artifact->setSkill($this->getReference('Reloj de Arena'));
         $artifact->setLore('Tiempo embotellado. Tempus fugit!');
-        $artifact->setGoldAuction(5000000);
+        $artifact->setGoldAuction(3000000);
         $artifact->setRarity(50);
         $artifact->setPower(25000);
         $artifact->setCost(0);
@@ -395,7 +395,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/greedyring.png');
         $artifact->setSkill($this->getReference('Anillo Avaricioso'));
         $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Blanca.');
-        $artifact->setGoldAuction(20000000);
+        $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
         $artifact->setCost(0);
@@ -410,7 +410,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/powerring.png');
         $artifact->setSkill($this->getReference('Anillo Poderoso'));
         $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Azul.');
-        $artifact->setGoldAuction(20000000);
+        $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
         $artifact->setCost(0);
@@ -425,7 +425,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/charmingring.png');
         $artifact->setSkill($this->getReference('Anillo Encantador'));
         $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Morada.');
-        $artifact->setGoldAuction(20000000);
+        $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
         $artifact->setCost(0);
@@ -440,7 +440,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/hardring.png');
         $artifact->setSkill($this->getReference('Anillo Duro'));
         $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Roja.');
-        $artifact->setGoldAuction(20000000);
+        $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
         $artifact->setCost(0);
@@ -455,7 +455,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setImage('bundles/archmagegame/images/artifact/summonerring.png');
         $artifact->setSkill($this->getReference('Anillo Invocador'));
         $artifact->setLore('Uno de los cinco Anillos Legendarios, llevado una vez por un gran Dios de la Magia Verde.');
-        $artifact->setGoldAuction(20000000);
+        $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
         $artifact->setCost(0);

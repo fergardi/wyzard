@@ -50,8 +50,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Gremios' => rand(500,750),
                     'Talleres' => rand(500,750),
                     'Barracones' => rand(500,750),
-                    'Barreras' => rand(100,300),
-                    'Fortalezas' => rand(100,300),
+                    'Barreras' => rand(200,300),
+                    'Fortalezas' => rand(200,300),
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(10,30),
@@ -59,11 +59,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Campeón' => rand(10,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => 40,
-                    'Dragones Verdes' => 40,
-                    'Dragones Negros' => 40,
-                    'Dragones Azules' => 40,
-                    'Dragones Blancos' => 40,
+                    'Dragones Rojos' => 50,
+                    'Dragones Verdes' => 50,
+                    'Dragones Negros' => 50,
+                    'Dragones Azules' => 50,
+                    'Dragones Blancos' => 50,
                 ),
             ),
             array(
@@ -78,8 +78,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Gremios' => rand(500,750),
                     'Talleres' => rand(500,750),
                     'Barracones' => rand(500,750),
-                    'Barreras' => rand(100,300),
-                    'Fortalezas' => rand(100,300),
+                    'Barreras' => rand(200,300),
+                    'Fortalezas' => rand(200,300),
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(10,30),
@@ -87,11 +87,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Campeón' => rand(10,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => 40,
-                    'Dragones Verdes' => 40,
-                    'Dragones Negros' => 40,
-                    'Dragones Azules' => 40,
-                    'Dragones Blancos' => 40,
+                    'Dragones Rojos' => 50,
+                    'Dragones Verdes' => 50,
+                    'Dragones Negros' => 50,
+                    'Dragones Azules' => 50,
+                    'Dragones Blancos' => 50,
                 ),
             ),
             array(
@@ -106,8 +106,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Gremios' => rand(500,750),
                     'Talleres' => rand(500,750),
                     'Barracones' => rand(500,750),
-                    'Barreras' => rand(100,300),
-                    'Fortalezas' => rand(100,300),
+                    'Barreras' => rand(200,300),
+                    'Fortalezas' => rand(200,300),
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(10,30),
@@ -115,11 +115,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Campeón' => rand(10,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => 40,
-                    'Dragones Verdes' => 40,
-                    'Dragones Negros' => 40,
-                    'Dragones Azules' => 40,
-                    'Dragones Blancos' => 40,
+                    'Dragones Rojos' => 50,
+                    'Dragones Verdes' => 50,
+                    'Dragones Negros' => 50,
+                    'Dragones Azules' => 50,
+                    'Dragones Blancos' => 50,
                 ),
             ),
             array(
@@ -134,8 +134,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Gremios' => rand(500,750),
                     'Talleres' => rand(500,750),
                     'Barracones' => rand(500,750),
-                    'Barreras' => rand(100,300),
-                    'Fortalezas' => rand(100,300),
+                    'Barreras' => rand(200,300),
+                    'Fortalezas' => rand(200,300),
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(10,30),
@@ -143,11 +143,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Campeón' => rand(10,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => 40,
-                    'Dragones Verdes' => 40,
-                    'Dragones Negros' => 40,
-                    'Dragones Azules' => 40,
-                    'Dragones Blancos' => 40,
+                    'Dragones Rojos' => 50,
+                    'Dragones Verdes' => 50,
+                    'Dragones Negros' => 50,
+                    'Dragones Azules' => 50,
+                    'Dragones Blancos' => 50,
                 ),
             ),
             array(
@@ -162,8 +162,8 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Gremios' => rand(500,750),
                     'Talleres' => rand(500,750),
                     'Barracones' => rand(500,750),
-                    'Barreras' => rand(100,300),
-                    'Fortalezas' => rand(100,300),
+                    'Barreras' => rand(200,300),
+                    'Fortalezas' => rand(200,300),
                 ),
                 'heroes' => array(
                     'Jinete de Dragones' => rand(10,30),
@@ -171,11 +171,11 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Campeón' => rand(10,30),
                 ),
                 'troops' => array(
-                    'Dragones Rojos' => 40,
-                    'Dragones Verdes' => 40,
-                    'Dragones Negros' => 40,
-                    'Dragones Azules' => 40,
-                    'Dragones Blancos' => 40,
+                    'Dragones Rojos' => 50,
+                    'Dragones Verdes' => 50,
+                    'Dragones Negros' => 50,
+                    'Dragones Azules' => 50,
+                    'Dragones Blancos' => 50,
                 ),
             ),
         );
@@ -235,7 +235,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         //TEST PLAYER
         $player = new Player();
         $manager->persist($player);
-        $player->setFaction($this->getReference('Oscuridad'));
+        $player->setFaction($this->getReference('Naturaleza'));
         $player->setGod(false);
         $player->setWinner(false);
         //constructions
@@ -259,11 +259,12 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $player->addConstruction($construction);
         }
         //resources
-        $player->setNick('fergardi');
+        $player->setNick('Wyzard');
         $player->setGold(3000000);
         $player->setPeople(20000);
         $player->setMana(10000);
         $player->setTurns(300);
+        $player->setRunes(10);
         $player->setMagic(1);
 
         //user credentials
@@ -273,7 +274,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         $user->setEnabled(true);
         $user->setEmail('fergardi@email.com');
         $user->setUsername($player->getNick());
-        $user->setPlainPassword('fergardi');
+        $user->setPlainPassword('123321');
         $userManager->updateUser($user);
 
         //FLUSH

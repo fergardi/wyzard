@@ -1,7 +1,7 @@
 #!/bin/bash
 #by @fergardi
 
-while getopts "ubdisfcthrlpe" opt; do
+while getopts "ubdisfcthrlpex" opt; do
     case $opt in
         u)
             echo "Composer install/selfupdate..."
@@ -56,9 +56,18 @@ while getopts "ubdisfcthrlpe" opt; do
             echo "OK"
             ;;
         e)
-            echo "LetsEncrypt certificate generation/renewal..."
+            echo "LetsEncrypt certificate generation..."
             echo "./letsencrypt-auto --agree-dev-preview --server https://acme-v01.api.letsencrypt.org/directory certonly -d wyzard.es -d www.wyzard.es -v"
+            echo "LetsEncrypt certificate renewal..."
             echo "letsencryt renew"
+            echo "OK"
+            ;;
+        x)
+            echo "Stopping httpd service..."
+            systemctl stop httpd
+            echo "OK"
+            echo "Scheduling autostart httpd service at next 9:00 AM Mon..."
+            echo "systemctl start httpd" | at 9:00 AM Mon
             echo "OK"
             ;;
         p)
@@ -70,7 +79,7 @@ while getopts "ubdisfcthrlpe" opt; do
             echo "OK"
             ;;
         h)
-            echo "Usage: ./script [-u][-b][-d][-i][-s][-f][-c][-t][-h][-r][-p][-e]"
+            echo "Usage: ./script [-u][-b][-d][-i][-s][-f][-c][-t][-h][-r][-p][-e][-x]"
             echo "Additional options:"
             echo -e "\t [-u] => composer install/self[u]pdate"
             echo -e "\t [-b] => [b]ower install & update"
@@ -82,6 +91,8 @@ while getopts "ubdisfcthrlpe" opt; do
             echo -e "\t [-t] => phpunit [t]ests"
             echo -e "\t [-l] => [p]ermissions fix"
             echo -e "\t [-e] => lets[e]ncrypt pem and crt certificates"
+            echo -e "\t [-p] => [p]ermissions and ownership"
+            echo -e "\t [-x] => e[x]pectation"
             echo -e "\t [-h] => [h]elp"
             ;;
         *)

@@ -61,7 +61,7 @@ class ServiceController extends Controller
         //limpiar mensaje tipo info para evitar duplicados ya que hacemos redirects en los controladores
         $this->container->get('session')->getFlashBag()->get('info');
         //NOTICIAS PERMANENTES
-        //$this->addFlash('info', 'Nueva temporada! Echa un vistazo a los últimos <a href="'.$this->generateUrl('archmage_game_home_patch').'" class="link">cambios</a>.');
+        //$this->addFlash('info', 'Ha habido un bug con la habilidad <span class="label label-extra">Esquivar</span>, pero ya está corregido.');
         //APOCALYPSE
         $apocalypse = $manager->getRepository('ArchmageGameBundle:Apocalypse')->findAll();
         if ($apocalypse) {

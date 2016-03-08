@@ -961,7 +961,7 @@ class ArmyController extends Controller
             if ($troop->getUnit()->getSkill() && $troop->getUnit()->getSkill()->getResurrectionBonus() > 0) {
                 $resurrection = $troop->getUnit()->getSkill()->getResurrectionBonus() / 100 * $attackerTroop[1];
                 $troop->setQuantity($troop->getQuantity() + $resurrection);
-                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Resucitan '.$this->get('service.controller')->nf($resurrection).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span>.');
+                $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Se regeneran '.$this->get('service.controller')->nf($resurrection).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span> de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span>.');
             }
         }
         //UNIDADES DEL DEFENSOR
@@ -970,7 +970,7 @@ class ArmyController extends Controller
             if ($troop->getUnit()->getSkill() && $troop->getUnit()->getSkill()->getResurrectionBonus() > 0) {
                 $resurrection = $troop->getUnit()->getSkill()->getResurrectionBonus() / 100 * $defenderTroop[1];
                 $troop->setQuantity($troop->getQuantity() + $resurrection);
-                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'Resucitan '.$this->get('service.controller')->nf($resurrection).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
+                $text[] = array($target->getFaction()->getClass(), 11, 1, 'center', 'Se regeneran '.$this->get('service.controller')->nf($resurrection).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
             }
         }
         //HEROES DEL ATACANTE, VICTORIA O DERROTA

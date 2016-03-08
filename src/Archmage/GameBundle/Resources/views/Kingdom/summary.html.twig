@@ -90,7 +90,7 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for enchantment in player.enchantmentsVictim %}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ enchantment.spell.skill.description }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}" class="link">{{ enchantment.spell.name }}</a></span> [{{ enchantment.owner.magic }}] ({{ enchantment.expiration|nf }}/{{ (enchantment.spell.turnsExpiration * enchantment.owner.magic)|nf }})</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ enchantment.spell.skill.description }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}" class="link">{{ enchantment.spell.name }}</a></span> [{{ enchantment.owner.magic }}] ({{ enchantment.expiration|nf }}/{{ (enchantment.spell.turnsExpiration * enchantment.owner.magic)|nff }})</div>
                             {% else %}
                             <div class="col-xs-12">Ningún encantamiento en tu Reino</div>
                             {% endfor %}

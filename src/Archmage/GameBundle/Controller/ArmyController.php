@@ -877,7 +877,7 @@ class ArmyController extends Controller
                         $player->setMana($player->getMana() + $robbery);
                         $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ROBA '.$this->get('service.controller')->nff($robbery).' <span class="label label-extra">Maná</span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                         //RUNES
-                        $robbery = 1;
+                        $target->getRunes() > 0 ? $robbery = 1 : $robbery = 0;
                         $target->setRunes($target->getRunes() - $robbery);
                         $player->setRunes($player->getRunes() + $robbery);
                         $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ROBA '.$this->get('service.controller')->nff($robbery).' <span class="label label-artifact">Runa(s)</span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');

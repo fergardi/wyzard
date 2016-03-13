@@ -24,6 +24,10 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->container = $container;
     }
 
+    public function posNeg($number) {
+        return sprintf("%+d", $number);
+    }
+
     /**
      * {@inheritDoc}
      */

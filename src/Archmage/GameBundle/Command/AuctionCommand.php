@@ -175,7 +175,7 @@ class AuctionCommand extends ContainerAwareCommand
             $troop = new Troop();
             $manager->persist($troop);
             $troop->setUnit($unit);
-            $troop->setQuantity(rand(ceil($troop->getUnit()->getQuantityAuction() * 2), $troop->getUnit()->getQuantityAuction() * 4));
+            $troop->setQuantity(rand(ceil($troop->getUnit()->getQuantityAuction() * 4), $troop->getUnit()->getQuantityAuction() * 8));
             $troop->setPlayer(null);
             $auction->setPlayer(null);
             $auction->setTroop($troop);

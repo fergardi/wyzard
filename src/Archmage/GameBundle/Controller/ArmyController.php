@@ -891,11 +891,11 @@ class ArmyController extends Controller
                         }
                         $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> gana el ASEDIO por perder mucho menos poder y DESTRUYE '.$this->get('service.controller')->nff($total).' edificios de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                         //GOLD
-                        $gold = floor($target->getMana() * self::SIEGE_PERCENT / (float)100);
+                        $gold = floor($target->getGold() * self::SIEGE_PERCENT / (float)100);
                         $target->setGold($target->getGold() - $gold);
                         $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> DESTRUYE '.$this->get('service.controller')->nff($gold).' <span class="label label-extra">Oro</span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                         //PEOPLE
-                        $people = floor($target->getMana() * self::SIEGE_PERCENT / (float)100);
+                        $people = floor($target->getPeople() * self::SIEGE_PERCENT / (float)100);
                         $target->setPeople($target->getPeople() - $people);
                         $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> DESTRUYE '.$this->get('service.controller')->nff($people).' <span class="label label-extra">Personas</span> de <span class="label label-'.$target->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $target->getId())).'" class="link">'.$target->getNick().'</a></span>.');
                         //MANA

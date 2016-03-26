@@ -464,6 +464,81 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
+        //AMULETO ERUDITO
+        $artifact = new Artifact();
+        $artifact->setName('Amuleto Erudito');
+        $artifact->setImage('bundles/archmagegame/images/artifact/scholarpendant.png');
+        $artifact->setSkill($this->getReference('Amuleto Erudito'));
+        $artifact->setLore('Uno de los cinco Amuletos Legendarios, llevado una vez por un gran Dios de la Magia Azul.');
+        $artifact->setGoldAuction(10000000);
+        $artifact->setRarity(90);
+        $artifact->setPower(250000);
+        $artifact->setCost(0);
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //AMULETO MALDITO
+        $artifact = new Artifact();
+        $artifact->setName('Amuleto Maldito');
+        $artifact->setImage('bundles/archmagegame/images/artifact/cursedpendant.png');
+        $artifact->setSkill($this->getReference('Amuleto Maldito'));
+        $artifact->setLore('Uno de los cinco Amuletos Legendarios, llevado una vez por un gran Dios de la Magia Morada.');
+        $artifact->setGoldAuction(10000000);
+        $artifact->setRarity(90);
+        $artifact->setPower(250000);
+        $artifact->setCost(0);
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //AMULETO GUERRERO
+        $artifact = new Artifact();
+        $artifact->setName('Amuleto Guerrero');
+        $artifact->setImage('bundles/archmagegame/images/artifact/warriorpendant.png');
+        $artifact->setSkill($this->getReference('Amuleto Guerrero'));
+        $artifact->setLore('Uno de los cinco Amuletos Legendarios, llevado una vez por un gran Dios de la Magia Roja.');
+        $artifact->setGoldAuction(10000000);
+        $artifact->setRarity(90);
+        $artifact->setPower(250000);
+        $artifact->setCost(0);
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //AMULETO RUNICO
+        $artifact = new Artifact();
+        $artifact->setName('Amuleto Rúnico');
+        $artifact->setImage('bundles/archmagegame/images/artifact/runicpendant.png');
+        $artifact->setSkill($this->getReference('Amuleto Rúnico'));
+        $artifact->setLore('Uno de los cinco Amuletos Legendarios, llevado una vez por un gran Dios de la Magia Blanca.');
+        $artifact->setGoldAuction(10000000);
+        $artifact->setRarity(90);
+        $artifact->setPower(250000);
+        $artifact->setCost(0);
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //AMULETO EXOTICO
+        $artifact = new Artifact();
+        $artifact->setName('Amuleto Exótico');
+        $artifact->setImage('bundles/archmagegame/images/artifact/exoticpendant.png');
+        $artifact->setSkill($this->getReference('Amuleto Exótico'));
+        $artifact->setLore('Uno de los cinco Amuletos Legendarios, llevado una vez por un gran Dios de la Magia Verde.');
+        $artifact->setGoldAuction(10000000);
+        $artifact->setRarity(90);
+        $artifact->setPower(250000);
+        $artifact->setCost(0);
+        $artifact->setClass('legendary');
+        $artifact->setLegendary(true);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
         $manager->flush();
     }
 

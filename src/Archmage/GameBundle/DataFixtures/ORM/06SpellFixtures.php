@@ -489,12 +489,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setPower(100000);
         $manager->persist($spell);
 
-        //ECLIPSE
+        //CADENA DE RELAMPAGOS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Eclipse'));
+        $spell->setSkill($this->getReference('Cadena de Relámpagos'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que la ausencia de luz encoja el corazón de tus enemigos.');
-        $spell->setImage('bundles/archmagegame/images/spell/darkness/eclipse.png');
+        $spell->setLore('Se les ve el esqueleto!');
+        $spell->setImage('bundles/archmagegame/images/spell/darkness/chainlightning.png');
         $spell->setFaction($this->getReference('Oscuridad'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
@@ -977,12 +977,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setPower(100000);
         $manager->persist($spell);
 
-        //RAYO DE SOL
+        //ENREDADERAS
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Rayo de Sol'));
+        $spell->setSkill($this->getReference('Enredaderas'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que la pureza de la luz ciegue a tus enemigos.');
-        $spell->setImage('bundles/archmagegame/images/spell/nature/sunray.png');
+        $spell->setLore('Qué cómodas y calentitas!');
+        $spell->setImage('bundles/archmagegame/images/spell/nature/creepingvines.png');
         $spell->setFaction($this->getReference('Naturaleza'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
@@ -1469,7 +1469,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Tsunami'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que las aguas ahoguen el fuego de tus enemigos.');
+        $spell->setLore('Algunos tenemos fobia al agua...');
         $spell->setImage('bundles/archmagegame/images/spell/ghost/tsunami.png');
         $spell->setFaction($this->getReference('Fantasmal'));
         $spell->setMagic(5);
@@ -1953,12 +1953,12 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell->setPower(100000);
         $manager->persist($spell);
 
-        //PALABA SANTA
+        //RAYO DE SOL
         $spell = new Spell();
-        $spell->setSkill($this->getReference('Palabra Santa'));
+        $spell->setSkill($this->getReference('Rayo de Sol'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que nuestras oraciones derroten el mal de nuestros enemigos.');
-        $spell->setImage('bundles/archmagegame/images/spell/holy/holyword.png');
+        $spell->setLore('Ojos que no ven... patada en la entrepierna!');
+        $spell->setImage('bundles/archmagegame/images/spell/holy/sunray.png');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(5);
         $spell->setGoldCost(0);
@@ -2445,7 +2445,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Infierno'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('Que el fuego consuma el alma del enemigo.');
+        $spell->setLore('Matadlos con fuego!');
         $spell->setImage('bundles/archmagegame/images/spell/doom/inferno.png');
         $spell->setFaction($this->getReference('Caos'));
         $spell->setMagic(5);

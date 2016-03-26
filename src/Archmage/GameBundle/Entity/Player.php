@@ -27,6 +27,7 @@ class Player
     const ARTIFACT_RATIO = 1;
     const MAGICLEVEL_RATIO = 4;
     const MAGICLEVEL_CAP = 5;
+    const HERO_EXPERIENCE = 50;
 
     /**
      * @var integer
@@ -1018,7 +1019,25 @@ class Player
      */
     public function getArtifactRatio()
     {
-        return self::ARTIFACT_RATIO;
+        $ratio = self::ARTIFACT_RATIO;
+        foreach ($this->getItems() as $item) {
+            if ($item->getArtifact()->getArtifactRatioBonus() > 0) $ratio += $item->getArtifact()->getArtifactRatioBonus();
+        }
+        return $ratio;
+    }
+
+    /**
+     * Get hero experience
+     *
+     * @return integer
+     */
+    public function getHeroExperience()
+    {
+        $experience = self::HERO_EXPERIENCE;
+        foreach ($this->getItems() as $item) {
+            if ($item->getArtifact()->getExperienceBonus() > 0) $experience += $item->getArtifact()->getExperienceBonus();
+        }
+        return $experience;
     }
 
     /*
@@ -1042,8 +1061,7 @@ class Player
             if ($item->getArtifact()->getLegendary()) $magicDefense += $item->getArtifact()->getSkill()->getMagicDefenseBonus();
         }
         foreach ($this->contracts as $contract) {
-            $bonus = ($contract->getHero()->getFaction() == $this->getFaction() ? $contract->getHero()->getSkill()->getMagicDefenseBonus() * 2 : $contract->getHero()->getSkill()->getMagicDefenseBonus());
-            $magicDefense += $bonus * $contract->getLevel();
+            $magicDefense += $contract->getHero()->getSkill()->getMagicDefenseBonus() * $contract->getLevel();
         }
         return min(self::MAGICDEFENSE_CAP, $magicDefense);
     }
@@ -1065,8 +1083,7 @@ class Player
             if ($item->getArtifact()->getLegendary()) $armyDefense += $item->getArtifact()->getSkill()->getArmyDefenseBonus();
         }
         foreach ($this->contracts as $contract) {
-            $bonus = ($contract->getHero()->getFaction() == $this->getFaction() ? $contract->getHero()->getSkill()->getArmyDefenseBonus() * 2 : $contract->getHero()->getSkill()->getArmyDefenseBonus());
-            $armyDefense += $bonus * $contract->getLevel();
+            $armyDefense += $contract->getHero()->getSkill()->getArmyDefenseBonus() * $contract->getLevel();
         }
         return min(self::ARMYDEFENSE_CAP, $armyDefense);
     }
@@ -1088,8 +1105,7 @@ class Player
             if ($item->getArtifact()->getLegendary()) $summon += $item->getArtifact()->getSkill()->getSummonBonus();
         }
         foreach ($this->contracts as $contract) {
-            $bonus = ($contract->getHero()->getFaction() == $this->getFaction() ? $contract->getHero()->getSkill()->getSummonBonus() * 2 : $contract->getHero()->getSkill()->getSummonBonus());
-            $summon += $bonus * $contract->getLevel();
+            $summon += $contract->getHero()->getSkill()->getSummonBonus() * $contract->getLevel();
         }
         return $summon;
     }
@@ -1192,7 +1208,10 @@ class Player
     {
         $terrain = 0;
         foreach ($this->enchantmentsVictim as $enchantment) {
-            if ($enchantment->getSpell()->getSkill()->getTerrainBonus() > 0)$terrain += $enchantment->getSpell()->getSkill()->getTerrainBonus();
+            if ($enchantment->getSpell()->getSkill()->getTerrainBonus() > 0) $terrain += $enchantment->getSpell()->getSkill()->getTerrainBonus();
+        }
+        foreach ($this->items as $item) {
+            if ($item->getArtifact()->getLegendary()) $terrain += $item->getArtifact()->getTerrainBonus();
         }
         return $terrain;
     }
@@ -1209,7 +1228,7 @@ class Player
             $gold += $construction->getQuantity() * $construction->getBuilding()->getGoldResource();
         }
         foreach ($this->contracts as $contract) {
-            $bonus = $contract->getHero()->getSkill()->getGoldBonus() * ($contract->getHero()->getFaction() == $this->getFaction() ? 2 : 1);
+            $bonus = $contract->getHero()->getSkill()->getGoldBonus();
             if ($contract->getHero()->getSkill()->getGoldBonus() > 0) $gold += floor($gold * $bonus * $contract->getLevel() / (float)100);
         }
         foreach ($this->enchantmentsVictim as $enchantment) {
@@ -1233,7 +1252,7 @@ class Player
             $people += $construction->getQuantity() * $construction->getBuilding()->getPeopleResource();
         }
         foreach ($this->contracts as $contract) {
-            $bonus = $contract->getHero()->getSkill()->getPeopleBonus() * ($contract->getHero()->getFaction() == $this->getFaction() ? 2 : 1);
+            $bonus = $contract->getHero()->getSkill()->getPeopleBonus();
             if ($contract->getHero()->getSkill()->getPeopleBonus() > 0) $people += floor($people * $bonus * $contract->getLevel() / (float)100);
         }
         foreach ($this->enchantmentsVictim as $enchantment) {
@@ -1257,7 +1276,7 @@ class Player
             $mana += $construction->getQuantity() * $construction->getBuilding()->getManaResource();
         }
         foreach ($this->contracts as $contract) {
-            $bonus = $contract->getHero()->getSkill()->getManaBonus() * ($contract->getHero()->getFaction() == $this->getFaction() ? 2 : 1);
+            $bonus = $contract->getHero()->getSkill()->getManaBonus();
             if ($contract->getHero()->getSkill()->getManaBonus() > 0) $mana += floor($mana * $bonus * $contract->getLevel() / (float)100);
         }
         foreach ($this->enchantmentsVictim as $enchantment) {
@@ -1522,7 +1541,7 @@ class Player
     }
 
     /**
-     * HAs contract
+     * Has contract
      *
      * @return boolean
      */

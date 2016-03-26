@@ -70,7 +70,7 @@ class ServiceController extends Controller
         }
         //WINNER
         if ($this->checkWinner()) {
-            $this->addFlash('info', 'El mago <span class="label label-'.$this->checkWinner()->getFaction()->getClass().'">'.$this->checkWinner()->getNick().'</span> ha ganado el juego.');
+            $this->addFlash('info', 'El mago <span class="label label-'.$this->checkWinner()->getFaction()->getClass().'">'.$this->checkWinner()->getNick().'</span> ha ganado el juego!');
         }
         //ENCHANTMENTS
         foreach ($player->getEnchantmentsVictim() as $enchantment) {
@@ -84,7 +84,7 @@ class ServiceController extends Controller
         foreach ($notices as $notice) {
             if (!$notice->getReaded()) {
                 $notice->setReaded(true);
-                $this->addFlash($notice->getClass(), 'Tienes un nuevo mensaje, <span class="label label-extra"><a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a></span>.');
+                $this->addFlash($notice->getClass(), '<span class="label label-extra"><a href='.$this->generateUrl('archmage_game_account_message', array('hash' => $notice->getHash()), true).'>'.$notice->getSubject().'</a></span> de <span class="label label-'.$notice->getOwner()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $notice->getOwner()->getId())).'" class="link">'.$notice->getOwner()->getNick().'</a></span>');
             }
         }
         /*
@@ -124,7 +124,7 @@ class ServiceController extends Controller
          *
          */
         for ($i = 1; $i <= $turns; $i++) {
-            //BUILDINGS ENCHANTMENTS
+            //TERRAIN
             foreach ($player->getEnchantmentsVictim() as $enchantment) {
                 //enemigos, aleatorio
                 if ($enchantment->getSpell()->getSkill()->getTerrainBonus() < 0) {
@@ -134,11 +134,8 @@ class ServiceController extends Controller
                     $quantity = $enchantment->getSpell()->getSkill()->getTerrainBonus() * $enchantment->getOwner()->getMagic();
                     $construction->setQuantity(max(0,$construction->getQuantity() + $quantity));
                 }
-                //aliados, positivos (+1 tierra maximo, sin importar el nivel de magia)
-                if ($enchantment->getSpell()->getSkill()->getTerrainBonus() > 0) {
-                    $player->setConstruction('Tierras', $player->getFree() + $enchantment->getSpell()->getSkill()->getTerrainBonus());
-                }
             }
+            $player->setConstruction('Tierras', $player->getFree() + $player->getTerrainResourcePerTurn());
             //ARTIFACTS
             $chance = rand(0,99);
             if ($chance < $player->getArtifactRatio()) {

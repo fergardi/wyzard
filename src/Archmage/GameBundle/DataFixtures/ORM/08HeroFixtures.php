@@ -125,7 +125,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Chamán');
         $hero->setImage('bundles/archmagegame/images/hero/ghost/shaman.png');
-        $hero->setLore('Mi tribu me tiene en alta estima por la calidad de mi maná.');
+        $hero->setLore('Mi tribu me tiene en alta estima por la calidad de mi mojo.');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -312,7 +312,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Espiritista');
         $hero->setImage('bundles/archmagegame/images/hero/ghost/spiritist.png');
-        $hero->setLore('Eureka! Tengo la soluc... Espera. No.');
+        $hero->setLore('Eureka! Tengo la soluc... Espera? No.');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -329,7 +329,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Súcubo');
         $hero->setImage('bundles/archmagegame/images/hero/doom/succubus.png');
-        $hero->setLore('Sé cómo hacer que vengan más tropas a tu llamada, observa...');
+        $hero->setLore('Baw Chika Baw Baw! Chika Waw Waw!');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);
@@ -346,7 +346,7 @@ class HeroFixtures extends AbstractFixture implements OrderedFixtureInterface
         $hero = new Hero();
         $hero->setName('Campeón');
         $hero->setImage('bundles/archmagegame/images/hero/holy/champion.png');
-        $hero->setLore('Entiendo mucho de asedios, y sé cómo resistirlos... Moar tablones! MOAR!');
+        $hero->setLore('Entiendo mucho de asedios, y sé cómo resistirlos... Moar tablones! MOAAR!');
         $hero->setExperience(self::EXPERIENCE_LEVEL);
         $hero->setGoldMaintenance(300);
         $hero->setPeopleMaintenance(200);

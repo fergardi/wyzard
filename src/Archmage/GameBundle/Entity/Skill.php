@@ -204,6 +204,27 @@ class Skill
     private $counterBonus = 0;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="experienceBonus", type="smallint", nullable=false)
+     */
+    private $experienceBonus = 0;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="artifactRatioBonus", type="smallint", nullable=false)
+     */
+    private $artifactRatioBonus = 0;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="hasteBonus", type="boolean", nullable=false)
+     */
+    private $hasteBonus = false;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="battle", type="boolean", nullable=false)
@@ -877,6 +898,75 @@ class Skill
     public function getCounterBonus()
     {
         return $this->counterBonus;
+    }
+
+    /**
+     * Set hasteBonus
+     *
+     * @param boolean $hasteBonus
+     * @return Skill
+     */
+    public function setHasteBonus($hasteBonus)
+    {
+        $this->hasteBonus = $hasteBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get hasteBonus
+     *
+     * @return boolean
+     */
+    public function getHasteBonus()
+    {
+        return $this->hasteBonus;
+    }
+
+    /**
+     * Set experienceBonus
+     *
+     * @param integer $experienceBonus
+     * @return Skill
+     */
+    public function setExperienceBonus($experienceBonus)
+    {
+        $this->experienceBonus = $experienceBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get experienceBonus
+     *
+     * @return integer
+     */
+    public function getExperienceBonus()
+    {
+        return $this->experienceBonus;
+    }
+
+    /**
+     * Set artifactRatioBonus
+     *
+     * @param integer $artifactRatioBonus
+     * @return Skill
+     */
+    public function setArtifactRatioBonus($artifactRatioBonus)
+    {
+        $this->artifactRatioBonus = $artifactRatioBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get artifactRatioBonus
+     *
+     * @return integer
+     */
+    public function getArtifactRatioBonus()
+    {
+        return $this->artifactRatioBonus;
     }
 
     /**

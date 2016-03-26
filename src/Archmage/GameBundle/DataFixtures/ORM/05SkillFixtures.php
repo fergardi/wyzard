@@ -238,13 +238,12 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //ECLIPSE
+        //CADENA DE RELAMPAGOS
         $skill = new Skill();
-        $skill->setName('Eclipse');
-        $skill->setDefenseBonus(-10);
-        $skill->setBattle(true);
-        $skill->setFaction($this->getReference('Fantasmal'));
-        $skill->setDescription($skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de los <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span> enemigos por <i class="fa fa-fw fa-magic"></i>');
+        $skill->setName('Cadena de Relámpagos');
+        $skill->setDamageBonus(-1);
+        $skill->setRandom(true);
+        $skill->setDescription('<span class="label label-extra">Destruye</span> '.$skill->getDamageBonus().'% de una tropa enemiga al azar por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -459,13 +458,12 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //RAYO DE SOL
+        //ENREDADERAS
         $skill = new Skill();
-        $skill->setName('Rayo de Sol');
-        $skill->setDefenseBonus(-10);
-        $skill->setBattle(true);
-        $skill->setFaction($this->getReference('Sagrado'));
-        $skill->setDescription($skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de los <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span> enemigos por <i class="fa fa-fw fa-magic"></i>');
+        $skill->setName('Enredaderas');
+        $skill->setDamageBonus(-1);
+        $skill->setRandom(true);
+        $skill->setDescription('<span class="label label-extra">Destruye</span> '.$skill->getDamageBonus().'% de una tropa enemiga al azar por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -674,10 +672,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //TSUNAMI
         $skill = new Skill();
         $skill->setName('Tsunami');
-        $skill->setDefenseBonus(-10);
-        $skill->setBattle(true);
-        $skill->setFaction($this->getReference('Caos'));
-        $skill->setDescription($skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de los <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span> enemigos por <i class="fa fa-fw fa-magic"></i>');
+        $skill->setDamageBonus(-1);
+        $skill->setRandom(true);
+        $skill->setDescription('<span class="label label-extra">Destruye</span> '.$skill->getDamageBonus().'% de una tropa enemiga al azar por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -888,13 +885,12 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //PALABRA SANTA
+        //RAYO DE SOL
         $skill = new Skill();
-        $skill->setName('Palabra Santa');
-        $skill->setDefenseBonus(-10);
-        $skill->setBattle(true);
-        $skill->setFaction($this->getReference('Oscuridad'));
-        $skill->setDescription($skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de los <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span> enemigos por <i class="fa fa-fw fa-magic"></i>');
+        $skill->setName('Rayo de Sol');
+        $skill->setDamageBonus(-1);
+        $skill->setRandom(true);
+        $skill->setDescription('<span class="label label-extra">Destruye</span> '.$skill->getDamageBonus().'% de una tropa enemiga al azar por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1109,10 +1105,9 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //INFIERNO
         $skill = new Skill();
         $skill->setName('Infierno');
-        $skill->setDefenseBonus(-10);
-        $skill->setBattle(true);
-        $skill->setFaction($this->getReference('Naturaleza'));
-        $skill->setDescription($skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de los <span class="label label-'.$skill->getFaction()->getClass().'">'.$skill->getFaction()->getName().'</span> enemigos por <i class="fa fa-fw fa-magic"></i>');
+        $skill->setDamageBonus(-2);
+        $skill->setRandom(true);
+        $skill->setDescription('<span class="label label-extra">Destruye</span> '.$skill->getDamageBonus().'% de una tropa enemiga al azar por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1228,7 +1223,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //MUÑECA VOODOO
         $skill = new Skill();
         $skill->setName('Muñeca Voodoo');
-        $skill->setTurnsBonus(-50);
+        $skill->setTurnsBonus(-100);
         $skill->setDescription('Hasta '.$this->container->get('service.controller')->nff($skill->getTurnsBonus()).' <span class="label label-extra">Turnos</span> al Reino enemigo');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1237,7 +1232,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Reloj de Arena');
         $skill->setSelf(true);
-        $skill->setTurnsBonus(-100);
+        $skill->setTurnsBonus(-150);
         $skill->setDescription('Hasta '.$this->container->get('service.controller')->nff($skill->getTurnsBonus()).' <span class="label label-extra">Turnos</span> a los Encantamientos de tu Reino.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1328,6 +1323,58 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
+        //AMULETO ERUDITO
+        $skill = new Skill();
+        $skill->setName('Amuleto Erudito');
+        $skill->setResearchBonus(20);
+        $skill->setSelf(true);
+        $skill->setDescription('+'.$skill->getResearchBonus().'% bonus de <span class="label label-extra">Investigación</span>');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //AMULETO EXOTICO
+        $skill = new Skill();
+        $skill->setName('Amuleto Exótico');
+        $skill->setTerrainBonus(1);
+        $skill->setSelf(true);
+        $skill->setDescription('+'.$skill->getTerrainBonus().' <span class="label label-extra">Tierra</span> a tu Reino al <i class="fa fa-fw fa-hourglass-half"></i>');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //AMULETO GUERRERO
+        $skill = new Skill();
+        $skill->setName('Amuleto Guerrero');
+        $skill->setExperienceBonus(50);
+        $skill->setSelf(true);
+        $skill->setDescription('+'.$skill->getExperienceBonus().' <span class="label label-extra">Experiencia</span> a tus <span class="label label-extra">Héroes</span> por combate');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //AMULETO RUNICO
+        $skill = new Skill();
+        $skill->setName('Amuleto Rúnico');
+        $skill->setArtifactRatioBonus(1);
+        $skill->setSelf(true);
+        $skill->setDescription('+'.$skill->getArtifactRatioBonus().'% a la probabilidad de encontrar <span class="label label-extra">Artefactos</span>');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //AMULETO MALDITO
+        $skill = new Skill();
+        $skill->setName('Amuleto Maldito');
+        $skill->setGoldBonus(-20);
+        $skill->setPeopleBonus(-20);
+        $skill->setManaBonus(-20);
+        $skill->setMagicDefenseBonus(-10);
+        $skill->setArmyDefenseBonus(-10);
+        $skill->setSummonBonus(-20);
+        $skill->setResearchBonus(-20);
+        $skill->setExperienceBonus(-20);
+        $skill->setSelf(true);
+        $skill->setDescription($skill->getGoldBonus().'% a todos los <span class="label label-extra">Bonuses</span> de tu Reino');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
         /*
          * CONVOCAR
          */
@@ -1390,7 +1437,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //LADRONA ELFA
         $skill = new Skill();
         $skill->setName('Ladrona Elfa');
-        $skill->setTurnsBonus(-1);
+        $skill->setTurnsBonus(-2);
         $skill->setBattle(true);
         $skill->setDescription($skill->getTurnsBonus().' <span class="label label-extra">Turno</span> al Reino enemigo por <i class="fa fa-fw fa-star"></i>');
         $this->setReference($skill->getName(), $skill);
@@ -1439,7 +1486,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDefenseBonus(1);
         $skill->setSelf(true);
         $skill->setFamily($this->getReference('NoMuertos'));
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y '.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por <i class="fa fa-fw fa-star"></i>');
+        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por <i class="fa fa-fw fa-star"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1488,7 +1535,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setFamily($this->getReference('Dragones'));
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y '.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por <i class="fa fa-fw fa-star"></i>');
+        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por <i class="fa fa-fw fa-star"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1500,7 +1547,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setFamily($this->getReference('Demonios'));
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y '.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por <i class="fa fa-fw fa-star"></i>');
+        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y +'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a tus <span class="label label-extra">'.$skill->getFamily()->getName().'</span> por <i class="fa fa-fw fa-star"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1587,10 +1634,10 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //PRISA
         $skill = new Skill();
         $skill->setName('Prisa');
-        $skill->setSpeedBonus(10);
+        $skill->setHasteBonus(true);
         $skill->setBattle(true);
         $skill->setSelf(true);
-        $skill->setDescription('Siempre atacan primero.');
+        $skill->setDescription('Siempre atacan primero en combate.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
         //UNITS
@@ -1606,7 +1653,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setAttackBonus(25);
         $skill->setBattle(true);
         $skill->setSelf(true);
-        $skill->setDescription('+'.$skill->getAttackBonus().'% de daño.');
+        $skill->setDescription('+'.$skill->getAttackBonus().'% de daño en combate.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
         //UNITS
@@ -1638,7 +1685,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDefenseBonus(25);
         $skill->setBattle(true);
         $skill->setSelf(true);
-        $skill->setDescription('+'.$skill->getDefenseBonus().'% de defensa.');
+        $skill->setDescription('+'.$skill->getDefenseBonus().'% de defensa en combate.');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
         //UNITS

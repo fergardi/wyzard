@@ -54,9 +54,9 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Fortalezas' => rand(200,300),
                 ),
                 'heroes' => array(
-                    'Jinete de Dragones' => rand(10,30),
-                    'Dríada' => rand(10,30),
-                    'Campeón' => rand(10,30),
+                    'Jinete de Dragones' => rand(10,50),
+                    'Dríada' => rand(10,50),
+                    'Campeón' => rand(10,50),
                 ),
                 'troops' => array(
                     'Dragones Rojos' => 50,
@@ -82,9 +82,9 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Fortalezas' => rand(200,300),
                 ),
                 'heroes' => array(
-                    'Jinete de Dragones' => rand(10,30),
-                    'Dríada' => rand(10,30),
-                    'Campeón' => rand(10,30),
+                    'Jinete de Dragones' => rand(10,50),
+                    'Dríada' => rand(10,50),
+                    'Campeón' => rand(10,50),
                 ),
                 'troops' => array(
                     'Dragones Rojos' => 50,
@@ -110,9 +110,9 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Fortalezas' => rand(200,300),
                 ),
                 'heroes' => array(
-                    'Jinete de Dragones' => rand(10,30),
-                    'Dríada' => rand(10,30),
-                    'Campeón' => rand(10,30),
+                    'Jinete de Dragones' => rand(10,50),
+                    'Dríada' => rand(10,50),
+                    'Campeón' => rand(10,50),
                 ),
                 'troops' => array(
                     'Dragones Rojos' => 50,
@@ -138,9 +138,9 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Fortalezas' => rand(200,300),
                 ),
                 'heroes' => array(
-                    'Jinete de Dragones' => rand(10,30),
-                    'Dríada' => rand(10,30),
-                    'Campeón' => rand(10,30),
+                    'Jinete de Dragones' => rand(10,50),
+                    'Dríada' => rand(10,50),
+                    'Campeón' => rand(10,50),
                 ),
                 'troops' => array(
                     'Dragones Rojos' => 50,
@@ -166,9 +166,9 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                     'Fortalezas' => rand(200,300),
                 ),
                 'heroes' => array(
-                    'Jinete de Dragones' => rand(10,30),
-                    'Dríada' => rand(10,30),
-                    'Campeón' => rand(10,30),
+                    'Jinete de Dragones' => rand(10,50),
+                    'Dríada' => rand(10,50),
+                    'Campeón' => rand(10,50),
                 ),
                 'troops' => array(
                     'Dragones Rojos' => 50,
@@ -220,11 +220,12 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
                 $player->addContract($contract);
             }
             //resources
-            $player->setGold(rand(50000000,100000000));
+            $player->setGold(rand(100000000,500000000));
+            $player->setRunes(rand(50,100));
             $player->setPeople($player->getPeopleCap());
             $player->setMana($player->getManaCap());
             $player->setTurns(300);
-            $player->setMagic(10);
+            $player->setMagic(rand(8,12));
             //achievements
             $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
             foreach ($achievements as $achievement) {

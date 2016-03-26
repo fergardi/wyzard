@@ -32,6 +32,9 @@ img.background {
 .page-header, .jumbotron > hr {
     border-color: white;
 }
+.page-header > h1 {
+    text-shadow: 2px 2px 5px black;
+}
 .panel-body {
     padding: 0;
 }

@@ -737,7 +737,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //UNICORNIOS
         $unit = new Unit();
         $unit->setName('Unicornios');
-        $unit->setLore('Estas magníficas bestias salvajes de cuento de hadas son dignas de temer en combate.');
+        $unit->setLore('Como te descuides te meten el cuerno por el c...');
         $unit->setAttack(60);
         $unit->setDefense(70);
         $unit->setSpeed(3);

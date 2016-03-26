@@ -1162,7 +1162,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //BARRIL DE POLVORA
         $skill = new Skill();
         $skill->setName('Barril de Pólvora');
-        $skill->setTerrainBonus(-3);
+        $skill->setTerrainBonus(-6);
         $skill->setDescription($skill->getTerrainBonus().'% <span class="label label-extra">Edificios</span> al Reino enemigo');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1206,7 +1206,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //CABEZA DE MEDUSA
         $skill = new Skill();
         $skill->setName('Cabeza de Medusa');
-        $skill->setHeroBonus(-3);
+        $skill->setHeroBonus(-5);
         $skill->setRandom(true);
         $skill->setDescription('Hasta '.$skill->getHeroBonus().' <span class="label label-extra">Niveles</span> a un <span class="label label-extra">Héroe</span> enemigo al azar');
         $this->setReference($skill->getName(), $skill);
@@ -1437,7 +1437,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //LADRONA ELFA
         $skill = new Skill();
         $skill->setName('Ladrona Elfa');
-        $skill->setTurnsBonus(-2);
+        $skill->setTurnsBonus(-3);
         $skill->setBattle(true);
         $skill->setDescription($skill->getTurnsBonus().' <span class="label label-extra">Turno</span> al Reino enemigo por <i class="fa fa-fw fa-star"></i>');
         $this->setReference($skill->getName(), $skill);

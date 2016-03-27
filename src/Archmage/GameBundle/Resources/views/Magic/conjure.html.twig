@@ -67,7 +67,7 @@
                                 {% if not research.spell.skill.self and not research.spell.skill.battle %}
                                 <select class="form-control selectpicker show-tick dropup" id="target" name="target" data-live-search="true" data-size="5" title="Objetivo">
                                     {% for target in targets if target != player %}
-                                    <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}'>{{ target.nick }}</span>">{{ target.nick }}</option>
+                                    <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}'>{{ target.nick }}</span> ({{ target.power|nf }})">{{ target.nick }}</option>
                                     {% endfor %}
                                 </select>
                                 {% endif %}

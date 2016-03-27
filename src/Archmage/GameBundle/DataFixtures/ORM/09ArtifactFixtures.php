@@ -484,7 +484,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Amuleto Maldito');
         $artifact->setImage('bundles/archmagegame/images/artifact/cursedpendant.png');
         $artifact->setSkill($this->getReference('Amuleto Maldito'));
-        $artifact->setLore('Uno de los cinco Amuletos Legendarios, llevado una vez por un gran Dios de la Magia Morada.');
+        $artifact->setLore('Uno de los cinco Amuletos Legendarios, llevado una vez por un gran Dios de la Magia Morada. A que es una putada no poder quitártelo? Por eso se llama MALDITO!');
         $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);

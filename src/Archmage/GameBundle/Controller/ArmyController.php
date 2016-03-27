@@ -349,10 +349,11 @@ class ArmyController extends Controller
             $defenderDefenseBonus = $defenderArmy[$defenderTurn][3];
             $defenderDefense = $defenderTroop->getUnit()->getDefense() * $defenderQuantity * $defenderDefenseBonus;
             $defenderSpeed = $defenderArmy[$defenderTurn][4];
-            //comprobar velocidades
-            $attackerSkill = ($attackerTroop->getUnit()->getSkill() ? "<span class='label label-extra'>".$attackerTroop->getUnit()->getSkill()->getName()."</span>" : "");
-            $defenderSkill = ($defenderTroop->getUnit()->getSkill() ? "<span class='label label-extra'>".$defenderTroop->getUnit()->getSkill()->getName()."</span>" : "");
+            //comprobar habilidades
+            $attackerSkill = ($attackerTroop->getUnit()->getSkill() ? " <span class='label label-extra' data-html='true' data-toggle='tooltip' data-placement='top' title='".$attackerTroop->getUnit()->getSkill()->getDescription()."'>".$attackerTroop->getUnit()->getSkill()->getName()."</span>" : "");
+            $defenderSkill = ($defenderTroop->getUnit()->getSkill() ? " <span class='label label-extra' data-html='true' data-toggle='tooltip' data-placement='top' title='".$defenderTroop->getUnit()->getSkill()->getDescription()."'>".$defenderTroop->getUnit()->getSkill()->getName()."</span>" : "");
             $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).': <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span>'.$attackerSkill.' con '.$attackerSpeed.' Velocidad contra <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span>'.$defenderSkill.' con '.$defenderSpeed.' Velocidad.');
+            //comprobar velocidades
             if ($attackerSpeed == $defenderSpeed ||
                 ($attackerTroop->getUnit()->getSkill() && $attackerTroop->getUnit()->getSkill()->getHasteBonus()) ||
                 ($defenderTroop->getUnit()->getSkill() && $defenderTroop->getUnit()->getSkill()->getHasteBonus()))
@@ -729,9 +730,11 @@ class ArmyController extends Controller
                 $defenderDefenseBonus = $defenderArmy[$defenderTurn][3];
                 $defenderDefense = $defenderTroop->getUnit()->getDefense() * $defenderQuantity * $defenderDefenseBonus;
                 $defenderSpeed = $defenderArmy[$defenderTurn][4];
+                //comprobar habilidades
+                $attackerSkill = ($attackerTroop->getUnit()->getSkill() ? " <span class='label label-extra' data-html='true' data-toggle='tooltip' data-placement='top' title='".$attackerTroop->getUnit()->getSkill()->getDescription()."'>".$attackerTroop->getUnit()->getSkill()->getName()."</span>" : "");
+                $defenderSkill = ($defenderTroop->getUnit()->getSkill() ? " <span class='label label-extra' data-html='true' data-toggle='tooltip' data-placement='top' title='".$defenderTroop->getUnit()->getSkill()->getDescription()."'>".$defenderTroop->getUnit()->getSkill()->getName()."</span>" : "");
+                $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).': <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span>'.$attackerSkill.' con '.$attackerSpeed.' Velocidad contra <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span>'.$defenderSkill.' con '.$defenderSpeed.' Velocidad.');
                 //comprobar velocidades
-                $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).': <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span> con '.$attackerSpeed.' Velocidad contra <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span> con '.$defenderSpeed.' Velocidad.');
-                //atacante igual velocidad que defensor, atacan y defienden a la vez
                 if ($attackerSpeed == $defenderSpeed ||
                     ($attackerTroop->getUnit()->getSkill() && $attackerTroop->getUnit()->getSkill()->getHasteBonus()) ||
                     ($defenderTroop->getUnit()->getSkill() && $defenderTroop->getUnit()->getSkill()->getHasteBonus()))
@@ -1043,8 +1046,8 @@ class ArmyController extends Controller
         $counter = $manager->getRepository('ArchmageGameBundle:Attack')->findOneBy(array('attacker' => $target, 'defender' => $player));
         if ($counter) $manager->remove($counter);
         //mensajes al objetivo y al jugador
-        $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Batalla ('.strtoupper($type).')', $text, 'battle');
-        $redirect = $this->get('service.controller')->sendMessage($target, $player, 'Reporte de Batalla ('.strtoupper($type).')', $text, 'battle');
+        $this->get('service.controller')->sendMessage($player, $target, 'Reporte de Batalla', $text, 'battle');
+        $redirect = $this->get('service.controller')->sendMessage($target, $player, 'Reporte de Batalla', $text, 'battle');
         //redirect to see message
         return $redirect;
     }

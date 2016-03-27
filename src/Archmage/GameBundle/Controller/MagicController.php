@@ -494,7 +494,7 @@ class MagicController extends Controller
                 $unit = $units[0];
                 $quantity = $spell->getSkill()->getQuantityBonus() / $unit->getPower();
             }
-            $quantity += round($quantity * $player->getSummonBonus() / (float)100);
+            $quantity += ceil($quantity * $player->getSummonBonus() / (float)100);
             $troop = $player->hasUnit($unit);
             if ($troop) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
@@ -772,8 +772,8 @@ class MagicController extends Controller
                 $unit = $units[0];
             }
             $troop = $player->hasUnit($unit);
-            $quantity = rand($artifact->getSkill()->getQuantityBonus() / 2, $artifact->getSkill()->getQuantityBonus() * 2) / $unit->getPower();
-            $quantity += round($quantity * $player->getSummonBonus() / (float)100);
+            $quantity = rand($artifact->getSkill()->getQuantityBonus() / 3, $artifact->getSkill()->getQuantityBonus() * 6) / $unit->getPower();
+            $quantity += ceil($quantity * $player->getSummonBonus() / (float)100);
             if ($troop) {
                 $troop->setQuantity($troop->getQuantity() + $quantity);
                 $this->addFlash('success', 'Has invocado '.$this->get('service.controller')->nff($quantity).' <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');

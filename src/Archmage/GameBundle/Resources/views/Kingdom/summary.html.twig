@@ -228,6 +228,7 @@
                                 <td class="text-right">0</td>
                                 <td class="text-right">0</td>
                             </tr>
+                            {# construcciones #}
                             {% for construction in player.constructions %}
                             <tr>
                                 <td class="text-left"><i class="fa fa-fw fa-industry"></i><span class="label label-extra" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ construction.building.description }}"><a href="{{ path('archmage_game_home_help') }}#{{ construction.building.name|slug }}" class="link">{{ construction.building.name }}</a></span></td>
@@ -243,36 +244,7 @@
                                 <td class="text-right">{{ (construction.quantity * (construction.building.manaResource - construction.building.manaMaintenance))|nf }}</td>
                             </tr>
                             {% endfor %}
-                            {% for contract in player.contracts %}
-                            <tr>
-                                <td class="text-left"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ contract.hero.skill.description }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}" class="link">{{ contract.hero.name }}</a></span></td>
-                                <td class="text-right">{{ contract.level|nf }}</td>
-                                <td class="text-right">{{ (contract.level * contract.hero.power)|nf }}</td>
-                                <td class="text-right">{{ contract.level * contract.hero.skill.armyDefenseBonus }}%</td>
-                                <td class="text-right">{{ contract.level * contract.hero.skill.magicDefenseBonus }}%</td>
-                                <td class="text-right">{{ contract.level * contract.hero.skill.summonBonus }}%</td>
-                                <td class="text-right">{{ contract.level * contract.hero.skill.researchBonus }}%</td>
-                                <td class="text-right">0</td>
-                                <td class="text-right">{{ (contract.level * ((contract.hero.skill.goldBonus * player.goldResourcePerTurn / 100) - contract.hero.goldMaintenance))|nf }}</td>
-                                <td class="text-right">{{ (contract.level * ((contract.hero.skill.peopleBonus * player.peopleResourcePerTurn / 100) - contract.hero.peopleMaintenance))|nf }}</td>
-                                <td class="text-right">{{ (contract.level * ((contract.hero.skill.manaBonus * player.manaResourcePerTurn / 100) - contract.hero.manaMaintenance))|nf }}</td>
-                            </tr>
-                            {% endfor %}
-                            {% for item in player.items if item.artifact.legendary %}
-                            <tr>
-                                <td class="text-left"><i class="fa fa-fw fa-diamond"></i><span class="label label-legendary" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ item.artifact.skill.description }}"><a href="{{ path('archmage_game_home_help') }}#{{ item.artifact.name|slug }}" class="link">{{ item.artifact.name }}</a></span></td>
-                                <td class="text-right">{{ item.quantity|nf }}</td>
-                                <td class="text-right">{{ item.artifact.power|nf }}</td>
-                                <td class="text-right">{{ item.artifact.skill.armyDefenseBonus|nf }}%</td>
-                                <td class="text-right">{{ item.artifact.skill.magicDefenseBonus|nf }}%</td>
-                                <td class="text-right">{{ item.artifact.skill.summonBonus|nf }}%</td>
-                                <td class="text-right">{{ item.artifact.skill.researchBonus|nf }}%</td>
-                                <td class="text-right">0</td>
-                                <td class="text-right">{{ (player.goldResourcePerTurn * item.artifact.skill.goldBonus / 100)|nf }}</td>
-                                <td class="text-right">{{ (player.peopleResourcePerTurn * item.artifact.skill.peopleBonus / 100)|nf }}</td>
-                                <td class="text-right">{{ (player.manaResourcePerTurn * item.artifact.skill.manaBonus / 100)|nf }}</td>
-                            </tr>
-                            {% endfor %}
+                            {# hechizos #}
                             {% set quantity = 0 %}
                             {% set power = 0 %}
                             {% for research in player.researchs if research.active %}
@@ -292,6 +264,23 @@
                                 <td class="text-right">0</td>
                                 <td class="text-right">0</td>
                             </tr>
+                            {# heroes #}
+                            {% for contract in player.contracts %}
+                            <tr>
+                                <td class="text-left"><i class="fa fa-fw fa-user"></i><span class="label label-{{ contract.hero.faction.class }}" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ contract.hero.skill.description }}"><a href="{{ path('archmage_game_home_help') }}#{{ contract.hero.name|slug }}" class="link">{{ contract.hero.name }}</a></span></td>
+                                <td class="text-right">{{ contract.level|nf }}</td>
+                                <td class="text-right">{{ (contract.level * contract.hero.power)|nf }}</td>
+                                <td class="text-right">{{ contract.level * contract.hero.skill.armyDefenseBonus }}%</td>
+                                <td class="text-right">{{ contract.level * contract.hero.skill.magicDefenseBonus }}%</td>
+                                <td class="text-right">{{ contract.level * contract.hero.skill.summonBonus }}%</td>
+                                <td class="text-right">{{ contract.level * contract.hero.skill.researchBonus }}%</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">{{ (contract.level * ((contract.hero.skill.goldBonus * player.goldResourcePerTurn / 100) - contract.hero.goldMaintenance))|nf }}</td>
+                                <td class="text-right">{{ (contract.level * ((contract.hero.skill.peopleBonus * player.peopleResourcePerTurn / 100) - contract.hero.peopleMaintenance))|nf }}</td>
+                                <td class="text-right">{{ (contract.level * ((contract.hero.skill.manaBonus * player.manaResourcePerTurn / 100) - contract.hero.manaMaintenance))|nf }}</td>
+                            </tr>
+                            {% endfor %}
+                            {# artefactos #}
                             {% set quantity = 0 %}
                             {% set power = 0 %}
                             {% for item in player.items if not item.artifact.legendary %}
@@ -311,6 +300,23 @@
                                 <td class="text-right">0</td>
                                 <td class="text-right">0</td>
                             </tr>
+                            {# legendarios #}
+                            {% for item in player.items if item.artifact.legendary %}
+                            <tr>
+                                <td class="text-left"><i class="fa fa-fw fa-diamond"></i><span class="label label-legendary" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ item.artifact.skill.description }}"><a href="{{ path('archmage_game_home_help') }}#{{ item.artifact.name|slug }}" class="link">{{ item.artifact.name }}</a></span></td>
+                                <td class="text-right">{{ item.quantity|nf }}</td>
+                                <td class="text-right">{{ item.artifact.power|nf }}</td>
+                                <td class="text-right">{{ item.artifact.skill.armyDefenseBonus|nf }}%</td>
+                                <td class="text-right">{{ item.artifact.skill.magicDefenseBonus|nf }}%</td>
+                                <td class="text-right">{{ item.artifact.skill.summonBonus|nf }}%</td>
+                                <td class="text-right">{{ item.artifact.skill.researchBonus|nf }}%</td>
+                                <td class="text-right">0</td>
+                                <td class="text-right">{{ (player.goldResourcePerTurn * item.artifact.skill.goldBonus / 100)|nf }}</td>
+                                <td class="text-right">{{ (player.peopleResourcePerTurn * item.artifact.skill.peopleBonus / 100)|nf }}</td>
+                                <td class="text-right">{{ (player.manaResourcePerTurn * item.artifact.skill.manaBonus / 100)|nf }}</td>
+                            </tr>
+                            {% endfor %}
+                            {# tropas #}
                             {% for troop in player.troops %}
                             <tr>
                                 <td class="text-left"><i class="fa fa-fw fa-group"></i><span class="label label-{{ troop.unit.faction.class }}" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ troop.unit.skill.description|default('Sin habilidad especial') }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}" class="link">{{ troop.unit.name }}</a></span></td>
@@ -326,6 +332,7 @@
                                 <td class="text-right">-{{ (troop.quantity * troop.unit.manaMaintenance)|nf }}</td>
                             </tr>
                             {% endfor %}
+                            {# encantamientos #}
                             {% for enchantment in player.enchantmentsVictim %}
                             <tr>
                                 <td class="text-left"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ enchantment.spell.skill.description }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}" class="link">{{ enchantment.spell.name }}</a></span> de <span class="label label-{{ enchantment.owner.faction.class }}"><a href="{{ path('archmage_game_account_profile', {'id': enchantment.owner.id}) }}" class="link">{{ enchantment.owner.nick }}</a></span></td>
@@ -341,6 +348,7 @@
                                 <td class="text-right">{{ (enchantment.owner.magic * enchantment.spell.skill.manaBonus * player.manaResourcePerTurn / 100)|nf }}</td>
                             </tr>
                             {% endfor %}
+                            {# encantamientos #}
                             {% for enchantment in player.enchantmentsOwner %}
                             <tr>
                                 <td class="text-left"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ enchantment.spell.skill.description }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}" class="link">{{ enchantment.spell.name }}</a></span> a <span class="label label-{{ enchantment.victim.faction.class }}"><a href="{{ path('archmage_game_account_profile', {'id': enchantment.victim.id}) }}" class="link">{{ enchantment.victim.nick }}</a></span></td>

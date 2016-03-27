@@ -999,7 +999,7 @@ class Player
             $researchRatio += $contract->getHero()->getSkill()->getResearchBonus() * $contract->getLevel();
         }
         $percent = min(self::RESEARCH_CAP, $researchRatio);
-        return $percent;
+        return max(0, $percent);
     }
 
     /**
@@ -1021,7 +1021,7 @@ class Player
     {
         $ratio = self::ARTIFACT_RATIO;
         foreach ($this->getItems() as $item) {
-            if ($item->getArtifact()->getArtifactRatioBonus() > 0) $ratio += $item->getArtifact()->getArtifactRatioBonus();
+            if ($item->getArtifact()->getSkill()->getArtifactRatioBonus() > 0) $ratio += $item->getArtifact()->getSkill()->getArtifactRatioBonus();
         }
         return $ratio;
     }
@@ -1063,7 +1063,7 @@ class Player
         foreach ($this->contracts as $contract) {
             $magicDefense += $contract->getHero()->getSkill()->getMagicDefenseBonus() * $contract->getLevel();
         }
-        return min(self::MAGICDEFENSE_CAP, $magicDefense);
+        return max(self::MAGICDEFENSE_BASE, min(self::MAGICDEFENSE_CAP, $magicDefense));
     }
 
     /**
@@ -1085,7 +1085,7 @@ class Player
         foreach ($this->contracts as $contract) {
             $armyDefense += $contract->getHero()->getSkill()->getArmyDefenseBonus() * $contract->getLevel();
         }
-        return min(self::ARMYDEFENSE_CAP, $armyDefense);
+        return max(self::ARMYDEFENSE_BASE, min(self::ARMYDEFENSE_CAP, $armyDefense));
     }
 
     /**
@@ -1107,7 +1107,7 @@ class Player
         foreach ($this->contracts as $contract) {
             $summon += $contract->getHero()->getSkill()->getSummonBonus() * $contract->getLevel();
         }
-        return $summon;
+        return max(0, $summon);
     }
 
     /**
@@ -1211,7 +1211,7 @@ class Player
             if ($enchantment->getSpell()->getSkill()->getTerrainBonus() > 0) $terrain += $enchantment->getSpell()->getSkill()->getTerrainBonus();
         }
         foreach ($this->items as $item) {
-            if ($item->getArtifact()->getLegendary()) $terrain += $item->getArtifact()->getTerrainBonus();
+            if ($item->getArtifact()->getLegendary() && $item->getArtifact()->getSkill()->getTerrainBonus() > 0) $terrain += $item->getArtifact()->getSkill()->getTerrainBonus();
         }
         return $terrain;
     }

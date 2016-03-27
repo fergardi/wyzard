@@ -11,6 +11,7 @@ parameters:
     mailer_port:                    587
     mailer_user:                    username
     mailer_password:                password
+    webmaster:                      email
     paypal_username:                username
     paypal_password:                password
     paypal_signature:               ThisTokenIsNotSoSecretChangeIt

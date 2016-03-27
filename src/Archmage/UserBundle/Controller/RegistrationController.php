@@ -77,6 +77,19 @@ class RegistrationController extends BaseController
                 $user->setPlayer($player);
                 $manager->persist($user);
                 $manager->flush();
+
+                //send email to admin
+                $message = \Swift_Message::newInstance()
+                    ->setSubject('Wyzard: Nuevo usuario')
+                    ->setFrom('admin@wyzard.es')
+                    ->setTo($this->container->getParameter('webmaster'))
+                    ->setBody(
+                        'Se ha registrado un nuevo usuario en Wyzard, "'.$player->getNick().'"',
+                        'text/html'
+                    )
+                ;
+                $this->container->get('mailer')->send($message);
+
                 /*
                  * END OWN CODE
                  */

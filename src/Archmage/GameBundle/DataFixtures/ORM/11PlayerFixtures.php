@@ -278,6 +278,51 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         $user->setPlainPassword('123321');
         $userManager->updateUser($user);
 
+        //TEST PLAYER 2
+        $player = new Player();
+        $manager->persist($player);
+        $player->setFaction($this->getReference('Naturaleza'));
+        $player->setGod(false);
+        $player->setWinner(false);
+        //constructions
+        $constructions = array(
+            'Tierras' => 600,
+            'Granjas' => 10,
+            'Pueblos' => 10,
+            'Nodos' => 10,
+            'Gremios' => 10,
+            'Talleres' => 10,
+            'Barracones' => 10,
+            'Barreras' => 3,
+            'Fortalezas' => 3,
+        );
+        foreach ($constructions as $name => $quantity) {
+            $construction = new Construction();
+            $construction->setBuilding($manager->getRepository('ArchmageGameBundle:Building')->findOneByName($name));
+            $construction->setQuantity($quantity);
+            $construction->setPlayer($player);
+            $manager->persist($construction);
+            $player->addConstruction($construction);
+        }
+        //resources
+        $player->setNick('Wyzard2');
+        $player->setGold(3000000);
+        $player->setPeople(20000);
+        $player->setMana(10000);
+        $player->setTurns(300);
+        $player->setRunes(10);
+        $player->setMagic(1);
+
+        //user credentials
+        $userManager = $this->container->get('fos_user.user_manager');
+        $user = new User();
+        $user->setPlayer($player);
+        $user->setEnabled(true);
+        $user->setEmail('fergardi2@email.com');
+        $user->setUsername($player->getNick());
+        $user->setPlainPassword('123321');
+        $userManager->updateUser($user);
+
         //FLUSH
         $manager->flush();
     }

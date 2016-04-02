@@ -103,9 +103,9 @@ class ArmyController extends Controller
                     if ($troop5 && $quantity5 > 0) $attackerArmy[] = array($troop5, $quantity5);
                     //quantity > 0
                     if ($player->getUnits() > 0 && !empty($attackerArmy) && $target) {
+                        $report = null;
                         $chance = rand(0, 99);
                         if ($chance > $target->getArmyDefense()) {
-                            $report = null;
                             $attackerItem = isset($_POST['item']) ? $_POST['item'] : null;
                             $attackerItem = $manager->getRepository('ArchmageGameBundle:Item')->findOneById($attackerItem);
                             if ($attackerItem) {

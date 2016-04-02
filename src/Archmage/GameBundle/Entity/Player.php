@@ -109,13 +109,6 @@ class Player
     private $winner = false;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="vacation", type="boolean", nullable=false)
-     */
-    private $vacation = false;
-
-    /**
      * @var item
      *
      * @ORM\ManyToOne(targetEntity="Item")
@@ -462,29 +455,6 @@ class Player
     public function getWinner()
     {
         return $this->winner;
-    }
-
-    /**
-     * Set vacation
-     *
-     * @param boolean $vacation
-     * @return Player
-     */
-    public function setVacation($vacation)
-    {
-        $this->vacation = $vacation;
-
-        return $this;
-    }
-
-    /**
-     * Get vacation
-     *
-     * @return boolean
-     */
-    public function getVacation()
-    {
-        return $this->vacation;
     }
 
     /**
@@ -1133,6 +1103,9 @@ class Player
         foreach ($this->researchs as $research) {
             if ($research->getActive()) $power += $research->getSpell()->getPower();
         }
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            if ($enchantment->getSpell()->getSkill()->getSelf()) $power += $enchantment->getSpell()->getPower() * $enchantment->getOwner()->getMagic();
+        }
         return $power;
     }
 
@@ -1150,7 +1123,7 @@ class Player
                 $level++;
             }
         }
-        return 1 + floor($level / self::MAGICLEVEL_RATIO);
+        return min(self::MAGICLEVEL_CAP, 1 + floor($level / self::MAGICLEVEL_RATIO));
     }
 
     /*
@@ -1609,17 +1582,14 @@ class Player
     }
 
     /**
-     * Get Apocalypse
+     * Get marked
      *
      * @return boolean
      */
-    public function getApocalypse() {
-        $apocalypse = 0;
-        foreach ($this->items as $item) {
-            if ($item->getArtifact()->getLegendary()) {
-                $apocalypse++;
-            }
+    public function getMarked() {
+        foreach ($this->enchantmentsVictim as $enchantment) {
+            if ($enchantment->getSpell()->getSkill()->getMarkBonus()) return true;
         }
-        return ($apocalypse >= 5);
+        return false;
     }
 }

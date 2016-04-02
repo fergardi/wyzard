@@ -32,9 +32,9 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <select class="form-control selectpicker show-tick dropup" id="type" name="type" data-live-search="false" data-size="3" title="Tipo" required="required">
-                                            <option value="conquest" data-content="<span class='label label-extra'>Conquista</span> (Robar tierras)">Conquista</option>
-                                            <option value="pillage" data-content="<span class='label label-extra'>Pillaje</span> (Robar recursos)">Pillaje</option>
-                                            <option value="siege" data-content="<span class='label label-extra'>Asedio</span> (Destruir ambos)">Asedio</option>
+                                            <option value="conquest" data-content="<span class='label label-extra'>Conquista</span> <small>Robar tierras</small>">Conquista</option>
+                                            <option value="pillage" data-content="<span class='label label-extra'>Pillaje</span> <small>Robar recursos</small>">Pillaje</option>
+                                            <option value="siege" data-content="<span class='label label-extra'>Asedio</span> <small>Destruir ambos</small>">Asedio</option>
                                         </select>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
                                     <div class="input-group">
                                         <select class="form-control selectpicker show-tick dropup" id="target" name="target" data-live-search="true" data-size="5" title="Objetivo" required="required">
                                             {% for target in targets if target != player %}
-                                            <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}'>{{ target.nick }}</span> ({{ target.power|nf }})">{{ target.nick }}</option>
+                                            <option value="{{ target.id }}" data-content="<span class='label label-{{ target.faction.class }}'>{{ target.nick|truncate(12) }}</span> <small>{{ target.power|nf }}</small>">{{ target.nick }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>
@@ -56,7 +56,7 @@
                                         <select class="form-control selectpicker show-tick dropup" id="item" name="item" data-live-search="true" data-size="5">
                                             <option>Artefacto</option>
                                             {% for item in player.items if item.quantity > 0 and item.artifact.skill.battle %}
-                                                <option value="{{ item.id }}" data-content="<span class='label label-{{ item.artifact.class }}'>{{ item.artifact.name }}</span> ({{ item.quantity|nf }})">{{ item.artifact.name }}</option>
+                                                <option value="{{ item.id }}" data-content="<span class='label label-{{ item.artifact.class }}'>{{ item.artifact.name }}</span> <small>{{ item.quantity|nf }}</small>">{{ item.artifact.name }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>
@@ -68,7 +68,7 @@
                                         <select class="form-control selectpicker show-tick dropup" id="research" name="research" data-live-search="true" data-size="5">
                                             <option>Hechizo</option>
                                             {% for research in player.researchs if research.active and research.spell.skill.battle %}
-                                            <option value="{{ research.id }}" data-content="<span class='label label-{{ research.spell.faction.class }}'>{{ research.spell.name }}</span> ({{ (research.spell.faction == player.faction ? research.spell.manaCost|nf : (research.spell.manaCost*2)|nf) }})">{{ research.spell.name }}</option>
+                                            <option value="{{ research.id }}" data-content="<span class='label label-{{ research.spell.faction.class }}'>{{ research.spell.name }}</span> <small>{{ (research.spell.faction == player.faction ? research.spell.manaCost|nf : (research.spell.manaCost*2)|nf) }}</small>">{{ research.spell.name }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>

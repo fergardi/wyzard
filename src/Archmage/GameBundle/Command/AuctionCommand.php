@@ -125,7 +125,7 @@ class AuctionCommand extends ContainerAwareCommand
 
         //ITEM
         $criteria = new Criteria();
-        $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+        $criteria->andWhere($criteria->expr()->lte('rarity', rand(0,99)));
         $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
         shuffle($artifacts);
         for ($i = 0; $i < self::MAX_ITEMS; $i++) {
@@ -145,7 +145,7 @@ class AuctionCommand extends ContainerAwareCommand
 
         //RECIPE
         $criteria = new Criteria();
-        $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+        $criteria->andWhere($criteria->expr()->lte('rarity', rand(0,99)));
         $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
         for ($i = 0; $i < self::MAX_RECIPES; $i++) {
             shuffle($artifacts);
@@ -166,7 +166,7 @@ class AuctionCommand extends ContainerAwareCommand
 
         //TROOP
         $criteria = new Criteria();
-        $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+        $criteria->andWhere($criteria->expr()->lte('rarity', rand(0,99)));
         $units = $manager->getRepository('ArchmageGameBundle:Unit')->matching($criteria)->toArray();
         shuffle($units);
         for ($i = 0; $i < self::MAX_TROOPS; $i++) {
@@ -187,7 +187,7 @@ class AuctionCommand extends ContainerAwareCommand
         //QUEST
         $level = rand(1,3);
         $criteria = new Criteria();
-        $criteria->where($criteria->expr()->lte('rarity', $level * 33));
+        $criteria->andWhere($criteria->expr()->lte('rarity', $level * 33));
         $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
         shuffle($artifacts);
         for ($i = 0; $i < self::MAX_QUESTS; $i++) {
@@ -218,7 +218,7 @@ class AuctionCommand extends ContainerAwareCommand
 
         //CONTRACT
         $criteria = new Criteria();
-        $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+        $criteria->andWhere($criteria->expr()->lte('rarity', rand(0,99)));
         $heroes = $manager->getRepository('ArchmageGameBundle:Hero')->matching($criteria)->toArray();
         shuffle($heroes);
         for ($i = 0; $i < self::MAX_CONTRACTS; $i++) {
@@ -239,7 +239,8 @@ class AuctionCommand extends ContainerAwareCommand
 
         //RESEARCH
         $criteria = new Criteria();
-        $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
+        $criteria->andWhere($criteria->expr()->lte('rarity', rand(0,99)));
+        $criteria->andWhere($criteria->expr()->lte('magic', 3));
         $spells = $manager->getRepository('ArchmageGameBundle:Spell')->matching($criteria)->toArray();
         shuffle($spells);
         for ($i = 0; $i < self::MAX_RESEARCH; $i++) {

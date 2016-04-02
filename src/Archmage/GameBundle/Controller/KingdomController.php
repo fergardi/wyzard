@@ -16,6 +16,11 @@ use Archmage\GameBundle\Entity\Recipe;
 class KingdomController extends Controller
 {
     /**
+     * CAPS
+     */
+    const SACRIFICE_RATIO = 0.75;
+
+    /**
      * @Route("/game/kingdom/summary")
      * @Template("ArchmageGameBundle:Kingdom:summary.html.twig")
      */
@@ -167,23 +172,24 @@ class KingdomController extends Controller
                 if ($player->getItems()->count() > 0) $sacrifice[] = 'item';
                 $sacrifice = $sacrifice[rand(0, count($sacrifice) - 1)];
                 if ($sacrifice == 'gold') {
-                    $player->setGold($player->getGold() * 0.90);
-                    $this->addFlash('danger', 'Los Dioses han exigido un diezmo de tu <span class="label label-extra">Oro</span>.');
+                    $player->setGold($player->getGold() * self::SACRIFICE_RATIO);
+                    $this->addFlash('danger', 'Los Dioses han exigido una parte de tu <span class="label label-extra">Oro</span>.');
                 }
                 if ($sacrifice == 'people') {
-                    $player->setPeople($player->getPeople() * 0.90);
-                    $this->addFlash('danger', 'Los Dioses han exigido un diezmo de tu <span class="label label-extra">Población</span>.');
+                    $player->setPeople($player->getPeople() * self::SACRIFICE_RATIO);
+                    $this->addFlash('danger', 'Los Dioses han exigido una parte de tu <span class="label label-extra">Población</span>.');
                 }
                 if ($sacrifice == 'mana') {
-                    $player->setMana($player->getMana() * 0.90);
-                    $this->addFlash('danger', 'Los Dioses han exigido un diezmo de tu <span class="label label-extra">Maná</span>.');
+                    $player->setMana($player->getMana() * self::SACRIFICE_RATIO);
+                    $this->addFlash('danger', 'Los Dioses han exigido una parte de tu <span class="label label-extra">Maná</span>.');
                 }
                 if ($sacrifice == 'contract') {
                     $contracts = $player->getContracts()->toArray(); //for shuffling
                     shuffle($contracts);
                     $contract = $contracts[0]; //suponemos > 0 por entrar en el array
-                    $contract->setLevel($contract->getLevel() - 1);
-                    $this->addFlash('danger', 'Los Dioses han exigido un nivel de tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span>.');
+                    $levels = rand(1,2);
+                    $contract->setLevel($contract->getLevel() - $levels);
+                    $this->addFlash('danger', 'Los Dioses han exigido '.$levels.' nivel(es) de tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span>.');
                     if ($contract->getLevel() <= 0) {
                         $this->addFlash('danger', 'Tu <span class="label label-'.$contract->getHero()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($contract->getHero()->getName()).'" class="link">'.$contract->getHero()->getName().'</a></span> ha muerto.');
                         $player->removeContract($contract);
@@ -194,8 +200,8 @@ class KingdomController extends Controller
                     $troops = $player->getTroops()->toArray(); //for shuffling
                     shuffle($troops);
                     $troop = $troops[0]; //suponemos > 0 por entrar en el array
-                    $troop->setQuantity($troop->getQuantity() * 0.90);
-                    $this->addFlash('danger', 'Los Dioses han exigido un diezmo de tus <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
+                    $troop->setQuantity($troop->getQuantity() * self::SACRIFICE_RATIO);
+                    $this->addFlash('danger', 'Los Dioses han exigido una parte de tus <span class="label label-'.$troop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($troop->getUnit()->getName()).'" class="link">'.$troop->getUnit()->getName().'</a></span>.');
                     if ($troop->getQuantity() <= 0) {
                         $player->removeTroop($troop);
                         $manager->remove($troop);
@@ -205,8 +211,8 @@ class KingdomController extends Controller
                     $items = $player->getItems()->toArray(); //for shuffling
                     shuffle($items);
                     $item = $items[0]; //suponemos > 0 por entrar en el array
-                    $item->setQuantity($item->getQuantity() - 1);
-                    $this->addFlash('danger', 'Los Dioses han exigido un <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
+                    $item->setQuantity($item->getQuantity() - 1); //suponemos cantidad > 0
+                    $this->addFlash('danger', 'Los Dioses han exigido <span class="label label-'.$item->getArtifact()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($item->getArtifact()->getName()).'" class="link">'.$item->getArtifact()->getName().'</a></span>.');
                     if ($item->getQuantity() <= 0) {
                         if ($player->getItem() && $player->getItem()->getArtifact() == $item->getArtifact()) $player->setItem(null);
                         $player->removeItem($item);
@@ -217,7 +223,6 @@ class KingdomController extends Controller
                 shuffle($spells);
                 $spell = $spells[0];
                 $god = $manager->getRepository('ArchmageGameBundle:Player')->findOneBy(array('god' => true, 'faction' => $spell->getFaction()));
-                //APOCALIPSIS ES UN ENCHANTMENT PERO NO SALE PORQUE NO TIENE GOD DE SU FACCION ASOCIADO
                 if ($spell && $god && !$player->hasEnchantmentVictim($spell)) {
                     $enchantment = new Enchantment();
                     $manager->persist($enchantment);

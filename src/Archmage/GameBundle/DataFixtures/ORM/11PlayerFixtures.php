@@ -12,6 +12,7 @@ use Archmage\GameBundle\Entity\Player;
 use Archmage\GameBundle\Entity\Construction;
 use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Contract;
+use Archmage\GameBundle\Entity\Research;
 use Archmage\UserBundle\Entity\User;
 
 class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
@@ -224,19 +225,30 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             foreach ($achievements as $achievement) {
                 $player->addAchievement($achievement);
             }
+            //researchs
+            $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAll();
+            foreach ($spells as $spell) {
+                $research = new Research();
+                $research->setSpell($spell);
+                $research->setTurns(0);
+                $research->setPlayer($player);
+                $research->setActive(true);
+                $manager->persist($research);
+                $player->addResearch($research);
+            }
             //resources
             $player->setGold(rand(100000000,500000000));
             $player->setRunes(rand(50,100));
             $player->setPeople($player->getPeopleCap());
             $player->setMana($player->getManaCap());
             $player->setTurns(300);
-            $player->setMagic(rand(8,12));
+            $player->setMagic(10);
         }
 
         //ADMIN
         $player = new Player();
         $manager->persist($player);
-        $player->setFaction($this->getReference('Naturaleza'));
+        $player->setFaction($this->getReference('Oscuridad'));
         $player->setGod(false);
         $player->setWinner(false);
         //constructions

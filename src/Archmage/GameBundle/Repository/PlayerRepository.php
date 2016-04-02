@@ -32,10 +32,11 @@ class PlayerRepository extends EntityRepository
         $now = new \DateTime('-12 hour');
         $now = "'".$now->format('Y-m-d H:i:s')."'";
 
-        //DEBILES, CALCULADO USANDO POWER QUE NO ESTA EN LA DB, SE TIENE QUE CALCULAR AL VUELO
+        //CALCULADO USANDO POWER QUE NO ESTA EN LA DB, SE TIENE QUE CALCULAR AL VUELO
         $weaks = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
         $strongs = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
         $vacations = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
+        $marked = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
         $targets = $this->_em->getRepository('ArchmageGameBundle:Player')->findAll();
         foreach ($targets as $target) {
             if ($player->getPower() * 0.80 > $target->getPower()) {
@@ -44,8 +45,8 @@ class PlayerRepository extends EntityRepository
             if ($player->getPower() * 1.60 < $target->getPower()) {
                 $strongs[] = $target->getId();
             }
-            if ($target->getVacation()) {
-                $vacations[] = $target->getId();
+            if ($target->getMarked()) {
+                $marked[] = $target->getId();
             }
         }
 
@@ -63,6 +64,13 @@ class PlayerRepository extends EntityRepository
             ->andWhere($qb->expr()->eq('counterB.defender', $player->getId()))
             ->andWhere($qb->expr()->gte('counterB.datetime', $now));
 
+        //REPETIDO PARA USARLO TRES VECES EN LA MISMA CONSULTA, PARA QUE NO DE ERROR AL USAR EL MISMO ALIAS TRES VECES
+        $counterC = $this->_em->createQueryBuilder()
+            ->select('identity(counterC.attacker)')
+            ->from('ArchmageGameBundle:Attack', 'counterC')
+            ->andWhere($qb->expr()->eq('counterC.defender', $player->getId()))
+            ->andWhere($qb->expr()->gte('counterC.datetime', $now));
+
         //BLACKLIST, SI YA HAS ATACADO A ESTE JUGADOR EN MENOS DE 12H NO PUEDES VOLVER A HACERLO, EXCEPTUANDO LA ANTERIOR CONDICION
         $blacklist = $this->_em->createQueryBuilder()
             ->select('identity(blacklist.defender)')
@@ -70,7 +78,7 @@ class PlayerRepository extends EntityRepository
             ->andWhere($qb->expr()->eq('blacklist.attacker', $player->getId()))
             ->andWhere($qb->expr()->gte('blacklist.datetime', $now));
 
-        //TARGETS, LISTA DE TODOS LOS PLAYERS QUE CUMPLAN LAS 3 CONDICIONES ANTERIORES Y NO ESTEN DE VACACIONES
+        //TARGETS, LISTA DE TODOS LOS PLAYERS QUE CUMPLAN LAS 3 CONDICIONES ANTERIORES
         $targets = $this->_em->createQueryBuilder()
             ->select('player')
             ->from('ArchmageGameBundle:Player', 'player')
@@ -79,8 +87,7 @@ class PlayerRepository extends EntityRepository
                 $qb->expr()->notIn('player.id', $counterB->getDQL()),
                 $qb->expr()->notIn('player.id', $blacklist->getDQL()),
                 $qb->expr()->notIn('player.id', $weaks),
-                $qb->expr()->notIn('player.id', $strongs),
-                $qb->expr()->notIn('player.id', $vacations)
+                $qb->expr()->notIn('player.id', $strongs)
             ))
             ->getQuery()
             ->getResult();

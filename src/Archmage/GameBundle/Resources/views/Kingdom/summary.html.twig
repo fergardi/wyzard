@@ -248,7 +248,7 @@
                             {% set quantity = 0 %}
                             {% set power = 0 %}
                             {% for research in player.researchs if research.active %}
-                                {% set power = power + research.spell.power %}
+                                {% set power = power + research.spell.power|abs %}
                                 {% set quantity = quantity + 1 %}
                             {% endfor %}
                             <tr>
@@ -342,7 +342,7 @@
                                 <td class="text-right">{{ (enchantment.owner.magic * enchantment.spell.skill.magicDefenseBonus)|nf }}%</td>
                                 <td class="text-right">{{ (enchantment.owner.magic * enchantment.spell.skill.summonBonus)|nf }}%</td>
                                 <td class="text-right">{{ (enchantment.owner.magic * enchantment.spell.skill.researchBonus)|nf }}%</td>
-                                <td class="text-right">{{ (enchantment.owner.magic * enchantment.spell.skill.terrainBonus)|nf }}</td>
+                                <td class="text-right">{{ (min(1, enchantment.owner.magic * enchantment.spell.skill.terrainBonus))|nf }}</td>
                                 <td class="text-right">{{ (enchantment.owner.magic * enchantment.spell.skill.goldBonus * player.goldResourcePerTurn / 100)|nf }}</td>
                                 <td class="text-right">{{ (enchantment.owner.magic * enchantment.spell.skill.peopleBonus * player.peopleResourcePerTurn / 100)|nf }}</td>
                                 <td class="text-right">{{ (enchantment.owner.magic * enchantment.spell.skill.manaBonus * player.manaResourcePerTurn / 100)|nf }}</td>

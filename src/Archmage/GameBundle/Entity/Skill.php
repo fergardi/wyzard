@@ -218,6 +218,20 @@ class Skill
     private $artifactRatioBonus = 0;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="betrayalBonus", type="smallint", nullable=false)
+     */
+    private $betrayalBonus = 0;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="markBonus", type="boolean", nullable=false)
+     */
+    private $markBonus = false;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="hasteBonus", type="boolean", nullable=false)
@@ -924,6 +938,29 @@ class Skill
     }
 
     /**
+     * Set markBonus
+     *
+     * @param boolean $markBonus
+     * @return Skill
+     */
+    public function setMarkBonus($markBonus)
+    {
+        $this->markBonus = $markBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get markBonus
+     *
+     * @return boolean
+     */
+    public function getMarkBonus()
+    {
+        return $this->markBonus;
+    }
+
+    /**
      * Set experienceBonus
      *
      * @param integer $experienceBonus
@@ -967,6 +1004,29 @@ class Skill
     public function getArtifactRatioBonus()
     {
         return $this->artifactRatioBonus;
+    }
+
+    /**
+     * Set betrayalBonus
+     *
+     * @param integer $betrayalBonus
+     * @return Skill
+     */
+    public function setBetrayalBonus($betrayalBonus)
+    {
+        $this->betrayalBonus = $betrayalBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get betrayalBonus
+     *
+     * @return integer
+     */
+    public function getBetrayalBonus()
+    {
+        return $this->betrayalBonus;
     }
 
     /**

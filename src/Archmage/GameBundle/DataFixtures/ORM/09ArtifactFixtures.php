@@ -14,6 +14,10 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function load(ObjectManager $manager)
     {
+        /*
+         * NORMALES
+         */
+
         //COFRE DEL TESORO
         $artifact = new Artifact();
         $artifact->setName('Cofre del Tesoro');
@@ -23,7 +27,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setCost(5);
+        $artifact->setCost(0);
         $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
@@ -83,7 +87,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setCost(5);
+        $artifact->setCost(0);
         $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
@@ -233,7 +237,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(3000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setCost(5);
+        $artifact->setCost(0);
         $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
@@ -248,7 +252,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(2000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setCost(5);
+        $artifact->setCost(0);
         $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
@@ -263,7 +267,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(3000000);
         $artifact->setRarity(50);
         $artifact->setPower(25000);
-        $artifact->setCost(5);
+        $artifact->setCost(0);
         $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
@@ -353,7 +357,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setCost(5);
+        $artifact->setCost(0);
         $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
@@ -368,7 +372,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(1000000);
         $artifact->setRarity(0);
         $artifact->setPower(25000);
-        $artifact->setCost(5);
+        $artifact->setCost(0);
         $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
@@ -379,15 +383,64 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Brújula Mágica');
         $artifact->setImage('bundles/archmagegame/images/artifact/magiccompass.png');
         $artifact->setSkill($this->getReference('Brújula Mágica'));
-        $artifact->setLore('Cómo que nos hemos perdido?! Cómo que no señala al norte?!');
+        $artifact->setLore('Cómo que nos hemos perdido?! Cómo que no señala al norte?! Cómo que es un aletiómetro?!');
         $artifact->setGoldAuction(5000000);
         $artifact->setRarity(50);
         $artifact->setPower(25000);
-        $artifact->setCost(10);
+        $artifact->setCost(0);
         $artifact->setClass('artifact');
         $artifact->setLegendary(false);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
+
+        //ESPEJO ROTO
+        $artifact = new Artifact();
+        $artifact->setName('Espejo Roto');
+        $artifact->setImage('bundles/archmagegame/images/artifact/brokenmirror.png');
+        $artifact->setSkill($this->getReference('Espejo Roto'));
+        $artifact->setLore('Siete años de mala suerte me parecen pocos!');
+        $artifact->setGoldAuction(3000000);
+        $artifact->setRarity(50);
+        $artifact->setPower(25000);
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //POLVO DE HADA
+        $artifact = new Artifact();
+        $artifact->setName('Polvo de Hada');
+        $artifact->setImage('bundles/archmagegame/images/artifact/fairypowder.png');
+        $artifact->setSkill($this->getReference('Polvo de Hada'));
+        $artifact->setLore('En bolsitas para una fácil distribución.');
+        $artifact->setGoldAuction(1000000);
+        $artifact->setRarity(50);
+        $artifact->setPower(25000);
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        //SANTA GRANADA
+        $artifact = new Artifact();
+        $artifact->setName('Santa Granada');
+        $artifact->setImage('bundles/archmagegame/images/artifact/holygrenade.png');
+        $artifact->setSkill($this->getReference('Santa Granada'));
+        $artifact->setLore('Eliminado será el 5.');
+        $artifact->setGoldAuction(1000000);
+        $artifact->setRarity(50);
+        $artifact->setPower(25000);
+        $artifact->setCost(0);
+        $artifact->setClass('artifact');
+        $artifact->setLegendary(false);
+        $this->setReference($artifact->getName(), $artifact);
+        $manager->persist($artifact);
+
+        /*
+         * LEGENDARIOS
+         */
 
         //ANILLO AVARICIOSO
         $artifact = new Artifact();
@@ -398,7 +451,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
-        $artifact->setCost(0);
+        $artifact->setCost(25);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
@@ -413,7 +466,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
-        $artifact->setCost(0);
+        $artifact->setCost(25);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
@@ -428,7 +481,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
-        $artifact->setCost(0);
+        $artifact->setCost(25);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
@@ -443,7 +496,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
-        $artifact->setCost(0);
+        $artifact->setCost(25);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
@@ -458,7 +511,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
-        $artifact->setCost(0);
+        $artifact->setCost(25);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
@@ -473,7 +526,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
-        $artifact->setCost(0);
+        $artifact->setCost(25);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
@@ -484,11 +537,11 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setName('Amuleto Maldito');
         $artifact->setImage('bundles/archmagegame/images/artifact/cursedpendant.png');
         $artifact->setSkill($this->getReference('Amuleto Maldito'));
-        $artifact->setLore('Uno de los cinco Amuletos Legendarios, llevado una vez por un gran Dios de la Magia Morada. A que es una putada no poder quitártelo? Por eso se llama MALDITO!');
+        $artifact->setLore('Uno de los cinco Amuletos Legendarios, llevado una vez por un gran Dios de la Magia Morada (más que nada, porque no se lo podía quitar).');
         $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
-        $artifact->setCost(0);
+        $artifact->setCost(1);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
@@ -503,22 +556,22 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
-        $artifact->setCost(0);
+        $artifact->setCost(25);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
         $manager->persist($artifact);
 
-        //AMULETO RUNICO
+        //AMULETO AFORTUNADO
         $artifact = new Artifact();
-        $artifact->setName('Amuleto Rúnico');
-        $artifact->setImage('bundles/archmagegame/images/artifact/runicpendant.png');
-        $artifact->setSkill($this->getReference('Amuleto Rúnico'));
+        $artifact->setName('Amuleto Afortunado');
+        $artifact->setImage('bundles/archmagegame/images/artifact/luckypendant.png');
+        $artifact->setSkill($this->getReference('Amuleto Afortunado'));
         $artifact->setLore('Uno de los cinco Amuletos Legendarios, llevado una vez por un gran Dios de la Magia Blanca.');
         $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
-        $artifact->setCost(0);
+        $artifact->setCost(25);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);
@@ -533,7 +586,7 @@ class ArtifactFixtures extends AbstractFixture implements OrderedFixtureInterfac
         $artifact->setGoldAuction(10000000);
         $artifact->setRarity(90);
         $artifact->setPower(250000);
-        $artifact->setCost(0);
+        $artifact->setCost(25);
         $artifact->setClass('legendary');
         $artifact->setLegendary(true);
         $this->setReference($artifact->getName(), $artifact);

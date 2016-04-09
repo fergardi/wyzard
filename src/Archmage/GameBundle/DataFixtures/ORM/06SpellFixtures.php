@@ -1933,7 +1933,7 @@ class SpellFixtures extends AbstractFixture implements OrderedFixtureInterface
         $spell = new Spell();
         $spell->setSkill($this->getReference('Paz'));
         $spell->setName($spell->getSkill()->getName());
-        $spell->setLore('La paz es el estado intermedio entre dos guerras.');
+        $spell->setLore('La paz sólo es el estado intermedio entre dos guerras.');
         $spell->setImage('bundles/archmagegame/images/spell/holy/peace.png');
         $spell->setFaction($this->getReference('Sagrado'));
         $spell->setMagic(5);

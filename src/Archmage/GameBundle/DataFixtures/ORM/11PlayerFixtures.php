@@ -7,12 +7,14 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\Collections\Criteria;
 
 use Archmage\GameBundle\Entity\Player;
 use Archmage\GameBundle\Entity\Construction;
 use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Contract;
 use Archmage\GameBundle\Entity\Research;
+use Archmage\GameBundle\Entity\Enchantment;
 use Archmage\GameBundle\Entity\Item;
 use Archmage\UserBundle\Entity\User;
 
@@ -215,11 +217,24 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $contracts = $god['heroes'];
             foreach ($contracts as $name => $level) {
                 $contract = new Contract();
+                $manager->persist($contract);
                 $contract->setHero($this->getReference($name));
                 $contract->setLevel($level);
                 $contract->setPlayer($player);
-                $manager->persist($contract);
                 $player->addContract($contract);
+            }
+            //enchantments
+            $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findByEnchantment(true);
+            foreach ($spells as $spell) {
+                if ($spell->getSkill()->getSelf()) {
+                    $enchantment = new Enchantment();
+                    $manager->persist($enchantment);
+                    $enchantment->setSpell($spell);
+                    $enchantment->setVictim($player);
+                    $enchantment->setOwner($player);
+                    $player->addEnchantmentsVictim($enchantment);
+                    $player->addEnchantmentsOwner($enchantment);
+                }
             }
             //achievements
             $achievements = $manager->getRepository('ArchmageGameBundle:Achievement')->findAll();
@@ -254,15 +269,15 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         $player->setWinner(false);
         //constructions
         $constructions = array(
-            'Tierras' => 60000,
-            'Granjas' => 10000,
-            'Pueblos' => 10000,
-            'Nodos' => 10000,
-            'Gremios' => 10000,
-            'Talleres' => 10000,
-            'Barracones' => 10000,
-            'Barreras' => 300,
-            'Fortalezas' => 300,
+            'Tierras' => 600,
+            'Granjas' => 30,
+            'Pueblos' => 20,
+            'Nodos' => 10,
+            'Gremios' => 0,
+            'Talleres' => 0,
+            'Barracones' => 0,
+            'Barreras' => 3,
+            'Fortalezas' => 3,
         );
         foreach ($constructions as $name => $quantity) {
             $construction = new Construction();
@@ -272,6 +287,7 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $manager->persist($construction);
             $player->addConstruction($construction);
         }
+        /*
         //spells
         $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAll();
         foreach ($spells as $spell) {
@@ -293,14 +309,15 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $item->setPlayer($player);
             $player->addItem($item);
         }
+        */
         //resources
         $player->setNick('Wyzard');
-        $player->setGold(3000000000);
-        $player->setPeople(20000000);
-        $player->setMana(10000000);
+        $player->setGold(3000000);
+        $player->setPeople(20000);
+        $player->setMana(10000);
         $player->setTurns(300);
-        $player->setRunes(10000);
-        $player->setMagic(10);
+        $player->setRunes(10);
+        $player->setMagic(1);
 
         //user credentials
         $userManager = $this->container->get('fos_user.user_manager');

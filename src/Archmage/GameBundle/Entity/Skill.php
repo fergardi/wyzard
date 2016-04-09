@@ -225,6 +225,13 @@ class Skill
     private $betrayalBonus = 0;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="discoveryBonus", type="smallint", nullable=false)
+     */
+    private $discoveryBonus = 0;
+
+    /**
      * @var boolean
      *
      * @ORM\Column(name="markBonus", type="boolean", nullable=false)
@@ -1027,6 +1034,29 @@ class Skill
     public function getBetrayalBonus()
     {
         return $this->betrayalBonus;
+    }
+
+    /**
+     * Set discoveryBonus
+     *
+     * @param integer $discoveryBonus
+     * @return Skill
+     */
+    public function setDiscoveryBonus($discoveryBonus)
+    {
+        $this->discoveryBonus = $discoveryBonus;
+
+        return $this;
+    }
+
+    /**
+     * Get discoveryBonus
+     *
+     * @return integer
+     */
+    public function getDiscoveryBonus()
+    {
+        return $this->discoveryBonus;
     }
 
     /**

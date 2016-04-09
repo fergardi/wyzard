@@ -137,7 +137,7 @@ class ServiceController extends Controller
             }
             $player->setConstruction('Tierras', $player->getFree() + $player->getTerrainResourcePerTurn());
             //ARTIFACTS
-            $chance = rand(0,99);
+            $chance = rand(0,300);
             if ($chance < $player->getArtifactRatio()) {
                 $criteria = new Criteria();
                 $criteria->where($criteria->expr()->lte('rarity', rand(0,99)));
@@ -352,7 +352,5 @@ class ServiceController extends Controller
                 $this->addFlash('success', 'Has desbloqueado el logro <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile').'" class="link">'.$achievement->getName().'</a></span> y 5 <span class="label label-artifact">Runas</span>.');
             }
         }
-        // SI GASTA TURNOS TERMINA EL MODO VACACIONES
-        $player->setVacation(false);
     }
 }

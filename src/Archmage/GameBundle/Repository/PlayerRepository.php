@@ -35,7 +35,6 @@ class PlayerRepository extends EntityRepository
         //CALCULADO USANDO POWER QUE NO ESTA EN LA DB, SE TIENE QUE CALCULAR AL VUELO
         $weaks = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
         $strongs = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
-        $vacations = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
         $marked = array(0); //PARA QUE SIEMPRE TENGA AL MENOS UN ELEMENTO EN EL ARRAY Y NO DE ERRORES EN UN IN() O NOTIN() VACIO
         $targets = $this->_em->getRepository('ArchmageGameBundle:Player')->findAll();
         foreach ($targets as $target) {
@@ -56,15 +55,13 @@ class PlayerRepository extends EntityRepository
             ->from('ArchmageGameBundle:Attack', 'counterA')
             ->andWhere($qb->expr()->eq('counterA.defender', $player->getId()))
             ->andWhere($qb->expr()->gte('counterA.datetime', $now));
-
-        //REPETIDO PARA USARLO DOS VECES EN LA MISMA CONSULTA, PARA QUE NO DE ERROR AL USAR EL MISMO ALIAS DOS VECES
+        //REPETIDO PARA USARLO DE NUEVO EN LA MISMA CONSULTA, PARA QUE NO DE ERROR AL USAR EL MISMO ALIAS
         $counterB = $this->_em->createQueryBuilder()
             ->select('identity(counterB.attacker)')
             ->from('ArchmageGameBundle:Attack', 'counterB')
             ->andWhere($qb->expr()->eq('counterB.defender', $player->getId()))
             ->andWhere($qb->expr()->gte('counterB.datetime', $now));
-
-        //REPETIDO PARA USARLO TRES VECES EN LA MISMA CONSULTA, PARA QUE NO DE ERROR AL USAR EL MISMO ALIAS TRES VECES
+        //REPETIDO PARA USARLO DE NUEVO EN LA MISMA CONSULTA, PARA QUE NO DE ERROR AL USAR EL MISMO ALIAS
         $counterC = $this->_em->createQueryBuilder()
             ->select('identity(counterC.attacker)')
             ->from('ArchmageGameBundle:Attack', 'counterC')
@@ -72,20 +69,31 @@ class PlayerRepository extends EntityRepository
             ->andWhere($qb->expr()->gte('counterC.datetime', $now));
 
         //BLACKLIST, SI YA HAS ATACADO A ESTE JUGADOR EN MENOS DE 12H NO PUEDES VOLVER A HACERLO, EXCEPTUANDO LA ANTERIOR CONDICION
-        $blacklist = $this->_em->createQueryBuilder()
-            ->select('identity(blacklist.defender)')
-            ->from('ArchmageGameBundle:Attack', 'blacklist')
-            ->andWhere($qb->expr()->eq('blacklist.attacker', $player->getId()))
-            ->andWhere($qb->expr()->gte('blacklist.datetime', $now));
+        $blacklistA = $this->_em->createQueryBuilder()
+            ->select('identity(blacklistA.defender)')
+            ->from('ArchmageGameBundle:Attack', 'blacklistA')
+            ->andWhere($qb->expr()->eq('blacklistA.attacker', $player->getId()))
+            ->andWhere($qb->expr()->gte('blacklistA.datetime', $now));
+        //REPETIDO PARA USARLO DE NUEVO EN LA MISMA CONSULTA, PARA QUE NO DE ERROR AL USAR EL MISMO ALIAS
+        $blacklistB = $this->_em->createQueryBuilder()
+            ->select('identity(blacklistB.defender)')
+            ->from('ArchmageGameBundle:Attack', 'blacklistB')
+            ->andWhere($qb->expr()->eq('blacklistB.attacker', $player->getId()))
+            ->andWhere($qb->expr()->gte('blacklistB.datetime', $now));
 
-        //TARGETS, LISTA DE TODOS LOS PLAYERS QUE CUMPLAN LAS 3 CONDICIONES ANTERIORES
+        //TARGETS, LISTA DE TODOS LOS PLAYERS QUE CUMPLAN LAS CONDICIONES ANTERIORES
         $targets = $this->_em->createQueryBuilder()
             ->select('player')
             ->from('ArchmageGameBundle:Player', 'player')
             ->orWhere($qb->expr()->in('player.id', $counterA->getDQL()))
             ->orWhere($qb->expr()->andX(
                 $qb->expr()->notIn('player.id', $counterB->getDQL()),
-                $qb->expr()->notIn('player.id', $blacklist->getDQL()),
+                $qb->expr()->notIn('player.id', $blacklistA->getDQL()),
+                $qb->expr()->in('player.id', $marked)
+            ))
+            ->orWhere($qb->expr()->andX(
+                $qb->expr()->notIn('player.id', $counterC->getDQL()),
+                $qb->expr()->notIn('player.id', $blacklistB->getDQL()),
                 $qb->expr()->notIn('player.id', $weaks),
                 $qb->expr()->notIn('player.id', $strongs)
             ))

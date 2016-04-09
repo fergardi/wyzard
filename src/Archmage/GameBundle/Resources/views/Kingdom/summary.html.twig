@@ -113,7 +113,7 @@
                         </div>
                         <div class="col-xs-8 text-padded">
                             {% for troop in player.troops %}
-                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-{{ troop.unit.faction.class }}" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ troop.unit.attack|nf }}, {{ troop.unit.defense|nff }}, {{ troop.unit.speed|nf }}, {{ troop.unit.skill.description }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}" class="link">{{ troop.unit.name }}</a></span> {{ troop.quantity|nf }}</div>
+                            <div class="col-xs-12"><i class="fa fa-fw fa-users"></i><span class="label label-{{ troop.unit.faction.class }}" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ troop.unit.attack|nf }}A, {{ troop.unit.defense|nff }}D, {{ troop.unit.speed|nf }}V, {{ troop.unit.skill.description|default('Sin habilidades') }}"><a href="{{ path('archmage_game_home_help') }}#{{ troop.unit.name|slug }}" class="link">{{ troop.unit.name }}</a></span> {{ troop.quantity|nf }}</div>
                             {% else %}
                             <div class="col-xs-12">Ninguna tropa en tu Reino</div>
                             {% endfor %}

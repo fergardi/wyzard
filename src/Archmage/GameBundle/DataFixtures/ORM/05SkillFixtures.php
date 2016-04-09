@@ -229,7 +229,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //NOCHE DE LOS MUERTOS VIVIENTES
         $skill = new Skill();
         $skill->setName('Convocar NoMuertos'); //para usarlo como artifact tambien
-        $skill->setQuantityBonus(240000); //media de poder de muertos vivientes
+        $skill->setQuantityBonus(500000); //media de poder de muertos vivientes * 2
         $skill->setRandom(true);
         $skill->setSummon(true);
         $skill->setSelf(true);
@@ -241,6 +241,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //ECLIPSE
         $skill = new Skill();
         $skill->setName('Eclipse');
+        $skill->setSelf(true);
         $skill->setDescription('Reduce en gran cantidad el <span class="label label-extra">Poder</span> de tu Reino por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -419,7 +420,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //DRUIDISMO
         $skill = new Skill();
         $skill->setName('Druidismo');
-        $skill->setRecipeBonus(15);
+        $skill->setRecipeBonus(10);
         $skill->setSelf(true);
         $skill->setDescription('+'.$skill->getRecipeBonus().'% por <i class="fa fa-fw fa-magic"></i> de descubrir una nueva <span class="label label-recipe">Receta</span>');
         $this->setReference($skill->getName(), $skill);
@@ -447,7 +448,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //CONCILIO DE LAS BESTIAS
         $skill = new Skill();
         $skill->setName('Convocar Bestias');
-        $skill->setQuantityBonus(300000); // media de bestias
+        $skill->setQuantityBonus(500000); // media de bestias * 2
         $skill->setRandom(true);
         $skill->setSummon(true);
         $skill->setSelf(true);
@@ -593,7 +594,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //ORACULO
         $skill = new Skill();
         $skill->setName('Oráculo');
-        $skill->setSpyBonus(15);
+        $skill->setSpyBonus(10);
         $skill->setDescription('+'.$skill->getSpyBonus().'% por <i class="fa fa-fw fa-magic"></i> de obtener <span class="label label-extra">Información</span> del objetivo');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -613,14 +614,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setGoldBonus(-2);
         $skill->setPeopleBonus(-2);
         $skill->setManaBonus(-2);
-        $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Oro</span>, <span class="label label-extra">Personas</span> y <span class="label label-extra">Maná</span> producido al <i class="fa fa-fw fa-hourglass-half"></i> por <i class="fa fa-fw fa-magic"></i>');
+        $skill->setDescription($skill->getGoldBonus().'% <span class="label label-extra">Recursos</span> producidos al <i class="fa fa-fw fa-hourglass-half"></i> por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
         //ENCONTRAR ARTEFACTO
         $skill = new Skill();
         $skill->setName('Encontrar Artefacto');
-        $skill->setArtifactBonus(15);
+        $skill->setArtifactBonus(10);
         $skill->setSelf(true);
         $skill->setDescription('+'.$skill->getArtifactBonus().'% por <i class="fa fa-fw fa-magic"></i> de encontrar un <span class="label label-artifact">Artefacto</span>');
         $this->setReference($skill->getName(), $skill);
@@ -630,7 +631,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Desencantar');
         $skill->setRandom(true);
-        $skill->setDispellBonus(15);
+        $skill->setDispellBonus(10);
         $skill->setDescription('+'.$skill->getDispellBonus().'% por <i class="fa fa-fw fa-magic"></i> de romper un <span class="label label-extra">Encantamiento</span> de otro Reino');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -657,7 +658,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //REUNION ELEMENTAL
         $skill = new Skill();
         $skill->setName('Convocar Elementales'); //para usarlo como artifact tambien
-        $skill->setQuantityBonus(330000); //media de elementales
+        $skill->setQuantityBonus(500000); //media de elementales * 2
         $skill->setRandom(true);
         $skill->setSummon(true);
         $skill->setSelf(true);
@@ -796,7 +797,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //SANACION
         $skill = new Skill();
         $skill->setName('Sanación');
-        $skill->setDefenseBonus(5);
+        $skill->setDefenseBonus(10);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setDescription('+'.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> de tus tropas por <i class="fa fa-fw fa-magic"></i>');
@@ -815,7 +816,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //DESTRUIR ARTEFACTO
         $skill = new Skill();
         $skill->setName('Destruir Artefacto');
-        $skill->setArtifactBonus(-15);
+        $skill->setArtifactBonus(-10);
         $skill->setRandom(true);
         $skill->setDescription('+'.abs($skill->getArtifactBonus()).'% por <i class="fa fa-fw fa-magic"></i> de eliminar un <span class="label label-artifact">Artefacto</span> enemigo');
         $this->setReference($skill->getName(), $skill);
@@ -824,8 +825,8 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //FERVOR
         $skill = new Skill();
         $skill->setName('Fervor');
-        $skill->setAttackBonus(-5);
-        $skill->setDefenseBonus(10);
+        $skill->setAttackBonus(5);
+        $skill->setDefenseBonus(5);
         $skill->setBattle(true);
         $skill->setSelf(true);
         $skill->setFamily($this->getReference('Celestiales'));
@@ -873,7 +874,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //PUERTA DE LOS CIELOS
         $skill = new Skill();
         $skill->setName('Convocar Celestiales'); //para usarlo como artifact tambien
-        $skill->setQuantityBonus(320000); //media de poder de celestiales
+        $skill->setQuantityBonus(500000); //media de poder de celestiales * 2
         $skill->setRandom(true);
         $skill->setSummon(true);
         $skill->setSelf(true);
@@ -882,11 +883,12 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
-        //CONDENA
+        //ILUMINACION
         $skill = new Skill();
-        $skill->setName('Condena');
-        $skill->setTurnsBonus(-1);
-        $skill->setDescription($skill->getTurnsBonus().' <span class="label label-extra">Turno</span> al Reino enemigo al <i class="fa fa-fw fa-hourglass-half"></i> por <i class="fa fa-fw fa-magic"></i>');
+        $skill->setName('Iluminación');
+        $skill->setDiscoveryBonus(5);
+        $skill->setSelf(true);
+        $skill->setDescription('+'.$skill->getDiscoveryBonus().'% por <i class="fa fa-fw fa-magic"></i> de descubrir un nuevo <span class="label label-extra">Hechizo</span> para investigar');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1070,7 +1072,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //SAQUEAR
         $skill = new Skill();
         $skill->setName('Saquear');
-        $skill->setQuestBonus(15);
+        $skill->setQuestBonus(10);
         $skill->setSelf(true);
         $skill->setDescription('+'.$skill->getQuestBonus().'% por <i class="fa fa-fw fa-magic"></i> de descubrir un nuevo <span class="label label-quest">Mapa</span>');
         $this->setReference($skill->getName(), $skill);
@@ -1089,7 +1091,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //PACTO DE SANGRE
         $skill = new Skill();
         $skill->setName('Convocar Demonios'); //para usarlo como artifact tambien
-        $skill->setQuantityBonus(270000); //media de demonios
+        $skill->setQuantityBonus(500000); //media de demonios * 2
         $skill->setRandom(true);
         $skill->setSummon(true);
         $skill->setSelf(true);
@@ -1102,7 +1104,6 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Infierno');
         $skill->setDamageBonus(-1);
-        $skill->setRandom(true);
         $skill->setDescription('<span class="label label-extra">Destruye</span> '.$skill->getDamageBonus().'% de todas las tropas enemigas por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1202,7 +1203,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //CABEZA DE MEDUSA
         $skill = new Skill();
         $skill->setName('Cabeza de Medusa');
-        $skill->setHeroBonus(-5);
+        $skill->setHeroBonus(-3);
         $skill->setRandom(true);
         $skill->setDescription('Hasta '.$skill->getHeroBonus().' <span class="label label-extra">Niveles</span> a un <span class="label label-extra">Héroe</span> enemigo al azar');
         $this->setReference($skill->getName(), $skill);
@@ -1298,6 +1299,28 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setDescription('Destruye al '.$skill->getDamageBonus().'% de todas las <span class="label label-extra">Tropas</span> enemigas');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
+
+        //LIBRO PROHIBIDO
+        $skill = new Skill();
+        $skill->setName('Libro Prohibido');
+        $skill->setDiscoveryBonus(100);
+        $skill->setSelf(true);
+        $skill->setDescription('Descubre un nuevo <span class="label label-extra">Hechizo</span> para investigar');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        //RECETARIO DE POCIONES
+        $skill = new Skill();
+        $skill->setName('Recetario de Pociones');
+        $skill->setRecipeBonus(100);
+        $skill->setSelf(true);
+        $skill->setDescription('Descubre una nueva <span class="label label-recipe">Receta de Alquimia</span>');
+        $this->setReference($skill->getName(), $skill);
+        $manager->persist($skill);
+
+        /*
+         * Legendarios
+         */
 
         //ANILLO AVARICIOSO
         $skill = new Skill();
@@ -1404,7 +1427,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //CONVOCAR DRAGONES
         $skill = new Skill();
         $skill->setName('Convocar Dragones'); //para usarlo como artifact tambien
-        $skill->setQuantityBonus(500000); //media de poder de dragones
+        $skill->setQuantityBonus(1000000); //media de poder de dragones * 2
         $skill->setRandom(true);
         $skill->setSummon(true);
         $skill->setSelf(true);
@@ -1416,7 +1439,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //CONVOCAR HUMANOS
         $skill = new Skill();
         $skill->setName('Convocar Humanos'); //para usarlo como artifact tambien
-        $skill->setQuantityBonus(140000); //media de poder de humanos
+        $skill->setQuantityBonus(500000); //media de poder de humanos * 2
         $skill->setRandom(true);
         $skill->setSummon(true);
         $skill->setSelf(true);

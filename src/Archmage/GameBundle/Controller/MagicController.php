@@ -616,6 +616,31 @@ class MagicController extends Controller
             } else {
                 $this->addFlash('danger', 'No has descubierto nada.');
             }
+        } elseif ($spell->getSkill()->getDiscoveryBonus() > 0) {
+            //HECHIZOS
+            $maxchance = $spell->getSkill()->getDiscoveryBonus() * $player->getMagic();
+            $chance = rand(0, 99);
+            if ($chance < $maxchance) {
+                $criteria = new Criteria();
+                $criteria->where($criteria->expr()->lte('rarity', rand(0, 99)));
+                $spells = $manager->getRepository('ArchmageGameBundle:Spell')->matching($criteria)->toArray();
+                shuffle($spells);
+                $spell = $spells[0];
+                if (!$player->hasSpell($spell)) {
+                    $research = new Research();
+                    $research->setSpell($spell);
+                    $research->setTurns(0);
+                    $research->setPlayer($player);
+                    $research->setActive(false);
+                    $manager->persist($research);
+                    $player->addResearch($research);
+                    $this->addFlash('success', 'Has descubierto <span class="label label-'.$research->getSpell()->getClass().'">'.$research->getSpell()->getName().'</span>, ya puedes investigarlo.');
+                } else {
+                    $this->addFlash('danger', 'No has descubierto nada.');
+                }
+            } else {
+                $this->addFlash('danger', 'No has descubierto nada.');
+            }
         }
     }
 
@@ -743,8 +768,8 @@ class MagicController extends Controller
                 $troops = $target->getTroops()->toArray();
                 shuffle($troops);
                 $troop = $troops[0]; //suponemos > 0
-                $betrayal = floor($spell->getSkill()->getBetrayalBonus() * $player->getMagic() * $troop->getQuantity() / (float)100);
-                $troop->setQuantity($troop->getQuantity() + $betrayal);
+                $betrayal = floor(abs($spell->getSkill()->getBetrayalBonus()) * $player->getMagic() * $troop->getQuantity() / (float)100);
+                $troop->setQuantity($troop->getQuantity() - $betrayal);
                 if ($troop->getQuantity() <= 0) {
                     $target->removeTroop($troop);
                     $manager->remove($troop);
@@ -885,6 +910,41 @@ class MagicController extends Controller
                 $enchantment->setExpiration(max(0, $enchantment->getExpiration() + $turns));
             }
             $this->addFlash('success', 'Has restado '.$this->get('service.controller')->nff($turns).' <span class="label label-extra">Turnos</span> a todos los Encantamientos de tu Reino.');
+        } elseif ($artifact->getSkill()->getDiscoveryBonus() > 0) {
+            //HECHIZOS
+            $criteria = new Criteria();
+            $criteria->where($criteria->expr()->lte('rarity', rand(0, 99)));
+            $spells = $manager->getRepository('ArchmageGameBundle:Spell')->matching($criteria)->toArray();
+            shuffle($spells);
+            $spell = $spells[0];
+            if (!$player->hasSpell($spell)) {
+                $research = new Research();
+                $research->setSpell($spell);
+                $research->setTurns(0);
+                $research->setPlayer($player);
+                $research->setActive(false);
+                $manager->persist($research);
+                $player->addResearch($research);
+                $this->addFlash('success', 'Has descubierto <span class="label label-'.$research->getSpell()->getClass().'">'.$research->getSpell()->getName().'</span>, y ya puedes investigarlo.');
+            } else {
+                $this->addFlash('success', 'No has descubierto nada.');
+            }
+        } elseif ($artifact->getSkill()->getRecipeBonus() > 0) {
+            //RECETAS
+            $criteria = new Criteria();
+            $criteria->where($criteria->expr()->lte('rarity', rand(0, 99)));
+            $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->matching($criteria)->toArray();
+            shuffle($artifacts);
+            $recipe = new Recipe();
+            $manager->persist($recipe);
+            $recipe->setArtifact($artifacts[0]);
+            $recipe->setResult($artifacts[1]);
+            if ($recipe->getResult()->getLegendary()) $runes = 15; else $runes = 2;
+            $recipe->setRunes($runes);
+            $recipe->setGold($recipe->getResult()->getGoldAuction() / 2);
+            $recipe->setPlayer($player);
+            $player->addRecipe($recipe);
+            $this->addFlash('success', 'Has descubierto una nueva <span class="label label-recipe"><a href="' . $this->generateUrl('archmage_game_magic_alchemy') . '" class="link">Receta de Alquimia</a></span>.');
         }
     }
 
@@ -985,8 +1045,8 @@ class MagicController extends Controller
                 $troops = $target->getTroops()->toArray();
                 shuffle($troops);
                 $troop = $troops[0]; //suponemos > 0
-                $betrayal = floor($artifact->getSkill()->getBetrayalBonus() * $troop->getQuantity() / (float)100);
-                $troop->setQuantity($troop->getQuantity() + $betrayal);
+                $betrayal = floor(abs($artifact->getSkill()->getBetrayalBonus()) * $troop->getQuantity() / (float)100);
+                $troop->setQuantity($troop->getQuantity() - $betrayal);
                 if ($troop->getQuantity() <= 0) {
                     $target->removeTroop($troop);
                     $manager->remove($troop);

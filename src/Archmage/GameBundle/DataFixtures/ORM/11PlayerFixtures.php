@@ -13,6 +13,7 @@ use Archmage\GameBundle\Entity\Construction;
 use Archmage\GameBundle\Entity\Troop;
 use Archmage\GameBundle\Entity\Contract;
 use Archmage\GameBundle\Entity\Research;
+use Archmage\GameBundle\Entity\Item;
 use Archmage\UserBundle\Entity\User;
 
 class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
@@ -253,15 +254,15 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
         $player->setWinner(false);
         //constructions
         $constructions = array(
-            'Tierras' => 600,
-            'Granjas' => 10,
-            'Pueblos' => 10,
-            'Nodos' => 10,
-            'Gremios' => 10,
-            'Talleres' => 10,
-            'Barracones' => 10,
-            'Barreras' => 3,
-            'Fortalezas' => 3,
+            'Tierras' => 60000,
+            'Granjas' => 10000,
+            'Pueblos' => 10000,
+            'Nodos' => 10000,
+            'Gremios' => 10000,
+            'Talleres' => 10000,
+            'Barracones' => 10000,
+            'Barreras' => 300,
+            'Fortalezas' => 300,
         );
         foreach ($constructions as $name => $quantity) {
             $construction = new Construction();
@@ -271,14 +272,35 @@ class PlayerFixtures extends AbstractFixture implements OrderedFixtureInterface,
             $manager->persist($construction);
             $player->addConstruction($construction);
         }
+        //spells
+        $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findAll();
+        foreach ($spells as $spell) {
+            $research = new Research();
+            $manager->persist($research);
+            $research->setSpell($spell);
+            $research->setActive(true);
+            $research->setPlayer($player);
+            $research->setTurns(0);
+            $player->addResearch($research);
+        }
+        //artifacts
+        $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findAll();
+        foreach ($artifacts as $artifact) {
+            $item = new Item();
+            $manager->persist($item);
+            $item->setArtifact($artifact);
+            $item->setQuantity(10);
+            $item->setPlayer($player);
+            $player->addItem($item);
+        }
         //resources
         $player->setNick('Wyzard');
-        $player->setGold(3000000);
-        $player->setPeople(20000);
-        $player->setMana(10000);
+        $player->setGold(3000000000);
+        $player->setPeople(20000000);
+        $player->setMana(10000000);
         $player->setTurns(300);
-        $player->setRunes(10);
-        $player->setMagic(1);
+        $player->setRunes(10000);
+        $player->setMagic(10);
 
         //user credentials
         $userManager = $this->container->get('fos_user.user_manager');

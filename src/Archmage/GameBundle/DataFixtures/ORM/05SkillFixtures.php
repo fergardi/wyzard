@@ -1484,7 +1484,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill->setName('Ladrona Elfa');
         $skill->setTurnsBonus(-2);
         $skill->setBattle(true);
-        $skill->setDescription($skill->getTurnsBonus().' <span class="label label-extra">Turno</span> al Reino enemigo por <i class="fa fa-fw fa-star"></i>');
+        $skill->setDescription($skill->getTurnsBonus().' <span class="label label-extra">Turnos</span> al Reino enemigo por <i class="fa fa-fw fa-star"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
@@ -1670,7 +1670,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
         //UNITS
-        $units = array('Fénix', 'Arcángeles', 'Dragones Verdes', 'Vampiros', 'Nagas');
+        $units = array('Fénix', 'Arcángeles', 'Dragones Verdes', 'Vampiros', 'Elementales de Agua');
         foreach ($units as $unit) {
             $this->getReference($unit)->setSkill($skill);
             $manager->persist($this->getReference($unit));
@@ -1686,7 +1686,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
         //UNITS
-        $units = array('Cerberos', 'Elfos', 'Pegasos', 'Dragones Negros', 'Djinnis');
+        $units = array('Cerberos', 'Elementales de Tierra', 'Paladines', 'Dragones Negros', 'Nagas');
         foreach ($units as $unit) {
             $this->getReference($unit)->setSkill($skill);
             $manager->persist($this->getReference($unit));
@@ -1718,7 +1718,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
         //UNITS
-        $units = array('Druidas', 'Elementales de Lava', 'Elementales de Aire', 'Espectros', 'Dragones Azules');
+        $units = array('Elfos', 'Elementales de Lava', 'Elementales de Aire', 'Espectros', 'Dragones Azules');
         foreach ($units as $unit) {
             $this->getReference($unit)->setSkill($skill);
             $manager->persist($this->getReference($unit));
@@ -1734,7 +1734,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
         //UNITS
-        $units = array('Dragones Blancos', 'Quimeras', 'Gárgolas', 'Leviatanes', 'Elementales de Tierra');
+        $units = array('Dragones Blancos', 'Quimeras', 'Gárgolas', 'Leviatanes', 'Ents');
         foreach ($units as $unit) {
             $this->getReference($unit)->setSkill($skill);
             $manager->persist($this->getReference($unit));

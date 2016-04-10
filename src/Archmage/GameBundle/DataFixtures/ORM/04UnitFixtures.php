@@ -153,7 +153,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //CABALLEROS NEGROS
         $unit = new Unit();
         $unit->setName('Caballeros Negros');
-        $unit->setLore('Ninguna víctima pued escapar de estos caballeros y sus oscuros corceles.');
+        $unit->setLore('Ninguna víctima puede escapar de estos caballeros y sus oscuros corceles.');
         $unit->setAttack(5500);
         $unit->setDefense(4500);
         $unit->setSpeed(5);
@@ -175,7 +175,7 @@ class UnitFixtures extends AbstractFixture implements OrderedFixtureInterface
         //ELEMENTALES DE SOMBRA
         $unit = new Unit();
         $unit->setName('Elementales de Sombra');
-        $unit->setLore('Cuando la magia atrapa a la oscuridad, nacen los elementales de sombra.');
+        $unit->setLore('Cuando la magia abraza la oscuridad, nacen los elementales de sombra.');
         $unit->setAttack(6000);
         $unit->setDefense(2500);
         $unit->setSpeed(4);

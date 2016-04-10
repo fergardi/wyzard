@@ -1159,7 +1159,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //BARRIL DE POLVORA
         $skill = new Skill();
         $skill->setName('Barril de Pólvora');
-        $skill->setTerrainBonus(-6);
+        $skill->setTerrainBonus(-5);
         $skill->setDescription($skill->getTerrainBonus().'% <span class="label label-extra">Edificios</span> al Reino enemigo');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);

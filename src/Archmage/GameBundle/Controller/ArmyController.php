@@ -20,8 +20,8 @@ class ArmyController extends Controller
      */
     const BROKEN_PERCENT = 5;
     const REGULAR_PERCENT = 3;
-    const PILLAGE_PERCENT = 6;
-    const SIEGE_PERCENT = 9;
+    const PILLAGE_PERCENT = 5;
+    const SIEGE_PERCENT = 7;
     const FACTION_BONUS = 50;
     const TYPE_BONUS = 50;
     const BONUS_CAP = 0.10;
@@ -352,7 +352,7 @@ class ArmyController extends Controller
             //comprobar habilidades
             $attackerSkill = ($attackerTroop->getUnit()->getSkill() ? " <span class='label label-extra' data-html='true' data-toggle='tooltip' data-placement='top' title='".$attackerTroop->getUnit()->getSkill()->getDescription()."'>".$attackerTroop->getUnit()->getSkill()->getName()."</span>" : "");
             $defenderSkill = ($defenderTroop->getUnit()->getSkill() ? " <span class='label label-extra' data-html='true' data-toggle='tooltip' data-placement='top' title='".$defenderTroop->getUnit()->getSkill()->getDescription()."'>".$defenderTroop->getUnit()->getSkill()->getName()."</span>" : "");
-            $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).': <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span>'.$attackerSkill.' con '.$attackerSpeed.' Velocidad contra <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span>'.$defenderSkill.' con '.$defenderSpeed.' Velocidad.');
+            $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).': <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span><span class="label label-skill>'.$attackerSkill.'</span> con '.$attackerSpeed.' Velocidad contra <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span><span class="label label-skill">'.$defenderSkill.'</span> con '.$defenderSpeed.' Velocidad.');
             //comprobar velocidades
             if ($attackerSpeed == $defenderSpeed ||
                 ($attackerTroop->getUnit()->getSkill() && $attackerTroop->getUnit()->getSkill()->getHasteBonus()) ||
@@ -733,7 +733,7 @@ class ArmyController extends Controller
                 //comprobar habilidades
                 $attackerSkill = ($attackerTroop->getUnit()->getSkill() ? " <span class='label label-extra' data-html='true' data-toggle='tooltip' data-placement='top' title='".$attackerTroop->getUnit()->getSkill()->getDescription()."'>".$attackerTroop->getUnit()->getSkill()->getName()."</span>" : "");
                 $defenderSkill = ($defenderTroop->getUnit()->getSkill() ? " <span class='label label-extra' data-html='true' data-toggle='tooltip' data-placement='top' title='".$defenderTroop->getUnit()->getSkill()->getDescription()."'>".$defenderTroop->getUnit()->getSkill()->getName()."</span>" : "");
-                $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).': <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span>'.$attackerSkill.' con '.$attackerSpeed.' Velocidad contra <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span>'.$defenderSkill.' con '.$defenderSpeed.' Velocidad.');
+                $text[] = array('default', 12, 0, 'center', 'Ronda '.($i+1).': <span class="label label-'.$attackerTroop->getUnit()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($attackerTroop->getUnit()->getName()).'" class="link">'.$attackerTroop->getUnit()->getName().'</a></span><span class="label label-skill>'.$attackerSkill.'</span> con '.$attackerSpeed.' Velocidad contra <span class="label label-'.$defenderTroop->getUnit()->getFaction()->getCLass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($defenderTroop->getUnit()->getName()).'" class="link">'.$defenderTroop->getUnit()->getName().'</a></span><span class="label label-skill">'.$defenderSkill.'</span> con '.$defenderSpeed.' Velocidad.');
                 //comprobar velocidades
                 if ($attackerSpeed == $defenderSpeed ||
                     ($attackerTroop->getUnit()->getSkill() && $attackerTroop->getUnit()->getSkill()->getHasteBonus()) ||

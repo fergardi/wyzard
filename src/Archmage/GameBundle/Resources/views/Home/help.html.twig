@@ -243,7 +243,7 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center text-responsive">
-                    <i class="fa fa-fw fa-joomla"></i>{% if unit.skill %}<span class="label label-extra" data-toggle="tooltip" data-placement="top" title="{{ unit.skill.description }}">{{ unit.skill.name }}</span>{% else %}<span data-toggle="tooltip" data-placement="top" title="Esta tropa no tiene habilidad especial">Ninguna habilidad</span>{% endif %}
+                    <i class="fa fa-fw fa-joomla"></i>{% if unit.skill %}<span class="label label-skill" data-toggle="tooltip" data-placement="top" title="{{ unit.skill.description }}">{{ unit.skill.name }}</span>{% else %}<span data-toggle="tooltip" data-placement="top" title="Esta tropa no tiene habilidad especial">Ninguna habilidad</span>{% endif %}
                 </div>
                 {# TAGS FOR SEARCH #}
                 <span class="hidden">Unidades, Tropas, {{ unit.faction.name }}</span>

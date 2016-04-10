@@ -102,6 +102,11 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small
 .label-extra {
     background-color: #3E444C;
 }
+.label-skill {
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #fff;
+}
 p.resources {
     margin-bottom: 1px;
 }

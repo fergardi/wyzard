@@ -11,6 +11,7 @@ use FOS\UserBundle\Event\FilterUserResponseEvent;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Archmage\GameBundle\Entity\Player;
 use Archmage\GameBundle\Entity\Construction;
+use Archmage\GameBundle\Entity\Item;
 
 class RegistrationController extends BaseController
 {
@@ -32,23 +33,26 @@ class RegistrationController extends BaseController
             if ($form->isValid()) {
                 $event = new FormEvent($form, $request);
                 $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+
                 /*
                  * BEGIN OWN CODE
                  */
+
                 //player
                 $player = new Player();
                 $player->setFaction($manager->getRepository('ArchmageGameBundle:Faction')->findOneById($_POST['faction']));
                 $player->setGod(false);
                 $player->setWinner(false);
+
                 //constructions
                 $constructions = array(
                     'Tierras' => 600,
-                    'Granjas' => 10,
-                    'Pueblos' => 10,
+                    'Granjas' => 30,
+                    'Pueblos' => 20,
                     'Nodos' => 10,
-                    'Gremios' => 10,
-                    'Talleres' => 10,
-                    'Barracones' => 10,
+                    'Gremios' => 0,
+                    'Talleres' => 0,
+                    'Barracones' => 0,
                     'Barreras' => 3,
                     'Fortalezas' => 3,
                 );
@@ -60,6 +64,18 @@ class RegistrationController extends BaseController
                     $manager->persist($construction);
                     $player->addConstruction($construction);
                 }
+
+                //item
+                $artifacts = $manager->getRepository('ArchmageGameBundle:Artifact')->findByLegendary(false);
+                shuffle($artifacts);
+                $artifact = $artifacts[0];//suponemos > 0
+                $item = new Item();
+                $manager->persist($item);
+                $item->setPlayer($player);
+                $item->setArtifact($artifact);
+                $item->setQuantity(1);
+                $player->addItem($item);
+
                 //resources
                 $player->setNick($user->getUsername());
                 $player->setGold(3000000);
@@ -67,15 +83,21 @@ class RegistrationController extends BaseController
                 $player->setMana(10000);
                 $player->setTurns(300);
                 $player->setMagic(1);
-                //messages
+
+                //message
                 $text = array();
-                $text[] = array('default', 12, 0, 'center', 'Te damos la bienvenida, Novici@! El Concilio recomienda que leas la <i class="fa fa-fw fa-book"></i><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'" class="link">Ayuda del Juego</a> o que actives el Tutorial.');
+                $text[] = array('default', 12, 0, 'center', 'Te damos la bienvenida, <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span>. Tus consejeros recomiendan que leas la <span class="label label-extra"><a href="'.$this->container->get('router')->generate('archmage_game_home_help').'" class="link">Extensa Ayuda</a></span> o el <span class="label label-extra">Maravilloso Tutorial</span>.');
+                $text[] = array('default', 12, 0, 'center', 'Los <span class="label label-extra">Dioses</span> te han concedido un <span class="label label-artifact"><a href="'.$this->container->get('router')->generate('archmage_game_magic_artifact').'" class="link">Artefacto</a></span> aleatorio como favor.');
                 $subject = 'Bienvenido a Wyzard';
                 $this->get('service.controller')->sendMessage($player, $player, $subject, $text);
-                //persist && flush
+
+                //persist
                 $manager->persist($player);
                 $user->setPlayer($player);
+                $user->setIp($_SERVER['REMOTE_ADDR']);
                 $manager->persist($user);
+
+                //flush
                 $manager->flush();
 
                 //send email to admin

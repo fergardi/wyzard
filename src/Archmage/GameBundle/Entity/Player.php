@@ -1005,7 +1005,7 @@ class Player
     {
         $experience = self::HERO_EXPERIENCE;
         foreach ($this->getItems() as $item) {
-            if ($item->getArtifact()->getExperienceBonus() > 0) $experience += $item->getArtifact()->getExperienceBonus();
+            if ($item->getArtifact()->getSkill()->getExperienceBonus() > 0) $experience += $item->getArtifact()->getSkill()->getExperienceBonus();
         }
         return $experience;
     }

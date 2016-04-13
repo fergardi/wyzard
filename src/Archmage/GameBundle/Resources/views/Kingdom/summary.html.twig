@@ -337,7 +337,7 @@
                             <tr>
                                 <td class="text-left"><i class="fa fa-fw fa-link"></i><span class="label label-{{ enchantment.spell.faction.class }}" data-html="true" data-toggle="tooltip" data-placement="top" title="{{ enchantment.spell.skill.description }}"><a href="{{ path('archmage_game_home_help') }}#{{ enchantment.spell.name|slug }}" class="link">{{ enchantment.spell.name }}</a></span> de <span class="label label-{{ enchantment.owner.faction.class }}"><a href="{{ path('archmage_game_account_profile', {'id': enchantment.owner.id}) }}" class="link">{{ enchantment.owner.nick }}</a></span></td>
                                 <td class="text-right">{{ enchantment.owner.magic|nf }}</td>
-                                <td class="text-right">0</td>
+                                <td class="text-right">{% if enchantment.spell.skill.self %}{{ (enchantment.owner.magic * enchantment.spell.power)|nf }}{% else %}0{% endif %}</td>
                                 <td class="text-right">{{ (enchantment.owner.magic * enchantment.spell.skill.armyDefenseBonus)|nf }}%</td>
                                 <td class="text-right">{{ (enchantment.owner.magic * enchantment.spell.skill.magicDefenseBonus)|nf }}%</td>
                                 <td class="text-right">{{ (enchantment.owner.magic * enchantment.spell.skill.summonBonus)|nf }}%</td>

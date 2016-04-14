@@ -34,7 +34,7 @@
             </div>
         </div>
         {% for item in player.items %}
-        <div class="col-xs-12 col-md-6" id="artifact-artifact">
+        <div class="col-xs-12 col-md-6" id="artifact-artifact" style="z-index: {{ loop.index }};">
             <div class="panel panel-{{ item.artifact.class }}">
                 <div class="panel-heading text-center"><i class="fa fa-fw fa-diamond"></i><a href="{{ path('archmage_game_home_help') }}#{{ item.artifact.name|slug }}" class="link">{{ item.artifact.name }}</a> [{{ item.quantity|nf }}]</div>
                 <div class="panel-body text-responsive">

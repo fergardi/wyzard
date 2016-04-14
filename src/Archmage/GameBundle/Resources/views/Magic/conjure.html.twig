@@ -34,7 +34,7 @@
             </div>
         </div>
         {% for research in player.researchs if research.active %}
-        <div class="col-xs-12 col-md-6" id="conjure-research">
+        <div class="col-xs-12 col-md-6" id="conjure-research" style="z-index: {{ loop.index }};">
             <div class="panel panel-{{ research.spell.faction.class }}">
                 <div class="panel-heading text-center">{% if research.spell.enchantment %}<i class="fa fa-fw fa-link"></i>{% else %}<i class="fa fa-fw fa-magic"></i>{% endif %}<a href="{{ path('archmage_game_home_help') }}#{{ research.spell.name|slug }}" class="link">{{ research.spell.name }}</a></div>
                 <div class="panel-body text-responsive">

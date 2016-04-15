@@ -453,9 +453,10 @@ class ArmyController extends Controller
             $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Has encontrado <span class="label label-' . $item->getArtifact()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($item->getArtifact()->getName()) . '" class="link">' . $item->getArtifact()->getName() . '</a></span>.');
             //ganamos experiencia con todos nuestros heroes
             foreach ($player->getContracts() as $contract) {
-                $contract->setExperience($contract->getExperience() + self::HERO_EXPERIENCE);
+                $experience = $contract->getExperience() + $player->getHeroExperience();
+                $contract->setExperience($contract->getHero()->getFaction() == $player->getFaction() ? $experience * 2 : $experience);
             }
-            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Los héroes de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ganan '.self::HERO_EXPERIENCE.' experiencia.');
+            $text[] = array($player->getFaction()->getClass(), 11, 0, 'center', 'Los héroes de <span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ganan '.$this->get('service.controller')->nff($experience).' experiencia.');
         } else {
             $text[] = array('quest', 11, 1, 'center', 'No has sido capaz de derrotar por completo al ejército enemigo.');
         }

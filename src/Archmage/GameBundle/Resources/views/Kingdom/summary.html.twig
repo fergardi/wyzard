@@ -248,7 +248,7 @@
                             {% set quantity = 0 %}
                             {% set power = 0 %}
                             {% for research in player.researchs if research.active %}
-                                {% set power = power + research.spell.power|abs %}
+                                {% set power = power + 100000 %}
                                 {% set quantity = quantity + 1 %}
                             {% endfor %}
                             <tr>

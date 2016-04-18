@@ -968,6 +968,9 @@ class Player
         foreach ($this->contracts as $contract) {
             $researchRatio += $contract->getHero()->getSkill()->getResearchBonus() * $contract->getLevel();
         }
+        foreach ($this->items as $item) {
+            $researchRatio += $item->getArtifact()->getSkill()->getResearchBonus();
+        }
         $percent = min(self::RESEARCH_CAP, $researchRatio);
         return max(0, $percent);
     }
@@ -990,7 +993,7 @@ class Player
     public function getArtifactRatio()
     {
         $ratio = self::ARTIFACT_RATIO;
-        foreach ($this->getItems() as $item) {
+        foreach ($this->items as $item) {
             if ($item->getArtifact()->getSkill()->getArtifactRatioBonus() > 0) $ratio += $item->getArtifact()->getSkill()->getArtifactRatioBonus();
         }
         return $ratio;
@@ -1004,7 +1007,7 @@ class Player
     public function getHeroExperience()
     {
         $experience = self::HERO_EXPERIENCE;
-        foreach ($this->getItems() as $item) {
+        foreach ($this->items as $item) {
             if ($item->getArtifact()->getSkill()->getExperienceBonus() > 0) $experience += $item->getArtifact()->getSkill()->getExperienceBonus();
         }
         return $experience;
@@ -1028,7 +1031,7 @@ class Player
             $magicDefense += $enchantment->getSpell()->getSkill()->getMagicDefenseBonus() * $enchantment->getOwner()->getMagic();
         }
         foreach ($this->items as $item) {
-            if ($item->getArtifact()->getLegendary()) $magicDefense += $item->getArtifact()->getSkill()->getMagicDefenseBonus();
+            $magicDefense += $item->getArtifact()->getSkill()->getMagicDefenseBonus();
         }
         foreach ($this->contracts as $contract) {
             $magicDefense += $contract->getHero()->getSkill()->getMagicDefenseBonus() * $contract->getLevel();
@@ -1050,7 +1053,7 @@ class Player
             $armyDefense += $enchantment->getSpell()->getSkill()->getArmyDefenseBonus() * $enchantment->getOwner()->getMagic();
         }
         foreach ($this->items as $item) {
-            if ($item->getArtifact()->getLegendary()) $armyDefense += $item->getArtifact()->getSkill()->getArmyDefenseBonus();
+            $armyDefense += $item->getArtifact()->getSkill()->getArmyDefenseBonus();
         }
         foreach ($this->contracts as $contract) {
             $armyDefense += $contract->getHero()->getSkill()->getArmyDefenseBonus() * $contract->getLevel();
@@ -1072,7 +1075,7 @@ class Player
             $summon += $enchantment->getSpell()->getSkill()->getSummonBonus() * $enchantment->getOwner()->getMagic();
         }
         foreach ($this->items as $item) {
-            if ($item->getArtifact()->getLegendary()) $summon += $item->getArtifact()->getSkill()->getSummonBonus();
+            $summon += $item->getArtifact()->getSkill()->getSummonBonus();
         }
         foreach ($this->contracts as $contract) {
             $summon += $contract->getHero()->getSkill()->getSummonBonus() * $contract->getLevel();

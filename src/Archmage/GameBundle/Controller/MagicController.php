@@ -925,7 +925,7 @@ class MagicController extends Controller
                 $research->setActive(false);
                 $manager->persist($research);
                 $player->addResearch($research);
-                $this->addFlash('success', 'Has descubierto <span class="label label-'.$research->getSpell()->getClass().'">'.$research->getSpell()->getName().'</span>, y ya puedes investigarlo.');
+                $this->addFlash('success', 'Has descubierto <span class="label label-'.$research->getSpell()->getFaction()->getClass().'">'.$research->getSpell()->getName().'</span>, y ya puedes investigarlo.');
             } else {
                 $this->addFlash('success', 'No has descubierto nada.');
             }

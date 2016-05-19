@@ -166,7 +166,7 @@ class KingdomController extends Controller
                 /*
                  * ACCION
                  */
-                $sacrifice = array('gold','mana','people');
+                $sacrifice = array('gold','mana','people','enchantment');
                 if ($player->getContracts()->count() > 0) $sacrifice[] = 'contract';
                 if ($player->getTroops()->count() > 0) $sacrifice[] = 'troop';
                 if ($player->getItems()->count() > 0) $sacrifice[] = 'item';
@@ -217,6 +217,21 @@ class KingdomController extends Controller
                         if ($player->getItem() && $player->getItem()->getArtifact() == $item->getArtifact()) $player->setItem(null);
                         $player->removeItem($item);
                         $manager->remove($item);
+                    }
+                }
+                if ($sacrifice == 'enchantment') {
+                    if ($player->getEnchantmentsVictim()->count() > 0) {
+                        $enchantments = $player->getEnchantmentsVictim()->toArray();
+                        shuffle($enchantments);
+                        $enchantment = $enchantments[0]; //suponemos > 0
+                        $player->removeEnchantmentsVictim($enchantment);
+                        $enchantment->getOwner()->removeEnchantmentsOwner($enchantment);
+                        $manager->persist($enchantment->getOwner());
+                        $this->addFlash('danger', 'Te han roto el Encantamiento <span class="label label-'.$enchantment->getSpell()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_home_help').'#'.$this->get('service.controller')->toSlug($enchantment->getSpell()->getName()).'" class="link">'.$enchantment->getSpell()->getName().'</a></span> de <span class="label label-'.$enchantment->getOwner()->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $enchantment->getOwner()->getId())).'" class="link">'.$enchantment->getOwner()->getNick().'</a></span>.');
+                        $text = array();
+                        $text[] = array('default', 12, 0, 'center', '<span class="label label-'.$player->getFaction()->getClass().'"><a href="'.$this->generateUrl('archmage_game_account_profile', array('id' => $player->getId())).'" class="link">'.$player->getNick().'</a></span> ha roto tu Encantamiento <span class="label label-' . $enchantment->getSpell()->getFaction()->getClass() . '"><a href="' . $this->generateUrl('archmage_game_home_help') . '#' . $this->get('service.controller')->toSlug($enchantment->getSpell()->getName()) . '" class="link">' . $enchantment->getSpell()->getName() . '</a></span>.');
+                        $manager->remove($enchantment);
+                        if ($enchantment->getOwner() != $player) $this->get('service.controller')->sendMessage($player, $enchantment->getOwner(), 'Reporte de Artefacto', $text, 'magic');
                     }
                 }
                 $spells = $manager->getRepository('ArchmageGameBundle:Spell')->findByEnchantment(true);

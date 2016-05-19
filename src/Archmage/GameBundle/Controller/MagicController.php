@@ -575,7 +575,7 @@ class MagicController extends Controller
                 $artifact = $artifacts[0];
                 $quest = new Quest();
                 $quest->setGold(rand(1, 2000000));
-                $quest->setRunes($level);
+                $quest->setRunes(rand(0,1));
                 $manager->persist($quest);
                 $quest->setArtifact($artifact);
                 $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();
@@ -768,7 +768,7 @@ class MagicController extends Controller
                 $troops = $target->getTroops()->toArray();
                 shuffle($troops);
                 $troop = $troops[0]; //suponemos > 0
-                $betrayal = floor(abs($spell->getSkill()->getBetrayalBonus()) * $player->getMagic() * $troop->getQuantity() / (float)100);
+                $betrayal = ceil(abs($spell->getSkill()->getBetrayalBonus()) * $player->getMagic() * $troop->getQuantity() / (float)100);
                 $troop->setQuantity($troop->getQuantity() - $betrayal);
                 if ($troop->getQuantity() <= 0) {
                     $target->removeTroop($troop);
@@ -1045,7 +1045,7 @@ class MagicController extends Controller
                 $troops = $target->getTroops()->toArray();
                 shuffle($troops);
                 $troop = $troops[0]; //suponemos > 0
-                $betrayal = floor(abs($artifact->getSkill()->getBetrayalBonus()) * $troop->getQuantity() / (float)100);
+                $betrayal = ceil(abs($artifact->getSkill()->getBetrayalBonus()) * $troop->getQuantity() / (float)100);
                 $troop->setQuantity($troop->getQuantity() - $betrayal);
                 if ($troop->getQuantity() <= 0) {
                     $target->removeTroop($troop);

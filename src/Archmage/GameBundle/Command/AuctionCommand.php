@@ -196,7 +196,7 @@ class AuctionCommand extends ContainerAwareCommand
             $manager->persist($auction);
             $quest = new Quest();
             $quest->setGold(rand(1, 2000000));
-            $quest->setRunes($level);
+            $quest->setRunes(rand(0,1));
             $manager->persist($quest);
             $quest->setArtifact($artifact);
             $units = $manager->getRepository('ArchmageGameBundle:Unit')->findAll();

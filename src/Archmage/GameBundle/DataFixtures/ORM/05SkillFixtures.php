@@ -621,7 +621,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //ENCONTRAR ARTEFACTO
         $skill = new Skill();
         $skill->setName('Encontrar Artefacto');
-        $skill->setArtifactBonus(10);
+        $skill->setArtifactBonus(5);
         $skill->setSelf(true);
         $skill->setDescription('+'.$skill->getArtifactBonus().'% por <i class="fa fa-fw fa-magic"></i> de encontrar un <span class="label label-artifact">Artefacto</span>');
         $this->setReference($skill->getName(), $skill);
@@ -631,7 +631,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         $skill = new Skill();
         $skill->setName('Desencantar');
         $skill->setRandom(true);
-        $skill->setDispellBonus(10);
+        $skill->setDispellBonus(5);
         $skill->setDescription('+'.$skill->getDispellBonus().'% por <i class="fa fa-fw fa-magic"></i> de romper un <span class="label label-extra">Encantamiento</span> de otro Reino');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -816,7 +816,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //DESTRUIR ARTEFACTO
         $skill = new Skill();
         $skill->setName('Destruir Artefacto');
-        $skill->setArtifactBonus(-10);
+        $skill->setArtifactBonus(-5);
         $skill->setRandom(true);
         $skill->setDescription('+'.abs($skill->getArtifactBonus()).'% por <i class="fa fa-fw fa-magic"></i> de eliminar un <span class="label label-artifact">Artefacto</span> enemigo');
         $this->setReference($skill->getName(), $skill);
@@ -1427,7 +1427,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //CONVOCAR DRAGONES
         $skill = new Skill();
         $skill->setName('Convocar Dragones'); //para usarlo como artifact tambien
-        $skill->setQuantityBonus(1000000); //media de poder de dragones * 2
+        $skill->setQuantityBonus(250000); //media de poder de dragones * 2
         $skill->setRandom(true);
         $skill->setSummon(true);
         $skill->setSelf(true);

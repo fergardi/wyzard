@@ -210,7 +210,7 @@ class ArmyController extends Controller
         $manager = $this->getDoctrine()->getManager();
         $player = $this->getUser()->getPlayer();
         if ($request->isMethod('POST')) {
-            $turns = 2;
+            $turns = 5;
             $quest = isset($_POST['quest'])?$_POST['quest']:null;
             if ($turns <= $player->getTurns()) {
                 if ($player->getUnits() > 0) {

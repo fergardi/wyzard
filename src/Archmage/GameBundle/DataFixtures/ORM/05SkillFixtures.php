@@ -1159,7 +1159,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //BARRIL DE POLVORA
         $skill = new Skill();
         $skill->setName('Barril de Pólvora');
-        $skill->setTerrainBonus(-5);
+        $skill->setTerrainBonus(-3);
         $skill->setDescription($skill->getTerrainBonus().'% <span class="label label-extra">Edificios</span> al Reino enemigo');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1220,7 +1220,7 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //MUÑECA VOODOO
         $skill = new Skill();
         $skill->setName('Muñeca Voodoo');
-        $skill->setTurnsBonus(-50);
+        $skill->setTurnsBonus(-25);
         $skill->setDescription('Hasta '.$this->container->get('service.controller')->nff($skill->getTurnsBonus()).' <span class="label label-extra">Turnos</span> al Reino enemigo');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
@@ -1407,14 +1407,14 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //AMULETO MALDITO
         $skill = new Skill();
         $skill->setName('Amuleto Maldito');
-        $skill->setGoldBonus(-20);
-        $skill->setPeopleBonus(-20);
-        $skill->setManaBonus(-20);
-        $skill->setMagicDefenseBonus(-10);
-        $skill->setArmyDefenseBonus(-10);
-        $skill->setSummonBonus(-20);
-        $skill->setResearchBonus(-20);
-        $skill->setExperienceBonus(-20);
+        $skill->setGoldBonus(-5);
+        $skill->setPeopleBonus(-5);
+        $skill->setManaBonus(-5);
+        $skill->setMagicDefenseBonus(-5);
+        $skill->setArmyDefenseBonus(-5);
+        $skill->setSummonBonus(-5);
+        $skill->setResearchBonus(-5);
+        $skill->setExperienceBonus(-5);
         $skill->setSelf(true);
         $skill->setDescription($skill->getGoldBonus().'% a todos los <span class="label label-extra">Bonuses</span> de tu Reino');
         $this->setReference($skill->getName(), $skill);

@@ -376,11 +376,11 @@ class SkillFixtures extends AbstractFixture implements OrderedFixtureInterface, 
         //HURACAN
         $skill = new Skill();
         $skill->setName('Huracán');
-        $skill->setAttackBonus(-10);
-        $skill->setDefenseBonus(-10);
+        $skill->setAttackBonus(-5);
+        $skill->setDefenseBonus(-5);
         $skill->setBattle(true);
         $skill->setType($this->getReference('Volador'));
-        $skill->setDescription('+'.$skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y '.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a <span class="label label-extra">'.$skill->getType()->getName().'</span> enemigos por <i class="fa fa-fw fa-magic"></i>');
+        $skill->setDescription($skill->getAttackBonus().'% <span class="label label-extra">Ataque</span> y '.$skill->getDefenseBonus().'% <span class="label label-extra">Defensa</span> a <span class="label label-extra">'.$skill->getType()->getName().'</span> enemigos por <i class="fa fa-fw fa-magic"></i>');
         $this->setReference($skill->getName(), $skill);
         $manager->persist($skill);
 
